@@ -1,5 +1,4 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
@@ -8,7 +7,6 @@ export default function Home() {
         <title>Alpha Site</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <header>
         <div>
           <a href="#">
