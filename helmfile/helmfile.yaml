@@ -2,7 +2,7 @@ repositories:
     - name: dts
       url: https://helm.dts-stn.com
     # helm-git powered repository: You can treat any Git repository as a charts repository
-    - name: experimentalbenefitsfinderfrontend
+    - name: alphasite
       url: git+https://{{ requiredEnv "GITHUB_USER" }}:{{ requiredEnv "GITHUB_TOKEN" }}@github.com/DTS-STN/Alpha-Site@helm/charts?ref=main
 {{- if or (eq .Environment.Name "prod-blue") (eq .Environment.Name "prod-green") }}    
 context: EsDCDTSRG-K8S
