@@ -4,52 +4,104 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Alpha Site</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main>
-        <h1>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p>
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
+      <header>
         <div>
-          <a href="https://nextjs.org/docs">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a href="https://github.com/vercel/next.js/tree/master/examples">
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app">
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
+          <a href="#">
+            <img src="#" alt="Governement of Canada "></img>
+            <span lang="en">Government of Canada </span>
+            <span lang="fr">Gouvernment du Canada</span>
           </a>
         </div>
+
+        <div>
+          <a href="#">Français</a>
+          <input type="search" placeholder="Search Canada.ca"></input>
+        </div>
+
+        <nav>Menu</nav>
+      </header>
+
+      <main>
+        <section>
+          <div>
+            <img src="#" alt="serviceCanada.jpg"></img>
+            <h1>Servica Canada Labs Make government work for you</h1>
+            <span>
+              <button>Become a tester</button>
+              <button>Start testing</button>
+            </span>
+          </div>
+        </section>
+
+        <section>
+          <h2>About us</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+            consectetur urna nec tempor tristique. Vestibulum ante ipsum primis
+            in faucibus orci luctus et ultrices posuere cubilia curae; Nulla at
+            condimentum odio, quis porttitor eros. Quisque laoreet pretium
+            purus, sed maximus turpis. Quisque ut magna vel dui placerat aliquet
+            in non orci.
+          </p>
+
+          <figure>Block</figure>
+
+          <figure>
+            Block
+            <figcaption>
+              Diagram that shows what we do and how user feedback gets
+              transformed in to a service to Canadians - and/or - Benefits of
+              joining the user pool for testers
+            </figcaption>
+          </figure>
+        </section>
+
+        <section>
+          <h3>Contact us</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+            consectetur urna nec tempor tristique.
+          </p>
+          <a href="#">john.doe@example.com</a>
+          <figure>Block</figure>
+        </section>
+
+        <section>
+          <h4>Featured prototypes</h4>
+          <figure>Block</figure>
+          <figure>Block</figure>
+          <figure>Block</figure>
+        </section>
       </main>
 
       <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by <img src="/vercel.svg" alt="Vercel Logo" />
-        </a>
+        <div>
+          <p>
+            Experiencing an issue with this product or have you spotted an
+            error?
+          </p>
+          <button>Report a problem</button>
+        </div>
+
+        <ul>
+          <li>
+            <a href="#">Social media</a>
+          </li>
+          <li>
+            <a href="#">Mobile applications</a>
+          </li>
+          <li>
+            <a href="#">Terms and conditions</a>
+          </li>
+          <li>
+            <a href="#">Privacy</a>
+          </li>
+        </ul>
+
+        <img src="#" alt="canada.jpg"></img>
       </footer>
     </div>
   );
