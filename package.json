@@ -16,16 +16,7 @@
   },
   "lint-staged": {
     "pages/**/*.{js,jsx,ts,tsx,json,md}": [
-      "prettier --write",
-      "git add"
-    ],
-    "lib/**/*.{js,jsx,ts,tsx,json,md}": [
-      "prettier --write",
-      "git add"
-    ],
-    "components/**/*.{js,jsx,ts,tsx,json,md}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "dependencies": {
