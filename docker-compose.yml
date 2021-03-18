@@ -10,9 +10,6 @@ x-common-props: &common-props
     - node_modules:/base/node_modules
 
 services:
-  npm:
-    <<: *common-props
-    entrypoint: npm
   dev:
     <<: *common-props
     ports:
