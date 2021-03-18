@@ -35,5 +35,10 @@
     "start": "next start",
     "lint": "prettier --write \"pages/**/*.{js,jsx,ts,tsx,json,md}\" --write \"components/**/*.{js,jsx,ts,tsx,json,md}\" --write \"lib/**/*.{js,jsx,ts,tsx,json,md}\"",
     "lint:test": "prettier --check \"pages/**/*.{js,jsx,ts,tsx,json,md}\" --check \"components/**/*.{js,jsx,ts,tsx,json,md}\" --check \"lib/**/*.{js,jsx,ts,tsx,json,md}\""
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.2.8",
+    "tailwindcss": "^2.0.4"
   }
 }
