@@ -10,35 +10,35 @@ export default function Home() {
       </Head>
 
       <header>
-        <figure>
-          <img src="#" alt="logo.jpg"></img>
-          <figcaption>
-            Governement of Canada
-            Gouvernement du Canada
-          </figcaption>
-        </figure>
+        <div>
+          <a href="#">
+            <img src="#" alt="Governement of Canada "></img>
+            <span lang="en">Government of Canada </span>
+            <span lang="fr">Gouvernment du Canada</span>
+          </a>
+        </div>
 
-        <section>
+        <div>
           <a href="#">Français</a>
           <input type="search" placeholder="Search Canada.ca"></input>
-        </section>
+        </div>
+
+        <nav>Menu</nav>
       </header>
 
       <main>
-        <nav>Menu</nav>
-
         <section>
-          <figure>
+          <div>
             <img src="#" alt="serviceCanada.jpg"></img>
             <h1>
               Servica Canada Labs
               Make government work for you
             </h1>
-            <figcaption>
+            <span>
               <button>Become a tester</button>
               <button>Start testing</button>
-            </figcaption>
-          </figure>
+            </span>
+          </div>
         </section>
 
         <section>
@@ -89,12 +89,10 @@ export default function Home() {
       </main>
 
       <footer>
-        <figure>
-          Experiencing an issue with this product or have you spotted an error?
-            <figcaption>
-            <button>Report a problem</button>
-          </figcaption>
-        </figure>
+        <div>
+          <p>Experiencing an issue with this product or have you spotted an error?</p>
+          <button>Report a problem</button>
+        </div>
 
         <ul>
           <li>
