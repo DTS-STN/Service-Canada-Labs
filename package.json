@@ -34,11 +34,22 @@
     "build": "next build",
     "start": "next start",
     "lint": "prettier --write \"pages/**/*.{js,jsx,ts,tsx,json,md}\" --write \"components/**/*.{js,jsx,ts,tsx,json,md}\" --write \"lib/**/*.{js,jsx,ts,tsx,json,md}\"",
-    "lint:test": "prettier --check \"pages/**/*.{js,jsx,ts,tsx,json,md}\" --check \"components/**/*.{js,jsx,ts,tsx,json,md}\" --check \"lib/**/*.{js,jsx,ts,tsx,json,md}\""
+    "lint:test": "prettier --check \"pages/**/*.{js,jsx,ts,tsx,json,md}\" --check \"components/**/*.{js,jsx,ts,tsx,json,md}\" --check \"lib/**/*.{js,jsx,ts,tsx,json,md}\"",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
-    "autoprefixer": "^10.2.5",
-    "postcss": "^8.2.8",
-    "tailwindcss": "^2.0.4"
+    "@babel/core": "^7.13.10",
+    "@storybook/addon-a11y": "^6.1.21",
+    "@storybook/addon-actions": "^6.1.21",
+    "@storybook/addon-essentials": "^6.1.21",
+    "@storybook/addon-links": "^6.1.21",
+    "@storybook/react": "^6.1.21",
+    "@tailwindcss/postcss7-compat": "^2.0.4",
+    "autoprefixer": "^9.8.6",
+    "babel-loader": "^8.2.2",
+    "postcss": "^7.0.35",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.4",
+    "webpack": "^4.46.0"
   }
 }
