@@ -1,0 +1,31 @@
+image:
+  repository: mtscontainers.azurecr.io/alphasite
+  tag: "{{ requiredEnv "DOCKER_TAG" }}" 
+  pullPolicy: Always
+
+extraEnv:
+  - name: foo
+    value: bar
+
+ingress:
+      enabled: true
+      hosts:
+      {{- if or (eq .Environment.Name "prod-blue") (eq .Environment.Name "prod-green") }}
+          - alphasite.{{ .Environment.Name }}.{{ requiredEnv "BASE_DOMAIN" }}
+          - alphasite.{{ requiredEnv "BASE_DOMAIN" }}
+      {{ else }}
+          - alphasite-{{ .Environment.Name }}.{{ requiredEnv "BASE_DOMAIN_DEV" }}
+          - alphasite-{{ requiredEnv "BASE_DOMAIN_DEV" }}
+      {{ end }} 
+      annotations: {}
+      # kubernetes.io/ingress.class: traefik
+
+resources:
+  requests:
+    cpu: 200m
+    memory: 512Mi
+livenessDelay: 60
+readinessDelay: 60
+livenessPath: /
+readinessPath: /
+port: 80
