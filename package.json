@@ -5,11 +5,33 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "prettier --write \"pages/**/*.{js,jsx,ts,tsx,json,md}\" --write \"components/**/*.{js,jsx,ts,tsx,json,md}\" --write \"lib/**/*.{js,jsx,ts,tsx,json,md}\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "pages/**/*.{js,jsx,ts,tsx,json,md}": [
+      "prettier --write"
+    ],
+    "lib/**/*.{js,jsx,ts,tsx,json,md}": [
+      "prettier --write"
+    ],
+    "components/**/*.{js,jsx,ts,tsx,json,md}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "next": "10.0.9",
     "react": "17.0.1",
     "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "husky": "^5.1.3",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1"
   }
 }
