@@ -14,14 +14,6 @@ jobs:
       - name: Install 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: npm install
 
-      - name: Run The Unit Tests 🧪
-        run: npm run test
-        env:
-          CI: true
-
-      - name: Build Storybooks 🔨
-        run: npm run build-storybook
-
       - name: Extract branch name
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
@@ -30,7 +22,7 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
-          target-folder: ${{ steps.extract_branch.outputs.branch }}
+          TARGET_FOLDER: ${{ steps.extract_branch.outputs.branch }}
           BRANCH: gh-pages # The branch the action should deploy to.
           FOLDER: storybook-static # The folder the action should deploy.
           CLEAN: true # Automatically remove deleted files from the deploy branch
