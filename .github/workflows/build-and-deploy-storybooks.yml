@@ -33,7 +33,9 @@ jobs:
         with:
           issue-number: ${{ github.event.pull_request.number }}
           comment-author: 'github-actions[bot]'
-          body-includes: Build output
+          body-includes: |
+            Storybooks Link For Branch
+            https://dts-stn.github.io/${{ github.event.pull_request.base.repo.name }}/${{ steps.extract_branch.outputs.branch }}
 
       - name: Create or update comment # comment in pull request storybooks link
         uses: peter-evans/create-or-update-comment@v1
