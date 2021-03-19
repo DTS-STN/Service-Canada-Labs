@@ -14,8 +14,8 @@ ingress:
           - alphasite.{{ .Environment.Name }}.{{ requiredEnv "BASE_DOMAIN" }}
           - alphasite.{{ requiredEnv "BASE_DOMAIN" }}
       {{ else }}
-          - alphasite-{{ .Environment.Name }}.{{ requiredEnv "BASE_DOMAIN_DEV" }}
-          - alphasite-{{ requiredEnv "BASE_DOMAIN_DEV" }}
+          - alphasite.{{ .Environment.Name }}.{{ requiredEnv "BASE_DOMAIN_DEV" }}
+          - alphasite.{{ requiredEnv "BASE_DOMAIN_DEV" }}
       {{ end }} 
       annotations: {}
       # kubernetes.io/ingress.class: traefik
@@ -28,4 +28,4 @@ livenessDelay: 60
 readinessDelay: 60
 livenessPath: /
 readinessPath: /
-port: 80
+port: 3000
