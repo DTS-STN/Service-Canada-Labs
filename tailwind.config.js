@@ -5,7 +5,10 @@ module.exports = {
     extend: {
       backgroundImage: theme => ({
         'banner-img' :"url('../../public/bg-banner.jpg')"
-      })
+      }),
+      colors: {
+        'dk-blue': '#0d304b'
+      }
     },
   },
   variants: {
