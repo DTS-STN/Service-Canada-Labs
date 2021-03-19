@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { ActionButton } from "../components/atoms/ActionButton";
 
 export default function Home() {
   return (
@@ -29,10 +30,21 @@ export default function Home() {
           <div>
             <img src="#" alt="serviceCanada.jpg"></img>
             <h1>Servica Canada Labs Make government work for you</h1>
-            <span>
-              <button>Become a tester</button>
-              <button>Start testing</button>
-            </span>
+            <div className={"flex"}>
+              <ActionButton
+                text={"Become a tester"}
+                rounded
+                className={"bg-white text-blue-600 border border-blue-600 w-36"}
+                dataCyButton={"become-tester-button"}
+              />
+              <ActionButton
+                text={"Start testing"}
+                rounded
+                invert
+                className={"w-36"}
+                dataCyButton={"start-testing-button"}
+              />
+            </div>
           </div>
         </section>
 
@@ -83,7 +95,12 @@ export default function Home() {
             Experiencing an issue with this product or have you spotted an
             error?
           </p>
-          <button>Report a problem</button>
+          <ActionButton
+            text={"Report a problem"}
+            rounded
+            className={"bg-white text-blue-600 border border-blue-600 w-auto"}
+            dataCyButton={"report-problem-button"}
+          />
         </div>
 
         <ul>
