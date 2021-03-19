@@ -14,9 +14,9 @@ export function ActionButton(props) {
           : props.notRound
           ? "rounded-sm"
           : "rounded-md"
-      } ${
+      } focus:ring-1 focus:ring-black ${
         props.invert && !props.disabled
-          ? "bg-blue-600 text-white border border-bl-md hover:bg-bg-gray-dk hover:text-white focus:bg-bg-gray-dk focus:text-white"
+          ? "bg-blue-600 text-white border border-blue-600 hover:bg-blue-500"
           : props.className
       } ${
         props.disabled

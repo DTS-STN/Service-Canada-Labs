@@ -34,7 +34,9 @@ export default function Home() {
               <ActionButton
                 text={"Become a tester"}
                 rounded
-                className={"bg-white text-blue-600 border border-blue-600 w-36"}
+                className={
+                  "bg-white text-blue-600 border border-blue-600 w-36 mr-4 hover:bg-gray-200"
+                }
                 dataCyButton={"become-tester-button"}
               />
               <ActionButton
@@ -98,7 +100,9 @@ export default function Home() {
           <ActionButton
             text={"Report a problem"}
             rounded
-            className={"bg-white text-blue-600 border border-blue-600 w-auto"}
+            className={
+              "bg-white text-blue-600 border border-blue-600 w-auto hover:bg-gray-200"
+            }
             dataCyButton={"report-problem-button"}
           />
         </div>
