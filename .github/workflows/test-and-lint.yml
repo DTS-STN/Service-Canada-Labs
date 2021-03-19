@@ -1,5 +1,9 @@
 name: Testing and Linting 🧪📝
-on: pull_request
+on:
+  pull_request:
+  push:
+    branches:
+      - main
 
 jobs:
   test:
@@ -7,10 +11,6 @@ jobs:
     steps:
       - name: Checkout 🔔
         uses: actions/checkout@v2.3.1
-        with:
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
-          persist-credentials: false
 
       - name: Install 🔧
         run: npm install
@@ -19,3 +19,48 @@ jobs:
         run: npm run lint:test
         env:
           CI: true
+
+      - name: Unit Tests 🧪
+        run: npm run test:coverage
+        env:
+          CI: true
+
+      - name: End To End tests 👩🏽‍🔬
+        run: npm run test:coverage
+        env:
+          CI: true
+
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
+      - name: Deploy Coverage Report 🚀
+        uses: JamesIves/github-pages-deploy-action@3.6.2
+        with:
+          TARGET_FOLDER: ${{ steps.extract_branch.outputs.branch }}/coverage
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: coverage # The folder the action should deploy.
+          CLEAN: true # Automatically remove deleted files from the deploy branch
+
+      - name: Find Comment
+        if: steps.extract_branch.outputs.branch != 'main' 
+        uses: peter-evans/find-comment@v1
+        id: fc
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: |
+            Coverage Report Link for Branch
+            https://dts-stn.github.io/${{ github.event.pull_request.base.repo.name }}/${{ steps.extract_branch.outputs.branch }}/coverage/lcov-report
+
+      - name: Create or update comment # comment in pull request storybooks link
+        if: steps.extract_branch.outputs.branch != 'main' 
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Coverage Report Link for Branch
+            https://dts-stn.github.io/${{ github.event.pull_request.base.repo.name }}/${{ steps.extract_branch.outputs.branch }}/coverage/lcov-report
+          edit-mode: replace

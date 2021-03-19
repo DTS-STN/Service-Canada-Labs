@@ -1,5 +1,9 @@
 name: Build and Deploy Storybooks
-on: pull_request
+on:
+  pull_request:
+  push:
+    branches:
+      - main
 
 jobs:
   build-and-deploy:
@@ -28,14 +32,18 @@ jobs:
           CLEAN: true # Automatically remove deleted files from the deploy branch
 
       - name: Find Comment
+        if: steps.extract_branch.outputs.branch != 'main' 
         uses: peter-evans/find-comment@v1
         id: fc
         with:
           issue-number: ${{ github.event.pull_request.number }}
           comment-author: 'github-actions[bot]'
-          body-includes: Build output
+          body-includes: |
+            Storybooks Link For Branch
+            https://dts-stn.github.io/${{ github.event.pull_request.base.repo.name }}/${{ steps.extract_branch.outputs.branch }}
 
       - name: Create or update comment # comment in pull request storybooks link
+        if: steps.extract_branch.outputs.branch != 'main' 
         uses: peter-evans/create-or-update-comment@v1
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
