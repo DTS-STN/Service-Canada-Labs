@@ -35,3 +35,10 @@ yarn-error.log*
 
 #storybooks
 /storybook-static
+
+#jest coverage
+/coverage
+
+# cypress video
+
+/cypress/videos

@@ -28,7 +28,7 @@ export default function Home() {
         <section>
           <div>
             <img src="#" alt="serviceCanada.jpg"></img>
-            <h1>Servica Canada Labs Make government work for you</h1>
+            <h1>Service Canada Labs Make government work for you</h1>
             <span>
               <button>Become a tester</button>
               <button>Start testing</button>
