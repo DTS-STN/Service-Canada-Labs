@@ -8,6 +8,7 @@ export default {
 const Template = (args) => <ActionButton {...args} />;
 
 export const Primary = Template.bind({});
+export const FullyRounded = Template.bind({});
 export const Rounded = Template.bind({});
 export const WithCounter = Template.bind({});
 export const StartAgain = Template.bind({});

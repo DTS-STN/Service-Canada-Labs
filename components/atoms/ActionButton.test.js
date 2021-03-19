@@ -1,7 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
-import { Primary, Rounded, StartAgain, Disabled } from "./ActionButton.stories";
+import {
+  Primary,
+  Rounded,
+  FullyRounded,
+  StartAgain,
+  Disabled,
+} from "./ActionButton.stories";
 
 it("renders ActionButton in its primary state", () => {
   render(<Primary {...Primary.args} />);
@@ -9,9 +15,9 @@ it("renders ActionButton in its primary state", () => {
 });
 
 it("renders ActionButton in its fully rounded state", () => {
-  render(<Rounded {...FullyRounded.args} />);
+  render(<FullyRounded {...FullyRounded.args} />);
   expect(screen.getByRole("button")).toHaveTextContent(FullyRounded.args.text);
-  expect(screen.getByRole("button").classList).toContain("rounded-md");
+  expect(screen.getByRole("button").classList).toContain("rounded-full");
 });
 
 it("renders ActionButton in its rounded state", () => {
