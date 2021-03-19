@@ -40,7 +40,7 @@ jobs:
         with:
           TARGET_FOLDER: ${{ steps.extract_branch.outputs.branch }}/coverage
           BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: coverage/lcov-report # The folder the action should deploy.
+          FOLDER: coverage # The folder the action should deploy.
           CLEAN: true # Automatically remove deleted files from the deploy branch
 
       - name: Find Comment
@@ -51,7 +51,7 @@ jobs:
           comment-author: 'github-actions[bot]'
           body-includes: |
             Coverage Report Link for Branch
-            https://dts-stn.github.io/${{ github.event.pull_request.base.repo.name }}/${{ steps.extract_branch.outputs.branch }}/coverage
+            https://dts-stn.github.io/${{ github.event.pull_request.base.repo.name }}/${{ steps.extract_branch.outputs.branch }}/coverage/lcov-report
 
       - name: Create or update comment # comment in pull request storybooks link
         uses: peter-evans/create-or-update-comment@v1
@@ -60,5 +60,5 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             Coverage Report Link for Branch
-            https://dts-stn.github.io/${{ github.event.pull_request.base.repo.name }}/${{ steps.extract_branch.outputs.branch }}/coverage
+            https://dts-stn.github.io/${{ github.event.pull_request.base.repo.name }}/${{ steps.extract_branch.outputs.branch }}/coverage/lcov-report
           edit-mode: replace
