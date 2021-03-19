@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Banner from "../components/atoms/Banner.js";
 
 export default function Home() {
   return (
@@ -27,8 +28,10 @@ export default function Home() {
       <main>
         <section>
           <div>
-            <img src="#" alt="serviceCanada.jpg"></img>
-            <h1>Service Canada Labs Make government work for you</h1>
+            <Banner
+              siteTitle="Service Canada Labs"
+              headLine="Make government work for you."
+            />
             <span>
               <button>Become a tester</button>
               <button>Start testing</button>
