@@ -1,6 +1,7 @@
 # Alpha Site
 
 [![Build Status](https://teamcity.dts-stn.com/app/rest/builds/buildType:(id:Dev_AlphaSite_Build)/statusIcon)](https://teamcity.dts-stn.com/viewType.html?buildTypeId=Dev_AlphaSite_Build&guest=1)
+[![link](https://img.shields.io/badge/link-%F0%9F%94%97-brightgreen)](https://alphasite.main.dev.dts-stn.com/)
 
 
 
