@@ -7,36 +7,25 @@ export default {
 
 const Template = (args) => <ActionButton {...args} />;
 
-export const Primary = Template.bind({});
-export const FullyRounded = Template.bind({});
-export const Rounded = Template.bind({});
-export const WithCounter = Template.bind({});
-export const StartAgain = Template.bind({});
+export const Default = Template.bind({});
+export const Secondary = Template.bind({});
 export const Disabled = Template.bind({});
 
-Primary.args = {
-  text: "Example Action 🚀",
+Default.args = {
+  className:
+    "bg-custom-blue-100 text-white border border-blue-600 hover:bg-custom-blue-200",
+  text: "Default button 🚀",
 };
 
-FullyRounded.args = {
-  text: "Example Fully Rounded Action 🚀",
-  fullyRounded: true,
-};
-
-Rounded.args = {
-  text: "Example Rounded Action 🚀",
-  rounded: true,
-};
-
-StartAgain.args = {
-  notRound: true,
-  className: "bg-bg-gray-dk text-white",
-  icon: "icon-loop2 my-1 mr-4",
-  text: "Start again and clear answers",
+Secondary.args = {
+  className:
+    "bg-white text-custom-blue-100 border border-custom-blue-100 hover:bg-gray-200",
+  text: "Secondary button 🚀",
+  secondary: true,
 };
 
 Disabled.args = {
   text: "Disabled Button 🚀",
+  className: "bg-gray-light text-gray-600 border border-gray-md",
   disabled: true,
-  invert: true,
 };

@@ -33,10 +33,8 @@ export default function Home() {
             <div className={"flex"}>
               <ActionButton
                 text={"Become a tester"}
-                rounded
-                className={
-                  "bg-white text-blue-600 border border-blue-600 w-36 mr-4 hover:bg-gray-200"
-                }
+                secondary
+                className={"w-36 mr-4"}
                 dataCyButton={"become-tester-button"}
               />
               <ActionButton
@@ -99,10 +97,7 @@ export default function Home() {
           </p>
           <ActionButton
             text={"Report a problem"}
-            rounded
-            className={
-              "bg-white text-blue-600 border border-blue-600 w-auto hover:bg-gray-200"
-            }
+            secondary
             dataCyButton={"report-problem-button"}
           />
         </div>
