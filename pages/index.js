@@ -39,8 +39,6 @@ export default function Home() {
               />
               <ActionButton
                 text={"Start testing"}
-                rounded
-                invert
                 className={"w-36"}
                 dataCyButton={"start-testing-button"}
               />

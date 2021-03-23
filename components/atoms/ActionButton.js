@@ -26,7 +26,6 @@ export function ActionButton(props) {
       id={props.id}
       data-cy={props.dataCy || props.id}
       data-cy-button={props.dataCyButton}
-      secondary={props.secondary}
       disabled={props.disabled}
     >
       {props.text}

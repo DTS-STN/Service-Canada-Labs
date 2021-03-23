@@ -18,9 +18,9 @@ Default.args = {
 };
 
 Secondary.args = {
+  text: "Secondary button 🚀",
   className:
     "bg-white text-custom-blue-100 border border-custom-blue-100 hover:bg-gray-200",
-  text: "Secondary button 🚀",
   secondary: true,
 };
 
