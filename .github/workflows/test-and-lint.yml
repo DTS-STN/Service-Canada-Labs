@@ -15,6 +15,9 @@ jobs:
       - name: Install 🔧
         run: npm install
 
+      - name: Build 🔧
+        run: npm run build
+
       - name: Linting Test 📝
         run: npm run lint:test
         env:
