@@ -1,4 +1,4 @@
-// Define at the top of the spec file or just import it
+// Method for logging a11y violations
 export default function terminalLog(violations) {
   cy.task(
     'log',
