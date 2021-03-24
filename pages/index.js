@@ -30,7 +30,7 @@ export default function Home() {
           <div>
             <Banner
               siteTitle="Service Canada Labs"
-              headLine="Make government work for you."
+              headline="Make government work for you."
             />
             <span>
               <button>Become a tester</button>
