@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Banner from "../components/atoms/Banner.js";
 import { ActionButton } from "../components/atoms/ActionButton";
+import { SearchBar } from "../components/molecules/SearchBar";
 
 export default function Home() {
   return (
@@ -20,7 +21,7 @@ export default function Home() {
 
         <div>
           <a href="#">Français</a>
-          <input type="search" placeholder="Search Canada.ca"></input>
+          <SearchBar></SearchBar>
         </div>
 
         <nav>Menu</nav>
