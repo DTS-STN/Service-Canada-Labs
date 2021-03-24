@@ -7,7 +7,8 @@ module.exports = {
         'banner-img' :"url('../../public/bg-banner.jpg')"
       }),
       colors: {
-        'dk-blue': '#0d304b'
+        'dk-blue': '#0d304b',
+        'hr-red-bar': '#BD6166'
       }
     },
   },
