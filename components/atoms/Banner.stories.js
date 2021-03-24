@@ -12,5 +12,5 @@ export const Primary = Template.bind({});
 
 Primary.args = {
   siteTitle: "Banner Text",
-  headLine: "Banner Headline",
+  headline: "Banner Headline",
 };

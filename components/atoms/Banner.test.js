@@ -7,7 +7,7 @@ import { Primary } from "./Banner.stories";
 it("renders Banner in its primary state", () => {
   render(<Primary {...Primary.args} />);
   const textElement = screen.getByText("Banner Text");
-  const headLineElement = screen.getByText("Banner Headline");
+  const headlineElement = screen.getByText("Banner Headline");
   expect(textElement).toBeTruthy();
-  expect(headLineElement).toBeTruthy();
+  expect(headlineElement).toBeTruthy();
 });
