@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Banner from "../components/atoms/Banner.js";
 import { ActionButton } from "../components/atoms/ActionButton";
 
 export default function Home() {
@@ -28,8 +29,10 @@ export default function Home() {
       <main>
         <section>
           <div>
-            <img src="#" alt="serviceCanada.jpg"></img>
-            <h1>Service Canada Labs Make government work for you</h1>
+            <Banner
+              siteTitle="Service Canada Labs"
+              headline="Make government work for you."
+            />
             <div className={"flex"}>
               <ActionButton
                 text={"Become a tester"}

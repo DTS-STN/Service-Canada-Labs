@@ -3,7 +3,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      colors: {
+    backgroundImage: theme => ({
+      'banner-img' :"url('../../public/bg-banner.jpg')"
+    }),      
+    colors: {
         //Colors styling for buttons
         'custom-blue': {
           blue: '#2572B4',
@@ -12,6 +15,8 @@ module.exports = {
         },
         "gray-light": "#EFEFEF",
         "gray-md": "#CFCFCF",
+        'dk-blue': '#26374a',
+        'hr-red-bar': '#AE3B43'
       },
 
       fontFamily: {}
