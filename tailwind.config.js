@@ -6,10 +6,23 @@ module.exports = {
       display: ['Lato', 'system-ui', 'sans-serif'],
       body: ['Noto\\ sans', 'system-ui', 'sans-serif'],
     },
-    extend: {},
+    extend: {
+      colors: {
+        //Colors styling for buttons
+        'custom-blue': {
+          blue: '#2572B4',
+          light: '#1492B4',
+          dark: '#096684',
+        },
+        "gray-light": "#EFEFEF",
+        "gray-md": "#CFCFCF",
+      },
+    },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['active']
+    },
   },
   plugins: [],
 }
