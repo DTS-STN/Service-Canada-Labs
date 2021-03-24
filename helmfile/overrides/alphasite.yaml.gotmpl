@@ -14,7 +14,7 @@ ingress:
           - alphasite.{{ .Environment.Name }}.{{ requiredEnv "BASE_DOMAIN" }}
           - alphasite.{{ requiredEnv "BASE_DOMAIN" }}
       {{ else }}
-          - alphasite.{{ .Environment.Name }}.{{ requiredEnv "BASE_DOMAIN_DEV" }}
+          - alphasite-{{ .Environment.Name }}.{{ requiredEnv "BASE_DOMAIN_DEV" }}
           - alphasite.{{ requiredEnv "BASE_DOMAIN_DEV" }}
       {{ end }} 
       annotations: {}
