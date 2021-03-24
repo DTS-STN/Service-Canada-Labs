@@ -7,7 +7,7 @@ it("renders default ActionButton", () => {
   render(<Default {...Default.args} />);
   expect(screen.getByRole("button")).toHaveTextContent(Default.args.text);
   expect(screen.getByRole("button")).toHaveClass(
-    "bg-custom-blue-100 text-white border border-blue-600 hover:bg-custom-blue-200"
+    "bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light"
   );
 });
 
@@ -15,7 +15,7 @@ it("renders ActionButton with secondary colors", () => {
   render(<Secondary {...Secondary.args} />);
   expect(screen.getByRole("button")).toHaveTextContent(Secondary.args.text);
   expect(screen.getByRole("button")).toHaveClass(
-    "bg-white text-custom-blue-100 border border-custom-blue-100 hover:bg-gray-200"
+    "bg-white text-custom-blue-blue border border-custom-blue-blue active:bg-gray-400 hover:bg-gray-200"
   );
 });
 

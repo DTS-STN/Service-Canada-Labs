@@ -13,14 +13,14 @@ export const Disabled = Template.bind({});
 
 Default.args = {
   className:
-    "bg-custom-blue-100 text-white border border-blue-600 hover:bg-custom-blue-200",
+    "bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light",
   text: "Default button 🚀",
 };
 
 Secondary.args = {
   text: "Secondary button 🚀",
   className:
-    "bg-white text-custom-blue-100 border border-custom-blue-100 hover:bg-gray-200",
+    "bg-white text-custom-blue-blue border border-custom-blue-blue active:bg-gray-400 hover:bg-gray-200",
   secondary: true,
 };
 

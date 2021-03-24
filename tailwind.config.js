@@ -4,17 +4,23 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        //Colors styling for buttons
         'custom-blue': {
-          100: '#2572B4',
-          200: '#1492B4'
+          blue: '#2572B4',
+          light: '#1492B4',
+          dark: '#096684',
         },
+        "gray-light": "#EFEFEF",
+        "gray-md": "#CFCFCF",
       },
 
       fontFamily: {}
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['active']
+    },
   },
   plugins: [],
 }
