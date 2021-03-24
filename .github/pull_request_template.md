@@ -2,7 +2,8 @@
 
 [Task name](link to task on the board goes here)
 
-Description of the task you completed and/or features added.
+Description of the task you completed and/or features added. If it is a visual component or feature,
+add a screenshot(s) of it.
 
 ## Acceptance Criteria
 
