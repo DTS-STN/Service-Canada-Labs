@@ -1,0 +1,62 @@
+/* Canada.ca Typography */
+/* https://design.canada.ca/styles/typography.html */
+
+/* Smaller Devices */
+h1 {
+  font-size: 34px;
+  font-weight: bold;
+  border-bottom: 2px solid red;
+}
+h2 {
+  font-size: 32px;
+  font-weight: bold;
+}
+h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+h4 {
+  font-size: 22px;
+  font-weight: bold;
+}
+h5 {
+  font-size: 20px;
+  font-weight: bold;
+}
+h6 {
+  font-size: 19px;
+}
+body {
+  font-size: 20px;;
+}
+
+/* Tablets and Desktop */
+@media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 38px;
+    font-weight: bold;
+    border-bottom: 2px solid red;
+  }
+  h2 {
+    font-size: 36px;
+    font-weight: bold;
+  }
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  h4 {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  h5 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  h6 {
+    font-size: 19px;
+  }
+  body {
+    font-size: 20px;;
+  }
+}

@@ -7,7 +7,7 @@ export default function Home() {
         <title>Alpha Site</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
+      <header className="font-body">
         <div>
           <a href="#">
             <img src="#" alt="Governement of Canada "></img>
@@ -28,8 +28,10 @@ export default function Home() {
         <section>
           <div>
             <img src="#" alt="serviceCanada.jpg"></img>
-            <h1>Service Canada Labs Make government work for you</h1>
-            <span>
+            <h1 className="font-display">
+              Service Canada Labs Make government work for you
+            </h1>
+            <span className="font-body">
               <button>Become a tester</button>
               <button>Start testing</button>
             </span>
@@ -37,8 +39,8 @@ export default function Home() {
         </section>
 
         <section>
-          <h2>About us</h2>
-          <p>
+          <h2 className="font-display">About us</h2>
+          <p className="font-body">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
             consectetur urna nec tempor tristique. Vestibulum ante ipsum primis
             in faucibus orci luctus et ultrices posuere cubilia curae; Nulla at
@@ -51,7 +53,7 @@ export default function Home() {
 
           <figure>
             Block
-            <figcaption>
+            <figcaption className="font-body">
               Diagram that shows what we do and how user feedback gets
               transformed in to a service to Canadians - and/or - Benefits of
               joining the user pool for testers
@@ -59,8 +61,8 @@ export default function Home() {
           </figure>
         </section>
 
-        <section>
-          <h3>Contact us</h3>
+        <section className="font-body">
+          <h3 className="font-display">Contact us</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
             consectetur urna nec tempor tristique.
@@ -69,15 +71,15 @@ export default function Home() {
           <figure>Block</figure>
         </section>
 
-        <section>
-          <h4>Featured prototypes</h4>
+        <section className="font-body">
+          <h4 className="font-display">Featured prototypes</h4>
           <figure>Block</figure>
           <figure>Block</figure>
           <figure>Block</figure>
         </section>
       </main>
 
-      <footer>
+      <footer className="font-body">
         <div>
           <p>
             Experiencing an issue with this product or have you spotted an
