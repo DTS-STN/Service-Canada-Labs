@@ -2,7 +2,12 @@
 /* https://design.canada.ca/styles/typography.html */
 
 /* Font Families */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5 {
+  font-family: 'Lato', 'system-ui', 'sans-serif';
+  font-weight: bold;
+}
+
+h6 {
   font-family: 'Lato', 'system-ui', 'sans-serif';
 }
 
@@ -13,23 +18,18 @@ body {
 /* Smaller Devices */
 h1 {
   font-size: 34px;
-  font-weight: bold;
 }
 h2 {
   font-size: 32px;
-  font-weight: bold;
 }
 h3 {
   font-size: 24px;
-  font-weight: bold;
 }
 h4 {
   font-size: 22px;
-  font-weight: bold;
 }
 h5 {
   font-size: 20px;
-  font-weight: bold;
 }
 h6 {
   font-size: 19px;
@@ -42,23 +42,18 @@ body {
 @media only screen and (min-width: 768px) {
   h1 {
     font-size: 38px;
-    font-weight: bold;
   }
   h2 {
     font-size: 36px;
-    font-weight: bold;
   }
   h3 {
     font-size: 24px;
-    font-weight: bold;
   }
   h4 {
     font-size: 22px;
-    font-weight: bold;
   }
   h5 {
     font-size: 20px;
-    font-weight: bold;
   }
   h6 {
     font-size: 19px;
