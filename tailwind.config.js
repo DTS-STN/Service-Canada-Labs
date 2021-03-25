@@ -4,12 +4,13 @@ module.exports = {
   theme: {
     fontFamily: {
       display: ['Lato'],
-      body: ['Noto\\ sans'],
+      body: ['Noto sans'],
     },
     fontSize: {
       sm: ["16px", "22px"],
       base: ["18px", "28px"],
       p: ["20px", "30px"],
+      h4: ["22px", "20px"],
       h3: ["24px", "24.3px"],
       h2: ["30px", "33.5px"],
       h1: ["34px", "42px"],

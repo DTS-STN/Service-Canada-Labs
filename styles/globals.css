@@ -3,16 +3,37 @@
 @tailwind utilities;
 
 @layer base {
-  h1 {
-    @apply font-display font-bold text-h1;
+  /* Font families */
+  h1, h2, h3, h4, h5 {
+    @apply font-display font-bold;
   }
-  h2 {
-    @apply font-display text-h2;
-  }
-  h3 {
-    @apply font-display text-h3;
+  h6 {
+    @apply font-body
   }
   p {
-    @apply font-body text-p;
+    @apply font-body
+  }
+
+  /* Font sizes */
+  h1 {
+    @apply text-h1;
+  }
+  h2 {
+    @apply text-h2;
+  }
+  h3 {
+    @apply text-h3;
+  }
+  h4 {
+    @apply text-h4;
+  }
+  h5 {
+    @apply text-p;
+  }
+  h6 {
+    @apply text-base;
+  }
+  p {
+    @apply text-p;
   }
 }
