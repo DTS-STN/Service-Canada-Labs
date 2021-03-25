@@ -16,7 +16,10 @@ module.exports = {
         "gray-light": "#EFEFEF",
         "gray-md": "#CFCFCF",
         'dk-blue': '#26374a',
-        'hr-red-bar': '#AE3B43'
+        'hr-red-bar': '#AE3B43',
+        //Search bar colors
+        "search-text-gray": "#5c5c5c",
+        "search-button-gray": "#444",
       },
 
       fontFamily: {}
