@@ -8,7 +8,7 @@
     @apply font-display font-bold;
   }
   h6 {
-    @apply font-body
+    @apply font-display;
   }
   p {
     @apply font-body
