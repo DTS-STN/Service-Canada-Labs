@@ -8,11 +8,12 @@ module.exports = {
     },
     fontSize: {
       sm: ["16px", "22px"],
-      base: ["20px", "30px"],
+      base: ["18px", "28px"],
       p: ["20px", "30px"],
       h3: ["24px", "24.3px"],
       h2: ["30px", "33.5px"],
       h1: ["34px", "42px"],
+      "h1-xl": ["40px", "46px"]
     },
     screens: {
       xxs: "280px",
@@ -24,7 +25,7 @@ module.exports = {
     },
     extend: {
     backgroundImage: theme => ({
-      'banner-img' :"url('../../public/bg-banner.jpg')"
+      'banner-img' :"url('../public/bg-banner.jpg')"
     }),      
     colors: {
         //Colors styling for buttons
@@ -45,5 +46,8 @@ module.exports = {
       backgroundColor: ['active']
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+    // ...
+  ],
 }

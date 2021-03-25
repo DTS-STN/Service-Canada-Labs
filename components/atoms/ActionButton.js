@@ -22,7 +22,7 @@ export function ActionButton(props) {
         props.disabled
           ? "bg-gray-light text-gray-600 border border-gray-md"
           : props.className
-      } text-sm font-body font-bold`}
+      } text-base font-body font-bold`}
       onClick={props.onClick}
       id={props.id}
       data-cy={props.dataCy || props.id}

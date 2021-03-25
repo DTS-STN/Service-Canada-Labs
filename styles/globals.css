@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply font-display font-bold text-h1;
+  }
+  h2 {
+    @apply font-display text-h2;
+  }
+  h3 {
+    @apply font-display text-h3;
+  }
+  p {
+    @apply font-body text-p;
+  }
+}

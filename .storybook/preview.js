@@ -1,5 +1,5 @@
 import * as nextImage from "next/image";
-import "tailwindcss/tailwind.css";
+import "../styles/globals.css"
 import "../styles/fonts.css";
 
 Object.defineProperty(nextImage, "default", {
