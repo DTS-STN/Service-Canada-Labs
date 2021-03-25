@@ -3,8 +3,8 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      display: ['Lato', 'system-ui', 'sans-serif'],
-      body: ['Noto\\ sans', 'system-ui', 'sans-serif'],
+      display: ['Lato'],
+      body: ['Noto\\ sans'],
     },
     fontSize: {
       sm: ["16px", "22px"],
