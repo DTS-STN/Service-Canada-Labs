@@ -7,19 +7,17 @@ module.exports = {
       'banner-img' :"url('../../public/bg-banner.jpg')"
     }),      
     colors: {
-        //Colors styling for buttons
         'custom-blue': {
           blue: '#2572B4',
           light: '#1492B4',
-          dark: '#4C5E7F',
+          dark: '#26374a',
         },
         "gray-light": "#EFEFEF",
         "gray-md": "#CFCFCF",
+        "gray-dark": "#444",
+        "text-gray": "#5c5c5c",
         'dk-blue': '#26374a',
         'hr-red-bar': '#AE3B43',
-        //Search bar colors
-        "search-text-gray": "#5c5c5c",
-        "search-button-gray": "#444",
       },
 
       fontFamily: {}
