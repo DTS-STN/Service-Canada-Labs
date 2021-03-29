@@ -2,9 +2,31 @@ module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    fontFamily: {
+      display: ['Lato'],
+      body: ['Noto sans'],
+    },
+    fontSize: {
+      sm: ["16px", "22px"],
+      base: ["18px", "28px"],
+      p: ["20px", "30px"],
+      h4: ["22px", "20px"],
+      h3: ["24px", "24.3px"],
+      h2: ["30px", "33.5px"],
+      h1: ["34px", "42px"],
+      "h1-xl": ["40px", "46px"]
+    },
+    screens: {
+      xxs: "280px",
+      xs: "325px",
+      sm: "450px",
+      md: "550px",
+      lg: "768px",
+      xl: "1024px",
+    },
     extend: {
     backgroundImage: theme => ({
-      'banner-img' :"url('../../public/bg-banner.jpg')"
+      'banner-img' :"url('../public/bg-banner.jpg')"
     }),      
     colors: {
         'custom-blue': {
@@ -20,8 +42,6 @@ module.exports = {
         'dk-blue': '#26374a',
         'hr-red-bar': '#AE3B43',
       },
-
-      fontFamily: {}
     },
   },
   variants: {
@@ -29,5 +49,8 @@ module.exports = {
       backgroundColor: ['active']
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+    // ...
+  ],
 }

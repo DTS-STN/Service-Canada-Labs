@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Font families */
+  h1, h2, h3, h4, h5 {
+    @apply font-display font-semibold;
+  }
+  h6 {
+    @apply font-display;
+  }
+  p {
+    @apply font-body
+  }
+
+  /* Font sizes */
+  h1 {
+    @apply text-h1;
+  }
+  h2 {
+    @apply text-h2;
+  }
+  h3 {
+    @apply text-h3;
+  }
+  h4 {
+    @apply text-h4;
+  }
+  h5, p {
+    @apply text-p;
+  }
+  h6 {
+    @apply text-base;
+  }
+}
