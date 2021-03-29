@@ -5,6 +5,7 @@ export default {
   title: "Components/Molecules/FooterBox",
   component: FooterBox,
 };
+
 const Template = (args) => <FooterBox {...args} />;
 
 export const Primary = Template.bind({});

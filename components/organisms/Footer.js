@@ -1,6 +1,7 @@
+import { format } from "prettier";
 import PropTypes from "prop-types";
 import { FooterBox } from "../molecules/FooterBox.js";
-// import { FooterLinks } from "../molecules/FooterButton";
+import { ActionButton } from "../atoms/ActionButton";
 
 /**
  * footer element for all pages
@@ -19,14 +20,34 @@ export function Footer(props) {
       privacyText={props.privacyText}
       footerCanadaCaAltText={props.footerCanadaCaAltText}
     >
-      {/* <FooterLinks links={props.links} /> */}
+      <div className=" w-1/2 md:p-8 md:w-5/6 h-full mb-4 ">
+        <div className="flex flex-col">
+          <p className="mb-4 mt-2 text-sm">
+            {props.reportDescription}
+            <br></br> {props.reportDescriptionContinue}
+          </p>
+          <div>
+            <ActionButton
+              text={props.reportBtnText}
+              secondary
+              dataCyButton={"report-problem-button"}
+            />
+          </div>
+        </div>
+      </div>
     </FooterBox>
   );
 }
 
 Footer.propTypes = {
+  reportDescription: PropTypes.string.isRequired,
+
+  reportDescriptionContinue: PropTypes.string.isRequired,
+
+  reportBtnText: PropTypes.string.isRequired,
+
   /**
-   * contact link href
+   * social link href
    */
   socialMediaLink: PropTypes.string.isRequired,
 

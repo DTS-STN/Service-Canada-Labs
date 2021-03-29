@@ -131,6 +131,9 @@ export default function Home() {
         privacyLink="https://www.canada.ca/en/transparency/terms.html"
         privacyText="Privacy"
         footerCanadaCaAltText="Canada.ca logo"
+        reportBtnText="Report a problem"
+        reportDescription="Experiencing an issue with this product or have you "
+        reportDescriptionContinue="spotted an error?"
       />
     </div>
   );

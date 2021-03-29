@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-// import footerImage from "../../assets/images/wmms-blk.svg";
 
 /**
  * container for footer navigation
@@ -39,7 +38,7 @@ export function FooterBox(props) {
         </nav>
 
         <img
-          className="ml-0 md:ml-32"
+          className="ml-0 md:ml-32 "
           src="/wmms-blk.svg"
           width={200}
           height={200}

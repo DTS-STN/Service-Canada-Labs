@@ -5,7 +5,7 @@ module.exports = {
     extend: {
     backgroundImage: theme => ({
       'banner-img' :"url('../../public/bg-banner.jpg')",
-      "footer-parliament-image": "url(../../assets/images/landscape.png)"
+      "footer-parliament-image": "url(../../public/landscape.png)"
     }),      
     colors: {
         //Colors styling for buttons
