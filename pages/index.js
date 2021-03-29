@@ -8,15 +8,9 @@ export default function Home() {
   //State for Search input
   const [searchText, setSearchText] = useState(null);
 
-  //Handler for input
+  //Handler for search input
   function handleInputChange(e) {
     setSearchText(e.target.value);
-  }
-
-  //Handler for submit
-  function onSearchSubmit(e) {
-    e.preventDefault();
-    alert("Search value: " + searchText);
   }
 
   return (
@@ -39,7 +33,6 @@ export default function Home() {
           <SearchBar
             placeholder={"Search Canada.ca"}
             onChange={handleInputChange}
-            onSubmit={onSearchSubmit}
             dataCy={"search-bar"}
           />
         </div>
