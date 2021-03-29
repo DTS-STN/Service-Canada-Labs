@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
-import footerImage from "../../assets/images/wmms-blk.svg";
-import Image from "next/image";
+// import footerImage from "../../assets/images/wmms-blk.svg";
 
 /**
  * container for footer navigation
@@ -38,18 +37,10 @@ export function FooterBox(props) {
             {props.privacyText}
           </a>
         </nav>
-        {/* <Image
-        src="/../../assets/images/wmms-blk.svg"
-        className="ml-0 md:ml-32"
-        width={200}
-        height={200}
-        alt={props.footerCanadaCaAltText}
-        >
 
-        </Image> */}
-        <Image
+        <img
           className="ml-0 md:ml-32"
-          src={footerImage}
+          src="/wmms-blk.svg"
           width={200}
           height={200}
           alt={props.footerCanadaCaAltText}

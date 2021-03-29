@@ -28,12 +28,21 @@ Footer.propTypes = {
   /**
    * contact link href
    */
-  contactLink: PropTypes.string.isRequired,
+  socialMediaLink: PropTypes.string.isRequired,
 
   /**
    * text that is displayed for contact link
    */
-  contactText: PropTypes.string.isRequired,
+  socialMediaText: PropTypes.string.isRequired,
+  /**
+   * contact link href
+   */
+  mobileLink: PropTypes.string.isRequired,
+
+  /**
+   * text that is displayed for contact link
+   */
+  mobileText: PropTypes.string.isRequired,
 
   /**
    * terms and conditions href
