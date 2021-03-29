@@ -9,7 +9,7 @@ export function FooterBox(props) {
       <div className="w-full h-40 flex flex-col md:flex-row justify-center items-center bg-footer-blue bg-footer-parliament-image bg-no-repeat bg-right-bottom text-white">
         {props.children}
       </div>
-      <div className="w-full h-auto flex flex-col md:flex-row justify-center items-center bg-footer-white">
+      <div className="w-full h-auto flex flex-col md:flex-row justify-center items-center bg-footer-white mt-4">
         <nav className="w-auto flex flex-col md:flex-row">
           <a
             href={props.socialMediaLink}

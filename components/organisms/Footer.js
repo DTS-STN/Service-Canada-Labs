@@ -20,24 +20,6 @@ export function Footer(props) {
       privacyText={props.privacyText}
       footerCanadaCaAltText={props.footerCanadaCaAltText}
     >
-      {/* <div className=" w-1/2 md:p-8 md:w-5/6 h-full mb-4 ">
-        <div className="flex flex-col">
-
-          
-          <p className="mb-4 mt-2 text-sm">
-            {props.reportDescription}
-            <br></br> {props.reportDescriptionContinue}
-          </p>
-          <div>
-            <ActionButton
-              text={props.reportBtnText}
-              secondary
-              dataCyButton={"report-problem-button"}
-            />
-          </div>
-        </div>
-      </div> */}
-
       <div className="w-full flex flex-col mt-2 mb-2">
         <div className="w-full flex justify-center">
           <div className="w-1/2 md:w-2/3 ml-2 md:ml-0 mr-2 md:mr-0 flex justify-between items-center md:items-start mb-2">
@@ -62,10 +44,19 @@ export function Footer(props) {
 }
 
 Footer.propTypes = {
+  /**
+   * report description
+   */
   reportDescription: PropTypes.string.isRequired,
 
+  /**
+   * report description continue with line break between
+   */
   reportDescriptionContinue: PropTypes.string.isRequired,
 
+  /**
+   * report button text
+   */
   reportBtnText: PropTypes.string.isRequired,
 
   /**
@@ -74,16 +65,16 @@ Footer.propTypes = {
   socialMediaLink: PropTypes.string.isRequired,
 
   /**
-   * text that is displayed for contact link
+   * text that is displayed for social link
    */
   socialMediaText: PropTypes.string.isRequired,
   /**
-   * contact link href
+   * mobile link href
    */
   mobileLink: PropTypes.string.isRequired,
 
   /**
-   * text that is displayed for contact link
+   * text that is displayed for mobile link
    */
   mobileText: PropTypes.string.isRequired,
 
@@ -114,10 +105,4 @@ Footer.propTypes = {
   /**
    * array of objects containing the link text and link
    */
-  links: PropTypes.arrayOf(
-    PropTypes.shape({
-      link: PropTypes.string.isRequired,
-      linkText: PropTypes.string.isRequired,
-    })
-  ),
 };
