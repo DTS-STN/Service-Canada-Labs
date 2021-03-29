@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Banner from "../components/atoms/Banner.js";
 import { ActionButton } from "../components/atoms/ActionButton";
+import { Footer } from "../components/organisms/Footer";
 
 export default function Home() {
   return (
@@ -90,7 +91,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer>
+      {/* <footer>
         <div>
           <p>
             Experiencing an issue with this product or have you spotted an
@@ -119,7 +120,18 @@ export default function Home() {
         </ul>
 
         <img src="#" alt="canada.jpg"></img>
-      </footer>
+      </footer> */}
+      <Footer
+        socialMediaLink="https://www.canada.ca"
+        socialMediaText="Social media"
+        mobileLink="https://www.canada.ca"
+        mobileText="Mobile applications"
+        termsAndConditionsLink="https://www.canada.ca/en/transparency/terms.html"
+        termsAndConditionsText="Terms and conditions"
+        privacyLink="https://www.canada.ca/en/transparency/terms.html"
+        privacyText="Privacy"
+        footerCanadaCaAltText="Canada.ca logo"
+      />
     </div>
   );
 }

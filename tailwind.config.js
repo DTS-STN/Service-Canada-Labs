@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
     backgroundImage: theme => ({
-      'banner-img' :"url('../../public/bg-banner.jpg')"
+      'banner-img' :"url('../../public/bg-banner.jpg')",
+      "footer-parliament-image": "url(../../assets/images/landscape.png)"
     }),      
     colors: {
         //Colors styling for buttons
@@ -16,7 +17,9 @@ module.exports = {
         "gray-light": "#EFEFEF",
         "gray-md": "#CFCFCF",
         'dk-blue': '#26374a',
-        'hr-red-bar': '#AE3B43'
+        'hr-red-bar': '#AE3B43',
+        "canada-ca-link-colour": "#7834BC",
+        "footer-blue": "#26374a",
       },
 
       fontFamily: {}
