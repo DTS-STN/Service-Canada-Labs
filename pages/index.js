@@ -2,6 +2,7 @@ import Head from "next/head";
 import Banner from "../components/atoms/Banner.js";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { Footer } from "../components/organisms/Footer";
+import { Header } from "../components/organisms/Header";
 
 export default function Home() {
   return (
@@ -10,7 +11,9 @@ export default function Home() {
         <title>Alpha Site</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
+
+      <Header headerCanadaCaAltText="headerCanadaCaAltText"></Header>
+      {/* <header>
         <div>
           <a href="#">
             <img src="#" alt="Governement of Canada "></img>
@@ -25,7 +28,7 @@ export default function Home() {
         </div>
 
         <nav>Menu</nav>
-      </header>
+      </header> */}
 
       <main>
         <section>
