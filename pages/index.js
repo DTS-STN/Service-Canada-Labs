@@ -37,12 +37,11 @@ export default function Home() {
               <ActionButton
                 text={"Become a tester"}
                 secondary
-                className={"w-36 mr-4"}
+                className={"mr-4"}
                 dataCyButton={"become-tester-button"}
               />
               <ActionButton
                 text={"Start testing"}
-                className={"w-36"}
                 dataCyButton={"start-testing-button"}
               />
             </div>
