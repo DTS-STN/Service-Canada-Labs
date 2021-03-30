@@ -3,7 +3,7 @@ import { ActionButton } from "../atoms/ActionButton";
 
 export const EntryBanner = () => {
   return (
-    <section className="mb-10">
+    <section>
       <Banner
         siteTitle="Service Canada Labs"
         headline="Make government work for you."

@@ -39,7 +39,9 @@ export const Layout = ({ banner, children }) => {
         <nav>Menu</nav>
       </header>
       {banner}
-      <div className="xxs:mx-2 sm:mx-12 lg:mx-24 xl:mx-48">{children}</div>
+      <div className="xxs:mx-2 sm:mx-12 lg:mx-24 xl:mx-48 mt-10">
+        {children}
+      </div>
       <footer className="mt-10">
         <div>
           <p>
