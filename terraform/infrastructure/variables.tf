@@ -6,10 +6,6 @@ variable "environment" {
     type = string
 }
 
-variable "dev_acr" {
-    type = string
-}
-
 variable "location" {
     
     type = string
