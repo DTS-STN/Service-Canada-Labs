@@ -18,7 +18,8 @@ export function Footer(props) {
       termsAndConditionsText={props.termsAndConditionsText}
       privacyLink={props.privacyLink}
       privacyText={props.privacyText}
-      footerCanadaCaAltText={props.footerCanadaCaAltText}
+      footerLogoAltText={props.footerCanadaCaAltText}
+      footerLogoImage={props.footerLogoImage}
     >
       <div className="w-full flex flex-col mt-2 mb-2">
         <div className="w-full flex justify-center">
@@ -101,8 +102,10 @@ Footer.propTypes = {
   /**
    * alt text for footer canada-ca logo
    */
-  footerCanadaCaAltText: PropTypes.string.isRequired,
+  footerLogoAltText: PropTypes.string.isRequired,
+
   /**
-   * array of objects containing the link text and link
+   * image path for footer logo
    */
+  footerLogoImage: PropTypes.string.isRequired,
 };

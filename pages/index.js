@@ -12,7 +12,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header headerCanadaCaAltText="headerCanadaCaAltText"></Header>
+      <Header
+        headerLogoAltText="logo alt text"
+        headerLogoImage="wmms-blk.svg"
+      />
       {/* <header>
         <div>
           <a href="#">
@@ -133,10 +136,11 @@ export default function Home() {
         termsAndConditionsText="Terms and conditions"
         privacyLink="https://www.canada.ca/en/transparency/terms.html"
         privacyText="Privacy"
-        footerCanadaCaAltText="Canada.ca logo"
         reportBtnText="Report a problem"
         reportDescription="Experiencing an issue with this product or have you "
         reportDescriptionContinue="spotted an error?"
+        footerLogoAltText="logo alt text"
+        footerLogoImage="wmms-blk.svg"
       />
     </div>
   );

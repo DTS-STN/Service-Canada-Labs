@@ -1,5 +1,6 @@
 import React from "react";
 import { FooterBox } from "./FooterBox";
+import logo from "../../public/wmms-blk.svg";
 
 export default {
   title: "Components/Molecules/FooterBox",
@@ -19,5 +20,6 @@ Primary.args = {
   termsAndConditionsText: "Terms and conditions",
   privacyLink: "https://www.canada.ca/en/transparency/terms.html",
   privacyText: "Privacy",
-  footerCanadaCaAltText: "Canada.ca logo",
+  footerLogoAltText: "Canada.ca logo",
+  footerLogoImage: logo,
 };
