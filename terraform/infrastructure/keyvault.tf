@@ -7,4 +7,11 @@ resource "azurerm_key_vault" "keyvault" {
   sku_name = "standard"
 
 
+  
+}
+
+resource "azurerm_key_vault_secret" "alphasite-terraform-pass" {
+  name     = "${var.application_name}-terraform-pass-${var.environment}"
+  value    = var.TERRAFORM_PASS
+  key_vault_id = azurerm_key_vault.keyvault.id
 }
