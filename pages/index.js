@@ -1,8 +1,18 @@
 import Head from "next/head";
 import Banner from "../components/atoms/Banner.js";
 import { ActionButton } from "../components/atoms/ActionButton";
+import { SearchBar } from "../components/atoms/SearchBar";
+import { useState } from "react";
 
 export default function Home() {
+  //State for Search input
+  const [searchText, setSearchText] = useState(null);
+
+  //Handler for search input
+  function handleInputChange(e) {
+    setSearchText(e.target.value);
+  }
+
   return (
     <div>
       <Head>
@@ -20,7 +30,11 @@ export default function Home() {
 
         <div>
           <a href="#">Français</a>
-          <input type="search" placeholder="Search Canada.ca"></input>
+          <SearchBar
+            placeholder={"Search Canada.ca"}
+            onChange={handleInputChange}
+            dataCy={"search-bar"}
+          />
         </div>
 
         <nav>Menu</nav>

@@ -47,7 +47,7 @@ ActionButton.propTypes = {
   /**
    * The text that the button will display
    */
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
 
   /**
    * Identify which button being clicked

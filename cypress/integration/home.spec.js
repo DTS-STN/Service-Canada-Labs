@@ -17,4 +17,7 @@ describe("home page", () => {
         cy.checkA11y(null, null, terminalLog)
     })
 
+    it("The search bar appears on the homepage", () => {
+        cy.get('[ data-cy="search-bar"]').should('be.visible')
+    });
 })
