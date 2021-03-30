@@ -76,4 +76,8 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+<<<<<<< HEAD
 azureSetContext.sh
+=======
+azureSetContext.sh
+>>>>>>> added network.tf to configure appservice networking, added outputs.tf to output important values to the console, updated .gitignore
