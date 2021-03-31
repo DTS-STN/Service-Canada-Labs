@@ -14,7 +14,7 @@ export default function Home() {
 
       <Header
         headerLogoAltText="logo alt text"
-        headerLogoImage="wmms-blk.svg"
+        headerLogoImage="/sig-blk-en.svg"
       />
       {/* <header>
         <div>
@@ -140,7 +140,7 @@ export default function Home() {
         reportDescription="Experiencing an issue with this product or have you "
         reportDescriptionContinue="spotted an error?"
         footerLogoAltText="logo alt text"
-        footerLogoImage="wmms-blk.svg"
+        footerLogoImage="/wmms-blk.svg"
       />
     </div>
   );

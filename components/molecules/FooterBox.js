@@ -36,14 +36,15 @@ export function FooterBox(props) {
           >
             {props.privacyText}
           </a>
+          <div className="ml-0 md:ml-32  md:pt-0 pt-2">
+            <Image
+              src={props.footerLogoImage}
+              width={200}
+              height={200}
+              alt={props.footerLogoAltText}
+            />
+          </div>
         </nav>
-        <Image
-          className="ml-0 md:ml-32 "
-          src={props.footerLogoImage}
-          width={200}
-          height={200}
-          alt={props.footerLogoAltText}
-        />
       </div>
     </footer>
   );

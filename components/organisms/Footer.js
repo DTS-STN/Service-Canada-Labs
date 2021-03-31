@@ -18,7 +18,7 @@ export function Footer(props) {
       termsAndConditionsText={props.termsAndConditionsText}
       privacyLink={props.privacyLink}
       privacyText={props.privacyText}
-      footerLogoAltText={props.footerCanadaCaAltText}
+      footerLogoAltText={props.footerLogoAltText}
       footerLogoImage={props.footerLogoImage}
     >
       <div className="w-full flex flex-col mt-2 mb-2">
