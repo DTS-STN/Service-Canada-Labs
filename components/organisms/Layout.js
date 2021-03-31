@@ -19,32 +19,34 @@ export const Layout = ({ banner, children }) => {
         <title>Alpha Site</title>
       </Head>
       <header>
-        <div>
-          <a href="#">
-            <img src="#" alt="Governement of Canada "></img>
-            <span lang="en">Government of Canada </span>
-            <span lang="fr">Gouvernment du Canada</span>
-          </a>
-        </div>
+        <div className="container lg:mx-auto xl:mx-28">
+          <div>
+            <a href="#">
+              <img src="#" alt="Governement of Canada "></img>
+              <span lang="en">Government of Canada </span>
+              <span lang="fr">Gouvernment du Canada</span>
+            </a>
+          </div>
 
-        <div>
-          <a href="#">Français</a>
-          <SearchBar
-            placeholder={"Search Canada.ca"}
-            onChange={handleInputChange}
-            dataCy={"search-bar"}
-          />
-        </div>
+          <div>
+            <a href="#">Français</a>
+            <SearchBar
+              placeholder={"Search Canada.ca"}
+              onChange={handleInputChange}
+              dataCy={"search-bar"}
+            />
+          </div>
 
-        <nav>Menu</nav>
+          <nav>Menu</nav>
+        </div>
         {banner}
       </header>
-      <div className="xxs:mx-2 sm:mx-12 lg:mx-24 xl:mx-48 mt-10">
-        <body>
+      <div className="container lg:mx-auto xl:mx-28 mt-10">
+        <div>
           <main>{children}</main>
-        </body>
+        </div>
       </div>
-      <footer className="mt-10">
+      <footer className="container lg:mx-auto xl:mx-28 mt-10">
         <div>
           <p>
             Experiencing an issue with this product or have you spotted an
@@ -82,5 +84,9 @@ Layout.propTypes = {
   // Optional banner element outside default margins
   banner: PropTypes.element,
   // Layout children elements
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+  ]),
 };

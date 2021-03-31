@@ -8,7 +8,7 @@ export const EntryBanner = () => {
         siteTitle="Service Canada Labs"
         headline="Make government work for you."
       />
-      <div className={"flex"}>
+      <div className={"flex container lg:mx-auto xl:mx-28"}>
         <ActionButton
           text={"Become a tester"}
           secondary
