@@ -20,3 +20,7 @@ variable "resource_group_name" {
 variable "TENANT_ID" {
     type = string
 }
+
+variable "TERRAFORM_PASS" {
+    type = string
+}
