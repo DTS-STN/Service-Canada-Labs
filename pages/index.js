@@ -97,50 +97,31 @@ export default function Home() {
         </section>
       </main>
 
-      {/* <footer>
-        <div>
-          <p>
-            Experiencing an issue with this product or have you spotted an
-            error?
-          </p>
-          <ActionButton
-            text={"Report a problem"}
-            secondary
-            dataCyButton={"report-problem-button"}
-          />
-        </div>
-
-        <ul>
-          <li>
-            <a href="#">Social media</a>
-          </li>
-          <li>
-            <a href="#">Mobile applications</a>
-          </li>
-          <li>
-            <a href="#">Terms and conditions</a>
-          </li>
-          <li>
-            <a href="#">Privacy</a>
-          </li>
-        </ul>
-
-        <img src="#" alt="canada.jpg"></img>
-      </footer> */}
       <Footer
-        socialMediaLink="https://www.canada.ca"
-        socialMediaText="Social media"
-        mobileLink="https://www.canada.ca"
-        mobileText="Mobile applications"
-        termsAndConditionsLink="https://www.canada.ca/en/transparency/terms.html"
-        termsAndConditionsText="Terms and conditions"
-        privacyLink="https://www.canada.ca/en/transparency/terms.html"
         privacyText="Privacy"
         reportBtnText="Report a problem"
         reportDescription="Experiencing an issue with this product or have you "
         reportDescriptionContinue="spotted an error?"
         footerLogoAltText="logo alt text"
         footerLogoImage="/wmms-blk.svg"
+        links={[
+          {
+            link: "https://www.canada.ca",
+            linkText: "Social media",
+          },
+          {
+            link: "https://www.canada.ca",
+            linkText: "Mobile applications",
+          },
+          {
+            link: "https://www.canada.ca/en/transparency/terms.html",
+            linkText: "Terms and conditions",
+          },
+          {
+            link: "https://www.canada.ca/en/transparency/terms.html",
+            linkText: "Privacy",
+          },
+        ]}
       />
     </div>
   );
