@@ -14,16 +14,18 @@ export function Header(props) {
 
   return (
     <div className="w-full  mt-6 ">
-      <div className="w-full h-auto flex flex-col md:flex-row justify-center  mt-4">
-        <div className="w-1/2  md:w-2/3 flex flex-col md:flex-row  justify-between relative">
-          <div className="md:h-9 h-6 w-40 ">
+      <div className="h-auto flex  md:flex-row justify-center  mt-4">
+        <div className=" md:w-2/3 flex  flex-col  lg:flex-col  xl:flex-row container mx-auto justify-between relative">
+          <div className="md:h-9 h-6 mb-4">
             <Image
-              className="h-full absolute bottom-0 left-0"
-              layout="fill"
+              className="h-full  bottom-0 left-0"
+              width={300}
+              height={80}
               src={props.headerLogoImage}
               alt={props.headerLogoAltText}
             />
           </div>
+
           <div>
             <SearchBar
               placeholder={"Search Canada.ca"}
