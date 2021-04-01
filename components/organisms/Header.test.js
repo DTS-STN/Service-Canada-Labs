@@ -5,5 +5,5 @@ import { Primary } from "./Header.stories";
 it("renders header component in Primary state", () => {
   render(<Primary {...Primary.args} />);
 
-  screen.getByAltText(Primary.args.headerCanadaCaAltText);
+  screen.getByAltText(Primary.args.headerLogoAltText);
 });

@@ -5,19 +5,18 @@ import { Primary } from "./Footer.stories";
 
 it("renders Footer in its primary state", () => {
   render(<Primary {...Primary.args} />);
-  const socialMediaLink = screen.getByText(Primary.args.socialMediaText);
-  const termsAndConditionsLink = screen.getByText(
-    Primary.args.termsAndConditionsText
-  );
-  const privacyLink = screen.getByText(Primary.args.privacyText);
 
-  const image = screen.getByAltText(Primary.args.footerCanadaCaAltText);
+  expect(screen.getByRole("button")).toHaveTextContent(
+    Primary.args.reportBtnText
+  );
+  expect(screen.getByText("Report a problem")).toBeTruthy();
+  expect(screen.getByAltText("Canada.ca logo")).toBeTruthy();
+  const text = screen.getByText(
+    "Experiencing an issue with this product or have you spotted an error?"
+  );
+  expect(text).toBeTruthy();
 
-  expect(socialMediaLink.getAttribute("href")).toBe(
-    Primary.args.socialMediaLink
-  );
-  expect(termsAndConditionsLink.getAttribute("href")).toBe(
-    Primary.args.termsAndConditionsLink
-  );
-  expect(privacyLink.getAttribute("href")).toBe(Primary.args.privacyLink);
+  Primary.args.links.forEach((value) => {
+    screen.getByText(value.linkText);
+  });
 });

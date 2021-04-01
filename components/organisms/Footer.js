@@ -10,7 +10,7 @@ import Image from "next/image";
 export function Footer(props) {
   return (
     <footer className="w-full mt-2">
-      <div className="w-full h-40 flex flex-col md:flex-row justify-center items-center bg-footer-blue bg-footer-parliament-image bg-no-repeat bg-right-bottom text-white">
+      <div className="w-full h-48 flex flex-col md:flex-row justify-center items-center bg-footer-blue bg-footer-parliament-image bg-no-repeat bg-right-bottom text-white">
         <div className="w-full flex flex-col mt-2 mb-2">
           <div className="w-full flex justify-center">
             <div className="w-1/2 md:w-2/3 ml-2 md:ml-0 mr-2 md:mr-0 flex justify-between items-center md:items-start mb-2">
@@ -31,8 +31,8 @@ export function Footer(props) {
           </div>
         </div>
       </div>
-      <div className="w-full h-auto flex flex-col md:flex-row justify-center items-center bg-footer-white mt-4">
-        <nav className="w-1/2  md:w-2/3 flex flex-col md:flex-row">
+      <div className="w-full h-auto flex flex-col md:flex-row justify-center items-center bg-footer-white mt-6">
+        <nav className="w-1/2  md:w-2/3 flex flex-col md:flex-row  justify-between">
           {props.links.map((value, index) => {
             return (
               <a
@@ -47,7 +47,7 @@ export function Footer(props) {
               </a>
             );
           })}
-          <div className="md:ml-32  md:pt-0 pt-6">
+          <div className="md:ml-32  md:pt-0 pt-6 ">
             <Image
               src={props.footerLogoImage}
               width={200}

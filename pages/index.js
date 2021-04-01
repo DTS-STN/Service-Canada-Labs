@@ -27,7 +27,11 @@ export default function Home() {
 
         <div>
           <a href="#">Français</a>
-          <input type="search" placeholder="Search Canada.ca"></input>
+          <SearchBar
+            placeholder={"Search Canada.ca"}
+            onChange={handleInputChange}
+            dataCy={"search-bar"}
+          />
         </div>
 
         <nav>Menu</nav>
@@ -44,12 +48,11 @@ export default function Home() {
               <ActionButton
                 text={"Become a tester"}
                 secondary
-                className={"w-36 mr-4"}
+                className={"mr-4"}
                 dataCyButton={"become-tester-button"}
               />
               <ActionButton
                 text={"Start testing"}
-                className={"w-36"}
                 dataCyButton={"start-testing-button"}
               />
             </div>
