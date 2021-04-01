@@ -1,6 +1,5 @@
 import React from "react";
 import { Layout } from "./Layout";
-import { EntryBanner } from "../molecules/EntryBanner";
 
 export default {
   title: "Components/Organisms/Layout",
@@ -27,5 +26,8 @@ export const NoBanner = Template.bind({});
 export const WithBanner = Template.bind({});
 
 WithBanner.args = {
-  banner: <EntryBanner />,
+  bannerTitle: "Banner Title",
+  bannerText: "Banner Text",
+  bannerStartTestingText: "Start testing",
+  bannerBecomeTesterText: "Become tester",
 };

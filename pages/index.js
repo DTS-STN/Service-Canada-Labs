@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { Layout } from "../components/organisms/Layout";
-import { EntryBanner } from "../components/molecules/EntryBanner";
 
 export default function Home() {
   return (
@@ -9,7 +8,12 @@ export default function Home() {
         <title>Alpha Site</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout banner={<EntryBanner />}>
+      <Layout
+        bannerTitle="Service Canada Labs"
+        bannerText="Make government work for you"
+        bannerBecomeTesterText="Become a Tester"
+        bannerStartTestingText="Start testing"
+      >
         <section>
           <h2>About us</h2>
           <p>

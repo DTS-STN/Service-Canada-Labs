@@ -2,29 +2,23 @@ import PropTypes from "prop-types";
 import Head from "next/head";
 import { ActionButton } from "../atoms/ActionButton";
 import { SearchBar } from "../atoms/SearchBar";
-import { useState } from "react";
+import { Banner } from "../atoms/Banner";
 
-export const Layout = ({ banner, children }) => {
-  //State for Search input
-  const [searchText, setSearchText] = useState(null);
-
-  //Handler for search input
-  function handleInputChange(e) {
-    setSearchText(e.target.value);
-  }
-
+export const Layout = ({
+  bannerText,
+  bannerTitle,
+  children,
+  bannerStartTestingText,
+  bannerBecomeTesterText,
+}) => {
   return (
-    <>
+    <div>
       <Head>
-        <title>Alpha Site</title>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0"
-        ></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <div className="overflow-x-hidden">
         <header>
-          <div className="container xxs:mx-auto lg:px-6 xxl:mx-auto">
+          <div className="lg:container xxs:px-6 xs:px-0 xs:mx-6 lg:mx-auto lg:px-6 xxl:mx-auto">
             <div>
               <a href="#">
                 <img src="#" alt="Governement of Canada "></img>
@@ -37,21 +31,42 @@ export const Layout = ({ banner, children }) => {
               <a href="#">Français</a>
               <SearchBar
                 placeholder={"Search Canada.ca"}
-                onChange={handleInputChange}
                 dataCy={"search-bar"}
               />
             </div>
 
             <nav>Menu</nav>
           </div>
-          {banner}
+          {bannerText && bannerTitle ? (
+            <section>
+              <Banner siteTitle={bannerTitle} headline={bannerText} />
+              <div className="bg-gray-light-200 py-6">
+                <div
+                  className={
+                    "flex lg:container xxs:px-6 xs:px-0 xs:mx-6 lg:mx-auto lg:px-6 xxl:mx-auto"
+                  }
+                >
+                  <ActionButton
+                    text={bannerBecomeTesterText}
+                    secondary
+                    className={"mr-4"}
+                    dataCyButton={"become-tester-button"}
+                  />
+                  <ActionButton
+                    text={bannerStartTestingText}
+                    dataCyButton={"start-testing-button"}
+                  />
+                </div>
+              </div>
+            </section>
+          ) : null}
         </header>
-        <div>
-          <div className="flex container xxs:mx-auto lg:px-6 xxl:mx-auto mt-10">
-            <main>{children}</main>
+        <main>
+          <div className="flex lg:container xxs:px-6 xs:px-0 xs:mx-6 lg:mx-auto lg:px-6 xxl:mx-auto mt-10">
+            <div>{children}</div>
           </div>
-        </div>
-        <footer className="container xxs:mx-auto lg:px-6 mt-10 xxl:mx-auto">
+        </main>
+        <footer className="lg:container xxs:px-6 xs:px-0 xs:mx-6 lg:mx-auto lg:px-6 mt-10 xxl:mx-auto">
           <div>
             <p>
               Experiencing an issue with this product or have you spotted an
@@ -82,13 +97,17 @@ export const Layout = ({ banner, children }) => {
           <img src="#" alt="canada.jpg"></img>
         </footer>
       </div>
-    </>
+    </div>
   );
 };
 
 Layout.propTypes = {
-  // Optional banner element outside default margins
-  banner: PropTypes.element,
+  // Optional banner elements outside default margins
+  bannerText: PropTypes.string,
+  bannerTitle: PropTypes.string,
+  bannerStartTestingText: PropTypes.string,
+  bannerBecomeTesterText: PropTypes.string,
+
   // Layout children elements
   children: PropTypes.oneOfType([
     PropTypes.string,
