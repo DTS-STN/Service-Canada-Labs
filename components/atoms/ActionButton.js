@@ -22,7 +22,7 @@ export function ActionButton(props) {
         props.disabled
           ? "bg-gray-light text-gray-600 border border-gray-md"
           : props.className
-      } text-sm px-4`}
+      } text-base font-body`}
       onClick={props.onClick}
       id={props.id}
       data-cy={props.dataCy || props.id}
@@ -47,7 +47,7 @@ ActionButton.propTypes = {
   /**
    * The text that the button will display
    */
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
 
   /**
    * Identify which button being clicked
