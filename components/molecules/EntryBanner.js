@@ -8,17 +8,19 @@ export const EntryBanner = () => {
         siteTitle="Service Canada Labs"
         headline="Make government work for you."
       />
-      <div className={"flex container lg:mx-auto xl:mx-28"}>
-        <ActionButton
-          text={"Become a tester"}
-          secondary
-          className={"mr-4"}
-          dataCyButton={"become-tester-button"}
-        />
-        <ActionButton
-          text={"Start testing"}
-          dataCyButton={"start-testing-button"}
-        />
+      <div className="bg-gray-light-200 py-6">
+        <div className={"flex container xxs:mx-auto lg:px-6 xxl:mx-auto"}>
+          <ActionButton
+            text={"Become a tester"}
+            secondary
+            className={"mr-4"}
+            dataCyButton={"become-tester-button"}
+          />
+          <ActionButton
+            text={"Start testing"}
+            dataCyButton={"start-testing-button"}
+          />
+        </div>
       </div>
     </section>
   );
