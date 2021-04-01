@@ -5,23 +5,26 @@ import Link from "next/link";
  *  Breadcrumb component
  */
 export function Breadcrumb(props) {
-  const listLenght = props.items.length - 1;
-
   return (
     <nav>
       <ul className="inline-flex text-custom-blue-blue font-body ">
-        {props.items.map((item, key) => {
-          return listLenght === key ? (
-            <li key={key} className="inline-flex">
-              <Link href={item.link}>{item.text}</Link>
-            </li>
-          ) : (
-            <li key={key} className="inline-flex">
-              <Link href={item.link}>{item.text}</Link>
-              <div className="text-gray-dark-100 text-xs mx-6">{">"}</div>
-            </li>
-          );
-        })}
+        <li>
+          <Link href="Canada.ca">Canada.ca</Link>
+        </li>
+        {props.items !== null
+          ? props.items.map((item, key) => {
+              return props.items.length === key ? (
+                <li key={key} className="inline-flex">
+                  <Link href={item.link}>{item.text}</Link>
+                </li>
+              ) : (
+                <li key={key} className="inline-flex">
+                  <Link href={item.link}>{item.text}</Link>
+                  <div className="text-gray-dark-100 text-xs mx-6">{">"}</div>
+                </li>
+              );
+            })
+          : null}
       </ul>
     </nav>
   );
@@ -43,5 +46,5 @@ Breadcrumb.propTypes = {
        */
       link: PropTypes.string,
     })
-  ).isRequired,
+  ),
 };
