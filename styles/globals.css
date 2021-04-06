@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind screens;
 
 @layer base {
   /* Font families */
@@ -13,7 +14,6 @@
   p {
     @apply font-body
   }
-
   /* Font sizes */
   h1 {
     @apply text-h1;
@@ -32,5 +32,44 @@
   }
   h6 {
     @apply text-base;
+  }
+}
+
+@layer utilities {
+  /*Default page layout*/
+  @screen xxs {
+    .layout-container {
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+    }
+  }
+  
+  @screen xs {
+    .layout-container {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+
+  @screen lg {
+    .layout-container {
+      max-width: theme("screens.lg");
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @screen xl {
+    .layout-container {
+      max-width: theme("screens.xl");
+    }
+  }
+
+  @screen xxl {
+    .layout-container {
+      max-width: theme("screens.xxl");
+    }
   }
 }

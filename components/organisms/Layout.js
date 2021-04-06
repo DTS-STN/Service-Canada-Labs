@@ -18,7 +18,7 @@ export const Layout = ({
       </Head>
       <div className="overflow-x-hidden">
         <header>
-          <div className="lg:container xxs:px-6 xs:px-0 xs:mx-6 lg:mx-auto lg:px-6 xxl:mx-auto">
+          <div className="layout-container ">
             <div>
               <a href="#">
                 <img src="#" alt="Governement of Canada "></img>
@@ -41,11 +41,7 @@ export const Layout = ({
             <section>
               <Banner siteTitle={bannerTitle} headline={bannerText} />
               <div className="bg-gray-light-200 py-6">
-                <div
-                  className={
-                    "flex lg:container xxs:px-6 xs:px-0 xs:mx-6 lg:mx-auto lg:px-6 xxl:mx-auto"
-                  }
-                >
+                <div className={"flex layout-container "}>
                   <ActionButton
                     text={bannerBecomeTesterText}
                     secondary
@@ -62,11 +58,11 @@ export const Layout = ({
           ) : null}
         </header>
         <main>
-          <div className="flex lg:container xxs:px-6 xs:px-0 xs:mx-6 lg:mx-auto lg:px-6 xxl:mx-auto mt-10">
+          <div className="layout-container mt-10">
             <div>{children}</div>
           </div>
         </main>
-        <footer className="lg:container xxs:px-6 xs:px-0 xs:mx-6 lg:mx-auto lg:px-6 mt-10 xxl:mx-auto">
+        <footer className="layout-container mt-10">
           <div>
             <p>
               Experiencing an issue with this product or have you spotted an
