@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind screens;
 
 @layer base {
   /* Font families */
@@ -13,7 +14,6 @@
   p {
     @apply font-body
   }
-
   /* Font sizes */
   h1 {
     @apply text-h1;
@@ -32,5 +32,30 @@
   }
   h6 {
     @apply text-base;
+  }
+}
+
+@layer utilities {
+  /*Default page layout*/
+  .layout-container {
+    @apply mx-6;
+  }
+
+  @screen xxs {
+    .layout-container {
+      @apply mx-6;
+    }
+  }
+  
+  @screen xs {
+    .layout-container {
+      @apply px-0;
+    }
+  }
+
+  @screen lg {
+    .layout-container {
+      @apply container mx-auto px-6;
+    }
   }
 }
