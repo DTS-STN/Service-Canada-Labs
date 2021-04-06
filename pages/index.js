@@ -7,16 +7,17 @@ import { Header } from "../components/organisms/Header";
 export default function Home() {
   return (
     <div>
-      <Head>
-        <title>Alpha Site</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <main>
+        <Head>
+          <title>Alpha Site</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <Header
-        headerLogoAltText="logo alt text"
-        headerLogoImage="/sig-blk-en.svg"
-      />
-      {/* <header>
+        <Header
+          headerLogoAltText="logo alt text"
+          headerLogoImage="/sig-blk-en.svg"
+        />
+        {/* <header>
         <div>
           <a href="#">
             <img src="#" alt="Governement of Canada "></img>
@@ -37,7 +38,6 @@ export default function Home() {
         <nav>Menu</nav>
       </header> */}
 
-      <main>
         <section>
           <div>
             <Banner
@@ -98,34 +98,34 @@ export default function Home() {
           <figure>Block</figure>
           <figure>Block</figure>
         </section>
-      </main>
 
-      <Footer
-        privacyText="Privacy"
-        reportBtnText="Report a problem"
-        reportDescription="Experiencing an issue with this product or have you "
-        reportDescriptionContinue="spotted an error?"
-        footerLogoAltText="logo alt text"
-        footerLogoImage="/wmms-blk.svg"
-        links={[
-          {
-            link: "https://www.canada.ca",
-            linkText: "Social media",
-          },
-          {
-            link: "https://www.canada.ca",
-            linkText: "Mobile applications",
-          },
-          {
-            link: "https://www.canada.ca/en/transparency/terms.html",
-            linkText: "Terms and conditions",
-          },
-          {
-            link: "https://www.canada.ca/en/transparency/terms.html",
-            linkText: "Privacy",
-          },
-        ]}
-      />
+        <Footer
+          privacyText="Privacy"
+          reportBtnText="Report a problem"
+          reportDescription="Experiencing an issue with this product or have you "
+          reportDescriptionContinue="spotted an error?"
+          footerLogoAltText="logo alt text"
+          footerLogoImage="/wmms-blk.svg"
+          links={[
+            {
+              link: "https://www.canada.ca",
+              linkText: "Social media",
+            },
+            {
+              link: "https://www.canada.ca",
+              linkText: "Mobile applications",
+            },
+            {
+              link: "https://www.canada.ca/en/transparency/terms.html",
+              linkText: "Terms and conditions",
+            },
+            {
+              link: "https://www.canada.ca/en/transparency/terms.html",
+              linkText: "Privacy",
+            },
+          ]}
+        />
+      </main>
     </div>
   );
 }
