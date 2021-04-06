@@ -36,7 +36,9 @@ resource "azurerm_app_service" "app-service-primary" {
   site_config {
     always_on = "true"
 
-    linux_fx_version  = "DOCKER|${var.production_docker_registry}/${var.production_docker_container}" #define the images to usecfor you application
+# TODO change docker values to production 
+
+    linux_fx_version  = "DOCKER|${var.staging_docker_registry}/${var.staging_docker_container}" #define the images to usecfor you application
 
     health_check_path = var.healthcheck_page # health check required in order that internal app service plan loadbalancer do not loadbalance on instance down
 
@@ -54,9 +56,9 @@ resource "azurerm_app_service" "app-service-primary" {
 
   app_settings = {
     "APP_SERVICE"                     = "true"
-    "DOCKER_REGISTRY_SERVER_URL"      = var.production_docker_registry
-    "DOCKER_REGISTRY_SERVER_USERNAME" = var.production_docker_registry_username
-    "DOCKER_REGISTRY_SERVER_PASSWORD" = var.production_docker_registry_password
+    "DOCKER_REGISTRY_SERVER_URL"      = var.staging_docker_registry
+    "DOCKER_REGISTRY_SERVER_USERNAME" = var.staging_docker_registry_username
+    "DOCKER_REGISTRY_SERVER_PASSWORD" = var.staging_docker_registry_password
     "SLOT_NAME"                       = "default"
 
   }
@@ -73,7 +75,7 @@ resource "azurerm_app_service" "app-service-secondary" {
   site_config {
     always_on = "true"
 
-    linux_fx_version  = "DOCKER|${var.production_docker_registry}/${var.production_docker_container}" #define the images to usecfor you application
+    linux_fx_version  = "DOCKER|${var.staging_docker_registry}/${var.staging_docker_container}" #define the images to usecfor you application
 
     health_check_path = var.healthcheck_page # health check required in order that internal app service plan loadbalancer do not loadbalance on instance down
 
@@ -91,9 +93,9 @@ resource "azurerm_app_service" "app-service-secondary" {
 
   app_settings = {
     "APP_SERVICE"                     = "true"
-    "DOCKER_REGISTRY_SERVER_URL"      = var.production_docker_registry
-    "DOCKER_REGISTRY_SERVER_USERNAME" = var.production_docker_registry_username
-    "DOCKER_REGISTRY_SERVER_PASSWORD" = var.production_docker_registry_password
+    "DOCKER_REGISTRY_SERVER_URL"      = var.staging_docker_registry
+    "DOCKER_REGISTRY_SERVER_USERNAME" = var.staging_docker_registry_username
+    "DOCKER_REGISTRY_SERVER_PASSWORD" = var.staging_docker_registry_password
     "SLOT_NAME"                       = "default"
 
   }

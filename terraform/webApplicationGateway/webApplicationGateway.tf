@@ -49,7 +49,7 @@ resource "azurerm_application_gateway" "application-gateway-primary" {
 
   ssl_certificate {
     name     = "dts-stn-wildcard"
-    data     = filebase64("../../temp/dts-stn-wildcard.pfx")
+    data     = filebase64("../temp/dts-stn-wildcard.pfx")
   }
 
   probe {
@@ -132,7 +132,7 @@ resource "azurerm_application_gateway" "application-gateway-secondary" {
 
   ssl_certificate {
     name     = "dts-stn-wildcard"
-    data     = filebase64("../../temp/dts-stn-wildcard.pfx")
+    data     = filebase64("../temp/dts-stn-wildcard.pfx")
   }
 
   probe {
