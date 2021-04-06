@@ -37,39 +37,25 @@
 
 @layer utilities {
   /*Default page layout*/
+  .layout-container {
+    @apply mx-6;
+  }
+
   @screen xxs {
     .layout-container {
-      margin-left: 1.5rem;
-      margin-right: 1.5rem;
+      @apply mx-6;
     }
   }
   
   @screen xs {
     .layout-container {
-      padding-left: 0px;
-      padding-right: 0px;
+      @apply px-0;
     }
   }
 
   @screen lg {
     .layout-container {
-      max-width: theme("screens.lg");
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-  }
-
-  @screen xl {
-    .layout-container {
-      max-width: theme("screens.xl");
-    }
-  }
-
-  @screen xxl {
-    .layout-container {
-      max-width: theme("screens.xxl");
+      @apply container mx-auto px-6;
     }
   }
 }
