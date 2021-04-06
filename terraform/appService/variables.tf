@@ -25,7 +25,7 @@ variable "secondary_diagnostic_storage_account_id" {
     type = string
 }
 
-variable "production_docker_container" {
+/*variable "production_docker_container" {
     type = string
 }
 
@@ -39,7 +39,7 @@ variable "production_docker_registry_username" {
 
 variable "production_docker_registry_password" {
     type = string
-}
+}*/
 
 variable "staging_docker_registry" {
     type = string
