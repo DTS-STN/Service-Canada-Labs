@@ -7,20 +7,19 @@ import Link from "next/link";
 export function Breadcrumb(props) {
   return (
     <nav>
-      <ul className="inline-flex text-custom-blue-blue font-body ">
-        <li>
-          <Link href="Canada.ca">Canada.ca</Link>
+      <ul className="text-custom-blue-blue text-base font-body">
+        <li className="inline-flex">
+          <Link href="https://www.canada.ca/">Canada.ca</Link>
         </li>
-        {props.items !== null
+
+        {props.items
           ? props.items.map((item, key) => {
-              return props.items.length === key ? (
-                <li key={key} className="inline-flex">
+              return (
+                <li key={key} className="inline-flex flex-shrink truncate">
+                  <span className="text-gray-dark-100 text-sm mx-6 pt-0.5">
+                    {">"}
+                  </span>
                   <Link href={item.link}>{item.text}</Link>
-                </li>
-              ) : (
-                <li key={key} className="inline-flex">
-                  <Link href={item.link}>{item.text}</Link>
-                  <div className="text-gray-dark-100 text-xs mx-6">{">"}</div>
                 </li>
               );
             })
