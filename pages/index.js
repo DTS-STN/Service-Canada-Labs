@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { Layout } from "../components/organisms/Layout";
+import { ActionButton } from "../components/atoms/ActionButton";
 
 export default function Home() {
   return (
@@ -14,6 +15,18 @@ export default function Home() {
         bannerBecomeTesterText="Become a Tester"
         bannerStartTestingText="Start testing"
       >
+        <div className="bg-gray-light-200 py-6 flex layout-container">
+          <ActionButton
+            text="Start testing"
+            secondary
+            className={"mr-4"}
+            dataCyButton={"become-tester-button"}
+          />
+          <ActionButton
+            text="Become tester"
+            dataCyButton={"start-testing-button"}
+          />
+        </div>
         <section>
           <h2>About us</h2>
           <p>
