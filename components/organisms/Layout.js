@@ -18,26 +18,24 @@ export const Layout = ({
     <div className="overflow-x-hidden">
       <header>
         <div className="layout-container">
-          <div>
-            <a href="#">
-              <img src="#" alt="Governement of Canada "></img>
-              <span lang="en">Government of Canada </span>
-              <span lang="fr">Gouvernment du Canada</span>
-            </a>
-          </div>
-
-          <div>
-            <a href="#">Français</a>
-            <SearchBar placeholder={"Search Canada.ca"} dataCy={"search-bar"} />
-          </div>
-
-          <nav>Menu</nav>
-          {bannerText && bannerTitle ? (
-            <Banner siteTitle={bannerTitle} headline={bannerText} />
-          ) : null}
+          <a href="#">
+            <img src="#" alt="Governement of Canada" />
+            <span lang="en">Government of Canada </span>
+            <span lang="fr">Gouvernment du Canada</span>
+          </a>
         </div>
+
+        <div className="layout-container">
+          <a href="#">Français</a>
+          <SearchBar placeholder={"Search Canada.ca"} dataCy={"search-bar"} />
+        </div>
+
+        <nav className="layout-container">Menu</nav>
+        {bannerText && bannerTitle ? (
+          <Banner siteTitle={bannerTitle} headline={bannerText} />
+        ) : null}
       </header>
-      <main className="layout-container mt-10">{children}</main>
+      <main>{children}</main>
       <footer className="layout-container mt-10">
         <div>
           <p>
@@ -82,16 +80,6 @@ Layout.propTypes = {
    * title of the banner
    */
   bannerTitle: PropTypes.string,
-
-  /**
-   * text for start testing button
-   */
-  bannerStartTestingText: PropTypes.string,
-
-  /**
-   * text for the become tester button
-   */
-  bannerBecomeTesterText: PropTypes.string,
 
   /**
    * child elements that will constitute the page

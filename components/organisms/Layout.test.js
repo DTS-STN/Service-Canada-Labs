@@ -7,20 +7,24 @@ expect.extend(toHaveNoViolations);
 
 describe("Layout", () => {
   it("renders without the banner", () => {
-    const noBanner = render(<NoBanner {...NoBanner.args} />);
-    expect(noBanner).toBeTruthy();
+    render(<NoBanner {...NoBanner.args} />);
+    screen.getByTestId("child-element");
   });
 
   it("renders with the banner", () => {
     render(<WithBanner {...WithBanner.args} />);
-    const banner = screen.getByTitle("Home banner");
-    expect(banner).toBeTruthy();
+    screen.getByTitle("Home banner");
   });
 
   it("has no a11y violations", async () => {
     const { container } = render(<NoBanner {...NoBanner.args} />);
     const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
 
+  it("has no a11y violations with banner", async () => {
+    const { container } = render(<WithBanner {...WithBanner.args} />);
+    const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
 });
