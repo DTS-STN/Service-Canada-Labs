@@ -9,18 +9,18 @@ import Image from "next/image";
 
 export function Footer(props) {
   return (
-    <footer className="w-full mt-2">
-      <div className="w-full h-48 flex flex-col md:flex-row justify-center items-center bg-footer-blue bg-footer-parliament-image bg-no-repeat bg-right-bottom text-white">
-        <div className="w-full flex flex-col mt-2 mb-2">
-          <div className="w-full flex justify-center">
-            <div className="w-1/2 md:w-2/3 ml-2 md:ml-0 mr-2 md:mr-0 flex justify-between items-center md:items-start mb-2">
+    <div>
+      <div className="w-full h-48 flex flex-col md:flex-row  bg-footer-blue bg-footer-parliament-image bg-no-repeat bg-right-bottom text-white">
+        <div className="w-full flex flex-col mt-2 mb-2 layout-container pt-4">
+          <div className="w-full flex ">
+            <div className="ml-2 md:ml-0 mr-2 md:mr-0 flex md:items-start mb-2">
               <p className="mb-4 mt-2 text-sm">
                 {props.reportDescription}
                 <br></br> {props.reportDescriptionContinue}
               </p>
             </div>
           </div>
-          <div className="w-full flex justify-center">
+          <div className="w-full flex ">
             <div className="w-1/2  md:w-2/3 ml-2 md:ml-0 mr-2 md:mr-0 flex justify-between items-center md:items-start mb-2">
               <ActionButton
                 text={props.reportBtnText}
@@ -31,12 +31,12 @@ export function Footer(props) {
           </div>
         </div>
       </div>
-      <div className="w-full h-auto flex flex-col md:flex-row justify-center items-center bg-footer-white mt-6">
-        <nav className="w-1/2  md:w-2/3 flex flex-col md:flex-row  justify-between">
+      <div className="w-full h-auto flex flex-col md:flex-row  items-center bg-footer-white mt-6  justify-between layout-container  ">
+        <nav className="w-full flex flex-col md:flex-row  justify-between ">
           {props.links.map((value, index) => {
             return (
               <a
-                className="text-canada-ca-link-colour p-2 md:p-4  hover:underline"
+                className="text-canada-ca-link-colour p-2 md:pt-4 md:pr-4  md:pb-4   hover:underline"
                 key={index}
                 href={value.link}
                 style={{
@@ -47,7 +47,7 @@ export function Footer(props) {
               </a>
             );
           })}
-          <div className="md:ml-32  md:pt-0 pt-6 ">
+          <div className=" md:ml-32  md:pt-0 pt-6 ">
             <Image
               src={props.footerLogoImage}
               width={200}
@@ -57,7 +57,7 @@ export function Footer(props) {
           </div>
         </nav>
       </div>
-    </footer>
+    </div>
   );
 }
 

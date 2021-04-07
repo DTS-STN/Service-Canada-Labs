@@ -15,7 +15,7 @@ export function Header(props) {
   return (
     <div className="w-full  mt-6 ">
       <div className="h-auto flex  md:flex-row justify-center  mt-4">
-        <div className=" md:w-2/3 flex  flex-col  lg:flex-col  xl:flex-row container mx-auto justify-between relative">
+        <div className="flex  flex-col  lg:flex-col  xl:flex-row container mx-auto justify-between relative">
           <div className="md:h-9 h-6 mb-4">
             <Image
               className="h-full  bottom-0 left-0"
@@ -34,11 +34,6 @@ export function Header(props) {
             />
           </div>
         </div>
-      </div>
-
-      <div className="grid grid-cols-1 divide-y divide-black-500">
-        <div className="mt-4"></div>
-        <div className="mb-4"></div>
       </div>
     </div>
   );

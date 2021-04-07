@@ -22,7 +22,8 @@ module.exports = {
       sm: "450px",
       md: "550px",
       lg: "768px",
-      xl: "1024px",
+      xl: "992px",
+      xxl: "1200px",
     },
     extend: {
     backgroundImage: theme => ({
@@ -35,6 +36,7 @@ module.exports = {
           light: '#1492B4',
           dark: '#26374a',
         },
+        "gray-light-200": "#f5f5f5",
         "gray-light-100": "#e0e0e0",
         "gray-light": "#EFEFEF",
         "gray-md": "#CFCFCF",
