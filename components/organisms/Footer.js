@@ -9,7 +9,7 @@ import Image from "next/image";
 
 export function Footer(props) {
   return (
-    <div>
+    <div className="w-full mt-4">
       <div className="w-full h-48 flex flex-col md:flex-row  bg-footer-blue bg-footer-parliament-image bg-no-repeat bg-right-bottom text-white">
         <div className="w-full flex flex-col mt-2 mb-2 layout-container pt-4">
           <div className="w-full flex ">
@@ -32,7 +32,7 @@ export function Footer(props) {
         </div>
       </div>
       <div className="w-full h-auto flex flex-col md:flex-row  items-center bg-footer-white mt-6  justify-between layout-container  ">
-        <nav className="w-full flex flex-col md:flex-row  justify-between ">
+        <div className="w-full flex flex-col md:flex-row  justify-between ">
           {props.links.map((value, index) => {
             return (
               <a
@@ -55,7 +55,7 @@ export function Footer(props) {
               alt={props.footerLogoAltText}
             />
           </div>
-        </nav>
+        </div>
       </div>
     </div>
   );

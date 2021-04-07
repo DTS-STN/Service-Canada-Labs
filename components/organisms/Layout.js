@@ -25,10 +25,8 @@ export const Layout = ({
               headerLogoImage="/sig-blk-en.svg"
             />
           </div>
-
           <div className="mb-2 border-t pb-2 mt-4"></div>
           <nav className="layout-container ">Menu</nav>
-
           {bannerText && bannerTitle ? (
             <section>
               <Banner siteTitle={bannerTitle} headline={bannerText} />
@@ -49,42 +47,40 @@ export const Layout = ({
             </section>
           ) : null}
         </header>
-
         <main>
           <div className="layout-container mt-10">
             <div>{children}</div>
           </div>
         </main>
+        <footer>
+          <Footer
+            privacyText="Privacy"
+            reportBtnText="Report a problem"
+            reportDescription="Experiencing an issue with this product or have you "
+            reportDescriptionContinue="spotted an error?"
+            footerLogoAltText="logo alt text"
+            footerLogoImage="/wmms-blk.svg"
+            links={[
+              {
+                link: "https://www.canada.ca",
+                linkText: "Social media",
+              },
+              {
+                link: "https://www.canada.ca",
+                linkText: "Mobile applications",
+              },
+              {
+                link: "https://www.canada.ca/en/transparency/terms.html",
+                linkText: "Terms and conditions",
+              },
+              {
+                link: "https://www.canada.ca/en/transparency/terms.html",
+                linkText: "Privacy",
+              },
+            ]}
+          ></Footer>
+        </footer>
       </div>
-
-      <footer>
-        <Footer
-          privacyText="Privacy"
-          reportBtnText="Report a problem"
-          reportDescription="Experiencing an issue with this product or have you "
-          reportDescriptionContinue="spotted an error?"
-          footerLogoAltText="logo alt text"
-          footerLogoImage="/wmms-blk.svg"
-          links={[
-            {
-              link: "https://www.canada.ca",
-              linkText: "Social media",
-            },
-            {
-              link: "https://www.canada.ca",
-              linkText: "Mobile applications",
-            },
-            {
-              link: "https://www.canada.ca/en/transparency/terms.html",
-              linkText: "Terms and conditions",
-            },
-            {
-              link: "https://www.canada.ca/en/transparency/terms.html",
-              linkText: "Privacy",
-            },
-          ]}
-        />
-      </footer>
     </div>
   );
 };

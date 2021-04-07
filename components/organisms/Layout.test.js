@@ -17,7 +17,7 @@ describe("Layout", () => {
     expect(banner).toBeTruthy();
   });
 
-  xit("has no a11y violations", async () => {
+  it("has no a11y violations", async () => {
     const { container } = render(<NoBanner {...NoBanner.args} />);
     const results = await axe(container);
 
