@@ -21,7 +21,7 @@ export const Layout = ({
         <header>
           <div className="layout-container ">
             <Header
-              headerLogoAltText="logo alt text"
+              headerLogoAltText="Symbol of the Government of Canada"
               headerLogoImage="/sig-blk-en.svg"
             />
           </div>
@@ -56,9 +56,8 @@ export const Layout = ({
           <Footer
             privacyText="Privacy"
             reportBtnText="Report a problem"
-            reportDescription="Experiencing an issue with this product or have you "
-            reportDescriptionContinue="spotted an error?"
-            footerLogoAltText="logo alt text"
+            reportDescription="Experiencing an issue with this product or have you spotted an error?"
+            footerLogoAltText="Symbol of the Government of Canada"
             footerLogoImage="/wmms-blk.svg"
             links={[
               {

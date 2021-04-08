@@ -45,9 +45,9 @@ Primary.args = {
     },
   ],
 
-  footerLogoAltText: "Canada.ca logo",
+  footerLogoAltText: "Symbol of the Government of Canada",
   footerLogoImage: logo,
   reportBtnText: "Report a problem",
-  reportDescription: "Experiencing an issue with this product or have you ",
-  reportDescriptionContinue: "spotted an error?",
+  reportDescription:
+    "Experiencing an issue with this product or have you spotted an error?",
 };

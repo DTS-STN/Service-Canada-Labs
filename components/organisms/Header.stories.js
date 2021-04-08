@@ -10,6 +10,6 @@ const Template = (args) => <Header {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  headerLogoAltText: "Canada.ca logo",
+  headerLogoAltText: "Symbol of the Government of Canada",
   headerLogoImage: logo,
 };

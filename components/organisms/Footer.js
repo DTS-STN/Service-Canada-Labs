@@ -1,4 +1,3 @@
-import { format } from "prettier";
 import PropTypes from "prop-types";
 import { ActionButton } from "../atoms/ActionButton";
 import Image from "next/image";
@@ -10,13 +9,12 @@ import Image from "next/image";
 export function Footer(props) {
   return (
     <div className="w-full mt-4">
-      <div className="w-full h-48 flex flex-col md:flex-row  bg-footer-blue bg-footer-parliament-image bg-no-repeat bg-right-bottom text-white">
-        <div className="w-full flex flex-col mt-2 mb-2 layout-container pt-4">
+      <div className="w-full h-48 flex flex-col md:flex-row  bg-dk-blue bg-footer-parliament-image bg-no-repeat bg-right-bottom text-white">
+        {/* <div className="w-full flex flex-col mt-2 mb-2 layout-container pt-4">
           <div className="w-full flex ">
             <div className="ml-2 md:ml-0 mr-2 md:mr-0 flex md:items-start mb-2">
               <p className="mb-4 mt-2 text-sm">
                 {props.reportDescription}
-                <br></br> {props.reportDescriptionContinue}
               </p>
             </div>
           </div>
@@ -29,22 +27,19 @@ export function Footer(props) {
               />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="w-full h-auto flex flex-col md:flex-row  items-center bg-footer-white mt-6  justify-between layout-container  ">
         <div className="w-full flex flex-col md:flex-row  justify-between layout-container   ">
           {props.links.map((value, index) => {
             return (
-              <a
-                className="text-canada-ca-link-colour p-2 md:pt-4 md:pr-4  md:pb-4   hover:underline"
-                key={index}
-                href={value.link}
-                style={{
-                  height: "33%",
-                }}
-              >
-                {value.linkText}
-              </a>
+              <ul>
+                <li className="text-canada-ca-link-colour p-2 md:pt-4 md:pr-4  md:pb-4   hover:underline">
+                  <a key={index} href={value.link}>
+                    {value.linkText}
+                  </a>
+                </li>
+              </ul>
             );
           })}
           <div className=" md:ml-32  md:pt-0 pt-6 ">
@@ -76,11 +71,6 @@ Footer.propTypes = {
    * report description
    */
   reportDescription: PropTypes.string.isRequired,
-
-  /**
-   * report description continue with line break between
-   */
-  reportDescriptionContinue: PropTypes.string.isRequired,
 
   /**
    * report button text

@@ -45,7 +45,6 @@ module.exports = {
         'dk-blue': '#26374a',
         'hr-red-bar': '#AE3B43',
         "canada-ca-link-colour": "#7834BC",
-        "footer-blue": "#26374a",
       },
     },
   },
