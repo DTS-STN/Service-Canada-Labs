@@ -6,20 +6,31 @@ import Link from "next/link";
  */
 export function Breadcrumb(props) {
   return (
-    <nav>
-      <ul className="text-custom-blue-blue text-base font-body">
-        <li className="inline-flex">
-          <Link href="https://www.canada.ca/">Canada.ca</Link>
+    <nav aria-label="breadcrumbs">
+      <ul className="block text-custom-blue-dark text-base font-body">
+        <li className="inline-block min-w-0 max-w-full truncate">
+          <Link href="https://www.canada.ca/">
+            <a className="hover:text-custom-blue-link visited:text-purple-700 underline">
+              Canada.ca
+            </a>
+          </Link>
         </li>
 
         {props.items
           ? props.items.map((item, key) => {
               return (
-                <li key={key} className="inline-flex flex-shrink truncate">
-                  <span className="text-gray-dark-100 text-sm mx-6 pt-0.5">
+                <li
+                  key={key}
+                  className="inline-block min-w-0 max-w-full truncate"
+                >
+                  <span className="text-gray-dark-100 text-xxs mx-6">
                     {">"}
                   </span>
-                  <Link href={item.link}>{item.text}</Link>
+                  <Link href={item.link}>
+                    <a className="hover:text-custom-blue-link visited:text-purple-700 underline">
+                      {item.text}
+                    </a>
+                  </Link>
                 </li>
               );
             })

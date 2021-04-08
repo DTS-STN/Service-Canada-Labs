@@ -14,6 +14,6 @@ WithItems.args = {
   items: [
     { text: "Link1", link: "/" },
     { text: "Link2", link: "/" },
-    { text: "Link33333333333333333333333", link: "/" },
+    { text: "Link3", link: "/" },
   ],
 };

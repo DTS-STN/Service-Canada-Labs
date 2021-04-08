@@ -1,13 +1,22 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { axe, toHaveNoViolations } from "jest-axe";
-import { Primary } from "./Breadcrumb.stories";
+import { Primary, WithItems } from "./Breadcrumb.stories";
 
 expect.extend(toHaveNoViolations);
 
 describe("BreadCrumb", () => {
   it("renders primary", () => {
-    render(<Primary {...Primary.args} />);
+    const primary = render(<Primary {...Primary.args} />);
+    expect(primary).toBeTruthy();
+  });
+
+  it("renders breadcrumb with items", () => {
+    render(<WithItems {...WithItems.args} />);
+
+    WithItems.args.items.forEach((value) => {
+      screen.getByText(value.text);
+    });
   });
 
   it("has no a11y violations", async () => {

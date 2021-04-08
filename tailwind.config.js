@@ -7,6 +7,7 @@ module.exports = {
       body: ['Noto sans'],
     },
     fontSize: {
+      xxs: ["13px", "16px"],
       sm: ["16px", "22px"],
       base: ["18px", "28px"],
       p: ["20px", "30px"],
@@ -34,6 +35,7 @@ module.exports = {
           blue: '#2572B4',
           light: '#1492B4',
           dark: '#26374a',
+          link: '#0535d2',
         },
         "gray-light-200": "#f5f5f5",
         "gray-light-100": "#e0e0e0",
@@ -49,7 +51,8 @@ module.exports = {
   },
   variants: {
     extend: {
-      backgroundColor: ['active']
+      backgroundColor: ['active'],
+      textColor: ['visited'],
     },
   },
   plugins: [
