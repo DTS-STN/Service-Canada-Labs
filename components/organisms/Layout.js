@@ -55,7 +55,9 @@ export const Layout = ({ bannerText, bannerTitle, children }) => {
 
         <ul>
           <li>
-            <a href="#">{t("footerSocialMedia")}</a>
+            <a href="#" data-cy="social-media-link">
+              {t("footerSocialMedia")}
+            </a>
           </li>
           <li>
             <a href="#">{t("footerMobileApplications")}</a>
