@@ -36,7 +36,9 @@ export const Layout = ({
 
             <div>
               <Link key={language} href={asPath} locale={language}>
-                {language === "en" ? "English" : "Français"}
+                <a data-cy="toggle-language-link">
+                  {language === "en" ? "English" : "Français"}
+                </a>
               </Link>
               <SearchBar
                 placeholder={t("searchBarPlaceholder")}
@@ -83,7 +85,9 @@ export const Layout = ({
 
           <ul>
             <li>
-              <a href="#">{t("footerSocialMedia")}</a>
+              <a href="#" data-cy="social-media-link">
+                {t("footerSocialMedia")}
+              </a>
             </li>
             <li>
               <a href="#">{t("footerMobileApplications")}</a>
