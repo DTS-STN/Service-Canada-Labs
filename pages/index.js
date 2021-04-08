@@ -1,54 +1,43 @@
 import Head from "next/head";
 import { Layout } from "../components/organisms/Layout";
+import { useI18n } from "next-rosetta";
 
 export default function Home() {
+  const { t } = useI18n();
+
   return (
     <div>
       <Head>
-        <title>Alpha Site</title>
+        <title>{t("siteTitle")}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout
-        bannerTitle="Service Canada Labs"
-        bannerText="Make government work for you"
-        bannerBecomeTesterText="Become a Tester"
-        bannerStartTestingText="Start testing"
+        bannerTitle={t("bannerTitle")}
+        bannerText={t("bannerText")}
+        bannerBecomeTesterText={t("bannerBecomeTester")}
+        bannerStartTestingText={t("bannerStartTesting")}
       >
         <section>
-          <h2>About us</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-            consectetur urna nec tempor tristique. Vestibulum ante ipsum primis
-            in faucibus orci luctus et ultrices posuere cubilia curae; Nulla at
-            condimentum odio, quis porttitor eros. Quisque laoreet pretium
-            purus, sed maximus turpis. Quisque ut magna vel dui placerat aliquet
-            in non orci.
-          </p>
+          <h2>{t("aboutUsHeading")}</h2>
+          <p>{t("aboutUsContent")}</p>
 
           <figure>Block</figure>
 
           <figure>
             Block
-            <figcaption>
-              Diagram that shows what we do and how user feedback gets
-              transformed in to a service to Canadians - and/or - Benefits of
-              joining the user pool for testers
-            </figcaption>
+            <figcaption>{t("figCaption")}</figcaption>
           </figure>
         </section>
 
         <section>
-          <h3>Contact us</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-            consectetur urna nec tempor tristique.
-          </p>
+          <h3>{t("contactUsHeading")}</h3>
+          <p>{t("contactUsContent")}</p>
           <a href="#">john.doe@example.com</a>
           <figure>Block</figure>
         </section>
 
         <section>
-          <h4>Featured prototypes</h4>
+          <h4>{t("featuredPrototypesHeading")}</h4>
           <figure>Block</figure>
           <figure>Block</figure>
           <figure>Block</figure>
@@ -56,4 +45,10 @@ export default function Home() {
       </Layout>
     </div>
   );
+}
+
+export async function getStaticProps(context) {
+  const locale = context.locale || context.defaultLocale;
+  const { table = {} } = await import(`../i18n/${locale}`); // Import locale
+  return { props: { table } }; // Passed to `/pages/_app.js`
 }

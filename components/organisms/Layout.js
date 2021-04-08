@@ -3,6 +3,9 @@ import Head from "next/head";
 import { ActionButton } from "../atoms/ActionButton";
 import { SearchBar } from "../atoms/SearchBar";
 import { Banner } from "../atoms/Banner";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useI18n } from "next-rosetta";
 
 export const Layout = ({
   bannerText,
@@ -11,6 +14,10 @@ export const Layout = ({
   bannerStartTestingText,
   bannerBecomeTesterText,
 }) => {
+  const { locale, locales, asPath } = useRouter(); // Get current locale and locale list
+  const { t } = useI18n();
+  const language = locale === "en" ? "fr" : "en";
+
   return (
     <div>
       <Head>
@@ -28,9 +35,11 @@ export const Layout = ({
             </div>
 
             <div>
-              <a href="#">Français</a>
+              <Link key={language} href={asPath} locale={language}>
+                {language === "en" ? "English" : "Français"}
+              </Link>
               <SearchBar
-                placeholder={"Search Canada.ca"}
+                placeholder={t("searchBarPlaceholder")}
                 dataCy={"search-bar"}
               />
             </div>
@@ -64,12 +73,9 @@ export const Layout = ({
         </main>
         <footer className="layout-container mt-10">
           <div>
-            <p>
-              Experiencing an issue with this product or have you spotted an
-              error?
-            </p>
+            <p>{t("footerReportProblem")}</p>
             <ActionButton
-              text={"Report a problem"}
+              text={t("footerReportProblemButtonString")}
               secondary
               dataCyButton={"report-problem-button"}
             />
@@ -77,16 +83,16 @@ export const Layout = ({
 
           <ul>
             <li>
-              <a href="#">Social media</a>
+              <a href="#">{t("footerSocialMedia")}</a>
             </li>
             <li>
-              <a href="#">Mobile applications</a>
+              <a href="#">{t("footerMobileApplications")}</a>
             </li>
             <li>
-              <a href="#">Terms and conditions</a>
+              <a href="#">{t("footerTermsAndConditions")}</a>
             </li>
             <li>
-              <a href="#">Privacy</a>
+              <a href="#">{t("footerPrivacy")}</a>
             </li>
           </ul>
 
