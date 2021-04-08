@@ -5,15 +5,15 @@ import PropTypes from "prop-types";
  */
 export function SearchBar(props) {
   return (
-    <div className="inline-flex" data-cy={props.dataCy}>
+    <div className="inline-flex w-full" data-cy={props.dataCy}>
       <form
-        className="inline-flex border border-solid border-gray-light-100"
+        className="w-full inline-flex border border-solid border-gray-light-100"
         onSubmit={props.onSubmit}
       >
         <input
           type="text"
           placeholder={props.placeholder}
-          className="placeholder-text-gray text-text-gray font-body py-1 px-2 w-72 focus:outline-none"
+          className="placeholder-text-gray text-text-gray font-body py-1 px-2 w-72 focus:outline-none w-full"
           onChange={props.onChange}
         />
 

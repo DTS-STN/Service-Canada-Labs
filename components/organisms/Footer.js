@@ -32,7 +32,7 @@ export function Footer(props) {
         </div>
       </div>
       <div className="w-full h-auto flex flex-col md:flex-row  items-center bg-footer-white mt-6  justify-between layout-container  ">
-        <div className="w-full flex flex-col md:flex-row  justify-between ">
+        <div className="w-full flex flex-col md:flex-row  justify-between layout-container   ">
           {props.links.map((value, index) => {
             return (
               <a
