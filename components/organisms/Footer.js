@@ -26,13 +26,13 @@ export function Footer(props) {
       </div>
       <div className="w-full h-auto flex flex-col md:flex-row  items-center bg-footer-white mt-6  justify-between layout-container ">
         <div className="w-full flex flex-col md:flex-row  justify-between mr-6  ">
-          <ul className="w-full flex flex-col md:flex-row  list-disc  ">
+          <ul className="w-full flex flex-col md:flex-row  list-inside md:list-outside list-disc  ">
             {" "}
             {props.links.map((value, index) => {
               return (
                 <li
                   key={index}
-                  className="text-canada-ca-link-colour p-2 md:pt-4 md:pr-4  md:pb-4  w-full hover:underline"
+                  className="text-canada-ca-link-colour p-2 md:pt-4 md:pr-4  md:pb-4  w-full hover:underline "
                 >
                   <a href={value.link}>{value.linkText}</a>
                 </li>
