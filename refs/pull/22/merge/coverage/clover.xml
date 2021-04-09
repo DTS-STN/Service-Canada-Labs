@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1617978477103" clover="3.2.0">
-  <project timestamp="1617978477103" name="All files">
+<coverage generated="1617978764359" clover="3.2.0">
+  <project timestamp="1617978764359" name="All files">
     <metrics statements="56" coveredstatements="50" conditionals="25" coveredconditionals="22" methods="24" coveredmethods="19" elements="105" coveredelements="91" complexity="0" loc="56" ncloc="56" packages="6" files="20" classes="20"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -94,7 +94,7 @@
         <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="10" count="2" type="stmt"/>
         <line num="11" count="5" type="stmt"/>
-        <line num="108" count="2" type="stmt"/>
+        <line num="103" count="2" type="stmt"/>
       </file>
       <file name="Layout.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/organisms/Layout.stories.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
