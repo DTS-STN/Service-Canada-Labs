@@ -45,6 +45,41 @@ Primary.args = {
     },
   ],
 
+  footerBoxLinks: [
+    {
+      footerBoxlink: "https://some-link-11.com",
+      footerBoxLinkText: "some-link-11",
+    },
+    {
+      footerBoxlink: "https://some-link-22.com",
+      footerBoxLinkText: "some-lin-22",
+    },
+    {
+      footerBoxlink: "https://some-link-33.com",
+      footerBoxLinkText: "some-link-33",
+    },
+    {
+      footerBoxlink: "https://some-link-44.com",
+      footerBoxLinkText: "some-link-44",
+    },
+    {
+      footerBoxlink: "https://some-link-55.com",
+      footerBoxLinkText: "some-link-55",
+    },
+    {
+      footerBoxlink: "https://some-link-66.com",
+      footerBoxLinkText: "some-link-66",
+    },
+    {
+      footerBoxlink: "https://some-link-77.com",
+      footerBoxLinkText: "some-link-77",
+    },
+    {
+      footerBoxlink: "https://some-link-88.com",
+      footerBoxLinkText: "some-link-88",
+    },
+  ],
+
   footerLogoAltText: "Symbol of the Government of Canada",
   footerLogoImage: logo,
   reportBtnText: "Report a problem",

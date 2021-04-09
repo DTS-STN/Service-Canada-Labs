@@ -6,15 +6,13 @@ import { Primary } from "./Footer.stories";
 it("renders Footer in its primary state", () => {
   render(<Primary {...Primary.args} />);
 
-  expect(screen.getByRole("button")).toHaveTextContent(
-    Primary.args.reportBtnText
-  );
-  expect(screen.getByText("Report a problem")).toBeTruthy();
-  expect(screen.getByAltText("Canada.ca logo")).toBeTruthy();
-  const text = screen.getByText(
-    "Experiencing an issue with this product or have you spotted an error?"
-  );
-  expect(text).toBeTruthy();
+  expect(
+    screen.getByAltText("Symbol of the Government of Canada")
+  ).toBeTruthy();
+
+  Primary.args.footerBoxLinks.forEach((value) => {
+    screen.getByText(value.footerBoxLinkText);
+  });
 
   Primary.args.links.forEach((value) => {
     screen.getByText(value.linkText);

@@ -48,15 +48,12 @@ export const Layout = ({
           ) : null}
         </header>
         <main>
-          <div className="layout-container mt-10">
+          <div className="layout-container mt-10 mb-4">
             <div>{children}</div>
           </div>
         </main>
         <footer>
           <Footer
-            privacyText="Privacy"
-            reportBtnText="Report a problem"
-            reportDescription="Experiencing an issue with this product or have you spotted an error?"
             footerLogoAltText="Symbol of the Government of Canada"
             footerLogoImage="/wmms-blk.svg"
             links={[
@@ -75,6 +72,50 @@ export const Layout = ({
               {
                 link: "https://www.canada.ca/en/transparency/terms.html",
                 linkText: "Privacy",
+              },
+            ]}
+            footerBoxLinks={[
+              {
+                footerBoxlink:
+                  "https://www.canada.ca/en/revenue-agency/corporate/contact-information.html",
+                footerBoxLinkText: "Contact us",
+              },
+              {
+                footerBoxlink: "https://www.canada.ca/en/news.html",
+                footerBoxLinkText: "News",
+              },
+              {
+                footerBoxlink: "https://pm.gc.ca/en",
+                footerBoxLinkText: "Prime Minister",
+              },
+              {
+                footerBoxlink: "https://www.canada.ca/en/government/dept.html",
+                footerBoxLinkText: "Departments and agencies",
+              },
+
+              {
+                footerBoxlink:
+                  "https://www.canada.ca/en/government/system/laws.html",
+                footerBoxLinkText: "Treaties, laws and regulations",
+              },
+              {
+                footerBoxlink:
+                  "https://www.canada.ca/en/government/system.html",
+                footerBoxLinkText: "How goverment works",
+              },
+              {
+                footerBoxlink:
+                  "https://www.canada.ca/en/government/publicservice.html",
+                footerBoxLinkText: "Public service and military",
+              },
+              {
+                footerBoxlink:
+                  "https://www.canada.ca/en/transparency/reporting.html",
+                footerBoxLinkText: "Goverment-wide reporting",
+              },
+              {
+                footerBoxlink: "https://open.canada.ca/en",
+                footerBoxLinkText: "Open Goverment",
               },
             ]}
           ></Footer>
