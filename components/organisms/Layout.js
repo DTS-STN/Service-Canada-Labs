@@ -9,30 +9,25 @@ import { Header } from "../organisms/Header";
  */
 export const Layout = ({ bannerText, bannerTitle, children }) => {
   return (
-    <div>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
-      <div className="overflow-x-hidden">
-        <header>
-          <div className="layout-container ">
-            <Header
-              headerLogoAltText="Symbol of the Government of Canada"
-              headerLogoImage="/sig-blk-en.svg"
-            />
-          </div>
-          <div className="mb-2 border-t pb-2 mt-4"></div>
-          <nav className="layout-container">Menu</nav>
-          {bannerText && bannerTitle ? (
-            <Banner siteTitle={bannerTitle} headline={bannerText} />
-          ) : null}
-        </header>
-        <main>
-          <div className="layout-container mt-10 mb-4">
-            <div>{children}</div>
-          </div>
-        </main>
-      </div>
+    <div className="overflow-x-hidden">
+      <header>
+        <div className="layout-container ">
+          <Header
+            headerLogoAltText="Symbol of the Government of Canada"
+            headerLogoImage="/sig-blk-en.svg"
+          />
+        </div>
+        <div className="mb-2 border-t pb-2 mt-4"></div>
+        <nav className="layout-container">Menu</nav>
+        {bannerText && bannerTitle ? (
+          <Banner siteTitle={bannerTitle} headline={bannerText} />
+        ) : null}
+      </header>
+      <main>
+        <div className="layout-container mt-10 mb-4">
+          <div>{children}</div>
+        </div>
+      </main>
 
       <footer>
         <Footer
