@@ -6,7 +6,7 @@ describe("App", () => {
     it("renders without crashing", () => {
         render(<App />);
         expect(
-            screen.getByRole("heading", { name: "Service Canada Labs" })
+            screen.getByRole("heading", { name: "bannerTitle" })
         ).toBeInTheDocument();
     });
 });

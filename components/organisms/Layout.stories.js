@@ -25,9 +25,14 @@ const Template = (args) => <Layout {...args}>{sampleText()}</Layout>;
 export const NoBanner = Template.bind({});
 export const WithBanner = Template.bind({});
 
+NoBanner.args = {
+  langUrl: "someUrl",
+  locale: "someLocale",
+};
+
 WithBanner.args = {
   bannerTitle: "Banner Title",
   bannerText: "Banner Text",
-  bannerStartTestingText: "Start testing",
-  bannerBecomeTesterText: "Become tester",
+  langUrl: "someUrl",
+  locale: "someLocale",
 };

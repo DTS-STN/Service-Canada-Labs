@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
-import Head from "next/head";
 import { ActionButton } from "../atoms/ActionButton";
 import { SearchBar } from "../atoms/SearchBar";
 import { Banner } from "../atoms/Banner";
+import Link from "next/link";
+import { useTranslation } from "next-i18next";
 
 /**
  * Component which defines the layout of the page for all screen sizes
@@ -10,10 +11,13 @@ import { Banner } from "../atoms/Banner";
 export const Layout = ({
   bannerText,
   bannerTitle,
+  locale,
+  langUrl,
   children,
-  bannerStartTestingText,
-  bannerBecomeTesterText,
 }) => {
+  const { t } = useTranslation("common");
+  const language = locale === "en" ? "fr" : "en";
+
   return (
     <div className="overflow-x-hidden">
       <header>
@@ -26,8 +30,15 @@ export const Layout = ({
         </div>
 
         <div className="layout-container">
-          <a href="#">Français</a>
-          <SearchBar placeholder={"Search Canada.ca"} dataCy={"search-bar"} />
+          <Link key={language} href={langUrl} locale={language}>
+            <a data-cy="toggle-language-link">
+              {language === "en" ? "English" : "Français"}
+            </a>
+          </Link>
+          <SearchBar
+            placeholder={t("searchBarPlaceholder")}
+            dataCy={"search-bar"}
+          />
         </div>
 
         <nav className="layout-container">Menu</nav>
@@ -38,12 +49,9 @@ export const Layout = ({
       <main>{children}</main>
       <footer className="layout-container mt-10">
         <div>
-          <p>
-            Experiencing an issue with this product or have you spotted an
-            error?
-          </p>
+          <p>{t("footerReportProblem")}</p>
           <ActionButton
-            text={"Report a problem"}
+            text={t("footerReportProblemButtonString")}
             secondary
             dataCyButton={"report-problem-button"}
           />
@@ -51,16 +59,18 @@ export const Layout = ({
 
         <ul>
           <li>
-            <a href="#">Social media</a>
+            <a href="#" data-cy="social-media-link">
+              {t("footerSocialMedia")}
+            </a>
           </li>
           <li>
-            <a href="#">Mobile applications</a>
+            <a href="#">{t("footerMobileApplications")}</a>
           </li>
           <li>
-            <a href="#">Terms and conditions</a>
+            <a href="#">{t("footerTermsAndConditions")}</a>
           </li>
           <li>
-            <a href="#">Privacy</a>
+            <a href="#">{t("footerPrivacy")}</a>
           </li>
         </ul>
 
@@ -89,4 +99,14 @@ Layout.propTypes = {
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
   ]),
+
+  /**
+   * currently active locale
+   */
+  locale: PropTypes.string,
+
+  /**
+   * URL to use for navigation when changing locales
+   */
+  langUrl: PropTypes.string,
 };
