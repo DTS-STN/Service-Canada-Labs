@@ -3,15 +3,19 @@ import { ActionButton } from "../atoms/ActionButton";
 import { SearchBar } from "../atoms/SearchBar";
 import { Banner } from "../atoms/Banner";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { useI18n } from "next-rosetta";
+import { useTranslation } from "next-i18next";
 
 /**
  * Component which defines the layout of the page for all screen sizes
  */
-export const Layout = ({ bannerText, bannerTitle, children }) => {
-  const { locale, locales, asPath } = useRouter(); // Get current locale and locale list
-  const { t } = useI18n();
+export const Layout = ({
+  bannerText,
+  bannerTitle,
+  locale,
+  children,
+  langUrl,
+}) => {
+  const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
 
   return (
@@ -26,7 +30,7 @@ export const Layout = ({ bannerText, bannerTitle, children }) => {
         </div>
 
         <div className="layout-container">
-          <Link key={language} href={asPath} locale={language}>
+          <Link key={language} href={langUrl} locale={language}>
             <a data-cy="toggle-language-link">
               {language === "en" ? "English" : "Français"}
             </a>

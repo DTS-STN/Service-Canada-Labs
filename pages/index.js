@@ -1,13 +1,21 @@
 import Head from "next/head";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
-import { useI18n } from "next-rosetta";
 import { ActionButton } from "../components/atoms/ActionButton";
+import { useRouter } from "next/router";
 
-export default function Home() {
-  const { t } = useI18n();
+export default function Home(props) {
+  const { t } = useTranslation("common");
+  const { asPath } = useRouter();
 
   return (
-    <Layout bannerTitle={t("bannerTitle")} bannerText={t("bannerText")}>
+    <Layout
+      bannerTitle={t("bannerTitle")}
+      bannerText={t("bannerText")}
+      locale={props.locale}
+      langUrl={asPath}
+    >
       <Head>
         <title>{t("siteTitle")}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -56,8 +64,9 @@ export default function Home() {
   );
 }
 
-export async function getStaticProps(context) {
-  const locale = context.locale || context.defaultLocale;
-  const { table = {} } = await import(`../i18n/${locale}`); // Import locale
-  return { props: { table } }; // Passed to `/pages/_app.js`
-}
+export const getStaticProps = async ({ locale }) => ({
+  props: {
+    locale: locale,
+    ...(await serverSideTranslations(locale, ["common"])),
+  },
+});

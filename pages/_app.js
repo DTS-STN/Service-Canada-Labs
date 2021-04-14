@@ -1,4 +1,4 @@
-import { I18nProvider } from "next-rosetta";
+import { appWithTranslation } from "next-i18next";
 import "../icomoon/style.css";
 import "../styles/globals.css";
 import "../styles/fonts.css";
@@ -10,11 +10,9 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <I18nProvider table={pageProps.table}>
-        <Component {...pageProps} />
-      </I18nProvider>
+      <Component {...pageProps} />
     </>
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);
