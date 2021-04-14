@@ -14,7 +14,7 @@ export const AlphaBanner = ({ text }) => {
             <span className="max-h-9 uppercase border-2 border-black p-1 tracking-widest ml-2">
               Alpha
             </span>
-            <span className="break-words ml-4">{text}</span>
+            <span className="break-words ml-4 pt-2">{text}</span>
           </div>
         </div>
       </div>
