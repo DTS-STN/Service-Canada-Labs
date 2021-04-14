@@ -24,6 +24,10 @@ module.exports = {
           }),
         })
     );
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'next-i18next': 'react-i18next'
+    }
     return config;
   }
 }
