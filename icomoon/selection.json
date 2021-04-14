@@ -30,6 +30,36 @@
 			"setIdx": 0,
 			"setId": 7,
 			"iconIdx": 134
+		},
+		{
+			"icon": {
+				"paths": [
+					"M64 192h896v192h-896zM64 448h896v192h-896zM64 704h896v192h-896z"
+				],
+				"attrs": [],
+				"isMulticolor": false,
+				"tags": [
+					"menu",
+					"list",
+					"options",
+					"lines",
+					"hamburger"
+				],
+				"defaultCode": 58031,
+				"grid": 16
+			},
+			"attrs": [],
+			"properties": {
+				"order": 285,
+				"id": 1448,
+				"prevSize": 16,
+				"code": 59837,
+				"ligatures": "menu, list3",
+				"name": "menu"
+			},
+			"setIdx": 0,
+			"setId": 7,
+			"iconIdx": 189
 		}
 	],
 	"height": 1024,

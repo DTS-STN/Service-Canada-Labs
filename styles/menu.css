@@ -1,0 +1,8 @@
+.menuDropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+}
+
+.active {display: block;}

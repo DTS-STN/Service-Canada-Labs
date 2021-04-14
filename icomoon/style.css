@@ -27,3 +27,7 @@
 .icon-magnifying:before {
     content: "\e986";
 }
+
+.icon-menu:before {
+  content: "\e9bd";
+}

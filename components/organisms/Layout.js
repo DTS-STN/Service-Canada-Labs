@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { ActionButton } from "../atoms/ActionButton";
 import { SearchBar } from "../atoms/SearchBar";
 import { Banner } from "../atoms/Banner";
+import { Menu } from "../molecules/Menu";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
@@ -41,7 +42,7 @@ export const Layout = ({
           />
         </div>
 
-        <nav className="layout-container">Menu</nav>
+        <Menu></Menu>
         {bannerText && bannerTitle ? (
           <Banner siteTitle={bannerTitle} headline={bannerText} />
         ) : null}
