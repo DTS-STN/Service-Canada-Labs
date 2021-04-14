@@ -10,10 +10,12 @@ export const AlphaBanner = ({ text }) => {
     <div className="bg-gray-100">
       <div className="lg:container xxs:mx-0 xxs:px-0 lg:mx-auto lg:px-0 xxl:mx-auto">
         <div className="xxs:w-screen lg:w-2/3 xl:w-1/2 p-4">
-          <span className="text-xs uppercase border-2 border-black p-1 tracking-widest ml-2">
-            Alpha
-          </span>
-          <span className="break-words ml-4">{text}</span>
+          <div className="flex">
+            <span className="max-h-9 uppercase border-2 border-black p-1 tracking-widest ml-2">
+              Alpha
+            </span>
+            <span className="break-words ml-4">{text}</span>
+          </div>
         </div>
       </div>
     </div>
