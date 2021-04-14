@@ -36,24 +36,3 @@ i18n.use(initReactI18next).init({
     }
   }
 })
-
-// Mock i18n
-// jest.mock('~/i18n', () => {
-//   return {
-//     useTranslation: () => {
-//       return {
-//         t,
-//         i18n: {
-//           language: 'en',
-//           changeLanguage: jest
-//             .fn()
-//             .mockImplementation((lang) => console.log(lang))
-//         }
-//       }
-//     },
-//     withTranslation: () => (Component) => {
-//       Component.defaultProps = { ...Component.defaultProps, t }
-//       return Component
-//     }
-//   }
-// })
