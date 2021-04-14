@@ -12,8 +12,8 @@ export const Layout = ({
   bannerText,
   bannerTitle,
   locale,
-  children,
   langUrl,
+  children,
 }) => {
   const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
@@ -99,4 +99,14 @@ Layout.propTypes = {
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
   ]),
+
+  /**
+   * currently active locale
+   */
+  locale: PropTypes.string,
+
+  /**
+   * URL to use for navigation when changing locales
+   */
+  langUrl: PropTypes.string,
 };
