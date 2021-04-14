@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { ActionButton } from "../atoms/ActionButton";
 import { SearchBar } from "../atoms/SearchBar";
 import { Banner } from "../atoms/Banner";
+import { AlphaBanner } from "../atoms/AlphaBanner";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
@@ -9,6 +10,7 @@ import { useTranslation } from "next-i18next";
  * Component which defines the layout of the page for all screen sizes
  */
 export const Layout = ({
+  alphaText,
   bannerText,
   bannerTitle,
   locale,
@@ -21,6 +23,7 @@ export const Layout = ({
   return (
     <div className="overflow-x-hidden">
       <header>
+        {alphaText ? <AlphaBanner text={alphaText} /> : null}
         <div className="layout-container">
           <a href="#">
             <img src="#" alt="Governement of Canada" />

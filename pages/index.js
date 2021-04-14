@@ -11,6 +11,7 @@ export default function Home(props) {
 
   return (
     <Layout
+      alphaText={t("alphaText")}
       bannerTitle={t("bannerTitle")}
       bannerText={t("bannerText")}
       locale={props.locale}
