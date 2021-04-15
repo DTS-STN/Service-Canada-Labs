@@ -1,69 +1,61 @@
 import Head from "next/head";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
 import { ActionButton } from "../components/atoms/ActionButton";
+import { useRouter } from "next/router";
 
-export default function Home() {
+export default function Home(props) {
+  const { t } = useTranslation("common");
+  const { asPath } = useRouter();
+
   return (
     <Layout
-      bannerTitle="Service Canada Labs"
-      bannerText="Make government work for you"
-      bannerBecomeTesterText="Become a Tester"
-      bannerStartTestingText="Start testing"
+      bannerTitle={t("bannerTitle")}
+      bannerText={t("bannerText")}
+      locale={props.locale}
+      langUrl={asPath}
     >
       <Head>
-        <title>Alpha Site</title>
+        <title>{t("siteTitle")}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="bg-gray-light-200 py-6">
         <div className="layout-container flex">
           <ActionButton
-            text="Start testing"
+            text={t("buttonStartTesting")}
             secondary
             className={"mr-4"}
-            dataCyButton={"become-tester-button"}
+            dataCyButton={"start-testing-button"}
           />
           <ActionButton
-            text="Become tester"
-            dataCyButton={"start-testing-button"}
+            text={t("buttonBecomeTester")}
+            dataCyButton={"become-tester-button"}
           />
         </div>
       </div>
 
       <section className="layout-container">
-        <h2>About us</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-          consectetur urna nec tempor tristique. Vestibulum ante ipsum primis in
-          faucibus orci luctus et ultrices posuere cubilia curae; Nulla at
-          condimentum odio, quis porttitor eros. Quisque laoreet pretium purus,
-          sed maximus turpis. Quisque ut magna vel dui placerat aliquet in non
-          orci.
-        </p>
+        <h2>{t("aboutUsHeading")}</h2>
+        <p>{t("aboutUsContent")}</p>
 
         <figure>Block</figure>
 
         <figure>
           Block
-          <figcaption>
-            Diagram that shows what we do and how user feedback gets transformed
-            in to a service to Canadians - and/or - Benefits of joining the user
-            pool for testers
-          </figcaption>
+          <figcaption>{t("figCaption")}</figcaption>
         </figure>
       </section>
 
       <section className="layout-container">
-        <h3>Contact us</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-          consectetur urna nec tempor tristique.
-        </p>
+        <h3>{t("contactUsHeading")}</h3>
+        <p>{t("contactUsContent")}</p>
         <a href="#">john.doe@example.com</a>
         <figure>Block</figure>
       </section>
 
       <section className="layout-container">
-        <h4>Featured prototypes</h4>
+        <h4>{t("featuredPrototypesHeading")}</h4>
         <figure>Block</figure>
         <figure>Block</figure>
         <figure>Block</figure>
@@ -71,3 +63,10 @@ export default function Home() {
     </Layout>
   );
 }
+
+export const getStaticProps = async ({ locale }) => ({
+  props: {
+    locale: locale,
+    ...(await serverSideTranslations(locale, ["common"])),
+  },
+});

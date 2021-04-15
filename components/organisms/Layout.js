@@ -1,28 +1,46 @@
 import PropTypes from "prop-types";
-import Head from "next/head";
+// import Head from "next/head";
 import { Banner } from "../atoms/Banner";
 import { Footer } from "../organisms/Footer";
 import { Header } from "../organisms/Header";
+import { Banner } from "../atoms/Banner";
+import Link from "next/link";
+import { useTranslation } from "next-i18next";
 
 /**
  * Component which defines the layout of the page for all screen sizes
  */
-export const Layout = ({ bannerText, bannerTitle, children }) => {
+export const Layout = ({
+  bannerText,
+  bannerTitle,
+  children,
+  locale,
+  langUrl,
+}) => {
+  const { t } = useTranslation("common");
+  const language = locale === "en" ? "fr" : "en";
   return (
     <div className="overflow-x-hidden">
       <header>
+        <Link key={language} href={langUrl} locale={language}>
+          <a data-cy="toggle-language-link">
+            {language === "en" ? "English" : "Français"}
+          </a>
+        </Link>
         <div className="layout-container ">
           <Header
             headerLogoAltText="Symbol of the Government of Canada"
             headerLogoImage="/sig-blk-en.svg"
           />
         </div>
+
         <div className="mb-2 border-t pb-2 mt-4"></div>
         <nav className="layout-container">Menu</nav>
         {bannerText && bannerTitle ? (
           <Banner siteTitle={bannerTitle} headline={bannerText} />
         ) : null}
       </header>
+
       <main>
         <div>{children}</div>
       </main>
@@ -117,4 +135,14 @@ Layout.propTypes = {
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
   ]),
+
+  /**
+   * currently active locale
+   */
+  locale: PropTypes.string,
+
+  /**
+   * URL to use for navigation when changing locales
+   */
+  langUrl: PropTypes.string,
 };
