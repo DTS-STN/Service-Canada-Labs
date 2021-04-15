@@ -53,6 +53,13 @@
     }
   }
 
+  @screen md {
+    .layout-container {
+
+      @apply px-4;
+    }
+  }
+
   @screen lg {
     .layout-container {
       @apply container mx-auto px-6;

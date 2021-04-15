@@ -8,6 +8,7 @@ module.exports = {
     },
     fontSize: {
       xxs: ["13px", "16px"],
+      xs: ["14px", "16px"],
       sm: ["16px", "22px"],
       base: ["18px", "28px"],
       p: ["20px", "30px"],
@@ -48,10 +49,13 @@ module.exports = {
         'dk-blue': '#26374a',
         'hr-red-bar': '#AE3B43',
         "canada-ca-link-colour": "#7834BC",
+        'canada-footer-font' : "#284162",
+        'canada-footer-hover-font-blue':'#0535d2',
       },
     },
   },
   variants: {
+    
     extend: {
       backgroundColor: ['active'],
       textColor: ['visited'],

@@ -8,8 +8,8 @@ export function Footer(props) {
   return (
     <div className="w-full mb-4">
       <div className="w-full h-auto  bg-dk-blue bg-footer-parliament-image bg-no-repeat bg-right-bottom ">
-        <div className="w-full  py-6 layout-container  ">
-          <ul className="flex flex-wrap justify-between ">
+        <div className="py-7 layout-container  ">
+          <ul className="flex flex-col text-xs   lg:grid lg:grid-cols-2  xl:grid xl:grid-cols-3  lg:gap-1">
             {" "}
             {props.footerBoxLinks.map((value, index) => {
               return (
@@ -24,29 +24,27 @@ export function Footer(props) {
           </ul>
         </div>
       </div>
-      <div className="w-full h-auto flex flex-col md:flex-row  items-center bg-footer-white mt-6  justify-between layout-container ">
-        <div className="w-full flex flex-col md:flex-row  justify-between mr-6  ">
-          <ul className="w-full flex flex-col md:flex-row  list-inside md:list-outside list-disc  ">
-            {" "}
+      <div className="h-auto bg-footer-white mt-6 layout-container flex flex-col lg:flex lg:flex-row  md:justify-between">
+        <div className="mt-3.5 lg:mt-5 ">
+          <ul className=" flex flex-col md:grid md:grid-cols-2  lg:flex lg:flex-row ">
             {props.links.map((value, index) => {
               return (
                 <li
                   key={index}
-                  className="text-canada-ca-link-colour p-2 md:pt-4 md:pr-4  md:pb-4  w-full hover:underline "
+                  className="md:mb-4 mr-2 mb-3 text-xs  hover:text-canada-footer-hover-font-blue text-canada-footer-font list-inside list-disc "
                 >
                   <a href={value.link}>{value.linkText}</a>
                 </li>
               );
             })}
           </ul>
-          <div className="md:pt-0 pt-6 ">
-            <img
-              src={props.footerLogoImage}
-              width={200}
-              height={200}
-              alt={props.footerLogoAltText}
-            />
-          </div>
+        </div>
+        <div>
+          <img
+            className="mb-2.5 mt-8 lg:mt-0 h-6 md:h-10  w-auto float-right"
+            src={props.footerLogoImage}
+            alt={props.footerLogoAltText}
+          />
         </div>
       </div>
     </div>
