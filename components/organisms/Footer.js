@@ -24,14 +24,14 @@ export function Footer(props) {
           </ul>
         </div>
       </div>
-      <div className="h-auto bg-footer-white mt-6 layout-container flex flex-col lg:flex lg:flex-row  md:justify-between">
-        <div className="mt-3.5 lg:mt-5 ">
-          <ul className=" flex flex-col md:grid md:grid-cols-2  lg:flex lg:flex-row ">
+      <div className="h-auto bg-footer-white mt-6 layout-container flex flex-col xl:flex xl:flex-row  md:justify-between">
+        <div className="mt-3.5 xl:mt-5 ">
+          <ul className=" flex flex-col lg:grid lg:grid-cols-2  xl:flex lg:flex-row ">
             {props.links.map((value, index) => {
               return (
                 <li
                   key={index}
-                  className="md:mb-4 mr-2 mb-3 text-xs  hover:text-canada-footer-hover-font-blue text-canada-footer-font list-inside list-disc "
+                  className="lg:mb-4 mr-2 mb-3 text-xs  hover:text-canada-footer-hover-font-blue text-canada-footer-font list-inside list-disc "
                 >
                   <a href={value.link}>{value.linkText}</a>
                 </li>
@@ -41,7 +41,7 @@ export function Footer(props) {
         </div>
         <div>
           <img
-            className="mb-2.5 mt-8 lg:mt-0 h-6 md:h-10  w-auto float-right"
+            className="mb-2.5 mt-8 xl:mt-0 h-6 md:h-10  w-auto float-right"
             src={props.footerLogoImage}
             alt={props.footerLogoAltText}
           />

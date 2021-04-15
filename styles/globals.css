@@ -43,7 +43,7 @@
 
   @screen xxs {
     .layout-container {
-      @apply mx-6;
+      @apply mx-4;
     }
   }
   
@@ -55,8 +55,7 @@
 
   @screen md {
     .layout-container {
-
-      @apply px-4;
+      @apply px-0;
     }
   }
 

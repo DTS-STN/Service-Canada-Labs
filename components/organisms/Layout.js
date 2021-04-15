@@ -24,9 +24,7 @@ export const Layout = ({ bannerText, bannerTitle, children }) => {
         ) : null}
       </header>
       <main>
-        <div className="layout-container mt-10 mb-4">
-          <div>{children}</div>
-        </div>
+        <div>{children}</div>
       </main>
 
       <footer>

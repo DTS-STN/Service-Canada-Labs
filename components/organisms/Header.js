@@ -13,27 +13,20 @@ export function Header(props) {
   }
 
   return (
-    <div className="w-full  mt-6 ">
-      <div className="w-full h-auto flex  md:flex-row justify-center  mt-4">
-        <div className="w-full flex  flex-col  lg:flex-col  xl:flex-row   justify-between relative">
-          <div className="md:h-9 h-6 mb-4">
-            <Image
-              className="h-full  bottom-0 left-0"
-              width={300}
-              height={80}
-              src={props.headerLogoImage}
-              alt={props.headerLogoAltText}
-            />
-          </div>
-
-          <div className="mt-2 ">
-            <SearchBar
-              placeholder={"Search Canada.ca"}
-              onChange={handleInputChange}
-              dataCy={"search-bar"}
-            />
-          </div>
-        </div>
+    <div className="w-full flex  h-auto flex-col mt-8 lg:flex lg:flex-row  xl:flex xl:flex-row   justify-between ">
+      <div className="mb-4">
+        <img
+          className="h-auto xs:h-8 sm:h-8 md:h-8 lg:h-7 xl:h-8 w-auto "
+          src={props.headerLogoImage}
+          alt={props.headerLogoAltText}
+        />
+      </div>
+      <div className="xl:w-4/12 mt-4 lg:mt-0 ">
+        <SearchBar
+          placeholder={"Search Canada.ca"}
+          onChange={handleInputChange}
+          dataCy={"search-bar"}
+        />
       </div>
     </div>
   );
