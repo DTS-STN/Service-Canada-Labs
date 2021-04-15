@@ -6,34 +6,40 @@ import PropTypes from "prop-types";
 
 export function Footer(props) {
   return (
-    <div className="w-full mb-4">
-      <div className="w-full h-auto  bg-dk-blue bg-footer-parliament-image bg-no-repeat bg-right-bottom ">
+    <div className="w-full mb-4 mt-6 ">
+      <div className="w-full h-auto  footerBackground">
         <div className="py-7 layout-container  ">
-          <ul className="flex flex-col text-xs   lg:grid lg:grid-cols-2  xl:grid xl:grid-cols-3  lg:gap-1">
+          <ul className=" flex flex-col text-xs   lg:grid lg:grid-cols-2  xl:grid xl:grid-cols-3  lg:gap-1">
             {" "}
             {props.footerBoxLinks.map((value, index) => {
               return (
                 <li
                   key={index}
-                  className="text-white w-64 md:w-56 lg:w-80   my-2   hover:underline"
+                  className="text-white w-64 md:w-56 lg:w-80   my-2.5   hover:underline"
                 >
-                  <a href={value.footerBoxlink}>{value.footerBoxLinkText}</a>
+                  <a className="font-body" href={value.footerBoxlink}>
+                    {value.footerBoxLinkText}
+                  </a>
                 </li>
               );
             })}
           </ul>
         </div>
       </div>
-      <div className="h-auto bg-footer-white mt-6 layout-container flex flex-col xl:flex xl:flex-row  md:justify-between">
+      <div className="h-auto bg-footer-white mt-4 layout-container flex flex-col xl:flex xl:flex-row  md:justify-between">
         <div className="mt-3.5 xl:mt-5 ">
-          <ul className=" flex flex-col lg:grid lg:grid-cols-2  xl:flex lg:flex-row ">
+          <ul className=" flex flex-col lg:grid lg:grid-cols-2  xl:flex lg:flex-row   ">
             {props.links.map((value, index) => {
               return (
                 <li
                   key={index}
-                  className="lg:mb-4 mr-2 mb-3 text-xs  hover:text-canada-footer-hover-font-blue text-canada-footer-font list-inside list-disc "
+                  className="lg:mb-4 mb-5 mr-2.5 list-inside list-disc text-xxs"
                 >
-                  <a data-cy="social-media-link" href={value.link}>
+                  <a
+                    className="text-xs font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+                    data-cy="social-media-link"
+                    href={value.link}
+                  >
                     {value.linkText}
                   </a>
                 </li>

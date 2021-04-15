@@ -65,3 +65,7 @@
     }
   }
 }
+.footerBackground {
+  background:#26374a url(../public/landscape.png) no-repeat right bottom;
+}
+

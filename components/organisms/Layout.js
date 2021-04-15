@@ -106,7 +106,7 @@ export const Layout = ({
             },
             {
               footerBoxlink: "https://open.canada.ca/en",
-              footerBoxLinkText: "Open Goverment",
+              footerBoxLinkText: "Open goverment",
             },
           ]}
         ></Footer>
