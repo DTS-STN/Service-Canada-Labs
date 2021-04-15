@@ -54,7 +54,6 @@ module.exports = {
       backgroundColor: ['active'],
       textColor: ['visited'],
     },
-    display: ['responsive', 'group-hover', 'group-focus'],
   },
   plugins: [
     require('@tailwindcss/typography'),

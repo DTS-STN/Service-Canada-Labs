@@ -1,8 +1,35 @@
+@tailwind utilities;
+@tailwind screens;
+
 .menuDropdown {
     display: none;
     position: absolute;
     background-color: white;
+    min-width: 180px;
     z-index: 1;
 }
 
+.menuDropdown > li:hover > a {
+    border-bottom: 4px solid #1d5b90;
+}
+
 .active {display: block;}
+
+@screen xl {
+    #menuButton {
+        display: none;
+    }
+
+    .menuDropdown {
+        z-index: 0;
+        display: inline-block;
+        position: static;
+    }
+
+    .menuDropdown > li{
+        display: inline-block;
+        padding-left: 2rem;
+        padding-bottom: 2rem;
+    }
+}
+  

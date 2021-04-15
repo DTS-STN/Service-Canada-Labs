@@ -1,35 +1,28 @@
-import { ActionButton } from "../atoms/ActionButton"
-
 /**
  * Button component
  */
 export function Menu() {
 
     function onMenuClick() {
-        document.getElementById("menuBar").classList.toggle("active");
+        document.getElementById("menuDropdown").classList.toggle("active");
     };
 
     return (
-        <nav className="relative inline-block layout-container">
-            <div>
-                <button onClick={onMenuClick}>
-                    <span className={"icon-menu"} />
-                    <span>Menu</span>
-                </button>
-            </div>
+        <nav className="xl:justify-end xl:flex layout-container font-body">
+            <button onClick={onMenuClick} id="menuButton" className="text-h4">
+                <span className="icon-menu"/>
+                <span className="pl-3">MENU</span>
+            </button>
 
-            <ul id="menuBar" className="menuDropdown">
-                <li>
-                    <a>Service Canada Labs</a>
+            <ul id="menuDropdown" className="menuDropdown">
+                <li className="py-3 px-2 cursor-pointer">
+                    <a href="#">Service Canada Labs</a>
                 </li>
-                <li>
-                    <a>Experiments</a>
+                <li className="py-3 px-2 cursor-pointer">
+                    <a href="#">Experiments</a>
                 </li>
-                <li>
-                    <a>About</a>
-                </li>
-                <li>
-                    <ActionButton text="Sign up"/>
+                <li className="py-3 px-2 cursor-pointer">
+                    <a href="#">About</a>
                 </li>
             </ul>
         </nav>
