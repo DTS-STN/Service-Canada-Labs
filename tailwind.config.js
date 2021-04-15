@@ -51,6 +51,7 @@ module.exports = {
         "canada-ca-link-colour": "#7834BC",
         'canada-footer-font' : "#284162",
         'canada-footer-hover-font-blue':'#0535d2',
+        'footer-background-color':'#e1e4e7'
       },
     },
   },

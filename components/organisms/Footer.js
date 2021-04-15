@@ -28,7 +28,7 @@ export function Footer(props) {
       </div>
       <div className="h-auto bg-footer-white mt-4 layout-container flex flex-col xl:flex xl:flex-row  md:justify-between">
         <div className="mt-3.5 xl:mt-5 ">
-          <ul className=" flex flex-col lg:grid lg:grid-cols-2  xl:flex lg:flex-row   ">
+          <ul className=" flex flex-col md:grid md:grid-cols-2  xl:flex lg:flex-row bg-footer-background-color bg-opacity-10 ">
             {props.links.map((value, index) => {
               return (
                 <li
