@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Banner } from "../atoms/Banner";
 import { Footer } from "../organisms/Footer";
 import { Header } from "../organisms/Header";
-import { Banner } from "../atoms/Banner";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
@@ -22,12 +21,12 @@ export const Layout = ({
   return (
     <div className="overflow-x-hidden">
       <header>
-        <Link key={language} href={langUrl} locale={language}>
-          <a data-cy="toggle-language-link">
-            {language === "en" ? "English" : "Français"}
-          </a>
-        </Link>
         <div className="layout-container ">
+          <Link key={language} href={langUrl} locale={language}>
+            <a data-cy="toggle-language-link">
+              {language === "en" ? "English" : "Français"}
+            </a>
+          </Link>
           <Header
             headerLogoAltText="Symbol of the Government of Canada"
             headerLogoImage="/sig-blk-en.svg"

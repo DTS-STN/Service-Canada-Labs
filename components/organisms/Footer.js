@@ -33,7 +33,9 @@ export function Footer(props) {
                   key={index}
                   className="lg:mb-4 mr-2 mb-3 text-xs  hover:text-canada-footer-hover-font-blue text-canada-footer-font list-inside list-disc "
                 >
-                  <a href={value.link}>{value.linkText}</a>
+                  <a data-cy="social-media-link" href={value.link}>
+                    {value.linkText}
+                  </a>
                 </li>
               );
             })}

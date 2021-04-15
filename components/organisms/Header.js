@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Image from "next/image";
+
 import { SearchBar } from "../atoms/SearchBar";
 import { useState } from "react";
 
