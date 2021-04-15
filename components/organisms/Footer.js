@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 export function Footer(props) {
   return (
-    <div className="w-full mb-4 mt-6 ">
+    <div className="w-full ">
       <div className="w-full h-auto  footerBackground">
         <div className="py-7 layout-container  ">
           <ul className=" flex flex-col text-xs   lg:grid lg:grid-cols-2  xl:grid xl:grid-cols-3  lg:gap-1">
@@ -26,33 +26,35 @@ export function Footer(props) {
           </ul>
         </div>
       </div>
-      <div className="h-auto bg-footer-white mt-4 layout-container flex flex-col xl:flex xl:flex-row  md:justify-between">
-        <div className="mt-3.5 xl:mt-5 ">
-          <ul className=" flex flex-col md:grid md:grid-cols-2  xl:flex lg:flex-row bg-footer-background-color bg-opacity-10 ">
-            {props.links.map((value, index) => {
-              return (
-                <li
-                  key={index}
-                  className="lg:mb-4 mb-5 mr-2.5 list-inside list-disc text-xxs"
-                >
-                  <a
-                    className="text-xs font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-                    data-cy="social-media-link"
-                    href={value.link}
+      <div className="w-full h-full bg-footer-background-color pb-4">
+        <div className="h-auto bg-footer-white pt-5 layout-container flex flex-col xl:flex xl:flex-row  md:justify-between">
+          <div className="mt-3.5 xl:mt-5 ">
+            <ul className=" flex flex-col md:grid md:grid-cols-2  xl:flex lg:flex-row  ">
+              {props.links.map((value, index) => {
+                return (
+                  <li
+                    key={index}
+                    className="lg:mb-4 mb-5 mr-2.5 list-inside list-disc text-xxs"
                   >
-                    {value.linkText}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        <div>
-          <img
-            className="mb-2.5 mt-8 xl:mt-0 h-6 md:h-10  w-auto float-right"
-            src={props.footerLogoImage}
-            alt={props.footerLogoAltText}
-          />
+                    <a
+                      className="text-xs font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+                      data-cy="social-media-link"
+                      href={value.link}
+                    >
+                      {value.linkText}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <div>
+            <img
+              className="mb-2.5 mt-8 xl:mt-0 h-6 md:h-10  w-auto float-right"
+              src={props.footerLogoImage}
+              alt={props.footerLogoAltText}
+            />
+          </div>
         </div>
       </div>
     </div>
