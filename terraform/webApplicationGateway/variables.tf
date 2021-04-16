@@ -26,12 +26,39 @@ variable "public_ip_id_primary" {
 variable "public_ip_id_secondary" {
     type = string
 }
-variable "primary_app_service_hostname" {
+variable "application_url_dev" {
     type = string
 }
-variable "secondary_app_service_hostname" {
+variable "api_url_dev" {
     type = string
 }
+
+variable "primary_application_appservice_hostname"{
+    type = string
+}
+variable "application_appservice_name_primary" {
+    type = string
+}
+variable "secondary_application_appservice_hostname" {
+    type = string
+}
+variable "application_appservice_name_secondary" {
+    type = string
+}
+
+variable "primary_api_appservice_hostname" {
+    type = string
+}
+variable "api_appservice_name_primary" {
+    type = string
+}
+variable "secondary_api_appservice_hostname" {
+    type = string
+}
+variable "api_appservice_name_secondary" {
+    type = string
+}
+
 variable "diagnostic_storage_account_id" {
     type = string
 }
@@ -39,11 +66,5 @@ variable "diagnostic_storage_account_id_secondary" {
     type = string
 }
 variable "healthcheck_page" {
-    type = string
-}
-variable "app_service_name_primary" {
-    type = string
-}
-variable "app_service_name_secondary" {
     type = string
 }

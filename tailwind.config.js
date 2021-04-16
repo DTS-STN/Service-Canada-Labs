@@ -8,6 +8,7 @@ module.exports = {
     },
     fontSize: {
       xxs: ["13px", "16px"],
+      xs: ["14px", "16px"],
       sm: ["16px", "22px"],
       base: ["18px", "28px"],
       p: ["20px", "30px"],
@@ -27,10 +28,11 @@ module.exports = {
       xxl: "1200px",
     },
     extend: {
-      backgroundImage: theme => ({
-        'banner-img': "url('../public/bg-banner.jpg')"
-      }),
-      colors: {
+    backgroundImage: theme => ({
+      'banner-img' :"url('../public/bg-banner.jpg')",
+      "footer-parliament-image": "url(../public/landscape.png)"
+    }),      
+    colors: {
         'custom-blue': {
           blue: '#2572B4',
           light: '#1492B4',
@@ -46,10 +48,15 @@ module.exports = {
         "text-gray": "#5c5c5c",
         'dk-blue': '#26374a',
         'hr-red-bar': '#AE3B43',
+        "canada-ca-link-colour": "#7834BC",
+        'canada-footer-font' : "#284162",
+        'canada-footer-hover-font-blue':'#0535d2',
+        'footer-background-color':'#f8f8f8'
       },
     },
   },
   variants: {
+    
     extend: {
       backgroundColor: ['active'],
       textColor: ['visited'],
