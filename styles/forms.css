@@ -1,0 +1,35 @@
+.checkbox-label::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 44px;
+    height: 44px;
+    border: 2px solid black;
+    background: transparent;
+}
+
+.checkbox-label::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 11px;
+    left: 9px;
+    width: 23px;
+    height: 12px;
+    transform: rotate(-45deg);
+    border: solid black;
+    border-width: 0 0 5px 5px;
+    border-top-color: transparent;
+    opacity: 0;
+    background: transparent;
+}
+
+.checkbox-label{
+    touch-action: manipulation;
+}
+
+.checkbox-input:checked + .checkbox-label::after{
+    opacity: 1;
+}
