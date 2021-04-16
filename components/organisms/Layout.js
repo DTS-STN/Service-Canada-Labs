@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 // import Head from "next/head";
 import { Banner } from "../atoms/Banner";
-import { AlphaBanner } from "../atoms/AlphaBanner";
+import { PhaseBanner } from "../atoms/PhaseBanner";
 import { Footer } from "../organisms/Footer";
 import { Header } from "../organisms/Header";
 import Link from "next/link";
@@ -23,7 +23,7 @@ export const Layout = ({
   return (
     <div className="overflow-x-hidden">
       <header>
-        {alphaText ? <AlphaBanner text={alphaText} /> : null}
+        {alphaText ? <PhaseBanner phase={"Alpha"} >{alphaText}</PhaseBanner> : null}
         <div className="layout-container">
           <a href="#">
             <img src="#" alt="Governement of Canada" />

@@ -7,6 +7,7 @@ module.exports = {
       body: ['Noto sans'],
     },
     fontSize: {
+      xxxs:["12px","12px"],
       xxs: ["13px", "16px"],
       xs: ["14px", "16px"],
       sm: ["16px", "22px"],
