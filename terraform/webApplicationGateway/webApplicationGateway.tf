@@ -49,7 +49,7 @@ resource "azurerm_application_gateway" "application-gateway-primary" {
     frontend_port_name             = "https"
     protocol                       = "Https"
     ssl_certificate_name           = "dts-stn-wildcard"
-    host_name                      = "alphasite-api.dts-stn.com"
+    host_name                      = var.api_url_dev
     require_sni                    = "true"
   }
 
@@ -59,7 +59,7 @@ resource "azurerm_application_gateway" "application-gateway-primary" {
     frontend_port_name             = "https"
     protocol                       = "Https"
     ssl_certificate_name           = "dts-stn-wildcard"
-    host_name                      = "alphasite.dts-stn.com"
+    host_name                      = var.application_url_dev
     require_sni                    = "true"
  
   }
@@ -180,7 +180,7 @@ resource "azurerm_application_gateway" "application-gateway-secondary" {
     frontend_port_name             = "https"
     protocol                       = "Https"
     ssl_certificate_name           = "dts-stn-wildcard"
-    host_name                      = "alphasite-api.dts-stn.com"
+    host_name                      = var.api_url_dev
     require_sni                    = "true"
   }
 
@@ -190,7 +190,7 @@ resource "azurerm_application_gateway" "application-gateway-secondary" {
     frontend_port_name             = "https"
     protocol                       = "Https"
     ssl_certificate_name           = "dts-stn-wildcard"
-    host_name                      = "alphasite.dts-stn.com"
+    host_name                      = var.application_url_dev
     require_sni                    = "true"
  
   }

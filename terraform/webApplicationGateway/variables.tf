@@ -26,6 +26,12 @@ variable "public_ip_id_primary" {
 variable "public_ip_id_secondary" {
     type = string
 }
+variable "application_url_dev" {
+    type = string
+}
+variable "api_url_dev" {
+    type = string
+}
 
 variable "primary_application_appservice_hostname"{
     type = string
