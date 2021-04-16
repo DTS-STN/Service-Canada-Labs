@@ -11,7 +11,8 @@ import { useTranslation } from "next-i18next";
  * Component which defines the layout of the page for all screen sizes
  */
 export const Layout = ({
-  alphaText,
+  phaseText,
+  phaseTitle,
   bannerText,
   bannerTitle,
   children,
@@ -23,7 +24,7 @@ export const Layout = ({
   return (
     <div className="overflow-x-hidden">
       <header>
-        {alphaText ? <PhaseBanner phase={"Alpha"} >{alphaText}</PhaseBanner> : null}
+        {phaseText ? <PhaseBanner phase={phaseTitle} >{phaseText}</PhaseBanner> : null}
         <div className="layout-container">
           <a href="#">
             <img src="#" alt="Governement of Canada" />
