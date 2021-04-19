@@ -3,6 +3,11 @@
 @tailwind utilities;
 @tailwind screens;
 
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
 @layer base {
   /* Font families */
   h1, h2, h3, h4, h5 {
@@ -43,11 +48,17 @@
 
   @screen xxs {
     .layout-container {
-      @apply mx-6;
+      @apply mx-4;
     }
   }
   
   @screen xs {
+    .layout-container {
+      @apply px-0;
+    }
+  }
+
+  @screen md {
     .layout-container {
       @apply px-0;
     }
@@ -59,3 +70,7 @@
     }
   }
 }
+.footerBackground {
+  background:#26374a url(../public/landscape.png) no-repeat right bottom;
+}
+
