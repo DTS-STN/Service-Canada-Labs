@@ -20,7 +20,7 @@
     overflow-y: hidden;
 }
 
-@screen xl {
+@screen lg {
     #menuButton, #closeMenu {
         display: none;
     }

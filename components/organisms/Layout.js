@@ -44,12 +44,13 @@ export const Layout = ({
         {menu ? (
           <nav
             title="Menu"
-            className="xl:container xl:mx-auto xl:px-6 xl:justify-end xl:flex font-body"
+            className="lg:container lg:mx-auto lg:px-6 lg:justify-end lg:flex"
+            data-cy="menu"
           >
-            <div className="layout-container">
+            <div className="layout-container pb-4">
               <button onClick={onMenuClick} id="menuButton" className="text-h4">
                 <span className="icon-menu" />
-                <span className="pl-3">MENU</span>
+                <span className="pl-3">{t("menuTitle")}</span>
               </button>
             </div>
 
@@ -60,18 +61,18 @@ export const Layout = ({
                 className="cursor-pointer layout-container flex justify-end"
               >
                 <span className="icon-cross mt-1 mr-2" />
-                <span>Close</span>
+                <span>{t("closeMenu")}</span>
               </div>
 
-              <ul className="container w-max">
-                <li className="py-3 pl-2 cursor-pointer">
-                  <a href="#">Service Canada Labs</a>
+              <ul className="container xxs:mx-4 xs:px-0 w-max">
+                <li className="py-3 pl-2 lg:py-0 cursor-pointer">
+                  <a href="#">{t("menuLink1")}</a>
                 </li>
-                <li className="py-3 pl-2 cursor-pointer">
-                  <a href="#">Experiments</a>
+                <li className="py-3 pl-2 lg:py-0 cursor-pointer">
+                  <a href="#">{t("menuLink2")}</a>
                 </li>
-                <li className="py-3 pl-2 cursor-pointer">
-                  <a href="#">About</a>
+                <li className="py-3 pl-2 lg:py-0 cursor-pointer">
+                  <a href="#">{t("menuLink3")}</a>
                 </li>
               </ul>
             </div>

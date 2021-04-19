@@ -17,7 +17,7 @@ describe("Layout", () => {
   });
 
   it("renders with the menu", () => {
-    render(<WithBanner {...WithMenu.args} />);
+    render(<WithMenu {...WithMenu.args} />);
     screen.getByTitle("Menu");
   });
 
@@ -29,6 +29,12 @@ describe("Layout", () => {
 
   it("has no a11y violations with banner", async () => {
     const { container } = render(<WithBanner {...WithBanner.args} />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+
+  it("has no a11y violations with menu", async () => {
+    const { container } = render(<WithMenu {...WithBanner.args} />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
