@@ -3,30 +3,36 @@
 
 .menuDropdown {
     display: none;
-    position: absolute;
+    position: fixed;
     background-color: white;
-    min-width: 180px;
-    z-index: 1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 
-.menuDropdown > li:hover > a {
+.menuDropdown > ul > li:hover > a {
     border-bottom: 4px solid #1d5b90;
 }
 
-.active {display: block;}
+.active {
+    display: block;
+    overflow-y: hidden;
+}
 
 @screen xl {
-    #menuButton {
+    #menuButton, #closeMenu {
         display: none;
     }
 
     .menuDropdown {
-        z-index: 0;
         display: inline-block;
         position: static;
+        min-width: fit-content;
+        min-height: fit-content;
     }
 
-    .menuDropdown > li{
+    .menuDropdown > ul > li{
         display: inline-block;
         padding-left: 2rem;
         padding-bottom: 2rem;

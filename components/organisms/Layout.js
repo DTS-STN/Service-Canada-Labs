@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import { ActionButton } from "../atoms/ActionButton";
 import { SearchBar } from "../atoms/SearchBar";
 import { Banner } from "../atoms/Banner";
-import { Menu } from "../molecules/Menu";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
@@ -12,12 +11,17 @@ import { useTranslation } from "next-i18next";
 export const Layout = ({
   bannerText,
   bannerTitle,
+  menu,
   locale,
   langUrl,
   children,
 }) => {
   const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
+
+  function onMenuClick() {
+    document.getElementById("menuDropdown").classList.toggle("active");
+  }
 
   return (
     <div className="overflow-x-hidden">
@@ -42,7 +46,42 @@ export const Layout = ({
           />
         </div>
 
-        <Menu></Menu>
+        {menu ? (
+          <nav
+            title="Menu"
+            className="xl:container xl:mx-auto xl:px-6 xl:justify-end xl:flex font-body"
+          >
+            <div className="layout-container">
+              <button onClick={onMenuClick} id="menuButton" className="text-h4">
+                <span className="icon-menu" />
+                <span className="pl-3">MENU</span>
+              </button>
+            </div>
+
+            <div id="menuDropdown" className="menuDropdown">
+              <div
+                id="closeMenu"
+                onClick={onMenuClick}
+                className="cursor-pointer layout-container flex justify-end"
+              >
+                <span className="icon-cross mt-1 mr-2" />
+                <span>Close</span>
+              </div>
+
+              <ul className="layout-container w-max">
+                <li className="py-3 px-2 cursor-pointer">
+                  <a href="#">Service Canada Labs</a>
+                </li>
+                <li className="py-3 px-2 cursor-pointer">
+                  <a href="#">Experiments</a>
+                </li>
+                <li className="py-3 px-2 cursor-pointer">
+                  <a href="#">About</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        ) : null}
         {bannerText && bannerTitle ? (
           <Banner siteTitle={bannerTitle} headline={bannerText} />
         ) : null}
@@ -91,6 +130,11 @@ Layout.propTypes = {
    * title of the banner
    */
   bannerTitle: PropTypes.string,
+
+  /**
+   * menu bar
+   */
+  menu: PropTypes.bool,
 
   /**
    * child elements that will constitute the page

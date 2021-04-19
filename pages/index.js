@@ -15,6 +15,7 @@ export default function Home(props) {
       bannerText={t("bannerText")}
       locale={props.locale}
       langUrl={asPath}
+      menu
     >
       <Head>
         <title>{t("siteTitle")}</title>

@@ -31,3 +31,7 @@
 .icon-menu:before {
   content: "\e9bd";
 }
+
+.icon-cross:before {
+  content: "\ea0f";
+}
