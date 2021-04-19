@@ -41,7 +41,7 @@ export function CheckBox(props) {
 
 CheckBox.defaultProps = {
   checked: false,
-  value: "",
+  value: "true",
 };
 
 CheckBox.propTypes = {
