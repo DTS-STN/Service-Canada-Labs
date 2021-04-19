@@ -4,6 +4,11 @@ import PropTypes from "prop-types";
  * check box component for forms
  */
 export function CheckBox(props) {
+  const ifControlledProps = !props.uncontrolled
+    ? {
+        checked: props.checked,
+      }
+    : {};
   return (
     <div className="block leading-tight relative pl-40px min-h-40px clear-left mb-10px">
       <input
@@ -12,10 +17,16 @@ export function CheckBox(props) {
         name={props.name}
         value={props.value}
         type="checkbox"
-        onChange={() => props.onChange(props.checked, props.name, props.value)}
-        checked={props.checked}
+        onChange={(e) =>
+          props.onChange(
+            props.uncontrolled ? !e.currentTarget.checked : props.checked,
+            props.name,
+            props.value
+          )
+        }
         data-cy={props.dataCy}
         data-testid={props.dataTestId}
+        {...ifControlledProps}
       />
       <label
         className="checkbox-label inline-block cursor-pointer pt-8px pb-5px px-15px text-base leading-tight font-normal font-body"
@@ -63,6 +74,11 @@ CheckBox.propTypes = {
    * callback to handle change in checked state, takes three arguments, the checked state, the name and the value
    */
   onChange: PropTypes.func,
+
+  /**
+   * boolean flag to specify that this input should not be controlled by react
+   */
+  uncontrolled: PropTypes.bool,
 
   /**
    * testing selector for cypress

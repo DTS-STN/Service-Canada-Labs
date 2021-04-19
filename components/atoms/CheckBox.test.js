@@ -36,4 +36,16 @@ describe("CheckBox", () => {
       Checked.args.value,
     ]);
   });
+
+  it("has no accessibility violations unchecked", async () => {
+    const uncheckedContainer = render(<UnChecked {...UnChecked.args} />);
+    const resultsUnchecked = await axe(uncheckedContainer.container);
+    expect(resultsUnchecked).toHaveNoViolations();
+  });
+
+  it("has no accessibility violations checked", async () => {
+    const checkedContainer = render(<Checked {...Checked.args} />);
+    const resultsChecked = await axe(checkedContainer.container);
+    expect(resultsChecked).toHaveNoViolations(resultsChecked);
+  });
 });

@@ -41,6 +41,8 @@ module.exports = {
           dark: "#26374a",
           link: "#0535d2",
         },
+        "form-input-gray": "#555",
+        "form-input-border-gray": "#ccc",
         "gray-light-200": "#f5f5f5",
         "gray-light-100": "#e0e0e0",
         "gray-light": "#EFEFEF",
@@ -69,11 +71,14 @@ module.exports = {
       },
       padding: {
           "5px": "5px",
+          "6px": "6px",
           "8px": "8px",
+          "12px": "12px",
           "15px": "15px",
-        "40px": "40px",
+          "40px": "40px",
       },
       margin: {
+        "5px": "5px",
         "10px": "10px",
       },
       minHeight:{

@@ -4,6 +4,15 @@ import { CheckBox } from "./CheckBox";
 export default {
   title: "Components/Atoms/CheckBox",
   component: CheckBox,
+  decorators: [
+    (Story) => (
+      <div className="w-full flex justify-center">
+        <div className="w-96">
+          <Story />
+        </div>
+      </div>
+    ),
+  ],
 };
 
 const Template = (args) => <CheckBox {...args} />;
@@ -25,4 +34,14 @@ Checked.args = {
   label: "I am a checkbox",
   dataTestId: "checked-checkbox",
   checked: true,
+};
+
+export const UnControlled = Template.bind({});
+UnControlled.args = {
+  id: "checkbox 1",
+  name: "ChexBox1",
+  value: "IsChecked",
+  label: "I am an uncontrolled checkbox",
+  dataTestId: "uncontrolled-checkbox",
+  uncontrolled: true,
 };
