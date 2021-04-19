@@ -70,20 +70,20 @@ module.exports = {
         1: "1",
       },
       padding: {
-          "5px": "5px",
-          "6px": "6px",
-          "8px": "8px",
-          "12px": "12px",
-          "15px": "15px",
-          "40px": "40px",
+        "5px": "5px",
+        "6px": "6px",
+        "8px": "8px",
+        "12px": "12px",
+        "15px": "15px",
+        "40px": "40px",
       },
       margin: {
         "5px": "5px",
         "10px": "10px",
       },
-      minHeight:{
-          "40px": "40px"
-      }
+      minHeight: {
+        "40px": "40px",
+      },
     },
   },
   variants: {
