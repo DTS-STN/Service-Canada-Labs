@@ -39,7 +39,6 @@ export const Layout = ({
           />
         </div>
         <div className="mb-2 border-t pb-2 mt-4"></div>
-        
 
         {menu ? (
           <nav
@@ -48,7 +47,11 @@ export const Layout = ({
             data-cy="menu"
           >
             <div className="layout-container pb-4">
-              <button onClick={onMenuClick} id="menuButton" className="text-h4">
+              <button
+                onClick={onMenuClick}
+                id="menuButton"
+                className="text-h4 focus:outline-none focus:ring-2 focus:ring-black"
+              >
                 <span className="icon-menu" />
                 <span className="pl-3">{t("menuTitle")}</span>
               </button>
