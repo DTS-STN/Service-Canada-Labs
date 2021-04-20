@@ -47,7 +47,7 @@ export const Layout = ({
 
       <footer>
         <div className="layout-container">
-          <DateModified date={process.env.BUILD_DATE} />
+          <DateModified date={process.env.NEXT_PUBLIC_BUILD_DATE} />
         </div>
         <Footer
           footerLogoAltText="Symbol of the Government of Canada"
