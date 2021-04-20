@@ -5,6 +5,7 @@ import { Footer } from "../organisms/Footer";
 import { Header } from "../organisms/Header";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
+import { DateModified } from "../atoms/DateModified";
 
 /**
  * Component which defines the layout of the page for all screen sizes
@@ -45,6 +46,9 @@ export const Layout = ({
       </main>
 
       <footer>
+        <div className="layout-container">
+          <DateModified date={process.env.BUILD_DATE} />
+        </div>
         <Footer
           footerLogoAltText="Symbol of the Government of Canada"
           footerLogoImage="/wmms-blk.svg"

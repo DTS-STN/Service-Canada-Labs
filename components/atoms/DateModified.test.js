@@ -7,12 +7,12 @@ expect.extend(toHaveNoViolations);
 describe("DateModified", () => {
   it("renders and formats the date properly", () => {
     render(<Primary {...Primary.args} />);
-    screen.getByText("dateModified 2020-04-20");
+    screen.getByText("2020-04-20");
   });
 
   it("renders 'NA' as date if date is undefined", () => {
     render(<Primary />);
-    screen.getByText("dateModified NA");
+    screen.getByText("NA");
   });
 
   it("has no a11y violations", async () => {

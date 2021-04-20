@@ -8,9 +8,12 @@ export function DateModified(props) {
     ? props.date.replace(/^(.{4})(.{2})/gm, "$1-$2-")
     : "NA";
   return (
-    <span className="font-body text-sm">
-      {t("dateModified")} {dateFormatted}
-    </span>
+    <dl className="mt-8 py-2 font-body font-normal text-sm">
+      <dt className="inline">{t("dateModified")}</dt>
+      <dd className="inline">
+        <time>{` ${dateFormatted}`}</time>
+      </dd>
+    </dl>
   );
 }
 
