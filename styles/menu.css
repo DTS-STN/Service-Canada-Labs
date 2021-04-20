@@ -27,12 +27,12 @@
         position: static;
         min-width: fit-content;
         min-height: fit-content;
+        padding-bottom: 1rem;
     }
 
     .menuDropdown > ul > li{
         display: inline-block;
         padding-left: 2rem;
-        padding-bottom: 2rem;
     }
 }
   
