@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 // import Head from "next/head";
 import { Banner } from "../atoms/Banner";
+import { Menu } from "../molecules/Menu";
 import { Footer } from "../organisms/Footer";
 import { Header } from "../organisms/Header";
 import Link from "next/link";
@@ -12,17 +13,12 @@ import { useTranslation } from "next-i18next";
 export const Layout = ({
   bannerText,
   bannerTitle,
-  menu,
   children,
   locale,
   langUrl,
 }) => {
   const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
-
-  function onMenuClick() {
-    document.getElementById("menuDropdown").classList.toggle("active");
-  }
 
   return (
     <div className="overflow-x-hidden">
@@ -40,47 +36,23 @@ export const Layout = ({
         </div>
         <div className="mb-2 border-t pb-2 mt-4"></div>
 
-        {menu ? (
-          <nav
-            title="Menu"
-            className="lg:container lg:mx-auto lg:px-6 lg:justify-end lg:flex"
-            data-cy="menu"
-          >
-            <div className="layout-container pb-4">
-              <button
-                onClick={onMenuClick}
-                id="menuButton"
-                className="text-h4 focus:outline-none focus:ring-2 focus:ring-black"
-              >
-                <span className="icon-menu" />
-                <span className="pl-3">{t("menuTitle")}</span>
-              </button>
-            </div>
-
-            <div id="menuDropdown" className="menuDropdown">
-              <div
-                id="closeMenu"
-                onClick={onMenuClick}
-                className="cursor-pointer layout-container flex justify-end"
-              >
-                <span className="icon-cross mt-1 mr-2" />
-                <span>{t("closeMenu")}</span>
-              </div>
-
-              <ul className="container xxs:mx-4 xs:px-0 w-max">
-                <li className="py-3 pl-2 lg:py-0 cursor-pointer">
-                  <a href="#">{t("menuLink1")}</a>
-                </li>
-                <li className="py-3 pl-2 lg:py-0 cursor-pointer">
-                  <a href="#">{t("menuLink2")}</a>
-                </li>
-                <li className="py-3 pl-2 lg:py-0 cursor-pointer">
-                  <a href="#">{t("menuLink3")}</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        ) : null}
+        <Menu
+          menuButtonTitle={t("menuTitle")}
+          items={[
+            {
+              link: "#",
+              text: t("menuLink1"),
+            },
+            {
+              link: "#",
+              text: t("menuLink2"),
+            },
+            {
+              link: "#",
+              text: t("menuLink3"),
+            },
+          ]}
+        />
 
         {bannerText && bannerTitle ? (
           <Banner siteTitle={bannerTitle} headline={bannerText} />
@@ -172,11 +144,6 @@ Layout.propTypes = {
    * title of the banner
    */
   bannerTitle: PropTypes.string,
-
-  /**
-   * menu bar
-   */
-  menu: PropTypes.bool,
 
   /**
    * child elements that will constitute the page

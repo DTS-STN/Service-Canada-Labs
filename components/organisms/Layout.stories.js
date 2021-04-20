@@ -25,7 +25,6 @@ const Template = (args) => <Layout {...args}>{sampleText()}</Layout>;
 
 export const NoBanner = Template.bind({});
 export const WithBanner = Template.bind({});
-export const WithMenu = Template.bind({});
 
 NoBanner.args = {
   langUrl: "someUrl",
@@ -35,12 +34,6 @@ NoBanner.args = {
 WithBanner.args = {
   bannerTitle: "Banner Title",
   bannerText: "Banner Text",
-  langUrl: "someUrl",
-  locale: "someLocale",
-};
-
-WithMenu.args = {
-  menu: true,
   langUrl: "someUrl",
   locale: "someLocale",
 };

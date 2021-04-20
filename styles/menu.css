@@ -3,12 +3,7 @@
 
 .menuDropdown {
     display: none;
-    position: fixed;
     background-color: white;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
 }
 
 .menuDropdown > ul > li:hover > a {
@@ -17,7 +12,8 @@
 
 .active {
     display: block;
-    overflow-y: hidden;
+    background: #eeeeee;
+    padding-left: 1rem;
 }
 
 @screen lg {
@@ -26,6 +22,7 @@
     }
 
     .menuDropdown {
+        background: white;
         display: inline-block;
         position: static;
         min-width: fit-content;
