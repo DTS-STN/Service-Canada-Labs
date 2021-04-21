@@ -24,7 +24,9 @@ export const Layout = ({
   return (
     <div className="overflow-x-hidden">
       <header>
-        {phaseText ? <PhaseBanner phase={phaseTitle} >{phaseText}</PhaseBanner> : null}
+        {phaseText ? (
+          <PhaseBanner phase={phaseTitle}>{phaseText}</PhaseBanner>
+        ) : null}
         <div className="layout-container">
           <a href="#">
             <img src="#" alt="Governement of Canada" />

@@ -12,5 +12,5 @@ export const Primary = Template.bind({});
 
 Primary.args = {
   phase: "PhaseBanner Phase",
-  children: "PhaseBanner Text"
+  children: "PhaseBanner Text",
 };
