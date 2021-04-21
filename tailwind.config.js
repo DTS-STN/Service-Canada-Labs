@@ -40,7 +40,9 @@ module.exports = {
           light: "#1492B4",
           dark: "#26374a",
           link: "#0535d2",
+          details: "#F7FAFC"
         },
+        "details-button-gray": "#E7E8EA",
         "form-input-gray": "#555",
         "form-input-border-gray": "#ccc",
         "gray-light-200": "#f5f5f5",
@@ -59,9 +61,11 @@ module.exports = {
       },
       width: {
         "44px": "44px",
+        "300px": "300px"
       },
       height: {
         "44px": "44px",
+        "46px": "46px",
       },
       inset: {
         "-2px": "-2px",
@@ -81,8 +85,10 @@ module.exports = {
         "5px": "5px",
         "10px": "10px",
       },
+
       minHeight: {
         "40px": "40px",
+        "200px": "200px"
       },
     },
   },
