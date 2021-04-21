@@ -37,11 +37,15 @@ export function Menu(props) {
         </button>
       </div>
 
-      <div id="menuDropdown" className="menuDropdown" role="menu">
-        <ul>
+      <div id="menuDropdown" className="menuDropdown">
+        <ul role="menu">
           {props.items.map((item, key) => {
             return (
-              <li key={key} className="py-3 lg:py-0 cursor-pointer">
+              <li
+                key={key}
+                className="py-3 lg:py-0 cursor-pointer"
+                role="menuitem"
+              >
                 <a href={item.link}>{item.text}</a>
               </li>
             );
