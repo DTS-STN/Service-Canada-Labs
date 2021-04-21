@@ -20,35 +20,12 @@ export default function Home(props) {
         <title>{t("siteTitle")}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <div className="bg-gray-light-200 py-6">
-        <div className="layout-container flex">
-          <ActionButton
-            text={t("buttonStartTesting")}
-            secondary
-            className={"mr-4"}
-            dataCyButton={"start-testing-button"}
-          />
-          <ActionButton
-            text={t("buttonBecomeTester")}
-            dataCyButton={"become-tester-button"}
-          />
-        </div>
-      </div> */}
 
       <section className="layout-container mb-8 mt-12">
         <div className="flex flex-col           lg:grid lg:grid-cols-2 lg:gap-24">
           <div>
             <h1>{t("experimentsAndExplorationTitle")}</h1>
             <br></br>
-            {/* <p className="text-sm md:text-p leading-normal text-left font-normal font-body">Our team within the Government of Canada is experimenting, and we’re inviting you into our labs to design and test with us.</p>
-            <br></br>
-            <p className="text-sm md:text-p leading-normal text-left font-normal font-body">This web site showcases experiments and early models of features and services that we’re currently working on.
-            These features and services are still in their early stages and are not ready for prime time just yet,
-            but we’re inviting you behind the scenes to help us test and improve them as we go.</p>
-            <br></br>
-            <p className="text-sm md:text-p leading-normal text-left font-normal font-body">You can see all of our ongoing experiments in one place, to make it easier for us to
-           collaborate and show you what we’re working on. We’ve made these experiments publicly available in the spirit of working in the open.</p>
-            <br></br> */}
             <p className="text-sm md:text-p leading-normal text-left font-normal font-body">
               {t("experimentsAndExploration-1/3")} <br></br> <br></br>
               {t("experimentsAndExploration-2/3")}
@@ -166,30 +143,6 @@ export default function Home(props) {
           />
         </div>
       </section>
-
-      {/* <h2>{t("aboutUsHeading")}</h2>
-        <p>{t("aboutUsContent")}</p>
-
-        <figure>Block</figure>
-
-        <figure>
-          Block
-          <figcaption>{t("figCaption")}</figcaption>
-        </figure> */}
-
-      {/* <section className="layout-container">
-        <h3>{t("contactUsHeading")}</h3>
-        <p>{t("contactUsContent")}</p>
-        <a href="#">john.doe@example.com</a>
-        <figure>Block</figure>
-      </section>
-
-      <section className="layout-container">
-        <h4>{t("featuredPrototypesHeading")}</h4>
-        <figure>Block</figure>
-        <figure>Block</figure>
-        <figure>Block</figure>
-      </section> */}
     </Layout>
   );
 }
