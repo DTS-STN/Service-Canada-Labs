@@ -11,7 +11,11 @@ export function DateModified(props) {
     <dl className="mt-8 py-2 font-body font-normal text-sm">
       <dt className="inline">{t("dateModified")}</dt>
       <dd className="inline">
-        <time datetime={dateFormatted}>{` ${dateFormatted}`}</time>
+        {dateFormatted === "NA" ? (
+          <time>{` ${dateFormatted}`}</time>
+        ) : (
+          <time datetime={dateFormatted}>{` ${dateFormatted}`}</time>
+        )}
       </dd>
     </dl>
   );
