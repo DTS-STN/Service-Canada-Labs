@@ -43,6 +43,11 @@ resource "azurerm_application_gateway" "application-gateway-primary" {
     fqdns       = [var.primary_api_appservice_hostname]
   }
 
+  backend_address_pool {
+    name        = "alphasiteAdminPool"
+    fqdns       = [var.primary_admin_appservice_hostname]
+  }
+
   http_listener {
     name                           = "alphasiteApiListener"
     frontend_ip_configuration_name = "frontend"
@@ -61,7 +66,16 @@ resource "azurerm_application_gateway" "application-gateway-primary" {
     ssl_certificate_name           = "dts-stn-wildcard"
     host_name                      = var.application_url_dev
     require_sni                    = "true"
- 
+  }
+
+  http_listener {
+    name                           = "alphasiteAdminListener"
+    frontend_ip_configuration_name = "frontend"
+    frontend_port_name             = "https"
+    protocol                       = "Https"
+    ssl_certificate_name           = "dts-stn-wildcard"
+    host_name                      = var.admin_url_dev
+    require_sni                    = "true"
   }
 
   ssl_certificate {
@@ -89,6 +103,16 @@ resource "azurerm_application_gateway" "application-gateway-primary" {
     unhealthy_threshold = "3"
   }
 
+  probe {
+    name                = "admin-probe"
+    protocol            = "https"
+    path                = var.healthcheck_page
+    host                = var.primary_admin_appservice_hostname
+    interval            = "30"
+    timeout             = "30"
+    unhealthy_threshold = "3"
+  }
+
   backend_http_settings {
     name                  = "application-https"
     cookie_based_affinity = "Disabled"
@@ -110,6 +134,17 @@ resource "azurerm_application_gateway" "application-gateway-primary" {
     pick_host_name_from_backend_address = true
     affinity_cookie_name  = "ApplicationGatewayAffinity"
   }
+  
+  backend_http_settings {
+    name                  = "admin-https"
+    cookie_based_affinity = "Disabled"
+    port                  = 443
+    protocol              = "Https"
+    request_timeout       = 1
+    probe_name            = "admin-probe"
+    pick_host_name_from_backend_address = true
+    affinity_cookie_name  = "ApplicationGatewayAffinity"
+  }
 
   request_routing_rule {
     name                       = "alphasiteApplicationRule"
@@ -126,6 +161,14 @@ resource "azurerm_application_gateway" "application-gateway-primary" {
     backend_address_pool_name  = "alphasiteApiPool"
     backend_http_settings_name = "api-https"
   }
+
+  request_routing_rule {
+    name                       = "alphasiteAdminRule"
+    rule_type                  = "Basic"
+    http_listener_name         = "alphasiteAdminListener"
+    backend_address_pool_name  = "alphasiteAdminPool"
+    backend_http_settings_name = "admin-https"
+  }  
 
 }
 
@@ -174,6 +217,11 @@ resource "azurerm_application_gateway" "application-gateway-secondary" {
     fqdns       = [var.secondary_api_appservice_hostname]
   }
 
+  backend_address_pool {
+    name        = "alphasiteAdminPool"
+    fqdns       = [var.secondary_admin_appservice_hostname]
+  }  
+
   http_listener {
     name                           = "alphasiteApiListener"
     frontend_ip_configuration_name = "frontend"
@@ -192,7 +240,16 @@ resource "azurerm_application_gateway" "application-gateway-secondary" {
     ssl_certificate_name           = "dts-stn-wildcard"
     host_name                      = var.application_url_dev
     require_sni                    = "true"
- 
+  }
+  
+  http_listener {
+    name                           = "alphasiteAdminListener"
+    frontend_ip_configuration_name = "frontend"
+    frontend_port_name             = "https"
+    protocol                       = "Https"
+    ssl_certificate_name           = "dts-stn-wildcard"
+    host_name                      = var.admin_url_dev
+    require_sni                    = "true"
   }
 
   ssl_certificate {
@@ -220,6 +277,16 @@ resource "azurerm_application_gateway" "application-gateway-secondary" {
     unhealthy_threshold = "3"
   }
 
+  probe {
+    name                = "admin-probe"
+    protocol            = "https"
+    path                = var.healthcheck_page
+    host                = var.secondary_admin_appservice_hostname
+    interval            = "30"
+    timeout             = "30"
+    unhealthy_threshold = "3"
+  }
+
   backend_http_settings {
     name                  = "application-https"
     cookie_based_affinity = "Disabled"
@@ -242,6 +309,17 @@ resource "azurerm_application_gateway" "application-gateway-secondary" {
     affinity_cookie_name  = "ApplicationGatewayAffinity"
   }
 
+  backend_http_settings {
+    name                  = "admin-https"
+    cookie_based_affinity = "Disabled"
+    port                  = 443
+    protocol              = "Https"
+    request_timeout       = 1
+    probe_name            = "admin-probe"
+    pick_host_name_from_backend_address = true
+    affinity_cookie_name  = "ApplicationGatewayAffinity"
+  }
+
   request_routing_rule {
     name                       = "alphasiteApplicationRule"
     rule_type                  = "Basic"
@@ -257,4 +335,13 @@ resource "azurerm_application_gateway" "application-gateway-secondary" {
     backend_address_pool_name  = "alphasiteApiPool"
     backend_http_settings_name = "api-https"
   }
+
+  request_routing_rule {
+    name                       = "alphasiteAdminRule"
+    rule_type                  = "Basic"
+    http_listener_name         = "alphasiteAdminListener"
+    backend_address_pool_name  = "alphasiteAdminPool"
+    backend_http_settings_name = "admin-https"
+  }
+
 }

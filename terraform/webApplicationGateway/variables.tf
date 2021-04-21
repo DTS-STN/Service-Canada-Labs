@@ -32,6 +32,9 @@ variable "application_url_dev" {
 variable "api_url_dev" {
     type = string
 }
+variable "admin_url_dev" {
+    type = string
+}
 
 variable "primary_application_appservice_hostname"{
     type = string
@@ -56,6 +59,19 @@ variable "secondary_api_appservice_hostname" {
     type = string
 }
 variable "api_appservice_name_secondary" {
+    type = string
+}
+
+variable "primary_admin_appservice_hostname" {
+    type = string
+}
+variable "admin_appservice_name_primary" {
+    type = string
+}
+variable "secondary_admin_appservice_hostname" {
+    type = string
+}
+variable "admin_appservice_name_secondary" {
     type = string
 }
 
