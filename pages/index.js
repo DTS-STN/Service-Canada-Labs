@@ -134,7 +134,7 @@ export default function Home(props) {
             </div>
           </div>
         </div>
-        <div className="xl:invisible bg-white md:pl-16 lg:pl-32  pt-6 xl:pt-0 xl:pb-0 pb-10 pl-6">
+        <div className="xl:invisible bg-white layout-container pt-6 xl:pt-0 xl:pb-0 pb-10 ">
           <ActionButton
             text={t("learnMoreBtn")}
             className={"text-xs md:text-base"}
