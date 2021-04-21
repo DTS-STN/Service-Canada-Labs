@@ -6,6 +6,7 @@ import { Header } from "./Header";
 import { ReportAProblem } from "./ReportAProblem";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
+import { DateModified } from "../atoms/DateModified";
 
 /**
  * Component which defines the layout of the page for all screen sizes
@@ -47,72 +48,76 @@ export const Layout = ({
       <div className="layout-container my-3">
         <ReportAProblem />
       </div>
-      <Footer
-        footerLogoAltText="Symbol of the Government of Canada"
-        footerLogoImage="/wmms-blk.svg"
-        links={[
-          {
-            link: "https://www.canada.ca",
-            linkText: "Social media",
-          },
-          {
-            link: "https://www.canada.ca",
-            linkText: "Mobile applications",
-          },
-          {
-            link: "https://www.canada.ca/en/transparency/terms.html",
-            linkText: "Terms and conditions",
-          },
-          {
-            link: "https://www.canada.ca/en/transparency/terms.html",
-            linkText: "Privacy",
-          },
-        ]}
-        footerBoxLinks={[
-          {
-            footerBoxlink:
-              "https://www.canada.ca/en/revenue-agency/corporate/contact-information.html",
-            footerBoxLinkText: "Contact us",
-          },
-          {
-            footerBoxlink: "https://www.canada.ca/en/news.html",
-            footerBoxLinkText: "News",
-          },
-          {
-            footerBoxlink: "https://pm.gc.ca/en",
-            footerBoxLinkText: "Prime Minister",
-          },
-          {
-            footerBoxlink: "https://www.canada.ca/en/government/dept.html",
-            footerBoxLinkText: "Departments and agencies",
-          },
+       <div className="layout-container">
+          <DateModified date={process.env.NEXT_PUBLIC_BUILD_DATE} />
+        </div>
+     
+        <Footer
+          footerLogoAltText="Symbol of the Government of Canada"
+          footerLogoImage="/wmms-blk.svg"
+          links={[
+            {
+              link: "https://www.canada.ca",
+              linkText: t("footerSocialMedia"),
+            },
+            {
+              link: "https://www.canada.ca",
+              linkText: t("footerMobileApp"),
+            },
+            {
+              link: "https://www.canada.ca/en/transparency/terms.html",
+              linkText: t("footerTermsAndCondition"),
+            },
+            {
+              link: "https://www.canada.ca/en/transparency/terms.html",
+              linkText: t("footerPrivacy"),
+            },
+          ]}
+          footerBoxLinks={[
+            {
+              footerBoxlink:
+                "https://www.canada.ca/en/revenue-agency/corporate/contact-information.html",
+              footerBoxLinkText: t("footerContactUs"),
+            },
+            {
+              footerBoxlink: "https://www.canada.ca/en/news.html",
+              footerBoxLinkText: t("footerNews"),
+            },
+            {
+              footerBoxlink: "https://pm.gc.ca/en",
+              footerBoxLinkText: t("footerPm"),
+            },
+            {
+              footerBoxlink: "https://www.canada.ca/en/government/dept.html",
+              footerBoxLinkText: t("footerDepartmentAgencies"),
+            },
 
-          {
-            footerBoxlink:
-              "https://www.canada.ca/en/government/system/laws.html",
-            footerBoxLinkText: "Treaties, laws and regulations",
-          },
-          {
-            footerBoxlink: "https://www.canada.ca/en/government/system.html",
-            footerBoxLinkText: "How goverment works",
-          },
-          {
-            footerBoxlink:
-              "https://www.canada.ca/en/government/publicservice.html",
-            footerBoxLinkText: "Public service and military",
-          },
-          {
-            footerBoxlink:
-              "https://www.canada.ca/en/transparency/reporting.html",
-            footerBoxLinkText: "Goverment-wide reporting",
-          },
-          {
-            footerBoxlink: "https://open.canada.ca/en",
-            footerBoxLinkText: "Open goverment",
-          },
-        ]}
-      ></Footer>
-    </div>
+            {
+              footerBoxlink:
+                "https://www.canada.ca/en/government/system/laws.html",
+              footerBoxLinkText: t("footerTreaties"),
+            },
+            {
+              footerBoxlink: "https://www.canada.ca/en/government/system.html",
+              footerBoxLinkText: t("footerHowGovWorks"),
+            },
+            {
+              footerBoxlink:
+                "https://www.canada.ca/en/government/publicservice.html",
+              footerBoxLinkText: t("footerPublicService"),
+            },
+            {
+              footerBoxlink:
+                "https://www.canada.ca/en/transparency/reporting.html",
+              footerBoxLinkText: t("footerGovReporting"),
+            },
+            {
+              footerBoxlink: "https://open.canada.ca/en",
+              footerBoxLinkText: t("footerOpenGov"),
+            },
+          ]}
+        />
+     
   );
 };
 
