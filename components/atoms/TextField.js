@@ -12,7 +12,7 @@ export function TextField(props) {
   return (
     <div className="block leading-tight mb-10px">
       <label
-        className={`block leading-tight text-base font-body mb-5px ${
+        className={`block leading-tight text-sm font-body mb-5px ${
           props.boldLabel ? "font-bold" : ""
         }`}
         htmlFor={props.id}

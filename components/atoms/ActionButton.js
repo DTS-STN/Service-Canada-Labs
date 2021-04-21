@@ -17,13 +17,14 @@ export function ActionButton(props) {
           ? "bg-white text-custom-blue-blue border border-custom-blue-blue active:bg-gray-400 hover:bg-gray-200"
           : props.className
       }
-      ${props.custom && !props.secondary ? props.custom : null}
+      ${props.custom && !props.secondary ? props.custom : ""}
       ${
         props.disabled
           ? "bg-gray-light text-gray-600 border border-gray-md"
           : props.className
       } text-base font-body`}
       onClick={props.onClick}
+      type={props.type}
       id={props.id}
       data-cy={props.dataCy || props.id}
       data-cy-button={props.dataCyButton}
@@ -53,6 +54,11 @@ ActionButton.propTypes = {
    * Identify which button being clicked
    */
   id: PropTypes.string,
+
+  /**
+   * the type of the button
+   */
+  type: PropTypes.oneOf(["submit", "reset"]),
 
   /**
    * Secondary color styling option

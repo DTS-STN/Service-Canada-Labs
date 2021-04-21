@@ -29,7 +29,7 @@ export function CheckBox(props) {
         {...ifControlledProps}
       />
       <label
-        className="checkbox-label inline-block cursor-pointer pt-8px pb-5px px-15px text-base leading-tight font-normal font-body"
+        className="checkbox-label inline-block cursor-pointer pt-8px pb-5px px-15px text-xxs leading-tight font-normal font-body"
         htmlFor={props.id}
         onClick={() => props.onChange(props.checked, props.name, props.value)}
       >
