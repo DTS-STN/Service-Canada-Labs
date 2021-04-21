@@ -38,6 +38,7 @@ module.exports = {
           light: '#1492B4',
           dark: '#26374a',
           link: '#0535d2',
+          experimentBlue: '#004986',
         },
         "gray-light-200": "#f5f5f5",
         "gray-light-100": "#e0e0e0",
@@ -52,6 +53,9 @@ module.exports = {
         'canada-footer-font' : "#284162",
         'canada-footer-hover-font-blue':'#0535d2',
         'footer-background-color':'#f8f8f8'
+      },
+      boxShadow: {
+        experimentShadow: '0px 2px 8px rgba(0, 0, 0, 0.25)'
       },
     },
   },

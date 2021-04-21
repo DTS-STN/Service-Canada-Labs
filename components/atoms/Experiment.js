@@ -7,9 +7,9 @@ import PropTypes from "prop-types";
 
 export const Experiment = ({ title, tag, desc }) => {
   return (
-    <div className="shadow-xl px-4 py-6 border-b-4 border-blue-800">
+    <div className="shadow-experimentShadow px-4 py-6 border-b-4 border-custom-blue-experimentBlue">
       <h3 className="mb-4">{title}</h3>
-      <span className="py-2 px-1 text-white  font-bold bg-blue-800 rounded">
+      <span className="py-2 px-1 text-white font-bold bg-custom-blue-experimentBlue rounded">
         {tag}
       </span>
       <p className="mt-2">{desc}</p>
