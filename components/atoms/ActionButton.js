@@ -26,6 +26,7 @@ export function ActionButton(props) {
       onClick={props.onClick}
       type={props.type}
       id={props.id}
+      data-testid={props.dataTestId}
       data-cy={props.dataCy || props.id}
       data-cy-button={props.dataCyButton}
       disabled={props.disabled}

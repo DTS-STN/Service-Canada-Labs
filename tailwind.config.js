@@ -40,7 +40,7 @@ module.exports = {
           light: "#1492B4",
           dark: "#26374a",
           link: "#0535d2",
-          details: "#F7FAFC"
+          details: "#F7FAFC",
         },
         "details-button-gray": "#E7E8EA",
         "form-input-gray": "#555",
@@ -61,7 +61,7 @@ module.exports = {
       },
       width: {
         "44px": "44px",
-        "300px": "300px"
+        "300px": "300px",
       },
       height: {
         "44px": "44px",
@@ -88,7 +88,7 @@ module.exports = {
 
       minHeight: {
         "40px": "40px",
-        "200px": "200px"
+        "200px": "200px",
       },
     },
   },
