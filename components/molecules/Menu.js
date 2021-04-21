@@ -6,8 +6,16 @@ import PropTypes from "prop-types";
 export function Menu(props) {
   //Function for changing menu state
   function onMenuClick() {
+    const menuButton = document.getElementById("menuButton");
     document.getElementById("menuDropdown").classList.toggle("active");
-    document.getElementById("menuButton").classList.toggle("active");
+
+    menuButton.getAttribute("aria-expanded") === "true"
+      ? document
+          .getElementById("menuButton")
+          .setAttribute("aria-expanded", false)
+      : document
+          .getElementById("menuButton")
+          .setAttribute("aria-expanded", true);
   }
 
   return (
@@ -16,21 +24,24 @@ export function Menu(props) {
       className="layout-container lg:justify-end lg:flex"
       data-cy="menu"
     >
-      <div id="menuButton" className="pb-4 pt-2">
+      <div id="menuButtonDiv" className="pb-4 pt-2">
         <button
+          id="menuButton"
           onClick={onMenuClick}
           className="text-h4 text-canada-footer-font focus:outline-none focus:ring-2 focus:ring-black"
+          aria-haspopup="true"
+          aria-expanded="false"
         >
           <span className="icon-menu" />
           <span className="pl-3">{props.menuButtonTitle}</span>
         </button>
       </div>
 
-      <div id="menuDropdown" className="menuDropdown">
+      <div id="menuDropdown" className="menuDropdown" role="menu">
         <ul>
           {props.items.map((item, key) => {
             return (
-              <li key={key} className="py-3 pl-2 lg:py-0 cursor-pointer">
+              <li key={key} className="py-3 lg:py-0 cursor-pointer">
                 <a href={item.link}>{item.text}</a>
               </li>
             );

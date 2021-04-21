@@ -12,12 +12,10 @@
 
 .active {
     display: block;
-    background: #eeeeee;
-    padding-left: 1rem;
 }
 
 @screen lg {
-    #menuButton, #closeMenu {
+    #menuButtonDiv, #closeMenu {
         display: none;
     }
 
