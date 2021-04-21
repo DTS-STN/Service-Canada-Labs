@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 // import Head from "next/head";
 import { Banner } from "../atoms/Banner";
-import { Footer } from "../organisms/Footer";
-import { Header } from "../organisms/Header";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
+import { ReportAProblem } from "./ReportAProblem";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
@@ -44,11 +45,13 @@ export const Layout = ({
       <main>
         <div>{children}</div>
       </main>
-
-      <footer>
-        <div className="layout-container">
+      <div className="layout-container my-3">
+        <ReportAProblem />
+      </div>
+       <div className="layout-container">
           <DateModified date={process.env.NEXT_PUBLIC_BUILD_DATE} />
         </div>
+     
         <Footer
           footerLogoAltText="Symbol of the Government of Canada"
           footerLogoImage="/wmms-blk.svg"
@@ -113,9 +116,8 @@ export const Layout = ({
               footerBoxLinkText: t("footerOpenGov"),
             },
           ]}
-        ></Footer>
-      </footer>
-    </div>
+        />
+     
   );
 };
 
