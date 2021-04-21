@@ -1,9 +1,14 @@
 import PropTypes from "prop-types";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 /**
  * Menu component
  */
 export function Menu(props) {
+  //Router
+  const { asPath } = useRouter();
+
   //Function for changing menu state
   function onMenuClick() {
     const menuButton = document.getElementById("menuButton");
@@ -24,34 +29,36 @@ export function Menu(props) {
       className="layout-container lg:justify-end lg:flex"
       data-cy="menu"
     >
-      <div id="menuButtonDiv" className="pb-4 pt-2">
-        <button
-          id="menuButton"
-          onClick={onMenuClick}
-          className="text-h4 text-canada-footer-font focus:outline-none focus:ring-2 focus:ring-black"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          <span className="icon-menu" />
-          <span className="pl-3">{props.menuButtonTitle}</span>
-        </button>
-      </div>
+      <button
+        id="menuButton"
+        onClick={onMenuClick}
+        className="text-h4 text-canada-footer-font focus:outline-none focus:ring-2 focus:ring-black mb-4"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <span className="icon-menu" />
+        <span className="pl-3">{props.menuButtonTitle}</span>
+      </button>
 
-      <div id="menuDropdown" className="menuDropdown">
-        <ul role="menu">
-          {props.items.map((item, key) => {
-            return (
-              <li
-                key={key}
-                className="py-3 lg:py-0 cursor-pointer"
-                role="menuitem"
-              >
-                <a href={item.link}>{item.text}</a>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+      <ul id="menuDropdown" className="menuDropdown" role="menu">
+        {props.items.map((item, key) => {
+          var itemClass = "py-3 lg:py-0 cursor-pointer menuLink";
+
+          {
+            asPath === item.link
+              ? (itemClass = "py-3 lg:py-0 cursor-pointer activePage")
+              : null;
+          }
+
+          return (
+            <li key={key} className={itemClass} role="menuitem">
+              <Link href={item.link}>
+                <a>{item.text}</a>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </nav>
   );
 }

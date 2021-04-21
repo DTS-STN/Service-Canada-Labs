@@ -40,7 +40,7 @@ export const Layout = ({
           menuButtonTitle={t("menuTitle")}
           items={[
             {
-              link: "#",
+              link: "/",
               text: t("menuLink1"),
             },
             {
