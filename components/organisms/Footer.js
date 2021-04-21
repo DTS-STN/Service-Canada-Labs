@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 export function Footer(props) {
   return (
-    <footer className="w-full ">
+    <div className="w-full ">
       <div className="w-full h-auto  footerBackground">
         <div className="py-7 layout-container  ">
           <ul className=" flex flex-col text-xs   lg:grid lg:grid-cols-2  xl:grid xl:grid-cols-3  lg:gap-1">
@@ -57,7 +57,7 @@ export function Footer(props) {
           </div>
         </div>
       </div>
-    </footer>
+    </div>
   );
 }
 
