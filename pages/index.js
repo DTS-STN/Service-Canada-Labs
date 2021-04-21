@@ -134,13 +134,15 @@ export default function Home(props) {
             </div>
           </div>
         </div>
-        <div className="xl:invisible bg-white layout-container pt-6 xl:pt-0 xl:pb-0 pb-10 ">
-          <ActionButton
-            text={t("learnMoreBtn")}
-            className={"text-xs md:text-base"}
-            secondary
-            dataCyButton={"learn-more"}
-          />
+        <div className="xl:bg-footer-background-color  bg-white ">
+          <div className="xl:invisible layout-container pt-6 xl:pt-0 xl:pb-0 pb-10 ">
+            <ActionButton
+              text={t("learnMoreBtn")}
+              className={"text-xs md:text-base"}
+              secondary
+              dataCyButton={"learn-more"}
+            />
+          </div>
         </div>
       </section>
     </Layout>
