@@ -51,62 +51,62 @@ export const Layout = ({
           links={[
             {
               link: "https://www.canada.ca",
-              linkText: "Social media",
+              linkText: t("footerSocialMedia"),
             },
             {
               link: "https://www.canada.ca",
-              linkText: "Mobile applications",
+              linkText: t("footerMobileApp"),
             },
             {
               link: "https://www.canada.ca/en/transparency/terms.html",
-              linkText: "Terms and conditions",
+              linkText: t("footerTermsAndCondition"),
             },
             {
               link: "https://www.canada.ca/en/transparency/terms.html",
-              linkText: "Privacy",
+              linkText: t("footerPrivacy"),
             },
           ]}
           footerBoxLinks={[
             {
               footerBoxlink:
                 "https://www.canada.ca/en/revenue-agency/corporate/contact-information.html",
-              footerBoxLinkText: "Contact us",
+              footerBoxLinkText: t("footerContactUs"),
             },
             {
               footerBoxlink: "https://www.canada.ca/en/news.html",
-              footerBoxLinkText: "News",
+              footerBoxLinkText: t("footerNews"),
             },
             {
               footerBoxlink: "https://pm.gc.ca/en",
-              footerBoxLinkText: "Prime Minister",
+              footerBoxLinkText: t("footerPm"),
             },
             {
               footerBoxlink: "https://www.canada.ca/en/government/dept.html",
-              footerBoxLinkText: "Departments and agencies",
+              footerBoxLinkText: t("footerDepartmentAgencies"),
             },
 
             {
               footerBoxlink:
                 "https://www.canada.ca/en/government/system/laws.html",
-              footerBoxLinkText: "Treaties, laws and regulations",
+              footerBoxLinkText: t("footerTreaties"),
             },
             {
               footerBoxlink: "https://www.canada.ca/en/government/system.html",
-              footerBoxLinkText: "How goverment works",
+              footerBoxLinkText: t("footerHowGovWorks"),
             },
             {
               footerBoxlink:
                 "https://www.canada.ca/en/government/publicservice.html",
-              footerBoxLinkText: "Public service and military",
+              footerBoxLinkText: t("footerPublicService"),
             },
             {
               footerBoxlink:
                 "https://www.canada.ca/en/transparency/reporting.html",
-              footerBoxLinkText: "Goverment-wide reporting",
+              footerBoxLinkText: t("footerGovReporting"),
             },
             {
               footerBoxlink: "https://open.canada.ca/en",
-              footerBoxLinkText: "Open goverment",
+              footerBoxLinkText: t("footerOpenGov"),
             },
           ]}
         ></Footer>
