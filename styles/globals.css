@@ -70,14 +70,15 @@ html {
     }
   }
 }
-.circlePosition {
-position: absolute;
-left: 0%;
-right: 60.66%;
-top: 43.69%;
-bottom: 46.24%;
-}
+
 .footerBackground {
   background:#26374a url(../public/landscape.png) no-repeat right bottom;
 }
+
+.circlePosition {
+  position: Relative ;
+left: -12%;
+
+}
+
 
