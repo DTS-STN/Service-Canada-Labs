@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CheckBox } from "../atoms/CheckBox";
 import { TextField } from "../atoms/TextField";
+import { MultiTextField } from "../atoms/MultiTextField";
 import PropTypes from "prop-types";
 
 /**
@@ -29,23 +30,44 @@ export function OptionalTextField(props) {
         uncontrolled={props.uncontrolled}
         value={props.checkBoxValue}
         onChange={handleCheckChange}
-        dataTestId={props.dataTestId}
-        dataCy={props.dataCy}
+        dataTestId={props.checkBoxDataTestId}
+        dataCy={props.checkBoxDataCy}
       />
-      {showTextField ? (
-        <TextField
-          label={props.textFieldLabel}
-          name={props.textFieldName}
-          id={props.textFieldId}
-          value={props.textFieldValue}
-          boldLabel={props.textLabelBold}
-          uncontrolled={props.uncontrolled}
-          onChange={
-            props.onTextFieldChange ? props.onTextFieldChange : () => {}
-          }
-          dataTestId={props.textFieldDataTestId}
-          dataCy={props.textFieldDataCy}
-        />
+      {(props.uncontrolled && showTextField) || props.checked ? (
+        props.multiText ? (
+          <MultiTextField
+            label={props.textFieldLabel}
+            placeholder={props.textFieldPlaceHolder}
+            name={props.textFieldName}
+            id={props.textFieldId}
+            value={props.textFieldValue}
+            boldLabel={props.textLabelBold}
+            rows={props.rows}
+            cols={props.cols}
+            spellCheck={props.spellCheck}
+            wrap={props.wrap}
+            onChange={
+              props.onTextFieldChange ? props.onTextFieldChange : () => {}
+            }
+            dataTestId={props.textFieldDataTestId}
+            dataCy={props.textFieldDataCy}
+          />
+        ) : (
+          <TextField
+            label={props.textFieldLabel}
+            placeholder={props.textFieldPlaceHolder}
+            name={props.textFieldName}
+            id={props.textFieldId}
+            value={props.textFieldValue}
+            boldLabel={props.textLabelBold}
+            uncontrolled={props.uncontrolled}
+            onChange={
+              props.onTextFieldChange ? props.onTextFieldChange : () => {}
+            }
+            dataTestId={props.textFieldDataTestId}
+            dataCy={props.textFieldDataCy}
+          />
+        )
       ) : undefined}
     </>
   );
@@ -98,6 +120,11 @@ OptionalTextField.propTypes = {
   textFieldValue: PropTypes.string,
 
   /**
+   * text field placeholder
+   */
+  textFieldPlaceHolder: PropTypes.string,
+
+  /**
    * whether or not the checkbox is checked
    */
   checked: PropTypes.bool,
@@ -136,4 +163,39 @@ OptionalTextField.propTypes = {
    * callback when the text field changes
    */
   onTextFieldChange: PropTypes.func,
+
+  /**
+   * whether or not its a multi text field
+   */
+  multiText: PropTypes.bool,
+
+  /**
+   * how much lines should the multi text field show
+   */
+  rows: PropTypes.number,
+
+  /**
+   * how much columns the multi text field has
+   */
+  cols: PropTypes.number,
+
+  /**
+   * the minimum amount of characters for the multi text field
+   */
+  minLength: PropTypes.number,
+
+  /**
+   * the maximum amount of characters for the multi text field
+   */
+  maxLength: PropTypes.number,
+
+  /**
+   * the wrap preference for the multi text field
+   */
+  wrap: PropTypes.oneOf(["hard", "soft"]),
+
+  /**
+   * whether or not to spellcheck for the multi text field
+   */
+  spellCheck: PropTypes.bool,
 };

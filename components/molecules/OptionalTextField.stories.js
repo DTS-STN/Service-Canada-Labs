@@ -51,6 +51,21 @@ UnControlled.args = {
   checkBoxLabel: "Do you not like Nutella ?",
   uncontrolled: true,
   textFieldLabel: "Please explain why you are wrong ?",
-  checkBoxDataTestId: "opened-check-1",
-  textFieldDataTestId: "opened-text-1",
+  checkBoxDataTestId: "uncontrolled-check-1",
+  textFieldDataTestId: "uncontrolled-text-1",
+};
+
+export const MultiText = Template.bind({});
+MultiText.args = {
+  checkBoxId: "nutella-check-1",
+  textFieldId: "nutella-text-1",
+  checkBoxName: "nutellaCheckOne",
+  textFieldName: "nutellaTextOne",
+  checkBoxLabel: "Do you not like Nutella ?",
+  uncontrolled: true,
+  multiText: true,
+  rows: 5,
+  textFieldLabel: "Please explain why you are wrong ?",
+  checkBoxDataTestId: "multitext-check-1",
+  textFieldDataTestId: "multitext-text-1",
 };
