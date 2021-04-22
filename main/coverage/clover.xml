@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1619114429390" clover="3.2.0">
-  <project timestamp="1619114429390" name="All files">
-    <metrics statements="150" coveredstatements="133" conditionals="62" coveredconditionals="52" methods="55" coveredmethods="40" elements="267" coveredelements="225" complexity="0" loc="150" ncloc="150" packages="7" files="37" classes="37"/>
+<coverage generated="1619118141301" clover="3.2.0">
+  <project timestamp="1619118141301" name="All files">
+    <metrics statements="156" coveredstatements="139" conditionals="62" coveredconditionals="52" methods="57" coveredmethods="42" elements="275" coveredelements="233" complexity="0" loc="156" ncloc="156" packages="7" files="39" classes="39"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/index.js">
@@ -9,7 +9,7 @@
       </file>
     </package>
     <package name="components.atoms">
-      <metrics statements="79" coveredstatements="75" conditionals="35" coveredconditionals="31" methods="26" coveredmethods="22"/>
+      <metrics statements="85" coveredstatements="81" conditionals="35" coveredconditionals="31" methods="28" coveredmethods="24"/>
       <file name="ActionButton.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/atoms/ActionButton.js">
         <metrics statements="2" coveredstatements="2" conditionals="19" coveredconditionals="16" methods="1" coveredmethods="1"/>
         <line num="7" count="15" type="stmt"/>
@@ -82,6 +82,18 @@
         <line num="8" count="4" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
+      </file>
+      <file name="Experiment.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/atoms/Experiment.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+      </file>
+      <file name="Experiment.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/atoms/Experiment.stories.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
       </file>
       <file name="MultiTextField.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/atoms/MultiTextField.js">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
