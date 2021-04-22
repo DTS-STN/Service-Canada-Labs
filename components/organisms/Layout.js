@@ -46,10 +46,7 @@ export const Layout = ({
               />
               <div className="visible lg:invisible ml-6 xs:ml-16">
                 <Link key={language} href={langUrl} locale={language}>
-                  <a
-                    className="underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue "
-                    data-cy="toggle-language-link"
-                  >
+                  <a className="underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue ">
                     {language === "en" ? "EN" : "FR"}
                   </a>
                 </Link>
