@@ -41,7 +41,7 @@ module.exports = {
           dark: "#26374a",
           link: "#0535d2",
           details: "#F7FAFC",
-          experimentBlue: '#004986',
+          experimentBlue: "#004986",
         },
         "details-button-gray": "#E7E8EA",
         "form-input-gray": "#555",
@@ -93,7 +93,7 @@ module.exports = {
         "200px": "200px",
       },
       boxShadow: {
-        experimentShadow: '0px 2px 8px rgba(0, 0, 0, 0.25)'
+        experimentShadow: "0px 2px 8px rgba(0, 0, 0, 0.25)",
       },
     },
   },
