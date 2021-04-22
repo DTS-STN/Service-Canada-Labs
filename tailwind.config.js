@@ -102,11 +102,11 @@ module.exports = {
         "40px": "40px",
         "200px": "200px",
       },
-      
+
       maxHeight: {
         "40px": "40px",
       },
-      
+
       boxShadow: {
         "experiment-shadow": "0px 2px 8px rgba(0, 0, 0, 0.25)",
       },
