@@ -7,6 +7,8 @@ import { ReportAProblem } from "./ReportAProblem";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
+import { SearchBar } from "../atoms/SearchBar";
+import { useState } from "react";
 
 /**
  * Component which defines the layout of the page for all screen sizes
@@ -18,21 +20,58 @@ export const Layout = ({
   locale,
   langUrl,
 }) => {
+  //State for Search input
+  const [searchText, setSearchText] = useState(null);
+  //Handler for search input
+  function handleInputChange(e) {
+    setSearchText(e.target.value);
+  }
   const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
+
   return (
     <div className="overflow-x-hidden">
       <header>
         <div className="layout-container ">
-          <Link key={language} href={langUrl} locale={language}>
-            <a data-cy="toggle-language-link">
-              {language === "en" ? "English" : "Français"}
-            </a>
-          </Link>
-          <Header
-            headerLogoAltText="Symbol of the Government of Canada"
-            headerLogoImage="/sig-blk-en.svg"
-          />
+          <div className="flex-col flex lg:flex lg:flex-row justify-between lg:mt-2 ">
+            <div className="mt-4 lg:flex lg:flex-col flex flex-row justify-between ">
+              <Header
+                headerLogoAltText="Symbol of the Government of Canada"
+                headerLogoImage={
+                  language === "en" ? "/sig-blk-en.svg" : "/sig-blk-fr.svg"
+                }
+              />
+              <div className="visible lg:invisible ml-6 xs:ml-16">
+                <Link key={language} href={langUrl} locale={language}>
+                  <a
+                    className="underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue "
+                    data-cy="toggle-language-link"
+                  >
+                    {language === "en" ? "EN" : "FR"}
+                  </a>
+                </Link>
+              </div>
+            </div>
+            <div className="flex-col flex">
+              <div className="lg:visible invisible pb-0 lg:pb-2 self-end">
+                <Link key={language} href={langUrl} locale={language}>
+                  <a
+                    className="underline font-body text-canada-footer-font hover:text-canada-footer-hover-font-blue "
+                    data-cy="toggle-language-link"
+                  >
+                    {language === "en" ? "English" : "Français"}
+                  </a>
+                </Link>
+              </div>
+              <div>
+                <SearchBar
+                  placeholder={t("searchBarPlaceholder")}
+                  dataCy={"search-bar"}
+                  onClick={handleInputChange}
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="mb-2 border-t pb-2 mt-4"></div>

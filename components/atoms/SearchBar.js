@@ -5,7 +5,10 @@ import PropTypes from "prop-types";
  */
 export function SearchBar(props) {
   return (
-    <div className="inline-flex h-9 w-full" data-cy={props.dataCy}>
+    <div
+      className="inline-flex h-9 lg:w-full xl:w-80 w-full"
+      data-cy={props.dataCy}
+    >
       <form
         className="w-full inline-flex border border-solid border-gray-light-100"
         onSubmit={props.onSubmit}
