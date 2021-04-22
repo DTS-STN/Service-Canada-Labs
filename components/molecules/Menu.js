@@ -12,15 +12,16 @@ export function Menu(props) {
   //Function for changing menu state
   function onMenuClick() {
     const menuButton = document.getElementById("menuButton");
-    document.getElementById("menuDropdown").classList.toggle("active");
+    const menuDropdown = document.getElementById("menuDropdown");
 
+    menuDropdown.classList.toggle("active");
     menuButton.getAttribute("aria-expanded") === "true"
-      ? document
-          .getElementById("menuButton")
-          .setAttribute("aria-expanded", false)
-      : document
-          .getElementById("menuButton")
-          .setAttribute("aria-expanded", true);
+      ? menuButton.setAttribute("aria-expanded", false)
+      : menuButton.setAttribute("aria-expanded", true);
+
+    menuDropdown.getAttribute("aria-hidden") === "true"
+      ? menuDropdown.setAttribute("aria-hidden", false)
+      : menuDropdown.setAttribute("aria-hidden", true);
   }
 
   return (
@@ -32,15 +33,16 @@ export function Menu(props) {
       <button
         id="menuButton"
         onClick={onMenuClick}
-        className="text-h4 text-canada-footer-font focus:outline-none focus:ring-2 focus:ring-black mb-4"
+        className="text-h4 text-canada-footer-font focus:outline-none focus:ring-2 focus:ring-black mb-4 py-1"
         aria-haspopup="true"
         aria-expanded="false"
+        aria-controls="menuDropdown"
       >
         <span className="icon-menu" />
         <span className="pl-3">{props.menuButtonTitle}</span>
       </button>
 
-      <ul id="menuDropdown" className="menuDropdown" role="menu">
+      <ul id="menuDropdown" className="menuDropdown" role="menu" aria-hidden="true">
         {props.items.map((item, key) => {
           var itemClass = "py-3 lg:py-0 cursor-pointer menuLink";
 
