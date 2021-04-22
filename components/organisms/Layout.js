@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 // import Head from "next/head";
 import { Banner } from "../atoms/Banner";
+import { Menu } from "../molecules/Menu";
+import { PhaseBanner } from "../atoms/PhaseBanner";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { ReportAProblem } from "./ReportAProblem";
@@ -32,6 +34,7 @@ export const Layout = ({
   return (
     <div className="overflow-x-hidden">
       <header>
+        <PhaseBanner phase={t("Alpha")}>{t("alphaText")}</PhaseBanner>
         <div className="layout-container ">
           <div className="flex-col flex lg:flex lg:flex-row justify-between lg:mt-2 ">
             <div className="mt-4 lg:flex lg:flex-col flex flex-row justify-between ">
@@ -75,7 +78,23 @@ export const Layout = ({
         </div>
 
         <div className="mb-2 border-t pb-2 mt-4"></div>
-        <nav className="layout-container">Menu</nav>
+        <Menu
+          menuButtonTitle={t("menuTitle")}
+          items={[
+            {
+              link: "/",
+              text: t("menuLink1"),
+            },
+            {
+              link: "/experiments",
+              text: t("menuLink2"),
+            },
+            {
+              link: "#",
+              text: t("menuLink3"),
+            },
+          ]}
+        />
         {bannerText && bannerTitle ? (
           <Banner siteTitle={bannerTitle} headline={bannerText} />
         ) : null}
