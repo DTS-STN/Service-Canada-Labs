@@ -29,7 +29,7 @@ export function Footer(props) {
       <div className="w-full h-full bg-footer-background-color pb-4">
         <div className="h-auto bg-footer-white pt-5 layout-container flex flex-col xl:flex xl:flex-row  md:justify-between">
           <div className="mt-3.5 xl:mt-5 ">
-            <ul className=" flex flex-col md:grid md:grid-cols-2  xl:flex lg:flex-row  ">
+            <ul className=" flex flex-col md:grid md:grid-cols-2  xl:flex lg:flex-row ">
               {props.links.map((value, index) => {
                 return (
                   <li
@@ -37,7 +37,7 @@ export function Footer(props) {
                     className="lg:mb-4 mb-5 mr-2.5 list-inside list-disc text-xxs"
                   >
                     <a
-                      className="text-xs font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+                      className="text-xs font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font "
                       data-cy="social-media-link"
                       href={value.link}
                     >
