@@ -1,10 +1,13 @@
 import PropTypes from "prop-types";
 // import Head from "next/head";
 import { Banner } from "../atoms/Banner";
-import { Footer } from "../organisms/Footer";
-import { Header } from "../organisms/Header";
+import { PhaseBanner } from "../atoms/PhaseBanner";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
+import { ReportAProblem } from "./ReportAProblem";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
+import { DateModified } from "../atoms/DateModified";
 
 /**
  * Component which defines the layout of the page for all screen sizes
@@ -21,7 +24,8 @@ export const Layout = ({
   return (
     <div className="overflow-x-hidden">
       <header>
-        <div className="layout-container ">
+        <PhaseBanner phase={t("Alpha")}>{t("alphaText")}</PhaseBanner>
+        <div className="layout-container">
           <Link key={language} href={langUrl} locale={language}>
             <a data-cy="toggle-language-link">
               {language === "en" ? "English" : "Français"}
@@ -45,6 +49,12 @@ export const Layout = ({
       </main>
 
       <footer>
+        <div className="layout-container my-3">
+          <ReportAProblem />
+        </div>
+        <div className="layout-container">
+          <DateModified date={process.env.NEXT_PUBLIC_BUILD_DATE} />
+        </div>
         <Footer
           footerLogoAltText="Symbol of the Government of Canada"
           footerLogoImage="/wmms-blk.svg"
@@ -109,7 +119,7 @@ export const Layout = ({
               footerBoxLinkText: t("footerOpenGov"),
             },
           ]}
-        ></Footer>
+        />
       </footer>
     </div>
   );
