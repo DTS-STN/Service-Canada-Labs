@@ -10,7 +10,7 @@ export const PhaseBanner = ({ phase, children }) => {
     <div className="bg-gray-100 sm:max-h-14">
       <div className="xxs:w-screen xxs:mx-0 xxs:px-0 lg:container  lg:mx-auto lg:px-0 xxl:mx-auto">
         <div className="flex items-start text-xxs p-4 sm:text-xs">
-          <span className="uppercase tracking-widest border-2 border-black px-1 pt-1 pb-0.5 xs:pt-0.5 sm:px-2 lg:ml-2">
+          <span className="uppercase tracking-normal border-2 border-black px-2 lg:ml-2">
             {phase}
           </span>
           <span className="break-words ml-4 pt-1">{children}</span>
