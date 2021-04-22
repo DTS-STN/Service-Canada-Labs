@@ -42,7 +42,12 @@ export function Menu(props) {
         <span className="pl-3">{props.menuButtonTitle}</span>
       </button>
 
-      <ul id="menuDropdown" className="menuDropdown" role="menu" aria-hidden="true">
+      <ul
+        id="menuDropdown"
+        className="menuDropdown"
+        role="menu"
+        aria-hidden="true"
+      >
         {props.items.map((item, key) => {
           var itemClass = "py-3 lg:py-0 cursor-pointer menuLink";
 
