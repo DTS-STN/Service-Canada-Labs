@@ -1,5 +1,7 @@
 {
+  "alphaText": "This site will change as we test ideas.",
   "siteTitle": "Alpha Site",
+  "experimentsTitle": "Experiments",
   "bannerTitle": "Service Canada Labs",
   "bannerText": "Make government work for you",
   "buttonBecomeTester": "Become a tester",
@@ -64,5 +66,10 @@
   "reportAProblemThankYouForYourHelp": "Thank you for your help!",
   "reportAProblemYouWillNotBeContacted": "You will not receive a reply. For enquiries, please contact us at",
   "reportAProblemPrivacyStatement": "Privacy statement",
-  "reportAProblemPrivacyStatementLink": "https://www.canada.ca/en/transparency/privacy.html"
+  "reportAProblemPrivacyStatementLink": "https://www.canada.ca/en/transparency/privacy.html",
+  "menuTitle": "MENU",
+  "closeMenu": "Close",
+  "menuLink1": "Service Canada Labs",
+  "menuLink2": "Experiments",
+  "menuLink3": "About"
 }

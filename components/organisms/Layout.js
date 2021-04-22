@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 // import Head from "next/head";
 import { Banner } from "../atoms/Banner";
+import { Menu } from "../molecules/Menu";
+import { PhaseBanner } from "../atoms/PhaseBanner";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { ReportAProblem } from "./ReportAProblem";
@@ -23,7 +25,8 @@ export const Layout = ({
   return (
     <div className="overflow-x-hidden">
       <header>
-        <div className="layout-container ">
+        <PhaseBanner phase={t("Alpha")}>{t("alphaText")}</PhaseBanner>
+        <div className="layout-container">
           <Link key={language} href={langUrl} locale={language}>
             <a data-cy="toggle-language-link">
               {language === "en" ? "English" : "Français"}
@@ -36,7 +39,23 @@ export const Layout = ({
         </div>
 
         <div className="mb-2 border-t pb-2 mt-4"></div>
-        <nav className="layout-container">Menu</nav>
+        <Menu
+          menuButtonTitle={t("menuTitle")}
+          items={[
+            {
+              link: "/",
+              text: t("menuLink1"),
+            },
+            {
+              link: "/experiments",
+              text: t("menuLink2"),
+            },
+            {
+              link: "#",
+              text: t("menuLink3"),
+            },
+          ]}
+        />
         {bannerText && bannerTitle ? (
           <Banner siteTitle={bannerTitle} headline={bannerText} />
         ) : null}

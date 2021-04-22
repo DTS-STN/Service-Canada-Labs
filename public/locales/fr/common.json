@@ -1,5 +1,7 @@
 {
+  "alphaText": "Ce site changera au fur et à mesure que nous testons des idées.",
   "siteTitle": "Site Alpha",
+  "experimentsTitle": "Expériences",
   "bannerTitle": "Laboratoires de Service Canada",
   "bannerText": "Faites travailler le gouvernement pour vous",
   "buttonBecomeTester": "Devenez testeur",
@@ -61,8 +63,12 @@
   "footerPublicService": "Fonction publique et force militaire",
   "footerGovReporting": "Rapports à l'échelle du gouvernement",
   "footerOpenGov": "Gouvernement ouvert",
-  "footerSocialMedia": "Médias sociaux",
   "footerMobileApp": "Applications mobiles",
   "footerTermsAndCondition": "Avis",
-  "footerPrivacy": "Confidentialité"
+  "footerPrivacy": "Confidentialité",
+  "menuTitle": "MENU",
+  "closeMenu": "Fermer",
+  "menuLink1": "Laboratoires de Service Canada",
+  "menuLink2": "Expérimentations",
+  "menuLink3": "À propos"
 }
