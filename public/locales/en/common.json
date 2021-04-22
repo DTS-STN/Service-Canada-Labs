@@ -63,9 +63,6 @@
   "reportAProblemMoreInfoLinkText": "terms and conditions",
   "reportAProblemThankYouForYourHelp": "Thank you for your help!",
   "reportAProblemYouWillNotBeContacted": "You will not receive a reply. For enquiries, please contact us at",
-  "footerSocialMedia": "Social Media",
-  "footerMobileApplications": "Mobile Applications",
-  "footerTermsAndConditions": "Terms and Conditions",
-  "footerPrivacy": "Privacy",
-  "searchBarPlaceholder": "Search Canada.ca"
+  "reportAProblemPrivacyStatement": "Privacy statement",
+  "reportAProblemPrivacyStatementLink": "https://www.canada.ca/en/transparency/privacy.html"
 }

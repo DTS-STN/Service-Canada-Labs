@@ -10,9 +10,9 @@ export function CheckBox(props) {
       }
     : {};
   return (
-    <div className="block leading-tight relative pl-40px min-h-40px clear-left mb-10px">
+    <div className="block leading-tight relative pl-40px h-40px clear-left mb-20px">
       <input
-        className="checkbox-input cursor-pointer appearance-none w-44px h-44px absolute -top-2px -left-2px m-0 z-1 opacity-0"
+        className="checkbox-input cursor-pointer appearance-none w-40px h-40px absolute m-0 z-1 opacity-0"
         id={props.id}
         name={props.name}
         value={props.value}
@@ -29,7 +29,7 @@ export function CheckBox(props) {
         {...ifControlledProps}
       />
       <label
-        className="checkbox-label inline-block cursor-pointer pt-8px pb-5px px-15px text-xxs leading-tight font-normal font-body"
+        className="checkbox-label inline-block cursor-pointer pt-4px pb-5px px-15px text-xs sm:text-sm leading-tight sm:leading-6 font-normal font-body"
         htmlFor={props.id}
         onClick={() => props.onChange(props.checked, props.name, props.value)}
       >
