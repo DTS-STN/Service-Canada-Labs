@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/organisms/Footer.js</title>
+    <title>Code coverage report for components/atoms/TextField.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/organisms</a> Footer.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/atoms</a> TextField.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -148,25 +148,18 @@
 <a name='L89'></a><a href='#L89'>89</a>
 <a name='L90'></a><a href='#L90'>90</a>
 <a name='L91'></a><a href='#L91'>91</a>
-<a name='L92'></a><a href='#L92'>92</a>
-<a name='L93'></a><a href='#L93'>93</a>
-<a name='L94'></a><a href='#L94'>94</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L92'></a><a href='#L92'>92</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">53x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -182,9 +175,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">28x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -193,7 +184,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -213,7 +208,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -246,95 +242,93 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import PropTypes from "prop-types";
 &nbsp;
 /**
- * footer element for all pages
+ * text field component
  */
-&nbsp;
-export function Footer(props) {
+export function TextField(props) {
+  const ifControlledProps = !props.uncontrolled
+    ? {
+        value: props.value,
+      }
+    : {};
   return (
-    &lt;div className="w-full "&gt;
-      &lt;div className="w-full h-auto  footerBackground"&gt;
-        &lt;div className="py-7 layout-container  "&gt;
-          &lt;ul className=" flex flex-col text-xs   lg:grid lg:grid-cols-2  xl:grid xl:grid-cols-3  lg:gap-1"&gt;
-            {" "}
-            {props.footerBoxLinks.map((value, index) =&gt; {
-              return (
-                &lt;li
-                  key={index}
-                  className="text-white w-64 md:w-56 lg:w-80   my-2.5   hover:underline"
-                &gt;
-                  &lt;a className="font-body" href={value.footerBoxlink}&gt;
-                    {value.footerBoxLinkText}
-                  &lt;/a&gt;
-                &lt;/li&gt;
-              );
-            })}
-          &lt;/ul&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div className="w-full h-full bg-footer-background-color pb-4"&gt;
-        &lt;div className="h-auto bg-footer-white pt-5 layout-container flex flex-col xl:flex xl:flex-row  md:justify-between"&gt;
-          &lt;div className="mt-3.5 xl:mt-5 "&gt;
-            &lt;ul className=" flex flex-col md:grid md:grid-cols-2  xl:flex lg:flex-row "&gt;
-              {props.links.map((value, index) =&gt; {
-                return (
-                  &lt;li
-                    key={index}
-                    className="lg:mb-4 mb-5 mr-2.5 list-inside list-disc text-xxs"
-                  &gt;
-                    &lt;a
-                      className="text-xs font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font "
-                      data-cy="social-media-link"
-                      href={value.link}
-                    &gt;
-                      {value.linkText}
-                    &lt;/a&gt;
-                  &lt;/li&gt;
-                );
-              })}
-            &lt;/ul&gt;
-          &lt;/div&gt;
-          &lt;div&gt;
-            &lt;img
-              className="mb-2.5 mt-8 xl:mt-0 h-6 md:h-10  w-auto float-right"
-              src={props.footerLogoImage}
-              alt={props.footerLogoAltText}
-            /&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
+    &lt;div className="block leading-tight mb-10px"&gt;
+      &lt;label
+        className={`block leading-tight text-sm font-body mb-5px ${
+          props.boldLabel ? "font-bold" : ""
+        }`}
+        htmlFor={props.id}
+      &gt;
+        {props.label}
+      &lt;/label&gt;
+      &lt;input
+        className="text-input font-body w-full min-h-40px rounded shadow-sm text-form-input-gray border border-form-input-border-gray py-6px px-12px"
+        id={props.id}
+        name={props.name}
+        placeholder={props.placeholder}
+        type="text"
+        onChange={(e) =&gt; props.onChange(e.currentTarget.value)}
+        {...ifControlledProps}
+        data-testid={props.dataTestId}
+        data-cy={props.dataCy}
+      /&gt;
     &lt;/div&gt;
   );
 }
 &nbsp;
-Footer.propTypes = {
+TextField.defaultProps = {
+  value: "",
+};
+&nbsp;
+TextField.propTypes = {
   /**
-   * array of objects containing the link text and link
+   * the id of the text field
    */
-  footerBoxLinks: PropTypes.arrayOf(
-    PropTypes.shape({
-      footerBoxlink: PropTypes.string.isRequired,
-      footerBoxLinkText: PropTypes.string.isRequired,
-    })
-  ),
-  /**
-   * array of objects containing the link text and link
-   */
-  links: PropTypes.arrayOf(
-    PropTypes.shape({
-      link: PropTypes.string.isRequired,
-      linkText: PropTypes.string.isRequired,
-    })
-  ),
+  id: PropTypes.string.isRequired,
 &nbsp;
   /**
-   * alt text for footer canada-ca logo
+   * the name of the text field
    */
-  footerLogoAltText: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 &nbsp;
   /**
-   * image path for footer logo
+   * the label of the text field
    */
-  footerLogoImage: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+&nbsp;
+  /**
+   * value of the text field
+   */
+  value: PropTypes.string.isRequired,
+&nbsp;
+  /**
+   * placeholder for the text field,
+   */
+  placeholder: PropTypes.string,
+&nbsp;
+  /**
+   * call back for when the value of the text field changes
+   */
+  onChange: PropTypes.func,
+&nbsp;
+  /**
+   * if label should be bold
+   */
+  boldLabel: PropTypes.bool,
+&nbsp;
+  /**
+   * boolean flag to specify that this input should be uncontrolled by react
+   */
+  uncontrolled: PropTypes.bool,
+&nbsp;
+  /**
+   * unit test selector
+   */
+  dataTestId: PropTypes.string,
+&nbsp;
+  /**
+   * cypress tests selector
+   */
+  dataCy: PropTypes.string,
 };
 &nbsp;</pre></td></tr></table></pre>
 
