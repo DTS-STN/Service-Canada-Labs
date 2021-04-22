@@ -49,7 +49,7 @@ export function Menu(props) {
           }
 
           return (
-            <li key={key} className={itemClass} role="menuitem" tabindex="-1">
+            <li key={key} className={itemClass} role="menuitem">
               <Link href={item.link}>
                 <a>{item.text}</a>
               </Link>

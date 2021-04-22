@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 // import Head from "next/head";
 import { Banner } from "../atoms/Banner";
 import { Menu } from "../molecules/Menu";
+import { PhaseBanner } from "../atoms/PhaseBanner";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { ReportAProblem } from "./ReportAProblem";
@@ -24,7 +25,8 @@ export const Layout = ({
   return (
     <div className="overflow-x-hidden">
       <header>
-        <div className="layout-container ">
+        <PhaseBanner phase={t("Alpha")}>{t("alphaText")}</PhaseBanner>
+        <div className="layout-container">
           <Link key={language} href={langUrl} locale={language}>
             <a data-cy="toggle-language-link">
               {language === "en" ? "English" : "Français"}
