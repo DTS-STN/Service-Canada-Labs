@@ -13,8 +13,6 @@ import { DateModified } from "../atoms/DateModified";
  * Component which defines the layout of the page for all screen sizes
  */
 export const Layout = ({
-  phaseText,
-  phaseTitle,
   bannerText,
   bannerTitle,
   children,
@@ -26,17 +24,7 @@ export const Layout = ({
   return (
     <div className="overflow-x-hidden">
       <header>
-        {phaseText ? (
-          <PhaseBanner phase={phaseTitle}>{phaseText}</PhaseBanner>
-        ) : null}
-        <div className="layout-container">
-          <a href="#">
-            <img src="#" alt="Governement of Canada" />
-            <span lang="en">Government of Canada </span>
-            <span lang="fr">Gouvernment du Canada</span>
-          </a>
-        </div>
-
+        <PhaseBanner phase={t("Alpha")}>{t("alphaText")}</PhaseBanner>
         <div className="layout-container">
           <Link key={language} href={langUrl} locale={language}>
             <a data-cy="toggle-language-link">
