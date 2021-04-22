@@ -21,10 +21,6 @@ describe("home page", () => {
         cy.get('[ data-cy="search-bar"]').should('be.visible')
     });
 
-    it("The menu bar appears on the homepage", () => {
-        cy.get('[ data-cy="menu"]').should('be.visible')
-    });
-
     xit("Toggles content language when language button is clicked", () => {
         cy.get('[data-cy="social-media-link"]').then(($link) => {
             const txt = $link.text()

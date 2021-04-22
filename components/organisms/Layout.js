@@ -2,8 +2,9 @@ import PropTypes from "prop-types";
 // import Head from "next/head";
 import { Banner } from "../atoms/Banner";
 import { Menu } from "../molecules/Menu";
-import { Footer } from "../organisms/Footer";
-import { Header } from "../organisms/Header";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
+import { ReportAProblem } from "./ReportAProblem";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
@@ -20,7 +21,6 @@ export const Layout = ({
 }) => {
   const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
-
   return (
     <div className="overflow-x-hidden">
       <header>
@@ -35,8 +35,8 @@ export const Layout = ({
             headerLogoImage="/sig-blk-en.svg"
           />
         </div>
-        <div className="mb-2 border-t pb-2 mt-4"></div>
 
+        <div className="mb-2 border-t pb-2 mt-4"></div>
         <Menu
           menuButtonTitle={t("menuTitle")}
           items={[
@@ -54,7 +54,6 @@ export const Layout = ({
             },
           ]}
         />
-
         {bannerText && bannerTitle ? (
           <Banner siteTitle={bannerTitle} headline={bannerText} />
         ) : null}
@@ -65,6 +64,9 @@ export const Layout = ({
       </main>
 
       <footer>
+        <div className="layout-container my-3">
+          <ReportAProblem />
+        </div>
         <div className="layout-container">
           <DateModified date={process.env.NEXT_PUBLIC_BUILD_DATE} />
         </div>
@@ -132,7 +134,7 @@ export const Layout = ({
               footerBoxLinkText: t("footerOpenGov"),
             },
           ]}
-        ></Footer>
+        />
       </footer>
     </div>
   );
