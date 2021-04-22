@@ -18,10 +18,6 @@ export function Menu(props) {
     menuButton.getAttribute("aria-expanded") === "true"
       ? menuButton.setAttribute("aria-expanded", false)
       : menuButton.setAttribute("aria-expanded", true);
-
-    menuDropdown.getAttribute("aria-hidden") === "true"
-      ? menuDropdown.setAttribute("aria-hidden", false)
-      : menuDropdown.setAttribute("aria-hidden", true);
   }
 
   return (
@@ -42,12 +38,7 @@ export function Menu(props) {
         <span className="pl-3">{props.menuButtonTitle}</span>
       </button>
 
-      <ul
-        id="menuDropdown"
-        className="menuDropdown"
-        role="menu"
-        aria-hidden="true"
-      >
+      <ul id="menuDropdown" className="menuDropdown" role="menu">
         {props.items.map((item, key) => {
           var itemClass = "py-3 lg:py-0 cursor-pointer menuLink";
 
@@ -58,7 +49,7 @@ export function Menu(props) {
           }
 
           return (
-            <li key={key} className={itemClass} role="menuitem">
+            <li key={key} className={itemClass} role="menuitem" tabindex="-1">
               <Link href={item.link}>
                 <a>{item.text}</a>
               </Link>
