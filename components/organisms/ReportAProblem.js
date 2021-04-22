@@ -41,7 +41,7 @@ export function ReportAProblem(props) {
         <form className="w-full" action="#" onSubmit={onSubmitHandler}>
           <input type="hidden" id="language" value={i18n.language} />
           <fieldset>
-            <legend className="text-base sm:text-p font-body font-normal mb-4">
+            <legend className="text-base sm:text-p font-body font-normal mb-6">
               {t("reportAProblemCheckAllThatApply")}
             </legend>
             <OptionalTextField
