@@ -62,8 +62,12 @@
   "footerPublicService": "Fonction publique et force militaire",
   "footerGovReporting": "Rapports à l'échelle du gouvernement",
   "footerOpenGov": "Gouvernement ouvert",
-  "footerSocialMedia": "Médias sociaux",
   "footerMobileApp": "Applications mobiles",
   "footerTermsAndCondition": "Avis",
-  "footerPrivacy": "Confidentialité"
+  "footerPrivacy": "Confidentialité",
+  "menuTitle": "MENU",
+  "closeMenu": "Fermer",
+  "menuLink1": "Laboratoires de Service Canada",
+  "menuLink2": "Expérimentations",
+  "menuLink3": "À propos"
 }

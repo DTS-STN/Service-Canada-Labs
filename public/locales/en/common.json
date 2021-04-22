@@ -65,9 +65,9 @@
   "reportAProblemMoreInfoLinkText": "terms and conditions",
   "reportAProblemThankYouForYourHelp": "Thank you for your help!",
   "reportAProblemYouWillNotBeContacted": "You will not receive a reply. For enquiries, please contact us at",
-  "footerSocialMedia": "Social Media",
-  "footerMobileApplications": "Mobile Applications",
-  "footerTermsAndConditions": "Terms and Conditions",
-  "footerPrivacy": "Privacy",
-  "searchBarPlaceholder": "Search Canada.ca"
+  "menuTitle": "MENU",
+  "closeMenu": "Close",
+  "menuLink1": "Service Canada Labs",
+  "menuLink2": "Experiments",
+  "menuLink3": "About"
 }

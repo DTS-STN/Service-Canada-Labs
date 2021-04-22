@@ -34,3 +34,7 @@
 .icon-search:before {
   content: "\e986";
 }
+
+.icon-menu:before {
+  content: "\e900";
+}

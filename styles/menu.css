@@ -1,0 +1,40 @@
+@tailwind utilities;
+@tailwind screens;
+
+.menuDropdown {
+    display: none;
+    background-color: white;
+}
+
+.menuLink:hover > a {
+    color: #0A75C6;
+}
+
+.activePage > a {
+    border-bottom: 4px solid #1d5b90;
+}
+
+.active {
+    display: block;
+}
+
+@screen lg {
+    #menuButton, #closeMenu {
+        display: none;
+    }
+
+    .menuDropdown {
+        background: white;
+        display: inline-block;
+        position: static;
+        min-width: fit-content;
+        min-height: fit-content;
+        padding-bottom: 1rem;
+    }
+
+    .menuDropdown > li{
+        display: inline-block;
+        padding-left: 2rem;
+    }
+}
+  

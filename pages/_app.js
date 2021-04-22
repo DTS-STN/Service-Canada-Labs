@@ -3,6 +3,7 @@ import "../icomoon/style.css";
 import "../styles/globals.css";
 import "../styles/forms.css";
 import "../styles/fonts.css";
+import "../styles/menu.css";
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
