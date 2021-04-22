@@ -94,7 +94,7 @@ module.exports = {
       },
 
       maxWidth: {
-        "350px": "350px"
+        "350px": "350px",
       },
 
       minHeight: {
@@ -103,8 +103,8 @@ module.exports = {
       },
 
       maxHeight: {
-        "40px": "40px"
-      }
+        "40px": "40px",
+      },
     },
   },
   variants: {
