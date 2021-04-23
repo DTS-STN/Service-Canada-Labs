@@ -50,7 +50,8 @@ export default function Home(props) {
           className={"text-xs md:text-base"}
           text={t("experimentsBtnTxt")}
           secondary
-          dataCyButton={"see-the-experiements"}
+          href="/experiments"
+          dataCyButton={"see-the-experiments"}
         />
       </section>
 
