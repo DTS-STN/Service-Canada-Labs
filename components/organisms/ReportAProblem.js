@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useTranslation } from "next-i18next";
 import { OptionalTextField } from "../molecules/OptionalTextField";
 import { Details } from "../molecules/Details";
@@ -10,9 +10,32 @@ import { ActionButton } from "../atoms/ActionButton";
 export function ReportAProblem(props) {
   const [submitted, setSubmitted] = useState(false);
   const { t, i18n } = useTranslation();
+  const formRef = useRef(null);
 
   let onSubmitHandler = (e) => {
+    // prevent default behaviour of form
     e.preventDefault();
+    // create FormData object from form
+    const formData = new FormData(e.target);
+    // create URLSearchParams object from FormData object
+    // this will be used to create url encoded string of names and values of the form fields
+    const urlEncoded = new URLSearchParams(formData);
+    console.log(urlEncoded.toString());
+
+    // call report a problem API route
+    fetch("/api/report-a-problem", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+      },
+      body: urlEncoded.toString(),
+    }).catch((e) => {
+      // handle error if fetch fails
+      // fetch only fails if there is no internet connection not for the actual
+      // request so there is nothing really to do here other than to log it
+      console.log(e);
+    });
+
     setSubmitted(true);
   };
 
@@ -42,7 +65,7 @@ export function ReportAProblem(props) {
           <h2 className="text-base font-body font-normal mb-4">
             {t("reportAProblemCheckAllThatApply")}
           </h2>
-          <form className="w-full" action="#" onSubmit={onSubmitHandler}>
+          <form ref={formRef} className="w-full" onSubmit={onSubmitHandler}>
             <input type="hidden" id="language" value={i18n.language} />
             <OptionalTextField
               checkBoxId="incorrectInformation"
@@ -63,9 +86,9 @@ export function ReportAProblem(props) {
             />
             <OptionalTextField
               checkBoxId="unclearInformation"
-              textFieldId="incorrectInformationTextField"
-              checkBoxName="incorrectInformation"
-              textFieldName="incorrectInformationText"
+              textFieldId="unclearInformationTextField"
+              checkBoxName="unclearInformation"
+              textFieldName="unclearInformationText"
               checkBoxLabel={t("reportAProblemUnclearInformation")}
               textFieldLabel={t("reportAProblemProvideMoreDetails")}
               uncontrolled={true}
