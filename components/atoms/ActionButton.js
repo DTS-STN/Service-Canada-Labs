@@ -6,6 +6,8 @@ import Link from "next/link";
  */
 export function ActionButton(props) {
   //Styling for buttons and links
+  const basicStyle =
+    "flex justify-center content-center h-auto p-1 w-max rounded-sm py-2 px-4 focus:ring-1 focus:ring-black focus:ring-offset-2 text-xs md:text-base font-body";
   const defaultStyle =
     "bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light";
   const secondaryStyle =
@@ -14,7 +16,7 @@ export function ActionButton(props) {
   return props.href ? (
     <Link href={props.href}>
       <a
-        className={`flex justify-center content-center h-auto p-1 w-max rounded-sm py-2 px-4 focus:ring-1 focus:ring-black focus:ring-offset-2
+        className={`${basicStyle}
         ${
           !props.secondary && !props.disabled && !props.custom
             ? defaultStyle
@@ -22,11 +24,8 @@ export function ActionButton(props) {
         }
         ${props.secondary && !props.disabled ? secondaryStyle : props.className}
         ${props.custom && !props.secondary ? props.custom : ""}
-        ${
-          props.disabled ? disabledStyle : props.className
-        } text-xs md:text-base font-body`}
+        ${props.disabled ? disabledStyle : props.className}`}
         onClick={props.onClick}
-        type={props.type}
         id={props.id}
         data-testid={props.dataTestId}
         data-cy={props.dataCy || props.id}
@@ -42,7 +41,7 @@ export function ActionButton(props) {
     </Link>
   ) : (
     <button
-      className={`flex justify-center content-center h-auto p-1 rounded-sm py-2 px-4 focus:ring-1 focus:ring-black focus:ring-offset-2
+      className={`${basicStyle}
       ${
         !props.secondary && !props.disabled && !props.custom
           ? defaultStyle
@@ -50,9 +49,7 @@ export function ActionButton(props) {
       }
       ${props.secondary && !props.disabled ? secondaryStyle : props.className}
       ${props.custom && !props.secondary ? props.custom : ""}
-      ${
-        props.disabled ? disabledStyle : props.className
-      } text-xs md:text-base font-body`}
+      ${props.disabled ? disabledStyle : props.className}`}
       onClick={props.onClick}
       type={props.type}
       id={props.id}
