@@ -35,42 +35,36 @@ export const Layout = ({
     <div className="overflow-x-hidden">
       <header>
         <PhaseBanner phase={t("Alpha")}>{t("alphaText")}</PhaseBanner>
-        <div className="layout-container ">
-          <div className="flex-col flex lg:flex lg:flex-row justify-between lg:mt-2 ">
-            <div className="mt-4 lg:flex lg:flex-col flex flex-row justify-between ">
+        <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">
+          <div className="flex flex-row justify-between">
+            <div className=" lg:mt-7 mt-1.5 ">
               <Header
                 headerLogoAltText="Symbol of the Government of Canada"
                 headerLogoImage={
                   language === "en" ? "/sig-blk-en.svg" : "/sig-blk-fr.svg"
                 }
-              />
-              <div className="visible lg:invisible ml-6 xs:ml-16">
-                <Link key={language} href={langUrl} locale={language}>
-                  <a className="underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue ">
-                    {language === "en" ? "EN" : "FR"}
-                  </a>
-                </Link>
-              </div>
+              />{" "}
             </div>
-            <div className="flex-col flex">
-              <div className="lg:visible invisible pb-0 lg:pb-2 self-end">
-                <Link key={language} href={langUrl} locale={language}>
-                  <a
-                    className="underline font-body text-canada-footer-font hover:text-canada-footer-hover-font-blue "
-                    data-cy="toggle-language-link"
-                  >
-                    {language === "en" ? "English" : "Français"}
-                  </a>
-                </Link>
-              </div>
-              <div>
-                <SearchBar
-                  placeholder={t("searchBarPlaceholder")}
-                  dataCy={"search-bar"}
-                  onClick={handleInputChange}
-                />
-              </div>
-            </div>
+            <Link key={language} href={langUrl} locale={language}>
+              <a className="visible lg:invisible ml-6 xs:ml-16 underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue ">
+                {language === "en" ? "EN" : "FR"}
+              </a>
+            </Link>
+          </div>
+          <div className="flex-col flex">
+            <Link key={language} href={langUrl} locale={language}>
+              <a
+                className="lg:visible invisible pb-0 lg:pb-2 self-end underline font-body text-canada-footer-font hover:text-canada-footer-hover-font-blue "
+                data-cy="toggle-language-link"
+              >
+                {language === "en" ? "English" : "Français"}
+              </a>
+            </Link>
+            <SearchBar
+              placeholder={t("searchBarPlaceholder")}
+              dataCy={"search-bar"}
+              onClick={handleInputChange}
+            />
           </div>
         </div>
 
