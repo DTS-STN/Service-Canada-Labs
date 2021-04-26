@@ -261,13 +261,7 @@
 <a name='L202'></a><a href='#L202'>202</a>
 <a name='L203'></a><a href='#L203'>203</a>
 <a name='L204'></a><a href='#L204'>204</a>
-<a name='L205'></a><a href='#L205'>205</a>
-<a name='L206'></a><a href='#L206'>206</a>
-<a name='L207'></a><a href='#L207'>207</a>
-<a name='L208'></a><a href='#L208'>208</a>
-<a name='L209'></a><a href='#L209'>209</a>
-<a name='L210'></a><a href='#L210'>210</a>
-<a name='L211'></a><a href='#L211'>211</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L205'></a><a href='#L205'>205</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -301,12 +295,6 @@
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -514,42 +502,36 @@ export const Layout = ({
     &lt;div className="overflow-x-hidden"&gt;
       &lt;header&gt;
         &lt;PhaseBanner phase={t("Alpha")}&gt;{t("alphaText")}&lt;/PhaseBanner&gt;
-        &lt;div className="layout-container "&gt;
-          &lt;div className="flex-col flex lg:flex lg:flex-row justify-between lg:mt-2 "&gt;
-            &lt;div className="mt-4 lg:flex lg:flex-col flex flex-row justify-between "&gt;
+        &lt;div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2"&gt;
+          &lt;div className="flex flex-row justify-between"&gt;
+            &lt;div className=" lg:mt-7 mt-1.5 "&gt;
               &lt;Header
                 headerLogoAltText="Symbol of the Government of Canada"
                 headerLogoImage={
                   language === "en" ? "/sig-blk-en.svg" : <span class="branch-1 cbranch-no" title="branch not covered" >"/sig-blk-fr.svg"</span>
                 }
-              /&gt;
-              &lt;div className="visible lg:invisible ml-6 xs:ml-16"&gt;
-                &lt;Link key={language} href={langUrl} locale={language}&gt;
-                  &lt;a className="underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue "&gt;
-                    {language === "en" ? "EN" : <span class="branch-1 cbranch-no" title="branch not covered" >"FR"}</span>
-                  &lt;/a&gt;
-                &lt;/Link&gt;
-              &lt;/div&gt;
+              /&gt;{" "}
             &lt;/div&gt;
-            &lt;div className="flex-col flex"&gt;
-              &lt;div className="lg:visible invisible pb-0 lg:pb-2 self-end"&gt;
-                &lt;Link key={language} href={langUrl} locale={language}&gt;
-                  &lt;a
-                    className="underline font-body text-canada-footer-font hover:text-canada-footer-hover-font-blue "
-                    data-cy="toggle-language-link"
-                  &gt;
-                    {language === "en" ? "English" : <span class="branch-1 cbranch-no" title="branch not covered" >"Français"}</span>
-                  &lt;/a&gt;
-                &lt;/Link&gt;
-              &lt;/div&gt;
-              &lt;div&gt;
-                &lt;SearchBar
-                  placeholder={t("searchBarPlaceholder")}
-                  dataCy={"search-bar"}
-                  onClick={handleInputChange}
-                /&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
+            &lt;Link key={language} href={langUrl} locale={language}&gt;
+              &lt;a className="visible lg:invisible ml-6 xs:ml-16 underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue "&gt;
+                {language === "en" ? "EN" : <span class="branch-1 cbranch-no" title="branch not covered" >"FR"}</span>
+              &lt;/a&gt;
+            &lt;/Link&gt;
+          &lt;/div&gt;
+          &lt;div className="flex-col flex"&gt;
+            &lt;Link key={language} href={langUrl} locale={language}&gt;
+              &lt;a
+                className="lg:visible invisible pb-0 lg:pb-2 self-end underline font-body text-canada-footer-font hover:text-canada-footer-hover-font-blue "
+                data-cy="toggle-language-link"
+              &gt;
+                {language === "en" ? "English" : <span class="branch-1 cbranch-no" title="branch not covered" >"Français"}</span>
+              &lt;/a&gt;
+            &lt;/Link&gt;
+            &lt;SearchBar
+              placeholder={t("searchBarPlaceholder")}
+              dataCy={"search-bar"}
+              onClick={handleInputChange}
+            /&gt;
           &lt;/div&gt;
         &lt;/div&gt;
 &nbsp;
@@ -694,7 +676,7 @@ Layout.propTypes = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Apr 22 2021 19:33:58 GMT+0000 (Coordinated Universal Time)
+                at Mon Apr 26 2021 16:27:17 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

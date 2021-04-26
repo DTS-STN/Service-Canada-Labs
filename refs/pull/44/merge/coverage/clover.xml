@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1619120038238" clover="3.2.0">
-  <project timestamp="1619120038238" name="All files">
+<coverage generated="1619454437930" clover="3.2.0">
+  <project timestamp="1619454437930" name="All files">
     <metrics statements="169" coveredstatements="148" conditionals="70" coveredconditionals="55" methods="61" coveredmethods="45" elements="300" coveredelements="248" complexity="0" loc="169" ncloc="169" packages="7" files="41" classes="41"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -232,7 +232,7 @@
       <file name="Header.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/organisms/Header.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="4" count="6" type="stmt"/>
-        <line num="15" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
       </file>
       <file name="Header.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/organisms/Header.stories.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -248,7 +248,7 @@
         <line num="31" count="5" type="stmt"/>
         <line num="32" count="5" type="cond" truecount="1" falsecount="1"/>
         <line num="34" count="5" type="stmt"/>
-        <line num="181" count="2" type="stmt"/>
+        <line num="175" count="2" type="stmt"/>
       </file>
       <file name="Layout.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/organisms/Layout.stories.js">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
