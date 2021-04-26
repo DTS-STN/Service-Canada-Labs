@@ -42,7 +42,7 @@ log {
 resource "azurerm_monitor_diagnostic_setting" "application-secondary-diagnostics" {
   name                = "${var.application_appservice_name_secondary}-ag-diagnostics-secondary"
   target_resource_id = azurerm_application_gateway.application-gateway-secondary.id
-  storage_account_id = var.diagnostic_storage_account_id_secondary
+  storage_account_id = var.secondary_diagnostic_storage_account_id
 
 
 log {
