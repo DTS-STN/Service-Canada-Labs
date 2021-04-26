@@ -12,7 +12,7 @@ export function CheckBox(props) {
   return (
     <div className="block leading-tight relative pl-40px h-40px clear-left mb-20px">
       <input
-        className="checkbox-input cursor-pointer appearance-none w-40px h-40px absolute m-0 z-1 opacity-0"
+        className="checkbox-input cursor-pointer appearance-none w-40px h-40px absolute left-0 m-0 z-1 opacity-0"
         id={props.id}
         name={props.name}
         value={props.value}
