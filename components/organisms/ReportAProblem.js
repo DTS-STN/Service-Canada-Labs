@@ -186,7 +186,7 @@ export function ReportAProblem(props) {
               <b>{t("reportAProblemMoreInfo")}</b>,&nbsp;
               {t("reportAProblemMoreInfoDetails")}&nbsp;
               <a
-                className="text-xs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+                className="text-xxs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                 href={t("reportAProblemMoreInfoLink")}
               >
                 {t("reportAProblemMoreInfoLinkText")}
