@@ -1,27 +1,13 @@
-# stage/terragrunt.hcl
-
-# REMOTE STATE
-remote_state {
-    backend = "azurerm"
-    config = {
-        key = "${path_relative_to_include()}/terraform.tfstate"
-        resource_group_name = "${get_env("TF_VAR_REMOTE_STATE_RESOURCE_GROUP")}"
-        storage_account_name = "${get_env("TF_VAR_REMOTE_STATE_STORAGE_ACCOUNT")}"
-        container_name = "${get_env("TF_VAR_APP_NAME")}"
-    }
-}
-# GENERATE PROVIDER FOR ALL SUB-DIRS
 generate "provider" {
   path = "provider.tf"
   if_exists = "overwrite_terragrunt"
   contents = <<EOF
 provider "azurerm" {
-    subscription_id = "${get_env("TF_VAR_SUBSCRIPTION_ID")}"
-    tenant_id = "${get_env("TF_VAR_TENANT_ID")}"
-    client_id = "${get_env("TF_VAR_TERRAFORM_USER")}"
-    client_secret = "${get_env("TF_VAR_TERRAFORM_PASS")}"
+    subscription_id = var.subscription_id
+    tenant_id = var.tenant_id
+    client_id = var.client_id
+    client_secret = var.client_secret
     features {}
-   
 }
 terraform {
   backend "azurerm" {}
@@ -29,11 +15,35 @@ terraform {
 EOF
 }
 
+locals {
+  varfile = get_env("TG_VAR_FILE")
+  vardata = local.varfile != null ? jsondecode(file(local.varfile)) : {  } # some default
+  subscription_id = local.vardata.subscription_id
+  tenant_id = local.vardata.tenant_id
+  client_id = local.vardata.client_id
+  client_secret = local.vardata.client_secret
+  depot_resource_group_name = local.vardata.depot_resource_group_name
+  storage_account_name = local.vardata.remote_state_storage_account_name
+  container_name = local.vardata.application_name
 
-# INCLUDE COMMON VARS
+}
+
+# REMOTE STATE
+remote_state {
+    backend = "azurerm"
+    config = {
+        key = "${path_relative_to_include()}/terraform.tfstate"
+        resource_group_name = local.depot_resource_group_name
+        storage_account_name = local.storage_account_name
+        container_name = local.container_name
+    }
+}
+
+
+
 terraform {
   extra_arguments "common_vars" {
-    commands = ["plan", "apply", "import"]
-
+    commands = ["plan", "apply", "import", "destroy" ]
+    arguments = local.varfile != null ? ["-var-file=${local.varfile}"] : []
   }
 }

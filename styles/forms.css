@@ -1,0 +1,47 @@
+.checkbox-label::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    background: white;
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
+}
+
+.checkbox-label::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 11px;
+    left: 9px;
+    width: 23px;
+    height: 13px;
+    transform: rotate(-45deg);
+    border: solid black;
+    border-width: 0 0 5px 5px;
+    border-top-color: transparent;
+    opacity: 0;
+    background: transparent;
+}
+
+.checkbox-label{
+    touch-action: manipulation;
+}
+
+.checkbox-input:checked + .checkbox-label::after{
+    opacity: 1;
+}
+
+.checkbox-input:focus + .checkbox-label::before {
+    border-width: 4px;
+    -webkit-box-shadow: 0 0 0 3px #fd0;
+    box-shadow: 0 0 0 3px #fd0;
+}
+
+.text-input:focus{
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    outline: 0;
+    border-color: #66afe9;
+}
