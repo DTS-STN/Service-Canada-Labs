@@ -30,8 +30,8 @@ describe("Action Button", () => {
 
   it("renders link styles as button", () => {
     render(<Link {...Link.args} />);
-    expect(screen.getByRole("link")).toHaveTextContent(Link.args.text);
-    expect(screen.getByRole("link")).toHaveAttribute("href");
+    expect(screen.getByRole("button")).toHaveTextContent(Link.args.text);
+    expect(screen.getByRole("button")).toHaveAttribute("href");
   });
 
   it("has no a11y violations", async () => {
