@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 
 import { SearchBar } from "../atoms/SearchBar";
-import { useState } from "react";
 
 export function Header(props) {
   return (
