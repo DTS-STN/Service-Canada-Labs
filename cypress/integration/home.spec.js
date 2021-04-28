@@ -35,4 +35,23 @@ describe("home page", () => {
         cy.get('[data-cy="toggle-language-link"]').click()
         cy.url().should('eq', 'http://localhost:3000/fr')
     });
+
+    it("See experiments button goes to experiments page", () => {
+        cy.get('[data-cy-button="see-the-experiments"]').click()
+        cy.url().should('include', '/experiments')
+    });
+
+    it("Menu appears on the homepage", () => {
+        cy.get('[data-cy="menu"]').should('be.visible')
+    });
+
+    it("Menu Service Canada Labs links to home page", () => {
+        cy.get('[data-cy="menu"]').contains('Service Canada Labs').click()
+        cy.url().should('include', '/')
+    });
+
+    it("Menu Experiments links to experiment page", () => {
+        cy.get('[data-cy="menu"]').contains('Experiments').click()
+        cy.url().should('include', '/experiments')
+    });
 })
