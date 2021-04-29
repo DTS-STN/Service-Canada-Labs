@@ -47,6 +47,7 @@ export default function Home(props) {
           </div>
         </div>
         <ActionButton
+          id="ExperimentsButton"
           className={"text-xs md:text-base"}
           text={t("experimentsBtnTxt")}
           secondary
@@ -127,6 +128,7 @@ export default function Home(props) {
             <br></br>
             <div className="invisible xl:visible">
               <ActionButton
+                id="LearnMoreButton"
                 text={t("learnMoreBtn")}
                 className={"text-xs md:text-base"}
                 secondary
@@ -138,6 +140,7 @@ export default function Home(props) {
         <div className="xl:bg-footer-background-color  bg-white ">
           <div className="xl:invisible layout-container pt-6 xl:pt-0 xl:pb-0 pb-10 ">
             <ActionButton
+              id="LearnMoreButtonSmScreen"
               text={t("learnMoreBtn")}
               className={"text-xs md:text-base"}
               secondary
