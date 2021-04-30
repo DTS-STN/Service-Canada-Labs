@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import Link from "next/link";
+import { useEffect } from "react";
 
 /**
  * Button component
@@ -13,6 +14,21 @@ export function ActionButton(props) {
   const secondaryStyle =
     "bg-white text-custom-blue-blue border border-custom-blue-blue active:bg-gray-400 hover:bg-gray-200";
   const disabledStyle = "bg-gray-light text-gray-600 border border-gray-md";
+
+  //Activate Links with spacebar
+  useEffect(() => {
+    let link = document.getElementById(props.id);
+
+    if (link) {
+      link.addEventListener("keydown", (event) => {
+        if (event.key === "Spacebar" || event.key === " ") {
+          event.preventDefault();
+          link.click();
+        }
+      });
+    }
+  });
+
   return props.href ? (
     <Link href={props.href}>
       <a
@@ -24,13 +40,15 @@ export function ActionButton(props) {
         }
         ${props.secondary && !props.disabled ? secondaryStyle : props.className}
         ${props.custom && !props.secondary ? props.custom : ""}
-        ${props.disabled ? disabledStyle : props.className}`}
+        ${props.disabled ? disabledStyle : props.className} link`}
         onClick={props.onClick}
         id={props.id}
         data-testid={props.dataTestId}
         data-cy={props.dataCy || props.id}
         data-cy-button={props.dataCyButton}
         disabled={props.disabled}
+        role="button"
+        draggable="false"
       >
         {props.icon ? (
           <span className={props.icon} data-testid={props.dataTestId} />
@@ -86,7 +104,7 @@ ActionButton.propTypes = {
   /**
    * Identify which button being clicked
    */
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
 
   /**
    * the type of the button
