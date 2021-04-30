@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1619637648348" clover="3.2.0">
-  <project timestamp="1619637648348" name="All files">
-    <metrics statements="178" coveredstatements="154" conditionals="91" coveredconditionals="71" methods="62" coveredmethods="45" elements="331" coveredelements="270" complexity="0" loc="178" ncloc="178" packages="7" files="41" classes="41"/>
+<coverage generated="1619801287169" clover="3.2.0">
+  <project timestamp="1619801287169" name="All files">
+    <metrics statements="184" coveredstatements="157" conditionals="97" coveredconditionals="73" methods="63" coveredmethods="46" elements="344" coveredelements="276" complexity="0" loc="184" ncloc="184" packages="7" files="41" classes="41"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/index.js">
@@ -9,15 +9,22 @@
       </file>
     </package>
     <package name="components.atoms">
-      <metrics statements="91" coveredstatements="87" conditionals="60" coveredconditionals="49" methods="28" coveredmethods="24"/>
+      <metrics statements="98" coveredstatements="91" conditionals="66" coveredconditionals="51" methods="30" coveredmethods="25"/>
       <file name="ActionButton.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/atoms/ActionButton.js">
-        <metrics statements="6" coveredstatements="6" conditionals="40" coveredconditionals="32" methods="1" coveredmethods="1"/>
-        <line num="10" count="16" type="stmt"/>
-        <line num="12" count="16" type="stmt"/>
-        <line num="14" count="16" type="stmt"/>
+        <metrics statements="13" coveredstatements="10" conditionals="46" coveredconditionals="34" methods="3" coveredmethods="2"/>
+        <line num="11" count="16" type="stmt"/>
+        <line num="13" count="16" type="stmt"/>
         <line num="15" count="16" type="stmt"/>
-        <line num="16" count="16" type="cond" truecount="2" falsecount="0"/>
-        <line num="70" count="4" type="stmt"/>
+        <line num="16" count="16" type="stmt"/>
+        <line num="19" count="16" type="stmt"/>
+        <line num="20" count="16" type="stmt"/>
+        <line num="22" count="16" type="cond" truecount="1" falsecount="1"/>
+        <line num="23" count="16" type="stmt"/>
+        <line num="24" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="32" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="88" count="4" type="stmt"/>
       </file>
       <file name="ActionButton.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/atoms/ActionButton.stories.js">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -27,9 +34,9 @@
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
       </file>
       <file name="Banner.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/atoms/Banner.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -221,7 +228,7 @@
       </file>
     </package>
     <package name="components.organisms">
-      <metrics statements="34" coveredstatements="33" conditionals="10" coveredconditionals="8" methods="13" coveredmethods="12"/>
+      <metrics statements="32" coveredstatements="32" conditionals="10" coveredconditionals="8" methods="12" coveredmethods="12"/>
       <file name="Footer.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/organisms/Footer.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="8" count="6" type="stmt"/>
@@ -236,11 +243,9 @@
         <line num="12" count="1" type="stmt"/>
       </file>
       <file name="Header.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/organisms/Header.js">
-        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="8" count="6" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="15" count="6" type="stmt"/>
-        <line num="35" count="3" type="stmt"/>
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
       </file>
       <file name="Header.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/organisms/Header.stories.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -258,13 +263,13 @@
       </file>
       <file name="Layout.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/organisms/Layout.stories.js">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="6" type="stmt"/>
-        <line num="24" count="6" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="23" count="6" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
       </file>
       <file name="ReportAProblem.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/organisms/ReportAProblem.js">
         <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
@@ -288,7 +293,7 @@
       </file>
     </package>
     <package name="pages">
-      <metrics statements="15" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="1"/>
+      <metrics statements="16" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="1"/>
       <file name="_app.js" path="/home/runner/work/Alpha-Site/Alpha-Site/pages/_app.js">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="10" count="0" type="stmt"/>
@@ -300,21 +305,22 @@
         <line num="12" count="0" type="stmt"/>
       </file>
       <file name="experiments.js" path="/home/runner/work/Alpha-Site/Alpha-Site/pages/experiments.js">
-        <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="9" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
       </file>
       <file name="index.js" path="/home/runner/work/Alpha-Site/Alpha-Site/pages/index.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="153" count="1" type="stmt"/>
+        <line num="156" count="1" type="stmt"/>
       </file>
     </package>
     <package name="pages.api">
