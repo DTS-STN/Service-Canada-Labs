@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { useState } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
@@ -9,7 +8,35 @@ import { useRouter } from "next/router";
 export default function experiments(props) {
   const { t } = useTranslation("common");
   const { asPath } = useRouter();
-  const [experimentList, setExperimentList] = useState([
+
+  const displayExperiments = props.experimentData.map((experiment) => (
+    <Experiment
+      key={experiment.id}
+      title={experiment.title}
+      tag={experiment.tag}
+      desc={experiment.desc}
+    />
+  ));
+  return (
+    <Layout locale={props.locale} langUrl={asPath}>
+      <Head>
+        <title>{t("experimentsTitle")}</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <section className="layout-container">
+        <h1>{t("experimentsAndExplorationTitle")}</h1>
+        <p>Filter Experiments component goes here</p>
+
+        <div className="grid gap-y-5 lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12">
+          {displayExperiments}
+        </div>
+      </section>
+    </Layout>
+  );
+}
+
+export const getStaticProps = async ({ locale }) => {
+  const data = [
     {
       id: 1,
       title: "Lorem Ipsum",
@@ -45,36 +72,12 @@ export default function experiments(props) {
       desc:
         "Quisque sagittis purus sit amet volutpat consequat mauris. Mauris pellentesque pulvinar pellentesque habitant morbi. Eu tincidunt tortor aliquam nulla facilisi cras fermentum. Nunc consequat interdum varius sit amet mattis vulputate. ",
     },
-  ]);
-  const displayExperiments = experimentList.map((experiment) => (
-    <Experiment
-      key={experiment.id}
-      title={experiment.title}
-      tag={experiment.tag}
-      desc={experiment.desc}
-    />
-  ));
-  return (
-    <Layout locale={props.locale} langUrl={asPath}>
-      <Head>
-        <title>{t("experimentsTitle")}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <section className="layout-container">
-        <h1>{t("experimentsAndExplorationTitle")}</h1>
-        <p>Filter Experiments component goes here</p>
-
-        <div className="grid gap-y-5 lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12">
-          {displayExperiments}
-        </div>
-      </section>
-    </Layout>
-  );
-}
-
-export const getStaticProps = async ({ locale }) => ({
-  props: {
-    locale: locale,
-    ...(await serverSideTranslations(locale, ["common"])),
-  },
-});
+  ];
+  return {
+    props: {
+      locale: locale,
+      ...(await serverSideTranslations(locale, ["common"])),
+      experimentData: data,
+    },
+  };
+};

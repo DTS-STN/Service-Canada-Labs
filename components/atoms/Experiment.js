@@ -9,7 +9,7 @@ export const Experiment = ({ title, tag, desc }) => {
   return (
     <div
       className={
-        "shadow-experiment-shadow px-4 py-6 border-b-4 " +
+        "shadow-experiment-shadow p-4 border-b-4 " +
         (tag === "Active"
           ? "border-custom-blue-experiment-blue"
           : "border-gray-experiment")
