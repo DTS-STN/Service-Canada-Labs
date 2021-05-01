@@ -10,6 +10,7 @@ const Template = (args) => <ActionButton {...args} />;
 export const Default = Template.bind({});
 export const Secondary = Template.bind({});
 export const Disabled = Template.bind({});
+export const Link = Template.bind({});
 
 Default.args = {
   className:
@@ -27,5 +28,13 @@ Secondary.args = {
 Disabled.args = {
   text: "Disabled Button 🚀",
   className: "bg-gray-light text-gray-600 border border-gray-md",
+  disabled: true,
+};
+
+Link.args = {
+  text: "Link Button 🚀",
+  className:
+    "bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light",
+  href: "/",
   disabled: true,
 };

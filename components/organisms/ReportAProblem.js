@@ -10,7 +10,6 @@ import { ActionButton } from "../atoms/ActionButton";
 export function ReportAProblem(props) {
   const [submitted, setSubmitted] = useState(false);
   const { t, i18n } = useTranslation();
-  const formRef = useRef(null);
 
   let onSubmitHandler = (e) => {
     // prevent default behaviour of form
@@ -20,8 +19,6 @@ export function ReportAProblem(props) {
     // create URLSearchParams object from FormData object
     // this will be used to create url encoded string of names and values of the form fields
     const urlEncoded = new URLSearchParams(formData);
-    console.log(urlEncoded.toString());
-
     // call report a problem API route
     fetch("/api/report-a-problem", {
       method: "POST",
@@ -61,17 +58,22 @@ export function ReportAProblem(props) {
           </a>
         </>
       ) : (
-        <>
-          <h2 className="text-base font-body font-normal mb-4">
-            {t("reportAProblemCheckAllThatApply")}
-          </h2>
-          <form ref={formRef} className="w-full" onSubmit={onSubmitHandler}>
-            <input type="hidden" id="language" value={i18n.language} />
+        <form className="w-full" action="#" onSubmit={onSubmitHandler}>
+          <input
+            type="hidden"
+            id="language"
+            name="language"
+            value={i18n.language}
+          />
+          <fieldset>
+            <legend className="text-base sm:text-p font-body font-normal mb-6">
+              {t("reportAProblemCheckAllThatApply")}
+            </legend>
             <OptionalTextField
-              checkBoxId="incorrectInformation"
+              checkBoxId="incorrectInformationCheckBox"
               textFieldId="incorrectInformationTextField"
-              checkBoxName="incorrectInformation"
-              textFieldName="incorrectInformationText"
+              checkBoxName="incorrectInformationCheckBox"
+              textFieldName="incorrectInformationTextField"
               checkBoxLabel={t("reportAProblemIncorrectInformation")}
               textFieldLabel={t("reportAProblemProvideMoreDetails")}
               uncontrolled={true}
@@ -85,10 +87,10 @@ export function ReportAProblem(props) {
               textFieldDataCy="incorrectInformation-text"
             />
             <OptionalTextField
-              checkBoxId="unclearInformation"
+              checkBoxId="unclearInformationCheckBox"
               textFieldId="unclearInformationTextField"
-              checkBoxName="unclearInformation"
-              textFieldName="unclearInformationText"
+              checkBoxName="unclearInformationCheckBox"
+              textFieldName="unclearInformationTextField"
               checkBoxLabel={t("reportAProblemUnclearInformation")}
               textFieldLabel={t("reportAProblemProvideMoreDetails")}
               uncontrolled={true}
@@ -102,10 +104,10 @@ export function ReportAProblem(props) {
               textFieldDataCy="unclearInformation-text"
             />
             <OptionalTextField
-              checkBoxId="infoNotFound"
+              checkBoxId="infoNotFoundCheckBox"
               textFieldId="infoNotFoundTextField"
-              checkBoxName="infoNotFound"
-              textFieldName="infoNotFoundText"
+              checkBoxName="infoNotFoundCheckBox"
+              textFieldName="infoNotFoundTextField"
               checkBoxLabel={t("reportAProblemDidNotFindWhatYoureLookingFor")}
               textFieldLabel={t("reportAProblemProvideMoreDetails")}
               uncontrolled={true}
@@ -119,10 +121,10 @@ export function ReportAProblem(props) {
               textFieldDataCy="infoNotFound-text"
             />
             <OptionalTextField
-              checkBoxId="adaptiveTechnology"
+              checkBoxId="adaptiveTechnologyCheckBox"
               textFieldId="adaptiveTechnologyTextField"
-              checkBoxName="adaptiveTechnology"
-              textFieldName="adaptiveTechnologyText"
+              checkBoxName="adaptiveTechnologyCheckBox"
+              textFieldName="adaptiveTechnologyTextField"
               checkBoxLabel={t(
                 "reportAProblemPageDoesNotWorkWithAdaptiveTechnology"
               )}
@@ -138,10 +140,10 @@ export function ReportAProblem(props) {
               textFieldDataCy="adaptiveTechnology-text"
             />
             <OptionalTextField
-              checkBoxId="privacyIssues"
+              checkBoxId="privacyIssuesCheckBox"
               textFieldId="privacyIssuesTextField"
-              checkBoxName="privacyIssues"
-              textFieldName="privacyIssuesText"
+              checkBoxName="privacyIssuesCheckBox"
+              textFieldName="privacyIssuesTextField"
               checkBoxLabel={t("reportAProblemIncorrectInformation")}
               textFieldLabel={t("reportAProblemProvideMoreDetails")}
               uncontrolled={true}
@@ -155,10 +157,10 @@ export function ReportAProblem(props) {
               textFieldDataCy="privacyIssues-text"
             />
             <OptionalTextField
-              checkBoxId="noWhereElseToGo"
+              checkBoxId="noWhereElseToGoCheckBox"
               textFieldId="noWhereElseToGoTextField"
-              checkBoxName="noWhereElseToGo"
-              textFieldName="noWhereElseToGoText"
+              checkBoxName="noWhereElseToGoCheckBox"
+              textFieldName="noWhereElseToGoTextField"
               checkBoxLabel={t("reportAProblemNoWhereElseToGo")}
               textFieldLabel={t("reportAProblemProvideMoreDetails")}
               uncontrolled={true}
@@ -172,10 +174,10 @@ export function ReportAProblem(props) {
               textFieldDataCy="noWhereElseToGo-text"
             />
             <OptionalTextField
-              checkBoxId="other"
+              checkBoxId="otherCheckBox"
               textFieldId="otherTextField"
-              checkBoxName="other"
-              textFieldName="otherText"
+              checkBoxName="otherCheckBox"
+              textFieldName="otherTextField"
               checkBoxLabel={t("reportAProblemOther")}
               textFieldLabel={t("reportAProblemProvideMoreDetails")}
               uncontrolled={true}
@@ -188,43 +190,50 @@ export function ReportAProblem(props) {
               checkBoxDataCy="other-checkbox"
               textFieldDataCy="other-text"
             />
-            <ul className="list-outside list-disc px-6 py-2">
-              <li className="text-xxs font-body my-4">
-                <b>{t("reportAProblemNoReply")}</b>
-                {t("reportAProblemEnquiries")}
-                <a
-                  className="block text-xxs font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-                  href="mailto:experience@servicecanada.gc.ca"
-                >
-                  experience@servicecanada.gc.ca
-                </a>
-              </li>
-              <li className="text-xxs font-body my-4">
-                <b>{t("reportAProblemNoPersonalInfo")}</b>,&nbsp;
-                {t("reportAProblemNoPersonalInfoDetails")}
-              </li>
-              <li className="text-xxs font-body my-4">
-                <b>{t("reportAProblemMoreInfo")}</b>,&nbsp;
-                {t("reportAProblemMoreInfoDetails")}&nbsp;
-                <a
-                  className="text-xxs font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-                  href={t("reportAProblemMoreInfoLink")}
-                >
-                  {t("reportAProblemMoreInfoLinkText")}
-                </a>
-              </li>
-            </ul>
-            <ActionButton
-              id="submit"
-              className="rounded"
-              type="submit"
-              dataCy="report-a-problem-submit"
-              dataTestId="report-a-problem-submit"
-            >
-              Submit
-            </ActionButton>
-          </form>
-        </>
+          </fieldset>
+
+          <ul className="list-outside list-disc px-6 py-2">
+            <li className="text-xxs sm:text-sm font-body my-4 leading-tight sm:leading-6">
+              <b>{t("reportAProblemNoReply")}</b>
+              {t("reportAProblemEnquiries")}
+              <a
+                className="block text-xxs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+                href="mailto:experience@servicecanada.gc.ca"
+              >
+                experience@servicecanada.gc.ca
+              </a>
+            </li>
+            <li className="text-xxs sm:text-sm font-body my-4 leading-tight sm:leading-6">
+              <b>{t("reportAProblemNoPersonalInfo")}</b>,&nbsp;
+              {t("reportAProblemNoPersonalInfoDetails")}
+            </li>
+            <li className="text-xxs sm:text-sm font-body my-4 leading-tight sm:leading-6">
+              <b>{t("reportAProblemMoreInfo")}</b>,&nbsp;
+              {t("reportAProblemMoreInfoDetails")}&nbsp;
+              <a
+                className="text-xxs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+                href={t("reportAProblemMoreInfoLink")}
+              >
+                {t("reportAProblemMoreInfoLinkText")}
+              </a>
+            </li>
+          </ul>
+          <a
+            className="block text-xs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font my-4 underline"
+            href={t("reportAProblemPrivacyStatementLink")}
+          >
+            {t("reportAProblemPrivacyStatement")}
+          </a>
+          <ActionButton
+            id="submit"
+            className="rounded"
+            type="submit"
+            dataCy="report-a-problem-submit"
+            dataTestId="report-a-problem-submit"
+          >
+            Submit
+          </ActionButton>
+        </form>
       )}
     </Details>
   );

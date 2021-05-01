@@ -40,10 +40,12 @@ module.exports = {
           light: "#1492B4",
           dark: "#26374a",
           link: "#0535d2",
-          details: "#F7FAFC",
           "experiment-blue": "#004986",
         },
         "details-button-gray": "#E7E8EA",
+        "details-button-active-gray": "#cfd1d5",
+        "details-button-hover-gray": "#bbbfc5",
+        "details-border-gray": "#e3e3e3",
         "form-input-gray": "#555",
         "form-input-border-gray": "#ccc",
         "gray-light-200": "#f5f5f5",
@@ -62,10 +64,12 @@ module.exports = {
         "footer-background-color": "#f8f8f8",
       },
       width: {
+        "40px": "40px",
         "44px": "44px",
         "300px": "300px",
       },
       height: {
+        "40px": "40px",
         "44px": "44px",
         "46px": "46px",
       },
@@ -76,6 +80,7 @@ module.exports = {
         1: "1",
       },
       padding: {
+        "4px": "4px",
         "5px": "5px",
         "6px": "6px",
         "8px": "8px",
@@ -85,13 +90,24 @@ module.exports = {
       },
       margin: {
         "5px": "5px",
+        "15px": "15px",
         "10px": "10px",
+        "20px": "20px",
+      },
+
+      maxWidth: {
+        "350px": "350px",
       },
 
       minHeight: {
         "40px": "40px",
         "200px": "200px",
       },
+
+      maxHeight: {
+        "40px": "40px",
+      },
+
       boxShadow: {
         "experiment-shadow": "0px 2px 8px rgba(0, 0, 0, 0.25)",
       },

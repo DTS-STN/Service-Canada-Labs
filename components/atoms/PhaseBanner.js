@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 export const PhaseBanner = ({ phase, children }) => {
   return (
     <div className="bg-gray-100 sm:max-h-14">
-      <div className="flex items-start p-4 layout-container">
+      <div className="flex items-start py-4 layout-container">
         <span className="font-body text-xs leading-5 sm:text-sm sm:leading-5 uppercase tracking-normal border-2 border-black px-2">
           {phase}
         </span>
