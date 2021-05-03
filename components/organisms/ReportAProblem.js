@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useTranslation } from "next-i18next";
 import { OptionalTextField } from "../molecules/OptionalTextField";
 import { Details } from "../molecules/Details";
