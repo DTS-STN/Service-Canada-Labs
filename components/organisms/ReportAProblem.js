@@ -12,7 +12,27 @@ export function ReportAProblem(props) {
   const { t, i18n } = useTranslation();
 
   let onSubmitHandler = (e) => {
+    // prevent default behaviour of form
     e.preventDefault();
+    // create FormData object from form
+    const formData = new FormData(e.target);
+    // create URLSearchParams object from FormData object
+    // this will be used to create url encoded string of names and values of the form fields
+    const urlEncoded = new URLSearchParams(formData);
+    // call report a problem API route
+    fetch("/api/report-a-problem", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+      },
+      body: urlEncoded.toString(),
+    }).catch((e) => {
+      // handle error if fetch fails
+      // fetch only fails if there is no internet connection not for the actual
+      // request so there is nothing really to do here other than to log it
+      console.log(e);
+    });
+
     setSubmitted(true);
   };
 
@@ -31,7 +51,7 @@ export function ReportAProblem(props) {
             {t("reportAProblemYouWillNotBeContacted")}
           </p>
           <a
-            className="block text-xxs font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+            className="block text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
             href="mailto:experience@servicecanada.gc.ca"
           >
             experience@servicecanada.gc.ca
@@ -39,16 +59,21 @@ export function ReportAProblem(props) {
         </>
       ) : (
         <form className="w-full" action="#" onSubmit={onSubmitHandler}>
-          <input type="hidden" id="language" value={i18n.language} />
+          <input
+            type="hidden"
+            id="language"
+            name="language"
+            value={i18n.language}
+          />
           <fieldset>
             <legend className="text-base sm:text-p font-body font-normal mb-6">
               {t("reportAProblemCheckAllThatApply")}
             </legend>
             <OptionalTextField
-              checkBoxId="incorrectInformation"
+              checkBoxId="incorrectInformationCheckBox"
               textFieldId="incorrectInformationTextField"
-              checkBoxName="incorrectInformation"
-              textFieldName="incorrectInformationText"
+              checkBoxName="incorrect_information"
+              textFieldName="incorrect_information_details"
               checkBoxLabel={t("reportAProblemIncorrectInformation")}
               textFieldLabel={t("reportAProblemProvideMoreDetails")}
               uncontrolled={true}
@@ -62,10 +87,10 @@ export function ReportAProblem(props) {
               textFieldDataCy="incorrectInformation-text"
             />
             <OptionalTextField
-              checkBoxId="unclearInformation"
-              textFieldId="incorrectInformationTextField"
-              checkBoxName="incorrectInformation"
-              textFieldName="incorrectInformationText"
+              checkBoxId="unclearInformationCheckBox"
+              textFieldId="unclearInformationTextField"
+              checkBoxName="unclear_information"
+              textFieldName="unclear_information_details"
               checkBoxLabel={t("reportAProblemUnclearInformation")}
               textFieldLabel={t("reportAProblemProvideMoreDetails")}
               uncontrolled={true}
@@ -79,10 +104,10 @@ export function ReportAProblem(props) {
               textFieldDataCy="unclearInformation-text"
             />
             <OptionalTextField
-              checkBoxId="infoNotFound"
+              checkBoxId="infoNotFoundCheckBox"
               textFieldId="infoNotFoundTextField"
-              checkBoxName="infoNotFound"
-              textFieldName="infoNotFoundText"
+              checkBoxName="info_not_found"
+              textFieldName="info_not_found_details"
               checkBoxLabel={t("reportAProblemDidNotFindWhatYoureLookingFor")}
               textFieldLabel={t("reportAProblemProvideMoreDetails")}
               uncontrolled={true}
@@ -96,10 +121,10 @@ export function ReportAProblem(props) {
               textFieldDataCy="infoNotFound-text"
             />
             <OptionalTextField
-              checkBoxId="adaptiveTechnology"
+              checkBoxId="adaptiveTechnologyCheckBox"
               textFieldId="adaptiveTechnologyTextField"
-              checkBoxName="adaptiveTechnology"
-              textFieldName="adaptiveTechnologyText"
+              checkBoxName="adaptive_technology"
+              textFieldName="adaptive_technology_details"
               checkBoxLabel={t(
                 "reportAProblemPageDoesNotWorkWithAdaptiveTechnology"
               )}
@@ -115,10 +140,10 @@ export function ReportAProblem(props) {
               textFieldDataCy="adaptiveTechnology-text"
             />
             <OptionalTextField
-              checkBoxId="privacyIssues"
+              checkBoxId="privacyIssuesCheckBox"
               textFieldId="privacyIssuesTextField"
-              checkBoxName="privacyIssues"
-              textFieldName="privacyIssuesText"
+              checkBoxName="privacy_issues"
+              textFieldName="privacy_issues_details"
               checkBoxLabel={t("reportAProblemIncorrectInformation")}
               textFieldLabel={t("reportAProblemProvideMoreDetails")}
               uncontrolled={true}
@@ -132,10 +157,10 @@ export function ReportAProblem(props) {
               textFieldDataCy="privacyIssues-text"
             />
             <OptionalTextField
-              checkBoxId="noWhereElseToGo"
-              textFieldId="noWhereElseToGoTextField"
-              checkBoxName="noWhereElseToGo"
-              textFieldName="noWhereElseToGoText"
+              checkBoxId="noWhereElseToGoCheckBox"
+              textFieldId="no_where_else_to_go"
+              checkBoxName="no_where_else_to_go_details"
+              textFieldName="noWhereElseToGoTextField"
               checkBoxLabel={t("reportAProblemNoWhereElseToGo")}
               textFieldLabel={t("reportAProblemProvideMoreDetails")}
               uncontrolled={true}
@@ -149,10 +174,10 @@ export function ReportAProblem(props) {
               textFieldDataCy="noWhereElseToGo-text"
             />
             <OptionalTextField
-              checkBoxId="other"
+              checkBoxId="otherCheckBox"
               textFieldId="otherTextField"
               checkBoxName="other"
-              textFieldName="otherText"
+              textFieldName="other_details"
               checkBoxLabel={t("reportAProblemOther")}
               textFieldLabel={t("reportAProblemProvideMoreDetails")}
               uncontrolled={true}
