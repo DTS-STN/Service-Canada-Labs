@@ -4,7 +4,6 @@ import { Banner } from "../atoms/Banner";
 import { Menu } from "../molecules/Menu";
 import { PhaseBanner } from "../atoms/PhaseBanner";
 import { Footer } from "./Footer";
-import { Header } from "./Header";
 import { ReportAProblem } from "./ReportAProblem";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
@@ -29,17 +28,14 @@ export const Layout = ({
       <header>
         <PhaseBanner phase={t("Alpha")}>{t("alphaText")}</PhaseBanner>
         <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">
-          <div className="flex flex-row justify-between">
-            <div className=" lg:mt-7 mt-1.5 ">
-              <Header
-                headerLogoAltText="Symbol of the Government of Canada"
-                headerLogoImage={
-                  language === "en" ? "/sig-blk-en.svg" : "/sig-blk-fr.svg"
-                }
-              />{" "}
-            </div>
+          <div className="flex flex-row justify-between items-center lg:mt-7 mt-1.5">
+            <img
+              className="h-5 w-auto xs:h-6 sm:h-8 md:h-8 lg:h-7 xl:h-8"
+              src={language === "en" ? "/sig-blk-en.svg" : "/sig-blk-fr.svg"}
+              alt="Symbol of the Government of Canada"
+            />{" "}
             <Link key={language} href={langUrl} locale={language}>
-              <a className="visible lg:invisible ml-6 xs:ml-16 underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue ">
+              <a className="visible lg:invisible ml-6 sm:ml-16 underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue ">
                 {language === "en" ? "EN" : "FR"}
               </a>
             </Link>
