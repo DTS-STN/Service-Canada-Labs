@@ -10,7 +10,6 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
 import { SearchBar } from "../atoms/SearchBar";
-import { useState } from "react";
 
 /**
  * Component which defines the layout of the page for all screen sizes
