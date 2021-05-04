@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">66.67% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>6/8</span>
+                <span class='fraction'>8/12</span>
             </div>
         
             
@@ -231,7 +231,25 @@
 <a name='L172'></a><a href='#L172'>172</a>
 <a name='L173'></a><a href='#L173'>173</a>
 <a name='L174'></a><a href='#L174'>174</a>
-<a name='L175'></a><a href='#L175'>175</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a>
+<a name='L184'></a><a href='#L184'>184</a>
+<a name='L185'></a><a href='#L185'>185</a>
+<a name='L186'></a><a href='#L186'>186</a>
+<a name='L187'></a><a href='#L187'>187</a>
+<a name='L188'></a><a href='#L188'>188</a>
+<a name='L189'></a><a href='#L189'>189</a>
+<a name='L190'></a><a href='#L190'>190</a>
+<a name='L191'></a><a href='#L191'>191</a>
+<a name='L192'></a><a href='#L192'>192</a>
+<a name='L193'></a><a href='#L193'>193</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -255,7 +273,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -411,11 +447,11 @@ import { Banner } from "../atoms/Banner";
 import { Menu } from "../molecules/Menu";
 import { PhaseBanner } from "../atoms/PhaseBanner";
 import { Footer } from "./Footer";
-import { Header } from "./Header";
 import { ReportAProblem } from "./ReportAProblem";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
+import { SearchBar } from "../atoms/SearchBar";
 &nbsp;
 /**
  * Component which defines the layout of the page for all screen sizes
@@ -429,20 +465,38 @@ export const Layout = ({
 }) =&gt; {
   const { t } = useTranslation("common");
   const language = locale === "en" ? <span class="branch-0 cbranch-no" title="branch not covered" >"fr" </span>: "en";
+&nbsp;
   return (
     &lt;div className="overflow-x-hidden"&gt;
       &lt;header&gt;
         &lt;PhaseBanner phase={t("Alpha")}&gt;{t("alphaText")}&lt;/PhaseBanner&gt;
-        &lt;div className="layout-container"&gt;
-          &lt;Link key={language} href={langUrl} locale={language}&gt;
-            &lt;a data-cy="toggle-language-link"&gt;
-              {language === "en" ? "English" : <span class="branch-1 cbranch-no" title="branch not covered" >"Français"}</span>
-            &lt;/a&gt;
-          &lt;/Link&gt;
-          &lt;Header
-            headerLogoAltText="Symbol of the Government of Canada"
-            headerLogoImage="/sig-blk-en.svg"
-          /&gt;
+        &lt;div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2"&gt;
+          &lt;div className="flex flex-row justify-between items-center lg:mt-7 mt-1.5"&gt;
+            &lt;img
+              className="h-5 w-auto xs:h-6 sm:h-8 md:h-8 lg:h-7 xl:h-8"
+              src={language === "en" ? "/sig-blk-en.svg" : <span class="branch-1 cbranch-no" title="branch not covered" >"/sig-blk-fr.svg"}</span>
+              alt="Symbol of the Government of Canada"
+            /&gt;
+            &lt;Link key={language} href={langUrl} locale={language}&gt;
+              &lt;a className="visible lg:invisible ml-6 sm:ml-16 underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue "&gt;
+                {language === "en" ? "EN" : <span class="branch-1 cbranch-no" title="branch not covered" >"FR"}</span>
+              &lt;/a&gt;
+            &lt;/Link&gt;
+          &lt;/div&gt;
+          &lt;div className="flex-col flex"&gt;
+            &lt;Link key={language} href={langUrl} locale={language}&gt;
+              &lt;a
+                className="lg:visible invisible pb-0 lg:pb-2 self-end underline font-body text-canada-footer-font hover:text-canada-footer-hover-font-blue "
+                data-cy="toggle-language-link"
+              &gt;
+                {language === "en" ? "English" : <span class="branch-1 cbranch-no" title="branch not covered" >"Français"}</span>
+              &lt;/a&gt;
+            &lt;/Link&gt;
+            &lt;SearchBar
+              placeholder={t("searchBarPlaceholder")}
+              dataCy={"search-bar"}
+            /&gt;
+          &lt;/div&gt;
         &lt;/div&gt;
 &nbsp;
         &lt;div className="mb-2 border-t pb-2 mt-4"&gt;&lt;/div&gt;
@@ -586,7 +640,7 @@ Layout.propTypes = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue May 04 2021 14:07:01 GMT+0000 (Coordinated Universal Time)
+                at Tue May 04 2021 17:42:58 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
