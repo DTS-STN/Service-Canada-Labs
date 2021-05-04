@@ -72,8 +72,8 @@ export function ReportAProblem(props) {
             <OptionalTextField
               checkBoxId="incorrectInformationCheckBox"
               textFieldId="incorrectInformationTextField"
-              checkBoxName="incorrectInformationCheckBox"
-              textFieldName="incorrectInformationTextField"
+              checkBoxName="incorrect_information"
+              textFieldName="incorrect_information_details"
               checkBoxLabel={t("reportAProblemIncorrectInformation")}
               textFieldLabel={t("reportAProblemProvideMoreDetails")}
               uncontrolled={true}
@@ -89,8 +89,8 @@ export function ReportAProblem(props) {
             <OptionalTextField
               checkBoxId="unclearInformationCheckBox"
               textFieldId="unclearInformationTextField"
-              checkBoxName="unclearInformationCheckBox"
-              textFieldName="unclearInformationTextField"
+              checkBoxName="unclear_information"
+              textFieldName="unclear_information_details"
               checkBoxLabel={t("reportAProblemUnclearInformation")}
               textFieldLabel={t("reportAProblemProvideMoreDetails")}
               uncontrolled={true}
@@ -106,8 +106,8 @@ export function ReportAProblem(props) {
             <OptionalTextField
               checkBoxId="infoNotFoundCheckBox"
               textFieldId="infoNotFoundTextField"
-              checkBoxName="infoNotFoundCheckBox"
-              textFieldName="infoNotFoundTextField"
+              checkBoxName="info_not_found"
+              textFieldName="info_not_found_details"
               checkBoxLabel={t("reportAProblemDidNotFindWhatYoureLookingFor")}
               textFieldLabel={t("reportAProblemProvideMoreDetails")}
               uncontrolled={true}
@@ -123,8 +123,8 @@ export function ReportAProblem(props) {
             <OptionalTextField
               checkBoxId="adaptiveTechnologyCheckBox"
               textFieldId="adaptiveTechnologyTextField"
-              checkBoxName="adaptiveTechnologyCheckBox"
-              textFieldName="adaptiveTechnologyTextField"
+              checkBoxName="adaptive_technology"
+              textFieldName="adaptive_technology_details"
               checkBoxLabel={t(
                 "reportAProblemPageDoesNotWorkWithAdaptiveTechnology"
               )}
@@ -142,8 +142,8 @@ export function ReportAProblem(props) {
             <OptionalTextField
               checkBoxId="privacyIssuesCheckBox"
               textFieldId="privacyIssuesTextField"
-              checkBoxName="privacyIssuesCheckBox"
-              textFieldName="privacyIssuesTextField"
+              checkBoxName="privacy_issues"
+              textFieldName="privacy_issues_details"
               checkBoxLabel={t("reportAProblemIncorrectInformation")}
               textFieldLabel={t("reportAProblemProvideMoreDetails")}
               uncontrolled={true}
@@ -158,8 +158,8 @@ export function ReportAProblem(props) {
             />
             <OptionalTextField
               checkBoxId="noWhereElseToGoCheckBox"
-              textFieldId="noWhereElseToGoTextField"
-              checkBoxName="noWhereElseToGoCheckBox"
+              textFieldId="no_where_else_to_go"
+              checkBoxName="no_where_else_to_go_details"
               textFieldName="noWhereElseToGoTextField"
               checkBoxLabel={t("reportAProblemNoWhereElseToGo")}
               textFieldLabel={t("reportAProblemProvideMoreDetails")}
@@ -176,8 +176,8 @@ export function ReportAProblem(props) {
             <OptionalTextField
               checkBoxId="otherCheckBox"
               textFieldId="otherTextField"
-              checkBoxName="otherCheckBox"
-              textFieldName="otherTextField"
+              checkBoxName="other"
+              textFieldName="other_details"
               checkBoxLabel={t("reportAProblemOther")}
               textFieldLabel={t("reportAProblemProvideMoreDetails")}
               uncontrolled={true}

@@ -1,4 +1,3 @@
-import { processData } from "../../lib/reportAProblem/processData";
 import { submitEmail } from "../../lib/reportAProblem/submitEmail";
 
 /**
@@ -14,7 +13,7 @@ async function handler(req, res) {
       try {
         const notifyResponse = await submitEmail(
           {
-            ...processData(req.body),
+            ...req.body,
             page_name: req.headers.referer || "unknown",
           },
           process.env.NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID,
