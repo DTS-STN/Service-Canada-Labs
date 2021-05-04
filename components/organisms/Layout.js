@@ -33,7 +33,7 @@ export const Layout = ({
               className="h-5 w-auto xs:h-6 sm:h-8 md:h-8 lg:h-7 xl:h-8"
               src={language === "en" ? "/sig-blk-en.svg" : "/sig-blk-fr.svg"}
               alt="Symbol of the Government of Canada"
-            />{" "}
+            />
             <Link key={language} href={langUrl} locale={language}>
               <a className="visible lg:invisible ml-6 sm:ml-16 underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue ">
                 {language === "en" ? "EN" : "FR"}
