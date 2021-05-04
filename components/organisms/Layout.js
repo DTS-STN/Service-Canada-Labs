@@ -22,12 +22,6 @@ export const Layout = ({
   locale,
   langUrl,
 }) => {
-  //State for Search input
-  const [searchText, setSearchText] = useState(null);
-  //Handler for search input
-  function handleInputChange(e) {
-    setSearchText(e.target.value);
-  }
   const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
 
@@ -63,7 +57,6 @@ export const Layout = ({
             <SearchBar
               placeholder={t("searchBarPlaceholder")}
               dataCy={"search-bar"}
-              onClick={handleInputChange}
             />
           </div>
         </div>
