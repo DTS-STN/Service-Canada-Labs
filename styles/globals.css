@@ -43,6 +43,10 @@ html {
 @layer utilities {
   /*Default page layout*/
 
+  .blur{
+    filter: blur(1.5px);
+  }
+
   .border-outset {
     border-style: outset;
   }

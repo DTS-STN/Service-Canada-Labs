@@ -62,16 +62,21 @@ module.exports = {
         "canada-footer-font": "#284162",
         "canada-footer-hover-font-blue": "#0535d2",
         "footer-background-color": "#f8f8f8",
+        "splash-page-bottom": "#e1e4e7",
       },
       width: {
         "40px": "40px",
         "44px": "44px",
         "300px": "300px",
+        "500px": "500px",
+        30: "7.5rem",
       },
       height: {
         "40px": "40px",
         "44px": "44px",
         "46px": "46px",
+        "187px": "187px",
+        "230px": "230px",
       },
       inset: {
         "-2px": "-2px",
@@ -97,6 +102,11 @@ module.exports = {
 
       maxWidth: {
         "350px": "350px",
+        "5rem": "5rem",
+      },
+
+      minWidth: {
+        "300px": "300px",
       },
 
       minHeight: {
