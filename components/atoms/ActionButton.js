@@ -1,28 +1,73 @@
 import PropTypes from "prop-types";
+import Link from "next/link";
+import { useEffect } from "react";
 
 /**
  * Button component
  */
 export function ActionButton(props) {
-  return (
+  //Styling for buttons and links
+  const basicStyle =
+    "flex justify-center content-center h-auto p-1 w-max rounded-sm py-2 px-4 focus:ring-1 focus:ring-black focus:ring-offset-2 text-xs md:text-base font-body";
+  const defaultStyle =
+    "bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light";
+  const secondaryStyle =
+    "bg-white text-custom-blue-blue border border-custom-blue-blue active:bg-gray-400 hover:bg-gray-200";
+  const disabledStyle = "bg-gray-light text-gray-600 border border-gray-md";
+
+  //Activate Links with spacebar
+  useEffect(() => {
+    let link = document.getElementById(props.id);
+
+    if (link) {
+      link.addEventListener("keydown", (event) => {
+        if (event.key === "Spacebar" || event.key === " ") {
+          event.preventDefault();
+          link.click();
+        }
+      });
+    }
+  });
+
+  return props.href ? (
+    <Link href={props.href}>
+      <a
+        className={`${basicStyle}
+        ${
+          !props.secondary && !props.disabled && !props.custom
+            ? defaultStyle
+            : props.className
+        }
+        ${props.secondary && !props.disabled ? secondaryStyle : props.className}
+        ${props.custom && !props.secondary ? props.custom : ""}
+        ${props.disabled ? disabledStyle : props.className} link`}
+        onClick={props.onClick}
+        id={props.id}
+        data-testid={props.dataTestId}
+        data-cy={props.dataCy || props.id}
+        data-cy-button={props.dataCyButton}
+        disabled={props.disabled}
+        role="button"
+        draggable="false"
+      >
+        {props.icon ? (
+          <span className={props.icon} data-testid={props.dataTestId} />
+        ) : undefined}
+        {props.text}
+        {props.children}
+      </a>
+    </Link>
+  ) : (
     <button
-      className={`flex justify-center content-center h-auto p-1 rounded-sm py-2 px-4 focus:ring-1 focus:ring-black focus:ring-offset-2
+      className={`${basicStyle}
       ${
         !props.secondary && !props.disabled && !props.custom
-          ? "bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light"
+          ? defaultStyle
           : props.className
       }
-      ${
-        props.secondary && !props.disabled
-          ? "bg-white text-custom-blue-blue border border-custom-blue-blue active:bg-gray-400 hover:bg-gray-200"
-          : props.className
-      }
+      ${props.secondary && !props.disabled ? secondaryStyle : props.className}
       ${props.custom && !props.secondary ? props.custom : ""}
-      ${
-        props.disabled
-          ? "bg-gray-light text-gray-600 border border-gray-md"
-          : props.className
-      } text-xs md:text-base font-body`}
+      ${props.disabled ? disabledStyle : props.className}`}
       onClick={props.onClick}
       type={props.type}
       id={props.id}
@@ -52,9 +97,14 @@ ActionButton.propTypes = {
   text: PropTypes.string,
 
   /**
+   * Style link as a button when there's a href
+   */
+  href: PropTypes.string,
+
+  /**
    * Identify which button being clicked
    */
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
 
   /**
    * the type of the button

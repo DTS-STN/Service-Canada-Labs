@@ -42,6 +42,11 @@ html {
 
 @layer utilities {
   /*Default page layout*/
+
+  .border-outset {
+    border-style: outset;
+  }
+
   .layout-container {
     @apply mx-6;
   }
@@ -70,7 +75,8 @@ html {
     }
   }
 }
-  .footerBackground {
+
+.footerBackground {
   background:#26374a url(../public/landscape.png) no-repeat right bottom;
 }
 

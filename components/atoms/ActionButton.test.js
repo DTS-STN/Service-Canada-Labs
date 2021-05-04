@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { axe, toHaveNoViolations } from "jest-axe";
-import { Default, Secondary, Disabled } from "./ActionButton.stories";
+import { Default, Secondary, Disabled, Link } from "./ActionButton.stories";
 
 expect.extend(toHaveNoViolations);
 
@@ -26,6 +26,12 @@ describe("Action Button", () => {
     render(<Disabled {...Disabled.args} />);
     expect(screen.getByRole("button")).toHaveTextContent(Disabled.args.text);
     expect(screen.getByRole("button")).toHaveAttribute("disabled");
+  });
+
+  it("renders link styles as button", () => {
+    render(<Link {...Link.args} />);
+    expect(screen.getByRole("button")).toHaveTextContent(Link.args.text);
+    expect(screen.getByRole("button")).toHaveAttribute("href");
   });
 
   it("has no a11y violations", async () => {

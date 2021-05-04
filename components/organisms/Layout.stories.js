@@ -1,6 +1,5 @@
 import React from "react";
 import { Layout } from "./Layout";
-import logo from "../../public/wmms-blk.svg";
 
 export default {
   title: "Components/Organisms/Layout",

@@ -4,10 +4,10 @@
     top: 0;
     left: 0;
     box-sizing: border-box;
-    width: 44px;
-    height: 44px;
+    background: white;
+    width: 40px;
+    height: 40px;
     border: 2px solid black;
-    background: transparent;
 }
 
 .checkbox-label::after {
@@ -17,7 +17,7 @@
     top: 11px;
     left: 9px;
     width: 23px;
-    height: 12px;
+    height: 13px;
     transform: rotate(-45deg);
     border: solid black;
     border-width: 0 0 5px 5px;
@@ -32,6 +32,12 @@
 
 .checkbox-input:checked + .checkbox-label::after{
     opacity: 1;
+}
+
+.checkbox-input:focus + .checkbox-label::before {
+    border-width: 4px;
+    -webkit-box-shadow: 0 0 0 3px #fd0;
+    box-shadow: 0 0 0 3px #fd0;
 }
 
 .text-input:focus{
