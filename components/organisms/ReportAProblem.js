@@ -51,7 +51,7 @@ export function ReportAProblem(props) {
             {t("reportAProblemYouWillNotBeContacted")}
           </p>
           <a
-            className="block text-xxs font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+            className="block text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
             href="mailto:experience@servicecanada.gc.ca"
           >
             experience@servicecanada.gc.ca
