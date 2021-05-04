@@ -6,6 +6,8 @@ image:
 extraEnv:
   - name: NOTIFY_BASE_API_URL
     value: "https://api.notification.canada.ca"
+  - name: REPORT_A_PROBLEM_ENABLED
+    value: "true"
   - name: NOTIFY_API_KEY
     value: {{ requiredEnv "NOTIFY_API_KEY" | quote }}
   - name: NOTIFY_REPORT_A_PROBLEM_EMAIL

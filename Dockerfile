@@ -18,6 +18,7 @@ RUN npm run build
 
 FROM node:current-alpine AS production
 ENV NODE_ENV=production
+ENV REPORT_A_PROBLEM_ENABLED=true
 ENV NOTIFY_BASE_API_URL=https://api.notification.canada.ca
 ENV NOTIFY_API_KEY=""
 ENV NOTIFY_REPORT_A_PROBLEM_EMAIL=""

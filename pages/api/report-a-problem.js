@@ -7,7 +7,10 @@ import { submitEmail } from "../../lib/reportAProblem/submitEmail";
 async function handler(req, res) {
   if (req.method === "POST") {
     // if there is no data specified we don't want to call notify
-    if (Object.keys(req.body).length <= 1) {
+    if (
+      Object.keys(req.body).length <= 1 ||
+      !process.env.REPORT_A_PROBLEM_ENABLED
+    ) {
       res.status(200).end("OK");
     } else {
       try {

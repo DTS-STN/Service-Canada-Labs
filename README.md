@@ -20,11 +20,27 @@ docker-compose run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Enabling Report a Problem 
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+1) First create a [GC Notify Account](https://notification.canada.ca)
+2) Once you have your account created ask to be added to the Alpha Site account
+3) Set the following environment variables (definitions below ) `REPORT_A_PROBLEM_ENABLED`, `NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID`, `NOTIFY_REPORT_A_PROBLEM_EMAIL`, `NOTIFY_API_KEY`, `NOTIFY_BASE_API_URL`
+4) Start application as usual
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+## Environment Variables 
+
+Here is a list of all the environment variables used to configure the application along with what they do.
+
+`REPORT_A_PROBLEM_ENABLED`: Feature flag for the report a problem API to enable sending to GC Notify. Leave undefined if you do not want to enable this. 
+
+`NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID`: The Notify template ID for the report a problem email template
+
+`NOTIFY_REPORT_A_PROBLEM_EMAIL`: The email to send it too
+
+`NOTIFY_API_KEY`: The [Notify API key](https://documentation.notification.canada.ca/en/start.html#headers)
+
+`NOTIFY_BASE_API_URL`: The base url for the Notify api. This value should be https://api.notification.canada.ca
 
 ## Learn More
 
