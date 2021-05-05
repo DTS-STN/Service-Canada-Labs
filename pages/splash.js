@@ -11,7 +11,7 @@ export default function splash(props) {
     <div>
       <div className="bg-banner-img h-screen min-w-300px min-h-screen blur" />
       <Head>
-        <title>{t("experimentsTitle")}</title>
+        <title>{t("splashTitle")}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="absolute inset-0 m-auto flex flex-col justify-center items-center">
