@@ -28,7 +28,7 @@ export default function splash(props) {
             <ActionButton
               id="english-button"
               text="English"
-              className="inline-block w-28 mr-6"
+              className="inline-block w-30 mr-6"
               href="/"
             />
             <ActionButton
@@ -40,13 +40,13 @@ export default function splash(props) {
           </div>
         </div>
         <div className="relative bg-splash-page-bottom text-base h-auto min-w-300px w-300px flex justify-between container p-6 xl:w-500px xl:items-center">
-          <div className="w-30 xl:w-max">
+          <div className="w-28 xl:w-max">
             <Link href="/">
-              <a className="inline-block w-24 xl:w-max mr-0 font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font">
+              <a className="inline-block w-22 xl:w-max mr-0 font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font">
                 Terms & conditions
               </a>
             </Link>
-            <div className="float-right text-h2 pt-5 text-canada-footer-font leading-none inline-block pr-2 xl:absolute xl:inset-y-0 xl:pl-1 xl:float-none xl:pt-0 xl:mt-4">
+            <div className="float-right text-h2 pt-5 text-canada-footer-font leading-none inline-block pr-3 xl:absolute xl:inset-y-0 xl:pl-1 xl:float-none xl:pt-0 xl:mt-4">
               .
             </div>
             <Link href="/">
