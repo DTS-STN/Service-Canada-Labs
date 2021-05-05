@@ -19,7 +19,13 @@ export function FilterExperiments(props) {
         onChange={props.onChange}
       />
       <label
-        className={`${option.id === 0? "rounded-l-lg":option.id === 2? "rounded-r-lg":""} float-left text-xs px-4 py-3 cursor-pointer border-2 border-solid border-gray-600 border-opacity-50 mr-0`}
+        className={`${
+          option.id === 0
+            ? "rounded-l-lg"
+            : option.id === 2
+            ? "rounded-r-lg"
+            : ""
+        } float-left text-xs px-4 py-3 cursor-pointer border-2 border-solid border-gray-600 border-opacity-50 mr-0`}
         htmlFor={option.id}
       >
         {t(option.text)}
