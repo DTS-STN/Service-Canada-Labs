@@ -8,8 +8,8 @@ export default function splash(props) {
   const { t } = useTranslation("common");
 
   return (
-    <div>
-      <div className="bg-banner-img h-screen min-w-300px min-h-screen blur" />
+    <>
+      <div className="bg-banner-img h-screen min-w-300px min-h-screen blur font-body" />
       <Head>
         <title>{t("splashTitle")}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -17,52 +17,49 @@ export default function splash(props) {
       <div className="absolute inset-0 m-auto flex flex-col justify-center items-center">
         <div className="bg-footer-background-color h-230px min-w-300px w-300px xl:w-500px">
           <img
-            className="h-auto w-64 container mx-auto pt-6 pb-8 xl:w-80 xl:mx-0 xl:px-6"
+            className="h-auto w-64 container mx-auto pt-6 pb-8 xl:w-2/3 xl:mx-0 xl:px-6"
             src={"/sig-blk-en.svg"}
             alt={"Symbol of the Government of Canada"}
           />
-          <div className="w-max container mx-auto pb-8 text-p font-medium">
+          <div className="w-max container mx-auto pb-8 text-p xl:text-h4 font-bold">
             alpha.service.canada.ca
           </div>
           <div className="flex w-max container mx-auto">
             <ActionButton
               id="english-button"
               text="English"
-              className="inline-block w-30 mr-6"
+              className="inline-block text-xs w-7.5rem xl:w-138px py-3.5 mr-6 rounded"
               href="/"
             />
             <ActionButton
               id="french-button"
               text="Francais"
-              className="w-30 inline-block"
+              className="w-7.5rem xl:w-138px text-xs py-3.5 inline-block rounded"
               href="/fr"
             />
           </div>
         </div>
-        <div className="relative bg-splash-page-bottom text-base h-auto min-w-300px w-300px flex justify-between container p-6 xl:w-500px xl:items-center">
-          <div className="w-28 xl:w-max">
+        <div className="relative py-8 bg-splash-page-bottom text-p h-auto min-w-300px w-300px flex justify-between container p-6 xl:w-500px xl:items-center">
+          <div className="w-28 text-base xl:text-p xl:w-max">
             <Link href="https://www.canada.ca/en/transparency/terms.html">
-              <a className="inline-block w-22 xl:w-max mr-0 font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font">
+              <a className="inline-block w-28 xl:w-max mr-0 hover:text-canada-footer-hover-font-blue text-canada-footer-font splash-link">
                 Terms & conditions
               </a>
             </Link>
-            <div className="float-right text-h2 pt-5 text-canada-footer-font leading-none inline-block pr-3 xl:absolute xl:inset-y-0 xl:pl-1 xl:float-none xl:pt-0 xl:mt-4">
-              .
-            </div>
             <Link href="https://www.canada.ca/fr/transparence/avis.html">
-              <a className="inline-block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font xl:pl-4">
+              <a className="inline-block hover:text-canada-footer-hover-font-blue text-canada-footer-font">
                 Avis
               </a>
             </Link>
           </div>
           <img
-            className="h-auto w-20 xl:w-28"
+            className="h-auto w-24 xl:w-28"
             src="/wmms-blk.svg"
             alt="Symbol of the Government of Canada"
           />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

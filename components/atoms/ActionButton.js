@@ -8,7 +8,7 @@ import { useEffect } from "react";
 export function ActionButton(props) {
   //Styling for buttons and links
   const basicStyle =
-    "flex justify-center content-center p-1 rounded-sm py-2 px-4 focus:ring-1 focus:ring-black focus:ring-offset-2 text-xs md:text-base font-body";
+    "flex justify-center content-center p-1 rounded-sm py-2 px-4 focus:ring-1 focus:ring-black focus:ring-offset-2 font-body";
   const defaultStyle =
     "bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light";
   const secondaryStyle =
@@ -41,8 +41,7 @@ export function ActionButton(props) {
         ${props.secondary && !props.disabled ? secondaryStyle : props.className}
         ${props.custom && !props.secondary ? props.custom : ""}
         ${props.disabled ? disabledStyle : props.className}
-        ${props.className.indexOf("w-") !== -1 ? null : "w-max"}
-        ${props.className.indexOf("h-") !== -1 ? null : "h-auto"}`}
+        ${props.className.indexOf("w-") !== -1 ? "" : "w-max"}`}
         onClick={props.onClick}
         id={props.id}
         data-testid={props.dataTestId}
@@ -69,8 +68,7 @@ export function ActionButton(props) {
       }
       ${props.secondary && !props.disabled ? secondaryStyle : props.className}
       ${props.custom && !props.secondary ? props.custom : ""}
-      ${props.disabled ? disabledStyle : props.className}
-      ${props.className.indexOf("h-") !== -1 ? null : "h-auto"}`}
+      ${props.disabled ? disabledStyle : props.className}`}
       onClick={props.onClick}
       type={props.type}
       id={props.id}

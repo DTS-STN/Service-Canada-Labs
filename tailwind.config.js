@@ -68,10 +68,10 @@ module.exports = {
       width: {
         "40px": "40px",
         "44px": "44px",
+        "138px": "138px",
         "300px": "300px",
         "500px": "500px",
-        22: "5.5rem",
-        30: "7.5rem",
+        "7.5rem": "7.5rem",
       },
       height: {
         "40px": "40px",
