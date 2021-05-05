@@ -41,7 +41,7 @@ export default function splash(props) {
         </div>
         <div className="relative bg-splash-page-bottom text-base h-auto min-w-300px w-300px flex justify-between container p-6 xl:w-500px xl:items-center">
           <div className="w-28 xl:w-max">
-            <Link href="/">
+            <Link href="https://www.canada.ca/en/transparency/terms.html">
               <a className="inline-block w-22 xl:w-max mr-0 font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font">
                 Terms & conditions
               </a>
@@ -49,7 +49,7 @@ export default function splash(props) {
             <div className="float-right text-h2 pt-5 text-canada-footer-font leading-none inline-block pr-3 xl:absolute xl:inset-y-0 xl:pl-1 xl:float-none xl:pt-0 xl:mt-4">
               .
             </div>
-            <Link href="/">
+            <Link href="https://www.canada.ca/fr/transparence/avis.html">
               <a className="inline-block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font xl:pl-4">
                 Avis
               </a>
