@@ -11,15 +11,15 @@ export function FilterExperiments(props) {
     <div role="radio" key={option.id}>
       <input
         type="radio"
-        className={styles.radioButton}
+        className={`${styles.radioButton} absolute -left-full -top-full`}
         name="radioButtonFilter"
-        defaultChecked={option.id === 1}
+        defaultChecked={option.id === 0}
         value={option.text}
         id={option.id}
         onChange={props.onChange}
       />
       <label
-        className="label float-left text-xs px-4 py-3 cursor-pointer border-2 border-solid border-gray-600 border-opacity-50 mr-0 "
+        className={`${option.id === 0? "rounded-l-lg":option.id === 2? "rounded-r-lg":""} float-left text-xs px-4 py-3 cursor-pointer border-2 border-solid border-gray-600 border-opacity-50 mr-0`}
         htmlFor={option.id}
       >
         {t(option.text)}
