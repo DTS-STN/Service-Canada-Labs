@@ -1,16 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useTranslation } from "next-i18next";
 
 /**
  * Displays an experiment card on the page
  */
 
 export const Experiment = ({ title, tag, desc }) => {
+  const { t } = useTranslation("common");
   return (
     <div
       className={
         "shadow-experiment-shadow p-4 border-b-4 " +
-        (tag === "Active"
+        (tag.id === 1
           ? "border-custom-blue-experiment-blue"
           : "border-gray-experiment")
       }
@@ -19,12 +21,12 @@ export const Experiment = ({ title, tag, desc }) => {
       <span
         className={
           "inline-block py-2 px-2 uppercase font-body text-xxs text-white font-bold rounded " +
-          (tag === "Active"
+          (tag.id === 1
             ? "bg-custom-blue-experiment-blue"
             : "bg-gray-experiment")
         }
       >
-        {tag}
+        {t(tag.text)}
       </span>
       <p className="mt-2 text-sm">{desc}</p>
     </div>
@@ -40,7 +42,7 @@ Experiment.propTypes = {
   /**
    * Phase Tag of the experiment card.
    */
-  tag: PropTypes.string.isRequired,
+  tag: PropTypes.object.isRequired,
 
   /**
    * Description of the experiment card.

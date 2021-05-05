@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
 import styles from "../../styles/filterExperiments.module.css";
+import { useTranslation } from "next-i18next";
 
 /**
  *  Filter Experiments component
  */
 export function FilterExperiments(props) {
+  const { t } = useTranslation("common");
   const createOptions = props.options.map((option) => (
     <div role="radio" key={option.id}>
       <input
@@ -14,12 +16,13 @@ export function FilterExperiments(props) {
         defaultChecked={option.id === 1}
         value={option.text}
         id={option.id}
+        onChange={props.onChange}
       />
       <label
-        className="float-left text-xs px-4 py-3 cursor-pointer border-2 border-solid border-gray-600 border-opacity-50 mr-0 "
+        className="label float-left text-xs px-4 py-3 cursor-pointer border-2 border-solid border-gray-600 border-opacity-50 mr-0 "
         htmlFor={option.id}
       >
-        {option.text}
+        {t(option.text)}
       </label>
     </div>
   ));

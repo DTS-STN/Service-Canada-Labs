@@ -5,13 +5,13 @@
 }
     
  
-/* .label:first-of-type {
-  border-radius: .7em 0 0 .7em;
+.radioButton + label:first-child {
+  border-radius: .7em 0 0 .7em  !important;
 }
 
-.label:last-of-type {
+.radioButton + label:last-child {
   border-radius: 0 .7em .7em 0;
-} */
+}
 
 
 .radioButton:checked + label {

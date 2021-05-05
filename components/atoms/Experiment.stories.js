@@ -12,6 +12,6 @@ export const Primary = Template.bind({});
 
 Primary.args = {
   title: "Experiment title",
-  tag: "Experiment tag",
+  tag: {id:0, text:"Experiment tag"},
   desc: "Experiment description",
 };
