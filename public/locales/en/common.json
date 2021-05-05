@@ -71,5 +71,6 @@
   "closeMenu": "Close",
   "menuLink1": "Service Canada Labs",
   "menuLink2": "Experiments",
-  "menuLink3": "About"
+  "menuLink3": "About",
+  "splashTitle": "Splash"
 }
