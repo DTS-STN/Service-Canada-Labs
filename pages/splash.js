@@ -1,46 +1,43 @@
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
 import { ActionButton } from "../components/atoms/ActionButton";
 import Link from "next/link";
 
 export default function splash(props) {
-  const { t } = useTranslation("common");
-
   return (
     <>
-      <div className="bg-banner-img h-screen min-w-300px min-h-screen blur font-body" />
+      <div className="bg-banner-img h-screen min-w-300px min-h-screen blur" />
       <Head>
-        <title>{t("splashTitle")}</title>
+        <title>alpha.service.canada.ca</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="absolute inset-0 m-auto flex flex-col justify-center items-center">
-        <div className="bg-footer-background-color h-230px min-w-300px w-300px xl:w-500px">
+      <div className="absolute inset-0 -mt-12 xl:mb-0 flex flex-col justify-center items-center">
+        <div className="bg-footer-background-color h-auto min-w-300px w-300px xl:w-500px">
           <img
-            className="h-auto w-64 container mx-auto pt-6 pb-8 xl:w-2/3 xl:mx-0 xl:px-6"
+            className="h-auto w-64 container mx-auto pt-6 xl:w-2/3 xl:mx-0 xl:px-6"
             src={"/sig-blk-en.svg"}
             alt={"Symbol of the Government of Canada"}
           />
-          <div className="w-max container mx-auto pb-8 text-p xl:text-h4 font-bold">
+          <div className="w-max container mx-auto py-11 text-p xl:text-h4 font-bold font-display">
             alpha.service.canada.ca
           </div>
-          <div className="flex w-max container mx-auto">
+          <div className="flex w-max container pb-11 mx-auto font-display">
             <ActionButton
               id="english-button"
               text="English"
-              className="inline-block text-xs w-7.5rem xl:w-138px py-3.5 mr-6 rounded"
+              className="inline-block text-sm w-7.5rem xl:w-138px py-3.5 mr-6 rounded leading-3"
               href="/"
             />
             <ActionButton
               id="french-button"
-              text="Francais"
-              className="w-7.5rem xl:w-138px text-xs py-3.5 inline-block rounded"
+              text="Français"
+              className="w-7.5rem xl:w-138px text-sm py-3.5 inline-block rounded leading-3"
               href="/fr"
             />
           </div>
         </div>
         <div className="relative py-8 bg-splash-page-bottom text-p h-auto min-w-300px w-300px flex justify-between container p-6 xl:w-500px xl:items-center">
-          <div className="w-28 text-base xl:text-p xl:w-max">
+          <div className="w-28 text-base xl:text-p xl:w-max font-body">
             <Link href="https://www.canada.ca/en/transparency/terms.html">
               <a className="inline-block w-28 xl:w-max mr-0 hover:text-canada-footer-hover-font-blue text-canada-footer-font splash-link">
                 Terms & conditions
