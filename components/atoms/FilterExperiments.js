@@ -18,13 +18,13 @@ export function FilterExperiments(props) {
         onChange={props.onChange}
       />
       <label
-        className={`${
+        className={`float-left text-xs px-5 py-3 cursor-pointer border border-solid border-gray-600 border-opacity-50 mr-0 mb-6 ${
           option.id === 0
             ? "rounded-l-lg"
             : option.id === 2
-            ? "rounded-r-lg"
+            ? "rounded-r-lg px-7"
             : ""
-        } float-left text-xs px-4 py-3 cursor-pointer border-2 border-solid border-gray-600 border-opacity-50 mr-0`}
+        } `}
         htmlFor={option.id}
       >
         {t(option.text)}
@@ -33,7 +33,7 @@ export function FilterExperiments(props) {
   ));
   return (
     <div
-      className="mt-2 md:flex md:mt-0"
+      className="mt-4 md:flex md:mt-6"
       role="radiogroup"
       aria-labelledby="filterExperiments"
       data-cy={props.dataCy}
@@ -45,7 +45,10 @@ export function FilterExperiments(props) {
       >
         Filter by:
       </label>
-      <div id="radioButtonGroup" className="mt-2 flex md:mt-0">
+      <div
+        id="radioButtonGroup"
+        className="mt-2 flex justify-self-stretch md:mt-0"
+      >
         {createOptions}
       </div>
     </div>

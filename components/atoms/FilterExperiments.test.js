@@ -6,7 +6,6 @@ import { Primary } from "./FilterExperiments.stories";
 expect.extend(toHaveNoViolations);
 
 describe("Filter Experiments", () => {
-
   it("has no a11y violations", async () => {
     const { container } = render(<Primary {...Primary.args} />);
     const results = await axe(container);
