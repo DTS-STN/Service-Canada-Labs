@@ -33,6 +33,14 @@ export default function Home(props) {
               <br></br> {t("experimentsAndExploration-3/3")}
             </p>
             <br></br>
+            <ActionButton
+              id="ExperimentsButton"
+              className={"text-xs md:text-base"}
+              text={t("experimentsBtnTxt")}
+              secondary
+              href="/experiments"
+              dataCyButton={"see-the-experiments"}
+            />
           </div>
           <div className="lg:pt-32 mb-6 ">
             <div className="border-l-4">
@@ -46,14 +54,6 @@ export default function Home(props) {
             </div>
           </div>
         </div>
-        <ActionButton
-          id="ExperimentsButton"
-          className={"text-xs md:text-base"}
-          text={t("experimentsBtnTxt")}
-          secondary
-          href="/experiments"
-          dataCyButton={"see-the-experiments"}
-        />
       </section>
 
       <section className="bg-footer-background-color  ">
