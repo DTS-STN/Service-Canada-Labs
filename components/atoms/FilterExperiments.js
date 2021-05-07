@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import styles from "../../styles/filterExperiments.module.css";
 import { useTranslation } from "next-i18next";
 
 /**
@@ -11,7 +10,7 @@ export function FilterExperiments(props) {
     <div role="radio" key={option.id}>
       <input
         type="radio"
-        className={`${styles.radioButton} absolute -left-full -top-full`}
+        className="radioButton absolute -left-full -top-full"
         name="radioButtonFilter"
         defaultChecked={option.id === 0}
         value={option.text}
