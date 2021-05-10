@@ -14,7 +14,7 @@ export default function About(props) {
         <title>{t("aboutTitle")}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="layout-container relative">
+      <section className="layout-container relative mb-28">
         <div className="hidden lg:block">
           <img
             className="absolute right-0 h-96"
