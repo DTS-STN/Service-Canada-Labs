@@ -34,8 +34,10 @@ export function Menu(props) {
         aria-expanded="false"
         aria-controls="menuDropdown"
       >
-        <span className="icon-menu" />
-        <span className="pl-3">{props.menuButtonTitle}</span>
+        <span className="inline-block align-middle icon-menu" />
+        <span className="inline-block align-middle pl-3 font-body text-p leading-none">
+          {props.menuButtonTitle}
+        </span>
       </button>
 
       <ul id="menuDropdown" className="menuDropdown" role="menu">
@@ -51,7 +53,7 @@ export function Menu(props) {
           return (
             <li key={key} className={itemClass} role="menuitem">
               <Link href={item.link}>
-                <a>{item.text}</a>
+                <a className="font-body text-base">{item.text}</a>
               </Link>
             </li>
           );
