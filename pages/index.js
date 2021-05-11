@@ -3,6 +3,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
 import { ActionButton } from "../components/atoms/ActionButton";
+import { TextButtonField } from "../components/molecules/TextButtonField";
 import { useRouter } from "next/router";
 
 export default function Home(props) {
@@ -22,26 +23,15 @@ export default function Home(props) {
       </Head>
 
       <section className="layout-container mb-8 mt-12">
-        <div className="flex flex-col           lg:grid lg:grid-cols-2 lg:gap-24">
-          <div>
-            <h1>{t("experimentsAndExplorationTitle")}</h1>
-            <br></br>
-            <p className="text-sm md:text-p leading-normal text-left font-normal font-body">
-              {t("experimentsAndExploration-1/3")} <br></br> <br></br>
-              {t("experimentsAndExploration-2/3")}
-              <br></br>
-              <br></br> {t("experimentsAndExploration-3/3")}
-            </p>
-            <br></br>
-            <ActionButton
-              id="ExperimentsButton"
-              className={"text-xs md:text-base"}
-              text={t("experimentsBtnTxt")}
-              secondary
-              href="/experiments"
-              dataCyButton={"see-the-experiments"}
-            />
-          </div>
+        <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-24">
+          <TextButtonField
+            title={t("experimentsAndExplorationTitle")}
+            text={t("experimentsAndExploration-1/3")}
+            secondary
+            href="/experiments"
+            buttonText={t("experimentsBtnTxt")}
+            idButton="ExperimentsButton"
+          />
           <div className="lg:pt-32 mb-6 ">
             <div className="border-l-4">
               <p className="text-sm md:text-p pl-4 leading-normal text-left font-normal font-body">
