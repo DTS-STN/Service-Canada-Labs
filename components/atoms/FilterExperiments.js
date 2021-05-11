@@ -7,7 +7,7 @@ import { useTranslation } from "next-i18next";
 export function FilterExperiments(props) {
   const { t } = useTranslation("common");
   const createOptions = props.options.map((option) => (
-    <div role="radio" key={option.id}>
+    <div key={option.id}>
       <input
         type="radio"
         className="radioButton absolute -left-full -top-full"

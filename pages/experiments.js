@@ -49,11 +49,12 @@ export default function experiments(props) {
             { id: 2, text: "experimentsTagComingSoon" },
           ]}
           onChange={handleFilter}
+          dataCy={"filter-experiments"}
         />
 
-        <div className="grid gap-y-5 lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12">
+        <ul className="grid gap-y-5 lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12" data-cy="experiments-list">
           {displayExperiments}
-        </div>
+        </ul>
       </section>
     </Layout>
   );
