@@ -18,7 +18,7 @@ export function FilterExperiments(props) {
         onChange={props.onChange}
       />
       <label
-        className={`float-left text-xs px-5 py-3 cursor-pointer border border-solid border-gray-600 border-opacity-50 mr-0 mb-6 ${
+        className={`font-body float-left text-xs px-5 py-3 cursor-pointer border border-solid border-gray-600 border-opacity-50 mr-0 mb-6 ${
           option.id === 0
             ? "rounded-l-lg"
             : option.id === 2
@@ -41,7 +41,7 @@ export function FilterExperiments(props) {
       <label
         id="filterExperiments"
         htmlFor="radioButtonGroup"
-        className="pb-3 pt-2 pr-4 text-sm md:text-base"
+        className="font-body pb-3 pt-2 pr-4 text-sm md:text-base"
       >
         Filter by:
       </label>
