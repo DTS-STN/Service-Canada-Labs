@@ -6,21 +6,32 @@ import { ActionButton } from "../atoms/ActionButton";
  */
 export function TextButtonField(props) {
   return (
-    <div className={props.className}>
+    <div className={props.className + " mb-4"}>
       <h1>{props.title}</h1>
-      <p className="text-sm md:text-p leading-normal text-left font-normal font-body">
-        {props.text}
-      </p>
-      <ActionButton
-        id={props.idButton}
-        className={"text-xs md:text-base"}
-        text={props.buttonText}
-        secondary={props.secondary}
-        disabled={props.disabled}
-        custom={props.custom}
-        href={props.href}
-        dataCyButton={props.dataCyButton}
-      />
+
+      {props.text.map((paragraph, key) => {
+        return (
+          <p
+            key={key}
+            className="my-7 text-sm md:text-p leading-normal text-left font-normal font-body"
+          >
+            {paragraph}
+          </p>
+        );
+      })}
+
+      {props.buttonText ? (
+        <ActionButton
+          id={props.idButton}
+          className={"mt-2 text-xs md:text-base"}
+          text={props.buttonText}
+          secondary={props.secondary}
+          disabled={props.disabled}
+          custom={props.custom}
+          href={props.href}
+          dataCyButton={props.dataCyButton}
+        />
+      ) : null}
     </div>
   );
 }
@@ -32,18 +43,14 @@ TextButtonField.propTypes = {
   className: PropTypes.string,
 
   /**
-   * Button link
+   * Title
    */
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
 
   /**
    * Paragraph
    */
-  text: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.arrayOf(PropTypes.element),
-  ]),
+  text: PropTypes.array.isRequired,
 
   /**
    * Button id

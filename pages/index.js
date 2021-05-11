@@ -22,11 +22,15 @@ export default function Home(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className="layout-container mb-8 mt-12">
+      <section className="layout-container mb-4 mt-12">
         <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-24">
           <TextButtonField
             title={t("experimentsAndExplorationTitle")}
-            text={t("experimentsAndExploration-1/3")}
+            text={[
+              t("experimentsAndExploration-1/3"),
+              t("experimentsAndExploration-2/3"),
+              t("experimentsAndExploration-3/3"),
+            ]}
             secondary
             href="/experiments"
             buttonText={t("experimentsBtnTxt")}
