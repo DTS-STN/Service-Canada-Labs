@@ -73,5 +73,8 @@
   "closeMenu": "Fermer",
   "menuLink1": "Laboratoires de Service Canada",
   "menuLink2": "Expérimentations",
-  "menuLink3": "À propos"
+  "menuLink3": "À propos",
+  "aboutThisSiteHeader": "Qu’est-ce que Service Canada Labs?",
+  "aboutThisSiteContent1": "Une \"cuisine d'essai\" numérique pour démontrer, tester et vérifier de nouvelles capacités numériques et de nouvelles conceptions pour la chaîne numérique, avant de vivre en direct.",
+  "aboutThisSiteContent2": "Nous voulons engager des gens de manière significative, d'introduire une nouvelle opportunité pour le service numérique qui permet à quiconque de participer à son développement et de garantir des fonctionnalités et des fonctions numériques à répondre à ce que les gens ont vraiment besoin."
 }

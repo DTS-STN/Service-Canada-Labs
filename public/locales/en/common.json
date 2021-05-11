@@ -74,5 +74,8 @@
   "closeMenu": "Close",
   "menuLink1": "Service Canada Labs",
   "menuLink2": "Experiments",
-  "menuLink3": "About"
+  "menuLink3": "About",
+  "aboutThisSiteHeader": "What’s Service Canada Labs?",
+  "aboutThisSiteContent1": "A digital “test kitchen” to demonstrate, test, and verify new digital capabilities, and new designs for the digital channel, prior to going live.",
+  "aboutThisSiteContent2": "We want to engage people in a meaningful way, to introduce a new opportunity for digital service that enables anyone to participate in its development and ensure features and digital functions address what people really need."
 }
