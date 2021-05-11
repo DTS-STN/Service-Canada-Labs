@@ -37,7 +37,7 @@ describe("home page", () => {
     });
 
     it("See experiments button goes to experiments page", () => {
-        cy.get('[data-cy-button="see-the-experiments"]').click()
+        cy.get('[data-cy-button="ExperimentsButton"]').click()
         cy.url().should('include', '/experiments')
     });
 

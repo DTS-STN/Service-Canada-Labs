@@ -35,6 +35,7 @@ export default function Home(props) {
             href="/experiments"
             buttonText={t("experimentsBtnTxt")}
             idButton="ExperimentsButton"
+            dataCyButton="ExperimentsButton"
           />
           <div className="lg:pt-32 mb-6 ">
             <div className="border-l-4">
