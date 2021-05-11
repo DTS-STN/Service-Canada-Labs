@@ -69,7 +69,7 @@ export const Layout = ({
               text: t("menuLink2"),
             },
             {
-              link: "#",
+              link: "/about",
               text: t("menuLink3"),
             },
           ]}
