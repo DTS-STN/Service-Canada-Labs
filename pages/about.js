@@ -19,10 +19,11 @@ export default function About(props) {
           <img
             className="absolute right-0 h-96"
             src="/lightbulb_gradient.png"
+            alt=""
           />
         </div>
-        <h1 className="mb-8 text-h1l font-bold">{t("aboutTitle")}</h1>
-        <h2 className="mb-6 text-h1 font-bold">{t("aboutThisSiteHeader")}</h2>
+        <h1 className="mb-10 text-h1l font-bold">{t("aboutTitle")}</h1>
+        <h2 className="mb-6 font-bold">{t("aboutThisSiteHeader")}</h2>
         <div className="xl:w-2/3">
           <p className="mb-4">{t("aboutThisSiteContent1")}</p>
           <p>{t("aboutThisSiteContent2")}</p>
