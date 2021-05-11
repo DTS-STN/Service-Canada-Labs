@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1620663048106" clover="3.2.0">
-  <project timestamp="1620663048107" name="All files">
+<coverage generated="1620746352048" clover="3.2.0">
+  <project timestamp="1620746352048" name="All files">
     <metrics statements="206" coveredstatements="169" conditionals="111" coveredconditionals="83" methods="68" coveredmethods="46" elements="385" coveredelements="298" complexity="0" loc="206" ncloc="206" packages="8" files="43" classes="43"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -190,10 +190,10 @@
         <line num="17" count="0" type="stmt"/>
         <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="23" count="10" type="stmt"/>
-        <line num="43" count="21" type="stmt"/>
-        <line num="46" count="21" type="cond" truecount="1" falsecount="1"/>
-        <line num="51" count="21" type="stmt"/>
-        <line num="64" count="3" type="stmt"/>
+        <line num="45" count="21" type="stmt"/>
+        <line num="48" count="21" type="cond" truecount="1" falsecount="1"/>
+        <line num="53" count="21" type="stmt"/>
+        <line num="66" count="3" type="stmt"/>
       </file>
       <file name="Menu.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/molecules/Menu.stories.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -311,8 +311,8 @@
         <line num="8" count="0" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
       </file>
       <file name="experiments.js" path="/home/runner/work/Alpha-Site/Alpha-Site/pages/experiments.js">
         <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
