@@ -15,7 +15,7 @@ export default function experiments(props) {
   );
 
   const displayExperiments = filteredExperiements.map((experiment) => (
-    <li key={experiment.id}>
+    <li key={experiment.id} className="flex items-stretch">
       <Experiment
         key={experiment.id}
         title={experiment.title}
