@@ -13,22 +13,42 @@ expect.extend(toHaveNoViolations);
 describe("TextButtonField", () => {
   it("renders the Text field with a button", () => {
     render(<Primary {...Primary.args} />);
-    expect(screen.getByText("Primary")).toBeTruthy;
+    expect(screen.getByRole("button")).toHaveTextContent(
+      Primary.args.buttonText
+    );
+    expect(screen.getByRole("button")).toHaveClass(
+      "bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light"
+    );
+  });
+
+  it("renders the Text field with some text", () => {
+    render(<Primary {...Primary.args} />);
+    screen.findByText(Primary.args.html);
   });
 
   it("renders secondary button", () => {
     render(<Secondary {...Secondary.args} />);
-    expect(screen.getByText("Secondary")).toBeTruthy;
+    expect(screen.getByRole("button")).toHaveTextContent(
+      Secondary.args.buttonText
+    );
+    expect(screen.getByRole("button")).toHaveClass(
+      "bg-white text-custom-blue-blue border border-custom-blue-blue active:bg-gray-400 hover:bg-gray-200"
+    );
   });
 
   it("renders disabled button", () => {
     render(<Disabled {...Disabled.args} />);
-    expect(screen.getByText("Disabled")).toBeTruthy;
+    expect(screen.getByRole("button")).toHaveTextContent(
+      Disabled.args.buttonText
+    );
+    expect(screen.getByRole("button")).toHaveAttribute("disabled");
   });
 
   it("renders custom button", () => {
     render(<Custom {...Custom.args} />);
-    expect(screen.getByText("Custom")).toBeTruthy;
+    expect(screen.getByRole("button")).toHaveTextContent(
+      Custom.args.buttonText
+    );
   });
 
   it("has no a11y violations", async () => {

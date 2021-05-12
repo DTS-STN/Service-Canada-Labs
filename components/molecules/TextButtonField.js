@@ -5,33 +5,38 @@ import { ActionButton } from "../atoms/ActionButton";
  *  component
  */
 export function TextButtonField(props) {
+  //Verification for styling
+  let secondary;
+  if (props.custom === undefined)
+    props.secondary === undefined
+      ? (secondary = true)
+      : (secondary = props.secondary);
+
   return (
     <div className={props.className + " mb-4"}>
-      <h1>{props.title}</h1>
-
-      {props.text.map((paragraph, key) => {
-        return (
-          <p
-            key={key}
-            className="my-7 text-sm md:text-p leading-normal text-left font-normal font-body"
-          >
-            {paragraph}
-          </p>
-        );
-      })}
+      {props.html === undefined ? (
+        <div className="textbuttonField">{props.children}</div>
+      ) : (
+        <div
+          className="textbuttonField"
+          dangerouslySetInnerHTML={{ __html: props.html }}
+        />
+      )}
 
       {props.buttonText ? (
         <ActionButton
           id={props.idButton}
           className={"mt-2 text-xs md:text-base"}
           text={props.buttonText}
-          secondary={props.secondary}
+          secondary={secondary}
           disabled={props.disabled}
           custom={props.custom}
           href={props.href}
           dataCyButton={props.dataCyButton}
         />
-      ) : null}
+      ) : (
+        ""
+      )}
     </div>
   );
 }
@@ -43,14 +48,18 @@ TextButtonField.propTypes = {
   className: PropTypes.string,
 
   /**
-   * Title
+   * Option for html
    */
-  title: PropTypes.string.isRequired,
+  html: PropTypes.string,
 
   /**
-   * Paragraph
+   * Contenty
    */
-  text: PropTypes.array.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+  ]),
 
   /**
    * Button id

@@ -25,18 +25,21 @@ export default function Home(props) {
       <section className="layout-container mb-4 mt-12">
         <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-24">
           <TextButtonField
-            title={t("experimentsAndExplorationTitle")}
-            text={[
-              t("experimentsAndExploration-1/3"),
-              t("experimentsAndExploration-2/3"),
-              t("experimentsAndExploration-3/3"),
-            ]}
-            secondary
             href="/experiments"
             buttonText={t("experimentsBtnTxt")}
             idButton="ExperimentsButton"
             dataCyButton="ExperimentsButton"
-          />
+          >
+            <h1>{t("experimentsAndExplorationTitle")}</h1>
+            <br></br>
+            <p>
+              {t("experimentsAndExploration-1/3")} <br></br> <br></br>
+              {t("experimentsAndExploration-2/3")}
+              <br></br>
+              <br></br> {t("experimentsAndExploration-3/3")}
+            </p>
+            <br></br>
+          </TextButtonField>
           <div className="lg:pt-32 mb-6 ">
             <div className="border-l-4">
               <p className="text-sm md:text-p pl-4 leading-normal text-left font-normal font-body">

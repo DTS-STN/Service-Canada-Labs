@@ -15,22 +15,22 @@ export const Custom = Template.bind({});
 
 Primary.args = {
   title: "Primary",
-  text: ["Paragraph 1", "Paragraph 2", "Paragraph 3"],
+  html: "<h1>Title</h1><p>Text</p>",
   idButton: "Button1",
   buttonText: ["Button"],
+  secondary: false,
 };
 
 Secondary.args = {
   title: "Secondary",
-  text: ["Paragraph 1", "Paragraph 2", "Paragraph 3"],
+  html: "<h1>Title</h1><p>Text</p>",
   buttonText: ["Button"],
   idButton: "Button2",
-  secondary: true,
 };
 
 Disabled.args = {
   title: "Disabled",
-  text: ["Paragraph 1", "Paragraph 2", "Paragraph 3"],
+  html: "<h1>Title</h1><p>Text</p>",
   buttonText: ["Button"],
   idButton: "Button3",
   disabled: true,
@@ -38,7 +38,7 @@ Disabled.args = {
 
 Custom.args = {
   title: "Custom",
-  text: ["Paragraph 1", "Paragraph 2", "Paragraph 3"],
+  html: "<h1>Title</h1><p>Text</p>",
   buttonText: ["Button"],
   idButton: "Button4",
   custom: "bg-red-100",
