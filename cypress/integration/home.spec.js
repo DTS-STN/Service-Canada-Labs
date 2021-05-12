@@ -54,4 +54,9 @@ describe("home page", () => {
         cy.get('[data-cy="menu"]').contains('Experiments').click()
         cy.url().should('include', '/experiments')
     });
+
+    it("Menu About links to about page", () => {
+        cy.get('[data-cy="menu"]').contains('About').click()
+        cy.url().should('include', '/about')
+    });
 })
