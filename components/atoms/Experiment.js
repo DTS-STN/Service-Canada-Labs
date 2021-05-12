@@ -17,7 +17,7 @@ export const Experiment = ({ title, tag, desc }) => {
           : "border-gray-experiment")
       }
     >
-      <h3 className="mb-2 text-p">{title}</h3>
+      <h2 className="mb-2 text-p">{title}</h2>
       <span
         className={
           "inline-block py-2 px-2 uppercase font-body text-xxs text-white font-bold rounded " +
