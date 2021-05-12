@@ -15,12 +15,14 @@ export default function experiments(props) {
   );
 
   const displayExperiments = filteredExperiements.map((experiment) => (
-    <Experiment
-      key={experiment.id}
-      title={experiment.title}
-      tag={experiment.tag}
-      desc={experiment.desc}
-    />
+    <li key={experiment.id}>
+      <Experiment
+        key={experiment.id}
+        title={experiment.title}
+        tag={experiment.tag}
+        desc={experiment.desc}
+      />
+    </li>
   ));
   const handleFilter = (event) => {
     if (parseInt(event.target.id) === 0) {

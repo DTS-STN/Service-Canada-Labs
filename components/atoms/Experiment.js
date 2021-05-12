@@ -9,7 +9,7 @@ import { useTranslation } from "next-i18next";
 export const Experiment = ({ title, tag, desc }) => {
   const { t } = useTranslation("common");
   return (
-    <li
+    <div
       className={
         "shadow-experiment-shadow p-4 border-b-4 " +
         (tag.id === 1
@@ -29,7 +29,7 @@ export const Experiment = ({ title, tag, desc }) => {
         {t(tag.text)}
       </span>
       <p className="mt-2 text-sm">{desc}</p>
-    </li>
+    </div>
   );
 };
 

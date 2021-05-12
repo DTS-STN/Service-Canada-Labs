@@ -57,14 +57,14 @@ describe("experiment page", () => {
 
     it("Filter experiments: Active", () => {
         cy.get('label[for="1"]').click()
-        cy.get('[data-cy="experiments-list"]>li>span').each(($el) => {
+        cy.get('[data-cy="experiments-list"]>li>div>span').each(($el) => {
             expect($el.text()).to.eq("Active")
         });
     });
 
     it("Filter experiments: Coming soon", () => {
         cy.get('label[for="2"]').click()
-        cy.get('[data-cy="experiments-list"]>li>span').each(($el) => {
+        cy.get('[data-cy="experiments-list"]>li>div>span').each(($el) => {
             expect($el.text()).to.eq("Coming soon")
         });
     });
