@@ -52,7 +52,10 @@ export default function experiments(props) {
           dataCy={"filter-experiments"}
         />
 
-        <ul className="grid gap-y-5 lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12" data-cy="experiments-list">
+        <ul
+          className="grid gap-y-5 lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12"
+          data-cy="experiments-list"
+        >
           {displayExperiments}
         </ul>
       </section>
