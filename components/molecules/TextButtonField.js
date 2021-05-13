@@ -13,7 +13,7 @@ export function TextButtonField(props) {
       : (secondary = props.secondary);
 
   return (
-    <div className={props.className + " mb-4"}>
+    <div className={props.className + " mb-4 mx-0"}>
       {props.html === undefined ? (
         <div className="textbuttonField">{props.children}</div>
       ) : (
