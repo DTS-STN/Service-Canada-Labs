@@ -52,6 +52,8 @@
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
+    "@storybook/addon-docs": "^6.2.9",
+    "@storybook/addon-postcss": "^2.0.0",
     "@storybook/react": "^6.2.9",
     "@tailwindcss/postcss7-compat": "^2.1.2",
     "@testing-library/dom": "^7.31.0",
