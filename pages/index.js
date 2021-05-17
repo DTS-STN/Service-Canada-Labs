@@ -42,7 +42,7 @@ export default function Home(props) {
             <br></br>
           </TextButtonField>
           <div className="lg:pt-32">
-            <Quote html={t("experimentsComment")} author="Kim Lee Kho" />
+            <Quote text={t("experimentsComment")} author="Kim Lee Kho" />
           </div>
         </div>
       </section>

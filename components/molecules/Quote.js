@@ -5,17 +5,16 @@ import PropTypes from "prop-types";
  */
 export function Quote(props) {
   return (
-    <div
+    <figure
       title="Quote"
-      className="border-l-4 text-sm md:text-p pl-4 leading-normal font-body"
+      className={
+        props.className +
+        " border-l-4 text-sm md:text-p pl-4 leading-normal font-body"
+      }
     >
-      {props.html === undefined ? (
-        <div>{props.children}</div>
-      ) : (
-        <div dangerouslySetInnerHTML={{ __html: props.html }} />
-      )}
-      <p className="text-gray-500 pt-4"> — {props.author}</p>
-    </div>
+      <blockquote className="max-w-sm">{props.text}</blockquote>
+      <figcaption className="text-gray-500 pt-4"> — {props.author}</figcaption>
+    </figure>
   );
 }
 
@@ -26,9 +25,9 @@ Quote.propTypes = {
   className: PropTypes.string,
 
   /**
-   * Option for html
+   * Quote
    */
-  html: PropTypes.string,
+  text: PropTypes.string,
 
   /**
    * Content

@@ -6,13 +6,9 @@ import { Primary } from "./Quote.stories";
 expect.extend(toHaveNoViolations);
 
 describe("Quote", () => {
-  it("renders the Quote", () => {
-    render(<Primary {...Primary.args} />);
-    screen.getByTitle("Quote");
-  });
-
   it("renders the quote with some text", () => {
     render(<Primary {...Primary.args} />);
+    screen.getByTitle("Quote");
     screen.findByText(Primary.args.html);
   });
 

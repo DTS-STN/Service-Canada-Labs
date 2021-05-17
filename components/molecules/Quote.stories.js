@@ -11,6 +11,6 @@ const Template = (args) => <Quote {...args}></Quote>;
 export const Primary = Template.bind({});
 
 Primary.args = {
-  html: "Some quote",
+  text: "Some quote",
   author: "Author",
 };
