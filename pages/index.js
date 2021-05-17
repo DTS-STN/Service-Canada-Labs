@@ -4,6 +4,7 @@ import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { TextButtonField } from "../components/molecules/TextButtonField";
+import { Quote } from "../components/molecules/Quote";
 import { useRouter } from "next/router";
 
 export default function Home(props) {
@@ -22,7 +23,7 @@ export default function Home(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className="layout-container mb-4 mt-12">
+      <section className="layout-container mb-2 mt-12">
         <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-24">
           <TextButtonField
             href="/experiments"
@@ -40,16 +41,8 @@ export default function Home(props) {
             </p>
             <br></br>
           </TextButtonField>
-          <div className="lg:pt-32 mb-6 ">
-            <div className="border-l-4">
-              <p className="text-sm md:text-p pl-4 leading-normal text-left font-normal font-body">
-                {t("experimentsComment")}
-              </p>
-              <p className="text-sm md:text-p pt-4 pl-4 text-gray-500 leading-normal text-left font-normal font-body">
-                {" "}
-                — Kim Lee Kho
-              </p>
-            </div>
+          <div className="lg:pt-32">
+            <Quote text={t("experimentsComment")} author="Kim Lee Kho" />
           </div>
         </div>
       </section>
