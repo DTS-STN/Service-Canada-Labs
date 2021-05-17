@@ -9,7 +9,7 @@ describe("Quote", () => {
   it("renders the quote with some text", () => {
     render(<Primary {...Primary.args} />);
     screen.getByTitle("Quote");
-    screen.findByText(Primary.args.html);
+    screen.findByText(Primary.args.text);
   });
 
   it("has no a11y violations", async () => {
