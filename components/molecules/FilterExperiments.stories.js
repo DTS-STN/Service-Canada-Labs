@@ -2,7 +2,7 @@ import React from "react";
 import { FilterExperiments } from "./FilterExperiments";
 
 export default {
-  title: "Components/Atoms/FilterExperiments",
+  title: "Components/Molecules/FilterExperiments",
   component: FilterExperiments,
 };
 

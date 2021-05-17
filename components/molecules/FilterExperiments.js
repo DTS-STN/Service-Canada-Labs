@@ -10,7 +10,7 @@ export function FilterExperiments(props) {
     <div key={option.id}>
       <input
         type="radio"
-        className="radioButton absolute -left-full -top-full"
+        className="radioButton absolute top-0 left-0"
         name="radioButtonFilter"
         defaultChecked={option.id === 0}
         value={option.text}
