@@ -41,31 +41,36 @@ export const getStaticProps = async ({ locale }) => {
       id: 1,
       title: "Lorem Ipsum",
       tag: "Active",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio tempor orci dapibus ultrices in iaculis nunc. Tincidunt vitae semper quis lectus. Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Tortor at risus viverra adipiscing at in. Est ante in nibh mauris cursus. In tellus integer feugiat scelerisque varius morbi enim. ",
+      desc:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio tempor orci dapibus ultrices in iaculis nunc. Tincidunt vitae semper quis lectus. Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Tortor at risus viverra adipiscing at in. Est ante in nibh mauris cursus. In tellus integer feugiat scelerisque varius morbi enim. ",
     },
     {
       id: 2,
       title: "Lorem Ipsum",
       tag: "Active",
-      desc: "Risus ultricies tristique nulla aliquet. Interdum posuere lorem ipsum dolor sit amet. Velit ut tortor pretium viverra suspendisse potenti nullam. Faucibus a pellentesque sit amet porttitor eget dolor morbi non. ",
+      desc:
+        "Risus ultricies tristique nulla aliquet. Interdum posuere lorem ipsum dolor sit amet. Velit ut tortor pretium viverra suspendisse potenti nullam. Faucibus a pellentesque sit amet porttitor eget dolor morbi non. ",
     },
     {
       id: 3,
       title: "Lorem Ipsum",
       tag: "Coming Soon",
-      desc: "Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. In hac habitasse platea dictumst vestibulum rhoncus est. Sit amet nisl purus in mollis nunc. Felis imperdiet proin fermentum leo vel. ",
+      desc:
+        "Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. In hac habitasse platea dictumst vestibulum rhoncus est. Sit amet nisl purus in mollis nunc. Felis imperdiet proin fermentum leo vel. ",
     },
     {
       id: 4,
       title: "Lorem Ipsum",
       tag: "Active",
-      desc: "Vulputate ut pharetra sit amet aliquam id diam. Enim sit amet venenatis urna cursus eget nunc scelerisque viverra.",
+      desc:
+        "Vulputate ut pharetra sit amet aliquam id diam. Enim sit amet venenatis urna cursus eget nunc scelerisque viverra.",
     },
     {
       id: 5,
       title: "Lorem Ipsum",
       tag: "Coming Soon",
-      desc: "Quisque sagittis purus sit amet volutpat consequat mauris. Mauris pellentesque pulvinar pellentesque habitant morbi. Eu tincidunt tortor aliquam nulla facilisi cras fermentum. Nunc consequat interdum varius sit amet mattis vulputate. ",
+      desc:
+        "Quisque sagittis purus sit amet volutpat consequat mauris. Mauris pellentesque pulvinar pellentesque habitant morbi. Eu tincidunt tortor aliquam nulla facilisi cras fermentum. Nunc consequat interdum varius sit amet mattis vulputate. ",
     },
   ];
   return {
