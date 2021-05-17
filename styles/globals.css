@@ -58,6 +58,10 @@ html {
     height: 5px;
   }
 
+  .textbuttonField > p{
+    @apply text-sm leading-normal font-normal font-body
+  }
+
   .border-outset {
     border-style: outset;
   }
@@ -81,6 +85,10 @@ html {
   @screen md {
     .layout-container {
       @apply px-0;
+    }
+
+    .textbuttonField > p{
+      @apply text-p
     }
   }
 
