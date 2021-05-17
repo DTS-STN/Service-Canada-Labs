@@ -30,15 +30,6 @@ Quote.propTypes = {
   text: PropTypes.string,
 
   /**
-   * Content
-   */
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.arrayOf(PropTypes.element),
-  ]),
-
-  /**
    * Author
    */
   author: PropTypes.string,
