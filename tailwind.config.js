@@ -79,6 +79,7 @@ module.exports = {
         "44px": "44px",
         "46px": "46px",
         "187px": "187px",
+        "400px": "400px",
       },
       inset: {
         "-2px": "-2px",
