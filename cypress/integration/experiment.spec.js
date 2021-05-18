@@ -9,7 +9,7 @@ describe("experiment page", () => {
         cy.injectAxe();
     });
 
-    it("landing page loaded", () =>{
+    it("experiments page loaded", () =>{
         cy.url().should("contains", "/experiments");
     })
 
@@ -19,16 +19,6 @@ describe("experiment page", () => {
 
     it("The filter menu appears on the homepage", () => {
         cy.get('[ data-cy="filter-experiments"]').should('be.visible')
-    });
-
-    xit("Toggles content language when language button is clicked", () => {
-        cy.get('[data-cy="social-media-link"]').then(($link) => {
-            const txt = $link.text()
-            cy.get('[data-cy="toggle-language-link"]').click()
-            cy.get('[data-cy="social-media-link"]').should(($link2) => {
-                expect($link2.text()).not.to.eq(txt)
-            })
-        })
     });
 
     it("Adds subpath for french pages", () => {
@@ -45,27 +35,22 @@ describe("experiment page", () => {
         cy.url().should('include', '/')
     });
 
-    it("Menu links to experiment page", () => {
-        cy.get('[data-cy="menu"]').contains('Experiments').click()
-        cy.url().should('include', '/experiments')       
-    });
-
     it("Filter experiments: All", () => {
-        cy.get('label[for="0"]').click()
+        cy.get('[data-cy="all"]').click()
         cy.get('[data-cy="experiments-list"]>li').should('have.length', 5); // 5 needs to be changed when more or less experiments are added/removed.
     });
 
     it("Filter experiments: Active", () => {
-        cy.get('label[for="1"]').click()
+        cy.get('[data-cy="active"]').click()
         cy.get('[data-cy="experiments-list"]>li>div>span').each(($el) => {
             expect($el.text()).to.eq("Active")
         });
     });
 
     it("Filter experiments: Coming soon", () => {
-        cy.get('label[for="2"]').click()
+        cy.get('[data-cy="coming_soon"]').click()
         cy.get('[data-cy="experiments-list"]>li>div>span').each(($el) => {
-            expect($el.text()).to.eq("Coming soon")
+            expect($el.text()).to.eq("Coming Soon")
         });
     });
 })

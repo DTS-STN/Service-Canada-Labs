@@ -8,12 +8,12 @@ import { RadioButton } from "../atoms/RadioButton";
 export function Filter(props) {
   return (
     <form
-      className="mt-4 md:flex md:mt-6"
+      className="mt-4 md:flex md:mt-6 mb-6"
       data-testid={props.dataTestId}
       data-cy={props.dataCy}
     >
       <fieldset>
-        <legend className="float-left font-body pb-3 pt-2 pr-4 text-sm md:text-base">
+        <legend className="md:float-left font-body pb-3 pt-2 pr-4 text-sm md:text-base">
           {props.label}
         </legend>
         {props.options.map(({ id, label, checked }, index) => (
