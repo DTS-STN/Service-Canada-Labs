@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useTranslation } from "next-i18next";
 
 /**
  * Displays an experiment card on the page

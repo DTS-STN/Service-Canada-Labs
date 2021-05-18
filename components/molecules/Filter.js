@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { useTranslation } from "next-i18next";
 import { RadioButton } from "../atoms/RadioButton";
 
 /**
