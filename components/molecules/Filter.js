@@ -6,7 +6,6 @@ import { RadioButton } from "../atoms/RadioButton";
  *  Filter Experiments component
  */
 export function Filter(props) {
-
   return (
     <form
       className="mt-4 md:flex md:mt-6"
@@ -17,7 +16,7 @@ export function Filter(props) {
         <legend className="float-left font-body pb-3 pt-2 pr-4 text-sm md:text-base">
           {props.label}
         </legend>
-        {props.options.map(({ id, label,checked }, index) => (
+        {props.options.map(({ id, label, checked }, index) => (
           <RadioButton
             key={id}
             label={label}
