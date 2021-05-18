@@ -5,7 +5,7 @@ import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
 import { Experiment } from "../components/atoms/Experiment";
 import { useRouter } from "next/router";
-import { FilterExperiments } from "../components/molecules/FilterExperiments";
+import { Filter } from "../components/molecules/Filter";
 
 export default function experiments(props) {
   const { t } = useTranslation("common");
@@ -44,7 +44,7 @@ export default function experiments(props) {
       </Head>
       <section className="layout-container">
         <h1>{t("experimentsAndExplorationTitle")}</h1>
-        <FilterExperiments
+        <Filter
           options={[
             { id: 0, text: "experimentsTagAll" },
             { id: 1, text: "experimentsTagActive" },
