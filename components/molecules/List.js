@@ -8,7 +8,8 @@ export function List(props) {
   return (
     <ol className={props.className}>
       {props.items.map((item, key) => {
-        opacity += 20;
+        if (opacity < 100) opacity += 20;
+
         return (
           <li key={key} className="flex">
             <span
