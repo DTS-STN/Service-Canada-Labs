@@ -55,7 +55,6 @@ export default function experiments(props) {
       setFilter("all");
       setFilteredExperiments(props.experimentData);
     } else {
-      console.log(value);
       setFilter(value);
       setFilteredExperiments(
         props.experimentData.filter((experiment) => experiment.tag === value)
