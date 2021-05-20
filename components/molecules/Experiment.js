@@ -14,7 +14,7 @@ export const Experiment = (props) => {
   return (
     <div
       className={`shadow-experiment-shadow p-4 border-b-4 h-400px ${
-        "border-" + tagColours[props.tag] || "bg-gray-experiment"
+        "border-" + (tagColours[props.tag] || "gray-experiment")
       }`}
       data-testid={props.dataTestId}
       data-cy={props.dataCy}
@@ -22,7 +22,7 @@ export const Experiment = (props) => {
       <h2 className="mb-2 text-p">{props.title}</h2>
       <span
         className={`inline-block py-2 px-2 uppercase font-body text-xxs text-white font-bold rounded ${
-          "bg-" + tagColours[props.tag] || "bg-gray-experiment"
+          "bg-" + (tagColours[props.tag] || "gray-experiment")
         }`}
       >
         {props.tagLabel}
