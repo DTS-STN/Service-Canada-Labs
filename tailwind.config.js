@@ -2,15 +2,18 @@ const plugin = require("tailwindcss/plugin");
 
 module.exports = {
   purge: {
-    content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+    content: [
+      "./pages/**/*.{js,ts,jsx,tsx}",
+      "./components/**/*.{js,ts,jsx,tsx}",
+    ],
     options: {
       safelist: [
-          "border-custom-blue-experiment-blue",
-          "border-gray-experiment",
-          "bg-custom-blue-experiment-blue",
-          "bg-gray-experiment"
-      ]
-    }
+        "border-custom-blue-experiment-blue",
+        "border-gray-experiment",
+        "bg-custom-blue-experiment-blue",
+        "bg-gray-experiment",
+      ],
+    },
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
