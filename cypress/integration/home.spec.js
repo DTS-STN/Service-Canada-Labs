@@ -21,7 +21,7 @@ describe("home page", () => {
         cy.get('[ data-cy="search-bar"]').should('be.visible')
     });
 
-    xit("Toggles content language when language button is clicked", () => {
+    it("Toggles content language when language button is clicked", () => {
         cy.get('[data-cy="social-media-link"]').then(($link) => {
             const txt = $link.text()
             cy.get('[data-cy="toggle-language-link"]').click()

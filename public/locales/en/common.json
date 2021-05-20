@@ -24,6 +24,9 @@
   "experimentsAndExploration-3/3": "You can see all of our ongoing experiments in one place, to make it easier for us to collaborate and show you what we’re working on. We’ve made these experiments publicly available in the spirit of working in the open.",
   "experimentsComment": "“With experimentation comes surprise and discovery.”",
   "experimentsBtnTxt" :"See the experiments",
+  "experimentsTagAll": "All",
+  "experimentsTagActive": "Active",
+  "experimentsTagComingSoon": "Coming soon",
   "AboutThisSite1/3": "From the Digital Experience and Client Data (DECD) unit at Employment and Social Development Canada (ESDC),  this web site is a digital “test kitchen” where anyone can see, test and provide feedback on new products under development.",
   "AboutThisSite2/3": "This will enable us to collect feedback which is vital in delivering useful products with excellent user experience.",
   "AboutThisSite3/3": "We need “taste testers” early and often so the dishes will taste good when they’re done.",
@@ -74,5 +77,10 @@
   "menuLink3": "About",
   "aboutThisSiteHeader": "What’s Service Canada Labs?",
   "aboutThisSiteContent1": "A digital “test kitchen” to demonstrate, test, and verify new digital capabilities, and new designs for the digital channel, prior to going live.",
-  "aboutThisSiteContent2": "We want to engage people in a meaningful way, to introduce a new opportunity for digital service that enables anyone to participate in its development and ensure features and digital functions address what people really need."
+  "aboutThisSiteContent2": "We want to engage people in a meaningful way, to introduce a new opportunity for digital service that enables anyone to participate in its development and ensure features and digital functions address what people really need.",
+  "coming_soon": "Coming Soon",
+  "all": "All",
+  "alpha": "Alpha",
+  "active": "Active",
+  "filterBy": "Filter by"
 }
