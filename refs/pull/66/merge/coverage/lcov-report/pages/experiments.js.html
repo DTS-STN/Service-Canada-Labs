@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/21</span>
+                <span class='fraction'>0/23</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>0/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/21</span>
+                <span class='fraction'>0/23</span>
             </div>
         
             
@@ -192,7 +192,17 @@
 <a name='L133'></a><a href='#L133'>133</a>
 <a name='L134'></a><a href='#L134'>134</a>
 <a name='L135'></a><a href='#L135'>135</a>
-<a name='L136'></a><a href='#L136'>136</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -211,21 +221,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -319,7 +315,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -345,27 +365,13 @@ export default function <span class="fstat-no" title="function not covered" >exp
   );
 &nbsp;
   // get the filters from the data
-  const filters = <span class="cstat-no" title="statement not covered" >Object.values(</span>
-    props.experimentData.reduce(
-<span class="fstat-no" title="function not covered" >      (f</span>ilters, { tag }) =&gt; {
-<span class="cstat-no" title="statement not covered" >        if (!filters[tag]) {</span>
-<span class="cstat-no" title="statement not covered" >          filters[tag] = {</span>
-            id: tag,
-            label: t(tag),
-            checked: filter === tag,
-          };
-        }
-<span class="cstat-no" title="statement not covered" >        return filters;</span>
-      },
-      {
-        all: {
-          id: "all",
-          label: "All",
-          checked: filter === "all",
-        },
-      }
-    )
-  );
+  const filters = <span class="cstat-no" title="statement not covered" >props.filters.map(<span class="fstat-no" title="function not covered" >(v</span>alue) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
+      ...value,
+      label: t(value.label),
+      checked: value["id"] === filter,
+    };
+  });
 &nbsp;
   const displayExperiments = <span class="cstat-no" title="statement not covered" >filteredExperiments.map(<span class="fstat-no" title="function not covered" >(e</span>xperiment) =&gt; (</span>
 <span class="cstat-no" title="statement not covered" >    &lt;li key={experiment.id} className="flex items-stretch"&gt;</span>
@@ -397,7 +403,7 @@ export default function <span class="fstat-no" title="function not covered" >exp
         &lt;title&gt;{t("experimentsTitle")}&lt;/title&gt;
         &lt;link rel="icon" href="/favicon.ico" /&gt;
       &lt;/Head&gt;
-      &lt;section className="layout-container"&gt;
+      &lt;section className="layout-container mb-10"&gt;
         &lt;h1&gt;{t("experimentsAndExplorationTitle")}&lt;/h1&gt;
         &lt;Filter
           label={t("filterBy")}
@@ -454,11 +460,35 @@ export const getStaticProps = <span class="cstat-no" title="statement not covere
         "Quisque sagittis purus sit amet volutpat consequat mauris. Mauris pellentesque pulvinar pellentesque habitant morbi. Eu tincidunt tortor aliquam nulla facilisi cras fermentum. Nunc consequat interdum varius sit amet mattis vulputate. ",
     },
   ];
+&nbsp;
+  const filters = <span class="cstat-no" title="statement not covered" >Object.values(</span>
+    data.reduce(
+<span class="fstat-no" title="function not covered" >      (f</span>ilters, { tag }) =&gt; {
+<span class="cstat-no" title="statement not covered" >        if (!filters[tag]) {</span>
+<span class="cstat-no" title="statement not covered" >          filters[tag] = {</span>
+            id: tag,
+            label: tag,
+            checked: false,
+          };
+        }
+<span class="cstat-no" title="statement not covered" >        return filters;</span>
+      },
+      {
+        all: {
+          id: "all",
+          label: "All",
+          checked: true,
+        },
+      }
+    )
+  );
+&nbsp;
 <span class="cstat-no" title="statement not covered" >  return {</span>
     props: {
       locale: locale,
       ...(await serverSideTranslations(locale, ["common"])),
       experimentData: data,
+      filters,
     },
   };
 };
@@ -469,7 +499,7 @@ export const getStaticProps = <span class="cstat-no" title="statement not covere
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed May 19 2021 14:01:37 GMT+0000 (Coordinated Universal Time)
+                at Thu May 20 2021 14:06:54 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../prettify.js"></script>

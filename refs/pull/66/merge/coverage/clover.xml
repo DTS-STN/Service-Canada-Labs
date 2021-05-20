@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1621432897166" clover="3.2.0">
-  <project timestamp="1621432897167" name="All files">
-    <metrics statements="260" coveredstatements="210" conditionals="131" coveredconditionals="100" methods="81" coveredmethods="56" elements="472" coveredelements="366" complexity="0" loc="260" ncloc="260" packages="8" files="51" classes="51"/>
+<coverage generated="1621519614269" clover="3.2.0">
+  <project timestamp="1621519614269" name="All files">
+    <metrics statements="267" coveredstatements="210" conditionals="135" coveredconditionals="100" methods="83" coveredmethods="56" elements="485" coveredelements="366" complexity="0" loc="267" ncloc="267" packages="8" files="51" classes="51"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/index.js">
@@ -9,7 +9,7 @@
       </file>
     </package>
     <package name="components.atoms">
-      <metrics statements="108" coveredstatements="101" conditionals="70" coveredconditionals="59" methods="31" coveredmethods="26"/>
+      <metrics statements="113" coveredstatements="101" conditionals="74" coveredconditionals="59" methods="32" coveredmethods="26"/>
       <file name="ActionButton.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/atoms/ActionButton.js">
         <metrics statements="13" coveredstatements="10" conditionals="46" coveredconditionals="36" methods="3" coveredmethods="2"/>
         <line num="11" count="23" type="stmt"/>
@@ -127,12 +127,17 @@
         <line num="13" count="1" type="stmt"/>
       </file>
       <file name="RadioButton.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/atoms/RadioButton.js">
-        <metrics statements="5" coveredstatements="5" conditionals="8" coveredconditionals="8" methods="2" coveredmethods="2"/>
+        <metrics statements="10" coveredstatements="5" conditionals="12" coveredconditionals="8" methods="3" coveredmethods="2"/>
         <line num="7" count="15" type="cond" truecount="2" falsecount="0"/>
         <line num="14" count="15" type="stmt"/>
         <line num="23" count="3" type="stmt"/>
-        <line num="41" count="2" type="stmt"/>
-        <line num="45" count="2" type="stmt"/>
+        <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="54" count="2" type="stmt"/>
       </file>
       <file name="RadioButton.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/atoms/RadioButton.stories.js">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -360,7 +365,7 @@
       </file>
     </package>
     <package name="pages">
-      <metrics statements="36" coveredstatements="4" conditionals="4" coveredconditionals="0" methods="15" coveredmethods="1"/>
+      <metrics statements="38" coveredstatements="4" conditionals="4" coveredconditionals="0" methods="16" coveredmethods="1"/>
       <file name="_app.js" path="/home/runner/work/Alpha-Site/Alpha-Site/pages/_app.js">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="10" count="0" type="stmt"/>
@@ -380,28 +385,30 @@
         <line num="37" count="0" type="stmt"/>
       </file>
       <file name="experiments.js" path="/home/runner/work/Alpha-Site/Alpha-Site/pages/experiments.js">
-        <metrics statements="21" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <metrics statements="23" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="7" coveredmethods="0"/>
         <line num="11" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
-        <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="41" count="0" type="stmt"/>
         <line num="42" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="54" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="65" count="0" type="stmt"/>
-        <line num="90" count="0" type="stmt"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="128" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="115" count="0" type="stmt"/>
+        <line num="118" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="119" count="0" type="stmt"/>
+        <line num="125" count="0" type="stmt"/>
+        <line num="137" count="0" type="stmt"/>
       </file>
       <file name="index.js" path="/home/runner/work/Alpha-Site/Alpha-Site/pages/index.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
