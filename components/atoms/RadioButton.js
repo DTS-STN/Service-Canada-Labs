@@ -22,6 +22,15 @@ export function RadioButton(props) {
         onChange={(e) => {
           props.onChange(props.value, e);
         }}
+        onKeyUp={(e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            if (props.uncontrolled) {
+              e.currentTarget.checked = true;
+            }
+            props.onChange(props.value, e);
+          }
+        }}
         data-testid={props.dataTestId}
         data-cy={props.dataCy}
         {...ifControlledProps}

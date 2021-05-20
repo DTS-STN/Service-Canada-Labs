@@ -16,27 +16,13 @@ export default function experiments(props) {
   );
 
   // get the filters from the data
-  const filters = Object.values(
-    props.experimentData.reduce(
-      (filters, { tag }) => {
-        if (!filters[tag]) {
-          filters[tag] = {
-            id: tag,
-            label: t(tag),
-            checked: filter === tag,
-          };
-        }
-        return filters;
-      },
-      {
-        all: {
-          id: "all",
-          label: "All",
-          checked: filter === "all",
-        },
-      }
-    )
-  );
+  const filters = props.filters.map((value) => {
+    return {
+      ...value,
+      label: t(value.label),
+      checked: value["id"] === filter,
+    };
+  });
 
   const displayExperiments = filteredExperiments.map((experiment) => (
     <li key={experiment.id} className="flex items-stretch">
@@ -68,7 +54,7 @@ export default function experiments(props) {
         <title>{t("experimentsTitle")}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="layout-container">
+      <section className="layout-container mb-10">
         <h1>{t("experimentsAndExplorationTitle")}</h1>
         <Filter
           label={t("filterBy")}
@@ -125,11 +111,35 @@ export const getStaticProps = async ({ locale }) => {
         "Quisque sagittis purus sit amet volutpat consequat mauris. Mauris pellentesque pulvinar pellentesque habitant morbi. Eu tincidunt tortor aliquam nulla facilisi cras fermentum. Nunc consequat interdum varius sit amet mattis vulputate. ",
     },
   ];
+
+  const filters = Object.values(
+    data.reduce(
+      (filters, { tag }) => {
+        if (!filters[tag]) {
+          filters[tag] = {
+            id: tag,
+            label: tag,
+            checked: false,
+          };
+        }
+        return filters;
+      },
+      {
+        all: {
+          id: "all",
+          label: "All",
+          checked: true,
+        },
+      }
+    )
+  );
+
   return {
     props: {
       locale: locale,
       ...(await serverSideTranslations(locale, ["common"])),
       experimentData: data,
+      filters,
     },
   };
 };
