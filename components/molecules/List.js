@@ -4,19 +4,19 @@ import PropTypes from "prop-types";
  *  List component
  */
 export function List(props) {
-  let opacity = 20;
+  let circleColor = 0;
   return (
     <ol className={props.className}>
       {props.items.map((item, key) => {
-        if (opacity < 100) opacity += 20;
+        if (circleColor < 4) circleColor += 1;
 
         return (
           <li key={key} className="flex">
             <span
               className={
-                "opacity-" +
-                opacity +
-                " bg-circle-color flex-shrink-0 mr-4 mb-2 rounded-full h-32 w-32 flex items-center justify-center text-white font-bold text-h1xl relative md:left-0 -left-14"
+                "bg-circle-color" +
+                circleColor +
+                " flex-shrink-0 mr-4 mb-2 rounded-full h-32 w-32 flex items-center justify-center text-white font-bold text-h1xl relative md:left-0 -left-14"
               }
             >
               {key + 1}
