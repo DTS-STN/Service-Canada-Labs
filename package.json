@@ -6,10 +6,11 @@
     "@tailwindcss/typography": "^0.4.0",
     "i18next": "^20.2.2",
     "i18next-http-backend": "^1.2.4",
-    "next": "^10.2.0",
+    "next": "^10.2.1",
     "next-i18next": "^8.2.0",
     "react": "^17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "storybook-addon-next-router": "^2.0.4"
   },
   "scripts": {
     "dev": "next dev",
