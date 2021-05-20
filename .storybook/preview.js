@@ -8,6 +8,9 @@ import "../styles/menu.css";
 import i18n from "./i18n.js";
 import { I18nProviderWrapper } from "./i18nextProviderWrapper";
 
+import { withNextRouter } from "storybook-addon-next-router";
+import { addDecorator } from "@storybook/react";
+
 export const globalTypes = {
   locale: {
     name: "Locale",
@@ -22,6 +25,16 @@ export const globalTypes = {
     },
   },
 };
+
+//Adding next-router compatibility with storybbok
+addDecorator(
+  withNextRouter({
+    path: "/",
+    asPath: "/",
+    query: {},
+    push() {},
+  })
+);
 
 // override next js image component to make it work with storybook
 // https://github.com/vercel/next.js/issues/18393#issuecomment-750910068
