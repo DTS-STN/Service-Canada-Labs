@@ -1,9 +1,15 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { axe, toHaveNoViolations } from "jest-axe";
 import { Primary } from "./Menu.stories";
 
 expect.extend(toHaveNoViolations);
+
+jest.mock("next/link", () => {
+  return ({ children }) => {
+    return children;
+  };
+});
 
 describe("Menu", () => {
   it("renders the menu", () => {

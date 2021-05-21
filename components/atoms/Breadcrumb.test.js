@@ -5,6 +5,12 @@ import { Primary, WithItems } from "./Breadcrumb.stories";
 
 expect.extend(toHaveNoViolations);
 
+jest.mock("next/link", () => {
+  return ({ children }) => {
+    return children;
+  };
+});
+
 describe("BreadCrumb", () => {
   it("renders primary", () => {
     const primary = render(<Primary {...Primary.args} />);
