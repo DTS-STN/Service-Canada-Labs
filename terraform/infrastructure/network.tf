@@ -46,14 +46,18 @@ resource "azurerm_public_ip" "appgateway_publicip_primary" {
   name                = "${var.application_name}-appgateway_publicip_primary"
   resource_group_name = var.resource_group_name
   location            = var.location
-  allocation_method   = "Dynamic"
+  allocation_method   = "Static"
+  sku                 = "Standard"
+  domain_name_label   = "primary-ip-fqdn"
 }
 
 resource "azurerm_public_ip" "appgateway_publicip_secondary" {
   name                = "${var.application_name}-appgateway_publicip_secondary"
   resource_group_name = var.resource_group_name
   location            = var.backup_location
-  allocation_method   = "Dynamic"
+  allocation_method   = "Static"
+  sku                 = "Standard"
+  domain_name_label   = "secondary-ip-fqdn"
 }
 
 #&nbsp;since these variables are re-used - a locals block makes this more maintainable

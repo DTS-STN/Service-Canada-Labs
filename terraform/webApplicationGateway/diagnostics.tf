@@ -1,6 +1,6 @@
 resource "azurerm_monitor_diagnostic_setting" "application-primary-diagnostics" {
   name                = "${var.application_appservice_name_primary}-ag-diagnostics-primary"
-  target_resource_id = azurerm_application_gateway.application-gateway-primary.id
+  target_resource_id = azurerm_application_gateway.application-gateway-v2-primary.id
   storage_account_id = var.diagnostic_storage_account_id
 
 
@@ -41,7 +41,7 @@ log {
 
 resource "azurerm_monitor_diagnostic_setting" "application-secondary-diagnostics" {
   name                = "${var.application_appservice_name_secondary}-ag-diagnostics-secondary"
-  target_resource_id = azurerm_application_gateway.application-gateway-secondary.id
+  target_resource_id = azurerm_application_gateway.application-gateway-v2-secondary.id
   storage_account_id = var.secondary_diagnostic_storage_account_id
 
 

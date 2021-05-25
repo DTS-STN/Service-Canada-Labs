@@ -1,13 +1,13 @@
-resource "azurerm_application_gateway" "application-gateway-primary" {
-  name                = "${var.application_appservice_name_primary}-ag-primary"
+resource "azurerm_application_gateway" "application-gateway-v2-primary" {
+  name                = "${var.application_appservice_name_primary}-ag-v2-primary"
   resource_group_name = var.resource_group_name
   location            = var.location
   enable_http2        = true
 
 
   sku {
-    name     = "WAF_Medium"
-    tier     = "WAF"
+    name     = "WAF_v2"
+    tier     = "WAF_v2"
     capacity = 2
   }
 
@@ -172,16 +172,16 @@ resource "azurerm_application_gateway" "application-gateway-primary" {
 
 }
 
-resource "azurerm_application_gateway" "application-gateway-secondary" {
-  name                = "${var.application_appservice_name_secondary}-ag-secondary"
+resource "azurerm_application_gateway" "application-gateway-v2-secondary" {
+  name                = "${var.application_appservice_name_secondary}-ag-v2-secondary"
   resource_group_name = var.resource_group_name
   location            = var.backup_location
   enable_http2        = true
 
 
   sku {
-    name     = "WAF_Medium"
-    tier     = "WAF"
+    name     = "WAF_v2"
+    tier     = "WAF_v2"
     capacity = 2
   }
 
