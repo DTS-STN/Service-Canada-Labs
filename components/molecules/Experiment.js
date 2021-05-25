@@ -18,6 +18,7 @@ export const Experiment = (props) => {
       }`}
       data-testid={props.dataTestId}
       data-cy={props.dataCy}
+      tabIndex="0"
     >
       <h2 className="mb-2 text-p">{props.title}</h2>
       <span
