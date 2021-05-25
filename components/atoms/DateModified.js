@@ -14,7 +14,7 @@ export function DateModified(props) {
         {dateFormatted === "NA" ? (
           <time>{` ${dateFormatted}`}</time>
         ) : (
-          <time datetime={dateFormatted}>{` ${dateFormatted}`}</time>
+          <time dateTime={dateFormatted}>{` ${dateFormatted}`}</time>
         )}
       </dd>
     </dl>
