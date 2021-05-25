@@ -5,6 +5,7 @@ import { Layout } from "../components/organisms/Layout";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { TextButtonField } from "../components/molecules/TextButtonField";
 import { Quote } from "../components/molecules/Quote";
+import { List } from "../components/molecules/List";
 import { useRouter } from "next/router";
 
 export default function Home(props) {
@@ -49,61 +50,14 @@ export default function Home(props) {
 
       <section className="bg-footer-background-color  ">
         <div className="flex flex-col-reverse pt-8  layout-container   xl:grid xl:grid-cols-2 xl:gap-8">
-          <div>
-            <div className="flex flex-row ">
-              <div
-                className="bg-circle-color flex-shrink-0 opacity-40 mr-4 mb-2 rounded-full h-32 w-32 flex items-center justify-center
-           text-white font-bold text-h1xl relative md:left-0 -left-14 "
-              >
-                1{" "}
-              </div>
-              <div className=" self-center -ml-14 md:ml-0">
-                <p className="text-sm md:text-p leading-normal text-left font-normal font-body">
-                  {t("circleTxt1/4")}
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-row ">
-              <div
-                className="bg-circle-color flex-shrink-0 opacity-60 mr-4 mb-2  rounded-full h-32 w-32 flex items-center justify-center
-           text-white font-bold text-h1xl  relative md:left-0 -left-14 "
-              >
-                2{" "}
-              </div>
-              <div className=" self-center -ml-14 md:ml-0">
-                <p className="text-sm md:text-p leading-normal text-left font-normal font-body ">
-                  {t("circleTxt2/4")}
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-row ">
-              <div
-                className="bg-circle-color flex-shrink-0 opacity-80  mr-4 mb-2 rounded-full h-32 w-32  flex items-center justify-center
-           text-white font-bold text-h1xl  relative md:left-0 -left-14"
-              >
-                3{" "}
-              </div>
-              <div className=" self-center -ml-14 md:ml-0">
-                <p className="text-sm md:text-p leading-normal text-left font-normal font-body">
-                  {t("circleTxt3/4")}
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-row ">
-              <div
-                className="bg-circle-color flex-shrink-0 opacity-100  mr-4 mb-2  rounded-full h-32 w-32 flex items-center justify-center
-           text-white font-bold text-h1xl  relative md:left-0 -left-14"
-              >
-                4{" "}
-              </div>
-              <div className=" self-center -ml-14 md:ml-0">
-                <p className="text-sm md:text-p leading-normal text-left font-normal font-body">
-                  {t("circleTxt4/4")}
-                </p>
-              </div>
-            </div>
-          </div>
-
+          <List
+            items={[
+              t("circleTxt1/4"),
+              t("circleTxt2/4"),
+              t("circleTxt3/4"),
+              t("circleTxt4/4"),
+            ]}
+          />
           <div>
             <h1>{t("aboutTitle")}</h1>
             <br></br>
