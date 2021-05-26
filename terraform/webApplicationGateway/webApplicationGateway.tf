@@ -16,6 +16,18 @@ resource "azurerm_application_gateway" "application-gateway-v2-primary" {
     firewall_mode    = "Prevention"
     rule_set_type    = "OWASP"
     rule_set_version = "3.0"
+    disabled_rule_group {
+      rule_group_name = "REQUEST-931-APPLICATION-ATTACK-RFI"
+      rules = [931130]
+    }
+    disabled_rule_group {
+      rule_group_name = "REQUEST-941-APPLICATION-ATTACK-XSS"
+      rules = [941150]
+    }
+    disabled_rule_group {
+      rule_group_name = "REQUEST-942-APPLICATION-ATTACK-SQLI"
+      rules = [942200,942260,942340,942430,942330,942370]
+    }
   }
 
   gateway_ip_configuration {
@@ -205,6 +217,18 @@ resource "azurerm_application_gateway" "application-gateway-v2-secondary" {
     firewall_mode    = "Prevention"
     rule_set_type    = "OWASP"
     rule_set_version = "3.0"
+    disabled_rule_group {
+      rule_group_name = "REQUEST-931-APPLICATION-ATTACK-RFI"
+      rules = [931130]
+    }
+    disabled_rule_group {
+      rule_group_name = "REQUEST-941-APPLICATION-ATTACK-XSS"
+      rules = [941150]
+    }
+    disabled_rule_group {
+      rule_group_name = "REQUEST-942-APPLICATION-ATTACK-SQLI"
+      rules = [942200,942260,942340,942430,942330,942370]
+    }
   }
 
   gateway_ip_configuration {
