@@ -18,6 +18,7 @@ resource "azurerm_subnet" "backend" {
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.appservice_vnet.name
   address_prefixes     = ["10.254.2.0/24"]
+  service_endpoints    = ["Microsoft.Web"]
 }
 
 resource "azurerm_virtual_network" "appservice_vnet_secondary" {
@@ -40,6 +41,7 @@ resource "azurerm_subnet" "backend_secondary" {
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.appservice_vnet_secondary.name
   address_prefixes     = ["10.254.2.0/24"]
+  service_endpoints    = ["Microsoft.Web"]
 }
 
 resource "azurerm_public_ip" "appgateway_publicip_primary" {
