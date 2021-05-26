@@ -146,12 +146,25 @@ resource "azurerm_application_gateway" "application-gateway-v2-primary" {
     affinity_cookie_name  = "ApplicationGatewayAffinity"
   }
 
+  rewrite_rule_set {
+    name = "CORS" 
+      rewrite_rule {
+        name = "allow-origin"
+        rule_sequence = 100
+          response_header_configuration {
+            header_name  = "Access-Control-Allow-Origin"
+            header_value = "*"
+      }
+    }
+  }
+
   request_routing_rule {
     name                       = "alphasiteApplicationRule"
     rule_type                  = "Basic"
     http_listener_name         = "alphasiteApplicationListener"
     backend_address_pool_name  = "alphasiteApplicationPool"
     backend_http_settings_name = "application-https"
+    rewrite_rule_set_name = "CORS"
   }
 
   request_routing_rule {
@@ -160,6 +173,7 @@ resource "azurerm_application_gateway" "application-gateway-v2-primary" {
     http_listener_name         = "alphasiteApiListener"
     backend_address_pool_name  = "alphasiteApiPool"
     backend_http_settings_name = "api-https"
+    rewrite_rule_set_name = "CORS"
   }
 
   request_routing_rule {
@@ -168,7 +182,8 @@ resource "azurerm_application_gateway" "application-gateway-v2-primary" {
     http_listener_name         = "alphasiteAdminListener"
     backend_address_pool_name  = "alphasiteAdminPool"
     backend_http_settings_name = "admin-https"
-  }  
+    rewrite_rule_set_name = "CORS"
+  } 
 
 }
 
@@ -320,12 +335,25 @@ resource "azurerm_application_gateway" "application-gateway-v2-secondary" {
     affinity_cookie_name  = "ApplicationGatewayAffinity"
   }
 
+  rewrite_rule_set {
+    name = "CORS" 
+      rewrite_rule {
+        name = "allow-origin"
+        rule_sequence = 100
+          response_header_configuration {
+            header_name  = "Access-Control-Allow-Origin"
+            header_value = "*"
+      }
+    }
+  }
+
   request_routing_rule {
     name                       = "alphasiteApplicationRule"
     rule_type                  = "Basic"
     http_listener_name         = "alphasiteApplicationListener"
     backend_address_pool_name  = "alphasiteApplicationPool"
     backend_http_settings_name = "application-https"
+    rewrite_rule_set_name = "CORS"
   }
 
   request_routing_rule {
@@ -334,6 +362,7 @@ resource "azurerm_application_gateway" "application-gateway-v2-secondary" {
     http_listener_name         = "alphasiteApiListener"
     backend_address_pool_name  = "alphasiteApiPool"
     backend_http_settings_name = "api-https"
+    rewrite_rule_set_name = "CORS"
   }
 
   request_routing_rule {
@@ -342,6 +371,6 @@ resource "azurerm_application_gateway" "application-gateway-v2-secondary" {
     http_listener_name         = "alphasiteAdminListener"
     backend_address_pool_name  = "alphasiteAdminPool"
     backend_http_settings_name = "admin-https"
-  }
-
+    rewrite_rule_set_name = "CORS"
+  } 
 }
