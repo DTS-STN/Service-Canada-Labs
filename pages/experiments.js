@@ -25,30 +25,18 @@ export default function experiments(props) {
   });
 
   const displayExperiments = filteredExperiments.map((experiment) =>
-    props.locale === "en" ? (
-      <li key={experiment.id} className="flex items-stretch">
-        <Experiment
-          title={experiment.ExperimentTitle_EN}
-          tag={experiment.ExperimentStatus}
-          tagLabel={t(experiment.ExperimentStatus)}
-          description={experiment.ExperimentDescription_EN}
-          dataTestId={`${experiment.id}`}
-          dataCy={`${experiment.id}`}
-        />
-      </li>
-    ) : (
-      <li key={experiment.id} className="flex items-stretch">
-        <Experiment
-          title={experiment.ExperimentTitle_FR}
-          tag={experiment.ExperimentStatus}
-          tagLabel={t(experiment.ExperimentStatus)}
-          description={experiment.ExperimentDescription_FR}
-          dataTestId={`${experiment.id}`}
-          dataCy={`${experiment.id}`}
-        />
-      </li>
-    )
+    <li key={experiment.id} className="flex items-stretch">
+      <Experiment
+        title={props.locale === 'en' ? experiment.ExperimentTitle_EN : experiment.ExperimentTitle_FR}
+        tag={experiment.ExperimentStatus}
+        tagLabel={t(experiment.ExperimentStatus)}
+        description={props.locale === 'en' ? experiment.ExperimentDescription_EN : experiment.ExperimentDescription_FR}
+        dataTestId={`${experiment.id}`}
+        dataCy={`${experiment.id}`}
+      />
+    </li>
   );
+
   const handleFilter = (value) => {
     if (value === "all") {
       setFilter("all");
