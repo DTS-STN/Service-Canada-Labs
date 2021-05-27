@@ -24,8 +24,8 @@ export default function experiments(props) {
     };
   });
 
-  const displayExperiments = filteredExperiments.map((experiment) => (
-    props.locale === 'en' ?
+  const displayExperiments = filteredExperiments.map((experiment) =>
+    props.locale === "en" ? (
       <li key={experiment.id} className="flex items-stretch">
         <Experiment
           title={experiment.ExperimentTitle_EN}
@@ -36,7 +36,7 @@ export default function experiments(props) {
           dataCy={`${experiment.id}`}
         />
       </li>
-    :
+    ) : (
       <li key={experiment.id} className="flex items-stretch">
         <Experiment
           title={experiment.ExperimentTitle_FR}
@@ -47,7 +47,8 @@ export default function experiments(props) {
           dataCy={`${experiment.id}`}
         />
       </li>
-  ));
+    )
+  );
   const handleFilter = (value) => {
     if (value === "all") {
       setFilter("all");
@@ -86,9 +87,8 @@ export default function experiments(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-
-  const res = await fetch("https://alphasite-api.dts-stn.com/experiments")
-  const data = await res.json()
+  const res = await fetch("https://alphasite-api.dts-stn.com/experiments");
+  const data = await res.json();
 
   const filters = Object.values(
     data.reduce(
