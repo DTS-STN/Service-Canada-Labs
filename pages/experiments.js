@@ -85,7 +85,7 @@ export default function experiments(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  console.log(`${process.env.STRAPI_API_BACKEND_URL}/experiments`)
+  console.log(`${process.env.STRAPI_API_BACKEND_URL}/experiments`);
   const res = await fetch(`${process.env.STRAPI_API_BACKEND_URL}/experiments`);
   const data = await res.json();
 
