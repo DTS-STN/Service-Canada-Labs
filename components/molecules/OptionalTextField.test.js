@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { axe, toHaveNoViolations } from "jest-axe";
-import { UnControlled, MultiText, Opened } from "./OptionalTextField.stories";
+import { UnControlled, MultiText, Radio } from "./OptionalTextField.stories";
 
 expect.extend(toHaveNoViolations);
 
@@ -25,6 +25,12 @@ describe("OptionalTextField", () => {
     expect(screen.getByTestId("uncontrolled-text-1")).toBeTruthy();
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+
+  it("renders radio input when specified", async () => {
+    render(<Radio {...Radio.args} />);
+    let radio = screen.getByTestId("radio-check-1");
+    expect(radio.type).toBe("radio");
   });
 
   it("renders multitext field when specified", async () => {

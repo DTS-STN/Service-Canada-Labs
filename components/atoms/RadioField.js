@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 
 /**
- * check box component for forms
+ * radio field
  */
-export function CheckBox(props) {
+export function RadioField(props) {
   const ifControlledProps = !props.uncontrolled
     ? {
         checked: props.checked,
@@ -16,7 +16,7 @@ export function CheckBox(props) {
         id={props.id}
         name={props.name}
         value={props.value}
-        type="checkbox"
+        type="radio"
         onChange={(e) =>
           props.onChange(
             props.uncontrolled ? !e.currentTarget.checked : props.checked,
@@ -30,7 +30,7 @@ export function CheckBox(props) {
         {...ifControlledProps}
       />
       <label
-        className="checkbox-label control-label inline-block cursor-pointer pt-4px pb-5px px-15px text-xs sm:text-sm leading-tight sm:leading-6 font-normal font-body"
+        className="radio-field-label control-label inline-block cursor-pointer pt-4px pb-5px px-15px text-xs sm:text-sm leading-tight sm:leading-6 font-normal font-body"
         htmlFor={props.id}
         onClick={() => props.onChange(props.checked, props.name, props.value)}
       >
@@ -40,12 +40,12 @@ export function CheckBox(props) {
   );
 }
 
-CheckBox.defaultProps = {
+RadioField.defaultProps = {
   checked: false,
   value: "true",
 };
 
-CheckBox.propTypes = {
+RadioField.propTypes = {
   /**
    * whether or not the checkbox is checked
    */
@@ -62,6 +62,11 @@ CheckBox.propTypes = {
   name: PropTypes.string.isRequired,
 
   /**
+   * whether or not the field is required
+   */
+  required: PropTypes.bool,
+
+  /**
    * the id of the checkbox
    */
   id: PropTypes.string.isRequired,
@@ -70,11 +75,6 @@ CheckBox.propTypes = {
    * the label for the checkbox
    */
   label: PropTypes.string.isRequired,
-
-  /**
-   * whether or not the field is required
-   */
-  required: PropTypes.bool,
 
   /**
    * callback to handle change in checked state, takes three arguments, the checked state, the name and the value

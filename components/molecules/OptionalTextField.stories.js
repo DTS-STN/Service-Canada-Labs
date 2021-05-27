@@ -19,53 +19,67 @@ const Template = (args) => <OptionalTextField {...args} />;
 
 export const UnOpened = Template.bind({});
 UnOpened.args = {
-  checkBoxId: "nutella-check-1",
+  controlId: "nutella-check-1",
   textFieldId: "nutella-text-1",
-  checkBoxName: "nutellaCheckOne",
+  controlName: "nutellaCheckOne",
   textFieldName: "nutellaTextOne",
-  checkBoxLabel: "Do you not like Nutella ?",
+  controlLabel: "Do you not like Nutella ?",
   textFieldLabel: "Please explain why you are wrong ?",
-  checkBoxDataTestId: "unopened-check-1",
+  controlDataTestId: "unopened-check-1",
   textFieldDataTestId: "unopened-text-1",
 };
 
 export const Opened = Template.bind({});
 Opened.args = {
-  checkBoxId: "nutella-check-1",
+  controlId: "nutella-check-1",
   textFieldId: "nutella-text-1",
-  checkBoxName: "nutellaCheckOne",
+  controlName: "nutellaCheckOne",
   textFieldName: "nutellaTextOne",
-  checkBoxLabel: "Do you not like Nutella ?",
+  controlLabel: "Do you not like Nutella ?",
   checked: true,
   textFieldLabel: "Please explain why you are wrong ?",
-  checkBoxDataTestId: "opened-check-1",
+  controlDataTestId: "opened-check-1",
   textFieldDataTestId: "opened-text-1",
+};
+
+export const Radio = Template.bind({});
+Radio.args = {
+  controlType: "radiofield",
+  controlId: "nutella-check-1",
+  textFieldId: "nutella-text-1",
+  controlName: "nutellaCheckOne",
+  textFieldName: "nutellaTextOne",
+  controlLabel: "Do you not like Nutella ?",
+  checked: true,
+  textFieldLabel: "Please explain why you are wrong ?",
+  controlDataTestId: "radio-check-1",
+  textFieldDataTestId: "radio-text-1",
 };
 
 export const UnControlled = Template.bind({});
 UnControlled.args = {
-  checkBoxId: "nutella-check-1",
+  controlId: "nutella-check-1",
   textFieldId: "nutella-text-1",
-  checkBoxName: "nutellaCheckOne",
+  controlName: "nutellaCheckOne",
   textFieldName: "nutellaTextOne",
-  checkBoxLabel: "Do you not like Nutella ?",
+  controlLabel: "Do you not like Nutella ?",
   uncontrolled: true,
   textFieldLabel: "Please explain why you are wrong ?",
-  checkBoxDataTestId: "uncontrolled-check-1",
+  controlDataTestId: "uncontrolled-check-1",
   textFieldDataTestId: "uncontrolled-text-1",
 };
 
 export const MultiText = Template.bind({});
 MultiText.args = {
-  checkBoxId: "nutella-check-1",
+  controlId: "nutella-check-1",
   textFieldId: "nutella-text-1",
-  checkBoxName: "nutellaCheckOne",
+  controlName: "nutellaCheckOne",
   textFieldName: "nutellaTextOne",
-  checkBoxLabel: "Do you not like Nutella ?",
+  controlLabel: "Do you not like Nutella ?",
   uncontrolled: true,
   multiText: true,
   rows: 5,
   textFieldLabel: "Please explain why you are wrong ?",
-  checkBoxDataTestId: "multitext-check-1",
+  controlDataTestId: "multitext-check-1",
   textFieldDataTestId: "multitext-text-1",
 };
