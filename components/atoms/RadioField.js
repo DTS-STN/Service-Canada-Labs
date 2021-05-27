@@ -24,6 +24,7 @@ export function RadioField(props) {
             props.value
           )
         }
+        required={props.required}
         data-cy={props.dataCy}
         data-testid={props.dataTestId}
         {...ifControlledProps}
@@ -59,6 +60,11 @@ RadioField.propTypes = {
    * the name of the checkbox
    */
   name: PropTypes.string.isRequired,
+
+  /**
+   * whether or not the field is required
+   */
+  required: PropTypes.bool,
 
   /**
    * the id of the checkbox

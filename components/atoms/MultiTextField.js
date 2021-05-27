@@ -24,6 +24,7 @@ export function MultiTextField(props) {
         rows={props.rows}
         spellCheck={props.spellCheck}
         wrap={props.wrap}
+        required={props.required}
         data-testid={props.dataTestId}
         data-cy={props.dataCy}
       >
@@ -51,10 +52,16 @@ MultiTextField.propTypes = {
    * the label for the multi text field
    */
   label: PropTypes.string.isRequired,
+
   /**
    * the value for the multi text field
    */
   value: PropTypes.string,
+
+  /**
+   * whether or not the field is required
+   */
+  required: PropTypes.bool,
 
   /**
    * whether or not spellchecking is enabled for this field, by default it is

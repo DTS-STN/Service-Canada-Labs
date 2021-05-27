@@ -33,6 +33,7 @@ export function OptionalTextField(props) {
           value={props.controlValue}
           onChange={handleCheckChange}
           dataTestId={props.controlDataTestId}
+          required={props.controlRequired}
           dataCy={props.controlDataCy}
         />
       )}
@@ -45,6 +46,7 @@ export function OptionalTextField(props) {
           uncontrolled={props.uncontrolled}
           value={props.controlValue}
           onChange={handleCheckChange}
+          required={props.controlRequired}
           dataTestId={props.controlDataTestId}
           dataCy={props.controlDataCy}
         />
@@ -62,6 +64,7 @@ export function OptionalTextField(props) {
             cols={props.cols}
             spellCheck={props.spellCheck}
             wrap={props.wrap}
+            required={props.textFieldRequired}
             onChange={
               props.onTextFieldChange ? props.onTextFieldChange : () => {}
             }
@@ -77,6 +80,7 @@ export function OptionalTextField(props) {
             value={props.textFieldValue}
             boldLabel={props.textLabelBold}
             uncontrolled={props.uncontrolled}
+            required={props.textFieldRequired}
             onChange={
               props.onTextFieldChange ? props.onTextFieldChange : () => {}
             }
@@ -159,6 +163,16 @@ OptionalTextField.propTypes = {
   uncontrolled: PropTypes.bool,
 
   /**
+   * whether or not the control is required
+   */
+  controlRequired: PropTypes.bool,
+
+  /**
+   * whether or not the text field is required
+   */
+  textFieldRequired: PropTypes.bool,
+
+  /**
    * the test id for the checkbox to select in unit tests
    */
   controlDataTestId: PropTypes.string,
@@ -177,6 +191,7 @@ OptionalTextField.propTypes = {
    * the cypress selector for the text field
    */
   textFieldDataCy: PropTypes.string,
+
 
   /**
    * callback when the checkbox changes

@@ -24,6 +24,7 @@ export function CheckBox(props) {
             props.value
           )
         }
+        required={props.required}
         data-cy={props.dataCy}
         data-testid={props.dataTestId}
         {...ifControlledProps}
@@ -69,6 +70,11 @@ CheckBox.propTypes = {
    * the label for the checkbox
    */
   label: PropTypes.string.isRequired,
+
+  /**
+   * whether or not the field is required
+   */
+  required: PropTypes.bool,
 
   /**
    * callback to handle change in checked state, takes three arguments, the checked state, the name and the value
