@@ -28,16 +28,16 @@ export default function experiments(props) {
     <li key={experiment.id} className="flex items-stretch">
       <Experiment
         title={
-          props.locale === "en"
-            ? experiment.ExperimentTitle_EN
-            : experiment.ExperimentTitle_FR
+          props.locale === "fr"
+            ? experiment.ExperimentTitle_FR
+            : experiment.ExperimentTitle_EN
         }
         tag={experiment.ExperimentStatus}
         tagLabel={t(experiment.ExperimentStatus)}
         description={
-          props.locale === "en"
-            ? experiment.ExperimentDescription_EN
-            : experiment.ExperimentDescription_FR
+          props.locale === "fr"
+            ? experiment.ExperimentDescription_FR
+            : experiment.ExperimentDescription_EN
         }
         dataTestId={`${experiment.id}`}
         dataCy={`${experiment.id}`}
