@@ -28,13 +28,6 @@ describe("RadioField", () => {
   it("renders in a checked state", () => {
     render(<Checked {...Checked.args} onChange={mockFn} />);
     expect(screen.getByTestId("checked-radio-field")).toBeChecked();
-    screen.getByTestId("checked-radio-field").click();
-    expect(mockFn.mock.calls.length).toBe(1);
-    expect(mockFn.mock.calls[0]).toEqual([
-      true,
-      Checked.args.name,
-      Checked.args.value,
-    ]);
   });
 
   it("has no accessibility violations unchecked", async () => {
