@@ -192,7 +192,6 @@ OptionalTextField.propTypes = {
    */
   textFieldDataCy: PropTypes.string,
 
-
   /**
    * callback when the checkbox changes
    */
