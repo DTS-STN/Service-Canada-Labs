@@ -24,18 +24,26 @@ export default function experiments(props) {
     };
   });
 
-  const displayExperiments = filteredExperiments.map((experiment) =>
+  const displayExperiments = filteredExperiments.map((experiment) => (
     <li key={experiment.id} className="flex items-stretch">
       <Experiment
-        title={props.locale === 'en' ? experiment.ExperimentTitle_EN : experiment.ExperimentTitle_FR}
+        title={
+          props.locale === "en"
+            ? experiment.ExperimentTitle_EN
+            : experiment.ExperimentTitle_FR
+        }
         tag={experiment.ExperimentStatus}
         tagLabel={t(experiment.ExperimentStatus)}
-        description={props.locale === 'en' ? experiment.ExperimentDescription_EN : experiment.ExperimentDescription_FR}
+        description={
+          props.locale === "en"
+            ? experiment.ExperimentDescription_EN
+            : experiment.ExperimentDescription_FR
+        }
         dataTestId={`${experiment.id}`}
         dataCy={`${experiment.id}`}
       />
     </li>
-  );
+  ));
 
   const handleFilter = (value) => {
     if (value === "all") {
