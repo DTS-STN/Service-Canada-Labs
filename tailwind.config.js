@@ -86,6 +86,8 @@ module.exports = {
       width: {
         "40px": "40px",
         "44px": "44px",
+        "68px": "68px",
+        "100px": "100px",
         "138px": "138px",
         "300px": "300px",
         "400px": "400px",
@@ -96,6 +98,7 @@ module.exports = {
         "40px": "40px",
         "44px": "44px",
         "46px": "46px",
+        "100px": "100px",
         "187px": "187px",
         "400px": "400px",
       },

@@ -47,6 +47,17 @@ html {
     filter: blur(1.5px);
   }
 
+  .error404-link::before{
+    display: inline-block;
+    margin: 2px 5px;
+    content: " ";
+    border: 1px solid #000000;
+    background-color: #000000;
+    border-radius: 100%;
+    width: 4px;
+    height: 4px;
+  }
+
   .splash-link::after{
     display: inline-block;
     margin: 2px 5px;
@@ -56,6 +67,13 @@ html {
     border-radius: 100%;
     width: 5px;
     height: 5px;
+  }
+
+  .circle-background {
+    border-radius: 50%;
+    width: 148px;
+    height: 148px;
+    background-color: #EEEEEE;
   }
 
   .textbuttonField > p{
@@ -95,6 +113,11 @@ html {
   @screen lg {
     .layout-container {
       @apply container mx-auto px-6;
+    }
+
+    .circle-background {
+      width: 218px;
+      height: 218px;
     }
   }
 }
