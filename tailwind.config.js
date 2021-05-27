@@ -101,6 +101,7 @@ module.exports = {
         "100px": "100px",
         "187px": "187px",
         "400px": "400px",
+        "500px": "500px",
       },
       inset: {
         "-2px": "-2px",
@@ -144,6 +145,10 @@ module.exports = {
 
       boxShadow: {
         "experiment-shadow": "0px 2px 8px rgba(0, 0, 0, 0.25)",
+      },
+
+      lineHeight: {
+        "30px": "30px",
       },
     },
   },

@@ -116,6 +116,20 @@ html {
     }
 
     .circle-background {
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  @screen xl {
+    .circle-background {
+      width: 180px;
+      height: 180px;
+    }
+  }
+
+  @screen xxl {
+    .circle-background {
       width: 218px;
       height: 218px;
     }
