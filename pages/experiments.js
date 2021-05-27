@@ -25,16 +25,28 @@ export default function experiments(props) {
   });
 
   const displayExperiments = filteredExperiments.map((experiment) => (
-    <li key={experiment.id} className="flex items-stretch">
-      <Experiment
-        title={experiment.title}
-        tag={experiment.tag}
-        tagLabel={t(experiment.tag)}
-        description={experiment.description}
-        dataTestId={`${experiment.id}`}
-        dataCy={`${experiment.id}`}
-      />
-    </li>
+    props.locale === 'en' ?
+      <li key={experiment.id} className="flex items-stretch">
+        <Experiment
+          title={experiment.ExperimentTitle_EN}
+          tag={experiment.ExperimentStatus}
+          tagLabel={t(experiment.ExperimentStatus)}
+          description={experiment.ExperimentDescription_EN}
+          dataTestId={`${experiment.id}`}
+          dataCy={`${experiment.id}`}
+        />
+      </li>
+    :
+      <li key={experiment.id} className="flex items-stretch">
+        <Experiment
+          title={experiment.ExperimentTitle_FR}
+          tag={experiment.ExperimentStatus}
+          tagLabel={t(experiment.ExperimentStatus)}
+          description={experiment.ExperimentDescription_FR}
+          dataTestId={`${experiment.id}`}
+          dataCy={`${experiment.id}`}
+        />
+      </li>
   ));
   const handleFilter = (value) => {
     if (value === "all") {
@@ -74,51 +86,17 @@ export default function experiments(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  const data = [
-    {
-      id: 1,
-      title: "Lorem Ipsum",
-      tag: "alpha",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio tempor orci dapibus ultrices in iaculis nunc. Tincidunt vitae semper quis lectus. Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Tortor at risus viverra adipiscing at in. Est ante in nibh mauris cursus. In tellus integer feugiat scelerisque varius morbi enim. ",
-    },
-    {
-      id: 2,
-      title: "Lorem Ipsum",
-      tag: "coming_soon",
-      description:
-        "Risus ultricies tristique nulla aliquet. Interdum posuere lorem ipsum dolor sit amet. Velit ut tortor pretium viverra suspendisse potenti nullam. Faucibus a pellentesque sit amet porttitor eget dolor morbi non. ",
-    },
-    {
-      id: 3,
-      title: "Lorem Ipsum",
-      tag: "coming_soon",
-      description:
-        "Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. In hac habitasse platea dictumst vestibulum rhoncus est. Sit amet nisl purus in mollis nunc. Felis imperdiet proin fermentum leo vel. ",
-    },
-    {
-      id: 4,
-      title: "Lorem Ipsum",
-      tag: "alpha",
-      description:
-        "Vulputate ut pharetra sit amet aliquam id diam. Enim sit amet venenatis urna cursus eget nunc scelerisque viverra.",
-    },
-    {
-      id: 5,
-      title: "Lorem Ipsum",
-      tag: "active",
-      description:
-        "Quisque sagittis purus sit amet volutpat consequat mauris. Mauris pellentesque pulvinar pellentesque habitant morbi. Eu tincidunt tortor aliquam nulla facilisi cras fermentum. Nunc consequat interdum varius sit amet mattis vulputate. ",
-    },
-  ];
+
+  const res = await fetch("https://alphasite-api.dts-stn.com/experiments")
+  const data = await res.json()
 
   const filters = Object.values(
     data.reduce(
-      (filters, { tag }) => {
-        if (!filters[tag]) {
-          filters[tag] = {
-            id: tag,
-            label: tag,
+      (filters, { ExperimentStatus }) => {
+        if (!filters[ExperimentStatus]) {
+          filters[ExperimentStatus] = {
+            id: ExperimentStatus,
+            label: ExperimentStatus,
             checked: false,
           };
         }
