@@ -56,7 +56,9 @@ export default function experiments(props) {
     } else {
       setFilter(value);
       setFilteredExperiments(
-        props.experimentData.filter((experiment) => experiment.tag === value)
+        props.experimentData.filter(
+          (experiment) => experiment.ExperimentStatus === value
+        )
       );
     }
   };
