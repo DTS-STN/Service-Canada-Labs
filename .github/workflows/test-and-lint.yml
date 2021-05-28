@@ -19,6 +19,7 @@ jobs:
         run: npm run build
         env:
           STRAPI_API_BACKEND_URL: https://alphasite-api.dts-stn.com
+          NEXT_PUBLIC_API_MOCKING: enabled
 
       - name: Linting Test 📝
         run: npm run lint:test
