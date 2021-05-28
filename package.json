@@ -23,7 +23,7 @@
     "lint:test": "prettier --check \"pages/**/*.{js,jsx,ts,tsx,json,md}\" --check \"components/**/*.{js,jsx,ts,tsx,json,md}\" --check \"lib/**/*.{js,jsx,ts,tsx,json,md}\" --check \"tailwind.config.js\" --check \"middlewares/**/*.{js,jsx,ts,tsx,json,md}\"",
     "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook",
-    "test:unit": "jest",
+    "test:unit": "jest --forceExit",
     "test:coverage": "jest --coverage",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
@@ -57,6 +57,7 @@
     "postcss": "^8.2.15",
     "prettier": "^2.3.0",
     "tailwindcss": "^2.1.2",
+    "weak-napi": "^2.0.2",
     "webpack": "^4.46.0"
   }
 }

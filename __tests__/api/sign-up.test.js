@@ -22,7 +22,9 @@ describe("sign up api", ()  => {
         delete process.env.USER_SIGNUP_ENABLED
         await conn.db.collection("users").deleteMany()
     })
-
+    afterAll(async () =>{
+        await conn.close()
+    })
     it("returns a 201 response when a user is created", async () => {
         process.env.USER_SIGNUP_ENABLED = true
         submitEmail.mockResolvedValue([201, {data: "some data"}])
