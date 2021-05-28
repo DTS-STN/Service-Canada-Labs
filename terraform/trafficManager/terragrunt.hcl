@@ -6,16 +6,34 @@ dependency "mainRg" {
   config_path = "../resourceGroups"
 }
 
-dependency "network" {
+dependency "infrastructure" {
   config_path = "../infrastructure"
+}
+
+dependency "appService" {
+  config_path = "../appService"
 }
 
 inputs = merge(
   {
-    resource_group_name = dependency.mainRg.outputs.mainRgName
-    location = dependency.mainRg.outputs.location
-    primary_public_ip_fqdn = dependency.network.outputs.publicIpFqdn_primary
-    secondary_public_ip_fqdn = dependency.network.outputs.publicIpFqdn_secondary
+    resource_group_name   = dependency.mainRg.outputs.mainRgName
+    location  = dependency.mainRg.outputs.location
+    subnet_id   = dependency.infrastructure.outputs.subnetId
+    subnet_id_secondary   = dependency.infrastructure.outputs.subnetId_secondary
+    subnet_name   = dependency.infrastructure.outputs.subnetName
+    subnet_name_secondary   = dependency.infrastructure.outputs.subnetName_secondary
+    vnet_id  = dependency.infrastructure.outputs.vnetId
+    vnet_id_secondary  = dependency.infrastructure.outputs.vnetId_secondary
+    primary_public_ip_fqdn = dependency.infrastructure.outputs.publicIpFqdn_primary
+    secondary_public_ip_fqdn = dependency.infrastructure.outputs.publicIpFqdn_secondary
+    public_ip_id_primary = dependency.infrastructure.outputs.publicIpId_primary
+    public_ip_id_secondary = dependency.infrastructure.outputs.publicIpId_secondary
+    application_appservice_name_primary = dependency.appService.outputs.primaryAppServiceName
+    application_appservice_name_secondary = dependency.appService.outputs.secondaryAppServiceName
+    diagnostic_storage_account_id  = dependency.infrastructure.outputs.diagnosticStorageAccountId
+    secondary_diagnostic_storage_account_id = dependency.infrastructure.outputs.diagnosticStorageAccountId_secondary
+    primary_application_appservice_hostname = dependency.appService.outputs.primaryAppServiceHostname
+    secondary_application_appservice_hostname = dependency.appService.outputs.secondaryAppServiceHostname
   }
 )
 
