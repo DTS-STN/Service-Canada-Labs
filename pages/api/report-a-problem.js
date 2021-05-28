@@ -1,4 +1,4 @@
-import { submitEmail } from "../../lib/reportAProblem/submitEmail";
+import { submitEmail } from "../../lib/notify/submitEmail";
 
 /**
  * API handler for report a problem functionality. This will take form submissions
@@ -18,6 +18,24 @@ async function handler(req, res) {
           {
             ...req.body,
             page_name: req.headers.referer || "unknown",
+          },
+          {
+            page_name: "unknown",
+            language: "unknown",
+            incorrect_information: "no",
+            incorrect_information_details: "",
+            unclear_information: "no",
+            unclear_information_details: "",
+            info_not_found: "no",
+            info_not_found_details: "",
+            adaptive_technology: "no",
+            adaptive_technology_details: "",
+            privacy_issues: "no",
+            privacy_issues_details: "",
+            no_where_else_to_go: "no",
+            no_where_else_to_go_details: "",
+            other: "no",
+            other_details: "",
           },
           process.env.NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID,
           process.env.NOTIFY_REPORT_A_PROBLEM_EMAIL,

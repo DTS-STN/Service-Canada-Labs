@@ -27,6 +27,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 3) Set the following environment variables (definitions below ) `REPORT_A_PROBLEM_ENABLED`, `NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID`, `NOTIFY_REPORT_A_PROBLEM_EMAIL`, `NOTIFY_API_KEY`, `NOTIFY_BASE_API_URL`
 4) Start application as usual
 
+## Enabling User Signup
+
+1. First create a GC Notify Account
+2. Once you have your account created ask to be added to the Alpha Site account
+4. Run mongo container and mongo express using docker `docker compose up mongodb mongo-express -d`
+3. Set the following environment variables (definitions below) `MONGO_URL`, `MONGO_DB`, `USER_SIGNUP_ENABLED`, `USER_SIGNUP_FRENCH_TEMPLATE_ID`, `USER_SIGNUP_ENGLISH_TEMPLATE_ID`
 
 ## Environment Variables 
 

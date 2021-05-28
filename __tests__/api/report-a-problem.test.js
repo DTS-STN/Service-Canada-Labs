@@ -1,8 +1,8 @@
 import {createMocks} from "node-mocks-http";
 import handler from "../../pages/api/report-a-problem";
-import {submitEmail} from "../../lib/reportAProblem/submitEmail";
+import {submitEmail} from "../../lib/notify/submitEmail";
 
-jest.mock("../../lib/reportAProblem/submitEmail")
+jest.mock("../../lib/notify/submitEmail")
 
 describe("report a problem api", () =>{
     beforeEach(() =>{

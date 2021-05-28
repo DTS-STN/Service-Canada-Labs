@@ -13,5 +13,6 @@ module.exports = {
         "pages/**/*.{js,jsx}",
         "!**/node_modules/**",
         "!**/vendor/**"
-    ]
+    ],
+    preset: '@shelf/jest-mongodb'
 };
