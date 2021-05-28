@@ -32,7 +32,7 @@ async function handler(req, res) {
       userCreationObj = await createUser(conn.db, data.email, extraData);
       userCuid = userCreationObj.ops[0].cuid;
     } catch (e) {
-      if (e.message.includes("unique")) {
+      if (e.message.includes("key")) {
         return res.status(400).json({
           reason: "MongoError",
           message: e.message,
