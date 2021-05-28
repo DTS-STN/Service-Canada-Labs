@@ -44,6 +44,8 @@ Here is a list of all the environment variables used to configure the applicatio
 
 `NEXT_PUBLIC_API_MOCKING`: Value can be `enabled` or `disabled`. If enabled, a mock service worker will run in the Node environment to intercept handled network requests in NextJS data fetching methods like getStaticProps(). We use this to mock API responses during Cypress testing.
 
+`STRAPI_API_BACKEND_URL`: Root URL for the Strapi CMS API. We use https://alphasite-api.dts-stn.com/ for our application.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
