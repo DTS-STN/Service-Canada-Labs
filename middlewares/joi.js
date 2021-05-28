@@ -1,5 +1,5 @@
-import { Schema, ValidationOptions } from "joi";
-import { NextApiHandler } from "next";
+import { Schema, ValidationOptions } from "joi"; //lgtm [js/unused-local-variable]
+import { NextApiHandler } from "next"; //lgtm [js/unused-local-variable]
 
 /**
  * middleware to validate body of request with Joi schema
