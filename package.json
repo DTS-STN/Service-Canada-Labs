@@ -24,7 +24,7 @@
     "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook",
     "test:unit": "jest --forceExit",
-    "test:coverage": "jest --coverage",
+    "test:coverage": "jest --coverage --forceExit",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "prepare": "husky install"

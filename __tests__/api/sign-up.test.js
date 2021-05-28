@@ -1,7 +1,7 @@
 import {createMocks} from "node-mocks-http";
 import handler from "../../pages/api/sign-up";
 import {submitEmail} from "../../lib/notify/submitEmail";
-import {connectToDatabase} from "../../lib/mongodb/connect";
+import {closeConnection, connectToDatabase} from "../../lib/mongodb/connect";
 
 jest.mock("../../lib/notify/submitEmail")
 
@@ -23,7 +23,7 @@ describe("sign up api", ()  => {
         await conn.db.collection("users").deleteMany()
     })
     afterAll(async () =>{
-        await conn.close()
+        await closeConnection()
     })
     it("returns a 201 response when a user is created", async () => {
         process.env.USER_SIGNUP_ENABLED = true
