@@ -6,6 +6,10 @@ import "../styles/fonts.css";
 import "../styles/menu.css";
 import Head from "next/head";
 
+if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
+  require("../mocks");
+}
+
 function MyApp({ Component, pageProps }) {
   return (
     <>

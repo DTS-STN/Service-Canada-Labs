@@ -53,6 +53,7 @@
     "husky": "^6.0.0",
     "jest": "^26.6.3",
     "jest-axe": "^4.1.0",
+    "msw": "^0.29.0",
     "node-mocks-http": "^1.10.1",
     "postcss": "^8.2.15",
     "prettier": "^2.3.0",

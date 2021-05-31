@@ -32,7 +32,7 @@ resource "azurerm_application_gateway" "application-gateway-v2-primary" {
 
   gateway_ip_configuration {
     name      = "subnet"
-    subnet_id = "${var.vnet_id}/subnets/${var.subnet_name}"
+    subnet_id = var.subnet_id
   }
 
   frontend_port {
@@ -233,7 +233,7 @@ resource "azurerm_application_gateway" "application-gateway-v2-secondary" {
 
   gateway_ip_configuration {
     name      = "subnet"
-    subnet_id = "${var.vnet_id_secondary}/subnets/${var.subnet_name_secondary}"
+    subnet_id = var.subnet_id_secondary
   }
 
   frontend_port {
