@@ -78,3 +78,7 @@ terraform/variables.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+
+# jest mongodb cache file
+globalConfig.json
