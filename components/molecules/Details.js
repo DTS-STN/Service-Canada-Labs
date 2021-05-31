@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 export function Details(props) {
   return (
     <details data-testid={props.dataTestId} data-cy={props.dataCy}>
-      <summary className="h-46px max-w-350px w-full bg-details-button-gray focus:ring-inset focus:ring-2 focus:ring-black active:bg-details-button-active-gray hover:bg-details-button-hover-gray rounded py-12px px-5px font-body text-sm text-center text-canada-footer-font cursor-pointer border border-outset border-details-button-gray">
+      <summary className="h-auto sm:h-46px max-w-350px w-full bg-details-button-gray focus:ring-inset focus:ring-2 focus:ring-black active:bg-details-button-active-gray hover:bg-details-button-hover-gray rounded py-12px px-5px font-body text-sm text-center text-canada-footer-font cursor-pointer border border-outset border-details-button-gray">
         {props.label}
       </summary>
       <div className="max-w-350px w-full min-h-200px bg-gray-light-200 mt-1 p-15px border border-details-border-gray rounded ring-inset ring-1 ring-gray-light-200">

@@ -1,11 +1,11 @@
 import Head from "next/head";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { ReportAProblem } from "../components/organisms/ReportAProblem";
 
-export default function About(props) {
-  const { t } = useTranslation("common");
+export default function About(en, fr) {
   const { asPath } = useRouter();
 
   return (
@@ -45,7 +45,7 @@ export default function About(props) {
                 </p>
               </div>
             </div>
-            <ReportAProblem />
+            <ReportAProblem language={"en"} />
           </div>
           <div className="flex items-center justify-center circle-background my-8 lg:mt-0">
             <img
@@ -69,7 +69,7 @@ export default function About(props) {
                 <span className="error404-link" />
                 <p className="font-body text-sm leading-30px">
                   Retournez à la &nbsp;
-                  <Link href="/">
+                  <Link href="/fr">
                     <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
                       page d'accueil [Service Canada Labs]
                     </a>
@@ -78,7 +78,7 @@ export default function About(props) {
                 </p>
               </div>
             </div>
-            <ReportAProblem />
+            <ReportAProblem language="fr" />
           </div>
         </div>
       </section>
@@ -106,3 +106,10 @@ export default function About(props) {
     </div>
   );
 }
+
+export const getStaticProps = async () => ({
+  props: {
+    ...(await serverSideTranslations("en", ["common"])),
+    ...(await serverSideTranslations("fr", ["common"])),
+  },
+});
