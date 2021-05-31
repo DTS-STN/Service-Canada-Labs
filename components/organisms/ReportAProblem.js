@@ -64,20 +64,18 @@ export function ReportAProblem(props) {
             type="hidden"
             id="language"
             name="language"
-            value={
-              props.language !== undefined ? props.language : i18n.language
-            }
+            value={i18n.language}
           />
           <fieldset>
             <legend className="text-base sm:text-p font-body font-normal mb-6">
               {t("reportAProblemCheckAllThatApply", { lng: props.language })}
             </legend>
             <OptionalTextField
-              checkBoxId="incorrectInformationCheckBox"
+              controlId="incorrectInformationCheckBox"
               textFieldId="incorrectInformationTextField"
-              checkBoxName="incorrect_information"
+              controlName="incorrect_information"
               textFieldName="incorrect_information_details"
-              checkBoxLabel={t("reportAProblemIncorrectInformation", {
+              controlLabel={t("reportAProblemIncorrectInformation", {
                 lng: props.language,
               })}
               textFieldLabel={t("reportAProblemProvideMoreDetails", {
@@ -88,17 +86,17 @@ export function ReportAProblem(props) {
               textLabelBold={true}
               wrap="hard"
               maxLength={750}
-              checkBoxDataTestId="incorrectInformation-checkbox"
+              controlDataTestId="incorrectInformation-checkbox"
               textFieldDataTestId="incorrectInformation-text"
-              checkBoxDataCy="incorrectInformation-checkbox"
+              controlDataCy="incorrectInformation-checkbox"
               textFieldDataCy="incorrectInformation-text"
             />
             <OptionalTextField
-              checkBoxId="unclearInformationCheckBox"
+              controlId="unclearInformationCheckBox"
               textFieldId="unclearInformationTextField"
-              checkBoxName="unclear_information"
+              controlName="unclear_information"
               textFieldName="unclear_information_details"
-              checkBoxLabel={t("reportAProblemUnclearInformation", {
+              controlLabel={t("reportAProblemUnclearInformation", {
                 lng: props.language,
               })}
               textFieldLabel={t("reportAProblemProvideMoreDetails", {
@@ -109,17 +107,17 @@ export function ReportAProblem(props) {
               textLabelBold={true}
               wrap="hard"
               maxLength={750}
-              checkBoxDataTestId="unclearInformation-checkbox"
+              controlDataTestId="unclearInformation-checkbox"
               textFieldDataTestId="unclearInformation-text"
-              checkBoxDataCy="unclearInformation-checkbox"
+              controlDataCy="unclearInformation-checkbox"
               textFieldDataCy="unclearInformation-text"
             />
             <OptionalTextField
-              checkBoxId="infoNotFoundCheckBox"
+              controlId="infoNotFoundCheckBox"
               textFieldId="infoNotFoundTextField"
-              checkBoxName="info_not_found"
+              controlName="info_not_found"
               textFieldName="info_not_found_details"
-              checkBoxLabel={t("reportAProblemDidNotFindWhatYoureLookingFor", {
+              controlLabel={t("reportAProblemDidNotFindWhatYoureLookingFor", {
                 lng: props.language,
               })}
               textFieldLabel={t("reportAProblemProvideMoreDetails", {
@@ -130,17 +128,17 @@ export function ReportAProblem(props) {
               textLabelBold={true}
               wrap="hard"
               maxLength={750}
-              checkBoxDataTestId="infoNotFound-checkbox"
+              controlDataTestId="infoNotFound-checkbox"
               textFieldDataTestId="infoNotFound-text"
-              checkBoxDataCy="infoNotFound-checkbox"
+              controlDataCy="infoNotFound-checkbox"
               textFieldDataCy="infoNotFound-text"
             />
             <OptionalTextField
-              checkBoxId="adaptiveTechnologyCheckBox"
+              controlId="adaptiveTechnologyCheckBox"
               textFieldId="adaptiveTechnologyTextField"
-              checkBoxName="adaptive_technology"
+              controlName="adaptive_technology"
               textFieldName="adaptive_technology_details"
-              checkBoxLabel={t(
+              controlLabel={t(
                 "reportAProblemPageDoesNotWorkWithAdaptiveTechnology",
                 { lng: props.language }
               )}
@@ -152,17 +150,17 @@ export function ReportAProblem(props) {
               textLabelBold={true}
               wrap="hard"
               maxLength={750}
-              checkBoxDataTestId="adaptiveTechnology-checkbox"
+              controlDataTestId="adaptiveTechnology-checkbox"
               textFieldDataTestId="adaptiveTechnology-text"
-              checkBoxDataCy="adaptiveTechnology-checkbox"
+              controlDataCy="adaptiveTechnology-checkbox"
               textFieldDataCy="adaptiveTechnology-text"
             />
             <OptionalTextField
-              checkBoxId="privacyIssuesCheckBox"
+              controlId="privacyIssuesCheckBox"
               textFieldId="privacyIssuesTextField"
-              checkBoxName="privacy_issues"
+              controlName="privacy_issues"
               textFieldName="privacy_issues_details"
-              checkBoxLabel={t("reportAProblemIncorrectInformation", {
+              controlLabel={t("reportAProblemIncorrectInformation", {
                 lng: props.language,
               })}
               textFieldLabel={t("reportAProblemProvideMoreDetails", {
@@ -173,17 +171,17 @@ export function ReportAProblem(props) {
               textLabelBold={true}
               wrap="hard"
               maxLength={750}
-              checkBoxDataTestId="privacyIssues-checkbox"
+              controlDataTestId="privacyIssues-checkbox"
               textFieldDataTestId="privacyIssues-text"
-              checkBoxDataCy="privacyIssues-checkbox"
+              controlDataCy="privacyIssues-checkbox"
               textFieldDataCy="privacyIssues-text"
             />
             <OptionalTextField
-              checkBoxId="noWhereElseToGoCheckBox"
+              controlId="noWhereElseToGoCheckBox"
               textFieldId="no_where_else_to_go"
-              checkBoxName="no_where_else_to_go_details"
+              controlName="no_where_else_to_go_details"
               textFieldName="noWhereElseToGoTextField"
-              checkBoxLabel={t("reportAProblemNoWhereElseToGo", {
+              controlLabel={t("reportAProblemNoWhereElseToGo", {
                 lng: props.language,
               })}
               textFieldLabel={t("reportAProblemProvideMoreDetails", {
@@ -194,17 +192,17 @@ export function ReportAProblem(props) {
               textLabelBold={true}
               wrap="hard"
               maxLength={750}
-              checkBoxDataTestId="noWhereElseToGo-checkbox"
+              controlDataTestId="noWhereElseToGo-checkbox"
               textFieldDataTestId="noWhereElseToGo-text"
-              checkBoxDataCy="noWhereElseToGo-checkbox"
+              controlDataCy="noWhereElseToGo-checkbox"
               textFieldDataCy="noWhereElseToGo-text"
             />
             <OptionalTextField
-              checkBoxId="otherCheckBox"
+              controlId="otherCheckBox"
               textFieldId="otherTextField"
-              checkBoxName="other"
+              controlName="other"
               textFieldName="other_details"
-              checkBoxLabel={t("reportAProblemOther", { lng: props.language })}
+              controlLabel={t("reportAProblemOther", { lng: props.language })}
               textFieldLabel={t("reportAProblemProvideMoreDetails", {
                 lng: props.language,
               })}
@@ -213,9 +211,9 @@ export function ReportAProblem(props) {
               textLabelBold={true}
               wrap="hard"
               maxLength={750}
-              checkBoxDataTestId="other-checkbox"
+              controlDataTestId="other-checkbox"
               textFieldDataTestId="other-text"
-              checkBoxDataCy="other-checkbox"
+              controlDataCy="other-checkbox"
               textFieldDataCy="other-text"
             />
           </fieldset>

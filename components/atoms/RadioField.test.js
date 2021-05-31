@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { axe, toHaveNoViolations } from "jest-axe";
-import { Checked, UnChecked } from "./CheckBox.stories";
+import { Checked, UnChecked } from "./RadioField.stories";
 
 expect.extend(toHaveNoViolations);
 
-describe("CheckBox", () => {
+describe("RadioField", () => {
   let mockFn;
   beforeEach(() => {
     mockFn = jest.fn();
@@ -16,7 +16,7 @@ describe("CheckBox", () => {
   it("renders in an unchecked state", () => {
     render(<UnChecked {...UnChecked.args} onChange={mockFn} />);
     expect(screen.getByText(UnChecked.args.label)).toBeTruthy();
-    screen.getByTestId("unchecked-checkbox").click();
+    screen.getByTestId("unchecked-radio-field").click();
     expect(mockFn.mock.calls.length).toBe(1);
     expect(mockFn.mock.calls[0]).toEqual([
       false,
@@ -27,14 +27,7 @@ describe("CheckBox", () => {
 
   it("renders in a checked state", () => {
     render(<Checked {...Checked.args} onChange={mockFn} />);
-    expect(screen.getByTestId("checked-checkbox")).toBeChecked();
-    screen.getByTestId("checked-checkbox").click();
-    expect(mockFn.mock.calls.length).toBe(1);
-    expect(mockFn.mock.calls[0]).toEqual([
-      true,
-      Checked.args.name,
-      Checked.args.value,
-    ]);
+    expect(screen.getByTestId("checked-radio-field")).toBeChecked();
   });
 
   it("has no accessibility violations unchecked", async () => {

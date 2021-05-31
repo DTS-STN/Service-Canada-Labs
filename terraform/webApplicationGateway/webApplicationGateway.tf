@@ -16,11 +16,23 @@ resource "azurerm_application_gateway" "application-gateway-v2-primary" {
     firewall_mode    = "Prevention"
     rule_set_type    = "OWASP"
     rule_set_version = "3.0"
+    disabled_rule_group {
+      rule_group_name = "REQUEST-931-APPLICATION-ATTACK-RFI"
+      rules = [931130]
+    }
+    disabled_rule_group {
+      rule_group_name = "REQUEST-941-APPLICATION-ATTACK-XSS"
+      rules = [941150]
+    }
+    disabled_rule_group {
+      rule_group_name = "REQUEST-942-APPLICATION-ATTACK-SQLI"
+      rules = [942200,942260,942340,942430,942330,942370]
+    }
   }
 
   gateway_ip_configuration {
     name      = "subnet"
-    subnet_id = "${var.vnet_id}/subnets/${var.subnet_name}"
+    subnet_id = var.subnet_id
   }
 
   frontend_port {
@@ -146,12 +158,25 @@ resource "azurerm_application_gateway" "application-gateway-v2-primary" {
     affinity_cookie_name  = "ApplicationGatewayAffinity"
   }
 
+  rewrite_rule_set {
+    name = "CORS" 
+      rewrite_rule {
+        name = "allow-origin"
+        rule_sequence = 100
+          response_header_configuration {
+            header_name  = "Access-Control-Allow-Origin"
+            header_value = "*"
+      }
+    }
+  }
+
   request_routing_rule {
     name                       = "alphasiteApplicationRule"
     rule_type                  = "Basic"
     http_listener_name         = "alphasiteApplicationListener"
     backend_address_pool_name  = "alphasiteApplicationPool"
     backend_http_settings_name = "application-https"
+    rewrite_rule_set_name = "CORS"
   }
 
   request_routing_rule {
@@ -160,6 +185,7 @@ resource "azurerm_application_gateway" "application-gateway-v2-primary" {
     http_listener_name         = "alphasiteApiListener"
     backend_address_pool_name  = "alphasiteApiPool"
     backend_http_settings_name = "api-https"
+    rewrite_rule_set_name = "CORS"
   }
 
   request_routing_rule {
@@ -168,7 +194,8 @@ resource "azurerm_application_gateway" "application-gateway-v2-primary" {
     http_listener_name         = "alphasiteAdminListener"
     backend_address_pool_name  = "alphasiteAdminPool"
     backend_http_settings_name = "admin-https"
-  }  
+    rewrite_rule_set_name = "CORS"
+  } 
 
 }
 
@@ -190,11 +217,23 @@ resource "azurerm_application_gateway" "application-gateway-v2-secondary" {
     firewall_mode    = "Prevention"
     rule_set_type    = "OWASP"
     rule_set_version = "3.0"
+    disabled_rule_group {
+      rule_group_name = "REQUEST-931-APPLICATION-ATTACK-RFI"
+      rules = [931130]
+    }
+    disabled_rule_group {
+      rule_group_name = "REQUEST-941-APPLICATION-ATTACK-XSS"
+      rules = [941150]
+    }
+    disabled_rule_group {
+      rule_group_name = "REQUEST-942-APPLICATION-ATTACK-SQLI"
+      rules = [942200,942260,942340,942430,942330,942370]
+    }
   }
 
   gateway_ip_configuration {
     name      = "subnet"
-    subnet_id = "${var.vnet_id_secondary}/subnets/${var.subnet_name_secondary}"
+    subnet_id = var.subnet_id_secondary
   }
 
   frontend_port {
@@ -320,12 +359,25 @@ resource "azurerm_application_gateway" "application-gateway-v2-secondary" {
     affinity_cookie_name  = "ApplicationGatewayAffinity"
   }
 
+  rewrite_rule_set {
+    name = "CORS" 
+      rewrite_rule {
+        name = "allow-origin"
+        rule_sequence = 100
+          response_header_configuration {
+            header_name  = "Access-Control-Allow-Origin"
+            header_value = "*"
+      }
+    }
+  }
+
   request_routing_rule {
     name                       = "alphasiteApplicationRule"
     rule_type                  = "Basic"
     http_listener_name         = "alphasiteApplicationListener"
     backend_address_pool_name  = "alphasiteApplicationPool"
     backend_http_settings_name = "application-https"
+    rewrite_rule_set_name = "CORS"
   }
 
   request_routing_rule {
@@ -334,6 +386,7 @@ resource "azurerm_application_gateway" "application-gateway-v2-secondary" {
     http_listener_name         = "alphasiteApiListener"
     backend_address_pool_name  = "alphasiteApiPool"
     backend_http_settings_name = "api-https"
+    rewrite_rule_set_name = "CORS"
   }
 
   request_routing_rule {
@@ -342,6 +395,6 @@ resource "azurerm_application_gateway" "application-gateway-v2-secondary" {
     http_listener_name         = "alphasiteAdminListener"
     backend_address_pool_name  = "alphasiteAdminPool"
     backend_http_settings_name = "admin-https"
-  }
-
+    rewrite_rule_set_name = "CORS"
+  } 
 }

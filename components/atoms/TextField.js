@@ -25,6 +25,7 @@ export function TextField(props) {
         name={props.name}
         placeholder={props.placeholder}
         type="text"
+        required={props.required}
         onChange={(e) => props.onChange(e.currentTarget.value)}
         {...ifControlledProps}
         data-testid={props.dataTestId}
@@ -53,6 +54,11 @@ TextField.propTypes = {
    * the label of the text field
    */
   label: PropTypes.string.isRequired,
+
+  /**
+   * whether ot not the field is required
+   */
+  required: PropTypes.bool,
 
   /**
    * value of the text field

@@ -1,9 +1,9 @@
 import React from "react";
-import { CheckBox } from "./CheckBox";
+import { RadioField } from "./RadioField";
 
 export default {
-  title: "Components/Atoms/CheckBox",
-  component: CheckBox,
+  title: "Components/Atoms/RadioField",
+  component: RadioField,
   decorators: [
     (Story) => (
       <div className="w-full flex justify-center">
@@ -15,31 +15,31 @@ export default {
   ],
 };
 
-const Template = (args) => <CheckBox {...args} />;
+const Template = (args) => <RadioField {...args} />;
 
 export const UnChecked = Template.bind({});
 UnChecked.args = {
-  id: "checkbox 1",
-  name: "ChexBox1",
+  id: "radio 1",
+  name: "RadioField1",
   value: "IsChecked",
-  label: "I am a checkbox",
-  dataTestId: "unchecked-checkbox",
+  label: "I am a radio button",
+  dataTestId: "unchecked-radio-field",
 };
 
 export const Checked = Template.bind({});
 Checked.args = {
-  id: "checkbox 1",
-  name: "ChexBox1",
+  id: "radio 1",
+  name: "RadioField1",
   value: "IsChecked",
-  label: "I am a checkbox",
-  dataTestId: "checked-checkbox",
+  label: "I am a radio button",
+  dataTestId: "checked-radio-field",
   checked: true,
 };
 
 export const UnControlled = Template.bind({});
 UnControlled.args = {
-  id: "checkbox 1",
-  name: "ChexBox1",
+  id: "radio 1",
+  name: "RadioField1",
   value: "IsChecked",
   label: "I am an uncontrolled checkbox",
   dataTestId: "uncontrolled-checkbox",

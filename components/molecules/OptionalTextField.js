@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CheckBox } from "../atoms/CheckBox";
 import { TextField } from "../atoms/TextField";
 import { MultiTextField } from "../atoms/MultiTextField";
+import { RadioField } from "../atoms/RadioField";
 import PropTypes from "prop-types";
 
 /**
@@ -16,23 +17,40 @@ export function OptionalTextField(props) {
       setShowTextField(true);
     }
 
-    if (props.onCheckBoxChange) {
-      props.onCheckBoxChange(wasChecked, name, value);
+    if (props.onControlChange) {
+      props.onControlChange(wasChecked, name, value);
     }
   };
   return (
     <>
-      <CheckBox
-        label={props.checkBoxLabel}
-        id={props.checkBoxId}
-        name={props.checkBoxName}
-        checked={props.checked}
-        uncontrolled={props.uncontrolled}
-        value={props.checkBoxValue}
-        onChange={handleCheckChange}
-        dataTestId={props.checkBoxDataTestId}
-        dataCy={props.checkBoxDataCy}
-      />
+      {props.controlType === "checkbox" && (
+        <CheckBox
+          label={props.controlLabel}
+          id={props.controlId}
+          name={props.controlName}
+          checked={props.checked}
+          uncontrolled={props.uncontrolled}
+          value={props.controlValue}
+          onChange={handleCheckChange}
+          dataTestId={props.controlDataTestId}
+          required={props.controlRequired}
+          dataCy={props.controlDataCy}
+        />
+      )}
+      {props.controlType === "radiofield" && (
+        <RadioField
+          label={props.controlLabel}
+          id={props.controlId}
+          name={props.controlName}
+          checked={props.checked}
+          uncontrolled={props.uncontrolled}
+          value={props.controlValue}
+          onChange={handleCheckChange}
+          required={props.controlRequired}
+          dataTestId={props.controlDataTestId}
+          dataCy={props.controlDataCy}
+        />
+      )}
       {(props.uncontrolled && showTextField) || props.checked ? (
         props.multiText ? (
           <MultiTextField
@@ -46,6 +64,7 @@ export function OptionalTextField(props) {
             cols={props.cols}
             spellCheck={props.spellCheck}
             wrap={props.wrap}
+            required={props.textFieldRequired}
             onChange={
               props.onTextFieldChange ? props.onTextFieldChange : () => {}
             }
@@ -61,6 +80,7 @@ export function OptionalTextField(props) {
             value={props.textFieldValue}
             boldLabel={props.textLabelBold}
             uncontrolled={props.uncontrolled}
+            required={props.textFieldRequired}
             onChange={
               props.onTextFieldChange ? props.onTextFieldChange : () => {}
             }
@@ -73,11 +93,19 @@ export function OptionalTextField(props) {
   );
 }
 
+OptionalTextField.defaultProps = {
+  controlType: "checkbox",
+};
+
 OptionalTextField.propTypes = {
+  /**
+   * the type of field that should be used
+   */
+  controlType: PropTypes.oneOf(["checkbox", "radiofield"]),
   /**
    * the id for the checkbox
    */
-  checkBoxId: PropTypes.string.isRequired,
+  controlId: PropTypes.string.isRequired,
 
   /**
    * the id for the text field
@@ -87,7 +115,7 @@ OptionalTextField.propTypes = {
   /**
    * the name for the checkbox
    */
-  checkBoxName: PropTypes.string.isRequired,
+  controlName: PropTypes.string.isRequired,
 
   /**
    * the name for the text field
@@ -97,7 +125,7 @@ OptionalTextField.propTypes = {
   /**
    * the label for the checkbox
    */
-  checkBoxLabel: PropTypes.string.isRequired,
+  controlLabel: PropTypes.string.isRequired,
 
   /**
    * the label for the text field
@@ -112,7 +140,7 @@ OptionalTextField.propTypes = {
   /**
    * the value for the checkbox
    */
-  checkBoxValue: PropTypes.string,
+  controlValue: PropTypes.string,
 
   /**
    * the value for the text field
@@ -135,9 +163,19 @@ OptionalTextField.propTypes = {
   uncontrolled: PropTypes.bool,
 
   /**
+   * whether or not the control is required
+   */
+  controlRequired: PropTypes.bool,
+
+  /**
+   * whether or not the text field is required
+   */
+  textFieldRequired: PropTypes.bool,
+
+  /**
    * the test id for the checkbox to select in unit tests
    */
-  checkBoxDataTestId: PropTypes.string,
+  controlDataTestId: PropTypes.string,
 
   /**
    * the test id for the text field to select in unit tests
@@ -147,7 +185,7 @@ OptionalTextField.propTypes = {
   /**
    * the cypress selector for the checkbox
    */
-  checkBoxDataCy: PropTypes.string,
+  controlDataCy: PropTypes.string,
 
   /**
    * the cypress selector for the text field
@@ -157,7 +195,7 @@ OptionalTextField.propTypes = {
   /**
    * callback when the checkbox changes
    */
-  onCheckBoxChange: PropTypes.func,
+  onControlChange: PropTypes.func,
 
   /**
    * callback when the text field changes

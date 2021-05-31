@@ -33,6 +33,7 @@ export function RadioButton(props) {
         }}
         data-testid={props.dataTestId}
         data-cy={props.dataCy}
+        required={props.required}
         {...ifControlledProps}
       />
       <label
@@ -71,6 +72,11 @@ RadioButton.propTypes = {
    * the label for the radio button
    */
   label: PropTypes.string.isRequired,
+
+  /**
+   * whether or not the field is required
+   */
+  required: PropTypes.bool,
 
   /**
    * whether the radio button is checked or not

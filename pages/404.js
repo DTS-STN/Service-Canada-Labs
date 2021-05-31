@@ -1,13 +1,9 @@
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import { ReportAProblem } from "../components/organisms/ReportAProblem";
 
-export default function About(en, fr) {
-  const { asPath } = useRouter();
-
+export default function About() {
   return (
     <div>
       <Head>
