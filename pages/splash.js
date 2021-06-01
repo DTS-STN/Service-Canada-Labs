@@ -2,7 +2,6 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ActionButton } from "../components/atoms/ActionButton";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 const setLanguage = (event) => {
   event.target.id === "french-button"
