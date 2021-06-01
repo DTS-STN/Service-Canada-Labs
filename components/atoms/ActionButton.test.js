@@ -5,7 +5,13 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { axe, toHaveNoViolations } from "jest-axe";
-import { Default, Secondary, Disabled, Link } from "./ActionButton.stories";
+import {
+  Default,
+  Secondary,
+  Tertiary,
+  Disabled,
+  Link,
+} from "./ActionButton.stories";
 
 expect.extend(toHaveNoViolations);
 
@@ -23,6 +29,14 @@ describe("Action Button", () => {
     expect(screen.getByRole("button")).toHaveTextContent(Secondary.args.text);
     expect(screen.getByRole("button")).toHaveClass(
       "bg-white text-custom-blue-blue border border-custom-blue-blue active:bg-gray-400 hover:bg-gray-200"
+    );
+  });
+
+  it("renders with tertiary colors", () => {
+    render(<Tertiary {...Tertiary.args} />);
+    expect(screen.getByRole("button")).toHaveTextContent(Tertiary.args.text);
+    expect(screen.getByRole("button")).toHaveClass(
+      "underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
     );
   });
 
