@@ -13,8 +13,11 @@ export function ActionButton(props) {
     "py-2 px-4 bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light";
   const secondaryStyle =
     "py-2 px-4 bg-white text-custom-blue-blue border border-custom-blue-blue active:bg-gray-400 hover:bg-gray-200";
+<<<<<<< HEAD
   const tertiaryStyle =
     "py-2 underline hover:text-canada-footer-hover-font-blue text-canada-footer-font";
+=======
+>>>>>>> main
   const disabledStyle =
     "py-2 px-4 bg-gray-light text-gray-600 border border-gray-md";
 
