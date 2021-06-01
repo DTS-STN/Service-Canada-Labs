@@ -18,10 +18,10 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const lang = window.localStorage.getItem("lang");
-      if (!lang) {
-        router.push("/splash");
-      } else {
+      if (lang === "en" || lang === "fr") {
         router.push(router.asPath, {}, { locale: lang });
+      } else {
+        router.push("splash");
       }
     }
   }, []);
