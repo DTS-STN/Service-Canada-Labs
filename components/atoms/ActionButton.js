@@ -51,8 +51,7 @@ export function ActionButton(props) {
         role="button"
         draggable="false"
       >
-        {props.icon &&
-        (props.iconEnd === undefined || props.iconEnd === false) ? (
+        {props.icon && !props.iconEnd ? (
           <span className={props.icon} data-testid={props.dataTestId} />
         ) : undefined}
         {props.text}
@@ -81,8 +80,7 @@ export function ActionButton(props) {
       data-cy-button={props.dataCyButton}
       disabled={props.disabled}
     >
-      {props.icon &&
-      (props.iconEnd === undefined || props.iconEnd === false) ? (
+      {props.icon && !props.iconEnd ? (
         <span className={props.icon} data-testid={props.dataTestId} />
       ) : undefined}
       {props.text}
