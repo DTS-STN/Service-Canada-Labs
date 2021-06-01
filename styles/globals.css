@@ -84,6 +84,10 @@ html {
     border-style: outset;
   }
 
+  .icon-up-caret:before {
+    content: url(../public/up-caret.svg);
+  }
+
   .layout-container {
     @apply mx-6;
   }
