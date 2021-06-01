@@ -11,12 +11,9 @@ import { DateModified } from "../atoms/DateModified";
 import { SearchBar } from "../atoms/SearchBar";
 
 const setLanguage = (language) => {
-  if (typeof window !== "undefined") {
-    console.log(language);
-    language === "fr"
-      ? window.localStorage.setItem("lang", "fr")
-      : window.localStorage.setItem("lang", "en");
-  }
+  language === "fr"
+    ? window.localStorage.setItem("lang", "fr")
+    : window.localStorage.setItem("lang", "en");
 };
 
 /**
