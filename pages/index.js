@@ -59,7 +59,7 @@ export default function Home(props) {
             ]}
           />
           <div>
-            <h1>{t("aboutTitle")}</h1>
+            <h2 className="text-h1">{t("aboutTitle")}</h2>
             <br></br>
             <p className="text-sm md:text-p  leading-normal text-left font-body  font-normal">
               {t("AboutThisSite1/3")}
