@@ -37,12 +37,16 @@ export function ActionButton(props) {
       <a
         className={`${basicStyle}
         ${
-          !props.secondary && !props.disabled && !props.custom
+          !props.secondary &&
+          !props.tertiary &&
+          !props.disabled &&
+          !props.custom
             ? defaultStyle
             : props.className
         }
         ${props.secondary && !props.disabled ? secondaryStyle : props.className}
-        ${props.custom && !props.secondary ? props.custom : ""}
+        ${props.tertiary && !props.disabled ? tertiaryStyle : props.className}
+        ${props.custom && !props.tertiary ? props.custom : ""}
         ${props.disabled ? disabledStyle : props.className}`}
         onClick={props.onClick}
         id={props.id}
@@ -67,12 +71,13 @@ export function ActionButton(props) {
     <button
       className={`${basicStyle}
       ${
-        !props.secondary && !props.disabled && !props.custom
+        !props.secondary && !props.tertiary && !props.disabled && !props.custom
           ? defaultStyle
           : props.className
       }
       ${props.secondary && !props.disabled ? secondaryStyle : props.className}
-      ${props.custom && !props.secondary ? props.custom : ""}
+      ${props.tertiary && !props.disabled ? tertiaryStyle : props.className}
+      ${props.custom && !props.tertiary ? props.custom : ""}
       ${props.disabled ? disabledStyle : props.className}`}
       onClick={props.onClick}
       type={props.type}
@@ -129,6 +134,11 @@ ActionButton.propTypes = {
    * Secondary color styling option
    */
   secondary: PropTypes.bool,
+
+  /**
+   * Tertiary color styling option
+   */
+  tertiary: PropTypes.bool,
 
   /**
    * Custom button styling option
