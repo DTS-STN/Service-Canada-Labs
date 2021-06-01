@@ -13,6 +13,8 @@ export function ActionButton(props) {
     "py-2 px-4 bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light";
   const secondaryStyle =
     "py-2 px-4 bg-white text-custom-blue-blue border border-custom-blue-blue active:bg-gray-400 hover:bg-gray-200";
+  const tertiaryStyle =
+    "py-2 underline hover:text-canada-footer-hover-font-blue text-canada-footer-font";
   const disabledStyle =
     "py-2 px-4 bg-gray-light text-gray-600 border border-gray-md";
 
@@ -35,12 +37,16 @@ export function ActionButton(props) {
       <a
         className={`${basicStyle}
         ${
-          !props.secondary && !props.disabled && !props.custom
+          !props.secondary &&
+          !props.tertiary &&
+          !props.disabled &&
+          !props.custom
             ? defaultStyle
             : props.className
         }
         ${props.secondary && !props.disabled ? secondaryStyle : props.className}
-        ${props.custom && !props.secondary ? props.custom : ""}
+        ${props.tertiary && !props.disabled ? tertiaryStyle : props.className}
+        ${props.custom && !props.tertiary ? props.custom : ""}
         ${props.disabled ? disabledStyle : props.className}`}
         onClick={props.onClick}
         id={props.id}
@@ -65,12 +71,13 @@ export function ActionButton(props) {
     <button
       className={`${basicStyle}
       ${
-        !props.secondary && !props.disabled && !props.custom
+        !props.secondary && !props.tertiary && !props.disabled && !props.custom
           ? defaultStyle
           : props.className
       }
       ${props.secondary && !props.disabled ? secondaryStyle : props.className}
-      ${props.custom && !props.secondary ? props.custom : ""}
+      ${props.tertiary && !props.disabled ? tertiaryStyle : props.className}
+      ${props.custom && !props.tertiary ? props.custom : ""}
       ${props.disabled ? disabledStyle : props.className}`}
       onClick={props.onClick}
       type={props.type}
@@ -127,6 +134,11 @@ ActionButton.propTypes = {
    * Secondary color styling option
    */
   secondary: PropTypes.bool,
+
+  /**
+   * Tertiary color styling option
+   */
+  tertiary: PropTypes.bool,
 
   /**
    * Custom button styling option

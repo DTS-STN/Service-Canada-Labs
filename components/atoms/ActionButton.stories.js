@@ -9,6 +9,7 @@ const Template = (args) => <ActionButton {...args} />;
 
 export const Default = Template.bind({});
 export const Secondary = Template.bind({});
+export const Tertiary = Template.bind({});
 export const Disabled = Template.bind({});
 export const Link = Template.bind({});
 
@@ -25,6 +26,14 @@ Secondary.args = {
   className:
     "bg-white text-custom-blue-blue border border-custom-blue-blue active:bg-gray-400 hover:bg-gray-200",
   secondary: true,
+};
+
+Tertiary.args = {
+  id: "tertiary",
+  text: "Tertiary Button 🚀",
+  className:
+    "underline hover:text-canada-footer-hover-font-blue text-canada-footer-font",
+  tertiary: true,
 };
 
 Disabled.args = {
