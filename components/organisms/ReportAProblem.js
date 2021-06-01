@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import { useTranslation } from "next-i18next";
 import { OptionalTextField } from "../molecules/OptionalTextField";
@@ -38,17 +39,17 @@ export function ReportAProblem(props) {
 
   return (
     <Details
-      label={t("footerReportProblemButtonString")}
+      label={t("footerReportProblemButtonString", { lng: props.language })}
       dataCy="report-a-problem-details"
       dataTestId="report-a-problem-details"
     >
       {submitted ? (
         <>
           <h2 className="text-base font-body mb-4">
-            {t("reportAProblemThankYouForYourHelp")}
+            {t("reportAProblemThankYouForYourHelp", { lng: props.language })}
           </h2>
           <p className="text-sm font-body mb-4">
-            {t("reportAProblemYouWillNotBeContacted")}
+            {t("reportAProblemYouWillNotBeContacted", { lng: props.language })}
           </p>
           <a
             className="block text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
@@ -67,15 +68,19 @@ export function ReportAProblem(props) {
           />
           <fieldset>
             <legend className="text-base sm:text-p font-body font-normal mb-6">
-              {t("reportAProblemCheckAllThatApply")}
+              {t("reportAProblemCheckAllThatApply", { lng: props.language })}
             </legend>
             <OptionalTextField
               controlId="incorrectInformationCheckBox"
               textFieldId="incorrectInformationTextField"
               controlName="incorrect_information"
               textFieldName="incorrect_information_details"
-              controlLabel={t("reportAProblemIncorrectInformation")}
-              textFieldLabel={t("reportAProblemProvideMoreDetails")}
+              controlLabel={t("reportAProblemIncorrectInformation", {
+                lng: props.language,
+              })}
+              textFieldLabel={t("reportAProblemProvideMoreDetails", {
+                lng: props.language,
+              })}
               uncontrolled={true}
               multiText={true}
               textLabelBold={true}
@@ -91,8 +96,12 @@ export function ReportAProblem(props) {
               textFieldId="unclearInformationTextField"
               controlName="unclear_information"
               textFieldName="unclear_information_details"
-              controlLabel={t("reportAProblemUnclearInformation")}
-              textFieldLabel={t("reportAProblemProvideMoreDetails")}
+              controlLabel={t("reportAProblemUnclearInformation", {
+                lng: props.language,
+              })}
+              textFieldLabel={t("reportAProblemProvideMoreDetails", {
+                lng: props.language,
+              })}
               uncontrolled={true}
               multiText={true}
               textLabelBold={true}
@@ -108,8 +117,12 @@ export function ReportAProblem(props) {
               textFieldId="infoNotFoundTextField"
               controlName="info_not_found"
               textFieldName="info_not_found_details"
-              controlLabel={t("reportAProblemDidNotFindWhatYoureLookingFor")}
-              textFieldLabel={t("reportAProblemProvideMoreDetails")}
+              controlLabel={t("reportAProblemDidNotFindWhatYoureLookingFor", {
+                lng: props.language,
+              })}
+              textFieldLabel={t("reportAProblemProvideMoreDetails", {
+                lng: props.language,
+              })}
               uncontrolled={true}
               multiText={true}
               textLabelBold={true}
@@ -126,9 +139,12 @@ export function ReportAProblem(props) {
               controlName="adaptive_technology"
               textFieldName="adaptive_technology_details"
               controlLabel={t(
-                "reportAProblemPageDoesNotWorkWithAdaptiveTechnology"
+                "reportAProblemPageDoesNotWorkWithAdaptiveTechnology",
+                { lng: props.language }
               )}
-              textFieldLabel={t("reportAProblemProvideMoreDetails")}
+              textFieldLabel={t("reportAProblemProvideMoreDetails", {
+                lng: props.language,
+              })}
               uncontrolled={true}
               multiText={true}
               textLabelBold={true}
@@ -144,8 +160,12 @@ export function ReportAProblem(props) {
               textFieldId="privacyIssuesTextField"
               controlName="privacy_issues"
               textFieldName="privacy_issues_details"
-              controlLabel={t("reportAProblemIncorrectInformation")}
-              textFieldLabel={t("reportAProblemProvideMoreDetails")}
+              controlLabel={t("reportAProblemIncorrectInformation", {
+                lng: props.language,
+              })}
+              textFieldLabel={t("reportAProblemProvideMoreDetails", {
+                lng: props.language,
+              })}
               uncontrolled={true}
               multiText={true}
               textLabelBold={true}
@@ -161,8 +181,12 @@ export function ReportAProblem(props) {
               textFieldId="no_where_else_to_go"
               controlName="no_where_else_to_go_details"
               textFieldName="noWhereElseToGoTextField"
-              controlLabel={t("reportAProblemNoWhereElseToGo")}
-              textFieldLabel={t("reportAProblemProvideMoreDetails")}
+              controlLabel={t("reportAProblemNoWhereElseToGo", {
+                lng: props.language,
+              })}
+              textFieldLabel={t("reportAProblemProvideMoreDetails", {
+                lng: props.language,
+              })}
               uncontrolled={true}
               multiText={true}
               textLabelBold={true}
@@ -178,8 +202,10 @@ export function ReportAProblem(props) {
               textFieldId="otherTextField"
               controlName="other"
               textFieldName="other_details"
-              controlLabel={t("reportAProblemOther")}
-              textFieldLabel={t("reportAProblemProvideMoreDetails")}
+              controlLabel={t("reportAProblemOther", { lng: props.language })}
+              textFieldLabel={t("reportAProblemProvideMoreDetails", {
+                lng: props.language,
+              })}
               uncontrolled={true}
               multiText={true}
               textLabelBold={true}
@@ -194,8 +220,8 @@ export function ReportAProblem(props) {
 
           <ul className="list-outside list-disc px-6 py-2">
             <li className="text-xxs sm:text-sm font-body my-4 leading-tight sm:leading-6">
-              <b>{t("reportAProblemNoReply")}</b>
-              {t("reportAProblemEnquiries")}
+              <b>{t("reportAProblemNoReply", { lng: props.language })}</b>
+              {t("reportAProblemEnquiries", { lng: props.language })}
               <a
                 className="block text-xxs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                 href="mailto:experience@servicecanada.gc.ca"
@@ -204,25 +230,34 @@ export function ReportAProblem(props) {
               </a>
             </li>
             <li className="text-xxs sm:text-sm font-body my-4 leading-tight sm:leading-6">
-              <b>{t("reportAProblemNoPersonalInfo")}</b>,&nbsp;
-              {t("reportAProblemNoPersonalInfoDetails")}
+              <b>
+                {t("reportAProblemNoPersonalInfo", { lng: props.language })}
+              </b>
+              ,&nbsp;
+              {t("reportAProblemNoPersonalInfoDetails", {
+                lng: props.language,
+              })}
             </li>
             <li className="text-xxs sm:text-sm font-body my-4 leading-tight sm:leading-6">
-              <b>{t("reportAProblemMoreInfo")}</b>,&nbsp;
-              {t("reportAProblemMoreInfoDetails")}&nbsp;
+              <b>{t("reportAProblemMoreInfo", { lng: props.language })}</b>
+              ,&nbsp;
+              {t("reportAProblemMoreInfoDetails", { lng: props.language })}
+              &nbsp;
               <a
                 className="text-xxs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-                href={t("reportAProblemMoreInfoLink")}
+                href={t("reportAProblemMoreInfoLink", { lng: props.language })}
               >
-                {t("reportAProblemMoreInfoLinkText")}
+                {t("reportAProblemMoreInfoLinkText", { lng: props.language })}
               </a>
             </li>
           </ul>
           <a
             className="block text-xs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font my-4 underline"
-            href={t("reportAProblemPrivacyStatementLink")}
+            href={t("reportAProblemPrivacyStatementLink", {
+              lng: props.language,
+            })}
           >
-            {t("reportAProblemPrivacyStatement")}
+            {t("reportAProblemPrivacyStatement", { lng: props.language })}
           </a>
           <ActionButton
             id="submit"
@@ -231,10 +266,17 @@ export function ReportAProblem(props) {
             dataCy="report-a-problem-submit"
             dataTestId="report-a-problem-submit"
           >
-            Submit
+            {t("reportAProblemSubmit", { lng: props.language })}
           </ActionButton>
         </form>
       )}
     </Details>
   );
 }
+
+ReportAProblem.propTypes = {
+  /**
+   * Translation language
+   */
+  language: PropTypes.string,
+};
