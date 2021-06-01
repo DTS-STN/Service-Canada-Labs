@@ -21,3 +21,16 @@ import 'cypress-axe'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+// Set default language for all tests that do not test the Splash page
+before(() => {
+  // Set language in cypress instance localstorage to skip the splash page
+  cy.setLanguage()
+  // Save localstorage
+  cy.saveLocalStorage()
+})
+
+beforeEach(() => {
+  // Restore localstorage to initial state before each test
+  cy.restoreLocalStorage();
+})

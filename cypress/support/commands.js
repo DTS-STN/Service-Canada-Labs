@@ -23,3 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+import "cypress-localstorage-commands";
+
+Cypress.Commands.add("setLanguage", () => cy.setLocalStorage("lang", "en"))
