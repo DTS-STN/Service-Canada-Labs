@@ -1,6 +1,7 @@
 module.exports = {
     testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/", "<rootDir>/cypress/"],
     setupFilesAfterEnv: ["<rootDir>/setupTests.js"],
+    watchPathIgnorePatterns: ['globalConfig'],
     transform: {
         "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
     },
@@ -11,7 +12,9 @@ module.exports = {
         "components/**/*.{js,jsx}",
         "lib/**/*.{js,jsx}",
         "pages/**/*.{js,jsx}",
+        "middlewares/**/*.{js,jsx}",
         "!**/node_modules/**",
         "!**/vendor/**"
-    ]
+    ],
+    preset: '@shelf/jest-mongodb'
 };

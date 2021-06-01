@@ -27,12 +27,29 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 3) Set the following environment variables (definitions below ) `REPORT_A_PROBLEM_ENABLED`, `NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID`, `NOTIFY_REPORT_A_PROBLEM_EMAIL`, `NOTIFY_API_KEY`, `NOTIFY_BASE_API_URL`
 4) Start application as usual
 
+## Enabling User Signup
+
+1. First create a GC Notify Account
+2. Once you have your account created ask to be added to the Alpha Site account
+3. Run mongo container and mongo express using docker `docker compose up mongodb mongo-express -d`
+4. Set the following environment variables (definitions below) `MONGO_URL`, `MONGO_DB`, `USER_SIGNUP_ENABLED`, `USER_SIGNUP_FRENCH_TEMPLATE_ID`, `USER_SIGNUP_ENGLISH_TEMPLATE_ID`
+5. Start the application as usual
 
 ## Environment Variables 
 
 Here is a list of all the environment variables used to configure the application along with what they do.
 
-`REPORT_A_PROBLEM_ENABLED`: Feature flag for the report a problem API to enable sending to GC Notify. Leave undefined if you do not want to enable this. 
+`MONGO_URL`: The URL for the MongoDB. If you are using the compose set up locally this is `mongodb://root:example@localhost:27017
+
+`MONGO_DB`: The database or namespace to use ( will automatically be created if it doesn't exist )
+
+`REPORT_A_PROBLEM_ENABLED`: Feature flag for the report a problem API to enable sending to GC Notify. Leave undefined if you do not want to enable this.
+
+`USER_SIGNUP_ENABLED`: Feature flag for the user sign up API. Leave this undefined if you do not want to enable this. The route will automatically return a 200 in this case
+
+`USER_SIGNUP_FRENCH_TEMPLATE_ID`: The French template to use for user sign up
+
+`USER_SIGNUP_ENGLISH_TEMPLATE_ID`: The English template to use for the user sign up
 
 `NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID`: The Notify template ID for the report a problem email template
 
