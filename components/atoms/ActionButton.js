@@ -8,12 +8,13 @@ import { useEffect } from "react";
 export function ActionButton(props) {
   //Styling for buttons and links
   const basicStyle =
-    "text-center p-1 rounded-sm py-2 px-4 focus:ring-1 focus:ring-black focus:ring-offset-2";
+    "rounded-sm focus:ring-1 focus:ring-black focus:ring-offset-2";
   const defaultStyle =
-    "bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light";
+    "py-2 px-4 bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light";
   const secondaryStyle =
-    "bg-white text-custom-blue-blue border border-custom-blue-blue active:bg-gray-400 hover:bg-gray-200";
-  const disabledStyle = "bg-gray-light text-gray-600 border border-gray-md";
+    "py-2 px-4 bg-white text-custom-blue-blue border border-custom-blue-blue active:bg-gray-400 hover:bg-gray-200";
+  const disabledStyle =
+    "py-2 px-4 bg-gray-light text-gray-600 border border-gray-md";
 
   //Activate Links with spacebar
   useEffect(() => {
@@ -50,11 +51,14 @@ export function ActionButton(props) {
         role="button"
         draggable="false"
       >
-        {props.icon ? (
+        {props.icon && !props.iconEnd ? (
           <span className={props.icon} data-testid={props.dataTestId} />
         ) : undefined}
         {props.text}
         {props.children}
+        {props.icon && props.iconEnd ? (
+          <span className={props.icon} data-testid={props.dataTestId} />
+        ) : undefined}
       </a>
     </Link>
   ) : (
@@ -76,11 +80,14 @@ export function ActionButton(props) {
       data-cy-button={props.dataCyButton}
       disabled={props.disabled}
     >
-      {props.icon ? (
+      {props.icon && !props.iconEnd ? (
         <span className={props.icon} data-testid={props.dataTestId} />
       ) : undefined}
       {props.text}
       {props.children}
+      {props.icon && props.iconEnd ? (
+        <span className={props.icon} data-testid={props.dataTestId} />
+      ) : undefined}
     </button>
   );
 }
@@ -90,6 +97,11 @@ ActionButton.propTypes = {
    * This will add a img inside the button when needed
    */
   icon: PropTypes.string,
+
+  /**
+   * This is for placing an icon at the end of the component
+   */
+  iconEnd: PropTypes.bool,
 
   /**
    * The text that the button will display
