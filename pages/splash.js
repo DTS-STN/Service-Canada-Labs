@@ -5,11 +5,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 const setLanguage = (event) => {
-  if (typeof window !== "undefined") {
-    event.target.id === "french-button"
-      ? window.localStorage.setItem("lang", "fr")
-      : window.localStorage.setItem("lang", "en");
-  }
+  event.target.id === "french-button"
+    ? window.localStorage.setItem("lang", "fr")
+    : window.localStorage.setItem("lang", "en");
 };
 
 export default function splash(props) {
