@@ -160,7 +160,7 @@ export function ReportAProblem(props) {
               textFieldId="privacyIssuesTextField"
               controlName="privacy_issues"
               textFieldName="privacy_issues_details"
-              controlLabel={t("reportAProblemIncorrectInformation", {
+              controlLabel={t("reportAProblemYoureWorriedAboutYourPrivacy", {
                 lng: props.language,
               })}
               textFieldLabel={t("reportAProblemProvideMoreDetails", {
