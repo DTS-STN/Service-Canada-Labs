@@ -8,12 +8,15 @@ import { useEffect } from "react";
 export function ActionButton(props) {
   //Styling for buttons and links
   const basicStyle =
-    "text-center p-1 rounded-sm py-2 px-4 focus:ring-1 focus:ring-black focus:ring-offset-2";
+    "rounded-sm focus:ring-1 focus:ring-black focus:ring-offset-2";
   const defaultStyle =
-    "bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light";
+    "py-2 px-4 bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light";
   const secondaryStyle =
-    "bg-white text-custom-blue-blue border border-custom-blue-blue active:bg-gray-400 hover:bg-gray-200";
-  const disabledStyle = "bg-gray-light text-gray-600 border border-gray-md";
+    "py-2 px-4 bg-white text-custom-blue-blue border border-custom-blue-blue active:bg-gray-400 hover:bg-gray-200";
+  const tertiaryStyle =
+    "py-2 underline hover:text-canada-footer-hover-font-blue text-canada-footer-font";
+  const disabledStyle =
+    "py-2 px-4 bg-gray-light text-gray-600 border border-gray-md";
 
   //Activate Links with spacebar
   useEffect(() => {
@@ -34,12 +37,16 @@ export function ActionButton(props) {
       <a
         className={`${basicStyle}
         ${
-          !props.secondary && !props.disabled && !props.custom
+          !props.secondary &&
+          !props.tertiary &&
+          !props.disabled &&
+          !props.custom
             ? defaultStyle
             : props.className
         }
         ${props.secondary && !props.disabled ? secondaryStyle : props.className}
-        ${props.custom && !props.secondary ? props.custom : ""}
+        ${props.tertiary && !props.disabled ? tertiaryStyle : props.className}
+        ${props.custom && !props.tertiary ? props.custom : ""}
         ${props.disabled ? disabledStyle : props.className}`}
         onClick={props.onClick}
         id={props.id}
@@ -50,23 +57,27 @@ export function ActionButton(props) {
         role="button"
         draggable="false"
       >
-        {props.icon ? (
+        {props.icon && !props.iconEnd ? (
           <span className={props.icon} data-testid={props.dataTestId} />
         ) : undefined}
         {props.text}
         {props.children}
+        {props.icon && props.iconEnd ? (
+          <span className={props.icon} data-testid={props.dataTestId} />
+        ) : undefined}
       </a>
     </Link>
   ) : (
     <button
       className={`${basicStyle}
       ${
-        !props.secondary && !props.disabled && !props.custom
+        !props.secondary && !props.tertiary && !props.disabled && !props.custom
           ? defaultStyle
           : props.className
       }
       ${props.secondary && !props.disabled ? secondaryStyle : props.className}
-      ${props.custom && !props.secondary ? props.custom : ""}
+      ${props.tertiary && !props.disabled ? tertiaryStyle : props.className}
+      ${props.custom && !props.tertiary ? props.custom : ""}
       ${props.disabled ? disabledStyle : props.className}`}
       onClick={props.onClick}
       type={props.type}
@@ -76,11 +87,14 @@ export function ActionButton(props) {
       data-cy-button={props.dataCyButton}
       disabled={props.disabled}
     >
-      {props.icon ? (
+      {props.icon && !props.iconEnd ? (
         <span className={props.icon} data-testid={props.dataTestId} />
       ) : undefined}
       {props.text}
       {props.children}
+      {props.icon && props.iconEnd ? (
+        <span className={props.icon} data-testid={props.dataTestId} />
+      ) : undefined}
     </button>
   );
 }
@@ -90,6 +104,11 @@ ActionButton.propTypes = {
    * This will add a img inside the button when needed
    */
   icon: PropTypes.string,
+
+  /**
+   * This is for placing an icon at the end of the component
+   */
+  iconEnd: PropTypes.bool,
 
   /**
    * The text that the button will display
@@ -115,6 +134,11 @@ ActionButton.propTypes = {
    * Secondary color styling option
    */
   secondary: PropTypes.bool,
+
+  /**
+   * Tertiary color styling option
+   */
+  tertiary: PropTypes.bool,
 
   /**
    * Custom button styling option
