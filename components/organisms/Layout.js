@@ -10,6 +10,15 @@ import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
 import { SearchBar } from "../atoms/SearchBar";
 
+const setLanguage = (language) => {
+  if (typeof window !== "undefined") {
+    console.log(language);
+    language === "fr"
+      ? window.localStorage.setItem("lang", "fr")
+      : window.localStorage.setItem("lang", "en");
+  }
+};
+
 /**
  * Component which defines the layout of the page for all screen sizes
  */
@@ -35,16 +44,25 @@ export const Layout = ({
               alt="Symbol of the Government of Canada"
             />
             <Link key={language} href={langUrl} locale={language}>
-              <a className="visible lg:invisible ml-6 sm:ml-16 underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue ">
+              <a
+                className="visible lg:invisible ml-6 sm:ml-16 underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue"
+                onClick={() => setLanguage(language)}
+              >
                 {language === "en" ? "EN" : "FR"}
               </a>
             </Link>
           </div>
           <div className="flex-col flex">
-            <Link key={language} href={langUrl} locale={language}>
+            <Link
+              key={language}
+              href={langUrl}
+              locale={language}
+              onClick={() => setLanguage(language)}
+            >
               <a
                 className="lg:visible invisible pb-0 lg:pb-2 self-end underline font-body text-canada-footer-font hover:text-canada-footer-hover-font-blue "
                 data-cy="toggle-language-link"
+                onClick={() => setLanguage(language)}
               >
                 {language === "en" ? "English" : "Français"}
               </a>

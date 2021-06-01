@@ -2,6 +2,15 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ActionButton } from "../components/atoms/ActionButton";
 import Link from "next/link";
+import { useRouter } from "next/router";
+
+const setLanguage = (event) => {
+  if (typeof window !== "undefined") {
+    event.target.id === "french-button"
+      ? window.localStorage.setItem("lang", "fr")
+      : window.localStorage.setItem("lang", "en");
+  }
+};
 
 export default function splash(props) {
   return (
@@ -27,12 +36,14 @@ export default function splash(props) {
               text="English"
               className="inline-block text-sm w-7.5rem xl:w-138px py-3.5 mr-6 rounded leading-3"
               href="/"
+              onClick={setLanguage}
             />
             <ActionButton
               id="french-button"
               text="Français"
               className="w-7.5rem xl:w-138px text-sm py-3.5 inline-block rounded leading-3"
               href="/fr"
+              onClick={setLanguage}
             />
           </div>
         </div>
