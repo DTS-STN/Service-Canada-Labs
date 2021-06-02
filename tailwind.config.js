@@ -73,6 +73,7 @@ module.exports = {
         "gray-dark": "#444",
         "gray-dark-100": "#333",
         "gray-experiment": "#575757",
+        "gray-breadcrumb": "#474747",
         "text-gray": "#5c5c5c",
         "dk-blue": "#26374a",
         "hr-red-bar": "#AE3B43",
