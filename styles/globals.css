@@ -77,7 +77,7 @@ html {
   }
 
   .textbuttonField > p{
-    @apply text-sm leading-normal font-normal font-body
+    @apply text-sm leading-normal font-normal font-body py-4
   }
 
   .border-outset {

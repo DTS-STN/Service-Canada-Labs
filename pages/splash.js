@@ -31,14 +31,14 @@ export default function splash(props) {
             <ActionButton
               id="english-button"
               text="English"
-              className="inline-block text-sm w-7.5rem xl:w-138px py-3.5 mr-6 rounded leading-3"
+              className="text-center text-sm w-7.5rem xl:w-138px py-3.5 mr-6 rounded leading-3"
               href="/"
               onClick={setLanguage}
             />
             <ActionButton
               id="french-button"
               text="Français"
-              className="w-7.5rem xl:w-138px text-sm py-3.5 inline-block rounded leading-3"
+              className="text-center w-7.5rem xl:w-138px text-sm py-3.5 rounded leading-3"
               href="/fr"
               onClick={setLanguage}
             />
