@@ -80,6 +80,10 @@ html {
     @apply text-sm leading-normal font-normal font-body py-4
   }
 
+  .textbuttonField > h1, h2, h3, h4, h5, h6{
+    @apply mb-4
+  }
+
   .border-outset {
     border-style: outset;
   }
