@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
 import { SearchBar } from "../atoms/SearchBar";
+import { Breadcrumb } from "../atoms/Breadcrumb";
 
 const setLanguage = (language) => {
   language === "fr"
@@ -25,6 +26,7 @@ export const Layout = ({
   children,
   locale,
   langUrl,
+  breadcrumbItems,
 }) => {
   const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
@@ -89,6 +91,9 @@ export const Layout = ({
             },
           ]}
         />
+        <div className="layout-container my-2">
+          <Breadcrumb items={breadcrumbItems} />
+        </div>
         {bannerText && bannerTitle ? (
           <Banner siteTitle={bannerTitle} headline={bannerText} />
         ) : null}
@@ -204,4 +209,21 @@ Layout.propTypes = {
    * URL to use for navigation when changing locales
    */
   langUrl: PropTypes.string,
+
+  /**
+   * Array of Items for the breadcrumb
+   */
+  breadcrumbItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      /**
+       * Text for the breadcrumb
+       */
+      text: PropTypes.string,
+
+      /**
+       * Link for the breadcrumb
+       */
+      link: PropTypes.string,
+    })
+  ),
 };
