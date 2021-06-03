@@ -60,7 +60,11 @@ export default function experiments(props) {
   };
 
   return (
-    <Layout locale={props.locale} langUrl={asPath}>
+    <Layout
+      locale={props.locale}
+      langUrl={asPath}
+      breadcrumbItems={[{ text: "Service Canada Labs", link: "/" }]}
+    >
       <Head>
         <title>{t("experimentsTitle")}</title>
         <link rel="icon" href="/favicon.ico" />
