@@ -38,6 +38,10 @@ html {
   h6 {
     @apply text-base;
   }
+  /*Focused*/
+  h1:focus {
+    @apply ring-1;
+  }
 }
 
 @layer utilities {

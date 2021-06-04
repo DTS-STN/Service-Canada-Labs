@@ -13,6 +13,7 @@ export const Banner = ({ siteTitle, headline }) => {
           <h1
             id="pageMainTitle"
             className="text-h1-xl font-medium pt-4 pb-2 break-words"
+            tabIndex="-1"
           >
             {siteTitle}
           </h1>

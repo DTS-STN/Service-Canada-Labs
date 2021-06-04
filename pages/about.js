@@ -26,7 +26,11 @@ export default function About(props) {
             alt=""
           />
         </div>
-        <h1 id="pageMainTitle" className="mb-10 text-h1l font-bold">
+        <h1
+          id="pageMainTitle"
+          className="mb-10 text-h1l font-bold w-max"
+          tabIndex="-1"
+        >
           {t("aboutTitle")}
         </h1>
         <h2 className="mb-6 font-bold">{t("aboutThisSiteHeader")}</h2>
