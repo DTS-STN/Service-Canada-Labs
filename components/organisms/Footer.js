@@ -34,7 +34,11 @@ export function Footer(props) {
                 return (
                   <li
                     key={index}
-                    className="lg:mb-4 mb-5 mr-2.5 list-inside list-disc text-xxs"
+                    className={
+                      index === 0
+                        ? "lg:mb-4 mb-5 mr-2.5 list-inside text-xxs"
+                        : "lg:mb-4 mb-5 mr-2.5 list-inside list-disc text-xxs"
+                    }
                   >
                     <a
                       className="text-xs font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font "
