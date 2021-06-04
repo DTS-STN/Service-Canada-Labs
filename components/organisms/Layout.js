@@ -34,7 +34,7 @@ export const Layout = ({
 
   return (
     <div className="overflow-x-hidden">
-      <div className="skip-main">
+      <nav className="skip-main">
         <ActionButton
           id="skipToMainContent"
           text={t("skipToMainContentBtn")}
@@ -42,7 +42,7 @@ export const Layout = ({
           href="#pageMainTitle"
           dataCyButton={"skip-Content"}
         />
-      </div>
+      </nav>
       <header>
         <PhaseBanner phase={t("Alpha")}>{t("alphaText")}</PhaseBanner>
         <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">

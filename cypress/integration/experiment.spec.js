@@ -37,7 +37,7 @@ describe("experiment page", () => {
 
     it("Filter experiments: All", () => {
         cy.get('[data-cy="all"]').click()
-        cy.get('[data-cy="experiments-list"]>li').should('have.length', 5); // 5 needs to be changed when more or less experiments are added/removed.
+        cy.get('[data-cy="experiments-list"]>li').should('have.length', 4); // 4 needs to be changed when more or less experiments are added/removed.
     });
 
     it("Filter experiments: Active", () => {
