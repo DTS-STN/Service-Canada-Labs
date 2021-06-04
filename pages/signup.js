@@ -10,23 +10,118 @@ import { ActionButton } from "../components/atoms/ActionButton";
 import { TextField } from "../components/atoms/TextField";
 import { RadioField } from "../components/atoms/RadioField";
 import { OptionalTextField } from "../components/molecules/OptionalTextField";
+import { SelectField } from "../components/atoms/SelectField";
 import { CheckBox } from "../components/atoms/CheckBox";
 
+// Joi form validation schema. Only required fields are validated
 const formSchema = Joi.object({
   email: Joi.string()
     .email({ tlds: { allow: false } })
-    .required(),
+    .required()
+    .error((errors) => {
+      errors.forEach((error) => {
+        switch (error.code) {
+          case "string.empty":
+            error.message = "This field is required";
+            break;
+          case "string.email":
+            error.message = "Must be a valid email";
+          default:
+            break;
+        }
+      });
+      return errors;
+    }),
   yearOfBirth: Joi.number()
     .integer()
-    .min(0)
+    .min(1850)
     .max(new Date().getFullYear())
-    .required(),
-  language: Joi.string().valid("en", "fr").required(),
+    .required()
+    .error((errors) => {
+      errors.forEach((error) => {
+        switch (error.code) {
+          case "number.base":
+            error.message = "This field is required";
+            break;
+          case "number.integer":
+            error.message = "This field must be an integer";
+            break;
+          case "number.min":
+            error.message = "This field must be a valid birth year";
+            break;
+          case "number.max":
+            error.message = "This field must be a valid birth year";
+            break;
+          default:
+            break;
+        }
+      });
+      return errors;
+    }),
+  language: Joi.string()
+    .valid("en", "fr")
+    .required()
+    .error((errors) => {
+      errors.forEach((error) => {
+        switch (error.code) {
+          case "string.empty":
+            error.message = "This field is required";
+            break;
+          default:
+            break;
+        }
+      });
+      return errors;
+    }),
+  province: Joi.string()
+    .valid(
+      "",
+      "ON",
+      "QC",
+      "NL",
+      "PE",
+      "NS",
+      "NB",
+      "MB",
+      "SK",
+      "AB",
+      "BC",
+      "YT",
+      "NT",
+      "NU"
+    )
+    .error((errors) => {
+      errors.forEach((error) => {
+        switch (error.code) {
+          case "any.only":
+            error.message = "Use the dropdown to select a valid value";
+            break;
+          default:
+            break;
+        }
+      });
+      return errors;
+    }),
+  agreeToConditions: Joi.string()
+    .valid("yes")
+    .required()
+    .error((errors) => {
+      errors.forEach((error) => {
+        switch (error.code) {
+          case "string.empty":
+            error.message = "You must agree to conditions before sign up";
+            break;
+          default:
+            break;
+        }
+      });
+      return errors;
+    }),
 });
 
 export default function Signup(props) {
   const { t } = useTranslation("common");
-  const { asPath } = useRouter();
+  const { asPath, push } = useRouter();
 
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -36,6 +131,9 @@ export default function Signup(props) {
 
   const [language, setLanguage] = useState("");
   const [languageError, setLanguageError] = useState("");
+
+  const [province, setProvince] = useState("");
+  const [provinceError, setProvinceError] = useState("");
 
   const [gender, setGender] = useState("");
   const [genderOtherDetails, setGenderOtherDetails] = useState("");
@@ -51,6 +149,9 @@ export default function Signup(props) {
   const [incomeLevel, setIncomeLevel] = useState("");
 
   const [agreeToConditions, setAgreeToConditions] = useState("");
+  const [agreeToConditionsError, setAgreeToConditionsError] = useState("");
+
+  const [apiError, setApiError] = useState("");
 
   const handlerMinorityOnChange = (checked, name, value) => {
     // pop value from list
@@ -66,19 +167,62 @@ export default function Signup(props) {
     }
   };
 
+  const handlerClearData = (e) => {
+    e.preventDefault();
+    setEmailError("");
+    setLanguageError("");
+    setYearOfBirthError("");
+    setProvinceError("");
+    setAgreeToConditionsError("");
+
+    setEmail("");
+    setYearOfBirth("");
+    setLanguage("");
+    setGender("");
+    setGenderOtherDetails("");
+    setNativeStatus("");
+    setDisability("");
+    setDisabilityDetails("");
+    setMinority([]);
+    setMinorityGroupOther("");
+    setIncomeLevel("");
+    setAgreeToConditions("");
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     // clear out error values
     await setEmailError("");
     await setLanguageError("");
     await setYearOfBirthError("");
+    await setProvinceError("");
+    await setAgreeToConditionsError("");
 
     // compile data into one object
     const formData = {
       email,
       yearOfBirth: parseInt(yearOfBirth),
       language,
+      province,
+      gender,
+      genderOtherDetails,
+      nativeStatus,
+      disability,
+      disabilityDetails,
+      minority,
+      minorityGroupOther,
+      incomeLevel,
+      agreeToConditions,
     };
+
+    // remove empty values
+    Object.keys(formData).forEach(
+      (k) =>
+        (formData[k] === "" ||
+          formData[k] !== formData[k] ||
+          (Array.isArray(formData[k]) && formData[k].length === 0)) &&
+        delete formData[k]
+    );
 
     // validate data using Joi schema
     const { error } = await formSchema.validate(formData, {
@@ -94,6 +238,8 @@ export default function Signup(props) {
         email: setEmailError,
         language: setLanguageError,
         yearOfBirth: setYearOfBirthError,
+        province: setProvinceError,
+        agreeToConditions: setAgreeToConditionsError,
       };
       // get  the details of the error
       const { details } = error;
@@ -101,6 +247,7 @@ export default function Signup(props) {
       // extract the errors from the Joi schema details object
       // in my view extracting errors and then setting them is a less expensive
       // then setting immediately
+      console.log(details);
       const errors = details.reduce((prevErrors, { path, message, type }) => {
         const field = path[0];
         const errorNumber = Object.keys(prevErrors).length + 1;
@@ -123,6 +270,28 @@ export default function Signup(props) {
       // set errors using mapped error functions
       for (let error in errors) {
         await errorSetFunctions[error](errors[error].message);
+      }
+    } else {
+      //submit data to the api and then redirect to the thank you page
+      const response = await fetch("/api/sign-up", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      // if the response is good, redirect to the thankyou page
+      if (response.status === 201 || response.status === 200) {
+        await push("/thankyou", {}, { locale: props.locale });
+      } else if (response.status === 400) {
+        await setApiError(
+          "It looks like you have previously registered with us. Check your inbox for the validation email!"
+        );
+      } else {
+        await setApiError(
+          "An unknown error has occurred during your registration. Please contact experience@servicecanada.gc.ca to continue your registration or try again later"
+        );
       }
     }
   };
@@ -173,7 +342,7 @@ export default function Signup(props) {
         </ul>
       </section>
       <section className="layout-container">
-        <form onSubmit={handleSubmit} noValidate>
+        <form onSubmit={handleSubmit} onReset={handlerClearData} noValidate>
           <a
             className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-4"
             href={t("reportAProblemPrivacyStatementLink")}
@@ -245,6 +414,84 @@ export default function Signup(props) {
                 required
               />
             </fieldset>
+
+            <SelectField
+              label={"What province/territory do you live in?"}
+              className="mb-10"
+              id="province"
+              boldLabel
+              name="province"
+              value={province}
+              error={provinceError}
+              options={[
+                {
+                  id: "on",
+                  name: "Ontario",
+                  value: "ON",
+                },
+                {
+                  id: "qc",
+                  name: "Quebec",
+                  value: "QC",
+                },
+                {
+                  id: "nl",
+                  name: "Newfoundland and Labrador",
+                  value: "NL",
+                },
+                {
+                  id: "pe",
+                  name: "Prince Edward Island",
+                  value: "PE",
+                },
+                {
+                  id: "ns",
+                  name: "Nova Scotia",
+                  value: "NS",
+                },
+                {
+                  id: "nb",
+                  name: "New Brunswick",
+                  value: "NB",
+                },
+                {
+                  id: "mb",
+                  name: "Manitoba",
+                  value: "MB",
+                },
+                {
+                  id: "sk",
+                  name: "Saskatchewan",
+                  value: "SK",
+                },
+                {
+                  id: "ab",
+                  name: "Alberta",
+                  value: "AB",
+                },
+                {
+                  id: "bc",
+                  name: "British Columbia",
+                  value: "BC",
+                },
+                {
+                  id: "yt",
+                  name: "Yukon",
+                  value: "YT",
+                },
+                {
+                  id: "nt",
+                  name: "Northwest Territories",
+                  value: "NT",
+                },
+                {
+                  id: "nu",
+                  name: "Nunavut",
+                  value: "NU",
+                },
+              ]}
+              onChange={setProvince}
+            />
 
             <fieldset className="mb-10">
               <legend className="block leading-tight text-sm font-body mb-5px font-bold">
@@ -592,6 +839,9 @@ export default function Signup(props) {
               />
             </fieldset>
 
+            {agreeToConditionsError ? (
+              <ErrorLabel message={agreeToConditionsError} />
+            ) : undefined}
             <CheckBox
               className="mb-20"
               checked={agreeToConditions === "yes"}

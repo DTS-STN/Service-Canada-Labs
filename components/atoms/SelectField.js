@@ -1,10 +1,7 @@
 import PropTypes from "prop-types";
 import { ErrorLabel } from "./ErrorLabel";
 
-/**
- * text field component
- */
-export function TextField(props) {
+export function SelectField(props) {
   const ifControlledProps = !props.uncontrolled
     ? {
         value: props.value,
@@ -12,15 +9,15 @@ export function TextField(props) {
     : {};
   return (
     <div
-      className={`block leading-tight${
+      className={`relative block leading-tight${
         props.className ? " " + props.className : " mb-10px"
       }`}
     >
       <label
-        className={`block leading-tight text-sm font-body mb-5px ${
+        className={`select-field-label block leading-tight text-sm font-body mb-5px ${
           props.boldLabel ? "font-bold" : ""
         }`}
-        htmlFor={props.id}
+        htmlFor={props.id + "-choice"}
       >
         {props.required ? (
           <b className="text-error-border-red">*</b>
@@ -34,32 +31,36 @@ export function TextField(props) {
       </label>
       {props.error ? <ErrorLabel message={props.error} /> : undefined}
       <input
-        className={`text-input font-body w-full min-h-40px shadow-sm text-form-input-gray border-2 py-6px px-12px ${
+        className={`text-input select-field font-body w-full min-h-40px shadow-sm text-form-input-gray border-2 py-6px px-12px ${
           props.error ? "border-error-border-red" : "border-black"
         }`}
-        id={props.id}
+        list={props.id}
+        id={props.id + "-choice"}
         name={props.name}
-        placeholder={props.placeholder}
-        type={props.type}
-        min={props.min}
-        max={props.max}
-        step={props.step}
         required={props.required}
         onChange={(e) => props.onChange(e.currentTarget.value)}
         {...ifControlledProps}
-        data-testid={props.dataTestId}
-        data-cy={props.dataCy}
+        data-testid={props.dataTestId + "-choice"}
+        data-cy={props.dataCy + "-choice"}
       />
+      <datalist id={props.id}>
+        {props.options.map(({ id, name, value }) => {
+          return (
+            <option key={id} value={value}>
+              {name}
+            </option>
+          );
+        })}
+      </datalist>
     </div>
   );
 }
 
-TextField.defaultProps = {
+SelectField.defaultProps = {
   value: "",
-  type: "text",
 };
 
-TextField.propTypes = {
+SelectField.propTypes = {
   /**
    * additional css for the component
    */
@@ -88,17 +89,7 @@ TextField.propTypes = {
   /**
    * value of the text field
    */
-  value: PropTypes.string,
-
-  /**
-   * placeholder for the text field,
-   */
-  placeholder: PropTypes.string,
-
-  /**
-   * the type of the input
-   */
-  type: PropTypes.string,
+  value: PropTypes.string.isRequired,
 
   /**
    * call back for when the value of the text field changes
@@ -120,20 +111,13 @@ TextField.propTypes = {
    */
   uncontrolled: PropTypes.bool,
 
-  /**
-   * min value allowed
-   */
-  min: PropTypes.number,
-
-  /**
-   * max value allowed
-   */
-  max: PropTypes.number,
-
-  /**
-   * the legal number of intervals
-   */
-  step: PropTypes.number,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    })
+  ),
 
   /**
    * unit test selector
