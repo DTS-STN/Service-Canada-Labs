@@ -10,7 +10,11 @@ export function CheckBox(props) {
       }
     : {};
   return (
-    <div className="block leading-tight relative pl-40px h-40px clear-left mb-20px">
+    <div
+      className={`block leading-tight relative pl-40px h-40px clear-left${
+        props.className ? " " + props.className : " mb-10px"
+      }`}
+    >
       <input
         className="control-input cursor-pointer appearance-none w-40px h-40px absolute left-0 m-0 z-1 opacity-0"
         id={props.id}
@@ -30,7 +34,9 @@ export function CheckBox(props) {
         {...ifControlledProps}
       />
       <label
-        className="checkbox-label control-label inline-block cursor-pointer pt-4px pb-5px px-15px text-xs sm:text-sm leading-tight sm:leading-6 font-normal font-body"
+        className={`checkbox-label control-label inline-block cursor-pointer pt-4px pb-5px px-15px text-xs sm:text-sm leading-tight sm:leading-6 font-normal font-body${
+          props.error ? " text-error-border-red" : undefined
+        }`}
         htmlFor={props.id}
         onClick={() => props.onChange(props.checked, props.name, props.value)}
       >
@@ -46,6 +52,10 @@ CheckBox.defaultProps = {
 };
 
 CheckBox.propTypes = {
+  /**
+   * additional css for the component
+   */
+  className: PropTypes.string,
   /**
    * whether or not the checkbox is checked
    */
@@ -70,6 +80,11 @@ CheckBox.propTypes = {
    * the label for the checkbox
    */
   label: PropTypes.string.isRequired,
+
+  /**
+   * whether or not there is an error
+   */
+  error: PropTypes.bool,
 
   /**
    * whether or not the field is required

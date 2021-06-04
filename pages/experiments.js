@@ -7,7 +7,7 @@ import { Experiment } from "../components/molecules/Experiment";
 import { useRouter } from "next/router";
 import { Filter } from "../components/molecules/Filter";
 
-export default function experiments(props) {
+export default function Experiments(props) {
   const { t } = useTranslation("common");
   const { asPath } = useRouter();
   const [filter, setFilter] = useState("all");
