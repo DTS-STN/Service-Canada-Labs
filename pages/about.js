@@ -26,7 +26,9 @@ export default function About(props) {
             alt=""
           />
         </div>
-        <h1 className="mb-10 text-h1l font-bold">{t("aboutTitle")}</h1>
+        <h1 id="pageMainTitle" className="mb-10 text-h1l font-bold">
+          {t("aboutTitle")}
+        </h1>
         <h2 className="mb-6 font-bold">{t("aboutThisSiteHeader")}</h2>
         <div className="xl:w-2/3">
           <p className="mb-4">{t("aboutThisSiteContent1")}</p>

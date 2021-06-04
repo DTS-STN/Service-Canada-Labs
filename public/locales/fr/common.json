@@ -82,5 +82,6 @@
   "all": "Toute",
   "alpha": "Alpha",
   "active": "Active",
-  "filterBy": "Filtrer par:"
+  "filterBy": "Filtrer par:",
+  "skipToMainContentBtn": "Passer au contenu principal"
 }

@@ -10,6 +10,7 @@ import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
 import { SearchBar } from "../atoms/SearchBar";
 import { Breadcrumb } from "../atoms/Breadcrumb";
+import { ActionButton } from "../atoms/ActionButton";
 
 const setLanguage = (language) => {
   language === "fr"
@@ -33,6 +34,15 @@ export const Layout = ({
 
   return (
     <div className="overflow-x-hidden">
+      <div className="skip-main">
+        <ActionButton
+          id="skipToMainContent"
+          text={t("skipToMainContentBtn")}
+          custom="bg-custom-blue-dark text-white py-1 px-2 hover:bg-gray-dark"
+          href="#pageMainTitle"
+          dataCyButton={"skip-Content"}
+        />
+      </div>
       <header>
         <PhaseBanner phase={t("Alpha")}>{t("alphaText")}</PhaseBanner>
         <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">
