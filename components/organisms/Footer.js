@@ -36,7 +36,7 @@ export function Footer(props) {
                     key={index}
                     className={
                       index === 0
-                        ? "lg:mb-4 mb-5 mr-2.5 list-inside text-xxs"
+                        ? "lg:mb-4 mb-5 mr-2.5 list-inside list-disc xl:list-none text-xxs"
                         : "lg:mb-4 mb-5 mr-2.5 list-inside list-disc text-xxs"
                     }
                   >
