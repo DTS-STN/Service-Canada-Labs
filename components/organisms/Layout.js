@@ -33,6 +33,18 @@ export const Layout = ({
 
   return (
     <div className="overflow-x-hidden">
+      <nav className="skip-main">
+        <a
+          id="skipToMainContent"
+          className="bg-custom-blue-dark text-white py-1 px-2 hover:bg-gray-dark"
+          href="#pageMainTitle"
+          data-cy-button={"skip-Content"}
+          role="button"
+          draggable="false"
+        >
+          {t("skipToMainContentBtn")}
+        </a>
+      </nav>
       <header>
         <PhaseBanner phase={t("Alpha")}>{t("alphaText")}</PhaseBanner>
         <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">

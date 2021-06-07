@@ -70,7 +70,9 @@ export default function experiments(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section className="layout-container mb-10">
-        <h1>{t("experimentsAndExplorationTitle")}</h1>
+        <h1 id="pageMainTitle" tabIndex="-1" className="w-max">
+          {t("experimentsAndExplorationTitle")}
+        </h1>
         <Filter
           label={t("filterBy")}
           options={filters}
