@@ -38,7 +38,7 @@ export const Layout = ({
           id="skipToMainContent"
           className="bg-custom-blue-dark text-white py-1 px-2 hover:bg-gray-dark"
           href="#pageMainTitle"
-          dataCyButton={"skip-Content"}
+          data-cy-button={"skip-Content"}
           role="button"
           draggable="false"
         >
