@@ -4,7 +4,7 @@ import { ActionButton } from "../atoms/ActionButton";
 /**
  * error box to be used to summarise error in forms
  */
-export default function ErrorBox(props) {
+export function ErrorBox(props) {
   // handler for when the button is clicked
   let handleClick = (id) => {
     // get the element by the id and then call the scroll into view

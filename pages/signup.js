@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useState } from "react";
 import Joi from "joi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import ErrorBox, { ErrprBox } from "../components/molecules/ErrorBox";
+import { ErrorBox } from "../components/molecules/ErrorBox";
 import { ErrorLabel } from "../components/atoms/ErrorLabel";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
@@ -334,6 +334,10 @@ export default function Signup(props) {
         { text: "Sign Up", link: asPath },
       ]}
     >
+      <Head>
+        <title>{"Sign up"}</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <section className="layout-container mb-2 mt-12">
         {errorBoxText ? (
           <ErrorBox text={errorBoxText} errors={errorBoxErrors} />

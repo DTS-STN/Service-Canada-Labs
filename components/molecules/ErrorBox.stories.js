@@ -1,5 +1,5 @@
 import React from "react";
-import ErrorBox from "./ErrorBox";
+import { ErrorBox } from "./ErrorBox";
 
 export default {
   title: "Components/Molecules/ErrorBox",
