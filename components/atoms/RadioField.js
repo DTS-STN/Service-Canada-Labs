@@ -10,7 +10,11 @@ export function RadioField(props) {
       }
     : {};
   return (
-    <div className="block leading-tight relative pl-40px h-40px clear-left mb-20px">
+    <div
+      className={`block leading-tight relative pl-40px h-40px clear-left mb-10px${
+        props.className ? " " + props.className : ""
+      }`}
+    >
       <input
         className="control-input cursor-pointer appearance-none w-40px h-40px absolute left-0 m-0 z-1 opacity-0"
         id={props.id}
@@ -30,7 +34,9 @@ export function RadioField(props) {
         {...ifControlledProps}
       />
       <label
-        className="radio-field-label control-label inline-block cursor-pointer pt-4px pb-5px px-15px text-xs sm:text-sm leading-tight sm:leading-6 font-normal font-body"
+        className={`radio-field-label control-label inline-block cursor-pointer pt-4px pb-5px px-15px text-xs sm:text-sm leading-tight sm:leading-6 font-normal font-body${
+          props.error ? " text-error-border-red" : undefined
+        }`}
         htmlFor={props.id}
         onClick={() => props.onChange(props.checked, props.name, props.value)}
       >
@@ -47,6 +53,10 @@ RadioField.defaultProps = {
 
 RadioField.propTypes = {
   /**
+   * additional css for the component
+   */
+  className: PropTypes.string,
+  /**
    * whether or not the checkbox is checked
    */
   checked: PropTypes.bool.isRequired,
@@ -60,6 +70,11 @@ RadioField.propTypes = {
    * the name of the checkbox
    */
   name: PropTypes.string.isRequired,
+
+  /**
+   * whether or not there is an error
+   */
+  error: PropTypes.bool,
 
   /**
    * whether or not the field is required

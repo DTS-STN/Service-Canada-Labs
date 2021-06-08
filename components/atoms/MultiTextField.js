@@ -1,21 +1,37 @@
 import PropTypes from "prop-types";
+import { ErrorLabel } from "./ErrorLabel";
 
 /**
  * multi line text field
  */
 export function MultiTextField(props) {
   return (
-    <div className="block leading-tight mb-10px">
+    <div
+      className={`block leading-tight${
+        props.className ? " " + props.className : " mb-10px"
+      }`}
+    >
       <label
         className={`block leading-tight text-sm font-body mb-5px ${
           props.boldLabel ? "font-bold" : ""
         }`}
         htmlFor={props.id}
       >
-        {props.label}
+        {props.required ? (
+          <b className="text-error-border-red">*</b>
+        ) : undefined}{" "}
+        {props.label}{" "}
+        {props.required ? (
+          <b className="text-error-border-red">(required)</b>
+        ) : (
+          <p className="inline text-form-input-gray text-sm">(optional)</p>
+        )}
       </label>
+      {props.error ? <ErrorLabel message={props.error} /> : undefined}
       <textarea
-        className="text-input font-body w-full min-h-40px rounded shadow-sm text-form-input-gray border border-form-input-border-gray py-6px px-12px"
+        className={`text-input font-body w-full min-h-40px shadow-sm text-form-input-gray border-2 py-6px px-12px ${
+          props.error ? "border-error-border-red" : "border-black"
+        }`}
         id={props.id}
         name={props.name}
         placeholder={props.placeholder}
@@ -41,6 +57,11 @@ MultiTextField.defaultProps = {
 
 MultiTextField.propTypes = {
   /**
+   * additional css for the component
+   */
+  className: PropTypes.string,
+
+  /**
    * the id of the multi text field
    */
   id: PropTypes.string.isRequired,
@@ -59,6 +80,11 @@ MultiTextField.propTypes = {
   value: PropTypes.string,
 
   /**
+   * message to display if there is an error
+   */
+  error: PropTypes.string,
+
+  /**
    * whether or not the field is required
    */
   required: PropTypes.bool,
@@ -67,6 +93,7 @@ MultiTextField.propTypes = {
    * whether or not spellchecking is enabled for this field, by default it is
    */
   spellCheck: PropTypes.bool,
+
   /**
    * whether or not the label is bold
    */

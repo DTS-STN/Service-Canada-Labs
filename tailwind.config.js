@@ -60,6 +60,8 @@ module.exports = {
           link: "#0535d2",
           "experiment-blue": "#004986",
         },
+        "error-border-red": "#D3080C",
+        "error-background-red": "#F3E9E8",
         "details-button-gray": "#E7E8EA",
         "details-button-active-gray": "#cfd1d5",
         "details-button-hover-gray": "#bbbfc5",
@@ -128,6 +130,7 @@ module.exports = {
 
       maxWidth: {
         "350px": "350px",
+        "600px": "600px",
         "5rem": "5rem",
       },
 

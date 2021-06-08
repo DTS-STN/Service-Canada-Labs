@@ -9,7 +9,7 @@ const setLanguage = (event) => {
     : window.localStorage.setItem("lang", "en");
 };
 
-export default function splash(props) {
+export default function Splash(props) {
   return (
     <>
       <div className="bg-banner-img h-screen min-w-300px min-h-screen blur" />

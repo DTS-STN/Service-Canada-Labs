@@ -1,0 +1,60 @@
+import PropTypes from "prop-types";
+import { ActionButton } from "../atoms/ActionButton";
+
+/**
+ * error box to be used to summarise error in forms
+ */
+export function ErrorBox(props) {
+  // handler for when the button is clicked
+  let handleClick = (id) => {
+    // get the element by the id and then call the scroll into view
+    // we don't want to use a link since it'll be like a refresh and the form data will disappear
+    document.getElementById(id).scrollIntoView();
+  };
+
+  return (
+    <div className="relative border-l-4 border-error-border-red min-h-40px mb-10">
+      <span className="icon-error absolute top-1 -left-2.5 bg-white" />
+      <p className="font-bold ml-4">{props.text}</p>
+      <ul className="w-full list-disc list-inside leading-loose ml-4">
+        {props.errors.map(({ id, text }) => {
+          return (
+            <li key={`${id}-${text}`}>
+              <ActionButton
+                id={`${id}-${text}`}
+                custom="font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline"
+                onClick={() => handleClick(id)}
+              >
+                {text}
+              </ActionButton>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
+ErrorBox.defaultProps = {
+  errors: [],
+};
+
+ErrorBox.propTypes = {
+  /**
+   * An array of error messages to display. Each object contains the id of the element which
+   * when the text is clicked the browser will scroll too
+   */
+  text: PropTypes.string.isRequired,
+  errors: PropTypes.arrayOf(
+    PropTypes.shape({
+      /**
+       * the id of the element on the page to scroll too
+       */
+      id: PropTypes.string.isRequired,
+      /**
+       * the text to display for the error component
+       */
+      text: PropTypes.string.isRequired,
+    })
+  ),
+};

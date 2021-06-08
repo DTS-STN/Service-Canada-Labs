@@ -12,6 +12,7 @@ export const Primary = Template.bind({});
 
 Primary.args = {
   menuButtonTitle: "Menu",
+  signUpText: "Sign up",
   items: [
     {
       link: "#",
