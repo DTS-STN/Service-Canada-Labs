@@ -23,6 +23,7 @@ Primary.args = {
   name: "selectField1",
   label: "I am a select field",
   uncontrolled: true,
+  dataTestId: "select-field-1",
   options: [
     {
       id: "option1",
@@ -30,9 +31,9 @@ Primary.args = {
       value: "option1",
     },
     {
-      id: "option3",
-      name: "Option 3",
-      value: "option3",
+      id: "option2",
+      name: "Option 2",
+      value: "option2",
     },
     {
       id: "option3",
@@ -40,9 +41,9 @@ Primary.args = {
       value: "option3",
     },
     {
-      id: "option3",
-      name: "Option 3",
-      value: "option3",
+      id: "option4",
+      name: "Option 4",
+      value: "option4",
     },
   ],
 };

@@ -46,7 +46,7 @@ export function SelectField(props) {
       <datalist id={props.id}>
         {props.options.map(({ id, name, value }) => {
           return (
-            <option key={id} value={value}>
+            <option key={id} value={value} data-testid={id} data-cy={id}>
               {name}
             </option>
           );

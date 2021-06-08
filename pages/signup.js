@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useState } from "react";
 import Joi from "joi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import ErrorBox, { ErrprBox } from "../components/molecules/ErrorBox";
 import { ErrorLabel } from "../components/atoms/ErrorLabel";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
@@ -13,6 +14,13 @@ import { OptionalTextField } from "../components/molecules/OptionalTextField";
 import { SelectField } from "../components/atoms/SelectField";
 import { CheckBox } from "../components/atoms/CheckBox";
 
+// TODO
+//  - fix bug with error messages not showing custom error message [x]
+//  - create error box component that scrolls down to the field when there is an error [x]
+//  - create thank you page
+//  - create translation strings
+//  - write cypress tests
+
 // Joi form validation schema. Only required fields are validated
 const formSchema = Joi.object({
   email: Joi.string()
@@ -21,12 +29,13 @@ const formSchema = Joi.object({
     .error((errors) => {
       errors.forEach((error) => {
         switch (error.code) {
-          case "string.empty":
+          case "any.required":
             error.message = "This field is required";
             break;
           case "string.email":
             error.message = "Must be a valid email";
           default:
+            console.log(error.code);
             break;
         }
       });
@@ -40,7 +49,7 @@ const formSchema = Joi.object({
     .error((errors) => {
       errors.forEach((error) => {
         switch (error.code) {
-          case "number.base":
+          case "any.required":
             error.message = "This field is required";
             break;
           case "number.integer":
@@ -64,7 +73,7 @@ const formSchema = Joi.object({
     .error((errors) => {
       errors.forEach((error) => {
         switch (error.code) {
-          case "string.empty":
+          case "any.required":
             error.message = "This field is required";
             break;
           default:
@@ -108,7 +117,7 @@ const formSchema = Joi.object({
     .error((errors) => {
       errors.forEach((error) => {
         switch (error.code) {
-          case "string.empty":
+          case "any.required":
             error.message = "You must agree to conditions before sign up";
             break;
           default:
@@ -151,7 +160,9 @@ export default function Signup(props) {
   const [agreeToConditions, setAgreeToConditions] = useState("");
   const [agreeToConditionsError, setAgreeToConditionsError] = useState("");
 
-  const [apiError, setApiError] = useState("");
+  const [errorBoxErrors, setErrorBoxErrors] = useState([]);
+
+  const [errorBoxText, setErrorBoxText] = useState("");
 
   const handlerMinorityOnChange = (checked, name, value) => {
     // pop value from list
@@ -197,6 +208,8 @@ export default function Signup(props) {
     await setYearOfBirthError("");
     await setProvinceError("");
     await setAgreeToConditionsError("");
+    await setErrorBoxErrors([]);
+    await setErrorBoxText("");
 
     // compile data into one object
     const formData = {
@@ -247,30 +260,48 @@ export default function Signup(props) {
       // extract the errors from the Joi schema details object
       // in my view extracting errors and then setting them is a less expensive
       // then setting immediately
-      console.log(details);
       const errors = details.reduce((prevErrors, { path, message, type }) => {
         const field = path[0];
         const errorNumber = Object.keys(prevErrors).length + 1;
         if (!prevErrors[field]) {
           prevErrors[field] = {
+            id: field,
             number: errorNumber,
-            message: `Error ${errorNumber}: ` + message,
+            text: `Error ${errorNumber}: ` + message,
           };
         }
         // override the error message if the type of error is because the field is empty
         else if (type.includes("empty")) {
           prevErrors[field] = {
+            id: field,
             number: prevErrors[field].number,
-            message: `Error ${prevErrors[field].number}: ` + message,
+            text: `Error ${prevErrors[field].number}: ` + message,
           };
         }
         return prevErrors;
       }, {});
 
       // set errors using mapped error functions
+      let errorsList = [];
       for (let error in errors) {
-        await errorSetFunctions[error](errors[error].message);
+        await errorSetFunctions[error](errors[error].text);
+        // the id for the language field is not actually language but languageEn
+        if (errors[error].id === "language") {
+          errors[error].id = "languageEn";
+        }
+        // likewise with province its province choice
+        else if (errors[error].id === "province") {
+          errors[error].id = "province-choice";
+        }
+        errorsList.push(errors[error]);
       }
+
+      console.log(errorsList);
+      // set the errors to the error list
+      await setErrorBoxErrors(errorsList);
+      await setErrorBoxText(
+        `The form could not be submitted because ${errorsList.length} errors were found`
+      );
     } else {
       //submit data to the api and then redirect to the thank you page
       const response = await fetch("/api/sign-up", {
@@ -285,11 +316,11 @@ export default function Signup(props) {
       if (response.status === 201 || response.status === 200) {
         await push("/thankyou", {}, { locale: props.locale });
       } else if (response.status === 400) {
-        await setApiError(
+        await setErrorBoxText(
           "It looks like you have previously registered with us. Check your inbox for the validation email!"
         );
       } else {
-        await setApiError(
+        await setErrorBoxText(
           "An unknown error has occurred during your registration. Please contact experience@servicecanada.gc.ca to continue your registration or try again later"
         );
       }
@@ -306,6 +337,9 @@ export default function Signup(props) {
       ]}
     >
       <section className="layout-container mb-2 mt-12">
+        {errorBoxText ? (
+          <ErrorBox text={errorBoxText} errors={errorBoxErrors} />
+        ) : undefined}
         <h1 className="mb-12">Become a participant!</h1>
         <p className="mb-6">
           You’re invited to take part in usability testing and other research
@@ -853,8 +887,8 @@ export default function Signup(props) {
                 }
               }}
               label="I have read, understood and agree to the above. I affirm that I am 18 years old, or older. I understand that I can withdraw from this participant pool, or any research study at any time without consequence."
-              id="agreeToTerms"
-              name="agreeToTerms"
+              id="agreeToConditions"
+              name="agreeToConditions"
               value="yes"
             />
           </div>
