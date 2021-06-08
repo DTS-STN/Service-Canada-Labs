@@ -35,7 +35,6 @@ const formSchema = Joi.object({
           case "string.email":
             error.message = "Must be a valid email";
           default:
-            console.log(error.code);
             break;
         }
       });
@@ -296,7 +295,6 @@ export default function Signup(props) {
         errorsList.push(errors[error]);
       }
 
-      console.log(errorsList);
       // set the errors to the error list
       await setErrorBoxErrors(errorsList);
       await setErrorBoxText(
