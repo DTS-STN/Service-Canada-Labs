@@ -329,52 +329,35 @@ export default function Signup(props) {
     <Layout
       locale={props.locale}
       langUrl={asPath}
-      breadcrumbItems={[
-        { text: "Service Canada Labs", link: "/" },
-        { text: "Sign Up", link: asPath },
-      ]}
+      breadcrumbItems={[{ text: "Service Canada Labs", link: "/" }]}
     >
       <Head>
-        <title>{"Sign up"}</title>
+        <title>{t("signupPage")}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section className="layout-container mb-2 mt-12">
         {errorBoxText ? (
           <ErrorBox text={errorBoxText} errors={errorBoxErrors} />
         ) : undefined}
-        <h1 className="mb-12">Become a participant!</h1>
-        <p className="mb-6">
-          You’re invited to take part in usability testing and other research
-          interviews to make Service Canada better for everyone. Every bit of
-          feedback helps us make sure we’re making our services simple and easy
-          to use. Fill out the form below to join our list of participants.
-        </p>
-        <h2 className="mb-3">Privacy policy</h2>
-        <p className="mb-6">
-          Your participation is completely voluntary. You can withdraw your
-          participation and data from our list at any time with no impact.
-        </p>
-        <h3 className="mb-3">What we will collect</h3>
-        <p className="mb-3">
-          We need the following information so we can contact you:
-        </p>
+        <h1 className="mb-12">{t("signupTitle")}</h1>
+        <p className="mb-6">{t("signupParagraph1")}</p>
+        <h2 className="mb-3">{t("signupTitle2")}</h2>
+        <p className="mb-6">{t("signupParagraph2")}</p>
+        <h3 className="mb-3">{t("signupTitle3")}</h3>
+        <p className="mb-3">{t("signupParagraph3")}</p>
         <ul className="list-disc list-inside pl-2 mb-3 font-body">
-          <li>Email address</li>
-          <li>Year of birth</li>
-          <li>Language preference</li>
+          <li>{t("signupListEmail")}</li>
+          <li>{t("signupListYear")}</li>
+          <li>{t("signupListLanguage")}</li>
         </ul>
-        <p className="mb-3">
-          You can also choose to share more information with us so we can invite
-          you to research and testing opportunities based on your life
-          experiences
-        </p>
+        <p className="mb-3">{t("signupParagraph4")}</p>
         <ul className="list-disc list-inside pl-2 mb-3 font-body">
-          <li>Province or territory</li>
-          <li>Gender identity</li>
-          <li>Indigenous identity</li>
-          <li>Disabilities</li>
-          <li>Visible Minority status</li>
-          <li>Income range</li>
+          <li>{t("signupListProvince")}</li>
+          <li>{t("signupListGender")}</li>
+          <li>{t("signupListIndigenous")}</li>
+          <li>{t("signupListDisabilities")}</li>
+          <li>{t("signupListMinority")}</li>
+          <li>{t("signupListIncome")}</li>
         </ul>
       </section>
       <section className="layout-container">
@@ -383,19 +366,19 @@ export default function Signup(props) {
             className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-4"
             href={t("reportAProblemPrivacyStatementLink")}
           >
-            Read the full privacy policy
+            {t("signupPrivacy")}
           </a>
           <ActionButton
             id="reset"
             custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-4"
             type="reset"
           >
-            Clear my information from this form
+            {t("signupClear")}
           </ActionButton>
           <div className="max-w-600px">
             <TextField
               className="mb-10"
-              label={"Email address"}
+              label={t("signupListEmail")}
               type="email"
               name="email"
               id="email"
@@ -408,7 +391,7 @@ export default function Signup(props) {
             <TextField
               className="mb-10"
               type="number"
-              label="What is your year of birth"
+              label={t("signupFormYear")}
               name="yearOfBirth"
               id="yearOfBirth"
               error={yearOfBirthError}
@@ -422,15 +405,17 @@ export default function Signup(props) {
             />
             <fieldset className="mb-10">
               <legend className="block leading-tight text-sm font-body mb-5px font-bold">
-                <b className="text-error-border-red">*</b> What language would
-                you like us to contact you in{" "}
-                <b className="text-error-border-red">(required)</b>
+                <b className="text-error-border-red">*</b>{" "}
+                {t("signupFormLanguage")}{" "}
+                <b className="text-error-border-red">
+                  {t("signupFormrequired")}
+                </b>
               </legend>
               {languageError ? (
                 <ErrorLabel message={languageError} />
               ) : undefined}
               <RadioField
-                label={"English"}
+                label={t("signupFormEn")}
                 id="languageEn"
                 name="language"
                 value="en"
@@ -440,7 +425,7 @@ export default function Signup(props) {
                 required
               />
               <RadioField
-                label={"French"}
+                label={t("signupFormFr")}
                 id="languageFr"
                 name="language"
                 value="fr"
@@ -452,7 +437,7 @@ export default function Signup(props) {
             </fieldset>
 
             <SelectField
-              label={"What province/territory do you live in?"}
+              label={t("signupFormProvince")}
               className="mb-10"
               id="province"
               boldLabel
@@ -462,67 +447,67 @@ export default function Signup(props) {
               options={[
                 {
                   id: "on",
-                  name: "Ontario",
+                  name: t("signupFormON"),
                   value: "ON",
                 },
                 {
                   id: "qc",
-                  name: "Quebec",
+                  name: t("signupFormQC"),
                   value: "QC",
                 },
                 {
                   id: "nl",
-                  name: "Newfoundland and Labrador",
+                  name: t("signupFormNL"),
                   value: "NL",
                 },
                 {
                   id: "pe",
-                  name: "Prince Edward Island",
+                  name: t("signupFormPE"),
                   value: "PE",
                 },
                 {
                   id: "ns",
-                  name: "Nova Scotia",
+                  name: t("signupFormNS"),
                   value: "NS",
                 },
                 {
                   id: "nb",
-                  name: "New Brunswick",
+                  name: t("signupFormNB"),
                   value: "NB",
                 },
                 {
                   id: "mb",
-                  name: "Manitoba",
+                  name: t("signupFormMB"),
                   value: "MB",
                 },
                 {
                   id: "sk",
-                  name: "Saskatchewan",
+                  name: t("signupFormSK"),
                   value: "SK",
                 },
                 {
                   id: "ab",
-                  name: "Alberta",
+                  name: t("signupFormAB"),
                   value: "AB",
                 },
                 {
                   id: "bc",
-                  name: "British Columbia",
+                  name: t("signupFormBC"),
                   value: "BC",
                 },
                 {
                   id: "yt",
-                  name: "Yukon",
+                  name: t("signupFormYT"),
                   value: "YT",
                 },
                 {
                   id: "nt",
-                  name: "Northwest Territories",
+                  name: t("signupFormNT"),
                   value: "NT",
                 },
                 {
                   id: "nu",
-                  name: "Nunavut",
+                  name: t("signupFormNU"),
                   value: "NU",
                 },
               ]}
@@ -531,13 +516,13 @@ export default function Signup(props) {
 
             <fieldset className="mb-10">
               <legend className="block leading-tight text-sm font-body mb-5px font-bold">
-                Which term best describes your gender identity?{" "}
+                {t("signupFormGender")}{" "}
                 <p className="inline text-form-input-gray text-sm">
-                  (optional)
+                  {t("signupFormOptional")}
                 </p>
               </legend>
               <RadioField
-                label={"Woman"}
+                label={t("signupFormWoman")}
                 id="genderWoman"
                 name="gender"
                 onChange={(checked, name, value) => setGender(value)}
@@ -545,7 +530,7 @@ export default function Signup(props) {
                 value="woman"
               />
               <RadioField
-                label={"Man"}
+                label={t("signupFormMan")}
                 id="genderMan"
                 name="gender"
                 onChange={(checked, name, value) => setGender(value)}
@@ -553,10 +538,10 @@ export default function Signup(props) {
                 value="man"
               />
               <OptionalTextField
-                controlLabel={"Other"}
+                controlLabel={t("signupFormOther")}
                 textFieldName="genderOtherDetails"
                 textFieldId="genderOtherDetails"
-                textFieldLabel={"If Other please specify"}
+                textFieldLabel={t("signupFormOtherDetails")}
                 controlName="gender"
                 controlId="genderOther"
                 controlValue="other"
@@ -571,7 +556,7 @@ export default function Signup(props) {
                 textLabelBold={true}
               />
               <RadioField
-                label={"I prefer not to answer"}
+                label={t("signupFormPreferNotAnswer")}
                 id="genderPreferNotToAnswer"
                 name="gender"
                 onChange={(checked, name, value) => setGender(value)}
@@ -582,14 +567,13 @@ export default function Signup(props) {
 
             <fieldset className="mb-10">
               <legend className="block leading-tight text-sm font-body mb-5px font-bold">
-                Do you identify as Indigenous; that is First Nations, Métis, or
-                Inuit?{" "}
+                {t("signupFormIndigenous")}{" "}
                 <p className="inline text-form-input-gray text-sm">
-                  (optional)
+                  {t("signupFormOptional")}
                 </p>
               </legend>
               <RadioField
-                label={"First Nations"}
+                label={t("signupFormFirstNations")}
                 id="nativeStatusFirstNations"
                 checked={nativeStatus === "firstNations"}
                 onChange={(checked, name, value) => {
@@ -599,7 +583,7 @@ export default function Signup(props) {
                 value="firstNations"
               />
               <RadioField
-                label={"Métis"}
+                label={t("signupFormMetis")}
                 id="nativeStatusMétis"
                 checked={nativeStatus === "métis"}
                 onChange={(checked, name, value) => {
@@ -609,7 +593,7 @@ export default function Signup(props) {
                 value="métis"
               />
               <RadioField
-                label={"Inuit"}
+                label={t("signupFormInuit")}
                 id="nativeStatusInuit"
                 checked={nativeStatus === "inuit"}
                 onChange={(checked, name, value) => {
@@ -619,7 +603,7 @@ export default function Signup(props) {
                 value="inuit"
               />
               <RadioField
-                label={"Does not apply to me"}
+                label={t("signupFormDoesNotApply")}
                 id="nativeStatusNA"
                 checked={nativeStatus === "N/A"}
                 onChange={(checked, name, value) => {
@@ -629,7 +613,7 @@ export default function Signup(props) {
                 value="N/A"
               />
               <RadioField
-                label={"I prefer not to answer"}
+                label={t("signupFormPreferNotAnswer")}
                 id="nativeStatusPreferNotToAnswer"
                 checked={nativeStatus === "preferNotToAnswer"}
                 onChange={(checked, name, value) => {
@@ -642,18 +626,16 @@ export default function Signup(props) {
 
             <fieldset className="mb-10">
               <legend className="block leading-tight text-sm font-body mb-5px font-bold">
-                Do you identify as a person with a disability?{" "}
+                {t("signupFormDisability")}{" "}
                 <p className="inline text-form-input-gray text-sm">
-                  (optional)
+                  {t("signupFormOptional")}
                 </p>
               </legend>
               <OptionalTextField
-                controlLabel={"Yes"}
+                controlLabel={t("signupFormYes")}
                 textFieldName="disabilityDetails"
                 textFieldId="disabilityDetails"
-                textFieldLabel={
-                  "If “Yes,” what accommodations will you need in order to participate in an online research session with us?"
-                }
+                textFieldLabel={t("signupFormDisability")}
                 textLabelBold={true}
                 multiText={true}
                 checked={disability === "yes"}
@@ -669,7 +651,7 @@ export default function Signup(props) {
                 controlType="radiofield"
               />
               <RadioField
-                label={"No"}
+                label={t("signupFormNo")}
                 id="disabilityNo"
                 onChange={(checked, name, value) => setDisability(value)}
                 checked={disability === "no"}
@@ -677,7 +659,7 @@ export default function Signup(props) {
                 value="no"
               />
               <RadioField
-                label={"I'm not sure"}
+                label={t("signupFormNotSure")}
                 id="disabilityNotSure"
                 onChange={(checked, name, value) => setDisability(value)}
                 checked={disability === "notSure"}
@@ -685,7 +667,7 @@ export default function Signup(props) {
                 value="notSure"
               />
               <RadioField
-                label={"I prefer not to answer"}
+                label={t("signupFormPreferNotAnswer")}
                 id="disabilityPreferNotToAnswer"
                 onChange={(checked, name, value) => setDisability(value)}
                 checked={disability === "preferNotToAnswer"}
@@ -696,14 +678,13 @@ export default function Signup(props) {
 
             <fieldset className="mb-10">
               <legend className="block leading-tight text-sm font-body mb-5px font-bold">
-                Do you identify as a member of a visible minority in Canada ? If
-                yes, select the options that you identify with{" "}
+                {t("signupFormMinority")}{" "}
                 <p className="inline text-form-input-gray text-sm">
-                  (optional)
+                  {t("signupFormOptional")}
                 </p>
               </legend>
               <CheckBox
-                label="Arab"
+                label={t("signupFormArab")}
                 id="minorityGroupArab"
                 name="minorityGroup"
                 checked={minority.includes("arab")}
@@ -711,7 +692,7 @@ export default function Signup(props) {
                 value="arab"
               />
               <CheckBox
-                label="Black"
+                label={t("signupFormBlack")}
                 id="minorityGroupBlack"
                 name="minorityGroup"
                 checked={minority.includes("black")}
@@ -719,7 +700,7 @@ export default function Signup(props) {
                 value="black"
               />
               <CheckBox
-                label="Chinese"
+                label={t("signupFormChinese")}
                 id="minorityGroupChinese"
                 name="minorityGroup"
                 checked={minority.includes("chinese")}
@@ -727,7 +708,7 @@ export default function Signup(props) {
                 value="chinese"
               />
               <CheckBox
-                label="Filipino"
+                label={t("signupFormFilipino")}
                 id="minorityGroupFilipino"
                 name="minorityGroup"
                 checked={minority.includes("filipino")}
@@ -735,7 +716,7 @@ export default function Signup(props) {
                 value="filipino"
               />
               <CheckBox
-                label="Japanese"
+                label={t("signupFormJapanese")}
                 id="minorityGroupJapanese"
                 name="minorityGroup"
                 checked={minority.includes("japanese")}
@@ -743,7 +724,7 @@ export default function Signup(props) {
                 value="japanese"
               />
               <CheckBox
-                label="Korean"
+                label={t("signupFormKorean")}
                 id="minorityGroupKorean"
                 name="minorityGroup"
                 checked={minority.includes("korean")}
@@ -751,7 +732,7 @@ export default function Signup(props) {
                 value="korean"
               />
               <CheckBox
-                label="Latin American"
+                label={t("signupFormLatinAmerican")}
                 id="minorityGroupLatinAmerican"
                 name="minorityGroup"
                 checked={minority.includes("latinAmerican")}
@@ -759,7 +740,7 @@ export default function Signup(props) {
                 value="latinAmerican"
               />
               <CheckBox
-                label="South Asian (e.g., East Indian, Pakistani, Sri Lankan, etc.)"
+                label={t("signupFormSouthAsian")}
                 id="minorityGroupSouthAsian"
                 name="minorityGroup"
                 checked={minority.includes("southAsian")}
@@ -767,7 +748,7 @@ export default function Signup(props) {
                 value="southAsian"
               />
               <CheckBox
-                label="Southeast Asian (including Vietnamese, Cambodian, Laotian, Thai, etc.)"
+                label={t("signupFormSoutheastAsian")}
                 id="minorityGroupSoutheastAsian"
                 name="minorityGroup"
                 checked={minority.includes("southeastAsian")}
@@ -775,7 +756,7 @@ export default function Signup(props) {
                 value="southeastAsian"
               />
               <CheckBox
-                label="West Asian (e.g., Iranian, Afghan, etc.)"
+                label={t("signupFormWestAsian")}
                 id="minorityGroupWestAsian"
                 name="minorityGroup"
                 checked={minority.includes("westAsian")}
@@ -790,7 +771,7 @@ export default function Signup(props) {
                 value="westAsian"
               />
               <OptionalTextField
-                controlLabel="Another visible minority group"
+                controlLabel={t("signupFormOtherMinority")}
                 textFieldName="minorityGroupOther"
                 textFieldId="minorityGroupOtherDetails"
                 textLabelBold={true}
@@ -811,7 +792,7 @@ export default function Signup(props) {
                 }}
                 onTextFieldChange={setMinorityGroupOther}
                 textFieldValue={minorityGroupOther}
-                textFieldLabel="If “Another visible minority group”, please specify"
+                textFieldLabel={t("signupFormOtherMinorityDetails")}
                 controlValue="other"
                 controlName="minorityGroup"
                 controlId="minorityGroupOther"
@@ -820,13 +801,13 @@ export default function Signup(props) {
 
             <fieldset className="mb-10">
               <legend className="block leading-tight text-sm font-body mb-5px font-bold">
-                What is your approximate annual household income (before taxes)?{" "}
+                {t("signupFormIncome")}{" "}
                 <p className="inline text-form-input-gray text-sm">
-                  (optional)
+                  {t("signupFormOptional")}
                 </p>
               </legend>
               <RadioField
-                label={"Less than $30,000"}
+                label={t("signupFormIncome1")}
                 id="income30kLess"
                 name="incomeLevel"
                 checked={incomeLevel === "30kLess"}
@@ -834,7 +815,7 @@ export default function Signup(props) {
                 value="30kLess"
               />
               <RadioField
-                label={"$30,001 to $59,999"}
+                label={t("signupFormIncome2")}
                 id="income60kLess"
                 name="incomeLevel"
                 checked={incomeLevel === "30kto60k"}
@@ -842,7 +823,7 @@ export default function Signup(props) {
                 value="30kto60k"
               />
               <RadioField
-                label={"$60,000 to $99,999"}
+                label={t("signupFormIncome3")}
                 id="income100kLess"
                 name="incomeLevel"
                 checked={incomeLevel === "60kto100k"}
@@ -850,7 +831,7 @@ export default function Signup(props) {
                 value="60kto100k"
               />
               <RadioField
-                label={"$100,000 to $149,999"}
+                label={t("signupFormIncome4")}
                 id="income150kLess"
                 name="incomeLevel"
                 checked={incomeLevel === "100kto150k"}
@@ -858,7 +839,7 @@ export default function Signup(props) {
                 value="100kto150k"
               />
               <RadioField
-                label={"$150,000 or more"}
+                label={t("signupFormIncome5")}
                 id="income150kMore"
                 name="incomeLevel"
                 checked={incomeLevel === "150kMore"}
@@ -866,7 +847,7 @@ export default function Signup(props) {
                 value="150kMore"
               />
               <RadioField
-                label={"I prefer not to answer"}
+                label={t("signupFormPreferNotAnswer")}
                 id="incomePreferNotToAnswer"
                 name="incomeLevel"
                 checked={incomeLevel === "preferNotToAnswer"}
@@ -888,7 +869,7 @@ export default function Signup(props) {
                   setAgreeToConditions(value);
                 }
               }}
-              label="I have read, understood and agree to the above. I affirm that I am 18 years old, or older. I understand that I can withdraw from this participant pool, or any research study at any time without consequence."
+              label={t("signupFormCheckBox")}
               id="agreeToConditions"
               name="agreeToConditions"
               value="yes"
@@ -898,7 +879,7 @@ export default function Signup(props) {
             className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10"
             href={t("reportAProblemPrivacyStatementLink")}
           >
-            Read the full privacy policy
+            {t("signupPrivacy")}
           </a>
           <ActionButton
             id="submit"
@@ -914,7 +895,7 @@ export default function Signup(props) {
             custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10"
             type="reset"
           >
-            Clear my information from this form
+            {t("signupClear")}
           </ActionButton>
         </form>
       </section>
