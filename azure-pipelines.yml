@@ -31,7 +31,7 @@ stages:
         repository: $(imageRepository)
         command: 'build'
         Dockerfile: $(dockerfilePath)
-        arguments: '--pull --build-arg BUILD_DATE=$(BUILD_DATE) ADO_BUILD=$(ADO_BUILD) STRAPI_API_BACKEND_URL=$(STRAPI_API_BACKEND_URL)'
+        arguments: '--pull --build-arg BUILD_DATE=$(BUILD_DATE) TC_BUILD=$(ADO_BUILD) STRAPI_API_BACKEND_URL=$(STRAPI_API_BACKEND_URL)'
         tags: |
           $(tag)
     - task: Docker@2
