@@ -1,6 +1,7 @@
 # Docker
 # Build and push an image to Azure Container Registry
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+name: $(Date:yyyyMMdd)
 
 trigger:
 - master
@@ -12,6 +13,8 @@ variables:
   # Container registry service connection established during pipeline creation
   imageRepository: 'alphasite'
   dockerfilePath: '**/Dockerfile'
+  ADO_BUILD: $(Build.BuildId)
+  BUILD_DATE: $(Build.BuildNumber)
   tag: 'ADO-($ADO_BUILD)'
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
