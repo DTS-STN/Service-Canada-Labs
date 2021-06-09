@@ -49,7 +49,6 @@ export function CheckBox(props) {
         ) : (
           <p className="inline text-form-input-gray text-sm">(optional)</p>
         )}
-        {/*{props.label}*/}
       </label>
     </div>
   );
