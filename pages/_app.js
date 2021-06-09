@@ -5,27 +5,12 @@ import "../styles/forms.css";
 import "../styles/fonts.css";
 import "../styles/menu.css";
 import Head from "next/head";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
 
 if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
   require("../mocks");
 }
 
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const lang = window.localStorage.getItem("lang");
-      if (lang === "en" || lang === "fr") {
-        router.push(router.asPath, {}, { locale: lang });
-      } else {
-        router.push("splash");
-      }
-    }
-  }, []);
-
   return (
     <>
       <Head>

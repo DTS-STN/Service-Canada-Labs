@@ -10,6 +10,8 @@ import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
 import { SearchBar } from "../atoms/SearchBar";
 import { Breadcrumb } from "../atoms/Breadcrumb";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const setLanguage = (language) => {
   language === "fr"
@@ -28,6 +30,19 @@ export const Layout = ({
   langUrl,
   breadcrumbItems,
 }) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const lang = window.localStorage.getItem("lang");
+      if (lang === "en" || lang === "fr") {
+        router.push(router.asPath, {}, { locale: lang });
+      } else {
+        router.push("splash");
+      }
+    }
+  }, []);
+
   const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
 
