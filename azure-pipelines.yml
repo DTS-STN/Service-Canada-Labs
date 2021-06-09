@@ -15,7 +15,7 @@ variables:
   dockerfilePath: '**/Dockerfile'
   ADO_BUILD: $(Build.BuildId)
   BUILD_DATE: $(Build.BuildNumber)
-  tag: 'ADO-($ADO_BUILD)'
+  tag: 'ADO-$(ADO_BUILD)'
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
