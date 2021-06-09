@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const lang = window.localStorage.getItem("lang");
-      if (lang === null) {
+      if (!lang) {
         router.push("splash");
       }
     }
