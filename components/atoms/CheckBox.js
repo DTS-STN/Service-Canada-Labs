@@ -40,15 +40,13 @@ export function CheckBox(props) {
         htmlFor={props.id}
         onClick={() => props.onChange(props.checked, props.name, props.value)}
       >
-        {props.required ? (
+        {props.showRequiredLabel ? (
           <b className="text-error-border-red">*</b>
         ) : undefined}{" "}
         {props.label}{" "}
-        {props.required ? (
+        {props.showRequiredLabel ? (
           <b className="text-error-border-red">(required)</b>
-        ) : (
-          <p className="inline text-form-input-gray text-sm">(optional)</p>
-        )}
+        ) : undefined}
       </label>
     </div>
   );
@@ -57,6 +55,7 @@ export function CheckBox(props) {
 CheckBox.defaultProps = {
   checked: false,
   value: "true",
+  showRequiredLabel: false,
 };
 
 CheckBox.propTypes = {
@@ -98,6 +97,11 @@ CheckBox.propTypes = {
    * whether or not the field is required
    */
   required: PropTypes.bool,
+
+  /**
+   * show the "* ... (required)" in the label. in lists, this isn't necessary, but for an individual checkbox without a parent fieldset this is required
+   */
+  showRequiredLabel: PropTypes.bool,
 
   /**
    * callback to handle change in checked state, takes three arguments, the checked state, the name and the value
