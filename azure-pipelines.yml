@@ -4,7 +4,7 @@
 name: $(Date:yyyyMMdd)
 
 trigger:
-- master
+- main
 
 resources:
 - repo: self
@@ -20,7 +20,7 @@ variables:
 
 stages:
 - stage: Build
-  displayName: Build and push stage
+  displayName: Build and Push to ACR
   jobs:
   - job: Build
     displayName: Build and Push Container
@@ -44,23 +44,23 @@ stages:
         tags: |
           $(tag)
 
-# - stage: Deploy
-#   displayName: Deploy Container to App Service
-#   jobs:  
-#   - job: DeployAdmin
-#     displayName: Deploy Admin Container
-#     pool:
-#       vmImage: $(vmImageName)
-#     steps:
-#     - task: AzureCLI@2
-#       inputs:
-#         azureSubscription: $(DECD_DEV_SUBSCRIPTION)
-#         scriptType: 'bash'
-#         scriptLocation: 'inlineScript'
-#         inlineScript: 'az webapp config container set --docker-custom-image-name $(ACR_DOMAIN)/$(adminImageRepository):$(tag) --docker-registry-server-url $(ACR_DOMAIN) --name alphasite-strapi-admin-as-CanadaCentral --resource-group $(RESOURCE_GROUP)'
-#     - task: AzureCLI@2
-#       inputs:
-#         azureSubscription: $(DECD_DEV_SUBSCRIPTION)
-#         scriptType: 'bash'
-#         scriptLocation: 'inlineScript'
-#         inlineScript: 'az webapp config container set --docker-custom-image-name $(ACR_DOMAIN)/$(adminImageRepository):$(tag) --docker-registry-server-url $(ACR_DOMAIN) --name alphasite-strapi-admin-as-CanadaEast --resource-group $(RESOURCE_GROUP)'        
+- stage: Deploy
+  displayName: Deploy Container to App Service
+  jobs:  
+  - job: DeployAdmin
+    displayName: Deploy Container
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: AzureCLI@2
+      inputs:
+        azureSubscription: $(DECD_DEV_SUBSCRIPTION)
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: 'az webapp config container set --docker-custom-image-name $(ACR_DOMAIN)/$(imageRepository):$(tag) --docker-registry-server-url $(ACR_DOMAIN) --name alphasite-as-CanadaCentral --resource-group $(RESOURCE_GROUP)'
+    - task: AzureCLI@2
+      inputs:
+        azureSubscription: $(DECD_DEV_SUBSCRIPTION)
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: 'az webapp config container set --docker-custom-image-name $(ACR_DOMAIN)/$(imageRepository):$(tag) --docker-registry-server-url $(ACR_DOMAIN) --name alphasite-as-CanadaEast --resource-group $(RESOURCE_GROUP)'        
