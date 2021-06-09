@@ -12,7 +12,7 @@ variables:
   # Container registry service connection established during pipeline creation
   imageRepository: 'alphasite'
   dockerfilePath: '**/Dockerfile'
-  tag: 'ADO-$($ADO_BUILD)'
+  tag: 'ADO-($ADO_BUILD)'
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
