@@ -45,3 +45,13 @@ UnControlled.args = {
   dataTestId: "uncontrolled-checkbox",
   uncontrolled: true,
 };
+
+export const Required = Template.bind({});
+Required.args = {
+  id: "checkbox 1",
+  name: "ChexBox1",
+  value: "IsChecked",
+  label: "I am an uncontrolled checkbox",
+  dataTestId: "required-checkbox",
+  showRequiredLabel: true,
+};
