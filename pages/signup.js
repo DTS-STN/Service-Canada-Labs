@@ -300,6 +300,7 @@ export default function Signup(props) {
       await setErrorBoxText(
         `The form could not be submitted because ${errorsList.length} errors were found`
       );
+      document.getElementById("error-box").scrollIntoView();
     } else {
       //submit data to the api and then redirect to the thank you page
       const response = await fetch("/api/sign-up", {
