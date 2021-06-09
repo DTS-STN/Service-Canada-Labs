@@ -40,7 +40,16 @@ export function CheckBox(props) {
         htmlFor={props.id}
         onClick={() => props.onChange(props.checked, props.name, props.value)}
       >
-        {props.label}
+        {props.required ? (
+          <b className="text-error-border-red">*</b>
+        ) : undefined}{" "}
+        {props.label}{" "}
+        {props.required ? (
+          <b className="text-error-border-red">(required)</b>
+        ) : (
+          <p className="inline text-form-input-gray text-sm">(optional)</p>
+        )}
+        {/*{props.label}*/}
       </label>
     </div>
   );
