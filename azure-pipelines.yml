@@ -12,7 +12,6 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   imageRepository: 'alphasite'
-  dockerfilePath: '**/Dockerfile'
   ADO_BUILD: $(Build.BuildId)
   BUILD_DATE: $(Build.BuildNumber)
   tag: 'ADO-$(ADO_BUILD)'
@@ -33,7 +32,7 @@ stages:
         containerRegistry: $(ACR_NAME)
         repository: $(imageRepository)
         command: 'build'
-        Dockerfile: $(dockerfilePath)
+        Dockerfile: '**/Dockerfile'
         arguments: '--pull --build-arg BUILD_DATE=$(BUILD_DATE) TC_BUILD=$(ADO_BUILD) STRAPI_API_BACKEND_URL=$(STRAPI_API_BACKEND_URL)'
         tags: |
           $(tag)
