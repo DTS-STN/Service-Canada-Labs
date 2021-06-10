@@ -171,5 +171,6 @@
   "errorRegistered": "It looks like you have previously registered with us. Check your inbox for the validation email!",
   "errorUnknown": "An unknown error has occurred during your registration. Please contact experience@servicecanada.gc.ca to continue your registration or try again later",
   "error": "Error",
-  "signupBtn": "Sign up"
+  "signupBtn": "Sign up",
+  "errorMustBe18": "Must be at least 18 years old"
 }
