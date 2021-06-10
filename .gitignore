@@ -84,5 +84,3 @@ terraform.rc
 globalConfig.json
 
 # IDE related files
-.vscode
-.idea/prettier.xml
