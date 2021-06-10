@@ -30,11 +30,9 @@ export function TextField(props) {
         ) : undefined}{" "}
         {props.label}{" "}
         {props.required ? (
-          <b className="text-error-border-red">{t("signupFormrequired")}</b>
+          <b className="text-error-border-red">{t("required")}</b>
         ) : (
-          <p className="inline text-form-input-gray text-sm">
-            {t("signupFormOptional")}
-          </p>
+          <p className="inline text-form-input-gray text-sm">{t("Optional")}</p>
         )}
       </label>
       {props.error ? <ErrorLabel message={props.error} /> : undefined}

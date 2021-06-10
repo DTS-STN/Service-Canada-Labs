@@ -33,10 +33,10 @@ export default function Signup(props) {
         errors.forEach((error) => {
           switch (error.code) {
             case "any.required":
-              error.message = t("signupErrorRequired");
+              error.message = t("errorRequired");
               break;
             case "string.email":
-              error.message = t("signupErrorEmail");
+              error.message = t("errorEmail");
             default:
               break;
           }
@@ -52,16 +52,16 @@ export default function Signup(props) {
         errors.forEach((error) => {
           switch (error.code) {
             case "any.required":
-              error.message = t("signupErrorRequired");
+              error.message = t("errorRequired");
               break;
             case "number.integer":
-              error.message = t("signupErrorInt");
+              error.message = t("errorInt");
               break;
             case "number.min":
-              error.message = t("signupErrorMinMax");
+              error.message = t("errorMinMax");
               break;
             case "number.max":
-              error.message = t("signupErrorMinMax");
+              error.message = t("errorMinMax");
               break;
             default:
               break;
@@ -76,7 +76,7 @@ export default function Signup(props) {
         errors.forEach((error) => {
           switch (error.code) {
             case "any.required":
-              error.message = t("signupErrorRequired");
+              error.message = t("errorRequired");
               break;
             default:
               break;
@@ -105,7 +105,7 @@ export default function Signup(props) {
         errors.forEach((error) => {
           switch (error.code) {
             case "any.only":
-              error.message = t("signupErrorDropdown");
+              error.message = t("errorDropdown");
               break;
             default:
               break;
@@ -120,7 +120,7 @@ export default function Signup(props) {
         errors.forEach((error) => {
           switch (error.code) {
             case "any.required":
-              error.message = t("signupErrorTerms");
+              error.message = t("errorTerms");
               break;
             default:
               break;
@@ -265,7 +265,7 @@ export default function Signup(props) {
           prevErrors[field] = {
             id: field,
             number: errorNumber,
-            text: `${t("signupError")} ${errorNumber}: ` + message,
+            text: `${t("error")} ${errorNumber}: ` + message,
           };
         }
         // override the error message if the type of error is because the field is empty
@@ -273,7 +273,7 @@ export default function Signup(props) {
           prevErrors[field] = {
             id: field,
             number: prevErrors[field].number,
-            text: `${t("signupError")} ${prevErrors[field].number}: ` + message,
+            text: `${t("error")} ${prevErrors[field].number}: ` + message,
           };
         }
         return prevErrors;
@@ -297,9 +297,7 @@ export default function Signup(props) {
       // set the errors to the error list
       await setErrorBoxErrors(errorsList);
       await setErrorBoxText(
-        `${t("signupErrorSubmit1")} ${errorsList.length} ${t(
-          "signupErrorSubmit2"
-        )}`
+        `${t("errorSubmit1")} ${errorsList.length} ${t("errorSubmit2")}`
       );
       document.getElementById("error-box").scrollIntoView();
     } else {
@@ -316,9 +314,9 @@ export default function Signup(props) {
       if (response.status === 201 || response.status === 200) {
         await push("/thankyou", {}, { locale: props.locale });
       } else if (response.status === 400) {
-        await setErrorBoxText(t("signupErrorRegistered"));
+        await setErrorBoxText(t("errorRegistered"));
       } else {
-        await setErrorBoxText(t("signupErrorUnknown"));
+        await setErrorBoxText(t("errorUnknown"));
       }
     }
   };
@@ -338,24 +336,24 @@ export default function Signup(props) {
           <ErrorBox text={errorBoxText} errors={errorBoxErrors} />
         ) : undefined}
         <h1 className="mb-12">{t("signupTitle")}</h1>
-        <p className="mb-6">{t("signupParagraph1")}</p>
+        <p className="mb-6">{t("signupP1")}</p>
         <h2 className="mb-3">{t("signupTitle2")}</h2>
-        <p className="mb-6">{t("signupParagraph2")}</p>
+        <p className="mb-6">{t("signupP2")}</p>
         <h3 className="mb-3">{t("signupTitle3")}</h3>
-        <p className="mb-3">{t("signupParagraph3")}</p>
+        <p className="mb-3">{t("signupP3")}</p>
         <ul className="list-disc list-inside pl-2 mb-3 font-body">
-          <li>{t("signupListEmail")}</li>
-          <li>{t("signupListYear")}</li>
-          <li>{t("signupListLanguage")}</li>
+          <li>{t("email")}</li>
+          <li>{t("year")}</li>
+          <li>{t("language")}</li>
         </ul>
-        <p className="mb-3">{t("signupParagraph4")}</p>
+        <p className="mb-3">{t("signupP4")}</p>
         <ul className="list-disc list-inside pl-2 mb-3 font-body">
-          <li>{t("signupListProvince")}</li>
-          <li>{t("signupListGender")}</li>
-          <li>{t("signupListIndigenous")}</li>
-          <li>{t("signupListDisabilities")}</li>
-          <li>{t("signupListMinority")}</li>
-          <li>{t("signupListIncome")}</li>
+          <li>{t("province")}</li>
+          <li>{t("gender")}</li>
+          <li>{t("indigenous")}</li>
+          <li>{t("disabilities")}</li>
+          <li>{t("minority")}</li>
+          <li>{t("income")}</li>
         </ul>
       </section>
       <section className="layout-container">
@@ -364,19 +362,19 @@ export default function Signup(props) {
             className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-4"
             href={t("reportAProblemPrivacyStatementLink")}
           >
-            {t("signupPrivacy")}
+            {t("privacy")}
           </a>
           <ActionButton
             id="reset"
             custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-4"
             type="reset"
           >
-            {t("signupClear")}
+            {t("clear")}
           </ActionButton>
           <div className="max-w-600px">
             <TextField
               className="mb-10"
-              label={t("signupListEmail")}
+              label={t("email")}
               type="email"
               name="email"
               id="email"
@@ -389,7 +387,7 @@ export default function Signup(props) {
             <TextField
               className="mb-10"
               type="number"
-              label={t("signupFormYear")}
+              label={t("formYear")}
               name="yearOfBirth"
               id="yearOfBirth"
               error={yearOfBirthError}
@@ -403,17 +401,14 @@ export default function Signup(props) {
             />
             <fieldset className="mb-10">
               <legend className="block leading-tight text-sm font-body mb-5px font-bold">
-                <b className="text-error-border-red">*</b>{" "}
-                {t("signupFormLanguage")}{" "}
-                <b className="text-error-border-red">
-                  {t("signupFormrequired")}
-                </b>
+                <b className="text-error-border-red">*</b> {t("formLang")}{" "}
+                <b className="text-error-border-red">{t("required")}</b>
               </legend>
               {languageError ? (
                 <ErrorLabel message={languageError} />
               ) : undefined}
               <RadioField
-                label={t("signupFormEn")}
+                label={t("en")}
                 id="languageEn"
                 name="language"
                 value="en"
@@ -423,7 +418,7 @@ export default function Signup(props) {
                 required
               />
               <RadioField
-                label={t("signupFormFr")}
+                label={t("fr")}
                 id="languageFr"
                 name="language"
                 value="fr"
@@ -435,7 +430,7 @@ export default function Signup(props) {
             </fieldset>
 
             <SelectField
-              label={t("signupFormProvince")}
+              label={t("prov")}
               className="mb-10"
               id="province"
               boldLabel
@@ -445,67 +440,67 @@ export default function Signup(props) {
               options={[
                 {
                   id: "on",
-                  name: t("signupFormON"),
+                  name: t("ON"),
                   value: "ON",
                 },
                 {
                   id: "qc",
-                  name: t("signupFormQC"),
+                  name: t("QC"),
                   value: "QC",
                 },
                 {
                   id: "nl",
-                  name: t("signupFormNL"),
+                  name: t("NL"),
                   value: "NL",
                 },
                 {
                   id: "pe",
-                  name: t("signupFormPE"),
+                  name: t("PE"),
                   value: "PE",
                 },
                 {
                   id: "ns",
-                  name: t("signupFormNS"),
+                  name: t("NS"),
                   value: "NS",
                 },
                 {
                   id: "nb",
-                  name: t("signupFormNB"),
+                  name: t("NB"),
                   value: "NB",
                 },
                 {
                   id: "mb",
-                  name: t("signupFormMB"),
+                  name: t("MB"),
                   value: "MB",
                 },
                 {
                   id: "sk",
-                  name: t("signupFormSK"),
+                  name: t("SK"),
                   value: "SK",
                 },
                 {
                   id: "ab",
-                  name: t("signupFormAB"),
+                  name: t("AB"),
                   value: "AB",
                 },
                 {
                   id: "bc",
-                  name: t("signupFormBC"),
+                  name: t("BC"),
                   value: "BC",
                 },
                 {
                   id: "yt",
-                  name: t("signupFormYT"),
+                  name: t("YT"),
                   value: "YT",
                 },
                 {
                   id: "nt",
-                  name: t("signupFormNT"),
+                  name: t("NT"),
                   value: "NT",
                 },
                 {
                   id: "nu",
-                  name: t("signupFormNU"),
+                  name: t("NU"),
                   value: "NU",
                 },
               ]}
@@ -514,13 +509,13 @@ export default function Signup(props) {
 
             <fieldset className="mb-10">
               <legend className="block leading-tight text-sm font-body mb-5px font-bold">
-                {t("signupFormGender")}{" "}
+                {t("formGender")}{" "}
                 <p className="inline text-form-input-gray text-sm">
-                  {t("signupFormOptional")}
+                  {t("optional")}
                 </p>
               </legend>
               <RadioField
-                label={t("signupFormWoman")}
+                label={t("woman")}
                 id="genderWoman"
                 name="gender"
                 onChange={(checked, name, value) => setGender(value)}
@@ -528,7 +523,7 @@ export default function Signup(props) {
                 value="woman"
               />
               <RadioField
-                label={t("signupFormMan")}
+                label={t("man")}
                 id="genderMan"
                 name="gender"
                 onChange={(checked, name, value) => setGender(value)}
@@ -536,10 +531,10 @@ export default function Signup(props) {
                 value="man"
               />
               <OptionalTextField
-                controlLabel={t("signupFormOther")}
+                controlLabel={t("other")}
                 textFieldName="genderOtherDetails"
                 textFieldId="genderOtherDetails"
-                textFieldLabel={t("signupFormOtherDetails")}
+                textFieldLabel={t("otherDetails")}
                 controlName="gender"
                 controlId="genderOther"
                 controlValue="other"
@@ -554,7 +549,7 @@ export default function Signup(props) {
                 textLabelBold={true}
               />
               <RadioField
-                label={t("signupFormPreferNotAnswer")}
+                label={t("preferNotAnswer")}
                 id="genderPreferNotToAnswer"
                 name="gender"
                 onChange={(checked, name, value) => setGender(value)}
@@ -565,13 +560,13 @@ export default function Signup(props) {
 
             <fieldset className="mb-10">
               <legend className="block leading-tight text-sm font-body mb-5px font-bold">
-                {t("signupFormIndigenous")}{" "}
+                {t("formIndigenous")}{" "}
                 <p className="inline text-form-input-gray text-sm">
-                  {t("signupFormOptional")}
+                  {t("optional")}
                 </p>
               </legend>
               <RadioField
-                label={t("signupFormFirstNations")}
+                label={t("FN")}
                 id="nativeStatusFirstNations"
                 checked={nativeStatus === "firstNations"}
                 onChange={(checked, name, value) => {
@@ -581,7 +576,7 @@ export default function Signup(props) {
                 value="firstNations"
               />
               <RadioField
-                label={t("signupFormMetis")}
+                label={t("metis")}
                 id="nativeStatusMétis"
                 checked={nativeStatus === "métis"}
                 onChange={(checked, name, value) => {
@@ -591,7 +586,7 @@ export default function Signup(props) {
                 value="métis"
               />
               <RadioField
-                label={t("signupFormInuit")}
+                label={t("inuit")}
                 id="nativeStatusInuit"
                 checked={nativeStatus === "inuit"}
                 onChange={(checked, name, value) => {
@@ -601,7 +596,7 @@ export default function Signup(props) {
                 value="inuit"
               />
               <RadioField
-                label={t("signupFormDoesNotApply")}
+                label={t("doesNotApply")}
                 id="nativeStatusNA"
                 checked={nativeStatus === "N/A"}
                 onChange={(checked, name, value) => {
@@ -611,7 +606,7 @@ export default function Signup(props) {
                 value="N/A"
               />
               <RadioField
-                label={t("signupFormPreferNotAnswer")}
+                label={t("preferNotAnswer")}
                 id="nativeStatusPreferNotToAnswer"
                 checked={nativeStatus === "preferNotToAnswer"}
                 onChange={(checked, name, value) => {
@@ -624,16 +619,16 @@ export default function Signup(props) {
 
             <fieldset className="mb-10">
               <legend className="block leading-tight text-sm font-body mb-5px font-bold">
-                {t("signupFormDisability")}{" "}
+                {t("disability")}{" "}
                 <p className="inline text-form-input-gray text-sm">
-                  {t("signupFormOptional")}
+                  {t("optional")}
                 </p>
               </legend>
               <OptionalTextField
-                controlLabel={t("signupFormYes")}
+                controlLabel={t("yes")}
                 textFieldName="disabilityDetails"
                 textFieldId="disabilityDetails"
-                textFieldLabel={t("signupFormDisability")}
+                textFieldLabel={t("yesDetails")}
                 textLabelBold={true}
                 multiText={true}
                 checked={disability === "yes"}
@@ -649,7 +644,7 @@ export default function Signup(props) {
                 controlType="radiofield"
               />
               <RadioField
-                label={t("signupFormNo")}
+                label={t("no")}
                 id="disabilityNo"
                 onChange={(checked, name, value) => setDisability(value)}
                 checked={disability === "no"}
@@ -657,7 +652,7 @@ export default function Signup(props) {
                 value="no"
               />
               <RadioField
-                label={t("signupFormNotSure")}
+                label={t("notSure")}
                 id="disabilityNotSure"
                 onChange={(checked, name, value) => setDisability(value)}
                 checked={disability === "notSure"}
@@ -665,7 +660,7 @@ export default function Signup(props) {
                 value="notSure"
               />
               <RadioField
-                label={t("signupFormPreferNotAnswer")}
+                label={t("preferNotAnswer")}
                 id="disabilityPreferNotToAnswer"
                 onChange={(checked, name, value) => setDisability(value)}
                 checked={disability === "preferNotToAnswer"}
@@ -676,13 +671,13 @@ export default function Signup(props) {
 
             <fieldset className="mb-10">
               <legend className="block leading-tight text-sm font-body mb-5px font-bold">
-                {t("signupFormMinority")}{" "}
+                {t("formMinority")}{" "}
                 <p className="inline text-form-input-gray text-sm">
-                  {t("signupFormOptional")}
+                  {t("optional")}
                 </p>
               </legend>
               <CheckBox
-                label={t("signupFormArab")}
+                label={t("arab")}
                 id="minorityGroupArab"
                 name="minorityGroup"
                 checked={minority.includes("arab")}
@@ -690,7 +685,7 @@ export default function Signup(props) {
                 value="arab"
               />
               <CheckBox
-                label={t("signupFormBlack")}
+                label={t("black")}
                 id="minorityGroupBlack"
                 name="minorityGroup"
                 checked={minority.includes("black")}
@@ -698,7 +693,7 @@ export default function Signup(props) {
                 value="black"
               />
               <CheckBox
-                label={t("signupFormChinese")}
+                label={t("chinese")}
                 id="minorityGroupChinese"
                 name="minorityGroup"
                 checked={minority.includes("chinese")}
@@ -706,7 +701,7 @@ export default function Signup(props) {
                 value="chinese"
               />
               <CheckBox
-                label={t("signupFormFilipino")}
+                label={t("filipino")}
                 id="minorityGroupFilipino"
                 name="minorityGroup"
                 checked={minority.includes("filipino")}
@@ -714,7 +709,7 @@ export default function Signup(props) {
                 value="filipino"
               />
               <CheckBox
-                label={t("signupFormJapanese")}
+                label={t("japanese")}
                 id="minorityGroupJapanese"
                 name="minorityGroup"
                 checked={minority.includes("japanese")}
@@ -722,7 +717,7 @@ export default function Signup(props) {
                 value="japanese"
               />
               <CheckBox
-                label={t("signupFormKorean")}
+                label={t("korean")}
                 id="minorityGroupKorean"
                 name="minorityGroup"
                 checked={minority.includes("korean")}
@@ -730,7 +725,7 @@ export default function Signup(props) {
                 value="korean"
               />
               <CheckBox
-                label={t("signupFormLatinAmerican")}
+                label={t("LA")}
                 id="minorityGroupLatinAmerican"
                 name="minorityGroup"
                 checked={minority.includes("latinAmerican")}
@@ -738,7 +733,7 @@ export default function Signup(props) {
                 value="latinAmerican"
               />
               <CheckBox
-                label={t("signupFormSouthAsian")}
+                label={t("SA")}
                 id="minorityGroupSouthAsian"
                 name="minorityGroup"
                 checked={minority.includes("southAsian")}
@@ -746,7 +741,7 @@ export default function Signup(props) {
                 value="southAsian"
               />
               <CheckBox
-                label={t("signupFormSoutheastAsian")}
+                label={t("SEA")}
                 id="minorityGroupSoutheastAsian"
                 name="minorityGroup"
                 checked={minority.includes("southeastAsian")}
@@ -754,7 +749,7 @@ export default function Signup(props) {
                 value="southeastAsian"
               />
               <CheckBox
-                label={t("signupFormWestAsian")}
+                label={t("WA")}
                 id="minorityGroupWestAsian"
                 name="minorityGroup"
                 checked={minority.includes("westAsian")}
@@ -769,7 +764,7 @@ export default function Signup(props) {
                 value="westAsian"
               />
               <OptionalTextField
-                controlLabel={t("signupFormOtherMinority")}
+                controlLabel={t("otherMinority")}
                 textFieldName="minorityGroupOther"
                 textFieldId="minorityGroupOtherDetails"
                 textLabelBold={true}
@@ -790,7 +785,7 @@ export default function Signup(props) {
                 }}
                 onTextFieldChange={setMinorityGroupOther}
                 textFieldValue={minorityGroupOther}
-                textFieldLabel={t("signupFormOtherMinorityDetails")}
+                textFieldLabel={t("otherMinorityDetails")}
                 controlValue="other"
                 controlName="minorityGroup"
                 controlId="minorityGroupOther"
@@ -799,13 +794,13 @@ export default function Signup(props) {
 
             <fieldset className="mb-10">
               <legend className="block leading-tight text-sm font-body mb-5px font-bold">
-                {t("signupFormIncome")}{" "}
+                {t("formIncome")}{" "}
                 <p className="inline text-form-input-gray text-sm">
-                  {t("signupFormOptional")}
+                  {t("optional")}
                 </p>
               </legend>
               <RadioField
-                label={t("signupFormIncome1")}
+                label={t("income1")}
                 id="income30kLess"
                 name="incomeLevel"
                 checked={incomeLevel === "30kLess"}
@@ -813,7 +808,7 @@ export default function Signup(props) {
                 value="30kLess"
               />
               <RadioField
-                label={t("signupFormIncome2")}
+                label={t("income2")}
                 id="income60kLess"
                 name="incomeLevel"
                 checked={incomeLevel === "30kto60k"}
@@ -821,7 +816,7 @@ export default function Signup(props) {
                 value="30kto60k"
               />
               <RadioField
-                label={t("signupFormIncome3")}
+                label={t("income3")}
                 id="income100kLess"
                 name="incomeLevel"
                 checked={incomeLevel === "60kto100k"}
@@ -829,7 +824,7 @@ export default function Signup(props) {
                 value="60kto100k"
               />
               <RadioField
-                label={t("signupFormIncome4")}
+                label={t("income4")}
                 id="income150kLess"
                 name="incomeLevel"
                 checked={incomeLevel === "100kto150k"}
@@ -837,7 +832,7 @@ export default function Signup(props) {
                 value="100kto150k"
               />
               <RadioField
-                label={t("signupFormIncome5")}
+                label={t("income5")}
                 id="income150kMore"
                 name="incomeLevel"
                 checked={incomeLevel === "150kMore"}
@@ -845,7 +840,7 @@ export default function Signup(props) {
                 value="150kMore"
               />
               <RadioField
-                label={t("signupFormPreferNotAnswer")}
+                label={t("preferNotAnswer")}
                 id="incomePreferNotToAnswer"
                 name="incomeLevel"
                 checked={incomeLevel === "preferNotToAnswer"}
@@ -867,7 +862,7 @@ export default function Signup(props) {
                   setAgreeToConditions(value);
                 }
               }}
-              label={t("signupFormCheckBox")}
+              label={t("formCheckBox")}
               id="agreeToConditions"
               name="agreeToConditions"
               value="yes"
@@ -878,7 +873,7 @@ export default function Signup(props) {
             className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10"
             href={t("reportAProblemPrivacyStatementLink")}
           >
-            {t("signupPrivacy")}
+            {t("privacy")}
           </a>
           <ActionButton
             id="submit"
@@ -894,7 +889,7 @@ export default function Signup(props) {
             custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10"
             type="reset"
           >
-            {t("signupClear")}
+            {t("clear")}
           </ActionButton>
         </form>
       </section>
