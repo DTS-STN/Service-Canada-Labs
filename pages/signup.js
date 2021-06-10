@@ -34,6 +34,7 @@ const formSchema = Joi.object({
             break;
           case "string.email":
             error.message = "Must be a valid email";
+            break;
           default:
             break;
         }
@@ -43,7 +44,7 @@ const formSchema = Joi.object({
   yearOfBirth: Joi.number()
     .integer()
     .min(1850)
-    .max(new Date().getFullYear())
+    .max(new Date().getFullYear() - 18)
     .required()
     .error((errors) => {
       errors.forEach((error) => {
