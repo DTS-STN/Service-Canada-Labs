@@ -88,7 +88,7 @@ export const Layout = ({
         <div className="mb-2 border-t pb-2 mt-4"></div>
         <Menu
           menuButtonTitle={t("menuTitle")}
-          signUpText={t("Sign up")}
+          signUpText={t("signupBtn")}
           items={[
             {
               link: "/",

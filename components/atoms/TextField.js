@@ -1,10 +1,13 @@
 import PropTypes from "prop-types";
 import { ErrorLabel } from "./ErrorLabel";
+import { useTranslation } from "next-i18next";
 
 /**
  * text field component
  */
 export function TextField(props) {
+  const { t } = useTranslation("common");
+
   const ifControlledProps = !props.uncontrolled
     ? {
         value: props.value,
@@ -27,9 +30,9 @@ export function TextField(props) {
         ) : undefined}{" "}
         {props.label}{" "}
         {props.required ? (
-          <b className="text-error-border-red">(required)</b>
+          <b className="text-error-border-red">{t("required")}</b>
         ) : (
-          <p className="inline text-form-input-gray text-sm">(optional)</p>
+          <p className="inline text-form-input-gray text-sm">{t("optional")}</p>
         )}
       </label>
       {props.error ? <ErrorLabel message={props.error} /> : undefined}
