@@ -20,116 +20,115 @@ import { CheckBox } from "../components/atoms/CheckBox";
 //  - create thank you page
 //  - create translation strings
 //  - write cypress tests
-
-// Joi form validation schema. Only required fields are validated
-const formSchema = Joi.object({
-  email: Joi.string()
-    .email({ tlds: { allow: false } })
-    .required()
-    .error((errors) => {
-      errors.forEach((error) => {
-        switch (error.code) {
-          case "any.required":
-            error.message = "This field is required";
-            break;
-          case "string.email":
-            error.message = "Must be a valid email";
-          default:
-            break;
-        }
-      });
-      return errors;
-    }),
-  yearOfBirth: Joi.number()
-    .integer()
-    .min(1850)
-    .max(new Date().getFullYear())
-    .required()
-    .error((errors) => {
-      errors.forEach((error) => {
-        switch (error.code) {
-          case "any.required":
-            error.message = "This field is required";
-            break;
-          case "number.integer":
-            error.message = "This field must be an integer";
-            break;
-          case "number.min":
-            error.message = "This field must be a valid birth year";
-            break;
-          case "number.max":
-            error.message = "This field must be a valid birth year";
-            break;
-          default:
-            break;
-        }
-      });
-      return errors;
-    }),
-  language: Joi.string()
-    .valid("en", "fr")
-    .required()
-    .error((errors) => {
-      errors.forEach((error) => {
-        switch (error.code) {
-          case "any.required":
-            error.message = "This field is required";
-            break;
-          default:
-            break;
-        }
-      });
-      return errors;
-    }),
-  province: Joi.string()
-    .valid(
-      "",
-      "ON",
-      "QC",
-      "NL",
-      "PE",
-      "NS",
-      "NB",
-      "MB",
-      "SK",
-      "AB",
-      "BC",
-      "YT",
-      "NT",
-      "NU"
-    )
-    .error((errors) => {
-      errors.forEach((error) => {
-        switch (error.code) {
-          case "any.only":
-            error.message = "Use the dropdown to select a valid value";
-            break;
-          default:
-            break;
-        }
-      });
-      return errors;
-    }),
-  agreeToConditions: Joi.string()
-    .valid("yes")
-    .required()
-    .error((errors) => {
-      errors.forEach((error) => {
-        switch (error.code) {
-          case "any.required":
-            error.message = "You must agree to conditions before sign up";
-            break;
-          default:
-            break;
-        }
-      });
-      return errors;
-    }),
-});
-
 export default function Signup(props) {
   const { t } = useTranslation("common");
   const { asPath, push } = useRouter();
+
+  // Joi form validation schema. Only required fields are validated
+  const formSchema = Joi.object({
+    email: Joi.string()
+      .email({ tlds: { allow: false } })
+      .required()
+      .error((errors) => {
+        errors.forEach((error) => {
+          switch (error.code) {
+            case "any.required":
+              error.message = t("signupErrorRequired");
+              break;
+            case "string.email":
+              error.message = t("signupErrorEmail");
+            default:
+              break;
+          }
+        });
+        return errors;
+      }),
+    yearOfBirth: Joi.number()
+      .integer()
+      .min(1850)
+      .max(new Date().getFullYear())
+      .required()
+      .error((errors) => {
+        errors.forEach((error) => {
+          switch (error.code) {
+            case "any.required":
+              error.message = t("signupErrorRequired");
+              break;
+            case "number.integer":
+              error.message = t("signupErrorInt");
+              break;
+            case "number.min":
+              error.message = t("signupErrorMinMax");
+              break;
+            case "number.max":
+              error.message = t("signupErrorMinMax");
+              break;
+            default:
+              break;
+          }
+        });
+        return errors;
+      }),
+    language: Joi.string()
+      .valid("en", "fr")
+      .required()
+      .error((errors) => {
+        errors.forEach((error) => {
+          switch (error.code) {
+            case "any.required":
+              error.message = t("signupErrorRequired");
+              break;
+            default:
+              break;
+          }
+        });
+        return errors;
+      }),
+    province: Joi.string()
+      .valid(
+        "",
+        "ON",
+        "QC",
+        "NL",
+        "PE",
+        "NS",
+        "NB",
+        "MB",
+        "SK",
+        "AB",
+        "BC",
+        "YT",
+        "NT",
+        "NU"
+      )
+      .error((errors) => {
+        errors.forEach((error) => {
+          switch (error.code) {
+            case "any.only":
+              error.message = t("signupErrorDropdown");
+              break;
+            default:
+              break;
+          }
+        });
+        return errors;
+      }),
+    agreeToConditions: Joi.string()
+      .valid("yes")
+      .required()
+      .error((errors) => {
+        errors.forEach((error) => {
+          switch (error.code) {
+            case "any.required":
+              error.message = t("signupErrorTerms");
+              break;
+            default:
+              break;
+          }
+        });
+        return errors;
+      }),
+  });
 
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -266,7 +265,7 @@ export default function Signup(props) {
           prevErrors[field] = {
             id: field,
             number: errorNumber,
-            text: `Error ${errorNumber}: ` + message,
+            text: `${t("signupError")} ${errorNumber}: ` + message,
           };
         }
         // override the error message if the type of error is because the field is empty
@@ -274,7 +273,7 @@ export default function Signup(props) {
           prevErrors[field] = {
             id: field,
             number: prevErrors[field].number,
-            text: `Error ${prevErrors[field].number}: ` + message,
+            text: `${t("signupError")} ${prevErrors[field].number}: ` + message,
           };
         }
         return prevErrors;
@@ -298,7 +297,9 @@ export default function Signup(props) {
       // set the errors to the error list
       await setErrorBoxErrors(errorsList);
       await setErrorBoxText(
-        `The form could not be submitted because ${errorsList.length} errors were found`
+        `${t("signupErrorSubmit1")} ${errorsList.length} ${t(
+          "signupErrorSubmit2"
+        )}`
       );
     } else {
       //submit data to the api and then redirect to the thank you page
@@ -314,13 +315,9 @@ export default function Signup(props) {
       if (response.status === 201 || response.status === 200) {
         await push("/thankyou", {}, { locale: props.locale });
       } else if (response.status === 400) {
-        await setErrorBoxText(
-          "It looks like you have previously registered with us. Check your inbox for the validation email!"
-        );
+        await setErrorBoxText(t("signupErrorRegistered"));
       } else {
-        await setErrorBoxText(
-          "An unknown error has occurred during your registration. Please contact experience@servicecanada.gc.ca to continue your registration or try again later"
-        );
+        await setErrorBoxText(t("signupErrorUnknown"));
       }
     }
   };

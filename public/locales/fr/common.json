@@ -158,5 +158,17 @@
   "signupFormPreferNotAnswer": "Je préfère ne pas répondre",
   "signupFormOptional": "(facultatif)",
   "signupFormrequired": "(requis)",
-  "signupFormCheckBox": "J'ai lu, compris et accepté ce qui précède. J'affirme que j'ai 18 ans ou plus. Je comprends que je peux me retirer de ce groupe de participants ou de toute étude de recherche à tout moment sans conséquence."
+  "signupFormCheckBox": "J'ai lu, compris et accepté ce qui précède. J'affirme que j'ai 18 ans ou plus. Je comprends que je peux me retirer de ce groupe de participants ou de toute étude de recherche à tout moment sans conséquence.",
+  "signupErrorRequired": "Ce champ est requis",
+  "signupErrorEmail": "Doit être une adresse électronique valide",
+  "signupErrorInt": "Ce champ doit être un nombre entier",
+  "signupErrorMinMax": "Ce champ doit être une année de naissance valide",
+  "signupErrorDropdown": "Utilisez la liste déroulante pour sélectionner une valeur valide",
+  "signupErrorTerms": "Vous devez accepter les conditions avant de vous inscrire",
+  "signupErrorSubmit1": "Le formulaire n'a pas pu être soumis car",
+  "signupErrorSubmit2": "erreurs ont été trouvées",
+  "signupErrorRegistered": "Il semble que vous vous soyez déjà enregistré auprès de nous. Vérifiez votre boîte de réception pour l'email de validation !",
+  "signupErrorUnknown": "Une erreur inconnue s'est produite lors de votre inscription. Veuillez contacter experience@servicecanada.gc.ca pour poursuivre votre inscription ou réessayer plus tard",
+  "signupError": "Erreur",
+  "SignupButton": "Inscrivez-vous"
 }

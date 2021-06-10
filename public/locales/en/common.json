@@ -159,5 +159,17 @@
   "signupFormPreferNotAnswer": "I prefer not to answer",
   "signupFormOptional": "(optional)",
   "signupFormrequired": "(required)",
-  "signupFormCheckBox": "I have read, understood and agree to the above. I affirm that I am 18 years old, or older. I understand that I can withdraw from this participant pool, or any research study at any time without consequence."
+  "signupFormCheckBox": "I have read, understood and agree to the above. I affirm that I am 18 years old, or older. I understand that I can withdraw from this participant pool, or any research study at any time without consequence.",
+  "signupErrorRequired": "This field is required",
+  "signupErrorEmail": "Must be a valid email",
+  "signupErrorInt": "This field must be an integer",
+  "signupErrorMinMax": "This field must be a valid birth year",
+  "signupErrorDropdown": "Use the dropdown to select a valid value",
+  "signupErrorTerms": "You must agree to conditions before sign up",
+  "signupErrorSubmit1": "The form could not be submitted because",
+  "signupErrorSubmit2": "errors were found",
+  "signupErrorRegistered": "It looks like you have previously registered with us. Check your inbox for the validation email!",
+  "signupErrorUnknown": "An unknown error has occurred during your registration. Please contact experience@servicecanada.gc.ca to continue your registration or try again later",
+  "signupError": "Error",
+  "SignupButton": "Sign up"
 }
