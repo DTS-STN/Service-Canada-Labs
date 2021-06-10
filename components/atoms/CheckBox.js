@@ -1,9 +1,12 @@
 import PropTypes from "prop-types";
+import { useTranslation } from "next-i18next";
 
 /**
  * check box component for forms
  */
 export function CheckBox(props) {
+  const { t } = useTranslation("common");
+
   const ifControlledProps = !props.uncontrolled
     ? {
         checked: props.checked,
@@ -45,7 +48,7 @@ export function CheckBox(props) {
         ) : undefined}{" "}
         {props.label}{" "}
         {props.showRequiredLabel ? (
-          <b className="text-error-border-red">(required)</b>
+          <b className="text-error-border-red">{t("required")}</b>
         ) : undefined}
       </label>
     </div>
