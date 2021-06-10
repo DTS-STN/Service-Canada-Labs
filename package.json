@@ -9,7 +9,7 @@
     "i18next-http-backend": "^1.2.4",
     "joi": "^17.4.0",
     "mongodb": "^3.6.9",
-    "next": "^10.2.1",
+    "next": "^10.2.2",
     "next-i18next": "^8.3.0",
     "react": "^17.0.2",
     "react-dom": "17.0.2",
@@ -17,6 +17,7 @@
   },
   "scripts": {
     "dev": "next dev",
+    "debug": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
     "lint": "prettier --write \"pages/**/*.{js,jsx,ts,tsx,json,md}\" --write \".storybook/**/*.{js,jsx,ts,tsx,json,md}\" --write \"components/**/*.{js,jsx,ts,tsx,json,md}\" --write \"lib/**/*.{js,jsx,ts,tsx,json,md}\" --write \"tailwind.config.js\" --write \"middlewares/**/*.{js,jsx,ts,tsx,json,md}\"",
