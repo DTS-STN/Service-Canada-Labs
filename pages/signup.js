@@ -892,6 +892,7 @@ export default function Signup(props) {
               id="agreeToConditions"
               name="agreeToConditions"
               value="yes"
+              showRequiredLabel
             />
           </div>
           <a
