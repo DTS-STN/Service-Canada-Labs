@@ -13,7 +13,10 @@ export function ErrorBox(props) {
   };
 
   return (
-    <div className="relative border-l-4 border-error-border-red min-h-40px mb-10">
+    <div
+      id="error-box"
+      className="relative border-l-4 border-error-border-red min-h-40px mb-10"
+    >
       <span className="icon-error absolute top-1 -left-2.5 bg-white" />
       <p className="font-bold ml-4">{props.text}</p>
       <ul className="w-full list-disc list-inside leading-loose ml-4">
