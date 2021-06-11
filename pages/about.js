@@ -3,6 +3,8 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import { List } from "../components/molecules/List";
+import { ActionButton } from "../components/atoms/ActionButton";
 
 export default function About(props) {
   const { t } = useTranslation("common");
@@ -19,13 +21,6 @@ export default function About(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section className="layout-container relative mb-28">
-        <div className="hidden xl:block">
-          <img
-            className="absolute right-0 h-96"
-            src="/lightbulb_gradient.png"
-            alt=""
-          />
-        </div>
         <h1
           id="pageMainTitle"
           className="mb-10 text-h1l font-bold w-max"
@@ -33,10 +28,38 @@ export default function About(props) {
         >
           {t("aboutTitle")}
         </h1>
-        <h2 className="mb-6 font-bold">{t("aboutThisSiteHeader")}</h2>
         <div className="xl:w-2/3">
           <p className="mb-4">{t("aboutThisSiteContent1")}</p>
-          <p>{t("aboutThisSiteContent2")}</p>
+          <p className="mb-4">{t("aboutThisSiteContent2")}</p>
+          <p>{t("aboutThisSiteContent3")}</p>
+        </div>
+      </section>
+      <section className="bg-footer-background-color ">
+        <div className="layout-container">
+          <h2 className="mb-5 pt-10 text-h1l font-bold w-max">
+            {t("howWeWork")}
+          </h2>
+          <div className="flex flex-col-reverse pt-8 xl:grid xl:grid-cols-2 xl:gap-8">
+            <List
+              items={[
+                t("circleTxt1/4"),
+                t("circleTxt2/4"),
+                t("circleTxt3/4"),
+                t("circleTxt4/4"),
+              ]}
+            />
+          </div>
+          <div className="xl:bg-footer-background-color  bg-white ">
+            <div className="xl:invisible layout-container pt-6 xl:pt-0 xl:pb-0 pb-10 ">
+              <ActionButton
+                id="LearnMoreButtonSmScreen"
+                text={t("learnMoreBtn")}
+                className={"text-xs md:text-base"}
+                secondary
+                dataCyButton={"learn-more"}
+              />
+            </div>
+          </div>
         </div>
       </section>
     </Layout>
