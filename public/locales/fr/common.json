@@ -170,5 +170,6 @@
   "errorRegistered": "Il semble que vous vous soyez déjà enregistré auprès de nous. Vérifiez votre boîte de réception pour l'email de validation !",
   "errorUnknown": "Une erreur inconnue s'est produite lors de votre inscription. Veuillez contacter experience@servicecanada.gc.ca pour poursuivre votre inscription ou réessayer plus tard",
   "error": "Erreur",
-  "signupBtn": "Inscrivez-vous"
+  "signupBtn": "Inscrivez-vous",
+  "errorMustBe18": "Vous devez être âgé de 18 ans ou plus"
 }

@@ -46,7 +46,7 @@ export default function Signup(props) {
     yearOfBirth: Joi.number()
       .integer()
       .min(1850)
-      .max(new Date().getFullYear())
+      .max(new Date().getFullYear() - 18)
       .required()
       .error((errors) => {
         errors.forEach((error) => {
@@ -61,7 +61,7 @@ export default function Signup(props) {
               error.message = t("errorMinMax");
               break;
             case "number.max":
-              error.message = t("errorMinMax");
+              error.message = t("errorMustBe18");
               break;
             default:
               break;
