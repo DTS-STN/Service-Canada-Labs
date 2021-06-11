@@ -49,7 +49,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: (theme) => ({
-        "banner-img": "url('../public/bg-banner.jpg')",
+        "banner-img": "url('../public/bg-banner-v2.jpg')",
         "footer-parliament-image": "url(../public/landscape.png)",
       }),
       colors: {
