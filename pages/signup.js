@@ -876,16 +876,16 @@ export default function Signup(props) {
             {t("privacy")}
           </a>
           <ActionButton
-            id="submit"
+            id="signup-submit"
             className="rounded w-72"
             type="submit"
-            dataCy="report-a-problem-submit"
-            dataTestId="report-a-problem-submit"
+            dataCy="signup-submit"
+            dataTestId="signup-submit"
           >
             {t("reportAProblemSubmit")}
           </ActionButton>
           <ActionButton
-            id="reset"
+            id="reset-bottom"
             custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10"
             type="reset"
           >
