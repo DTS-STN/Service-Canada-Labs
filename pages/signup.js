@@ -335,7 +335,9 @@ export default function Signup(props) {
         {errorBoxText ? (
           <ErrorBox text={errorBoxText} errors={errorBoxErrors} />
         ) : undefined}
-        <h1 className="mb-12" id="pageMainTitle">{t("signupTitle")}</h1>
+        <h1 className="mb-12" id="pageMainTitle">
+          {t("signupTitle")}
+        </h1>
         <p className="mb-6">{t("signupP1")}</p>
         <h2 className="mb-3">{t("signupTitle2")}</h2>
         <p className="mb-6">{t("signupP2")}</p>
