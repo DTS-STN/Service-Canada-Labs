@@ -16,10 +16,14 @@ export function ErrorBox(props) {
     <div
       id="error-box"
       className="relative border-l-4 border-error-border-red min-h-40px mb-10"
+      data-cy="error-box"
     >
       <span className="icon-error absolute top-1 -left-2.5 bg-white" />
       <p className="font-bold ml-4">{props.text}</p>
-      <ul className="w-full list-disc list-inside leading-loose ml-4">
+      <ul
+        className="w-full list-disc list-inside leading-loose ml-4"
+        data-cy="error-box-items"
+      >
         {props.errors.map(({ id, text }) => {
           return (
             <li key={`${id}-${text}`}>

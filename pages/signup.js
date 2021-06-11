@@ -335,7 +335,9 @@ export default function Signup(props) {
         {errorBoxText ? (
           <ErrorBox text={errorBoxText} errors={errorBoxErrors} />
         ) : undefined}
-        <h1 className="mb-12">{t("signupTitle")}</h1>
+        <h1 className="mb-12" id="pageMainTitle">
+          {t("signupTitle")}
+        </h1>
         <p className="mb-6">{t("signupP1")}</p>
         <h2 className="mb-3">{t("signupTitle2")}</h2>
         <p className="mb-6">{t("signupP2")}</p>
@@ -876,16 +878,16 @@ export default function Signup(props) {
             {t("privacy")}
           </a>
           <ActionButton
-            id="submit"
+            id="signup-submit"
             className="rounded w-72"
             type="submit"
-            dataCy="report-a-problem-submit"
-            dataTestId="report-a-problem-submit"
+            dataCy="signup-submit"
+            dataTestId="signup-submit"
           >
             {t("reportAProblemSubmit")}
           </ActionButton>
           <ActionButton
-            id="reset"
+            id="reset-bottom"
             custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10"
             type="reset"
           >
