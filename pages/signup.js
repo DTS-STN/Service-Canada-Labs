@@ -312,7 +312,7 @@ export default function Signup(props) {
 
       // if the response is good, redirect to the thankyou page
       if (response.status === 201 || response.status === 200) {
-        await push("/thankyou", {}, { locale: props.locale });
+        await push("/thankyou");
       } else if (response.status === 400) {
         await setErrorBoxText(t("errorRegistered"));
       } else {
