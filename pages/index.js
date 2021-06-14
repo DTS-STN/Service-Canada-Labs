@@ -2,10 +2,7 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
-import { ActionButton } from "../components/atoms/ActionButton";
 import { TextButtonField } from "../components/molecules/TextButtonField";
-import { Quote } from "../components/molecules/Quote";
-import { List } from "../components/molecules/List";
 import { useRouter } from "next/router";
 
 export default function Home(props) {
