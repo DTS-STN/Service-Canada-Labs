@@ -172,5 +172,6 @@
   "error": "Error",
   "signupBtn": "Sign up",
   "errorMustBe18": "Must be at least 18 years old",
-  "privacyLinkText": "Review the privacy policy"
+  "privacyLinkText": "Review the privacy policy",
+  "becomeAParticipantDescription": "You’re invited to test our experimental ideas and participate in research interviews to make Service Canada better for everyone. Every bit of feedback helps us make sure we’re making our services simple and easy to use."
 }
