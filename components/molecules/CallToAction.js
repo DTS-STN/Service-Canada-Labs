@@ -10,22 +10,24 @@ export function CallToAction(props) {
   const { t } = useTranslation("common");
   return (
     <div className="bg-custom-blue-experiment-blue text-white">
-      <h2>{props.title}</h2>
-      <div className="layout-container mb-2 mt-5">
+      <div className="layout-container pb-10 pt-10 text-xs md:text-base">
+        <h2>{props.title}</h2>
         <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-24">
           <p>{props.description}</p>
           <div>
-            <ActionButton
-              id="become-a-participant-btn"
-              href={props.href}
-              text={props.hrefText}
-            />
-            {/*TODO: figure out what the privacy link is*/}
-            <Link href="#">
-              <a className="text-sm hover:text-canada-footer-hover-font-blue text-canada-footer-font visited:text-purple-700 underline">
-                {t("privacyLinkText")}
-              </a>
-            </Link>
+            <p className="mb-4">
+              <ActionButton
+                id="become-a-participant-btn"
+                href={props.href}
+                text={props.hrefText}
+              />
+            </p>
+            <p>
+              {/*TODO: figure out what the privacy link is*/}
+              <Link href="#">
+                <a className="text-sm underline">{t("privacyLinkText")}</a>
+              </Link>
+            </p>
           </div>
         </div>
       </div>
