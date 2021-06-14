@@ -39,7 +39,7 @@ export default function Confirmation(props) {
               {t("confirmationP1")}&nbsp;
               <a
                 className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-                href="mailto: Experience@servicecanada.gc.ca"
+                href={`mailto: ${t("confirmationEmail")}`}
               >
                 {t("confirmationEmail")}
               </a>
