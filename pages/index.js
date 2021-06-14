@@ -28,18 +28,20 @@ export default function Home(props) {
           <p className="mb-4">{t("experimentsAndExploration-2/3")}</p>
           <p className="mb-10">{t("experimentsAndExploration-3/3")}</p>
         </div>
-        <div className="flex-col flex lg:flex lg:flex-row gap-4">
+        <div className="flex-col flex lg:flex lg:flex-row gap-1">
           <TextButtonField
             href="/experiments"
             buttonText={t("experimentsBtnTxt")}
             idButton="ExperimentsButton"
             dataCyButton="ExperimentsButton"
+            className="flex"
           />
           <TextButtonField
             href="/about"
             buttonText={t("learnMoreAboutSCL")}
             idButton="AboutButton"
             dataCyButton="AboutButton"
+            className="flex"
           />
         </div>
       </section>
