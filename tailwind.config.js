@@ -52,6 +52,7 @@ module.exports = {
         "splash-img": "url('../public/bg-banner.jpg')",
         "banner-img": "url('../public/bg-banner-v2.jpg')",
         "footer-parliament-image": "url(../public/landscape.png)",
+        "lightbulb-right-img": "url('../public/lightbulb_right.jpg')",
       }),
       colors: {
         "custom-blue": {

@@ -331,32 +331,39 @@ export default function Signup(props) {
         <title>{t("signupPage")}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="layout-container mb-2 mt-12">
+      <section className="layout-container mb-2 mt-12 xl:bg-lightbulb-right-img xl:bg-right xl:bg-no-repeat">
         {errorBoxText ? (
           <ErrorBox text={errorBoxText} errors={errorBoxErrors} />
         ) : undefined}
-        <h1 className="mb-12" id="pageMainTitle">
-          {t("signupTitle")}
-        </h1>
-        <p className="mb-6">{t("signupP1")}</p>
-        <h2 className="mb-3">{t("signupTitle2")}</h2>
-        <p className="mb-6">{t("signupP2")}</p>
-        <h3 className="mb-3">{t("signupTitle3")}</h3>
-        <p className="mb-3">{t("signupP3")}</p>
-        <ul className="list-disc list-inside pl-2 mb-3 font-body">
-          <li>{t("email")}</li>
-          <li>{t("year")}</li>
-          <li>{t("language")}</li>
-        </ul>
-        <p className="mb-3">{t("signupP4")}</p>
-        <ul className="list-disc list-inside pl-2 mb-3 font-body">
-          <li>{t("province")}</li>
-          <li>{t("gender")}</li>
-          <li>{t("indigenous")}</li>
-          <li>{t("disabilities")}</li>
-          <li>{t("minority")}</li>
-          <li>{t("income")}</li>
-        </ul>
+        <div className="xl:w-2/3 ">
+          <h1 className="mb-12" id="pageMainTitle">
+            {t("signupTitle")}
+          </h1>
+          <p className="mb-6">{t("signupP1")}</p>
+          <h2 className="mb-3">{t("signupTitle2")}</h2>
+          <ul className="list-disc list-inside pl-2 mb-3 font-body">
+            <li>{t("signupP2.1")}</li>
+            <li>{t("signupP2.2")}</li>
+            <li>{t("signupP2.3")}</li>
+            <li>{t("signupP2.4")}</li>
+          </ul>
+          <h3 className="mb-3">{t("signupTitle3")}</h3>
+          <p className="mb-3">{t("signupP3")}</p>
+          <ul className="list-disc list-inside pl-2 mb-3 font-body">
+            <li>{t("email")}</li>
+            <li>{t("year")}</li>
+            <li>{t("language")}</li>
+          </ul>
+          <p className="mb-3">{t("signupP4")}</p>
+          <ul className="list-disc list-inside pl-2 mb-3 font-body">
+            <li>{t("province")}</li>
+            <li>{t("gender")}</li>
+            <li>{t("indigenous")}</li>
+            <li>{t("disabilities")}</li>
+            <li>{t("minority")}</li>
+            <li>{t("income")}</li>
+          </ul>
+        </div>
       </section>
       <section className="layout-container">
         <form onSubmit={handleSubmit} onReset={handlerClearData} noValidate>
@@ -670,6 +677,32 @@ export default function Signup(props) {
                 value="preferNotToAnswer"
               />
             </fieldset>
+
+            {/*<fieldset className="mb-10">*/}
+            {/*  <legend className="block leading-tight text-sm font-body mb-5px font-bold">*/}
+            {/*    {t("formMinority")}{" "}*/}
+            {/*    <p className="inline text-form-input-gray text-sm">*/}
+            {/*      {t("optional")}*/}
+            {/*    </p>*/}
+            {/*  </legend>*/}
+
+            {/*  <RadioField*/}
+            {/*    label={t("no")}*/}
+            {/*    id="minorityNo"*/}
+            {/*    name="minority"*/}
+            {/*    value="no"*/}
+            {/*    checked={language === "no"}*/}
+            {/*    onChange={(checked, name, value) => setMinority(value)}*/}
+            {/*  />*/}
+            {/*  <RadioField*/}
+            {/*    label={t("preferNotAnswer")}*/}
+            {/*    id="minorityPreferNotToAnswer"*/}
+            {/*    onChange={(checked, name, value) => setMinority(value)}*/}
+            {/*    checked={disability === "preferNotToAnswer"}*/}
+            {/*    name="minority"*/}
+            {/*    value="preferNotToAnswer"*/}
+            {/*  />*/}
+            {/*</fieldset>*/}
 
             <fieldset className="mb-10">
               <legend className="block leading-tight text-sm font-body mb-5px font-bold">
