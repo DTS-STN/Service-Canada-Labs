@@ -1,11 +1,13 @@
 import PropTypes from "prop-types";
 import { ActionButton } from "../atoms/ActionButton";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 
 /**
  * A section that will have a title, small description, and a link to some action we want to user to make
  */
 export function CallToAction(props) {
+  const { t } = useTranslation("common");
   return (
     <div className="bg-custom-blue-experiment-blue text-white">
       <h2>{props.title}</h2>
@@ -18,9 +20,10 @@ export function CallToAction(props) {
               href={props.href}
               text={props.hrefText}
             />
+            {/*TODO: figure out what the privacy link is*/}
             <Link href="#">
               <a className="text-sm hover:text-canada-footer-hover-font-blue text-canada-footer-font visited:text-purple-700 underline">
-                {item.text}
+                {t("privacyLinkText")}
               </a>
             </Link>
           </div>

@@ -45,7 +45,7 @@
   "experimentsAndExploration-2/3": "Ce site Web présente des tests et des premiers modèles de fonctionnalités et de services sur lesquels nous travaillons actuellement. Ces fonctionnalités et services en sont encore à leurs débuts et ne sont pas encore prêts pour les heures de grande écoute, mais nous vous invitons dans les coulisses à nous aider à les tester et à les améliorer au fur et à mesure.",
   "experimentsAndExploration-3/3": "Vous pouvez voir tous nos tests en cours au même endroit, pour nous faciliter la collaboration et vous montrer sur quoi nous travaillons. Nous avons rendu ces tests accessibles au public dans l’esprit de travailler en plein air.",
   "experimentsComment": "“L'expérimentation entraîne la surprise et la découverte.”",
-  "experimentsBtnTxt" :"Voir les expériences",
+  "experimentsBtnTxt": "Voir les expériences",
   "experimentsTagAll": "Tout",
   "experimentsTagActive": "Active",
   "experimentsTagComingSoon": "Bientôt disponible",
@@ -56,8 +56,8 @@
   "circleTxt2/4": "Inscription de personnes pour rejoindre notre liste de testeurs",
   "circleTxt3/4": "Essayer de nouvelles technologies",
   "circleTxt4/4": "Créer un dialogue ouvert via les blogs, le code ouvert et les premiers modèles",
-  "aboutTitle" : "À propos de ce site",
-  "learnMoreBtn" : "Apprendre encore plus",
+  "aboutTitle": "À propos de ce site",
+  "learnMoreBtn": "Apprendre encore plus",
   "footerContactUs": "Contactez-nous",
   "footerNews": "Nouvelles",
   "footerPm": "Premier ministre",
@@ -171,5 +171,6 @@
   "errorUnknown": "Une erreur inconnue s'est produite lors de votre inscription. Veuillez contacter experience@servicecanada.gc.ca pour poursuivre votre inscription ou réessayer plus tard",
   "error": "Erreur",
   "signupBtn": "Inscrivez-vous",
-  "errorMustBe18": "Vous devez être âgé de 18 ans ou plus"
+  "errorMustBe18": "Vous devez être âgé de 18 ans ou plus",
+  "privacyLinkText": "Lire la politique en matière de protection des renseignements personnels dans son intégralité"
 }
