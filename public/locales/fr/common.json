@@ -171,5 +171,6 @@
   "errorUnknown": "Une erreur inconnue s'est produite lors de votre inscription. Veuillez contacter experience@servicecanada.gc.ca pour poursuivre votre inscription ou réessayer plus tard",
   "error": "Erreur",
   "signupBtn": "Inscrivez-vous",
-  "errorMustBe18": "Vous devez être âgé de 18 ans ou plus"
+  "errorMustBe18": "Vous devez être âgé de 18 ans ou plus",
+  "privacyLinkText": "Lire la politique en matière de protection des renseignements personnels dans son intégralité"
 }
