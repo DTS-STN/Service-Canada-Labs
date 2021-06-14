@@ -12,7 +12,7 @@ const setLanguage = (event) => {
 export default function Splash(props) {
   return (
     <>
-      <div className="bg-banner-img h-screen min-w-300px min-h-screen blur" />
+      <div className="bg-splash-img h-screen min-w-300px min-h-screen blur" />
       <Head>
         <title>alpha.service.canada.ca</title>
         <link rel="icon" href="/favicon.ico" />
