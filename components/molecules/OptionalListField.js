@@ -53,7 +53,7 @@ export function OptionalListField(props) {
       )}
       {(props.uncontrolled && showListField) || props.checked ? (
         <>
-          <fieldset className="mb-10">
+          <fieldset className="mb-10px">
             <legend className="block leading-tight text-sm font-body mb-5px font-bold">
               {props.listFieldRequired ? (
                 <b className="text-error-border-red">*</b>
