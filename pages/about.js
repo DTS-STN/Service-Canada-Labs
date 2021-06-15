@@ -21,7 +21,7 @@ export default function About(props) {
         <title>{t("aboutTitle")}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="layout-container relative mb-28">
+      <section className="layout-container relative mb-10">
         <h1
           id="pageMainTitle"
           className="mb-10 text-h1l font-bold w-max"
