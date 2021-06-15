@@ -53,7 +53,7 @@ export function ReportAProblem(props) {
           </p>
           <a
             className="block text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-            href="mailto:experience@servicecanada.gc.ca"
+            href={`mailto: ${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
           >
             experience@servicecanada.gc.ca
           </a>

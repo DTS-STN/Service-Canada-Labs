@@ -175,5 +175,13 @@
   "errorUnknown": "An unknown error has occurred during your registration. Please contact experience@servicecanada.gc.ca to continue your registration or try again later",
   "error": "Error",
   "signupBtn": "Sign up",
-  "errorMustBe18": "Must be at least 18 years old"
+  "errorMustBe18": "Must be at least 18 years old",
+  "privacyLinkText": "Review the privacy policy",
+  "thankYouTitle": "Thank you",
+  "thankYou": "Thank you!",
+  "confirmationP1": "We’ve added you to our list and sent you a confirmation email from",
+  "confirmationEmail": "Experience@servicecanada.gc.ca",
+  "confirmationP2": "We’ll invite you to take part in experiments and research activities as they come up to make Service Canada better for everyone.",
+  "confirmationP3": "Remember, you can choose how much time you spend, and every bit helps.",
+  "confirmationP4": "We really appreciate having you on the team!"
 }
