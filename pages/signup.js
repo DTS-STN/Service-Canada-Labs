@@ -227,6 +227,7 @@ export default function Signup(props) {
       disability,
       disabilityDetails,
       minority,
+      minorityGroup,
       minorityGroupOther,
       incomeLevel,
       agreeToConditions,
