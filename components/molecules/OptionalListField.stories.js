@@ -28,12 +28,17 @@ UnOpened.args = {
   controlDataTestId: "unopened-check-1",
   listLabel: "Please check all the reasons why you are wrong.",
   children: [
-    <CheckBox label="I hate myself" name="reasons" value="hate" id="reasons" />,
+    <CheckBox
+      label="I don't like fake chocolate spread"
+      name="reasons"
+      value="dislike"
+      id="reasons-dislike"
+    />,
     <CheckBox
       label="I make poor choices"
       name="reasons"
       value="poor-choice"
-      id="reasons"
+      id="reasons-poor-choice"
     />,
   ],
 };
@@ -47,12 +52,19 @@ Opened_Checkboxes.args = {
   controlDataTestId: "opened-check-1",
   listLabel: "Please check all the reasons why you are wrong.",
   children: [
-    <CheckBox label="I hate myself" name="reasons" value="hate" id="reasons" />,
+    <CheckBox
+      label="I don't like fake chocolate spread"
+      name="reasons"
+      value="dislike"
+      id="reasons-dislike"
+      dataTestId="reasons-dislike"
+    />,
     <CheckBox
       label="I make poor choices"
       name="reasons"
       value="poor-choice"
-      id="reasons"
+      id="reasons-poor-choice"
+      dataTestId="reasons-poor-choice"
     />,
   ],
 };
@@ -67,16 +79,18 @@ Opened_Radiofields.args = {
   listLabel: "Please check all the reasons why you are wrong.",
   children: [
     <RadioField
-      label="I hate myself"
+      label="I don't like fake chocolate spread"
       name="reasons"
-      value="hate"
-      id="reasons"
+      value="dislike"
+      id="reasons-dislike"
+      dataTestId="reasons-dislike"
     />,
     <RadioField
       label="I make poor choices"
       name="reasons"
       value="poor-choice"
-      id="reasons"
+      id="reasons-poor-choice"
+      dataTestId="reasons-poor-choice"
     />,
   ],
 };
@@ -91,12 +105,19 @@ Radio.args = {
   controlDataTestId: "radio-check-1",
   listLabel: "Please check all the reasons why you are wrong.",
   children: [
-    <CheckBox label="I hate myself" name="reasons" value="hate" id="reasons" />,
+    <CheckBox
+      label="I don't like fake chocolate spread"
+      name="reasons"
+      value="dislike"
+      id="reasons-dislike"
+      dataTestId="reasons-dislike"
+    />,
     <CheckBox
       label="I make poor choices"
       name="reasons"
       value="poor-choice"
-      id="reasons"
+      id="reasons-poor-choice"
+      dataTestId="reasons-poor-choice"
     />,
   ],
 };
@@ -110,12 +131,19 @@ UnControlled.args = {
   controlDataTestId: "uncontrolled-check-1",
   listLabel: "Please check all the reasons why you are wrong.",
   children: [
-    <CheckBox label="I hate myself" name="reasons" value="hate" id="reasons" />,
+    <CheckBox
+      label="I don't like fake chocolate spread"
+      name="reasons"
+      value="dislike"
+      id="reasons-dislike"
+      dataTestId="reasons-dislike"
+    />,
     <CheckBox
       label="I make poor choices"
       name="reasons"
       value="poor-choice"
-      id="reasons"
+      id="reasons-poor-choice"
+      dataTestId="reasons-poor-choice"
     />,
   ],
 };
