@@ -74,7 +74,7 @@ describe("signup page", () => {
   });
 
   // skipping for now until thank you page is available
-  it.skip("Redirects to thank you page on successful submit", () => {
+  it("Redirects to thank you page on successful submit", () => {
     cy.intercept("POST", "/api/**", {
       statusCode: 201,
       body: {
