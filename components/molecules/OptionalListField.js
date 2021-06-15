@@ -23,7 +23,7 @@ export function OptionalListField(props) {
   };
   return (
     <>
-      {props.controlType === "checkbox" && (
+      {props.controlType === "checkbox" ? (
         <CheckBox
           label={props.controlLabel}
           id={props.controlId}
@@ -36,8 +36,7 @@ export function OptionalListField(props) {
           required={props.controlRequired}
           dataCy={props.controlDataCy}
         />
-      )}
-      {props.controlType === "radiofield" && (
+      ) : (
         <RadioField
           label={props.controlLabel}
           id={props.controlId}
@@ -52,26 +51,24 @@ export function OptionalListField(props) {
         />
       )}
       {(props.uncontrolled && showListField) || props.checked ? (
-        <>
-          <fieldset className="mb-10px">
-            <legend className="block leading-tight text-sm font-body mb-5px font-bold">
-              {props.listFieldRequired ? (
-                <b className="text-error-border-red">*</b>
-              ) : (
-                ""
-              )}
-              {props.listLabel}
-              {props.listFieldRequired ? (
-                <b className="text-error-border-red">{t("required")}</b>
-              ) : (
-                <p className="inline text-form-input-gray text-sm">
-                  {t("optional")}
-                </p>
-              )}
-            </legend>
-            {props.children}
-          </fieldset>
-        </>
+        <fieldset className="mb-10px">
+          <legend className="block leading-tight text-sm font-body mb-5px font-bold">
+            {props.listFieldRequired ? (
+              <b className="text-error-border-red">*</b>
+            ) : (
+              ""
+            )}
+            {props.listLabel}
+            {props.listFieldRequired ? (
+              <b className="text-error-border-red">{t("required")}</b>
+            ) : (
+              <p className="inline text-form-input-gray text-sm">
+                {t("optional")}
+              </p>
+            )}
+          </legend>
+          <div className="gap-4">{props.children}</div>
+        </fieldset>
       ) : undefined}
     </>
   );

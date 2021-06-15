@@ -709,7 +709,7 @@ export default function Signup(props) {
                   checked={minorityGroup.includes("black")}
                   onChange={handlerMinorityGroupOnChange}
                   value="black"
-                  className="mb-5"
+                  className="mb-7"
                 />
                 <CheckBox
                   label={t("chinese")}
@@ -718,7 +718,7 @@ export default function Signup(props) {
                   checked={minorityGroup.includes("chinese")}
                   onChange={handlerMinorityGroupOnChange}
                   value="chinese"
-                  className="mb-5"
+                  className="mb-7"
                 />
                 <CheckBox
                   label={t("filipino")}
@@ -727,7 +727,7 @@ export default function Signup(props) {
                   checked={minorityGroup.includes("filipino")}
                   onChange={handlerMinorityGroupOnChange}
                   value="filipino"
-                  className="mb-5"
+                  className="mb-7"
                 />
                 <CheckBox
                   label={t("japanese")}
@@ -736,7 +736,7 @@ export default function Signup(props) {
                   checked={minorityGroup.includes("japanese")}
                   onChange={handlerMinorityGroupOnChange}
                   value="japanese"
-                  className="mb-5"
+                  className="mb-7"
                 />
                 <CheckBox
                   label={t("korean")}
@@ -745,7 +745,7 @@ export default function Signup(props) {
                   checked={minorityGroup.includes("korean")}
                   onChange={handlerMinorityGroupOnChange}
                   value="korean"
-                  className="mb-5"
+                  className="mb-7"
                 />
                 <CheckBox
                   label={t("SA")}
@@ -754,7 +754,7 @@ export default function Signup(props) {
                   checked={minorityGroup.includes("southAsian")}
                   onChange={handlerMinorityGroupOnChange}
                   value="southAsian"
-                  className="mb-10 lg:mb-5"
+                  className="mb-10 lg:mb-7"
                 />
                 <CheckBox
                   label={t("SEA")}
@@ -763,7 +763,7 @@ export default function Signup(props) {
                   checked={minorityGroup.includes("southeastAsian")}
                   onChange={handlerMinorityGroupOnChange}
                   value="southeastAsian"
-                  className="mb-10 lg:mb-5"
+                  className="mb-10 lg:mb-7"
                 />
                 <CheckBox
                   label={t("nonWhiteAAA")}
@@ -772,7 +772,7 @@ export default function Signup(props) {
                   checked={minorityGroup.includes("nonWhiteAAA")}
                   onChange={handlerMinorityGroupOnChange}
                   value="nonWhiteAAA"
-                  className="mb-10 lg:mb-5"
+                  className="mb-10 lg:mb-7"
                 />
                 <CheckBox
                   label={t("LA")}
@@ -781,7 +781,7 @@ export default function Signup(props) {
                   checked={minorityGroup.includes("latinAmerican")}
                   onChange={handlerMinorityGroupOnChange}
                   value="latinAmerican"
-                  className="mb-10 lg:mb-5"
+                  className="mb-10 lg:mb-7"
                 />
                 <CheckBox
                   label={t("mixedOrigin")}
@@ -790,7 +790,7 @@ export default function Signup(props) {
                   checked={minorityGroup.includes("mixedOrigin")}
                   onChange={handlerMinorityGroupOnChange}
                   value="mixedOrigin"
-                  className="mb-5"
+                  className="mb-7"
                 />
                 <OptionalTextField
                   controlLabel={t("otherMinority")}
