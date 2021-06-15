@@ -173,5 +173,12 @@
   "signupBtn": "Inscrivez-vous",
   "errorMustBe18": "Vous devez être âgé de 18 ans ou plus",
   "privacyLinkText": "Lire la politique en matière de protection des renseignements personnels dans son intégralité",
-  "becomeAParticipantDescription": "Vous êtes invité à tester des idées expérimentales et participer à d’autres entretiens de recherche afin d’améliorer Service Canada pour tous. Chaque commentaire nous aide à nous assurer que nos services sont simples et faciles à utiliser."
+  "becomeAParticipantDescription": "Vous êtes invité à tester des idées expérimentales et participer à d’autres entretiens de recherche afin d’améliorer Service Canada pour tous. Chaque commentaire nous aide à nous assurer que nos services sont simples et faciles à utiliser.",
+  "thankYouTitle": "Thank you",
+  "thankYou": "Merci!",
+  "confirmationP1": "Nous vous avons ajouté à notre liste et vous avons envoyé un courriel de confirmation à partir de l’adresse",
+  "confirmationEmail": "Experience@servicecanada.gc.ca",
+  "confirmationP2": "Nous vous inviterons à prendre part aux expériences et à d’autres activités de recherche au fur et à mesure qu’elles se présenteront afin d’améliorer Service Canada pour tous.",
+  "confirmationP3": "N’oubliez pas que vous pouvez choisir le temps que vous y consacrez et que chaque petit geste compte.",
+  "confirmationP4": "Nous sommes véritablement heureux de vous avoir dans l’équipe!"
 }
