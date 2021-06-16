@@ -6,6 +6,7 @@ import { Layout } from "../components/organisms/Layout";
 import { Experiment } from "../components/molecules/Experiment";
 import { useRouter } from "next/router";
 import { Filter } from "../components/molecules/Filter";
+import { CallToAction } from "../components/molecules/CallToAction";
 
 export default function Experiments(props) {
   const { t } = useTranslation("common");
@@ -86,6 +87,12 @@ export default function Experiments(props) {
           {displayExperiments}
         </ul>
       </section>
+      <CallToAction
+        title={t("signupTitle")}
+        description={t("becomeAParticipantDescription")}
+        href={"/signup"}
+        hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
+      />
     </Layout>
   );
 }
