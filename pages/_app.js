@@ -20,8 +20,8 @@ function MyApp({ Component, pageProps }) {
           content={process.env.NEXT_PUBLIC_BUILD_DATE}
         />
         <meta name="og:buildid" content={process.env.NEXT_PUBLIC_TC_BUILD} />
-        {process.env.ADOBE_ANALYTICS_URL ? (
-          <script src={process.env.ADOBE_ANALYTICS_URL}></script>
+        {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+          <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL}></script>
         ) : (
           ""
         )}
