@@ -33,6 +33,7 @@ function MyApp({ Component, pageProps }) {
           content={process.env.NEXT_PUBLIC_BUILD_DATE}
         />
         <meta name="og:buildid" content={process.env.NEXT_PUBLIC_TC_BUILD} />
+        <script src="//assets.adobedtm.com/be5dfd287373/0127575cd23a/launch-913b1beddf7a-staging.min.js"></script>
       </Head>
       <Component {...pageProps} />
     </>
