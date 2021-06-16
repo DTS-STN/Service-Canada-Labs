@@ -348,21 +348,23 @@ export default function Signup(props) {
           </h1>
           <p className="mb-6">{t("signupP1")}</p>
           <h2 className="mb-3">{t("signupTitle2")}</h2>
-          <ul className="list-disc list-inside pl-2 mb-3 font-body">
-            <li>{t("signupP2.1")}</li>
+          <ul className="list-disc list-outside pl-2 mb-3 font-body ml-3">
+            <li>
+              <span>{t("signupP2.1")}</span>
+            </li>
             <li>{t("signupP2.2")}</li>
             <li>{t("signupP2.3")}</li>
             <li>{t("signupP2.4")}</li>
           </ul>
           <h3 className="mb-3">{t("signupTitle3")}</h3>
           <p className="mb-3">{t("signupP3")}</p>
-          <ul className="list-disc list-inside pl-2 mb-3 font-body">
+          <ul className="list-disc list-outside pl-2 mb-3 font-body ml-3">
             <li>{t("email")}</li>
             <li>{t("year")}</li>
             <li>{t("language")}</li>
           </ul>
           <p className="mb-3">{t("signupP4")}</p>
-          <ul className="list-disc list-inside pl-2 mb-3 font-body">
+          <ul className="list-disc list-outside pl-2 mb-3 font-body ml-3">
             <li>{t("province")}</li>
             <li>{t("gender")}</li>
             <li>{t("indigenous")}</li>
