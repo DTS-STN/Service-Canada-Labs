@@ -4,6 +4,7 @@ import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
 import { TextButtonField } from "../components/molecules/TextButtonField";
 import { useRouter } from "next/router";
+import { CallToAction } from "../components/molecules/CallToAction";
 
 export default function Home(props) {
   const { t } = useTranslation("common");
@@ -45,6 +46,12 @@ export default function Home(props) {
           />
         </div>
       </section>
+      <CallToAction
+        title={t("signupTitle")}
+        description={t("becomeAParticipantDescription")}
+        href={"/signup"}
+        hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
+      />
     </Layout>
   );
 }

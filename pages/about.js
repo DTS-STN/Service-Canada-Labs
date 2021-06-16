@@ -5,6 +5,7 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { List } from "../components/molecules/List";
 import { ActionButton } from "../components/atoms/ActionButton";
+import { CallToAction } from "../components/molecules/CallToAction";
 
 export default function About(props) {
   const { t } = useTranslation("common");
@@ -20,7 +21,7 @@ export default function About(props) {
         <title>{t("aboutTitle")}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="layout-container relative mb-28">
+      <section className="layout-container relative mb-10">
         <h1
           id="pageMainTitle"
           className="mb-10 text-h1l font-bold w-max"
@@ -62,6 +63,12 @@ export default function About(props) {
           </div>
         </div>
       </section>
+      <CallToAction
+        title={t("signupTitle")}
+        description={t("becomeAParticipantDescription")}
+        href={"/signup"}
+        hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
+      />
     </Layout>
   );
 }
