@@ -20,7 +20,7 @@ export function TextField(props) {
       }`}
     >
       <label
-        className={`block leading-tight text-sm font-body mb-5px ${
+        className={`block leading-tight text-sm font-body mb-5 ${
           props.boldLabel ? "font-bold" : ""
         }`}
         htmlFor={props.id}

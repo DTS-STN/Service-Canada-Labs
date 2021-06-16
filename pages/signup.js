@@ -13,6 +13,7 @@ import { RadioField } from "../components/atoms/RadioField";
 import { OptionalTextField } from "../components/molecules/OptionalTextField";
 import { SelectField } from "../components/atoms/SelectField";
 import { CheckBox } from "../components/atoms/CheckBox";
+import { OptionalListField } from "../components/molecules/OptionalListField";
 
 // TODO
 //  - fix bug with error messages not showing custom error message [x]
@@ -150,7 +151,8 @@ export default function Signup(props) {
   const [disability, setDisability] = useState("");
   const [disabilityDetails, setDisabilityDetails] = useState("");
 
-  const [minority, setMinority] = useState([]);
+  const [minority, setMinority] = useState("");
+  const [minorityGroup, setMinorityGroup] = useState([]);
   const [minorityGroupOther, setMinorityGroupOther] = useState("");
 
   const [incomeLevel, setIncomeLevel] = useState("");
@@ -162,17 +164,20 @@ export default function Signup(props) {
 
   const [errorBoxText, setErrorBoxText] = useState("");
 
-  const handlerMinorityOnChange = (checked, name, value) => {
+  const handlerMinorityGroupOnChange = (checked, name, value) => {
     // pop value from list
     if (checked) {
-      const indexOfElement = minority.indexOf(value);
+      const indexOfElement = minorityGroup.indexOf(value);
       if (indexOfElement > -1) {
-        const newMinorityArray = [...minority];
-        newMinorityArray.splice(indexOfElement, 1);
-        setMinority(newMinorityArray);
+        const newMinorityGroupArray = [...minorityGroup];
+        newMinorityGroupArray.splice(indexOfElement, 1);
+        setMinorityGroup(newMinorityGroupArray);
+        if (value === "other") {
+          setMinorityGroupOther("");
+        }
       }
     } else {
-      setMinority([...minority, value]);
+      setMinorityGroup([...minorityGroup, value]);
     }
   };
 
@@ -192,7 +197,8 @@ export default function Signup(props) {
     setNativeStatus("");
     setDisability("");
     setDisabilityDetails("");
-    setMinority([]);
+    setMinority("");
+    setMinorityGroup([]);
     setMinorityGroupOther("");
     setIncomeLevel("");
     setAgreeToConditions("");
@@ -221,6 +227,7 @@ export default function Signup(props) {
       disability,
       disabilityDetails,
       minority,
+      minorityGroup,
       minorityGroupOther,
       incomeLevel,
       agreeToConditions,
@@ -331,44 +338,51 @@ export default function Signup(props) {
         <title>{t("signupPage")}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="layout-container mb-2 mt-12">
+      <section className="layout-container mb-2 mt-12 xl:bg-lightbulb-right-img xl:bg-right xl:bg-no-repeat">
         {errorBoxText ? (
           <ErrorBox text={errorBoxText} errors={errorBoxErrors} />
         ) : undefined}
-        <h1 className="mb-12" id="pageMainTitle">
-          {t("signupTitle")}
-        </h1>
-        <p className="mb-6">{t("signupP1")}</p>
-        <h2 className="mb-3">{t("signupTitle2")}</h2>
-        <p className="mb-6">{t("signupP2")}</p>
-        <h3 className="mb-3">{t("signupTitle3")}</h3>
-        <p className="mb-3">{t("signupP3")}</p>
-        <ul className="list-disc list-inside pl-2 mb-3 font-body">
-          <li>{t("email")}</li>
-          <li>{t("year")}</li>
-          <li>{t("language")}</li>
-        </ul>
-        <p className="mb-3">{t("signupP4")}</p>
-        <ul className="list-disc list-inside pl-2 mb-3 font-body">
-          <li>{t("province")}</li>
-          <li>{t("gender")}</li>
-          <li>{t("indigenous")}</li>
-          <li>{t("disabilities")}</li>
-          <li>{t("minority")}</li>
-          <li>{t("income")}</li>
-        </ul>
+        <div className="xl:w-2/3 ">
+          <h1 className="mb-12" id="pageMainTitle">
+            {t("signupTitle")}
+          </h1>
+          <p className="mb-10">{t("signupP1")}</p>
+          <h2 className="mb-5">{t("signupTitle2")}</h2>
+          <ul className="list-disc list-outside pl-2 mb-10 font-body ml-3">
+            <li className="mb-3">{t("signupP2.1")}</li>
+            <li className="mb-3">{t("signupP2.2")}</li>
+            <li className="mb-3">{t("signupP2.3")}</li>
+            <li>{t("signupP2.4")}</li>
+          </ul>
+          <h3 className="mb-5">{t("signupTitle3")}</h3>
+          <p className="mb-3">{t("signupP3")}</p>
+          <ul className="list-disc list-outside pl-2 mb-5 font-body ml-3">
+            <li>{t("email")}</li>
+            <li>{t("year")}</li>
+            <li>{t("language")}</li>
+          </ul>
+          <p className="mb-3">{t("signupP4")}</p>
+          <ul className="list-disc list-outside pl-2 mb-5 font-body ml-3">
+            <li>{t("province")}</li>
+            <li>{t("gender")}</li>
+            <li>{t("indigenous")}</li>
+            <li>{t("disabilities")}</li>
+            <li>{t("minority")}</li>
+            <li>{t("income")}</li>
+          </ul>
+        </div>
       </section>
       <section className="layout-container">
         <form onSubmit={handleSubmit} onReset={handlerClearData} noValidate>
           <a
-            className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-4"
+            className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
             href={t("reportAProblemPrivacyStatementLink")}
           >
             {t("privacy")}
           </a>
           <ActionButton
             id="reset"
-            custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-4"
+            custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
             type="reset"
           >
             {t("clear")}
@@ -401,8 +415,8 @@ export default function Signup(props) {
               boldLabel={true}
               required
             />
-            <fieldset className="mb-10">
-              <legend className="block leading-tight text-sm font-body mb-5px font-bold">
+            <fieldset className="mb-6">
+              <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 <b className="text-error-border-red">*</b> {t("formLang")}{" "}
                 <b className="text-error-border-red">{t("required")}</b>
               </legend>
@@ -509,8 +523,8 @@ export default function Signup(props) {
               onChange={setProvince}
             />
 
-            <fieldset className="mb-10">
-              <legend className="block leading-tight text-sm font-body mb-5px font-bold">
+            <fieldset className="mb-6">
+              <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("formGender")}{" "}
                 <p className="inline text-form-input-gray text-sm">
                   {t("optional")}
@@ -560,8 +574,8 @@ export default function Signup(props) {
               />
             </fieldset>
 
-            <fieldset className="mb-10">
-              <legend className="block leading-tight text-sm font-body mb-5px font-bold">
+            <fieldset className="mb-6">
+              <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("formIndigenous")}{" "}
                 <p className="inline text-form-input-gray text-sm">
                   {t("optional")}
@@ -619,8 +633,8 @@ export default function Signup(props) {
               />
             </fieldset>
 
-            <fieldset className="mb-10">
-              <legend className="block leading-tight text-sm font-body mb-5px font-bold">
+            <fieldset className="mb-6">
+              <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("disability")}{" "}
                 <p className="inline text-form-input-gray text-sm">
                   {t("optional")}
@@ -671,131 +685,148 @@ export default function Signup(props) {
               />
             </fieldset>
 
-            <fieldset className="mb-10">
-              <legend className="block leading-tight text-sm font-body mb-5px font-bold">
+            <fieldset className="mb-6">
+              <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("formMinority")}{" "}
                 <p className="inline text-form-input-gray text-sm">
                   {t("optional")}
                 </p>
               </legend>
-              <CheckBox
-                label={t("arab")}
-                id="minorityGroupArab"
-                name="minorityGroup"
-                checked={minority.includes("arab")}
-                onChange={handlerMinorityOnChange}
-                value="arab"
+              <OptionalListField
+                controlName="minority"
+                controlId="minorityYes"
+                controlLabel={t("yes")}
+                controlValue="yes"
+                controlType="radiofield"
+                checked={minority === "yes"}
+                onControlChange={(checked, name, value) => setMinority(value)}
+                listLabel={t("minorityYesDetails")}
+              >
+                <CheckBox
+                  label={t("black")}
+                  id="minorityGroupBlack"
+                  name="minorityGroup"
+                  checked={minorityGroup.includes("black")}
+                  onChange={handlerMinorityGroupOnChange}
+                  value="black"
+                  className="mb-7"
+                />
+                <CheckBox
+                  label={t("chinese")}
+                  id="minorityGroupChinese"
+                  name="minorityGroup"
+                  checked={minorityGroup.includes("chinese")}
+                  onChange={handlerMinorityGroupOnChange}
+                  value="chinese"
+                  className="mb-7"
+                />
+                <CheckBox
+                  label={t("filipino")}
+                  id="minorityGroupFilipino"
+                  name="minorityGroup"
+                  checked={minorityGroup.includes("filipino")}
+                  onChange={handlerMinorityGroupOnChange}
+                  value="filipino"
+                  className="mb-7"
+                />
+                <CheckBox
+                  label={t("japanese")}
+                  id="minorityGroupJapanese"
+                  name="minorityGroup"
+                  checked={minorityGroup.includes("japanese")}
+                  onChange={handlerMinorityGroupOnChange}
+                  value="japanese"
+                  className="mb-7"
+                />
+                <CheckBox
+                  label={t("korean")}
+                  id="minorityGroupKorean"
+                  name="minorityGroup"
+                  checked={minorityGroup.includes("korean")}
+                  onChange={handlerMinorityGroupOnChange}
+                  value="korean"
+                  className="mb-7"
+                />
+                <CheckBox
+                  label={t("SA")}
+                  id="minorityGroupSouthAsian"
+                  name="minorityGroup"
+                  checked={minorityGroup.includes("southAsian")}
+                  onChange={handlerMinorityGroupOnChange}
+                  value="southAsian"
+                  className="mb-10 lg:mb-7"
+                />
+                <CheckBox
+                  label={t("SEA")}
+                  id="minorityGroupSoutheastAsian"
+                  name="minorityGroup"
+                  checked={minorityGroup.includes("southeastAsian")}
+                  onChange={handlerMinorityGroupOnChange}
+                  value="southeastAsian"
+                  className="mb-10 lg:mb-7"
+                />
+                <CheckBox
+                  label={t("nonWhiteAAA")}
+                  id="minorityGroupNonWhiteAAA"
+                  name="minorityGroup"
+                  checked={minorityGroup.includes("nonWhiteAAA")}
+                  onChange={handlerMinorityGroupOnChange}
+                  value="nonWhiteAAA"
+                  className="mb-10 lg:mb-7"
+                />
+                <CheckBox
+                  label={t("LA")}
+                  id="minorityGroupLatinAmerican"
+                  name="minorityGroup"
+                  checked={minorityGroup.includes("latinAmerican")}
+                  onChange={handlerMinorityGroupOnChange}
+                  value="latinAmerican"
+                  className="mb-10 lg:mb-7"
+                />
+                <CheckBox
+                  label={t("mixedOrigin")}
+                  id="minorityGroupMixedOrigin"
+                  name="minorityGroup"
+                  checked={minorityGroup.includes("mixedOrigin")}
+                  onChange={handlerMinorityGroupOnChange}
+                  value="mixedOrigin"
+                  className="mb-7"
+                />
+                <OptionalTextField
+                  controlLabel={t("otherMinority")}
+                  textFieldName="minorityGroupOther"
+                  textFieldId="minorityGroupOtherDetails"
+                  textLabelBold={true}
+                  checked={minorityGroup.includes("other")}
+                  onControlChange={handlerMinorityGroupOnChange}
+                  onTextFieldChange={setMinorityGroupOther}
+                  textFieldValue={minorityGroupOther}
+                  textFieldLabel={t("otherMinorityDetails")}
+                  controlValue="other"
+                  controlName="minorityGroup"
+                  controlId="minorityGroupOther"
+                />
+              </OptionalListField>
+              <RadioField
+                label={t("no")}
+                id="minorityNo"
+                name="minority"
+                value="no"
+                checked={minority === "no"}
+                onChange={(checked, name, value) => setMinority(value)}
               />
-              <CheckBox
-                label={t("black")}
-                id="minorityGroupBlack"
-                name="minorityGroup"
-                checked={minority.includes("black")}
-                onChange={handlerMinorityOnChange}
-                value="black"
-              />
-              <CheckBox
-                label={t("chinese")}
-                id="minorityGroupChinese"
-                name="minorityGroup"
-                checked={minority.includes("chinese")}
-                onChange={handlerMinorityOnChange}
-                value="chinese"
-              />
-              <CheckBox
-                label={t("filipino")}
-                id="minorityGroupFilipino"
-                name="minorityGroup"
-                checked={minority.includes("filipino")}
-                onChange={handlerMinorityOnChange}
-                value="filipino"
-              />
-              <CheckBox
-                label={t("japanese")}
-                id="minorityGroupJapanese"
-                name="minorityGroup"
-                checked={minority.includes("japanese")}
-                onChange={handlerMinorityOnChange}
-                value="japanese"
-              />
-              <CheckBox
-                label={t("korean")}
-                id="minorityGroupKorean"
-                name="minorityGroup"
-                checked={minority.includes("korean")}
-                onChange={handlerMinorityOnChange}
-                value="korean"
-              />
-              <CheckBox
-                label={t("LA")}
-                id="minorityGroupLatinAmerican"
-                name="minorityGroup"
-                checked={minority.includes("latinAmerican")}
-                onChange={handlerMinorityOnChange}
-                value="latinAmerican"
-              />
-              <CheckBox
-                label={t("SA")}
-                id="minorityGroupSouthAsian"
-                name="minorityGroup"
-                checked={minority.includes("southAsian")}
-                onChange={handlerMinorityOnChange}
-                value="southAsian"
-              />
-              <CheckBox
-                label={t("SEA")}
-                id="minorityGroupSoutheastAsian"
-                name="minorityGroup"
-                checked={minority.includes("southeastAsian")}
-                onChange={handlerMinorityOnChange}
-                value="southeastAsian"
-              />
-              <CheckBox
-                label={t("WA")}
-                id="minorityGroupWestAsian"
-                name="minorityGroup"
-                checked={minority.includes("westAsian")}
-                onChange={(checked, name, value) => {
-                  // pop value from list
-                  if (checked) {
-                    setMinority(minority.splice(minority.indexOf(value), 1));
-                  } else {
-                    setMinority([...minority, value]);
-                  }
-                }}
-                value="westAsian"
-              />
-              <OptionalTextField
-                controlLabel={t("otherMinority")}
-                textFieldName="minorityGroupOther"
-                textFieldId="minorityGroupOtherDetails"
-                textLabelBold={true}
-                checked={minority.includes("other")}
-                onControlChange={(checked, name, value) => {
-                  // pop value from list
-                  if (checked) {
-                    const indexOfElement = minority.indexOf(value);
-                    if (indexOfElement > -1) {
-                      const newMinorityArray = [...minority];
-                      newMinorityArray.splice(indexOfElement, 1);
-                      setMinority(newMinorityArray);
-                      setMinorityGroupOther("");
-                    }
-                  } else {
-                    setMinority([...minority, value]);
-                  }
-                }}
-                onTextFieldChange={setMinorityGroupOther}
-                textFieldValue={minorityGroupOther}
-                textFieldLabel={t("otherMinorityDetails")}
-                controlValue="other"
-                controlName="minorityGroup"
-                controlId="minorityGroupOther"
+              <RadioField
+                label={t("preferNotAnswer")}
+                id="minorityPreferNotToAnswer"
+                onChange={(checked, name, value) => setMinority(value)}
+                checked={minority === "preferNotToAnswer"}
+                name="minority"
+                value="preferNotToAnswer"
               />
             </fieldset>
 
-            <fieldset className="mb-10">
-              <legend className="block leading-tight text-sm font-body mb-5px font-bold">
+            <fieldset className="mb-6">
+              <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("formIncome")}{" "}
                 <p className="inline text-form-input-gray text-sm">
                   {t("optional")}
