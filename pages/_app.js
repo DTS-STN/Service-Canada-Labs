@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
     if (typeof window !== "undefined") {
       const lang = window.localStorage.getItem("lang");
       if (!lang) {
-        router.push("splash");
+        router.push("/");
       }
     }
   }, []);
