@@ -15,7 +15,11 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <script type="text/javascript">_satellite.pageBottom();</script>
+          {
+          process.env.ADOBE_ANALYTICS_URL
+          ? <script type="text/javascript">_satellite.pageBottom()</script>
+          : ""
+        }
         </body>
       </Html>
     );

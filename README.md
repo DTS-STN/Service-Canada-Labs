@@ -51,7 +51,7 @@ Here is a list of all the environment variables used to configure the applicatio
 
 `USER_SIGNUP_ENGLISH_TEMPLATE_ID`: The English template to use for the user sign up
 
-`NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID`: The Notify template ID for the report a problem email template
+`NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID`: The Notify template ID for the report a problem email template
 
 `NOTIFY_REPORT_A_PROBLEM_EMAIL`: The email to send it too
 
@@ -62,6 +62,8 @@ Here is a list of all the environment variables used to configure the applicatio
 `NEXT_PUBLIC_API_MOCKING`: Value can be `enabled` or `disabled`. If enabled, a mock service worker will run in the Node environment to intercept handled network requests in NextJS data fetching methods like getStaticProps(). We use this to mock API responses during Cypress testing.
 
 `STRAPI_API_BACKEND_URL`: Root URL for the Strapi CMS API. We use https://alphasite-api.dts-stn.com/ for our application.
+
+`ADOBE_ANALYTICS_URL`: URL for adobe analytics. It is found in the documentation for Adobe Analytics installation.
 
 ## Learn More
 
