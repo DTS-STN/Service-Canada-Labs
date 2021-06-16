@@ -63,7 +63,7 @@ Here is a list of all the environment variables used to configure the applicatio
 
 `STRAPI_API_BACKEND_URL`: Root URL for the Strapi CMS API. We use https://alphasite-api.dts-stn.com/ for our application.
 
-`ADOBE_ANALYTICS_URL`: URL for adobe analytics. It is found in the documentation for Adobe Analytics installation.
+`NEXT_PUBLIC_ADOBE_ANALYTICS_URL`: URL for adobe analytics. It is found in the documentation for Adobe Analytics installation.
 
 ## Learn More
 
