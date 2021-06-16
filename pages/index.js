@@ -16,10 +16,8 @@ export default function Index(props) {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const lang = window.localStorage.getItem("lang");
-      if (lang === "fr") {
-        router.push("fr/home");
-      } else {
-        router.push("/home");
+      if (lang) {
+        router.push(`${lang === "en" ? "" : "/fr"}/home`);
       }
     }
   }, []);
