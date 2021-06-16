@@ -346,30 +346,28 @@ export default function Signup(props) {
           <h1 className="mb-12" id="pageMainTitle">
             {t("signupTitle")}
           </h1>
-          <p className="mb-6">{t("signupP1")}</p>
-          <h2 className="mb-3">{t("signupTitle2")}</h2>
-          <ul className="list-disc list-outside pl-2 mb-3 font-body ml-3">
-            <li>
-              <span>{t("signupP2.1")}</span>
-            </li>
-            <li>{t("signupP2.2")}</li>
-            <li>{t("signupP2.3")}</li>
+          <p className="mb-10">{t("signupP1")}</p>
+          <h2 className="mb-5">{t("signupTitle2")}</h2>
+          <ul className="list-disc list-outside pl-2 mb-10 font-body ml-3">
+            <li className="mb-3">{t("signupP2.1")}</li>
+            <li className="mb-3">{t("signupP2.2")}</li>
+            <li className="mb-3">{t("signupP2.3")}</li>
             <li>{t("signupP2.4")}</li>
           </ul>
-          <h3 className="mb-3">{t("signupTitle3")}</h3>
+          <h3 className="mb-5">{t("signupTitle3")}</h3>
           <p className="mb-3">{t("signupP3")}</p>
-          <ul className="list-disc list-outside pl-2 mb-3 font-body ml-3">
-            <li>{t("email")}</li>
-            <li>{t("year")}</li>
+          <ul className="list-disc list-outside pl-2 mb-5 font-body ml-3">
+            <li className="mb-3">{t("email")}</li>
+            <li className="mb-3">{t("year")}</li>
             <li>{t("language")}</li>
           </ul>
           <p className="mb-3">{t("signupP4")}</p>
-          <ul className="list-disc list-outside pl-2 mb-3 font-body ml-3">
-            <li>{t("province")}</li>
-            <li>{t("gender")}</li>
-            <li>{t("indigenous")}</li>
-            <li>{t("disabilities")}</li>
-            <li>{t("minority")}</li>
+          <ul className="list-disc list-outside pl-2 mb-5 font-body ml-3">
+            <li className="mb-3">{t("province")}</li>
+            <li className="mb-3">{t("gender")}</li>
+            <li className="mb-3">{t("indigenous")}</li>
+            <li className="mb-3">{t("disabilities")}</li>
+            <li className="mb-3">{t("minority")}</li>
             <li>{t("income")}</li>
           </ul>
         </div>
@@ -377,14 +375,14 @@ export default function Signup(props) {
       <section className="layout-container">
         <form onSubmit={handleSubmit} onReset={handlerClearData} noValidate>
           <a
-            className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-4"
+            className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
             href={t("reportAProblemPrivacyStatementLink")}
           >
             {t("privacy")}
           </a>
           <ActionButton
             id="reset"
-            custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-4"
+            custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
             type="reset"
           >
             {t("clear")}
@@ -417,8 +415,8 @@ export default function Signup(props) {
               boldLabel={true}
               required
             />
-            <fieldset className="mb-10">
-              <legend className="block leading-tight text-sm font-body mb-5px font-bold">
+            <fieldset className="mb-6">
+              <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 <b className="text-error-border-red">*</b> {t("formLang")}{" "}
                 <b className="text-error-border-red">{t("required")}</b>
               </legend>
@@ -525,8 +523,8 @@ export default function Signup(props) {
               onChange={setProvince}
             />
 
-            <fieldset className="mb-10">
-              <legend className="block leading-tight text-sm font-body mb-5px font-bold">
+            <fieldset className="mb-6">
+              <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("formGender")}{" "}
                 <p className="inline text-form-input-gray text-sm">
                   {t("optional")}
@@ -576,8 +574,8 @@ export default function Signup(props) {
               />
             </fieldset>
 
-            <fieldset className="mb-10">
-              <legend className="block leading-tight text-sm font-body mb-5px font-bold">
+            <fieldset className="mb-6">
+              <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("formIndigenous")}{" "}
                 <p className="inline text-form-input-gray text-sm">
                   {t("optional")}
@@ -635,8 +633,8 @@ export default function Signup(props) {
               />
             </fieldset>
 
-            <fieldset className="mb-10">
-              <legend className="block leading-tight text-sm font-body mb-5px font-bold">
+            <fieldset className="mb-6">
+              <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("disability")}{" "}
                 <p className="inline text-form-input-gray text-sm">
                   {t("optional")}
@@ -687,8 +685,8 @@ export default function Signup(props) {
               />
             </fieldset>
 
-            <fieldset className="mb-10">
-              <legend className="block leading-tight text-sm font-body mb-5px font-bold">
+            <fieldset className="mb-6">
+              <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("formMinority")}{" "}
                 <p className="inline text-form-input-gray text-sm">
                   {t("optional")}
@@ -827,8 +825,8 @@ export default function Signup(props) {
               />
             </fieldset>
 
-            <fieldset className="mb-10">
-              <legend className="block leading-tight text-sm font-body mb-5px font-bold">
+            <fieldset className="mb-6">
+              <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("formIncome")}{" "}
                 <p className="inline text-form-input-gray text-sm">
                   {t("optional")}

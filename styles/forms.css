@@ -95,3 +95,7 @@
     cursor: text;
     touch-action: manipulation;
 }
+
+form > label {
+    margin-bottom: 1rem;
+}
