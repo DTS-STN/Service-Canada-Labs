@@ -1,10 +1,12 @@
 import Head from "next/head";
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
 import { ReportAProblem } from "../components/organisms/ReportAProblem";
 import { ActionButton } from "../components/atoms/ActionButton";
 
-export default function error404() {
+export default function error404(props) {
+  const { t } = useTranslation("common");
   return (
     <div className="min-h-screen relative">
       <Head>
@@ -104,8 +106,9 @@ export default function error404() {
   );
 }
 
-export const getStaticProps = async () => ({
+export const getStaticProps = async ({ locale }) => ({
   props: {
+    locale: locale,
     ...(await serverSideTranslations("en", ["common"])),
     ...(await serverSideTranslations("fr", ["common"])),
   },
