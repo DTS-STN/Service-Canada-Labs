@@ -69,6 +69,10 @@ export default function Experiments(props) {
       <Head>
         <title>{t("experimentsTitle")}</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="dcterms.title" content={t("experimentsTitle")} />
+        <meta name="dcterms.language" content={props.locale} />
+        <meta name="dcterms.creator" content={t("creator")} />
+        <meta name="dcterms.accessRights" content="2" />
       </Head>
       <section className="layout-container mb-10">
         <h1 id="pageMainTitle" tabIndex="-1" className="w-max">

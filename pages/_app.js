@@ -25,6 +25,7 @@ function MyApp({ Component, pageProps }) {
         ) : (
           ""
         )}
+        <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-Laboratoire" />
       </Head>
       <Component {...pageProps} />
     </>

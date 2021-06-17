@@ -10,6 +10,10 @@ export default function error404() {
       <Head>
         <title>404</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="dcterms.title" content="404" />
+        <meta name="dcterms.language" content={props.locale} />
+        <meta name="dcterms.creator" content={t("creator")} />
+        <meta name="dcterms.accessRights" content="2" />
       </Head>
       <section className="layout-container pb-44">
         <img
