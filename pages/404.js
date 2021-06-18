@@ -13,7 +13,10 @@ export default function error404(props) {
         <title>404</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="dcterms.title" content="404" />
-        <meta name="dcterms.language" content={props.locale} />
+        <meta
+          name="dcterms.language"
+          content={props.locale === "en" ? "eng" : "fra"}
+        />
         <meta name="dcterms.creator" content={t("creator")} />
         <meta name="dcterms.accessRights" content="2" />
       </Head>

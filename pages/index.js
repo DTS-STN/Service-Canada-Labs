@@ -30,7 +30,10 @@ export default function Index(props) {
         <title>alpha.service.canada.ca</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="dcterms.title" content="index" />
-        <meta name="dcterms.language" content={props.locale} />
+        <meta
+          name="dcterms.language"
+          content={props.locale === "en" ? "eng" : "fra"}
+        />
         <meta name="dcterms.creator" content={t("creator")} />
         <meta name="dcterms.accessRights" content="2" />
       </Head>
