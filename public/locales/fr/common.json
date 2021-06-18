@@ -184,5 +184,8 @@
   "confirmationEmail": "Experience@servicecanada.gc.ca",
   "confirmationP2": "Nous vous inviterons à prendre part aux expériences et à d’autres activités de recherche au fur et à mesure qu’elles se présenteront afin d’améliorer Service Canada pour tous.",
   "confirmationP3": "N’oubliez pas que vous pouvez choisir le temps que vous y consacrez et que chaque petit geste compte.",
-  "confirmationP4": "Nous sommes véritablement heureux de vous avoir dans l’équipe!"
+  "confirmationP4": "Nous sommes véritablement heureux de vous avoir dans l’équipe!",
+  "emailConfirmationTitle": "(FR) Thank you for confirming your email",
+  "emailConfirmationP1": "(FR) We’ll invite you to take part in experiments and research activities as they come up to make Service Canada better for everyone.",
+  "emailConfirmationP2": "(FR) In the meantime, explore our experiments."
 }

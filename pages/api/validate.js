@@ -34,5 +34,6 @@ export default async function handler(req, res) {
   }
 
   // TODO: need a better way to display errors
-  return res.redirect("/404");
+  res.status(400);
+  return res.redirect("/validate");
 }
