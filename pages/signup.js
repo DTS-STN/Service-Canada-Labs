@@ -337,6 +337,13 @@ export default function Signup(props) {
       <Head>
         <title>{t("signupPage")}</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="dcterms.title" content={t("signupPage")} />
+        <meta
+          name="dcterms.language"
+          content={props.locale === "en" ? "eng" : "fra"}
+        />
+        <meta name="dcterms.creator" content={t("creator")} />
+        <meta name="dcterms.accessRights" content="2" />
       </Head>
       <section className="layout-container mb-2 mt-12 xl:bg-lightbulb-right-img xl:bg-right xl:bg-no-repeat">
         {errorBoxText ? (
