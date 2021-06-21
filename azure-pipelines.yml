@@ -28,7 +28,7 @@ stages:
         repository: $(imageRepository)
         command: 'build'
         Dockerfile: './Dockerfile'
-        arguments: '--pull --build-arg TC_BUILD=$(ADO_BUILD) --build-arg BUILD_DATE=$(BUILD_DATE) --build-arg STRAPI_API_BACKEND_URL=$(STRAPI_API_BACKEND_URL) --build-arg MONGO_URL=$(MONGO_URL) --build-arg MONGO_DB=$(MONGO_DB)'
+        arguments: '--pull --build-arg TC_BUILD=$(ADO_BUILD) --build-arg BUILD_DATE=$(BUILD_DATE) --build-arg STRAPI_API_BACKEND_URL=$(STRAPI_API_BACKEND_URL) --build-arg MONGO_URL=$(MONGO_URL) --build-arg MONGO_DB=$(MONGO_DB) --build-arg NEXT_PUBLIC_ADOBE_ANALYTICS_URL=$(NEXT_PUBLIC_ADOBE_ANALYTICS_URL)'
         tags: |
           $(tag)
     - task: Docker@2
