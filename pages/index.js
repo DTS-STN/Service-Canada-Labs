@@ -45,8 +45,8 @@ export default function Index(props) {
               src={"/sig-blk-en.svg"}
               alt={"Symbol of the Government of Canada"}
             />
-            <div className="w-max container mx-auto py-11 text-p xl:text-h4 font-bold font-display">
-              <h1>alpha.service.canada.ca</h1>
+            <div className="w-max container mx-auto py-11 font-bold font-display">
+              <h1 className="text-p xl:text-h4">alpha.service.canada.ca</h1>
             </div>
             <div className="flex w-max container pb-11 mx-auto font-display">
               <ActionButton
