@@ -16,24 +16,24 @@ export default async function handler(req, res) {
     );
     try {
       verifyUserObj = await verifyUser(conn.db, id);
+
+      // if the id can't be found in mongo return an error
       if (!verifyUserObj.value) {
-        // TODO: need a better way to display errors
-        return res.redirect("/404");
+        return res.redirect("/500");
       }
+
+      // if the object returned is verified, redirect to the confirmation page
       if (verifyUserObj.value.verified) {
-        return res.redirect("/validate");
+        return res.redirect("/confirmation");
       } else {
-        // TODO: need a better way to display errors
-        return res.redirect("/404");
+        // if verified somehow isn't set, something went wrong
+        return res.redirect("/500");
       }
     } catch (e) {
       console.log(e);
-      // TODO: need a better way to display errors
-      return res.redirect("/404");
+      return res.redirect("/500");
     }
   }
 
-  // TODO: need a better way to display errors
-  res.status(400);
-  return res.redirect("/validate");
+  return res.redirect("/500");
 }

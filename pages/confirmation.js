@@ -5,7 +5,7 @@ import { Layout } from "../components/organisms/Layout";
 import Head from "next/head";
 import { TextButtonField } from "../components/molecules/TextButtonField";
 
-export default function Validate(props) {
+export default function Confirmation(props) {
   const { t } = useTranslation("common");
   const { asPath } = useRouter();
 
