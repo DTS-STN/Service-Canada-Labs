@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ReportAProblem } from "../components/organisms/ReportAProblem";
 import { ActionButton } from "../components/atoms/ActionButton";
 
-export default function error500() {
+export default function error500(props) {
   const { t } = useTranslation("common");
   return (
     <div className="min-h-screen relative">
