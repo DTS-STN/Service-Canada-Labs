@@ -20,6 +20,13 @@ export default function About(props) {
       <Head>
         <title>{t("aboutTitle")}</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="dcterms.title" content={t("menuLink3")} />
+        <meta
+          name="dcterms.language"
+          content={props.locale === "en" ? "eng" : "fra"}
+        />
+        <meta name="dcterms.creator" content={t("creator")} />
+        <meta name="dcterms.accessRights" content="2" />
       </Head>
       <section className="layout-container relative mb-10">
         <h1

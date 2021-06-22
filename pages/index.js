@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 import { ActionButton } from "../components/atoms/ActionButton";
 import Link from "next/link";
 import { useEffect } from "react";
@@ -12,6 +13,7 @@ const setLanguage = (event) => {
 };
 
 export default function Index(props) {
+  const { t } = useTranslation("common");
   const router = useRouter();
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -27,6 +29,13 @@ export default function Index(props) {
       <Head>
         <title>alpha.service.canada.ca</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="dcterms.title" content="index" />
+        <meta
+          name="dcterms.language"
+          content={props.locale === "en" ? "eng" : "fra"}
+        />
+        <meta name="dcterms.creator" content={t("creator")} />
+        <meta name="dcterms.accessRights" content="2" />
       </Head>
       <main>
         <div className="absolute inset-0 -mt-12 xl:mb-0 flex flex-col justify-center items-center">
@@ -36,8 +45,8 @@ export default function Index(props) {
               src={"/sig-blk-en.svg"}
               alt={"Symbol of the Government of Canada"}
             />
-            <div className="w-max container mx-auto py-11 text-p xl:text-h4 font-bold font-display">
-              <h1>alpha.service.canada.ca</h1>
+            <div className="w-max container mx-auto py-11 font-bold font-display">
+              <h1 className="text-p xl:text-h4">alpha.service.canada.ca</h1>
             </div>
             <div className="flex w-max container pb-11 mx-auto font-display">
               <ActionButton
