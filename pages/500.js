@@ -1,24 +1,15 @@
 import Head from "next/head";
-import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
 import { ReportAProblem } from "../components/organisms/ReportAProblem";
 import { ActionButton } from "../components/atoms/ActionButton";
 
-export default function error404(props) {
-  const { t } = useTranslation("common");
+export default function error500() {
   return (
     <div className="min-h-screen relative">
       <Head>
-        <title>404</title>
+        <title>500</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content="404" />
-        <meta
-          name="dcterms.language"
-          content={props.locale === "en" ? "eng" : "fra"}
-        />
-        <meta name="dcterms.creator" content={t("creator")} />
-        <meta name="dcterms.accessRights" content="2" />
       </Head>
       <section className="layout-container pb-44">
         <img
@@ -30,13 +21,12 @@ export default function error404(props) {
           <div>
             <div className="relative h-auto xl:w-96 xxl:w-400px lg:w-72 xl:h-400px lg:h-500px mb-8 lg:mb-0">
               <h1 className="font-bold font-display mb-4">
-                We couldn't find that Web page
+                The web site has reported an error. Please try again later.
               </h1>
-              <p className="font-bold font-body mb-8">Error 404</p>
+              <p className="font-bold font-body mb-8">Error 500</p>
               <p className="font-body text-sm mb-4 leading-30px">
-                We're sorry you ended up here. Sometimes a page gets moved or
-                deleted, but hopefully we can help you find what you're looking
-                for. What next?
+                It may be due to server trouble or an incorrect or expired URL.
+                If the problem persists, report the problem.
               </p>
               <div className="flex">
                 <span className="error404-link" />
@@ -62,13 +52,13 @@ export default function error404(props) {
           <div>
             <div className="relative h-auto xl:w-96 xxl:w-400px lg:w-72 xl:h-400px lg:h-500px mb-8 lg:mb-0">
               <h1 className="font-bold font-display mb-4">
-                Nous ne pouvons trouver cette page Web
+                Le site Web a signalé une erreur. Veuiller réessayer plus tard.
               </h1>
-              <p className="font-bold font-body mb-8">Error 404</p>
+              <p className="font-bold font-body mb-8">Erreur 500</p>
               <p className="font-body text-sm mb-4 leading-30px">
-                Nous sommes désolés que vous ayez abouti ici. Il arrive parfois
-                qu'une page ait été déplacée ou supprimée. Heureusement, nous
-                pouvons vous aider à trouver ce que vous cherchez. Que faire?
+                [PENDING TRANSLATION] It may be due to server trouble or an
+                incorrect or expired URL. Si le problème persiste, veuillez
+                signaler le problème.
               </p>
               <div className="flex">
                 <span className="error404-link" />
@@ -107,9 +97,8 @@ export default function error404(props) {
   );
 }
 
-export const getStaticProps = async ({ locale }) => ({
+export const getStaticProps = async () => ({
   props: {
-    locale: locale,
     ...(await serverSideTranslations("en", ["common"])),
     ...(await serverSideTranslations("fr", ["common"])),
   },
