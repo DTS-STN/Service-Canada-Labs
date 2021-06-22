@@ -37,7 +37,6 @@ export default function error500() {
                       Service Canada Labs home page
                     </a>
                   </Link>
-                  ;
                 </p>
               </div>
             </div>
@@ -70,7 +69,6 @@ export default function error500() {
                       page d'accueil [Service Canada Labs]
                     </a>
                   </Link>
-                  ;
                 </p>
               </div>
             </div>

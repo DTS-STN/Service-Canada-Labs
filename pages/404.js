@@ -38,7 +38,6 @@ export default function error404() {
                       Service Canada Labs home page
                     </a>
                   </Link>
-                  ;
                 </p>
               </div>
             </div>
@@ -71,7 +70,6 @@ export default function error404() {
                       page d'accueil [Service Canada Labs]
                     </a>
                   </Link>
-                  ;
                 </p>
               </div>
             </div>
