@@ -1,7 +1,6 @@
 {
   "alphaText": "Ce site changera au fur et à mesure que nous testons des idées.",
   "siteTitle": "Site Alpha",
-  "experimentsTitle": "Expériences",
   "bannerTitle": "Laboratoires de Service Canada",
   "bannerText": "Faites travailler le gouvernement pour vous",
   "buttonBecomeTester": "Devenez testeur",
@@ -84,7 +83,6 @@
   "active": "Active",
   "filterBy": "Filtrer par:",
   "skipToMainContentBtn": "Passer au contenu principal",
-  "signupPage": "Inscrivez-vous",
   "signupTitle": "Inscrivez-vous pour participer aux expériences",
   "signupP1": "Vous êtes invité à tester des idées expérimentales et participer à d’autres entretiens de recherche afin d’améliorer Service Canada pour tous. Chaque commentaire nous aide à nous assurer que nos services sont simples et faciles à utiliser. Remplissez le formulaire ci-dessous pour vous ajouter à notre liste de participants.",
   "signupTitle2": "Politique en matière de protection des renseignements personnels",
@@ -178,7 +176,6 @@
   "errorMustBe18": "Vous devez être âgé de 18 ans ou plus",
   "privacyLinkText": "Lire la politique en matière de protection des renseignements personnels dans son intégralité",
   "becomeAParticipantDescription": "Vous êtes invité à tester des idées expérimentales et participer à d’autres entretiens de recherche afin d’améliorer Service Canada pour tous. Chaque commentaire nous aide à nous assurer que nos services sont simples et faciles à utiliser.",
-  "thankYouTitle": "Thank you",
   "thankYou": "Merci!",
   "confirmationP1": "Nous vous avons ajouté à notre liste et vous avons envoyé un courriel de confirmation à partir de l’adresse",
   "confirmationEmail": "Experience@servicecanada.gc.ca",

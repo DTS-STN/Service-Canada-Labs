@@ -1,7 +1,6 @@
 {
   "alphaText": "This site will change as we test ideas.",
   "siteTitle": "Alpha Site",
-  "experimentsTitle": "Experiments",
   "bannerTitle": "Service Canada Labs",
   "bannerText": "Make government work for you",
   "buttonBecomeTester": "Become a tester",
@@ -84,7 +83,6 @@
   "active": "Active",
   "filterBy": "Filter by",
   "skipToMainContentBtn": "Skip to main content",
-  "signupPage": "Sign up",
   "signupTitle": "Become a participant!",
   "signupP1": "You’re invited to test our experimental ideas and participate in research interviews to make Service Canada better for everyone. Every bit of feedback helps us make sure we’re making our services simple and easy to use. Fill out the form below to join our list of participants.",
   "signupTitle2": "Privacy policy",
@@ -178,7 +176,6 @@
   "errorMustBe18": "Must be at least 18 years old",
   "privacyLinkText": "Review the privacy policy",
   "becomeAParticipantDescription": "You’re invited to test our experimental ideas and participate in research interviews to make Service Canada better for everyone. Every bit of feedback helps us make sure we’re making our services simple and easy to use.",
-  "thankYouTitle": "Thank you",
   "thankYou": "Thank you!",
   "confirmationP1": "We’ve added you to our list and sent you a confirmation email from",
   "confirmationEmail": "Experience@servicecanada.gc.ca",

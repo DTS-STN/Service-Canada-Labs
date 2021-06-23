@@ -16,7 +16,7 @@ export default function Confirmation(props) {
       breadcrumbItems={[{ text: "Service Canada Labs", link: "/" }]}
     >
       <Head>
-        <title>{t("emailConfirmationTitle")}</title>
+        <title>{t("scLabsConfirmation")}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="dcterms.title" content={t("scLabsConfirmation")} />
         <meta

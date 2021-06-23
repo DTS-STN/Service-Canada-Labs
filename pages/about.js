@@ -20,7 +20,7 @@ export default function About(props) {
       <Head>
         <title>{t("scLabsAbout")}</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content={t("menuLink3")} />
+        <meta name="dcterms.title" content={t("scLabsAbout")} />
         <meta
           name="dcterms.language"
           content={props.locale === "en" ? "eng" : "fra"}

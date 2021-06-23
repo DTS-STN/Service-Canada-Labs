@@ -18,7 +18,7 @@ export default function Home(props) {
       langUrl={asPath}
     >
       <Head>
-        <title>{t("siteTitle")}</title>
+        <title>{t("scLabsHome")}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="dcterms.title" content={t("scLabsHome")} />
         <meta

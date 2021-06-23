@@ -10,7 +10,7 @@ export default function error500(props) {
   return (
     <div className="min-h-screen relative">
       <Head>
-        <title>500</title>
+        <title>{t("bannerTitle") + " - 500"}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="dcterms.title" content={t("bannerTitle") + " - 500"} />
         <meta

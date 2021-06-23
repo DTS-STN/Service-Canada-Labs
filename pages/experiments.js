@@ -67,7 +67,7 @@ export default function Experiments(props) {
       breadcrumbItems={[{ text: "Service Canada Labs", link: "/" }]}
     >
       <Head>
-        <title>{t("experimentsTitle")}</title>
+        <title>{t("scLabsExperiments")}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="dcterms.title" content={t("scLabsExperiments")} />
         <meta
