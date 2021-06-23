@@ -188,6 +188,12 @@
   "emailConfirmationTitle": "(FR) Thank you for confirming your email",
   "emailConfirmationP1": "(FR) We’ll invite you to take part in experiments and research activities as they come up to make Service Canada better for everyone.",
   "emailConfirmationP2": "(FR) In the meantime, explore our experiments.",
-  "confirmationP4": "Nous sommes véritablement heureux de vous avoir dans l’équipe!",
-  "creator": "Emploi et Développement social Canada"
+  "creator": "Emploi et Développement social Canada",
+  "scLabsSplash": "Laboratoires de Service Canada - Splash",
+  "scLabsHome": "Laboratoires de Service Canada - Accueil",
+  "scLabsSignup": "Laboratoires de Service Canada - Inscrivez-vous",
+  "scLabsThankYou": "Laboratoires de Service Canada - Merci",
+  "scLabsExperiments": "Laboratoires de Service Canada - Expérimentations",
+  "scLabsConfirmation": "Laboratoires de Service Canada - Confirmation",
+  "scLabsAbout": "Laboratoires de Service Canada - À propos"
 }

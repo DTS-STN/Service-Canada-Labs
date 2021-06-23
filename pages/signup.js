@@ -337,7 +337,7 @@ export default function Signup(props) {
       <Head>
         <title>{t("signupPage")}</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content={t("signupPage")} />
+        <meta name="dcterms.title" content={t("scLabsSignup")} />
         <meta
           name="dcterms.language"
           content={props.locale === "en" ? "eng" : "fra"}

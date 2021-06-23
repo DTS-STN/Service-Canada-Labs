@@ -69,7 +69,7 @@ export default function Experiments(props) {
       <Head>
         <title>{t("experimentsTitle")}</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content={t("experimentsTitle")} />
+        <meta name="dcterms.title" content={t("scLabsExperiments")} />
         <meta
           name="dcterms.language"
           content={props.locale === "en" ? "eng" : "fra"}

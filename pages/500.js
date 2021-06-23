@@ -12,7 +12,7 @@ export default function error500(props) {
       <Head>
         <title>500</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content="500" />
+        <meta name="dcterms.title" content={t("bannerTitle") + " - 500"} />
         <meta
           name="dcterms.language"
           content={props.locale === "en" ? "eng" : "fra"}
