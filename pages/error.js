@@ -3,13 +3,22 @@ import Link from "next/link";
 import { ReportAProblem } from "../components/organisms/ReportAProblem";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export default function ErrorPage(props) {
+  const { t } = useTranslation("common");
   return (
     <div className="min-h-screen relative">
       <Head>
         <title>Error - Erreur</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="dcterms.title" content="Error - Erreur" />
+        <meta
+          name="dcterms.language"
+          content={props.locale === "en" ? "eng" : "fra"}
+        />
+        <meta name="dcterms.creator" content={t("creator")} />
+        <meta name="dcterms.accessRights" content="2" />
       </Head>
       <section className="layout-container pb-44">
         <img
