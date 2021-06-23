@@ -1,15 +1,24 @@
 import Head from "next/head";
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
 import { ReportAProblem } from "../components/organisms/ReportAProblem";
 import { ActionButton } from "../components/atoms/ActionButton";
 
-export default function error500() {
+export default function error500(props) {
+  const { t } = useTranslation("common");
   return (
     <div className="min-h-screen relative">
       <Head>
         <title>500</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="dcterms.title" content="500" />
+        <meta
+          name="dcterms.language"
+          content={props.locale === "en" ? "eng" : "fra"}
+        />
+        <meta name="dcterms.creator" content={t("creator")} />
+        <meta name="dcterms.accessRights" content="2" />
       </Head>
       <section className="layout-container pb-44">
         <img
@@ -97,8 +106,9 @@ export default function error500() {
   );
 }
 
-export const getStaticProps = async () => ({
+export const getStaticProps = async ({ locale }) => ({
   props: {
+    locale: locale,
     ...(await serverSideTranslations("en", ["common"])),
     ...(await serverSideTranslations("fr", ["common"])),
   },
