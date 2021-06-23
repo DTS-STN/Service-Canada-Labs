@@ -380,7 +380,13 @@ export default function Signup(props) {
         </div>
       </section>
       <section className="layout-container">
-        <form data-gc-analytics-formname="ESDC:ServiceCanadaLabsSign-up" data-gc-analytics-collect='[{"value":"input,select","emptyField":"N/A"}]' onSubmit={handleSubmit} onReset={handlerClearData} noValidate>
+        <form
+          data-gc-analytics-formname="ESDC:ServiceCanadaLabsSign-up"
+          data-gc-analytics-collect='[{"value":"input,select","emptyField":"N/A"}]'
+          onSubmit={handleSubmit}
+          onReset={handlerClearData}
+          noValidate
+        >
           <a
             className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
             href={t("reportAProblemPrivacyStatementLink")}
