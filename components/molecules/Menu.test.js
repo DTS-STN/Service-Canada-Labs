@@ -20,6 +20,15 @@ describe("Menu", () => {
     screen.getByTitle("Menu");
   });
 
+  it("toggles aria-expanded attribute when clicked", () => {
+    render(<Primary {...Primary.args} />);
+    const inputElem = screen.getByTestId("menuButton");
+    act(() => {
+      inputElem.click();
+    });
+    expect(inputElem.getAttribute("aria-expanded")).toEqual("true");
+  });
+
   it("has no a11y violations", async () => {
     const { container } = render(<Primary {...Primary.args} />);
     const results = await axe(container);

@@ -21,7 +21,6 @@ export function ActionButton(props) {
   //Activate Links with spacebar
   useEffect(() => {
     let link = document.getElementById(props.id);
-    console.log(link);
     if (link) {
       link.addEventListener("keydown", (event) => {
         if (event.key === "Spacebar" || event.key === " ") {
