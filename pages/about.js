@@ -18,9 +18,9 @@ export default function About(props) {
       breadcrumbItems={[{ text: "Service Canada Labs", link: "/" }]}
     >
       <Head>
-        <title>{t("aboutTitle")}</title>
+        <title>{t("scLabsAbout")}</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content={t("menuLink3")} />
+        <meta name="dcterms.title" content={t("scLabsAbout")} />
         <meta
           name="dcterms.language"
           content={props.locale === "en" ? "eng" : "fra"}
