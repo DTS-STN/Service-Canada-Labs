@@ -12,7 +12,7 @@ export function SelectField(props) {
     : {};
   return (
     <div
-      className={`relative block leading-tight${
+      className={`block leading-tight${
         props.className ? " " + props.className : " mb-10px"
       }`}
     >
@@ -33,19 +33,22 @@ export function SelectField(props) {
         )}
       </label>
       {props.error ? <ErrorLabel message={props.error} /> : undefined}
-      <input
-        className={`text-input select-field font-body w-full min-h-40px shadow-sm text-form-input-gray border-2 py-6px px-12px ${
-          props.error ? "border-error-border-red" : "border-black"
-        }`}
-        list={props.id}
-        id={props.id + "-choice"}
-        name={props.name}
-        required={props.required}
-        onChange={(e) => props.onChange(e.currentTarget.value)}
-        {...ifControlledProps}
-        data-testid={props.dataTestId + "-choice"}
-        data-cy={props.dataCy + "-choice"}
-      />
+      <div className="relative">
+        <input
+          className={`text-input select-field font-body w-full lg:w-3/4 min-h-40px shadow-sm text-form-input-gray border-2 py-6px px-12px ${
+            props.error ? "border-error-border-red" : "border-black"
+          }`}
+          list={props.id}
+          id={props.id + "-choice"}
+          name={props.name}
+          required={props.required}
+          onChange={(e) => props.onChange(e.currentTarget.value)}
+          {...ifControlledProps}
+          data-testid={props.dataTestId + "-choice"}
+          data-cy={props.dataCy + "-choice"}
+        />
+        <span className="select-field-icon"></span>
+      </div>
       <datalist id={props.id}>
         {props.options.map(({ id, name, value }) => {
           return (

@@ -83,7 +83,7 @@
   "active": "Active",
   "filterBy": "Filter by",
   "skipToMainContentBtn": "Skip to main content",
-  "signupTitle": "Become a participant!",
+  "signupTitle": "Sign up become a participant!",
   "signupP1": "You’re invited to test our experimental ideas and participate in research interviews to make Service Canada better for everyone. Every bit of feedback helps us make sure we’re making our services simple and easy to use. Fill out the form below to join our list of participants.",
   "signupTitle2": "Privacy policy",
   "signupP2.1": "Your participation is completely voluntary. You can withdraw your participation and data from our list at any time with no impact.",
@@ -162,6 +162,9 @@
   "required": "(required)",
   "formCheckBox": "I have read, understood and agree to the above. I affirm that I am 18 years old, or older. I understand that I can withdraw from this participant pool, or any research study at any time without consequence.",
   "errorRequired": "This field is required",
+  "emailRequired": "Email - This field is required",
+  "yearRequired": "Year of birth - This field is required",
+  "languageRequired": "What language would you like us to contact you in - This field is required",
   "errorEmail": "Must be a valid email",
   "errorInt": "This field must be an integer",
   "errorMinMax": "This field must be a valid birth year",
@@ -193,5 +196,6 @@
   "scLabsThankYou": "Service Canada Labs - Thank you",
   "scLabsExperiments": "Service Canada Labs - Experiments",
   "scLabsConfirmation": "Service Canada Labs - Confirmation",
-  "scLabsAbout": "Service Canada Labs - About"
+  "scLabsAbout": "Service Canada Labs - About",
+  "doNotInclude": "Do not include any personal, medical or financial details, such as your name, social insurance number (SIN), home or business address, phone number or any case or file numbers."
 }

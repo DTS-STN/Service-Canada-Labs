@@ -34,7 +34,7 @@ export default function Signup(props) {
         errors.forEach((error) => {
           switch (error.code) {
             case "any.required":
-              error.message = t("errorRequired");
+              error.message = t("emailRequired");
               break;
             case "string.email":
               error.message = t("errorEmail");
@@ -53,7 +53,7 @@ export default function Signup(props) {
         errors.forEach((error) => {
           switch (error.code) {
             case "any.required":
-              error.message = t("errorRequired");
+              error.message = t("yearRequired");
               break;
             case "number.integer":
               error.message = t("errorInt");
@@ -77,7 +77,7 @@ export default function Signup(props) {
         errors.forEach((error) => {
           switch (error.code) {
             case "any.required":
-              error.message = t("errorRequired");
+              error.message = t("languageRequired");
               break;
             default:
               break;
@@ -400,7 +400,7 @@ export default function Signup(props) {
           >
             {t("clear")}
           </ActionButton>
-          <div className="max-w-600px">
+          <div className="max-w-750px">
             <TextField
               className="mb-10"
               label={t("email")}

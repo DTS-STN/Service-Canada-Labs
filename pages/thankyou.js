@@ -3,6 +3,7 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import { ActionButton } from "../components/atoms/ActionButton";
 
 export default function Confirmation(props) {
   const { t } = useTranslation("common");
@@ -60,6 +61,7 @@ export default function Confirmation(props) {
             <p className="mb-4 text-sm lg:text-p leading-30px">
               {t("confirmationP4")}
             </p>
+            <ActionButton id="resend_email" text={t("resendEmail")} tertiary />
           </div>
         </div>
       </section>

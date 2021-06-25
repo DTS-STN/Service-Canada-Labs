@@ -1,10 +1,13 @@
 import PropTypes from "prop-types";
 import { ErrorLabel } from "./ErrorLabel";
+import { useTranslation } from "next-i18next";
 
 /**
  * multi line text field
  */
 export function MultiTextField(props) {
+  const { t } = useTranslation("common");
+
   return (
     <div
       className={`block leading-tight${
@@ -27,6 +30,9 @@ export function MultiTextField(props) {
           <p className="inline text-form-input-gray text-sm">(optional)</p>
         )}
       </label>
+      <p className="text-xs lg:text-sm mb-5 leading-30px">
+        {t("doNotInclude")}
+      </p>
       {props.error ? <ErrorLabel message={props.error} /> : undefined}
       <textarea
         className={`text-input font-body w-full min-h-40px shadow-sm text-form-input-gray border-2 py-6px px-12px ${

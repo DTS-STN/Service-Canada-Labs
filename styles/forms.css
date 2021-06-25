@@ -1,3 +1,5 @@
+@tailwind screens;
+
 .control-label::before{
     content: "";
     position: absolute;
@@ -79,7 +81,7 @@
     display: none;
 }
 
-.select-field-label::after {
+.select-field-icon::before {
     content: "";
     position: absolute;
     transform: rotate(-45deg);
@@ -88,12 +90,18 @@
     border-top-color: transparent;
     opacity: 1;
     background: transparent;
-    top: 40px;
+    top: 15px;
     right: 10px;
     width: 10px;
     height: 10px;
     cursor: text;
     touch-action: manipulation;
+}
+
+@screen lg {
+    .select-field-icon::before {
+        right: 200px;
+    }
 }
 
 form > label {
