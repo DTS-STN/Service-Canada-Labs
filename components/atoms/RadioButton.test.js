@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { render, screen, act } from "@testing-library/react";
+import { render, screen, act, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { axe, toHaveNoViolations } from "jest-axe";
 import {
@@ -28,6 +28,18 @@ describe("RadioButton", () => {
     const inputElem = screen.getByTestId(Primary.args.dataTestId);
     act(() => {
       inputElem.click();
+    });
+
+    expect(screen.getByText(Primary.args.label)).toBeTruthy();
+    expect(mockFn.mock.calls.length).toBe(1);
+    expect(mockFn.mock.calls[0][0]).toBe(Primary.args.value);
+  });
+
+  it("renders in unchecked state and fires event on Enter key up", () => {
+    render(<Primary {...Primary.args} onChange={mockFn} />);
+    const inputElem = screen.getByTestId(Primary.args.dataTestId);
+    act(() => {
+      fireEvent.keyUp(inputElem, { key: "Enter", code: "Enter" });
     });
 
     expect(screen.getByText(Primary.args.label)).toBeTruthy();
