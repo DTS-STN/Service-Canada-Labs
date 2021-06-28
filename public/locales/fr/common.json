@@ -181,11 +181,10 @@
   "becomeAParticipantDescription": "Vous êtes invité à tester des idées expérimentales et participer à d’autres entretiens de recherche afin d’améliorer Service Canada pour tous. Chaque commentaire nous aide à nous assurer que nos services sont simples et faciles à utiliser.",
   "thankYou": "Merci!",
   "confirmationP1": "Nous vous avons ajouté à notre liste et vous avons envoyé un courriel de confirmation à partir de l’adresse",
-  "confirmationEmail": "Experience@servicecanada.gc.ca",
   "confirmationP2": "Nous vous inviterons à prendre part aux expériences et à d’autres activités de recherche au fur et à mesure qu’elles se présenteront afin d’améliorer Service Canada pour tous.",
   "confirmationP3": "N’oubliez pas que vous pouvez choisir le temps que vous y consacrez et que chaque petit geste compte.",
   "confirmationP4": "Nous sommes véritablement heureux de vous avoir dans l’équipe!",
-  "resendEmail": "Renvoyer le courriel",
+  "resendEmail": "Envoyer de nouveau un courriel de vérification",
   "emailConfirmationTitle": "(FR) Thank you for confirming your email",
   "emailConfirmationP1": "(FR) We’ll invite you to take part in experiments and research activities as they come up to make Service Canada better for everyone.",
   "emailConfirmationP2": "(FR) In the meantime, explore our experiments.",
@@ -196,6 +195,6 @@
   "scLabsThankYou": "Laboratoires de Service Canada - Merci",
   "scLabsExperiments": "Laboratoires de Service Canada - Expérimentations",
   "scLabsConfirmation": "Laboratoires de Service Canada - Confirmation",
-  "scLabsAbout": "Laboratoires de Service Canada - À propos",
+  "scLabsAbout": "Laboratoires de Service Canada - À propos des laboratoires",
   "doNotInclude": "Ne pas inclure de renseignements personnels, médicaux ou financiers, comme par exemple, un numéro d’assurance sociale (NAS), une adresse de domicile ou de lieu de travail, un numéro de téléphone ou numéro de dossier."
 }

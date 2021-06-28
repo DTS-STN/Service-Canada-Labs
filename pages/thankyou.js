@@ -47,9 +47,9 @@ export default function Confirmation(props) {
               {t("confirmationP1")}&nbsp;
               <a
                 className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-                href={`mailto: ${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
+                href={`mailto: ${process.env.NEXT_PUBLIC_THANK_YOU_EMAIL}`}
               >
-                {t("confirmationEmail")}
+                alpha@notification.canada.ca
               </a>
             </p>
             <p className="mb-4 text-sm lg:text-p leading-30px">
