@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import { render, screen } from "@testing-library/react";
-import Error404 from "./404";
+import Error404 from "../../pages/404";
 
 describe("404", () => {
   it("renders without crashing", () => {

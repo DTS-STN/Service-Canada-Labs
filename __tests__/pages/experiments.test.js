@@ -4,7 +4,7 @@
 import { getPage } from "next-page-tester";
 import { screen } from "@testing-library/react";
 import fetchMock from "fetch-mock";
-const experiments = require("../cypress/fixtures/experiments.json");
+const experiments = require("../../cypress/fixtures/experiments.json");
 
 describe("Experiments", () => {
   beforeEach(() => {

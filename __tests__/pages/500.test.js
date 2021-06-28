@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import { render, screen } from "@testing-library/react";
-import Error500 from "./500";
+import Error500 from "../../pages/500";
 
 describe("500", () => {
   it("renders without crashing", () => {

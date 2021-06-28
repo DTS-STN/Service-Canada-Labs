@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import { render, screen } from "@testing-library/react";
-import About from "./about";
+import About from "../../pages/about";
 
 describe("About", () => {
   it("renders without crashing", () => {

@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import { render, screen } from "@testing-library/react";
-import Confirmation from "./confirmation";
+import Confirmation from "../../pages/confirmation";
 
 describe("Confirmation", () => {
   it("renders without crashing", () => {
