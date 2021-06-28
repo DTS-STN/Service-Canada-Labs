@@ -37,19 +37,19 @@ describe("experiment page", () => {
 
     it("Filter experiments: All", () => {
         cy.get('[data-cy="all"]').click()
-        cy.get('[data-cy="experiments-list"]>li').should('have.length', 5); // 5 needs to be changed when more or less experiments are added/removed.
+        cy.get('[data-cy="experiments-list"]>li').should('have.length', 4); // 4 needs to be changed when more or less experiments are added/removed.
     });
 
     it("Filter experiments: Active", () => {
         cy.get('[data-cy="active"]').click()
-        cy.get('[data-cy="experiments-list"]>li>div>span').each(($el) => {
+        cy.get('[data-cy="experiments-list"]>li>a>span').each(($el) => {
             expect($el.text()).to.eq("Active")
         });
     });
 
     it("Filter experiments: Coming soon", () => {
         cy.get('[data-cy="coming_soon"]').click()
-        cy.get('[data-cy="experiments-list"]>li>div>span').each(($el) => {
+        cy.get('[data-cy="experiments-list"]>li>a>span').each(($el) => {
             expect($el.text()).to.eq("Coming Soon")
         });
     });
