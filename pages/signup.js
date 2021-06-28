@@ -164,10 +164,6 @@ export default function Signup(props) {
 
   const [errorBoxText, setErrorBoxText] = useState("");
 
-  const errorBoxOnClick = (id) => {
-    document.getElementById(id).scrollIntoView();
-  };
-
   const handlerMinorityGroupOnChange = (checked, name, value) => {
     // pop value from list
     if (checked) {
@@ -351,11 +347,7 @@ export default function Signup(props) {
       </Head>
       <section className="layout-container mb-2 mt-12 xl:bg-lightbulb-right-img xl:bg-right xl:bg-no-repeat">
         {errorBoxText ? (
-          <ErrorBox
-            text={errorBoxText}
-            errors={errorBoxErrors}
-            onClick={errorBoxOnClick}
-          />
+          <ErrorBox text={errorBoxText} errors={errorBoxErrors} />
         ) : undefined}
         <div className="xl:w-2/3 ">
           <h1 className="mb-12" id="pageMainTitle">
@@ -547,9 +539,9 @@ export default function Signup(props) {
             <fieldset className="mb-6">
               <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("formGender")}{" "}
-                <p className="inline text-form-input-gray text-sm">
+                <cite className="inline text-form-input-gray text-sm not-italic">
                   {t("optional")}
-                </p>
+                </cite>
               </legend>
               <RadioField
                 label={t("woman")}
@@ -598,9 +590,9 @@ export default function Signup(props) {
             <fieldset className="mb-6">
               <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("formIndigenous")}{" "}
-                <p className="inline text-form-input-gray text-sm">
+                <cite className="inline text-form-input-gray text-sm not-italic">
                   {t("optional")}
-                </p>
+                </cite>
               </legend>
               <RadioField
                 label={t("FN")}
@@ -657,9 +649,9 @@ export default function Signup(props) {
             <fieldset className="mb-6">
               <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("disability")}{" "}
-                <p className="inline text-form-input-gray text-sm">
+                <cite className="inline text-form-input-gray text-sm not-italic">
                   {t("optional")}
-                </p>
+                </cite>
               </legend>
               <OptionalTextField
                 controlLabel={t("yes")}
@@ -709,9 +701,9 @@ export default function Signup(props) {
             <fieldset className="mb-6">
               <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("formMinority")}{" "}
-                <p className="inline text-form-input-gray text-sm">
+                <cite className="inline text-form-input-gray text-sm not-italic">
                   {t("optional")}
-                </p>
+                </cite>
               </legend>
               <OptionalListField
                 controlName="minority"
@@ -849,9 +841,9 @@ export default function Signup(props) {
             <fieldset className="mb-6">
               <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("formIncome")}{" "}
-                <p className="inline text-form-input-gray text-sm">
+                <cite className="inline text-form-input-gray text-sm not-italic">
                   {t("optional")}
-                </p>
+                </cite>
               </legend>
               <RadioField
                 label={t("income1")}
