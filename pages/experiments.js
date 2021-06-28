@@ -40,6 +40,11 @@ export default function Experiments(props) {
             ? experiment.ExperimentDescription_FR
             : experiment.ExperimentDescription_EN
         }
+        href={
+          props.locale === "fr"
+            ? experiment.ExperimentLink_FR
+            : experiment.ExperimentLink_EN
+        }
         dataTestId={`${experiment.id}`}
         dataCy={`${experiment.id}`}
       />
