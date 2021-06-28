@@ -10,9 +10,9 @@ export default function error404(props) {
   return (
     <div className="min-h-screen relative">
       <Head>
-        <title>404</title>
+        <title>{t("bannerTitle") + " - 404"}</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content="404" />
+        <meta name="dcterms.title" content={t("bannerTitle") + " - 404"} />
         <meta
           name="dcterms.language"
           content={props.locale === "en" ? "eng" : "fra"}
