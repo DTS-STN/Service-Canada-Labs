@@ -1,10 +1,9 @@
 import {createMocks} from "node-mocks-http";
 import validateHandler from "../../pages/api/validate";
-import signupHandler from "../../pages/api/sign-up"
 import {closeConnection, connectToDatabase} from "../../lib/mongodb/connect";
 
 
-fdescribe("validate api", ()  => {
+describe("validate api", ()  => {
     let conn
     beforeAll(async () => {
         conn = await connectToDatabase(process.env.MONGO_URL, "testdbuservalidate")
