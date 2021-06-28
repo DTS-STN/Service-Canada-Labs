@@ -137,6 +137,5 @@ export const getStaticProps = async ({ locale }) => {
       experimentData: data,
       filters,
     },
-    revalidate: 60,
   };
 };
