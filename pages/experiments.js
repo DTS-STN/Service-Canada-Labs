@@ -78,7 +78,7 @@ export default function Experiments(props) {
         <meta name="dcterms.accessRights" content="2" />
       </Head>
       <section className="layout-container mb-10">
-        <h1 id="pageMainTitle" tabIndex="-1" className="w-max">
+        <h1 id="pageMainTitle" tabIndex="-1" className="flex-wrap">
           {t("experimentsAndExplorationTitle")}
         </h1>
         <Filter
