@@ -3,9 +3,11 @@ import { verifyUser } from "../../lib/users/verifyUser";
 
 export default async function handler(req, res) {
   // feature flag
+  /* istanbul ignore next */
   if (!process.env.USER_SIGNUP_ENABLED) {
     return res.status(200).end("NOT ENABLED");
   }
+
   const id = req.query.id || "";
 
   let verifyUserObj;
@@ -25,9 +27,6 @@ export default async function handler(req, res) {
       // if the object returned is verified, redirect to the confirmation page
       if (verifyUserObj.value.verified) {
         return res.redirect("/confirmation");
-      } else {
-        // if verified somehow isn't set, something went wrong
-        return res.redirect("/500");
       }
     } catch (e) {
       console.log(e);

@@ -164,6 +164,10 @@ export default function Signup(props) {
 
   const [errorBoxText, setErrorBoxText] = useState("");
 
+  const errorBoxOnClick = (id) => {
+    document.getElementById(id).scrollIntoView();
+  };
+
   const handlerMinorityGroupOnChange = (checked, name, value) => {
     // pop value from list
     if (checked) {
@@ -347,7 +351,11 @@ export default function Signup(props) {
       </Head>
       <section className="layout-container mb-2 mt-12 xl:bg-lightbulb-right-img xl:bg-right xl:bg-no-repeat">
         {errorBoxText ? (
-          <ErrorBox text={errorBoxText} errors={errorBoxErrors} />
+          <ErrorBox
+            text={errorBoxText}
+            errors={errorBoxErrors}
+            onClick={errorBoxOnClick}
+          />
         ) : undefined}
         <div className="xl:w-2/3 ">
           <h1 className="mb-12" id="pageMainTitle">

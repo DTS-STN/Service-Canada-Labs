@@ -34,6 +34,7 @@ export function Menu(props) {
         aria-haspopup="true"
         aria-expanded="false"
         aria-controls="menuDropdown"
+        data-testid="menuButton"
       >
         <span className="inline-block align-middle icon-menu" />
         <span className="inline-block align-middle pl-3 font-body text-p leading-none">
