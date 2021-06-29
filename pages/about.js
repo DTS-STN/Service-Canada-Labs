@@ -76,6 +76,18 @@ export default function About(props) {
         href={"/signup"}
         hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
       />
+      <div className="layout-container">
+        <p className="my-8 xl:w-2/3">
+          {t("getInTouch")}&nbsp;
+          <a
+            className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+            href={`mailto: ${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
+          >
+            {process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}
+          </a>
+          .
+        </p>
+      </div>
     </Layout>
   );
 }
