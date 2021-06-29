@@ -7,7 +7,8 @@ import { ActionButton } from "../components/atoms/ActionButton";
 
 export default function Confirmation(props) {
   const { t } = useTranslation("common");
-  const { asPath } = useRouter();
+  const { asPath, query } = useRouter();
+  const maskedEmail = String(query.e);
 
   return (
     <Layout
@@ -44,12 +45,12 @@ export default function Confirmation(props) {
           </span>
           <div className="lg:w-2/3">
             <p className="mb-4 text-sm lg:text-p leading-30px">
-              {t("confirmationP1")}&nbsp;
+              {t("confirmationP1")} {maskedEmail} {t("from")}&nbsp;
               <a
                 className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                 href={`mailto: ${process.env.NEXT_PUBLIC_THANK_YOU_EMAIL}`}
               >
-                alpha@notification.canada.ca
+                {process.env.NEXT_PUBLIC_THANK_YOU_EMAIL}
               </a>
             </p>
             <p className="mb-4 text-sm lg:text-p leading-30px">

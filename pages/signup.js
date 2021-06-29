@@ -25,6 +25,26 @@ export default function Signup(props) {
   const { t } = useTranslation("common");
   const { asPath, push } = useRouter();
 
+  //Function for masking email to get in the thank you page later
+  function maskEmail(email) {
+    let maskedEmail = "";
+    let x = 0;
+
+    for (var i = 0; i < email.length; i++) {
+      if (i === 0) {
+        maskedEmail += email[i];
+      } else if (email[i] !== "@" && email[i] !== "." && x <= 3) {
+        maskedEmail += "*";
+        x += 1;
+      } else {
+        maskedEmail += email[i];
+        x = 0;
+      }
+    }
+
+    return maskedEmail;
+  }
+
   // Joi form validation schema. Only required fields are validated
   const formSchema = Joi.object({
     email: Joi.string()
@@ -319,7 +339,8 @@ export default function Signup(props) {
 
       // if the response is good, redirect to the thankyou page
       if (response.status === 201 || response.status === 200) {
-        await push("/thankyou");
+        let maskedEmail = maskEmail(formData.email);
+        await push({ pathname: "/thankyou", query: { e: maskedEmail } });
       } else if (response.status === 400) {
         await setErrorBoxText(t("errorRegistered"));
       } else {
