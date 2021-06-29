@@ -29,9 +29,9 @@ export function SelectField(props) {
         {props.required ? (
           <b className="text-error-border-red">{t("required")}</b>
         ) : (
-          <cite className="inline text-form-input-gray text-sm not-italic">
+          <span className="inline text-form-input-gray text-sm">
             {t("optional")}
-          </cite>
+          </span>
         )}
       </label>
       {props.error ? <ErrorLabel message={props.error} /> : undefined}

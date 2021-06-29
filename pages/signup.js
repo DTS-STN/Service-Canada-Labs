@@ -539,9 +539,9 @@ export default function Signup(props) {
             <fieldset className="mb-6">
               <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("formGender")}{" "}
-                <cite className="inline text-form-input-gray text-sm not-italic">
+                <span className="inline text-form-input-gray text-sm">
                   {t("optional")}
-                </cite>
+                </span>
               </legend>
               <RadioField
                 label={t("woman")}
@@ -590,9 +590,9 @@ export default function Signup(props) {
             <fieldset className="mb-6">
               <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("formIndigenous")}{" "}
-                <cite className="inline text-form-input-gray text-sm not-italic">
+                <span className="inline text-form-input-gray text-sm">
                   {t("optional")}
-                </cite>
+                </span>
               </legend>
               <RadioField
                 label={t("FN")}
@@ -649,9 +649,9 @@ export default function Signup(props) {
             <fieldset className="mb-6">
               <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("disability")}{" "}
-                <cite className="inline text-form-input-gray text-sm not-italic">
+                <span className="inline text-form-input-gray text-sm">
                   {t("optional")}
-                </cite>
+                </span>
               </legend>
               <OptionalTextField
                 controlLabel={t("yes")}
@@ -701,9 +701,9 @@ export default function Signup(props) {
             <fieldset className="mb-6">
               <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("formMinority")}{" "}
-                <cite className="inline text-form-input-gray text-sm not-italic">
+                <span className="inline text-form-input-gray text-sm">
                   {t("optional")}
-                </cite>
+                </span>
               </legend>
               <OptionalListField
                 controlName="minority"
@@ -841,9 +841,9 @@ export default function Signup(props) {
             <fieldset className="mb-6">
               <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("formIncome")}{" "}
-                <cite className="inline text-form-input-gray text-sm not-italic">
+                <span className="inline text-form-input-gray text-sm not-italic">
                   {t("optional")}
-                </cite>
+                </span>
               </legend>
               <RadioField
                 label={t("income1")}
