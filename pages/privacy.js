@@ -105,7 +105,7 @@ export default function Privacy(props) {
             </a>
             {"."}
           </p>
-          <p className="mb-4 italic">
+          <p className="mb-8 italic">
             {t("privacyPolicyInfoHoldings")}
             <span className="not-italic">{t("privacyPolicyContent15")}</span>
           </p>
