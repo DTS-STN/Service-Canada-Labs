@@ -4,7 +4,7 @@
  import { render, screen } from "@testing-library/react";
  import Privacy from "../../pages/privacy";
  
- describe("Home", () => {
+ describe("Privacy Policy", () => {
    it("renders without crashing", () => {
      render(<Privacy />);
      expect(
