@@ -40,6 +40,11 @@ export default function Experiments(props) {
             ? experiment.ExperimentDescription_FR
             : experiment.ExperimentDescription_EN
         }
+        href={
+          props.locale === "fr"
+            ? experiment.ExperimentLink_FR
+            : experiment.ExperimentLink_EN
+        }
         dataTestId={`${experiment.id}`}
         dataCy={`${experiment.id}`}
       />
@@ -78,7 +83,7 @@ export default function Experiments(props) {
         <meta name="dcterms.accessRights" content="2" />
       </Head>
       <section className="layout-container mb-10">
-        <h1 id="pageMainTitle" tabIndex="-1" className="w-max">
+        <h1 id="pageMainTitle" tabIndex="-1" className="flex-wrap">
           {t("experimentsAndExplorationTitle")}
         </h1>
         <Filter
@@ -137,6 +142,5 @@ export const getStaticProps = async ({ locale }) => {
       experimentData: data,
       filters,
     },
-    revalidate: 60 * 60 * 24, // invalidates the cache once a day
   };
 };

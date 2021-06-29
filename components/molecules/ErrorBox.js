@@ -5,13 +5,6 @@ import { ActionButton } from "../atoms/ActionButton";
  * error box to be used to summarise error in forms
  */
 export function ErrorBox(props) {
-  // handler for when the button is clicked
-  let handleClick = (id) => {
-    // get the element by the id and then call the scroll into view
-    // we don't want to use a link since it'll be like a refresh and the form data will disappear
-    document.getElementById(id).scrollIntoView();
-  };
-
   return (
     <div
       id="error-box"
@@ -30,7 +23,7 @@ export function ErrorBox(props) {
               <ActionButton
                 id={`${id}-${text}`}
                 custom="font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline inline-block text-left"
-                onClick={() => handleClick(id)}
+                onClick={() => props.onClick(id)}
               >
                 {text}
               </ActionButton>
@@ -64,4 +57,8 @@ ErrorBox.propTypes = {
       text: PropTypes.string.isRequired,
     })
   ),
+  /**
+   * onClick callback
+   */
+  onClick: PropTypes.func,
 };
