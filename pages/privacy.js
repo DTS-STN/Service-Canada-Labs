@@ -70,7 +70,10 @@ export default function Privacy(props) {
           <p className="mb-4">{t("privacyPolicyContent7")}</p>
           <p className="mb-4">
             {t("privacyPolicyContent8")}
-            <a className="text-custom-blue-link underline">
+            <a
+              href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
+              className="text-custom-blue-link underline"
+            >
               {t("confirmationEmail")}
               {"."}
             </a>
