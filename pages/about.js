@@ -40,6 +40,16 @@ export default function About(props) {
           <p className="mb-4">{t("aboutThisSiteContent1")}</p>
           <p className="mb-4">{t("aboutThisSiteContent2")}</p>
           <p>{t("aboutThisSiteContent3")}</p>
+          <p className="mb-4">
+            {t("getInTouch")}&nbsp;
+            <a
+              className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+              href={`mailto: ${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
+            >
+              {process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}
+            </a>
+            .
+          </p>
         </div>
       </section>
       <section className="bg-footer-background-color ">
@@ -76,18 +86,6 @@ export default function About(props) {
         href={"/signup"}
         hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
       />
-      <div className="layout-container">
-        <p className="my-8 xl:w-2/3">
-          {t("getInTouch")}&nbsp;
-          <a
-            className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-            href={`mailto: ${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
-          >
-            {process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}
-          </a>
-          .
-        </p>
-      </div>
     </Layout>
   );
 }
