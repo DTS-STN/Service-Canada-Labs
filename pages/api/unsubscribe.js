@@ -23,8 +23,7 @@ export default async function handler(req, res) {
       if (userObj) {
         // attempt to send validation email through notify
         try {
-          const unsubscribeUrl =
-            origin + `/api/delete-my-data?id=${userObj.cuid}`;
+          const unsubscribeUrl = origin + `/api/unsubscribe?id=${userObj.cuid}`;
           const [status, json] = await submitEmail(
             {
               unsubscribe_url: unsubscribeUrl,
@@ -53,13 +52,14 @@ export default async function handler(req, res) {
             explanation: e.message,
           });
         }
+        return res.status(201).end("USER UNSUBSCRIBED");
       }
     }
     return res.status(400).end("Missing email");
   } else if (req.method === "GET") {
     const id = req.query.id || "";
     let errorTitle, errorTitleFr, errorMessage, errorMessageFr;
-    let deleteUserObj;
+    let unsubUserObj;
 
     if (id) {
       const conn = await connectToDatabase(
@@ -67,8 +67,8 @@ export default async function handler(req, res) {
         process.env.MONGO_DB
       );
       try {
-        deleteUserObj = await unsubscribeUser(conn.db, id);
-        if (deleteUserObj.deletedCount === 1) {
+        unsubUserObj = await unsubscribeUser(conn.db, id);
+        if (Object.keys(unsubUserObj.value).length === 2) {
           // TODO: create delete confirmation page
           return res.redirect("/home");
           // if the record isn't deleted return an error
