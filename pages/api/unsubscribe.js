@@ -23,15 +23,16 @@ export default async function handler(req, res) {
       if (userObj) {
         // attempt to send validation email through notify
         try {
-          const deleteUrl = origin + `/api/delete-my-data?id=${userObj.cuid}`;
+          const unsubscribeUrl =
+            origin + `/api/delete-my-data?id=${userObj.cuid}`;
           const [status, json] = await submitEmail(
             {
-              delete_url: deleteUrl,
+              unsubscribe_url: unsubscribeUrl,
             },
             {},
             data.language === "fr"
-              ? process.env.USER_DELETE_FRENCH_TEMPLATE_ID
-              : process.env.USER_DELETE_ENGLISH_TEMPLATE_ID,
+              ? process.env.USER_UNSUBSCRIBE_FRENCH_TEMPLATE_ID
+              : process.env.USER_UNSUBSCRIBE_ENGLISH_TEMPLATE_ID,
             data.email,
             process.env.NOTIFY_BASE_API_URL + "/v2/notifications/email",
             process.env.NOTIFY_API_KEY
