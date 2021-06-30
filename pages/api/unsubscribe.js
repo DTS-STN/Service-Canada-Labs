@@ -1,5 +1,5 @@
 import { connectToDatabase } from "../../lib/mongodb/connect";
-import { deleteUser } from "../../lib/users/deleteUser";
+import { unsubscribeUser } from "../../lib/users/unsubscribeUser";
 import { getUserByEmail } from "../../lib/users/getUser";
 import { submitEmail } from "../../lib/notify/submitEmail";
 
@@ -67,7 +67,7 @@ export default async function handler(req, res) {
         process.env.MONGO_DB
       );
       try {
-        deleteUserObj = await deleteUser(conn.db, id);
+        deleteUserObj = await unsubscribeUser(conn.db, id);
         if (deleteUserObj.deletedCount === 1) {
           // TODO: create delete confirmation page
           return res.redirect("/home");
