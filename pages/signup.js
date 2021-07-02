@@ -309,7 +309,6 @@ export default function Signup(props) {
       document.getElementById("error-box").scrollIntoView({
         behavior: "smooth",
       });
-      // document.querySelectorAll("ul > li")[0]
       document.querySelector(`#error-box-items > li > button`).focus();
     } else {
       //submit data to the api and then redirect to the thank you page
