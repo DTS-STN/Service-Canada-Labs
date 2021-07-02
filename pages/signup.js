@@ -382,7 +382,7 @@ export default function Signup(props) {
       <section className="layout-container">
         <form
           data-gc-analytics-formname="ESDC:ServiceCanadaLabsSign-up"
-          data-gc-analytics-collect='[{"value":"input,select","emptyField":"N/A"}]'
+          data-gc-analytics-collect='[{"value":"input:not(.exclude),select","emptyField":"N/A"}]'
           onSubmit={handleSubmit}
           onReset={handlerClearData}
           noValidate
@@ -412,6 +412,7 @@ export default function Signup(props) {
               onChange={setEmail}
               boldLabel={true}
               required
+              exclude
             />
             <TextField
               className="mb-10"
