@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">17.58% </span>
+                <span class="strong">16.29% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>29/165</span>
+                <span class='fraction'>29/178</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">7.84% </span>
+                <span class="strong">6.9% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/51</span>
+                <span class='fraction'>4/58</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">2.38% </span>
+                <span class="strong">2.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/42</span>
+                <span class='fraction'>1/43</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">17.58% </span>
+                <span class="strong">16.38% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>29/165</span>
+                <span class='fraction'>29/177</span>
             </div>
         
             
@@ -1011,7 +1011,28 @@
 <a name='L952'></a><a href='#L952'>952</a>
 <a name='L953'></a><a href='#L953'>953</a>
 <a name='L954'></a><a href='#L954'>954</a>
-<a name='L955'></a><a href='#L955'>955</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L955'></a><a href='#L955'>955</a>
+<a name='L956'></a><a href='#L956'>956</a>
+<a name='L957'></a><a href='#L957'>957</a>
+<a name='L958'></a><a href='#L958'>958</a>
+<a name='L959'></a><a href='#L959'>959</a>
+<a name='L960'></a><a href='#L960'>960</a>
+<a name='L961'></a><a href='#L961'>961</a>
+<a name='L962'></a><a href='#L962'>962</a>
+<a name='L963'></a><a href='#L963'>963</a>
+<a name='L964'></a><a href='#L964'>964</a>
+<a name='L965'></a><a href='#L965'>965</a>
+<a name='L966'></a><a href='#L966'>966</a>
+<a name='L967'></a><a href='#L967'>967</a>
+<a name='L968'></a><a href='#L968'>968</a>
+<a name='L969'></a><a href='#L969'>969</a>
+<a name='L970'></a><a href='#L970'>970</a>
+<a name='L971'></a><a href='#L971'>971</a>
+<a name='L972'></a><a href='#L972'>972</a>
+<a name='L973'></a><a href='#L973'>973</a>
+<a name='L974'></a><a href='#L974'>974</a>
+<a name='L975'></a><a href='#L975'>975</a>
+<a name='L976'></a><a href='#L976'>976</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1039,6 +1060,26 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1331,6 +1372,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -1992,6 +2034,26 @@ export default function Signup(props) {
   const { t } = useTranslation("common");
   const { asPath, push } = useRouter();
 &nbsp;
+  //Function for masking email to get in the thank you page later
+  function <span class="fstat-no" title="function not covered" >maskEmail(</span>email) {
+    let maskedEmail = <span class="cstat-no" title="statement not covered" >"";</span>
+    let x = <span class="cstat-no" title="statement not covered" >0;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    for (var i = <span class="cstat-no" title="statement not covered" >0;</span> i &lt; email.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >      if (i === 0) {</span>
+<span class="cstat-no" title="statement not covered" >        maskedEmail += email[i];</span>
+      } else <span class="cstat-no" title="statement not covered" >if (email[i] !== "@" &amp;&amp; email[i] !== "." &amp;&amp; x &lt;= 3) {</span>
+<span class="cstat-no" title="statement not covered" >        maskedEmail += "*";</span>
+<span class="cstat-no" title="statement not covered" >        x += 1;</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        maskedEmail += email[i];</span>
+<span class="cstat-no" title="statement not covered" >        x = 0;</span>
+      }
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return maskedEmail;</span>
+  }
+&nbsp;
   // Joi form validation schema. Only required fields are validated
   const formSchema = Joi.object({
     email: Joi.string()
@@ -2001,7 +2063,7 @@ export default function Signup(props) {
 <span class="cstat-no" title="statement not covered" >        errors.forEach(<span class="fstat-no" title="function not covered" >(e</span>rror) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >          switch (error.code) {</span>
             case "any.required":
-<span class="cstat-no" title="statement not covered" >              error.message = t("errorRequired");</span>
+<span class="cstat-no" title="statement not covered" >              error.message = t("emailRequired");</span>
 <span class="cstat-no" title="statement not covered" >              break;</span>
             case "string.email":
 <span class="cstat-no" title="statement not covered" >              error.message = t("errorEmail");</span>
@@ -2020,7 +2082,7 @@ export default function Signup(props) {
 <span class="cstat-no" title="statement not covered" >        errors.forEach(<span class="fstat-no" title="function not covered" >(e</span>rror) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >          switch (error.code) {</span>
             case "any.required":
-<span class="cstat-no" title="statement not covered" >              error.message = t("errorRequired");</span>
+<span class="cstat-no" title="statement not covered" >              error.message = t("yearRequired");</span>
 <span class="cstat-no" title="statement not covered" >              break;</span>
             case "number.integer":
 <span class="cstat-no" title="statement not covered" >              error.message = t("errorInt");</span>
@@ -2044,7 +2106,7 @@ export default function Signup(props) {
 <span class="cstat-no" title="statement not covered" >        errors.forEach(<span class="fstat-no" title="function not covered" >(e</span>rror) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >          switch (error.code) {</span>
             case "any.required":
-<span class="cstat-no" title="statement not covered" >              error.message = t("errorRequired");</span>
+<span class="cstat-no" title="statement not covered" >              error.message = t("languageRequired");</span>
 <span class="cstat-no" title="statement not covered" >              break;</span>
             default:
 <span class="cstat-no" title="statement not covered" >              break;</span>
@@ -2286,7 +2348,8 @@ export default function Signup(props) {
 &nbsp;
       // if the response is good, redirect to the thankyou page
 <span class="cstat-no" title="statement not covered" >      if (response.status === 201 || response.status === 200) {</span>
-<span class="cstat-no" title="statement not covered" >        await push("/thankyou");</span>
+        let maskedEmail = <span class="cstat-no" title="statement not covered" >maskEmail(formData.email);</span>
+<span class="cstat-no" title="statement not covered" >        await push({ pathname: "/thankyou", query: { e: maskedEmail } });</span>
       } else <span class="cstat-no" title="statement not covered" >if (response.status === 400) {</span>
 <span class="cstat-no" title="statement not covered" >        await setErrorBoxText(t("errorRegistered"));</span>
       } else {
@@ -2367,7 +2430,7 @@ export default function Signup(props) {
           &gt;
             {t("clear")}
           &lt;/ActionButton&gt;
-          &lt;div className="max-w-600px"&gt;
+          &lt;div className="max-w-750px"&gt;
             &lt;TextField
               className="mb-10"
               label={t("email")}
@@ -2926,7 +2989,7 @@ export const getStaticProps = <span class="fstat-no" title="function not covered
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jul 02 2021 18:26:13 GMT+0000 (Coordinated Universal Time)
+                at Fri Jul 02 2021 18:26:52 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../prettify.js"></script>
