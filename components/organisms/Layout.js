@@ -8,7 +8,6 @@ import { ReportAProblem } from "./ReportAProblem";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
-import { SearchBar } from "../atoms/SearchBar";
 import { Breadcrumb } from "../atoms/Breadcrumb";
 
 const setLanguage = (language) => {
@@ -85,10 +84,6 @@ export const Layout = ({
                 {language === "en" ? "English" : "Français"}
               </a>
             </Link>
-            <SearchBar
-              placeholder={t("searchBarPlaceholder")}
-              dataCy={"search-bar"}
-            />
           </div>
         </div>
 
