@@ -306,7 +306,9 @@ export default function Signup(props) {
       await setErrorBoxText(
         `${t("errorSubmit1")} ${errorsList.length} ${t("errorSubmit2")}`
       );
-      document.getElementById("error-box").scrollIntoView();
+      document.getElementById("error-box").scrollIntoView({
+        behavior: "smooth",
+      });
     } else {
       //submit data to the api and then redirect to the thank you page
       const response = await fetch("/api/sign-up", {
@@ -326,6 +328,16 @@ export default function Signup(props) {
         await setErrorBoxText(t("errorUnknown"));
       }
     }
+  };
+  const handleScrollToError = (id) => {
+    const input = document.getElementById(`${id}`);
+    const inputType = input.getAttribute("type");
+    let parentDiv = input.parentNode;
+    if (inputType === "radio") parentDiv = parentDiv.parentNode;
+    else if (inputType === "checkbox") parentDiv = parentDiv.previousSibling;
+    parentDiv.scrollIntoView({
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -347,7 +359,11 @@ export default function Signup(props) {
       </Head>
       <section className="layout-container mb-2 mt-12 xl:bg-lightbulb-right-img xl:bg-right xl:bg-no-repeat">
         {errorBoxText ? (
-          <ErrorBox text={errorBoxText} errors={errorBoxErrors} />
+          <ErrorBox
+            text={errorBoxText}
+            errors={errorBoxErrors}
+            onClick={handleScrollToError}
+          />
         ) : undefined}
         <div className="xl:w-2/3 ">
           <h1 className="mb-12" id="pageMainTitle">
