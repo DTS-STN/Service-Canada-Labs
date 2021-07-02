@@ -39,7 +39,17 @@ export default function About(props) {
         <div className="xl:w-2/3">
           <p className="mb-4">{t("aboutThisSiteContent1")}</p>
           <p className="mb-4">{t("aboutThisSiteContent2")}</p>
-          <p>{t("aboutThisSiteContent3")}</p>
+          <p className="mb-4">{t("aboutThisSiteContent3")}</p>
+          <p>
+            {t("getInTouch")}&nbsp;
+            <a
+              className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+              href={`mailto: ${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
+            >
+              {process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}
+            </a>
+            .
+          </p>
         </div>
       </section>
       <section className="bg-footer-background-color ">
