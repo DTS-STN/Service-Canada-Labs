@@ -24,6 +24,7 @@ export function ErrorBox(props) {
                 id={`${id}-${text}`}
                 custom="font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline"
                 onClick={() => props.onClick(id)}
+                dataCy={`error-item-${id}`}
               >
                 {text}
               </ActionButton>
