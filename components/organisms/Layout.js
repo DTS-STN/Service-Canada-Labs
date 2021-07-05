@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 // import Head from "next/head";
 import { Banner } from "../atoms/Banner";
 import { Menu } from "../molecules/Menu";
-import { PhaseBanner } from "../atoms/PhaseBanner";
 import { Footer } from "./Footer";
 import { ReportAProblem } from "./ReportAProblem";
 import Link from "next/link";
