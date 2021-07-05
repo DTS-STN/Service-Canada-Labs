@@ -70,6 +70,7 @@ export function OptionalTextField(props) {
             }
             dataTestId={props.textFieldDataTestId}
             dataCy={props.textFieldDataCy}
+            error={props.error}
           />
         ) : (
           <TextField
@@ -236,4 +237,9 @@ OptionalTextField.propTypes = {
    * whether or not to spellcheck for the multi text field
    */
   spellCheck: PropTypes.bool,
+
+  /**
+   * message to display if there is an error
+   */
+  error: PropTypes.string,
 };

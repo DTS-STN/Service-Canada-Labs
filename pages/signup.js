@@ -134,6 +134,24 @@ export default function Signup(props) {
         });
         return errors;
       }),
+    disability: Joi.string(),
+    disabilityDetails: Joi.string()
+      .when("disability", { is: "yes", then: Joi.string().trim().required() })
+      .error((errors) => {
+        errors.forEach((error) => {
+          switch (error.code) {
+            case "any.required":
+              error.message = t("errorDisability");
+              break;
+            case "string.empty":
+              error.message = t("errorDisability");
+              break;
+            default:
+              break;
+          }
+        });
+        return errors;
+      }),
     agreeToConditions: Joi.string()
       .valid("yes")
       .required()
@@ -170,6 +188,7 @@ export default function Signup(props) {
 
   const [disability, setDisability] = useState("");
   const [disabilityDetails, setDisabilityDetails] = useState("");
+  const [disabilityError, setDisabilityError] = useState("");
 
   const [minority, setMinority] = useState("");
   const [minorityGroup, setMinorityGroup] = useState([]);
@@ -208,6 +227,7 @@ export default function Signup(props) {
     setYearOfBirthError("");
     setProvinceError("");
     setAgreeToConditionsError("");
+    setDisabilityError("");
 
     setEmail("");
     setYearOfBirth("");
@@ -232,6 +252,7 @@ export default function Signup(props) {
     await setYearOfBirthError("");
     await setProvinceError("");
     await setAgreeToConditionsError("");
+    await setDisabilityError("");
     await setErrorBoxErrors([]);
     await setErrorBoxText("");
 
@@ -278,6 +299,7 @@ export default function Signup(props) {
         yearOfBirth: setYearOfBirthError,
         province: setProvinceError,
         agreeToConditions: setAgreeToConditionsError,
+        disabilityDetails: setDisabilityError,
       };
       // get  the details of the error
       const { details } = error;
@@ -693,6 +715,9 @@ export default function Signup(props) {
                 controlId="disabilityYes"
                 controlValue="yes"
                 controlType="radiofield"
+                controlDataCy="btn-disability-yes"
+                textFieldDataCy="text-disability-yes"
+                error={disabilityError}
               />
               <RadioField
                 label={t("no")}
@@ -701,6 +726,7 @@ export default function Signup(props) {
                 checked={disability === "no"}
                 name="disability"
                 value="no"
+                dataCy="btn-disability-no"
               />
               <RadioField
                 label={t("notSure")}

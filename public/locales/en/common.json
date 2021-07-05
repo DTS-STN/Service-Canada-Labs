@@ -210,6 +210,7 @@
   "errorInt": "This field must be an integer",
   "errorMinMax": "This field must be a valid birth year",
   "errorDropdown": "Use the dropdown to select a valid value",
+  "errorDisability": "Field cannot be empty",
   "errorTerms": "You must agree to conditions before sign up",
   "errorSubmit1": "The form could not be submitted because",
   "errorSubmit2": "errors were found",
