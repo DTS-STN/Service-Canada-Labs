@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 // import Head from "next/head";
 import { Banner } from "../atoms/Banner";
 import { Menu } from "../molecules/Menu";
-import { PhaseBanner } from "../atoms/PhaseBanner";
 import { Footer } from "./Footer";
 import { ReportAProblem } from "./ReportAProblem";
 import Link from "next/link";
@@ -45,7 +44,6 @@ export const Layout = ({
         </a>
       </nav>
       <header>
-        <PhaseBanner phase={t("Alpha")}>{t("alphaText")}</PhaseBanner>
         <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">
           <div className="flex flex-row justify-between items-center lg:mt-7 mt-1.5">
             <img
