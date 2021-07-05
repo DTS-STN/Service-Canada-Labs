@@ -45,7 +45,6 @@ export const Layout = ({
         </a>
       </nav>
       <header>
-        <PhaseBanner phase={t("Alpha")}>{t("alphaText")}</PhaseBanner>
         <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">
           <div className="flex flex-row justify-between items-center lg:mt-7 mt-1.5">
             <img
