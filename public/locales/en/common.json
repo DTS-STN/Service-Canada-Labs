@@ -1,4 +1,5 @@
 {
+  "alphaText": "This site will change as we test ideas.",
   "siteTitle": "Alpha Site",
   "bannerTitle": "Service Canada Labs",
   "bannerText": "Make government work for you",
@@ -119,6 +120,7 @@
   "privacyLink": "/privacy",
   "coming_soon": "Coming Soon",
   "all": "All",
+  "alpha": "Alpha",
   "active": "Active",
   "filterBy": "Filter by",
   "skipToMainContentBtn": "Skip to main content",
