@@ -725,6 +725,7 @@ export default function Signup(props) {
                 textFieldId="disabilityDetails"
                 textFieldLabel={t("yesDetails")}
                 textLabelBold={true}
+                textFieldRequired={true}
                 multiText={true}
                 checked={disability === "yes"}
                 onControlChange={(checked, name, value) => {
