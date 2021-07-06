@@ -18,7 +18,7 @@ export function SelectField(props) {
 
   return (
     <div
-      className={`relative block leading-tight${
+      className={`block leading-tight${
         props.className ? " " + props.className : " mb-10px"
       }`}
     >
