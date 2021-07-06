@@ -208,6 +208,7 @@
   "errorInt": "Ce champ doit être un nombre entier",
   "errorMinMax": "Ce champ doit être une année de naissance valide",
   "errorDropdown": "Utilisez la liste déroulante pour sélectionner une valeur valide",
+  "errorDisability": "Handicap - Ce champ est obligatoire",
   "errorTerms": "Vous devez accepter les conditions avant de vous inscrire",
   "errorSubmit1": "Le formulaire n'a pas pu être soumis car",
   "errorSubmit2": "erreurs ont été trouvées",
