@@ -371,7 +371,7 @@ export default function Signup(props) {
           <ErrorBox text={errorBoxText} errors={errorBoxErrors} />
         ) : undefined}
         <div className="xl:w-2/3 ">
-          <h1 className="mb-12" id="pageMainTitle">
+          <h1 className="mb-12" id="pageMainTitle" tabIndex="-1">
             {t("signupTitle")}
           </h1>
           <p className="mb-10">{t("signupP1")}</p>
