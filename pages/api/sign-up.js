@@ -62,6 +62,9 @@ async function handler(req, res) {
 
       // non okay status code return 500
       if (status >= 300) {
+        await conn.db.collection("users").deleteOne({
+          cuid: userCuid,
+        });
         return res.status(500).json({
           reason: "Notify",
           explanation:
@@ -70,6 +73,9 @@ async function handler(req, res) {
         });
       }
     } catch (e) {
+      await conn.db.collection("users").deleteOne({
+        cuid: userCuid,
+      });
       return res.status(500).json({
         reason: "Notify",
         explanation: e.message,
