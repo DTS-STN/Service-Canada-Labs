@@ -31,9 +31,9 @@ export default function Home(props) {
 
       <section className="layout-container mb-2 mt-12">
         <div className="xl:w-2/3">
-          <h1 className="mb-10" id="pageMainTitle" tabIndex="-1">
+          <h2 className="mb-10" tabIndex="-1">
             {t("experimentsAndExplorationTitle")}
-          </h1>
+          </h2>
           <p className="mb-4">{t("experimentsAndExploration-1/3")}</p>
           <p className="mb-4">{t("experimentsAndExploration-2/3")}</p>
           <p className="mb-10">{t("experimentsAndExploration-3/3")}</p>
