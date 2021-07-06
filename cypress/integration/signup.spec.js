@@ -73,6 +73,17 @@ describe("signup page", () => {
     cy.get('[data-cy="error-box-items"').children().should("have.length", 1);
   });
 
+  it("Validates error clicking scrolls to the desired error", () => {
+    cy.get('[data-cy="signup-submit"]').click();
+    cy.get('[data-cy="error-box"').should("exist");
+    cy.get('[data-cy="error-box"').scrollIntoView().should('be.visible');
+
+    cy.get('[data-cy="error-item-email"]').should('be.visible');
+    cy.get('[data-cy="error-item-email"]').click();
+    cy.get('[data-cy="error-item-email"]').click();
+    cy.get('[data-cy="error-item-email"').scrollIntoView().should('be.visible');
+  });
+
   // skipping for now until thank you page is available
   it("Redirects to thank you page on successful submit", () => {
     cy.intercept("POST", "/api/**", {

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Joi from "joi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ErrorBox } from "../components/molecules/ErrorBox";
@@ -326,7 +326,13 @@ export default function Signup(props) {
       await setErrorBoxText(
         `${t("errorSubmit1")} ${errorsList.length} ${t("errorSubmit2")}`
       );
-      document.getElementById("error-box").scrollIntoView();
+      document.getElementById("error-box").scrollIntoView({
+        behavior: "smooth",
+      });
+      setTimeout(
+        () => document.querySelector(`#error-box-items > li > button`).focus(),
+        600
+      );
     } else {
       //submit data to the api and then redirect to the thank you page
       const response = await fetch("/api/sign-up", {
@@ -349,6 +355,18 @@ export default function Signup(props) {
     }
   };
 
+  const handleScrollToError = (id) => {
+    const input = document.getElementById(`${id}`);
+    setTimeout(() => input.focus(), 700);
+    const inputType = input.getAttribute("type");
+    let parentDiv = input.parentNode;
+    if (inputType === "radio") parentDiv = parentDiv.parentNode;
+    else if (inputType === "checkbox") parentDiv = parentDiv.previousSibling;
+    parentDiv.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
     <Layout
       locale={props.locale}
@@ -368,10 +386,14 @@ export default function Signup(props) {
       </Head>
       <section className="layout-container mb-2 mt-12 xl:bg-lightbulb-right-img xl:bg-right xl:bg-no-repeat">
         {errorBoxText ? (
-          <ErrorBox text={errorBoxText} errors={errorBoxErrors} />
+          <ErrorBox
+            text={errorBoxText}
+            errors={errorBoxErrors}
+            onClick={handleScrollToError}
+          />
         ) : undefined}
         <div className="xl:w-2/3 ">
-          <h1 className="mb-12" id="pageMainTitle">
+          <h1 className="mb-12" id="pageMainTitle" tabIndex="-1">
             {t("signupTitle")}
           </h1>
           <p className="mb-10">{t("signupP1")}</p>
@@ -418,6 +440,10 @@ export default function Signup(props) {
             id="reset"
             custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
             type="reset"
+            onClick={useEffect(() => {
+              var select = document.getElementById("province-choice");
+              select.selectedIndex = 0;
+            })}
           >
             {t("clear")}
           </ActionButton>
@@ -555,6 +581,7 @@ export default function Signup(props) {
                   value: "NU",
                 },
               ]}
+              other
               onChange={setProvince}
             />
 
@@ -956,6 +983,10 @@ export default function Signup(props) {
             id="reset-bottom"
             custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10"
             type="reset"
+            onClick={useEffect(() => {
+              var select = document.getElementById("province-choice");
+              select.selectedIndex = 0;
+            })}
           >
             {t("clear")}
           </ActionButton>

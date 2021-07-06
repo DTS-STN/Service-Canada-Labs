@@ -1,5 +1,4 @@
 {
-  "alphaText": "Ce site changera au fur et à mesure que nous testons des idées.",
   "siteTitle": "Site Alpha",
   "bannerTitle": "Laboratoires de Service Canada",
   "bannerText": "Faites travailler le gouvernement pour vous",
@@ -120,7 +119,6 @@
   "privacyLink": "/fr/privacy",
   "coming_soon": "Bientôt disponible",
   "all": "Toute",
-  "alpha": "Alpha",
   "active": "Active",
   "filterBy": "Filtrer par:",
   "skipToMainContentBtn": "Passer au contenu principal",
