@@ -1,5 +1,3 @@
-@tailwind screens;
-
 .control-label::before{
     content: "";
     position: absolute;
