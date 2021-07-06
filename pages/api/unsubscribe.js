@@ -58,7 +58,6 @@ export default async function handler(req, res) {
     return res.status(400).end("Missing email");
   } else if (req.method === "GET") {
     const id = req.query.id || "";
-    let errorTitle, errorTitleFr, errorMessage, errorMessageFr;
     let unsubUserObj;
 
     if (id) {
@@ -73,9 +72,7 @@ export default async function handler(req, res) {
           return res.redirect("/home");
         } else {
           // if the record isn't deleted return an error
-          return res.redirect(
-            `/error?errorTitle=${errorTitle}&errorTitleFr=${errorTitleFr}&errorMessage=${errorMessage}&errorMessageFr=${errorMessageFr}`
-          );
+          return res.redirect(`/error`);
         }
       } catch (e) {
         console.log(e);
