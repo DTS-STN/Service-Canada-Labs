@@ -16,6 +16,7 @@ export function ErrorBox(props) {
       <ul
         className="w-full list-disc list-outside leading-loose pl-8"
         data-cy="error-box-items"
+        id="error-box-items"
       >
         {props.errors.map(({ id, text }) => {
           return (
@@ -24,6 +25,8 @@ export function ErrorBox(props) {
                 id={`${id}-${text}`}
                 custom="font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline inline-block text-left"
                 onClick={() => props.onClick(id)}
+                dataCy={`error-item-${id}`}
+                className="" // This is to avoid all the "undefined" class names applied.
               >
                 {text}
               </ActionButton>
