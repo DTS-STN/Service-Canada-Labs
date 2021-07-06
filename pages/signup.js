@@ -351,7 +351,10 @@ export default function Signup(props) {
       document.getElementById("error-box").scrollIntoView({
         behavior: "smooth",
       });
-      document.querySelector(`#error-box-items > li > button`).focus();
+      setTimeout(
+        () => document.querySelector(`#error-box-items > li > button`).focus(),
+        600
+      );
     } else {
       //submit data to the api and then redirect to the thank you page
       const response = await fetch("/api/sign-up", {
@@ -375,6 +378,7 @@ export default function Signup(props) {
   };
   const handleScrollToError = (id) => {
     const input = document.getElementById(`${id}`);
+    setTimeout(() => input.focus(), 700);
     const inputType = input.getAttribute("type");
     let parentDiv = input.parentNode;
     if (inputType === "radio") parentDiv = parentDiv.parentNode;
