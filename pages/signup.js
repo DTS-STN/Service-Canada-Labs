@@ -379,7 +379,7 @@ export default function Signup(props) {
 
   const handleScrollToError = (id) => {
     const input = document.getElementById(`${id}`);
-    setTimeout(() => input.focus(), 700);
+    setTimeout(() => input.focus(), 600);
     const inputType = input.getAttribute("type");
     let parentDiv = input.parentNode;
     if (inputType === "radio") parentDiv = parentDiv.parentNode;
@@ -407,13 +407,6 @@ export default function Signup(props) {
         <meta name="dcterms.accessRights" content="2" />
       </Head>
       <section className="layout-container mb-2 mt-12 xl:bg-lightbulb-right-img xl:bg-right xl:bg-no-repeat">
-        {errorBoxText ? (
-          <ErrorBox
-            text={errorBoxText}
-            errors={errorBoxErrors}
-            onClick={handleScrollToError}
-          />
-        ) : undefined}
         <div className="xl:w-2/3 ">
           <h1 className="mb-12" id="pageMainTitle" tabIndex="-1">
             {t("signupTitle")}
@@ -445,6 +438,13 @@ export default function Signup(props) {
         </div>
       </section>
       <section className="layout-container">
+        {errorBoxText ? (
+          <ErrorBox
+            text={errorBoxText}
+            errors={errorBoxErrors}
+            onClick={handleScrollToError}
+          />
+        ) : undefined}
         <form
           data-gc-analytics-formname="ESDC:ServiceCanadaLabsSign-up"
           data-gc-analytics-collect='[{"value":"input:not(.exclude),select","emptyField":"N/A"}]'
