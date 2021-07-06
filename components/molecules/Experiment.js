@@ -12,13 +12,14 @@ export const Experiment = (props) => {
     alpha: "custom-blue-experiment-blue",
   };
   return (
-    <div
+    <a
       className={`shadow-experiment-shadow p-4 border-b-4 h-400px ${
         "border-" + (tagColours[props.tag] || "gray-experiment")
       }`}
       data-testid={props.dataTestId}
       data-cy={props.dataCy}
       tabIndex="0"
+      href={props.href}
     >
       <h2 className="mb-2 text-p">{props.title}</h2>
       <span
@@ -29,7 +30,7 @@ export const Experiment = (props) => {
         {props.tagLabel}
       </span>
       <p className="mt-2 text-sm">{props.description}</p>
-    </div>
+    </a>
   );
 };
 
@@ -43,6 +44,11 @@ Experiment.propTypes = {
    * tag of the experiment card
    */
   tag: PropTypes.string.isRequired,
+
+  /**
+   * Link of the card
+   */
+  href: PropTypes.string,
 
   /**
    * the label of the tag card

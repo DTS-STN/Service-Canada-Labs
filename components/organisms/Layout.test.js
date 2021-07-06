@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { axe, toHaveNoViolations } from "jest-axe";
 import { NoBanner, WithBanner } from "./Layout.stories";
@@ -23,6 +23,16 @@ describe("Layout", () => {
   it("renders with the banner", () => {
     render(<WithBanner {...WithBanner.args} />);
     screen.getByTitle("Home banner");
+  });
+
+  it("changes the language from French to English when language toggle clicked", () => {
+    render(<NoBanner {...NoBanner.args} locale="fr" />);
+    const inputElem3 = screen.getByTestId("languageLink3");
+    act(() => {
+      inputElem3.click();
+    });
+    const currentLang = window.localStorage.getItem("lang");
+    expect(currentLang).toEqual("en");
   });
 
   it("has no a11y violations", async () => {

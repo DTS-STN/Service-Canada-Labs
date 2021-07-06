@@ -25,6 +25,26 @@ export default function Signup(props) {
   const { t } = useTranslation("common");
   const { asPath, push } = useRouter();
 
+  //Function for masking email to get in the thank you page later
+  function maskEmail(email) {
+    let maskedEmail = "";
+    let x = 0;
+
+    for (var i = 0; i < email.length; i++) {
+      if (i === 0) {
+        maskedEmail += email[i];
+      } else if (email[i] !== "@" && email[i] !== "." && x <= 3) {
+        maskedEmail += "*";
+        x += 1;
+      } else {
+        maskedEmail += email[i];
+        x = 0;
+      }
+    }
+
+    return maskedEmail;
+  }
+
   // Joi form validation schema. Only required fields are validated
   const formSchema = Joi.object({
     email: Joi.string()
@@ -34,7 +54,7 @@ export default function Signup(props) {
         errors.forEach((error) => {
           switch (error.code) {
             case "any.required":
-              error.message = t("errorRequired");
+              error.message = t("emailRequired");
               break;
             case "string.email":
               error.message = t("errorEmail");
@@ -53,7 +73,7 @@ export default function Signup(props) {
         errors.forEach((error) => {
           switch (error.code) {
             case "any.required":
-              error.message = t("errorRequired");
+              error.message = t("yearRequired");
               break;
             case "number.integer":
               error.message = t("errorInt");
@@ -77,7 +97,7 @@ export default function Signup(props) {
         errors.forEach((error) => {
           switch (error.code) {
             case "any.required":
-              error.message = t("errorRequired");
+              error.message = t("languageRequired");
               break;
             default:
               break;
@@ -319,7 +339,8 @@ export default function Signup(props) {
 
       // if the response is good, redirect to the thankyou page
       if (response.status === 201 || response.status === 200) {
-        await push("/thankyou");
+        let maskedEmail = maskEmail(formData.email);
+        await push({ pathname: "/thankyou", query: { e: maskedEmail } });
       } else if (response.status === 400) {
         await setErrorBoxText(t("errorRegistered"));
       } else {
@@ -382,14 +403,14 @@ export default function Signup(props) {
       <section className="layout-container">
         <form
           data-gc-analytics-formname="ESDC:ServiceCanadaLabsSign-up"
-          data-gc-analytics-collect='[{"value":"input,select","emptyField":"N/A"}]'
+          data-gc-analytics-collect='[{"value":"input:not(.exclude),select","emptyField":"N/A"}]'
           onSubmit={handleSubmit}
           onReset={handlerClearData}
           noValidate
         >
           <a
             className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
-            href={t("reportAProblemPrivacyStatementLink")}
+            href={t("privacyLink")}
           >
             {t("privacy")}
           </a>
@@ -400,7 +421,7 @@ export default function Signup(props) {
           >
             {t("clear")}
           </ActionButton>
-          <div className="max-w-600px">
+          <div className="max-w-750px">
             <TextField
               className="mb-10"
               label={t("email")}
@@ -412,6 +433,7 @@ export default function Signup(props) {
               onChange={setEmail}
               boldLabel={true}
               required
+              exclude
             />
             <TextField
               className="mb-10"
@@ -539,9 +561,9 @@ export default function Signup(props) {
             <fieldset className="mb-6">
               <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("formGender")}{" "}
-                <p className="inline text-form-input-gray text-sm">
+                <span className="inline text-form-input-gray text-sm">
                   {t("optional")}
-                </p>
+                </span>
               </legend>
               <RadioField
                 label={t("woman")}
@@ -590,9 +612,9 @@ export default function Signup(props) {
             <fieldset className="mb-6">
               <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("formIndigenous")}{" "}
-                <p className="inline text-form-input-gray text-sm">
+                <span className="inline text-form-input-gray text-sm">
                   {t("optional")}
-                </p>
+                </span>
               </legend>
               <RadioField
                 label={t("FN")}
@@ -649,9 +671,9 @@ export default function Signup(props) {
             <fieldset className="mb-6">
               <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("disability")}{" "}
-                <p className="inline text-form-input-gray text-sm">
+                <span className="inline text-form-input-gray text-sm">
                   {t("optional")}
-                </p>
+                </span>
               </legend>
               <OptionalTextField
                 controlLabel={t("yes")}
@@ -701,9 +723,9 @@ export default function Signup(props) {
             <fieldset className="mb-6">
               <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("formMinority")}{" "}
-                <p className="inline text-form-input-gray text-sm">
+                <span className="inline text-form-input-gray text-sm">
                   {t("optional")}
-                </p>
+                </span>
               </legend>
               <OptionalListField
                 controlName="minority"
@@ -841,9 +863,9 @@ export default function Signup(props) {
             <fieldset className="mb-6">
               <legend className="block leading-tight text-sm font-body mb-5 font-bold">
                 {t("formIncome")}{" "}
-                <p className="inline text-form-input-gray text-sm">
+                <span className="inline text-form-input-gray text-sm not-italic">
                   {t("optional")}
-                </p>
+                </span>
               </legend>
               <RadioField
                 label={t("income1")}
@@ -917,7 +939,7 @@ export default function Signup(props) {
           </div>
           <a
             className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10"
-            href={t("reportAProblemPrivacyStatementLink")}
+            href={t("privacyLink")}
           >
             {t("privacy")}
           </a>

@@ -35,11 +35,14 @@ export function TextField(props) {
           <p className="inline text-form-input-gray text-sm">{t("optional")}</p>
         )}
       </label>
+      <p className="text-xs lg:text-sm mb-5 leading-30px">
+        {t("doNotInclude")}
+      </p>
       {props.error ? <ErrorLabel message={props.error} /> : undefined}
       <input
-        className={`text-input font-body w-full min-h-40px shadow-sm text-form-input-gray border-2 py-6px px-12px ${
+        className={`text-input font-body w-full lg:w-3/4 min-h-40px shadow-sm text-form-input-gray border-2 py-6px px-12px ${
           props.error ? "border-error-border-red" : "border-black"
-        }`}
+        } ${props.exclude ? "exclude" : ""}`}
         id={props.id}
         name={props.name}
         placeholder={props.placeholder}
@@ -147,4 +150,9 @@ TextField.propTypes = {
    * cypress tests selector
    */
   dataCy: PropTypes.string,
+
+  /**
+   * Exclude option for adding exclude class to the textfield
+   */
+  exclude: PropTypes.bool,
 };

@@ -8,7 +8,6 @@ import { ReportAProblem } from "./ReportAProblem";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
-import { SearchBar } from "../atoms/SearchBar";
 import { Breadcrumb } from "../atoms/Breadcrumb";
 
 const setLanguage = (language) => {
@@ -54,7 +53,12 @@ export const Layout = ({
               src={language === "en" ? "/sig-blk-en.svg" : "/sig-blk-fr.svg"}
               alt="Symbol of the Government of Canada"
             />
-            <Link key={language} href={langUrl} locale={language}>
+            <Link
+              key={language}
+              href={langUrl}
+              locale={language}
+              data-testid="languageLink1"
+            >
               <a
                 className="visible lg:invisible ml-6 sm:ml-16 underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue"
                 onClick={() => setLanguage(language)}
@@ -69,19 +73,17 @@ export const Layout = ({
               href={langUrl}
               locale={language}
               onClick={() => setLanguage(language)}
+              data-testid="languageLink2"
             >
               <a
                 className="lg:visible invisible pb-0 lg:pb-2 self-end underline font-body text-canada-footer-font hover:text-canada-footer-hover-font-blue "
                 data-cy="toggle-language-link"
+                data-testid="languageLink3"
                 onClick={() => setLanguage(language)}
               >
                 {language === "en" ? "English" : "Français"}
               </a>
             </Link>
-            <SearchBar
-              placeholder={t("searchBarPlaceholder")}
-              dataCy={"search-bar"}
-            />
           </div>
         </div>
 

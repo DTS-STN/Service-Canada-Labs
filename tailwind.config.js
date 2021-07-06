@@ -12,9 +12,9 @@ module.exports = {
         "border-gray-experiment",
         "bg-custom-blue-experiment-blue",
         "bg-gray-experiment",
-        "opacity-40",
-        "opacity-60",
+        "opacity-70",
         "opacity-80",
+        "opacity-90",
         "opacity-100",
       ],
     },
@@ -135,6 +135,7 @@ module.exports = {
       maxWidth: {
         "350px": "350px",
         "600px": "600px",
+        "750px": "750px",
         "5rem": "5rem",
       },
 

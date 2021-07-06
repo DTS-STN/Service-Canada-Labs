@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import { render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { axe, toHaveNoViolations } from "jest-axe";
 import {
@@ -16,6 +16,13 @@ import {
 expect.extend(toHaveNoViolations);
 
 describe("Action Button", () => {
+  let mockFn;
+  beforeEach(() => {
+    mockFn = jest.fn();
+  });
+  afterEach(() => {
+    mockFn.mockRestore();
+  });
   it("renders default", () => {
     render(<Default {...Default.args} />);
     expect(screen.getByRole("button")).toHaveTextContent(Default.args.text);
@@ -50,6 +57,17 @@ describe("Action Button", () => {
     render(<Link {...Link.args} />);
     expect(screen.getByRole("button")).toHaveTextContent(Link.args.text);
     expect(screen.getByRole("button")).toHaveAttribute("href");
+  });
+
+  it("click can be executed with spacebar", () => {
+    render(<Link {...Link.args} />);
+    const inputElem = screen.getByRole("button");
+    inputElem.click = mockFn;
+    act(() => {
+      fireEvent.keyDown(inputElem, { key: "Spacebar", code: "Spacebar" });
+    });
+    expect(mockFn.mock.calls.length).toBe(1);
+    expect(global.window.location.pathname).toEqual("/");
   });
 
   it("has no a11y violations", async () => {

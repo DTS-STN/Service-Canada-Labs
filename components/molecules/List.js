@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
  *  List component
  */
 export function List(props) {
-  let opacity = 20;
+  let opacity = 60;
   return (
     <ol className={props.className}>
       {props.items.map((item, key) => {
-        if (opacity < 100) opacity += 20;
+        if (opacity < 100) opacity += 10;
         let className =
           "opacity-" +
           opacity +
