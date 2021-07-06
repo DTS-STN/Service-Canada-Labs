@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Joi from "joi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ErrorBox } from "../components/molecules/ErrorBox";
@@ -440,6 +440,10 @@ export default function Signup(props) {
             id="reset"
             custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
             type="reset"
+            onClick={useEffect(() => {
+              var select = document.getElementById("province-choice");
+              select.selectedIndex = 0;
+            })}
           >
             {t("clear")}
           </ActionButton>
@@ -577,6 +581,7 @@ export default function Signup(props) {
                   value: "NU",
                 },
               ]}
+              other
               onChange={setProvince}
             />
 
@@ -978,6 +983,10 @@ export default function Signup(props) {
             id="reset-bottom"
             custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10"
             type="reset"
+            onClick={useEffect(() => {
+              var select = document.getElementById("province-choice");
+              select.selectedIndex = 0;
+            })}
           >
             {t("clear")}
           </ActionButton>
