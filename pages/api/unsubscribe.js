@@ -52,7 +52,7 @@ export default async function handler(req, res) {
             explanation: e.message,
           });
         }
-        return res.status(201).end("USER UNSUBSCRIBED");
+        return res.status(201).end("USER UNSUBSCRIBE EMAIL SENT");
       }
     }
     return res.status(400).end("Missing email");
@@ -71,6 +71,7 @@ export default async function handler(req, res) {
         if (Object.keys(unsubUserObj.value).length === 2) {
           // TODO: create delete confirmation page
           return res.redirect("/home");
+        } else {
           // if the record isn't deleted return an error
           return res.redirect(
             `/error?errorTitle=${errorTitle}&errorTitleFr=${errorTitleFr}&errorMessage=${errorMessage}&errorMessageFr=${errorMessageFr}`
