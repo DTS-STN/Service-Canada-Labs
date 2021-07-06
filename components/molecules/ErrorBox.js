@@ -14,16 +14,16 @@ export function ErrorBox(props) {
       <span className="icon-error absolute top-1 -left-2.5 bg-white" />
       <p className="font-bold ml-4">{props.text}</p>
       <ul
-        className="w-full list-disc list-inside leading-loose ml-4"
+        className="w-full list-disc list-outside leading-loose pl-8"
         data-cy="error-box-items"
         id="error-box-items"
       >
         {props.errors.map(({ id, text }) => {
           return (
-            <li key={`${id}-${text}`}>
+            <li key={`${id}-${text}`} className="mb-2">
               <ActionButton
                 id={`${id}-${text}`}
-                custom="font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline"
+                custom="font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline inline-block text-left"
                 onClick={() => props.onClick(id)}
                 dataCy={`error-item-${id}`}
                 className="" // This is to avoid all the "undefined" class names applied.
