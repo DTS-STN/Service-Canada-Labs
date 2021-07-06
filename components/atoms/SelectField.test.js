@@ -18,11 +18,10 @@ describe("SelectField", () => {
     mockFn.mockRestore();
   });
   // TODO could not find a way to test selecting item from data list
-  it("renders field and accepts input", () => {
+  it("renders field", () => {
     render(<Primary {...Primary.args} onChange={mockFn} />);
     const inputElem = screen.getByTestId("select-field-1-choice");
-    fireEvent.change(inputElem, { target: { value: "Option 1" } });
-    expect(inputElem.value).toBe("Option 1");
+    expect(inputElem.value).toBe("");
   });
   it("has no accessibility violations", async () => {
     const { container } = render(<Primary {...Primary.args} />);

@@ -79,23 +79,6 @@
     display: none;
 }
 
-.select-field-label::after {
-    content: "";
-    position: absolute;
-    transform: rotate(-45deg);
-    border: solid black;
-    border-width: 0 0 2px 2px;
-    border-top-color: transparent;
-    opacity: 1;
-    background: transparent;
-    top: 40px;
-    right: 10px;
-    width: 10px;
-    height: 10px;
-    cursor: text;
-    touch-action: manipulation;
-}
-
 form > label {
     margin-bottom: 1rem;
 }

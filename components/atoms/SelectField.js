@@ -10,6 +10,12 @@ export function SelectField(props) {
         value: props.value,
       }
     : {};
+
+  props.options.sort(function (a, b) {
+    var collator = new Intl.Collator("fr");
+    return collator.compare(a.name.toLowerCase(), b.name.toLowerCase());
+  });
+
   return (
     <div
       className={`relative block leading-tight${
@@ -35,11 +41,10 @@ export function SelectField(props) {
         )}
       </label>
       {props.error ? <ErrorLabel message={props.error} /> : undefined}
-      <input
-        className={`text-input select-field font-body w-full min-h-40px shadow-sm text-form-input-gray border-2 py-6px px-12px ${
+      <select
+        className={`text-input select-field bg-white font-body w-full min-h-40px shadow-sm border-2 py-6px px-12px ${
           props.error ? "border-error-border-red" : "border-black"
         }`}
-        list={props.id}
         id={props.id + "-choice"}
         name={props.name}
         required={props.required}
@@ -47,8 +52,13 @@ export function SelectField(props) {
         {...ifControlledProps}
         data-testid={props.dataTestId + "-choice"}
         data-cy={props.dataCy + "-choice"}
-      />
-      <datalist id={props.id}>
+      >
+        <option
+          key="default"
+          value=""
+          data-testid="default"
+          data-cy="default"
+        />
         {props.options.map(({ id, name, value }) => {
           return (
             <option key={id} value={value} data-testid={id} data-cy={id}>
@@ -56,7 +66,19 @@ export function SelectField(props) {
             </option>
           );
         })}
-      </datalist>
+        {props.other ? (
+          <option
+            key={"other"}
+            value={"other"}
+            data-testid={"other"}
+            data-cy={"other"}
+          >
+            {t("reportAProblemOther")}
+          </option>
+        ) : (
+          ""
+        )}
+      </select>
     </div>
   );
 }
@@ -105,6 +127,11 @@ SelectField.propTypes = {
    * message to display if there is an error
    */
   error: PropTypes.string,
+
+  /**
+   * Other option for dropdown
+   */
+  other: PropTypes.bool,
 
   /**
    * if label should be bold
