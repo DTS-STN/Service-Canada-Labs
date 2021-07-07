@@ -46,7 +46,9 @@ async function handler(req, res) {
 
     // attempt to send validation email through notify
     try {
-      const validationUrl = origin + `/api/validate?id=${userCuid}`;
+      var lang = "";
+      data.language === "fr" ? (lang = "/fr") : (lang = "");
+      const validationUrl = origin + `${lang}/api/validate?id=${userCuid}`;
       const [status, json] = await submitEmail(
         {
           validation_url: validationUrl,
