@@ -438,6 +438,12 @@ export default function Signup(props) {
         </div>
       </section>
       <section className="layout-container">
+        <a
+          className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
+          href={t("privacyLink")}
+        >
+          {t("privacy")}
+        </a>
         {errorBoxText ? (
           <ErrorBox
             text={errorBoxText}
@@ -452,12 +458,6 @@ export default function Signup(props) {
           onReset={handlerClearData}
           noValidate
         >
-          <a
-            className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
-            href={t("privacyLink")}
-          >
-            {t("privacy")}
-          </a>
           <ActionButton
             id="reset"
             custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
