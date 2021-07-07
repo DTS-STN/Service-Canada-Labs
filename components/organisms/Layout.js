@@ -107,12 +107,12 @@ export const Layout = ({
         <div className="layout-container my-2">
           <Breadcrumb items={breadcrumbItems} />
         </div>
-      </header>
-
-      <main>
         {bannerText && bannerTitle ? (
           <Banner siteTitle={bannerTitle} headline={bannerText} />
         ) : null}
+      </header>
+
+      <main>
         <div>{children}</div>
       </main>
 
