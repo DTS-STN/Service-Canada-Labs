@@ -74,7 +74,7 @@ export default function Privacy(props) {
               href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
               className="text-custom-blue-link underline"
             >
-              {t("confirmationEmail")}
+              experience@service.gc.ca
               {"."}
             </a>
           </p>
