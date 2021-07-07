@@ -67,17 +67,6 @@ export default function About(props) {
               ]}
             />
           </div>
-          <div className="xl:bg-footer-background-color  bg-white ">
-            <div className="xl:invisible layout-container pt-6 xl:pt-0 xl:pb-0 pb-10 ">
-              <ActionButton
-                id="LearnMoreButtonSmScreen"
-                text={t("learnMoreBtn")}
-                className={"text-xs md:text-base"}
-                secondary
-                dataCyButton={"learn-more"}
-              />
-            </div>
-          </div>
         </div>
       </section>
       <CallToAction
