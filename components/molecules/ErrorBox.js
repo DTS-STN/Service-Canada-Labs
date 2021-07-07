@@ -10,6 +10,8 @@ export function ErrorBox(props) {
       id="error-box"
       className="relative border-l-4 border-error-border-red min-h-40px mb-10"
       data-cy="error-box"
+      role="alert"
+      aria-atomic="true"
     >
       <span className="icon-error absolute top-1 -left-2.5 bg-white" />
       <p className="font-bold ml-4">{props.text}</p>
