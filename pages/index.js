@@ -61,6 +61,7 @@ export default function Index(props) {
                 text="Français"
                 className="text-center w-7.5rem xl:w-138px text-sm py-3.5 rounded leading-3"
                 href="/fr/home"
+                lang="fr"
                 onClick={setLanguage}
               />
             </div>
@@ -73,7 +74,10 @@ export default function Index(props) {
                 </a>
               </Link>
               <Link href="https://www.canada.ca/fr/transparence/avis.html">
-                <a className="inline-block hover:text-canada-footer-hover-font-blue text-canada-footer-font">
+                <a
+                  className="inline-block hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+                  lang="fr"
+                >
                   Avis
                 </a>
               </Link>
