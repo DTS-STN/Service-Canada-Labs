@@ -4,7 +4,6 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { List } from "../components/molecules/List";
-import { ActionButton } from "../components/atoms/ActionButton";
 import { CallToAction } from "../components/molecules/CallToAction";
 
 export default function About(props) {
