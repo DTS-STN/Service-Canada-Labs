@@ -59,7 +59,10 @@ export default function error500(props) {
             />
           </div>
           <div>
-            <div className="relative h-auto xl:w-96 xxl:w-400px lg:w-72 xl:h-400px lg:h-500px mb-8 lg:mb-0">
+            <div
+              className="relative h-auto xl:w-96 xxl:w-400px lg:w-72 xl:h-400px lg:h-500px mb-8 lg:mb-0"
+              lang="fr"
+            >
               <h1 className="font-bold font-display mb-4">
                 Le site Web a signalé une erreur. Veuiller réessayer plus tard.
               </h1>
