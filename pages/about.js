@@ -4,7 +4,6 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { List } from "../components/molecules/List";
-import { ActionButton } from "../components/atoms/ActionButton";
 import { CallToAction } from "../components/molecules/CallToAction";
 
 export default function About(props) {
@@ -66,17 +65,6 @@ export default function About(props) {
                 t("circleTxt4/4"),
               ]}
             />
-          </div>
-          <div className="xl:bg-footer-background-color  bg-white ">
-            <div className="xl:invisible layout-container pt-6 xl:pt-0 xl:pb-0 pb-10 ">
-              <ActionButton
-                id="LearnMoreButtonSmScreen"
-                text={t("learnMoreBtn")}
-                className={"text-xs md:text-base"}
-                secondary
-                dataCyButton={"learn-more"}
-              />
-            </div>
           </div>
         </div>
       </section>
