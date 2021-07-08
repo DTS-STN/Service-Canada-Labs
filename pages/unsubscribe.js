@@ -42,6 +42,8 @@ export default function Unsubscribe(props) {
 
   const handlerClearData = (e) => {
     e.preventDefault();
+    setErrorBoxText("");
+    setErrorBoxErrors([]);
     setEmailError("");
     setEmail("");
   };
