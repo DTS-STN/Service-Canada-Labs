@@ -242,5 +242,6 @@
   "getInTouch": "Si vous avez des questions ou des commentaires et que vous souhaitez communiquer avec nous, veuillez nous envoyer un courriel à",
   "scLabsUnsubscribe": "Laboratoires de Service Canada - Désinscription",
   "unsubscribe": "[FR] Unsubscribe",
-  "unsubscribeInfo": "[FR] Enter your email address to unsubscribe from the participant list. You will not be contacted for future research studies."
+  "unsubscribeInfo": "[FR] Enter your email address to unsubscribe from the participant list. You will not be contacted for future research studies.",
+  "unsubscribeLinkText": "[FR] Unsubscribe from participant list"
 }
