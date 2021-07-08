@@ -31,7 +31,7 @@ export default async function handler(req, res) {
         if (lang === "fr") {
           redirectLink = "/fr/confirmation";
         }
-        return redirectLink;
+        return res.redirect(redirectLink);
       }
     } catch (e) {
       console.log(e);
