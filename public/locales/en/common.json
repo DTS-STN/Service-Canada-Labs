@@ -247,5 +247,6 @@
   "unsubscribeLinkText": "Unsubscribe from participant list",
   "unsubscribeConfirmationTitle": "You have successfully unsubscribed",
   "unsubscribeConfirmationP1": "Thank you for your time!",
-  "unsubscribeConfirmationP2": "You will not be contacted for future research studies."
+  "unsubscribeConfirmationP2": "You will not be contacted for future research studies.",
+  "cantFindEMailError": "The email address provided can't be found in our system"
 }

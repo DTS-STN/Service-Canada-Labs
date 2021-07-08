@@ -137,9 +137,7 @@ export default function Unsubscribe(props) {
       if (response.status === 201 || response.status === 200) {
         await push("/thankyou");
       } else if (response.status === 400) {
-        await setErrorBoxText(
-          "It looks like that email isn't subscribed, feel free to sign up"
-        );
+        await setErrorBoxText(t("cantFindEMailError"));
       } else {
         await setErrorBoxText(t("errorUnknown"));
       }
