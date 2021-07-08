@@ -236,6 +236,7 @@
   "scLabsThankYou": "Service Canada Labs - Thank you",
   "scLabsExperiments": "Service Canada Labs - Experiments",
   "scLabsConfirmation": "Service Canada Labs - Confirmation",
+  "scLabsUnsubscribeConfirmation": "Service Canada Labs - Unsubscribe Confirmation",
   "scLabsAbout": "Service Canada Labs - About",
   "scLabsPrivacy": "Service Canada Labs - Privacy Policy",
   "doNotInclude": "Do not include any personal, medical or financial details, such as your name, social insurance number (SIN), home or business address, phone number or any case or file numbers.",
@@ -243,5 +244,8 @@
   "scLabsUnsubscribe": "Service Canada Labs - Unsubscribe",
   "unsubscribe": "Unsubscribe",
   "unsubscribeInfo": "Enter your email address to unsubscribe from the participant list. You will not be contacted for future research studies.",
-  "unsubscribeLinkText": "Unsubscribe from participant list"
+  "unsubscribeLinkText": "Unsubscribe from participant list",
+  "unsubscribeConfirmationTitle": "You have successfully unsubscribed",
+  "unsubscribeConfirmationP1": "Thank you for your time!",
+  "unsubscribeConfirmationP2": "You will not be contacted for future research studies."
 }
