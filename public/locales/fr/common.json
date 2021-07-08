@@ -240,5 +240,7 @@
   "scLabsPrivacy": "Laboratoires de Service Canada - Politique en matière de protection des renseignements personnels",
   "doNotInclude": "Ne pas inclure de renseignements personnels, médicaux ou financiers, comme par exemple, un numéro d’assurance sociale (NAS), une adresse de domicile ou de lieu de travail, un numéro de téléphone ou numéro de dossier.",
   "getInTouch": "Si vous avez des questions ou des commentaires et que vous souhaitez communiquer avec nous, veuillez nous envoyer un courriel à",
-  "scLabsUnsubscribe": "Laboratoires de Service Canada - Désinscription"
+  "scLabsUnsubscribe": "Laboratoires de Service Canada - Désinscription",
+  "unsubscribe": "[FR] Unsubscribe",
+  "unsubscribeInfo": "[FR] Enter your email address to unsubscribe from the participant list. You will not be contacted for future research studies."
 }

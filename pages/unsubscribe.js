@@ -49,7 +49,7 @@ export default function Unsubscribe(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // clear out error values
-    setEmailError("");
+    await setEmailError("");
 
     // compile data into one object
     const formData = {
@@ -117,7 +117,10 @@ export default function Unsubscribe(props) {
       await setErrorBoxText(
         `${t("errorSubmit1")} ${errorsList.length} ${t("errorSubmit2")}`
       );
-      document.getElementById("error-box").scrollIntoView();
+      document.getElementById("error-box").scrollIntoView({
+        behavior: "smooth",
+      });
+      document.querySelector(`#error-box-items > li > button`).focus();
     } else {
       //submit data to the api and then redirect to the thank you page
       const response = await fetch("/api/unsubscribe", {
@@ -141,6 +144,18 @@ export default function Unsubscribe(props) {
     }
   };
 
+  const handleScrollToError = (id) => {
+    const input = document.getElementById(`${id}`);
+    input.focus();
+    const inputType = input.getAttribute("type");
+    let parentDiv = input.parentNode;
+    if (inputType === "radio") parentDiv = parentDiv.parentNode;
+    else if (inputType === "checkbox") parentDiv = parentDiv.previousSibling;
+    parentDiv.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
     <Layout
       locale={props.locale}
@@ -161,17 +176,18 @@ export default function Unsubscribe(props) {
       <section className="layout-container mb-2 mt-12 xl:bg-lightbulb-right-img xl:bg-right xl:bg-no-repeat">
         <div className="xl:w-2/3 ">
           <h1 className="mb-12" id="pageMainTitle">
-            Unsubscribe
+            {t("unsubscribe")}
           </h1>
-          <p className="mb-10">
-            To unsubscribe, enter your email below. An email will be sent with
-            instructions to complete the process.
-          </p>
+          <p className="mb-10">{t("unsubscribeInfo")}</p>
         </div>
       </section>
       <section className="layout-container">
         {errorBoxText ? (
-          <ErrorBox text={errorBoxText} errors={errorBoxErrors} />
+          <ErrorBox
+            text={errorBoxText}
+            errors={errorBoxErrors}
+            onClick={handleScrollToError}
+          />
         ) : (
           ""
         )}
@@ -182,19 +198,6 @@ export default function Unsubscribe(props) {
           onReset={handlerClearData}
           noValidate
         >
-          <a
-            className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
-            href={t("reportAProblemPrivacyStatementLink")}
-          >
-            {t("privacy")}
-          </a>
-          <ActionButton
-            id="reset"
-            custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
-            type="reset"
-          >
-            {t("clear")}
-          </ActionButton>
           <div className="max-w-600px">
             <TextField
               className="mb-10"
@@ -213,8 +216,8 @@ export default function Unsubscribe(props) {
             id="signup-submit"
             className="rounded w-72"
             type="submit"
-            dataCy="signup-submit"
-            dataTestId="signup-submit"
+            dataCy="unsubscribe-submit"
+            dataTestId="unsubscribe-submit"
           >
             {t("reportAProblemSubmit")}
           </ActionButton>
