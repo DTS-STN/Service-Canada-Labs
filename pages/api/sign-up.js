@@ -48,7 +48,8 @@ async function handler(req, res) {
     try {
       let lang = "";
       data.language === "en" ? (lang = "") : (lang = "fr");
-      const validationUrl = origin + `/api/validate?id=${userCuid}&lang=${lang}`;
+      const validationUrl =
+        origin + `/api/validate?id=${userCuid}&lang=${lang}`;
       const unsubUrl = origin + `/api/unsubscribe?id=${userCuid}`;
       const [status, json] = await submitEmail(
         {
