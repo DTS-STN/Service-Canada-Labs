@@ -25,8 +25,11 @@ export default async function handler(req, res) {
       }
 
       // if the object returned is verified, redirect to the confirmation page
+      let redirectLink = "";
       if (verifyUserObj.value.verified) {
-        return res.redirect("/confirmation");
+        data.language === "en"
+          ? (redirectLink = "/confirmation")
+          : (redirectLink = "fr/confirmation");
       }
     } catch (e) {
       console.log(e);
