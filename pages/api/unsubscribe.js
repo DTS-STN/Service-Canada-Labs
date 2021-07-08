@@ -9,14 +9,14 @@ export default async function handler(req, res) {
     let userObj;
     const origin = req.headers.origin;
     if (data.email) {
-      const conn = await connectToDatabase(
-        process.env.MONGO_URL,
-        process.env.MONGO_DB
-      );
       try {
+        const conn = await connectToDatabase(
+          process.env.MONGO_URL,
+          process.env.MONGO_DB
+        );
         userObj = await getUserByEmail(conn.db, data.email);
       } catch (e) {
-        console.log(e);
+        console.log(`Mongo error: ${e.message}`);
         return res.redirect("/error");
       }
 
@@ -39,6 +39,7 @@ export default async function handler(req, res) {
 
           // non okay status code return 500
           if (status >= 300) {
+            console.log(`Notify failed to send the validation email: ${json}`);
             return res.status(500).json({
               reason: "Notify",
               explanation:
@@ -47,6 +48,7 @@ export default async function handler(req, res) {
             });
           }
         } catch (e) {
+          console.log(`Notify error: ${e.message}`);
           return res.status(500).json({
             reason: "Notify",
             explanation: e.message,
@@ -61,11 +63,11 @@ export default async function handler(req, res) {
     let unsubUserObj;
 
     if (id) {
-      const conn = await connectToDatabase(
-        process.env.MONGO_URL,
-        process.env.MONGO_DB
-      );
       try {
+        const conn = await connectToDatabase(
+          process.env.MONGO_URL,
+          process.env.MONGO_DB
+        );
         unsubUserObj = await unsubscribeUser(conn.db, id);
         if (Object.keys(unsubUserObj.value).length === 2) {
           // TODO: create delete confirmation page
@@ -75,7 +77,7 @@ export default async function handler(req, res) {
           return res.redirect(`/error`);
         }
       } catch (e) {
-        console.log(e);
+        console.log(`Mongo error: ${e.message}`);
         return res.redirect("/error");
       }
     }

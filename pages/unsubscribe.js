@@ -43,12 +43,13 @@ export default function Unsubscribe(props) {
   const handlerClearData = (e) => {
     e.preventDefault();
     setEmailError("");
+    setEmail("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // clear out error values
-    await setEmailError("");
+    setEmailError("");
 
     // compile data into one object
     const formData = {
@@ -158,9 +159,6 @@ export default function Unsubscribe(props) {
         <meta name="dcterms.accessRights" content="2" />
       </Head>
       <section className="layout-container mb-2 mt-12 xl:bg-lightbulb-right-img xl:bg-right xl:bg-no-repeat">
-        {errorBoxText ? (
-          <ErrorBox text={errorBoxText} errors={errorBoxErrors} />
-        ) : undefined}
         <div className="xl:w-2/3 ">
           <h1 className="mb-12" id="pageMainTitle">
             Unsubscribe
@@ -172,6 +170,11 @@ export default function Unsubscribe(props) {
         </div>
       </section>
       <section className="layout-container">
+        {errorBoxText ? (
+          <ErrorBox text={errorBoxText} errors={errorBoxErrors} />
+        ) : (
+          ""
+        )}
         <form
           data-gc-analytics-formname="ESDC:ServiceCanadaLabsUnsubscribe"
           data-gc-analytics-collect='[{"value":"input","emptyField":"N/A"}]'
