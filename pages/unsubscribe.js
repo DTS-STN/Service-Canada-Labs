@@ -173,7 +173,7 @@ export default function Unsubscribe(props) {
         <meta name="dcterms.creator" content={t("creator")} />
         <meta name="dcterms.accessRights" content="2" />
       </Head>
-      <section className="layout-container mb-2 mt-12 xl:bg-lightbulb-right-img xl:bg-right xl:bg-no-repeat">
+      <section className="layout-container mb-2 mt-12">
         <div className="xl:w-2/3 ">
           <h1 className="mb-12" id="pageMainTitle">
             {t("unsubscribe")}
