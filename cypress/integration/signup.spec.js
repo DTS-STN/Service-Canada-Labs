@@ -72,13 +72,13 @@ describe("signup page", () => {
     cy.get('[data-cy="error-box"').should("exist");
     cy.get('[data-cy="error-box-items"').children().should("have.length", 1);
   });
-  
+
   it("Validates disability field is required if yes is selected", () => {
     cy.get('[id="email"]').type("some@email.com");
     cy.get('[id="yearOfBirth"]').type("1990");
     cy.get('[id="languageEn"]').click();
     cy.get('[id="agreeToConditions"]').click();
-    cy.get('[data-cy="btn-disability-yes"').click()
+    cy.get('[data-cy="btn-disability-yes"').click();
     cy.get('[data-cy="text-disability-yes"]').type("   ");
     cy.get('[data-cy="signup-submit"]').click();
 
@@ -90,8 +90,8 @@ describe("signup page", () => {
     cy.get('[id="email"]').type("some@email.com");
     cy.get('[id="yearOfBirth"]').type("1990");
     cy.get('[id="languageEn"]').click();
-    cy.get('[data-cy="btn-disability-yes"').click()
-    cy.get('[data-cy="btn-disability-no"').click()
+    cy.get('[data-cy="btn-disability-yes"').click();
+    cy.get('[data-cy="btn-disability-no"').click();
     cy.get('[data-cy="signup-submit"]').click();
 
     // 1 error is the agree to conditions
@@ -102,12 +102,12 @@ describe("signup page", () => {
   it("Validates error clicking scrolls to the desired error", () => {
     cy.get('[data-cy="signup-submit"]').click();
     cy.get('[data-cy="error-box"').should("exist");
-    cy.get('[data-cy="error-box"').scrollIntoView().should('be.visible');
+    cy.get('[data-cy="error-box"').scrollIntoView().should("be.visible");
 
-    cy.get('[data-cy="error-item-email"]').should('be.visible');
+    cy.get('[data-cy="error-item-email"]').should("be.visible");
     cy.get('[data-cy="error-item-email"]').click();
     cy.get('[data-cy="error-item-email"]').click();
-    cy.get('[data-cy="error-item-email"').scrollIntoView().should('be.visible');
+    cy.get('[data-cy="error-item-email"').scrollIntoView().should("be.visible");
   });
 
   // skipping for now until thank you page is available
@@ -124,6 +124,6 @@ describe("signup page", () => {
     cy.get('[id="languageEn"]').click();
     cy.get('[id="agreeToConditions"]').click();
     cy.get('[data-cy="signup-submit"]').click();
-    cy.url().should("contains", "/thankyou");
+    cy.url().should("contains", "/thankyou?ref=signup");
   });
 });
