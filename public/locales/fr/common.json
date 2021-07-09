@@ -248,5 +248,9 @@
   "unsubscribeConfirmationTitle": "[FR] You have successfully unsubscribed",
   "unsubscribeConfirmationP1": "[FR] Thank you for your time!",
   "unsubscribeConfirmationP2": "[FR] You will not be contacted for future research studies.",
-  "cantFindEMailError": "[FR] The email address provided can't be found in our system"
+  "cantFindEMailError": "[FR] The email address provided can't be found in our system",
+  "sentEmailTo": "Nous vous avons envoyé un courriel à",
+  "toUnsubscribe": "[FR] for you to complete the unsubscribe process.",
+  "toVerifyEmail": "afin de vérifier et confirmer l’adresse de courrier électronique que vous nous avez fournie.",
+  "pleaseCheckYourEmail": "Veuillez vérifier vos courriels"
 }

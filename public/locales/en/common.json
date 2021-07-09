@@ -248,5 +248,9 @@
   "unsubscribeConfirmationTitle": "You have successfully unsubscribed",
   "unsubscribeConfirmationP1": "Thank you for your time!",
   "unsubscribeConfirmationP2": "You will not be contacted for future research studies.",
-  "cantFindEMailError": "The email address provided can't be found in our system"
+  "cantFindEMailError": "The email address provided can't be found in our system",
+  "sentEmailTo": "We have sent an email to",
+  "toUnsubscribe": "for you to complete the unsubscribe process.",
+  "toVerifyEmail": "for you to confirm the email address you provided.",
+  "pleaseCheckYourEmail": "Please check your emails"
 }

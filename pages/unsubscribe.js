@@ -8,6 +8,7 @@ import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { TextField } from "../components/atoms/TextField";
+import { maskEmail } from "../lib/utils/maskedEmail";
 
 export default function Unsubscribe(props) {
   const { t } = useTranslation("common");
@@ -135,7 +136,11 @@ export default function Unsubscribe(props) {
 
       // if the response is good, redirect to the thankyou page
       if (response.status === 201 || response.status === 200) {
-        await push("/thankyou");
+        let maskedEmail = maskEmail(formData.email);
+        await push({
+          pathname: "/thankyou",
+          query: { e: maskedEmail, ref: "/unsubscribe" },
+        });
       } else if (response.status === 400) {
         await setErrorBoxText(t("cantFindEMailError"));
       } else {
