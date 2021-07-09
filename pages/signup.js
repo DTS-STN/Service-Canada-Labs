@@ -351,7 +351,7 @@ export default function Signup(props) {
         let maskedEmail = maskEmail(formData.email);
         await push({
           pathname: "/thankyou",
-          query: { e: maskedEmail, ref: "/signup" },
+          query: { e: maskedEmail, ref: "signup" },
         });
       } else if (response.status === 400) {
         await setErrorBoxText(t("errorRegistered"));

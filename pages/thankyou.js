@@ -9,7 +9,7 @@ export default function Confirmation(props) {
   const { t } = useTranslation("common");
   const { asPath, query } = useRouter();
   const maskedEmail = String(query.e);
-  const referrer = query.ref;
+  const referrer = query.ref || "";
 
   return (
     <Layout
@@ -53,18 +53,18 @@ export default function Confirmation(props) {
               >
                 {process.env.NEXT_PUBLIC_THANK_YOU_EMAIL}
               </a>{" "}
-              {referrer === "/unsubscribe"
+              {referrer === "unsubscribe"
                 ? t("toUnsubscribe")
                 : t("toVerifyEmail")}
             </p>
             <p className="mb-4 text-sm lg:text-p leading-30px">
-              {referrer === "/signup" ? t("confirmationP2") : ""}
+              {referrer === "signup" ? t("confirmationP2") : ""}
             </p>
             <p className="mb-4 text-sm lg:text-p leading-30px">
-              {referrer === "/signup" ? t("confirmationP3") : ""}
+              {referrer === "signup" ? t("confirmationP3") : ""}
             </p>
             <p className="mb-4 text-sm lg:text-p leading-30px">
-              {referrer === "/signup" ? t("confirmationP4") : ""}
+              {referrer === "signup" ? t("confirmationP4") : ""}
             </p>
             <ActionButton id="resend_email" text={t("resendEmail")} tertiary />
           </div>

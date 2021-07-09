@@ -26,7 +26,7 @@ export default async function handler(req, res) {
 
       // if the object returned is verified, redirect to the confirmation page
       if (verifyUserObj.value.verified) {
-        return res.redirect("/confirmation");
+        return res.redirect("/confirmation?ref=signup");
       }
     } catch (e) {
       console.log(e);

@@ -139,7 +139,7 @@ export default function Unsubscribe(props) {
         let maskedEmail = maskEmail(formData.email);
         await push({
           pathname: "/thankyou",
-          query: { e: maskedEmail, ref: "/unsubscribe" },
+          query: { e: maskedEmail, ref: "unsubscribe" },
         });
       } else if (response.status === 400) {
         await setErrorBoxText(t("cantFindEMailError"));

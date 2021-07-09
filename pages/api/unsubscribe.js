@@ -73,7 +73,7 @@ export default async function handler(req, res) {
         );
         unsubUserObj = await unsubscribeUser(conn.db, id);
         if (Object.keys(unsubUserObj.value).length === 2) {
-          return res.redirect(`/${lang}/unsubscribe-confirmation`);
+          return res.redirect(`/${lang}/confirmation?ref=unsubscribe`);
         } else {
           // if the record isn't deleted return an error
           return res.redirect(`/error`);

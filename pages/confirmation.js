@@ -7,7 +7,8 @@ import { TextButtonField } from "../components/molecules/TextButtonField";
 
 export default function Confirmation(props) {
   const { t } = useTranslation("common");
-  const { asPath } = useRouter();
+  const { asPath, query } = useRouter();
+  const referrer = query.ref || "";
 
   return (
     <Layout
@@ -16,9 +17,20 @@ export default function Confirmation(props) {
       breadcrumbItems={[{ text: "Service Canada Labs", link: "/" }]}
     >
       <Head>
-        <title>{t("scLabsConfirmation")}</title>
+        <title>
+          {referrer === "unsubscribe"
+            ? t("scLabsUnsubscribeConfirmation")
+            : t("scLabsConfirmation")}
+        </title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content={t("scLabsConfirmation")} />
+        <meta
+          name="dcterms.title"
+          content={
+            referrer === "unsubscribe"
+              ? t("scLabsUnsubscribeConfirmation")
+              : t("scLabsConfirmation")
+          }
+        />
         <meta
           name="dcterms.language"
           content={props.locale === "en" ? "eng" : "fra"}
@@ -32,7 +44,9 @@ export default function Confirmation(props) {
           className="mb-10 text-p xl:text-h1l font-bold w-max"
           tabIndex="-1"
         >
-          {t("emailConfirmationTitle")}
+          {referrer === "unsubscribe"
+            ? t("unsubscribeConfirmationTitle")
+            : t("emailConfirmationTitle")}
         </h1>
         <div className="lg:flex lg:flex-row-reverse">
           <span className="w-full flex justify-center lg:w-1/3">
@@ -42,21 +56,32 @@ export default function Confirmation(props) {
               alt="Circle with checkmark"
             />
           </span>
-          <div className="lg:w-2/3">
-            <p className="mb-4 text-sm lg:text-p leading-30px">
-              {t("emailConfirmationP1")}
-            </p>
-            <p className="mb-4 text-sm lg:text-p leading-30px">
-              {t("emailConfirmationP2")}
-              <TextButtonField
-                href="/experiments"
-                buttonText={t("experimentsBtnTxt")}
-                idButton="ExperimentsButton"
-                dataCyButton="ExperimentsButton"
-                className="flex mt-5"
-              />
-            </p>
-          </div>
+          {referrer === "unsubscribe" ? (
+            <div className="lg:w-2/3">
+              <p className="mb-4 text-sm lg:text-p leading-30px">
+                {t("unsubscribeConfirmationP1")}
+              </p>
+              <p className="mb-4 text-sm lg:text-p leading-30px">
+                {t("unsubscribeConfirmationP2")}
+              </p>
+            </div>
+          ) : (
+            <div className="lg:w-2/3">
+              <p className="mb-4 text-sm lg:text-p leading-30px">
+                {t("emailConfirmationP1")}
+              </p>
+              <p className="mb-4 text-sm lg:text-p leading-30px">
+                {t("emailConfirmationP2")}
+                <TextButtonField
+                  href="/experiments"
+                  buttonText={t("experimentsBtnTxt")}
+                  idButton="ExperimentsButton"
+                  dataCyButton="ExperimentsButton"
+                  className="flex mt-5"
+                />
+              </p>
+            </div>
+          )}
         </div>
       </section>
     </Layout>
