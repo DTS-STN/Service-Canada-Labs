@@ -368,13 +368,17 @@ export default function Signup(props) {
         await setErrorBoxText(t("errorUnknown"));
       }
     }
-    document.getElementById("error-box").scrollIntoView({
-      behavior: "smooth",
-    });
-    const firstErrorListItem = document.querySelector(
+    // Checks if error box exists
+    const errorBoxEl = document.getElementById("error-box");
+    if (errorBoxEl)
+      errorBoxEl.scrollIntoView({
+        behavior: "smooth",
+      });
+    // Checks if there are list items in the error box
+    const firstErrorListEl = document.querySelector(
       `#error-box-items > li > button`
     );
-    if (firstErrorListItem) setTimeout(() => firstErrorListItem.focus(), 600);
+    if (firstErrorListEl) setTimeout(() => firstErrorListEl.focus(), 600);
   };
 
   const handleScrollToError = (id) => {
