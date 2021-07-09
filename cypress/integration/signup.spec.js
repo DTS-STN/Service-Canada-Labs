@@ -22,7 +22,7 @@ describe("signup page", () => {
     cy.url().should("eq", "http://localhost:3000/fr/signup");
   });
 
-  it("Menu appears on the experiments page", () => {
+  it("Menu appears on the page", () => {
     cy.get('[data-cy="menu"]').should("be.visible");
   });
 
@@ -124,6 +124,6 @@ describe("signup page", () => {
     cy.get('[id="languageEn"]').click();
     cy.get('[id="agreeToConditions"]').click();
     cy.get('[data-cy="signup-submit"]').click();
-    cy.url().should("contains", "/thankyou?ref=signup");
+    cy.url().should("contains", "/thankyou?e=s***%40****l.***&ref=signup");
   });
 });
