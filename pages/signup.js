@@ -348,13 +348,6 @@ export default function Signup(props) {
       await setErrorBoxText(
         `${t("errorSubmit1")} ${errorsList.length} ${t("errorSubmit2")}`
       );
-      document.getElementById("error-box").scrollIntoView({
-        behavior: "smooth",
-      });
-      setTimeout(
-        () => document.querySelector(`#error-box-items > li > button`).focus(),
-        600
-      );
     } else {
       //submit data to the api and then redirect to the thank you page
       const response = await fetch("/api/sign-up", {
@@ -375,6 +368,13 @@ export default function Signup(props) {
         await setErrorBoxText(t("errorUnknown"));
       }
     }
+    document.getElementById("error-box").scrollIntoView({
+      behavior: "smooth",
+    });
+    const firstErrorListItem = document.querySelector(
+      `#error-box-items > li > button`
+    );
+    if (firstErrorListItem) setTimeout(() => firstErrorListItem.focus(), 600);
   };
 
   const handleScrollToError = (id) => {
