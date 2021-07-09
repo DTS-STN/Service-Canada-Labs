@@ -8,7 +8,7 @@ import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { TextField } from "../components/atoms/TextField";
-import { maskEmail } from "../lib/utils/maskedEmail";
+import { maskEmail } from "../lib/utils/maskEmail";
 
 export default function Unsubscribe(props) {
   const { t } = useTranslation("common");

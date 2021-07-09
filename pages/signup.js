@@ -14,7 +14,7 @@ import { OptionalTextField } from "../components/molecules/OptionalTextField";
 import { SelectField } from "../components/atoms/SelectField";
 import { CheckBox } from "../components/atoms/CheckBox";
 import { OptionalListField } from "../components/molecules/OptionalListField";
-import { maskEmail } from "../lib/utils/maskedEmail";
+import { maskEmail } from "../lib/utils/maskEmail";
 
 // TODO
 //  - fix bug with error messages not showing custom error message [x]
