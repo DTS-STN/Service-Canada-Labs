@@ -10,7 +10,7 @@ export default function ErrorPage(props) {
   return (
     <div className="min-h-screen relative">
       <Head>
-        <title>Error - Erreur</title>
+        <title data-gc-analytics-error={props.statusCode}>Error - Erreur</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="dcterms.title" content="Error - Erreur" />
         <meta
