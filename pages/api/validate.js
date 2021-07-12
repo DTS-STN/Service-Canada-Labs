@@ -9,6 +9,7 @@ export default async function handler(req, res) {
   }
 
   const id = req.query.id || "";
+  const lang = req.query.lang || "";
 
   let verifyUserObj;
   const errorTitle = "We're having a problem with that page.";
@@ -42,8 +43,12 @@ export default async function handler(req, res) {
       }
 
       // if the object returned is verified, redirect to the confirmation page
+      let redirectLink = "/confirmation";
       if (verifyUserObj.value.verified) {
-        return res.redirect("/confirmation");
+        if (lang === "fr") {
+          redirectLink = "/fr/confirmation";
+        }
+        return res.redirect(redirectLink);
       }
     } catch (e) {
       console.log(e);
