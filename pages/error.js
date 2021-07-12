@@ -4,9 +4,22 @@ import { ReportAProblem } from "../components/organisms/ReportAProblem";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 export default function ErrorPage(props) {
   const { t } = useTranslation("common");
+  const { query } = useRouter();
+
+  const statusCode = query.statusCode || "";
+  const errorTitle = query.errorTitle || "The web site has reported an error.";
+  const errorTitleFr =
+    query.errorTitleFr || "Le site Web a signalé une erreur.";
+  const errorMessage =
+    query.errorMessage || "If the problem persists, report the problem.";
+  const errorMessageFr =
+    query.errorMessageFr ||
+    "Si le problème persiste, veuillez signaler le problème.";
+
   return (
     <div className="min-h-screen relative">
       <Head>
@@ -35,14 +48,14 @@ export default function ErrorPage(props) {
                   className="font-bold font-display mb-4"
                   data-testid="heading-en"
                 >
-                  {props.errorTitle}
+                  {errorTitle}
                 </h1>
-                {props.statusCode ? (
+                {statusCode ? (
                   <p
                     className="font-bold font-body mb-8"
                     data-testid="statuscode-en"
                   >
-                    Error {props.statusCode}
+                    Error {statusCode}
                   </p>
                 ) : (
                   ""
@@ -51,9 +64,9 @@ export default function ErrorPage(props) {
                   className="font-body text-p font-bold mb-4 leading-30px"
                   data-testid="errormessage-en"
                 >
-                  {props.errorMessage}
+                  {errorMessage}
                 </p>
-                {props.errorMessage === "Wrong URL" ? (
+                {errorMessage === "Wrong URL" ? (
                   <>
                     {/* Wrong URL English Section */}
                     <p className="font-body text-sm leading-30px mb-5">
@@ -84,7 +97,7 @@ export default function ErrorPage(props) {
                       Thank you for your patience.
                     </p>
                   </>
-                ) : props.errorMessage === "Expired URL" ? (
+                ) : errorMessage === "Expired URL" ? (
                   <>
                     {/* Expired URL English Section */}
                     <p className="font-body text-sm leading-30px mb-5">
@@ -143,14 +156,14 @@ export default function ErrorPage(props) {
                   className="font-bold font-display mb-4"
                   data-testid="heading-fr"
                 >
-                  {props.errorTitleFr}
+                  {errorTitleFr}
                 </h1>
-                {props.statusCode ? (
+                {statusCode ? (
                   <p
                     className="font-bold font-body mb-8"
                     data-testid="statuscode-fr"
                   >
-                    Erreur {props.statusCode}
+                    Erreur {statusCode}
                   </p>
                 ) : (
                   ""
@@ -159,9 +172,9 @@ export default function ErrorPage(props) {
                   className="font-body text-p font-bold mb-4 leading-30px"
                   data-testid="errormessage-fr"
                 >
-                  {props.errorMessageFr}
+                  {errorMessageFr}
                 </p>
-                {props.errorMessageFr === "URL erronée" ? (
+                {errorMessageFr === "URL erronée" ? (
                   <>
                     {/* Wrong URL French Section */}
                     <p className="font-body text-sm leading-30px mb-5">
@@ -194,7 +207,7 @@ export default function ErrorPage(props) {
                       Merci de votre patience.
                     </p>
                   </>
-                ) : props.errorMessageFr === "URL expirée" ? (
+                ) : errorMessageFr === "URL expirée" ? (
                   <>
                     {/* Expired URL French Section */}
                     <p className="font-body text-sm leading-30px mb-5">
@@ -260,30 +273,11 @@ export default function ErrorPage(props) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const statusCode = context.query.statusCode || "";
-  if (statusCode) {
-    context.res.statusCode = parseInt(statusCode);
-  }
-  const errorTitle =
-    context.query.errorTitle || "The web site has reported an error.";
-  const errorTitleFr =
-    context.query.errorTitleFr || "Le site Web a signalé une erreur.";
-  const errorMessage =
-    context.query.errorMessage ||
-    "If the problem persists, report the problem.";
-  const errorMessageFr =
-    context.query.errorMessageFr ||
-    "Si le problème persiste, veuillez signaler le problème.";
+export const getStaticProps = async ({ locale }) => {
   return {
     props: {
-      locale: context.locale,
-      ...(await serverSideTranslations(context.locale, ["common"])),
-      statusCode,
-      errorTitle,
-      errorTitleFr,
-      errorMessage,
-      errorMessageFr,
+      locale: locale,
+      ...(await serverSideTranslations(locale, ["common"])),
     },
   };
-}
+};
