@@ -71,6 +71,7 @@ export function OptionalTextField(props) {
             dataTestId={props.textFieldDataTestId}
             dataCy={props.textFieldDataCy}
             error={props.error}
+            describedby={props.describedby}
           />
         ) : (
           <TextField
@@ -86,6 +87,7 @@ export function OptionalTextField(props) {
               props.onTextFieldChange ? props.onTextFieldChange : () => {}
             }
             dataTestId={props.textFieldDataTestId}
+            describedby={props.describedby}
             dataCy={props.textFieldDataCy}
           />
         )
@@ -242,4 +244,9 @@ OptionalTextField.propTypes = {
    * message to display if there is an error
    */
   error: PropTypes.string,
+
+  /**
+   * aria-describedby label id
+   */
+  describedby: PropTypes.string,
 };

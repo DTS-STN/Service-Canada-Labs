@@ -490,6 +490,7 @@ export default function Signup(props) {
               value={email}
               onChange={setEmail}
               boldLabel={true}
+              describedby="emailDoNoInclude"
               required
               exclude
             />
@@ -506,6 +507,7 @@ export default function Signup(props) {
               step={1}
               onChange={setYearOfBirth}
               boldLabel={true}
+              describedby="yearOfBirthDoNoInclude"
               required
             />
             <fieldset className="mb-6">
@@ -657,6 +659,7 @@ export default function Signup(props) {
                 textFieldValue={genderOtherDetails}
                 checked={gender === "other"}
                 textLabelBold={true}
+                describedby="genderotherDescribedBy"
               />
               <RadioField
                 label={t("preferNotAnswer")}
@@ -756,6 +759,7 @@ export default function Signup(props) {
                 controlDataCy="btn-disability-yes"
                 textFieldDataCy="text-disability-yes"
                 error={disabilityError}
+                describedby="disabilityDetailsDescribedBy"
               />
               <RadioField
                 label={t("no")}
@@ -904,6 +908,7 @@ export default function Signup(props) {
                   controlValue="other"
                   controlName="minorityGroup"
                   controlId="minorityGroupOther"
+                  describedby="minorityGroupDescribedBy"
                 />
               </OptionalListField>
               <RadioField
