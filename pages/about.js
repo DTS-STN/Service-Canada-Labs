@@ -30,7 +30,7 @@ export default function About(props) {
       <section className="layout-container relative mb-10">
         <h1
           id="pageMainTitle"
-          className="mb-10 text-h1l font-bold w-max"
+          className="mb-10 text-h1l font-bold sm:w-max"
           tabIndex="-1"
         >
           {t("aboutTitle")}
@@ -42,7 +42,7 @@ export default function About(props) {
           <p>
             {t("getInTouch")}&nbsp;
             <a
-              className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+              className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font break-words"
               href={`mailto: ${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
             >
               {process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}
@@ -53,7 +53,7 @@ export default function About(props) {
       </section>
       <section className="bg-footer-background-color ">
         <div className="layout-container">
-          <h2 className="mb-5 pt-10 text-h1l font-bold w-max">
+          <h2 className="mb-5 pt-10 text-h1l font-bold sm:w-max">
             {t("howWeWork")}
           </h2>
           <div className="flex flex-col-reverse pt-8 xl:grid xl:grid-cols-2 xl:gap-8">
