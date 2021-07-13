@@ -10,7 +10,9 @@ export default function error500(props) {
   return (
     <div className="min-h-screen relative">
       <Head>
-        <title>{t("bannerTitle") + " - 500"}</title>
+        <title data-gc-analytics-error="500">
+          {t("bannerTitle") + " - 500"}
+        </title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="dcterms.title" content={t("bannerTitle") + " - 500"} />
         <meta
