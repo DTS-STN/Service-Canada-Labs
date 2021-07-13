@@ -80,6 +80,24 @@ describe("validate api", () => {
     );
   });
 
+  it("returns wrong url error if cuid is greater than 25 characters", async () => {
+    process.env.USER_SIGNUP_ENABLED = true;
+    const { req, res } = createMocks({
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Origin: "http://localhost:3000",
+      },
+      query: {
+        id: "ThisStringHas26Characterss",
+      },
+    });
+    await validateHandler(req, res);
+    expect(res._getRedirectUrl()).toBe(
+      "/error?errorTitle=We're having a problem with that page.&errorTitleFr=Nous éprouvons un problème avec cette page.&errorMessage=Wrong URL&errorMessageFr=URL erronée"
+    );
+  });
+
   it("returns 500 error if no cuid in request", async () => {
     process.env.USER_SIGNUP_ENABLED = true;
     const { req, res } = createMocks({
@@ -95,29 +113,4 @@ describe("validate api", () => {
     await validateHandler(req, res);
     expect(res._getRedirectUrl()).toBe("/500");
   });
-
-  // it("returns 500 error if the validate field is not correctly set after validating", async () => {
-  //   process.env.USER_SIGNUP_ENABLED = true
-  //   let user = await conn.db.collection("users").insertOne({
-  //     cuid: "somecuid",
-  //     language: "en",
-  //     email: "email@email.com",
-  //     other: "content"
-  //   })
-  //   expect(user).not.toBeNull()
-  //   const {req, res} = createMocks({
-  //     method: "POST",
-  //     headers: {
-  //         "Content-Type": "application/json",
-  //         "Origin": "http://localhost:3000"
-  //     },
-  //     query: {
-  //       id: "somecuid"
-  //     }
-  //   }, {
-
-  //   })
-  //   await validateHandler(req, res)
-  //   expect(res._getRedirectUrl()).toBe("/500")
-  // })
 });
