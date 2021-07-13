@@ -60,6 +60,7 @@
     "lint-staged": "^11.0.0",
     "msw": "^0.29.0",
     "next-page-tester": "^0.26.1",
+    "next-router-mock": "^0.1.4",
     "node-mocks-http": "^1.10.1",
     "postcss": "^8.2.15",
     "prettier": "^2.3.0",
