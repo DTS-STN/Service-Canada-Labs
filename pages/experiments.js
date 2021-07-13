@@ -72,6 +72,11 @@ export default function Experiments(props) {
       breadcrumbItems={[{ text: "Service Canada Labs", link: "/" }]}
     >
       <Head>
+        {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+          <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+        ) : (
+          ""
+        )}
         <title>{t("scLabsExperiments")}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="dcterms.title" content={t("scLabsExperiments")} />
@@ -81,6 +86,7 @@ export default function Experiments(props) {
         />
         <meta name="dcterms.creator" content={t("creator")} />
         <meta name="dcterms.accessRights" content="2" />
+        <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
       </Head>
       <section className="layout-container mb-10">
         <h1 id="pageMainTitle" tabIndex="-1" className="flex-wrap">

@@ -16,6 +16,11 @@ export default function Confirmation(props) {
       breadcrumbItems={[{ text: "Service Canada Labs", link: "/" }]}
     >
       <Head>
+        {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+          <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+        ) : (
+          ""
+        )}
         <title>{t("scLabsConfirmation")}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="dcterms.title" content={t("scLabsConfirmation")} />
@@ -25,6 +30,7 @@ export default function Confirmation(props) {
         />
         <meta name="dcterms.creator" content={t("creator")} />
         <meta name="dcterms.accessRights" content="2" />
+        <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
       </Head>
       <section className="layout-container mb-12">
         <h1

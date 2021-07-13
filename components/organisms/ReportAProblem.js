@@ -59,7 +59,13 @@ export function ReportAProblem(props) {
           </a>
         </>
       ) : (
-        <form className="w-full" action="#" onSubmit={onSubmitHandler}>
+        <form
+          data-gc-analytics-formname="ESDC:ServiceCanadaLabsReport-Problem"
+          data-gc-analytics-collect='[{"value":"input,select","emptyField":"N/A"}]'
+          className="w-full"
+          action="#"
+          onSubmit={onSubmitHandler}
+        >
           <input
             type="hidden"
             id="language"
