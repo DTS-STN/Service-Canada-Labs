@@ -35,7 +35,7 @@ export function TextField(props) {
           <p className="inline text-form-input-gray text-sm">{t("optional")}</p>
         )}
       </label>
-      <p className="text-xs lg:text-sm mb-5 leading-30px">
+      <p id="doNotInclude" className="text-xs lg:text-sm mb-5 leading-30px">
         {t("doNotInclude")}
       </p>
       {props.error ? <ErrorLabel message={props.error} /> : undefined}
@@ -44,6 +44,7 @@ export function TextField(props) {
           props.error ? "border-error-border-red" : "border-black"
         } ${props.exclude ? "exclude" : ""}`}
         id={props.id}
+        aria-describedby="doNotInclude"
         name={props.name}
         placeholder={props.placeholder}
         type={props.type}
