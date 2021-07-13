@@ -7,9 +7,15 @@ import { ActionButton } from "../components/atoms/ActionButton";
 
 export default function error404(props) {
   const { t } = useTranslation("common");
+
   return (
     <div className="min-h-screen relative">
       <Head>
+        {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+          <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+        ) : (
+          ""
+        )}
         <title data-gc-analytics-error="404">
           {t("bannerTitle") + " - 404"}
         </title>
@@ -21,6 +27,7 @@ export default function error404(props) {
         />
         <meta name="dcterms.creator" content={t("creator")} />
         <meta name="dcterms.accessRights" content="2" />
+        <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
       </Head>
       <section className="layout-container pb-44">
         <img

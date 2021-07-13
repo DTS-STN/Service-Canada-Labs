@@ -17,6 +17,7 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
           {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
             <script type="text/javascript">_satellite.pageBottom()</script>
           ) : (

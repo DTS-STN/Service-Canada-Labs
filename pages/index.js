@@ -27,6 +27,11 @@ export default function Index(props) {
     <>
       <div className="bg-splash-img h-screen min-w-300px min-h-screen blur" />
       <Head>
+        {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+          <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+        ) : (
+          ""
+        )}
         <title>alpha.service.canada.ca</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="dcterms.title" content={t("scLabsSplash")} />
@@ -36,6 +41,7 @@ export default function Index(props) {
         />
         <meta name="dcterms.creator" content={t("creator")} />
         <meta name="dcterms.accessRights" content="2" />
+        <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
       </Head>
       <main>
         <div className="absolute inset-0 -mt-12 xl:mb-0 flex flex-col justify-center items-center">

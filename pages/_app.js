@@ -20,12 +20,6 @@ function MyApp({ Component, pageProps }) {
           content={process.env.NEXT_PUBLIC_BUILD_DATE}
         />
         <meta name="og:buildid" content={process.env.NEXT_PUBLIC_TC_BUILD} />
-        {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
-          <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL}></script>
-        ) : (
-          ""
-        )}
-        <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
       </Head>
       <Component {...pageProps} />
     </>
