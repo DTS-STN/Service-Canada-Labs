@@ -90,6 +90,8 @@ export function ReportAProblem(props) {
               textFieldDataTestId="incorrectInformation-text"
               controlDataCy="incorrectInformation-checkbox"
               textFieldDataCy="incorrectInformation-text"
+              describedby="incorrectInformation"
+              OptionalTextField
             />
             <OptionalTextField
               controlId="unclearInformationCheckBox"
@@ -111,6 +113,7 @@ export function ReportAProblem(props) {
               textFieldDataTestId="unclearInformation-text"
               controlDataCy="unclearInformation-checkbox"
               textFieldDataCy="unclearInformation-text"
+              describedby="unclearInformation"
             />
             <OptionalTextField
               controlId="infoNotFoundCheckBox"
@@ -132,6 +135,7 @@ export function ReportAProblem(props) {
               textFieldDataTestId="infoNotFound-text"
               controlDataCy="infoNotFound-checkbox"
               textFieldDataCy="infoNotFound-text"
+              describedby="infoNotFound"
             />
             <OptionalTextField
               controlId="adaptiveTechnologyCheckBox"
@@ -154,6 +158,7 @@ export function ReportAProblem(props) {
               textFieldDataTestId="adaptiveTechnology-text"
               controlDataCy="adaptiveTechnology-checkbox"
               textFieldDataCy="adaptiveTechnology-text"
+              describedby="adaptiveTechnology"
             />
             <OptionalTextField
               controlId="privacyIssuesCheckBox"
@@ -175,6 +180,7 @@ export function ReportAProblem(props) {
               textFieldDataTestId="privacyIssues-text"
               controlDataCy="privacyIssues-checkbox"
               textFieldDataCy="privacyIssues-text"
+              describedby="privacyIssues"
             />
             <OptionalTextField
               controlId="noWhereElseToGoCheckBox"
@@ -196,6 +202,7 @@ export function ReportAProblem(props) {
               textFieldDataTestId="noWhereElseToGo-text"
               controlDataCy="noWhereElseToGo-checkbox"
               textFieldDataCy="noWhereElseToGo-text"
+              describedby="noWhereElseToGo"
             />
             <OptionalTextField
               controlId="otherCheckBox"
@@ -215,6 +222,7 @@ export function ReportAProblem(props) {
               textFieldDataTestId="other-text"
               controlDataCy="other-checkbox"
               textFieldDataCy="other-text"
+              describedby="other"
             />
           </fieldset>
 

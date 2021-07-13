@@ -206,6 +206,7 @@ export default function Unsubscribe(props) {
               value={email}
               onChange={setEmail}
               boldLabel={true}
+              describedby="emailDoNoInclude"
               required
             />
           </div>
