@@ -137,6 +137,30 @@ describe("sign up api", ()  => {
         expect(responseData.reason).toBe("Notify")
     })
 
+    it("deletes the user when Notify fails", async () => {
+        process.env.USER_SIGNUP_ENABLED = true
+        submitEmail.mockImplementationOnce((...args) =>{ throw new Error("some error")})
+        const {req, res} = createMocks({
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Origin": "http://localhost:3000"
+            },
+            body: {
+                language: "en",
+                email: "email@email.com",
+                other: "content"
+            }
+        })
+
+        await handler(req, res)
+        let user = await conn.db.collection("users").findOne({email: "email@email.com"})
+        let responseData = res._getJSONData()
+        expect(user).toBe(null)
+        expect(res._getStatusCode()).toBe(500)
+        expect(responseData.reason).toBe("Notify")
+    })
+
     it("returns 200 when USER_SIGNUP_ENABLED is false", async () => {
         submitEmail.mockImplementationOnce((...args) =>{ throw new Error("some error")})
         const {req, res} = createMocks({
