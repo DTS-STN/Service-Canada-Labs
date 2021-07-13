@@ -35,7 +35,7 @@ export default function Confirmation(props) {
       <section className="layout-container mb-12">
         <h1
           id="pageMainTitle"
-          className="mb-10 text-p xl:text-h1l font-bold w-max"
+          className="mb-10 text-p xl:text-h1l font-bold sm:w-max"
           tabIndex="-1"
         >
           {t("emailConfirmationTitle")}
@@ -54,14 +54,14 @@ export default function Confirmation(props) {
             </p>
             <p className="mb-4 text-sm lg:text-p leading-30px">
               {t("emailConfirmationP2")}
-              <TextButtonField
-                href="/experiments"
-                buttonText={t("experimentsBtnTxt")}
-                idButton="ExperimentsButton"
-                dataCyButton="ExperimentsButton"
-                className="flex mt-5"
-              />
             </p>
+            <TextButtonField
+              href="/experiments"
+              buttonText={t("experimentsBtnTxt")}
+              idButton="ExperimentsButton"
+              dataCyButton="ExperimentsButton"
+              className="flex mt-5"
+            />
           </div>
         </div>
       </section>
