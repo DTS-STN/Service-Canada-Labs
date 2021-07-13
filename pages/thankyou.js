@@ -65,9 +65,13 @@ export default function Confirmation(props) {
                 ? t("confirmationP3")
                 : t("unsubscribeConfirmationP1")}
             </p>
-            <p className="mb-4 text-sm lg:text-p leading-30px">
-              {referrer === "signup" ? t("confirmationP4") : ""}
-            </p>
+            {referrer === "signup" ? (
+              <p className="mb-4 text-sm lg:text-p leading-30px">
+                t("confirmationP4")
+              </p>
+            ) : (
+              ""
+            )}
             <ActionButton id="resend_email" text={t("resendEmail")} tertiary />
           </div>
         </div>
