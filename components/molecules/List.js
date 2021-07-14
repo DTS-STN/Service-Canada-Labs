@@ -11,7 +11,7 @@ export function List(props) {
         let className =
           "bg-opacity-" +
           opacity +
-          " bg-circle-color text-shadow-about-circles flex-shrink-0 mr-4 mb-2 rounded-full h-32 w-32 flex items-center justify-center text-white font-bold font-display text-h1xxl relative md:left-0 -left-14";
+          " bg-circle-color text-shadow-about-circles flex-shrink-0 mr-4 mb-2 rounded-full h-36 w-36 flex items-center justify-center text-white font-bold font-display text-h1xxl relative md:left-0 -left-14";
         if (opacity < 100) opacity += 20;
         return (
           <li key={key} className="flex">
