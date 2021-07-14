@@ -63,8 +63,7 @@ export default function Home(props) {
       </section>
       <CallToAction
         title={t("signupTitle")}
-        descriptionP1={t("becomeAParticipantDescriptionP1")}
-        descriptionP2={t("becomeAParticipantDescriptionP2")}
+        description={t("becomeAParticipantDescription")}
         href={"/signup"}
         hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
       />

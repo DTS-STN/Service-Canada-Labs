@@ -13,11 +13,7 @@ export function CallToAction(props) {
       <div className="layout-container pb-10 pt-10 text-xs md:text-base">
         <h2>{props.title}</h2>
         <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-24 gap-5">
-          <div>
-            <p className="mb-4">{props.descriptionP1}</p>
-
-            <p>{props.descriptionP2}</p>
-          </div>
+          <p className="whitespace-pre-line">{props.description}</p>
           <div>
             <p className="flex mb-4 text-center">
               <ActionButton
@@ -52,12 +48,7 @@ CallToAction.propTypes = {
   /**
    * a short description about what the call to action is about - part 1
    */
-  descriptionP1: PropTypes.string.isRequired,
-
-  /**
-   * a short description about what the call to action is about - part 2
-   */
-  descriptionP2: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 
   /**
    * the url to the action
