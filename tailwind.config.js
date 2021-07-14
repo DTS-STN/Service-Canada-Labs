@@ -159,6 +159,9 @@ module.exports = {
       lineHeight: {
         "30px": "30px",
       },
+      outline: {
+        "black-solid": ['2px solid #000', '1px'],
+      },
     },
   },
   variants: {
