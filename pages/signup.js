@@ -386,6 +386,11 @@ export default function Signup(props) {
       breadcrumbItems={[{ text: "Service Canada Labs", link: "/" }]}
     >
       <Head>
+        {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+          <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+        ) : (
+          ""
+        )}
         <title>{t("scLabsSignup")}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="dcterms.title" content={t("scLabsSignup")} />
@@ -395,6 +400,7 @@ export default function Signup(props) {
         />
         <meta name="dcterms.creator" content={t("creator")} />
         <meta name="dcterms.accessRights" content="2" />
+        <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
       </Head>
       <section className="layout-container mb-2 mt-12 xl:bg-lightbulb-right-img xl:bg-right xl:bg-no-repeat">
         <div className="xl:w-2/3 ">
@@ -470,6 +476,7 @@ export default function Signup(props) {
               value={email}
               onChange={setEmail}
               boldLabel={true}
+              describedby="emailDoNoInclude"
               required
               exclude
             />
@@ -486,6 +493,7 @@ export default function Signup(props) {
               step={1}
               onChange={setYearOfBirth}
               boldLabel={true}
+              describedby="yearOfBirthDoNoInclude"
               required
             />
             <fieldset className="mb-6">
@@ -637,6 +645,7 @@ export default function Signup(props) {
                 textFieldValue={genderOtherDetails}
                 checked={gender === "other"}
                 textLabelBold={true}
+                describedby="genderotherDescribedBy"
               />
               <RadioField
                 label={t("preferNotAnswer")}
@@ -736,6 +745,7 @@ export default function Signup(props) {
                 controlDataCy="btn-disability-yes"
                 textFieldDataCy="text-disability-yes"
                 error={disabilityError}
+                describedby="disabilityDetailsDescribedBy"
               />
               <RadioField
                 label={t("no")}
@@ -884,6 +894,7 @@ export default function Signup(props) {
                   controlValue="other"
                   controlName="minorityGroup"
                   controlId="minorityGroupOther"
+                  describedby="minorityGroupDescribedBy"
                 />
               </OptionalListField>
               <RadioField

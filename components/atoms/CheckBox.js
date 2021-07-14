@@ -41,7 +41,6 @@ export function CheckBox(props) {
           props.error ? " text-error-border-red" : undefined
         }`}
         htmlFor={props.id}
-        onClick={() => props.onChange(props.checked, props.name, props.value)}
       >
         {props.showRequiredLabel ? (
           <b className="text-error-border-red">*</b>

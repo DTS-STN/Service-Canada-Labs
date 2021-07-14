@@ -30,7 +30,10 @@ export function MultiTextField(props) {
           <p className="inline text-form-input-gray text-sm">(optional)</p>
         )}
       </label>
-      <p className="text-xs lg:text-sm mb-5 leading-30px">
+      <p
+        id={props.describedby}
+        className="text-xs lg:text-sm mb-5 leading-30px"
+      >
         {t("doNotInclude")}
       </p>
       {props.error ? <ErrorLabel message={props.error} /> : undefined}
@@ -49,6 +52,7 @@ export function MultiTextField(props) {
         required={props.required}
         data-testid={props.dataTestId}
         data-cy={props.dataCy}
+        aria-describedby={props.describedby}
       >
         {props.value}
       </textarea>
@@ -140,4 +144,9 @@ MultiTextField.propTypes = {
    * cypress selector
    */
   dataCy: PropTypes.string,
+
+  /**
+   * aria-describedby label id
+   */
+  describedby: PropTypes.string,
 };

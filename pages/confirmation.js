@@ -22,6 +22,12 @@ export default function Confirmation(props) {
             ? t("scLabsUnsubscribeConfirmation")
             : t("scLabsConfirmation")}
         </title>
+        {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+          <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+        ) : (
+          ""
+        )}
+        <title>{t("scLabsConfirmation")}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="dcterms.title"
@@ -37,11 +43,12 @@ export default function Confirmation(props) {
         />
         <meta name="dcterms.creator" content={t("creator")} />
         <meta name="dcterms.accessRights" content="2" />
+        <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
       </Head>
       <section className="layout-container mb-12">
         <h1
           id="pageMainTitle"
-          className="mb-10 text-p xl:text-h1l font-bold w-max"
+          className="mb-10 text-p xl:text-h1l font-bold sm:w-max"
           tabIndex="-1"
         >
           {referrer === "unsubscribe"

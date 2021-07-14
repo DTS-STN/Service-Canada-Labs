@@ -24,7 +24,7 @@ describe("validate api", () => {
     process.env.USER_SIGNUP_ENABLED = true;
 
     let user = await conn.db.collection("users").insertOne({
-      cuid: "somecuid",
+      cuid: "ThisStringHas25Characters",
       language: "en",
       email: "email@email.com",
       other: "content",
@@ -37,14 +37,14 @@ describe("validate api", () => {
         Origin: "http://localhost:3000",
       },
       query: {
-        id: "somecuid",
+        id: "ThisStringHas25Characters",
       },
     });
     await validateHandler(req, res);
     expect(res._getRedirectUrl()).toBe("/confirmation?ref=signup");
   });
 
-  it("returns 500 error if cuid can't be found", async () => {
+  it("returns expired error if cuid can't be found", async () => {
     process.env.USER_SIGNUP_ENABLED = true;
     const { req, res } = createMocks({
       method: "POST",
@@ -53,11 +53,49 @@ describe("validate api", () => {
         Origin: "http://localhost:3000",
       },
       query: {
-        id: "wrongcuid",
+        id: "ThisStringHas25Characters",
       },
     });
     await validateHandler(req, res);
-    expect(res._getRedirectUrl()).toBe("/500");
+    expect(res._getRedirectUrl()).toBe(
+      "/error?errorTitle=We're having a problem with that page.&errorTitleFr=Nous éprouvons un problème avec cette page.&errorMessage=Expired URL&errorMessageFr=URL expirée"
+    );
+  });
+
+  it("returns wrong url error if cuid is incorrect (24 characters or less)", async () => {
+    process.env.USER_SIGNUP_ENABLED = true;
+    const { req, res } = createMocks({
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Origin: "http://localhost:3000",
+      },
+      query: {
+        id: "ThisStringHas24Character",
+      },
+    });
+    await validateHandler(req, res);
+    expect(res._getRedirectUrl()).toBe(
+      "/error?errorTitle=We're having a problem with that page.&errorTitleFr=Nous éprouvons un problème avec cette page.&errorMessage=Wrong URL&errorMessageFr=URL erronée"
+    );
+  });
+
+  it("returns wrong url error if cuid is greater than 25 characters", async () => {
+    process.env.USER_SIGNUP_ENABLED = true;
+    const { req, res } = createMocks({
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Origin: "http://localhost:3000",
+      },
+      query: {
+        id: "ThisStringHas26Characterss",
+      },
+    });
+    await validateHandler(req, res);
+    expect(res._getRedirectUrl()).toBe(
+      "/error?errorTitle=We're having a problem with that page.&errorTitleFr=Nous éprouvons un problème avec cette page.&errorMessage=Wrong URL&errorMessageFr=URL erronée"
+    );
   });
 
   it("returns 500 error if no cuid in request", async () => {

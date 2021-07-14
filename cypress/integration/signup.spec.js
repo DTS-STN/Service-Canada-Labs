@@ -94,9 +94,9 @@ describe("signup page", () => {
     cy.get('[data-cy="btn-disability-no"').click();
     cy.get('[data-cy="signup-submit"]').click();
 
-    // 1 error is the agree to conditions
+    // errors: agree to conditions and language selection
     cy.get('[data-cy="error-box"').should("exist");
-    cy.get('[data-cy="error-box-items"').children().should("have.length", 1);
+    cy.get('[data-cy="error-box-items"').children().should("have.length", 2);
   });
 
   it("Validates error clicking scrolls to the desired error", () => {

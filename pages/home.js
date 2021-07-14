@@ -18,6 +18,11 @@ export default function Home(props) {
       langUrl={asPath}
     >
       <Head>
+        {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+          <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+        ) : (
+          ""
+        )}
         <title>{t("scLabsHome")}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="dcterms.title" content={t("scLabsHome")} />
@@ -27,8 +32,8 @@ export default function Home(props) {
         />
         <meta name="dcterms.creator" content={t("creator")} />
         <meta name="dcterms.accessRights" content="2" />
+        <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
       </Head>
-
       <section className="layout-container mb-2 mt-12">
         <div className="xl:w-2/3">
           <h2 className="mb-10" tabIndex="-1" id="pageMainTitle">
