@@ -4,25 +4,11 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { ActionButton } from "../components/atoms/ActionButton";
 import Link from "next/link";
-import { useEffect } from "react";
-
-const setLanguage = (event) => {
-  event.target.id === "french-button"
-    ? window.localStorage.setItem("lang", "fr")
-    : window.localStorage.setItem("lang", "en");
-};
 
 export default function Index(props) {
   const { t } = useTranslation("common");
   const router = useRouter();
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const lang = window.localStorage.getItem("lang");
-      if (lang) {
-        router.push(`${lang === "en" ? "" : "/fr"}/home`);
-      }
-    }
-  }, []);
+
   return (
     <>
       <div className="bg-splash-img h-screen min-w-300px min-h-screen blur" />
@@ -60,7 +46,6 @@ export default function Index(props) {
                 text="English"
                 className="text-center text-sm w-7.5rem xl:w-138px py-3.5 mr-6 rounded leading-3"
                 href="/home"
-                onClick={setLanguage}
               />
               <ActionButton
                 id="french-button"
@@ -68,7 +53,6 @@ export default function Index(props) {
                 className="text-center w-7.5rem xl:w-138px text-sm py-3.5 rounded leading-3"
                 href="/fr/home"
                 lang="fr"
-                onClick={setLanguage}
               />
             </div>
           </div>
