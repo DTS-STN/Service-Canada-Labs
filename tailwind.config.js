@@ -160,7 +160,7 @@ module.exports = {
         "30px": "30px",
       },
       outline: {
-        "black-solid": ['2px solid #000', '1px'],
+        "black-solid": ["2px solid #000", "1px"],
       },
     },
   },
