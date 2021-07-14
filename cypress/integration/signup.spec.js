@@ -89,7 +89,6 @@ describe("signup page", () => {
   it("Validates disability field is not required after yes has been unselected (selected no)", () => {
     cy.get('[id="email"]').type("some@email.com");
     cy.get('[id="yearOfBirth"]').type("1990");
-    cy.get('[id="languageEn"]').click();
     cy.get('[data-cy="btn-disability-yes"').click();
     cy.get('[data-cy="btn-disability-no"').click();
     cy.get('[data-cy="signup-submit"]').click();
