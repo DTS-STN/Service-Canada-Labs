@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import Head from "next/head";
 import { useState } from "react";
 import Joi from "joi";
@@ -8,6 +10,7 @@ import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { TextField } from "../components/atoms/TextField";
+import { maskEmail } from "../lib/utils/maskEmail";
 
 export default function Unsubscribe(props) {
   const { t } = useTranslation("common");
@@ -42,6 +45,8 @@ export default function Unsubscribe(props) {
 
   const handlerClearData = (e) => {
     e.preventDefault();
+    setErrorBoxText("");
+    setErrorBoxErrors([]);
     setEmailError("");
     setEmail("");
   };
@@ -49,7 +54,7 @@ export default function Unsubscribe(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // clear out error values
-    setEmailError("");
+    await setEmailError("");
 
     // compile data into one object
     const formData = {
@@ -117,7 +122,10 @@ export default function Unsubscribe(props) {
       await setErrorBoxText(
         `${t("errorSubmit1")} ${errorsList.length} ${t("errorSubmit2")}`
       );
-      document.getElementById("error-box").scrollIntoView();
+      document.getElementById("error-box").scrollIntoView({
+        behavior: "smooth",
+      });
+      document.querySelector(`#error-box-items > li > button`).focus();
     } else {
       //submit data to the api and then redirect to the thank you page
       const response = await fetch("/api/unsubscribe", {
@@ -130,15 +138,29 @@ export default function Unsubscribe(props) {
 
       // if the response is good, redirect to the thankyou page
       if (response.status === 201 || response.status === 200) {
-        await push("/thankyou");
+        let maskedEmail = maskEmail(formData.email);
+        await push({
+          pathname: "/thankyou",
+          query: { e: maskedEmail, ref: "unsubscribe" },
+        });
       } else if (response.status === 400) {
-        await setErrorBoxText(
-          "It looks like that email isn't subscribed, feel free to sign up"
-        );
+        await setErrorBoxText(t("cantFindEMailError"));
       } else {
         await setErrorBoxText(t("errorUnknown"));
       }
     }
+  };
+
+  const handleScrollToError = (id) => {
+    const input = document.getElementById(`${id}`);
+    input.focus();
+    const inputType = input.getAttribute("type");
+    let parentDiv = input.parentNode;
+    if (inputType === "radio") parentDiv = parentDiv.parentNode;
+    else if (inputType === "checkbox") parentDiv = parentDiv.previousSibling;
+    parentDiv.scrollIntoView({
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -164,20 +186,21 @@ export default function Unsubscribe(props) {
         <meta name="dcterms.accessRights" content="2" />
         <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
       </Head>
-      <section className="layout-container mb-2 mt-12 xl:bg-lightbulb-right-img xl:bg-right xl:bg-no-repeat">
+      <section className="layout-container mb-2 mt-12">
         <div className="xl:w-2/3 ">
           <h1 className="mb-12" id="pageMainTitle">
-            Unsubscribe
+            {t("unsubscribe")}
           </h1>
-          <p className="mb-10">
-            To unsubscribe, enter your email below. An email will be sent with
-            instructions to complete the process.
-          </p>
+          <p className="mb-10">{t("unsubscribeInfo")}</p>
         </div>
       </section>
       <section className="layout-container">
         {errorBoxText ? (
-          <ErrorBox text={errorBoxText} errors={errorBoxErrors} />
+          <ErrorBox
+            text={errorBoxText}
+            errors={errorBoxErrors}
+            onClick={handleScrollToError}
+          />
         ) : (
           ""
         )}
@@ -188,19 +211,6 @@ export default function Unsubscribe(props) {
           onReset={handlerClearData}
           noValidate
         >
-          <a
-            className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
-            href={t("reportAProblemPrivacyStatementLink")}
-          >
-            {t("privacy")}
-          </a>
-          <ActionButton
-            id="reset"
-            custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
-            type="reset"
-          >
-            {t("clear")}
-          </ActionButton>
           <div className="max-w-600px">
             <TextField
               className="mb-10"
@@ -220,8 +230,8 @@ export default function Unsubscribe(props) {
             id="signup-submit"
             className="rounded w-72"
             type="submit"
-            dataCy="signup-submit"
-            dataTestId="signup-submit"
+            dataCy="unsubscribe-submit"
+            dataTestId="unsubscribe-submit"
           >
             {t("reportAProblemSubmit")}
           </ActionButton>

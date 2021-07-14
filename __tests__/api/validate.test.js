@@ -41,7 +41,7 @@ describe("validate api", () => {
       },
     });
     await validateHandler(req, res);
-    expect(res._getRedirectUrl()).toBe("/confirmation");
+    expect(res._getRedirectUrl()).toBe("/confirmation?ref=signup");
   });
 
   it("returns expired error if cuid can't be found", async () => {

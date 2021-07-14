@@ -23,9 +23,13 @@ export function CallToAction(props) {
               />
             </p>
             <p>
-              {/*TODO: figure out what the privacy link is*/}
-              <Link href="#">
-                <a className="text-sm underline">{t("privacyLinkText")}</a>
+              <Link href="/privacy">
+                <a className="text-sm underline flex xl:inline lg:mr-10">
+                  {t("privacyLinkText")}
+                </a>
+              </Link>
+              <Link href="/unsubscribe">
+                <a className="text-sm underline">{t("unsubscribeLinkText")}</a>
               </Link>
             </p>
           </div>

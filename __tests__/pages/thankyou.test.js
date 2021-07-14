@@ -7,6 +7,6 @@ import ThankYou from "../../pages/thankyou";
 describe("ThankYou", () => {
   it("renders without crashing", () => {
     render(<ThankYou />);
-    expect(screen.getByText("thankYou")).toBeInTheDocument();
+    expect(screen.getByText("pleaseCheckYourEmail")).toBeInTheDocument();
   });
 });
