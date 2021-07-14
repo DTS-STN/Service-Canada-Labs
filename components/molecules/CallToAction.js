@@ -13,10 +13,11 @@ export function CallToAction(props) {
       <div className="layout-container pb-10 pt-10 text-xs md:text-base">
         <h2>{props.title}</h2>
         <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-24 gap-5">
-          <p>
-            {props.descriptionP1} <br />
-            <br /> {props.descriptionP2}
-          </p>
+          <div>
+            <p>{props.descriptionP1}</p>
+            <br />
+            <p>{props.descriptionP2}</p>
+          </div>
           <div>
             <p className="flex mb-4 text-center">
               <ActionButton
