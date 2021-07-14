@@ -9,6 +9,7 @@ export default function Confirmation(props) {
   const { t } = useTranslation("common");
   const { asPath, query } = useRouter();
   const maskedEmail = String(query.e);
+  const referrer = query.ref || "";
 
   return (
     <Layout
@@ -39,7 +40,7 @@ export default function Confirmation(props) {
           className="mb-10 text-h1l font-bold w-max"
           tabIndex="-1"
         >
-          {t("thankYou")}
+          {t("pleaseCheckYourEmail")}
         </h1>
         <div className="lg:flex lg:flex-row-reverse">
           <span className="w-full flex justify-center lg:w-1/3">
@@ -51,23 +52,32 @@ export default function Confirmation(props) {
           </span>
           <div className="lg:w-2/3">
             <p className="mb-4 text-sm lg:text-p leading-30px">
-              {t("confirmationP1")} {maskedEmail} {t("from")}&nbsp;
+              {t("sentEmailTo")} {maskedEmail} {t("from")}{" "}
               <a
                 className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                 href={`mailto: ${process.env.NEXT_PUBLIC_THANK_YOU_EMAIL}`}
               >
                 {process.env.NEXT_PUBLIC_THANK_YOU_EMAIL}
-              </a>
+              </a>{" "}
+              {t("toCheckEmail")}
             </p>
             <p className="mb-4 text-sm lg:text-p leading-30px">
-              {t("confirmationP2")}
+              {referrer === "signup"
+                ? t("confirmationP2")
+                : t("unsubscribeConfirmation")}
             </p>
             <p className="mb-4 text-sm lg:text-p leading-30px">
-              {t("confirmationP3")}
+              {referrer === "signup"
+                ? t("confirmationP3")
+                : t("unsubscribeConfirmationP1")}
             </p>
-            <p className="mb-4 text-sm lg:text-p leading-30px">
-              {t("confirmationP4")}
-            </p>
+            {referrer === "signup" ? (
+              <p className="mb-4 text-sm lg:text-p leading-30px">
+                {t("confirmationP4")}
+              </p>
+            ) : (
+              ""
+            )}
             <ActionButton id="resend_email" text={t("resendEmail")} tertiary />
           </div>
         </div>

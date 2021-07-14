@@ -23,13 +23,15 @@ export default async function handler(req, res) {
       if (userObj) {
         // attempt to send validation email through notify
         try {
-          const unsubscribeUrl = origin + `/api/unsubscribe?id=${userObj.cuid}`;
+          const unsubscribeUrl =
+            origin +
+            `/api/unsubscribe?id=${userObj.cuid}&lang=${userObj.language}`;
           const [status, json] = await submitEmail(
             {
               unsubscribe_url: unsubscribeUrl,
             },
             {},
-            data.language === "fr"
+            userObj.language === "fr"
               ? process.env.USER_UNSUBSCRIBE_FRENCH_TEMPLATE_ID
               : process.env.USER_UNSUBSCRIBE_ENGLISH_TEMPLATE_ID,
             data.email,
@@ -39,11 +41,11 @@ export default async function handler(req, res) {
 
           // non okay status code return 500
           if (status >= 300) {
-            console.log(`Notify failed to send the validation email: ${json}`);
+            console.log(`Notify failed to send the unsubscribe email: ${json}`);
             return res.status(500).json({
               reason: "Notify",
               explanation:
-                "Notify failed to send the validation email: " +
+                "Notify failed to send the unsubscribe email: " +
                 JSON.stringify(json),
             });
           }
@@ -60,6 +62,7 @@ export default async function handler(req, res) {
     return res.status(400).end("Missing email");
   } else if (req.method === "GET") {
     const id = req.query.id || "";
+    const lang = req.query.lang || "";
     let unsubUserObj;
 
     if (id) {
@@ -70,8 +73,9 @@ export default async function handler(req, res) {
         );
         unsubUserObj = await unsubscribeUser(conn.db, id);
         if (Object.keys(unsubUserObj.value).length === 2) {
-          // TODO: create delete confirmation page
-          return res.redirect("/home");
+          return res.redirect(
+            `${lang === "fr" ? "/fr" : ""}/confirmation?ref=unsubscribe`
+          );
         } else {
           // if the record isn't deleted return an error
           return res.redirect(`/error`);

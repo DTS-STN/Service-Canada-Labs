@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import Joi from "joi";
@@ -14,6 +16,7 @@ import { OptionalTextField } from "../components/molecules/OptionalTextField";
 import { SelectField } from "../components/atoms/SelectField";
 import { CheckBox } from "../components/atoms/CheckBox";
 import { OptionalListField } from "../components/molecules/OptionalListField";
+import { maskEmail } from "../lib/utils/maskEmail";
 
 // TODO
 //  - fix bug with error messages not showing custom error message [x]
@@ -24,26 +27,6 @@ import { OptionalListField } from "../components/molecules/OptionalListField";
 export default function Signup(props) {
   const { t } = useTranslation("common");
   const { asPath, push } = useRouter();
-
-  //Function for masking email to get in the thank you page later
-  function maskEmail(email) {
-    let maskedEmail = "";
-    let x = 0;
-
-    for (var i = 0; i < email.length; i++) {
-      if (i === 0) {
-        maskedEmail += email[i];
-      } else if (email[i] !== "@" && email[i] !== "." && x <= 3) {
-        maskedEmail += "*";
-        x += 1;
-      } else {
-        maskedEmail += email[i];
-        x = 0;
-      }
-    }
-
-    return maskedEmail;
-  }
 
   // Joi form validation schema. Only required fields are validated
   const formSchema = Joi.object({
@@ -361,7 +344,10 @@ export default function Signup(props) {
       // if the response is good, redirect to the thankyou page
       if (response.status === 201 || response.status === 200) {
         let maskedEmail = maskEmail(formData.email);
-        await push({ pathname: "/thankyou", query: { e: maskedEmail } });
+        await push({
+          pathname: "/thankyou",
+          query: { e: maskedEmail, ref: "signup" },
+        });
       } else if (response.status === 400) {
         await setErrorBoxText(t("errorRegistered"));
       } else {
@@ -490,6 +476,7 @@ export default function Signup(props) {
               value={email}
               onChange={setEmail}
               boldLabel={true}
+              describedby="emailDoNoInclude"
               required
               exclude
             />
@@ -506,6 +493,7 @@ export default function Signup(props) {
               step={1}
               onChange={setYearOfBirth}
               boldLabel={true}
+              describedby="yearOfBirthDoNoInclude"
               required
             />
             <fieldset className="mb-6">
@@ -657,6 +645,7 @@ export default function Signup(props) {
                 textFieldValue={genderOtherDetails}
                 checked={gender === "other"}
                 textLabelBold={true}
+                describedby="genderotherDescribedBy"
               />
               <RadioField
                 label={t("preferNotAnswer")}
@@ -756,6 +745,7 @@ export default function Signup(props) {
                 controlDataCy="btn-disability-yes"
                 textFieldDataCy="text-disability-yes"
                 error={disabilityError}
+                describedby="disabilityDetailsDescribedBy"
               />
               <RadioField
                 label={t("no")}
@@ -904,6 +894,7 @@ export default function Signup(props) {
                   controlValue="other"
                   controlName="minorityGroup"
                   controlId="minorityGroupOther"
+                  describedby="minorityGroupDescribedBy"
                 />
               </OptionalListField>
               <RadioField
