@@ -73,7 +73,7 @@ export default function Confirmation(props) {
             </p>
             {referrer === "signup" ? (
               <p className="mb-4 text-sm lg:text-p leading-30px">
-                t("confirmationP4")
+                {t("confirmationP4")}
               </p>
             ) : (
               ""
