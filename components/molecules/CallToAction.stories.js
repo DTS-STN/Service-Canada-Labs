@@ -11,7 +11,8 @@ const Template = (args) => <CallToAction {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   title: "the title",
-  description: "a description that should be short and concise",
+  descriptionP1: "a description that should be short and concise",
+  descriptionP2: "a description Part 2",
   href: "#",
   hrefText: "the link text",
 };

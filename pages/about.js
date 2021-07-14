@@ -45,16 +45,6 @@ export default function About(props) {
           <p className="mb-4">{t("aboutThisSiteContent1")}</p>
           <p className="mb-4">{t("aboutThisSiteContent2")}</p>
           <p className="mb-4">{t("aboutThisSiteContent3")}</p>
-          <p>
-            {t("getInTouch")}&nbsp;
-            <a
-              className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font break-words"
-              href={`mailto: ${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
-            >
-              {process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}
-            </a>
-            .
-          </p>
         </div>
       </section>
       <section className="bg-footer-background-color ">
@@ -72,11 +62,22 @@ export default function About(props) {
               ]}
             />
           </div>
+          <p className="mb-12 mt-20 xl:w-2/3">
+            {t("getInTouch")}&nbsp;
+            <a
+              className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font break-words"
+              href={`mailto: ${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
+            >
+              {process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}
+            </a>
+            .
+          </p>
         </div>
       </section>
       <CallToAction
         title={t("signupTitle")}
-        description={t("becomeAParticipantDescription")}
+        descriptionP1={t("becomeAParticipantDescriptionP1")}
+        descriptionP2={t("becomeAParticipantDescriptionP2")}
         href={"/signup"}
         hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
       />

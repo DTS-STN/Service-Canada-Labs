@@ -37,6 +37,7 @@ module.exports = {
       h1: ["36px", "42px"],
       h1l: ["38px", "42px"],
       h1xl: ["45px", "54px"],
+      h1xxl: ["70px", "84px"],
     },
     screens: {
       xxs: "280px",
