@@ -14,8 +14,8 @@ export function CallToAction(props) {
         <h2>{props.title}</h2>
         <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-24 gap-5">
           <div>
-            <p>{props.descriptionP1}</p>
-            <br />
+            <p className="mb-4">{props.descriptionP1}</p>
+
             <p>{props.descriptionP2}</p>
           </div>
           <div>
