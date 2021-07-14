@@ -28,6 +28,7 @@ export default function Index(props) {
         <meta name="dcterms.creator" content={t("creator")} />
         <meta name="dcterms.accessRights" content="2" />
         <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
+        <meta name="dcterms.issued" content="2021-05-06" />
       </Head>
       <main>
         <div className="absolute inset-0 -mt-12 xl:mb-0 flex flex-col justify-center items-center">

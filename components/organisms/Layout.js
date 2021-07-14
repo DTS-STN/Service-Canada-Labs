@@ -34,10 +34,9 @@ export const Layout = ({
       <nav className="skip-main">
         <a
           id="skipToMainContent"
-          className="bg-custom-blue-dark text-white py-1 px-2 hover:bg-gray-dark"
+          className="bg-custom-blue-dark text-white py-1 px-2 focus:outline-black-solid hover:bg-gray-dark"
           href="#pageMainTitle"
           data-cy-button={"skip-Content"}
-          role="button"
           draggable="false"
         >
           {t("skipToMainContentBtn")}
