@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1626291392097" clover="3.2.0">
-  <project timestamp="1626291392097" name="All files">
+<coverage generated="1626291411075" clover="3.2.0">
+  <project timestamp="1626291411075" name="All files">
     <metrics statements="522" coveredstatements="468" conditionals="391" coveredconditionals="291" methods="135" coveredmethods="110" elements="1048" coveredelements="869" complexity="0" loc="522" ncloc="522" packages="12" files="77" classes="77"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -440,10 +440,10 @@
         <line num="29" count="14" type="stmt"/>
         <line num="30" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="32" count="14" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="73" count="0" type="stmt"/>
-        <line num="80" count="1" type="stmt"/>
-        <line num="196" count="9" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="195" count="9" type="stmt"/>
       </file>
       <file name="Layout.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/organisms/Layout.stories.js">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
