@@ -252,5 +252,21 @@
   "sentEmailTo": "We have sent an email to",
   "toCheckEmail": "for you to verify and confirm the email address you provided.",
   "pleaseCheckYourEmail": "Please check your emails (Step 2 of 3)",
-  "unsubscribeConfirmation": "Please click the confirmation link in the email within 24 hours to finish unsubscribing."
+  "unsubscribeConfirmation": "Please click the confirmation link in the email within 24 hours to finish unsubscribing.",
+  "vc": {
+    "virtualAssistantTitle": "Virtual Assistant",
+    "virtualAssistantBio": "The Service Canada Virtual Assistant is a conversational bot designed to help clients as they navigate our programs. The Virtual Assistant can help clients overcome common obstacles they face when applying to, or receiving a benefit. We are currently working on a demo in which the Virtual Assistant helps an Employment Insurance applicant who is missing some required documents. We hope to have that demo live soon, but in the meantime, here is a sneak peek of the Virtual Assistant! ",
+    "sectionTitle": "The Scenario",
+    "scenarioPart1": "Mary loses her job. She applies for Employment Insurance. Two or three weeks go by, and she's starting to wonder about the status of her application, and why she hasn’t been paid. ",
+    "scenarioPart1-1": "Looking for answers, she logs into the Service Canada Digital Center finds a new message in her inbox.",
+    "scenarioPart2": "Mary doesn’t normally use chatbots, but since this one initiated the conversation, and says it might be able to help, she gives it a try. After a few exchanges, it becomes clear that her previous employer never submitted her Record of Employment. ",
+    "scenarioPart3": "Luckily, the Virtual Assistant has a solution. With Mary’s approval, the Virtual Assistant sends an email to Mary’s previous employer, requesting that they submit a Record of Employment as soon as possible. Mary is relieved. The Virtual Assistant saved her from having an awkward conversation with her previous employer, and took action to get her payments started as soon as possible. ",
+    "scenarioPart4": "The Virtual Assistant offers to inform Mary when the Record of Employment comes in. Mary is pleasantly surprised when the Virtual Assistant offers to notify her by email, text message or both. She chooses both. Finally, the Virtual Assistant asks Mary to rate the service she received out of five. Mary gives it a four, and logs out of the Service Canada Digital Center.",
+    "scenarioPart4-1": " This experience informs Mary of the block on the file and guides her towards a solution to getting her benefits faster.",
+    "scenarioPart4-2": "You cannot apply for services or benefits through this test site. Parts of this site may not work and will change.",
+    "altText1": "altText1",
+    "altText2": "altText2",
+    "altText3": "altText3",
+    "altText4": "altText4"
+  }
 }
