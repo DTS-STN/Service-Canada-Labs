@@ -80,15 +80,7 @@ export default function About(props) {
       </section>
       <CallToAction
         title={t("signupTitle")}
-        description={
-          <>
-            {t("becomeAParticipantDescriptionStart")}
-            <Link href="/unsubscribe">
-              <a className="underline">{t("unsubscribeLinkText")}</a>
-            </Link>
-            {t("becomeAParticipantDescriptionEnd")}
-          </>
-        }
+        html={t("becomeAParticipantDescription")}
         href={"/signup"}
         hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
       />
