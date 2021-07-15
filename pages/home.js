@@ -5,6 +5,7 @@ import { Layout } from "../components/organisms/Layout";
 import { TextButtonField } from "../components/molecules/TextButtonField";
 import { useRouter } from "next/router";
 import { CallToAction } from "../components/molecules/CallToAction";
+import Link from "next/link";
 
 export default function Home(props) {
   const { t } = useTranslation("common");
@@ -63,7 +64,15 @@ export default function Home(props) {
       </section>
       <CallToAction
         title={t("signupTitle")}
-        description={t("becomeAParticipantDescription")}
+        description={
+          <>
+            {t("becomeAParticipantDescriptionStart")}
+            <Link href="/unsubscribe">
+              <a className="underline">{t("unsubscribeLinkText")}</a>
+            </Link>
+            {t("becomeAParticipantDescriptionEnd")}
+          </>
+        }
         href={"/signup"}
         hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
       />

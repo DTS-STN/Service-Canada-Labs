@@ -3,6 +3,7 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import { List } from "../components/molecules/List";
 import { CallToAction } from "../components/molecules/CallToAction";
 
@@ -79,7 +80,15 @@ export default function About(props) {
       </section>
       <CallToAction
         title={t("signupTitle")}
-        description={t("becomeAParticipantDescription")}
+        description={
+          <>
+            {t("becomeAParticipantDescriptionStart")}
+            <Link href="/unsubscribe">
+              <a className="underline">{t("unsubscribeLinkText")}</a>
+            </Link>
+            {t("becomeAParticipantDescriptionEnd")}
+          </>
+        }
         href={"/signup"}
         hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
       />
