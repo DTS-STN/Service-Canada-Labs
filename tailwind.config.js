@@ -49,7 +49,8 @@ module.exports = {
     },
     extend: {
       backgroundImage: (theme) => ({
-        "splash-img": "url('../public/bg-banner.jpg')",
+        "splash-img": "url('../public/splash-image.jpg')",
+        "splash-img-mobile": "url('../public/splash-mobile.png')",
         "banner-img": "url('../public/bg-banner-v2.jpg')",
         "footer-parliament-image": "url(../public/landscape.png)",
         "lightbulb-right-img": "url('../public/lightbulb_right.jpg')",
