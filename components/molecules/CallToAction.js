@@ -11,7 +11,6 @@ export function CallToAction(props) {
   const texts = props.description
     .split(/(unsubscribe|désinscrire)/)
     .filter(Boolean);
-  console.log(texts);
   return (
     <div className="bg-custom-blue-experiment-blue text-white">
       <div className="layout-container pb-10 pt-10 text-xs md:text-base">
