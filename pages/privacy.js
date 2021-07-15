@@ -4,7 +4,6 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { CallToAction } from "../components/molecules/CallToAction";
-import Link from "next/link";
 
 export default function Privacy(props) {
   const { t } = useTranslation("common");

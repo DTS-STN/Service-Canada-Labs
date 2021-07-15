@@ -7,7 +7,6 @@ import { Experiment } from "../components/molecules/Experiment";
 import { useRouter } from "next/router";
 import { Filter } from "../components/molecules/Filter";
 import { CallToAction } from "../components/molecules/CallToAction";
-import Link from "next/link";
 
 export default function Experiments(props) {
   const { t } = useTranslation("common");

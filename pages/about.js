@@ -3,7 +3,6 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import { List } from "../components/molecules/List";
 import { CallToAction } from "../components/molecules/CallToAction";
 

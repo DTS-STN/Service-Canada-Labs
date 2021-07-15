@@ -5,7 +5,6 @@ import { Layout } from "../components/organisms/Layout";
 import { TextButtonField } from "../components/molecules/TextButtonField";
 import { useRouter } from "next/router";
 import { CallToAction } from "../components/molecules/CallToAction";
-import Link from "next/link";
 
 export default function Home(props) {
   const { t } = useTranslation("common");
