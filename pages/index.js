@@ -37,7 +37,7 @@ export default function Index(props) {
               src={"/sig-blk-en.svg"}
               alt={"Symbol of the Government of Canada"}
             />
-            <div className="flex w-max container mx-auto py-8 font-bold font-display">
+            <div className="flex w-max container mx-auto py-6 font-bold font-display">
               <h1 className="text-p text-right xl:text-h4 mr-6 w-32 xl:w-40">
                 Service Canada Labs
               </h1>
@@ -45,7 +45,7 @@ export default function Index(props) {
                 Laboratoire de Service Canada
               </h2>
             </div>
-            <div className="flex w-max container pb-8 mx-auto font-display">
+            <div className="flex w-max container pb-6 mx-auto font-display">
               <ActionButton
                 id="english-button"
                 text="English"
@@ -61,7 +61,7 @@ export default function Index(props) {
               />
             </div>
           </div>
-          <div className="relative py-8 bg-splash-page-bottom text-p h-auto min-w-300px w-300px flex justify-between container p-6 xl:w-500px xl:items-center">
+          <div className="relative py-7 bg-splash-page-bottom text-p h-auto min-w-300px w-300px flex justify-between container p-6 xl:w-500px xl:items-center">
             <div className="w-28 text-base xl:text-p xl:w-max font-body">
               <Link href="https://www.canada.ca/en/transparency/terms.html">
                 <a className="inline-block w-28 xl:w-max mr-0 hover:text-canada-footer-hover-font-blue text-canada-footer-font splash-link">
