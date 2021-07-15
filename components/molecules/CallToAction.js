@@ -50,12 +50,12 @@ CallToAction.propTypes = {
   title: PropTypes.string.isRequired,
 
   /**
-   * a short description about what the call to action is about - part 1
+   * a short description about what the call to action is about - string format
    */
   description: PropTypes.string,
 
   /**
-   * a short description about what the call to action is about - part 1
+   * a short description about what the call to action is about - html format
    */
   html: PropTypes.string,
 
