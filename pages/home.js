@@ -2,11 +2,9 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
-import { TextButtonField } from "../components/molecules/TextButtonField";
 import { useRouter } from "next/router";
 import { CallToAction } from "../components/molecules/CallToAction";
 import { ActionButton } from "../components/atoms/ActionButton";
-import { List } from "../components/molecules/List";
 
 export default function Home(props) {
   const { t } = useTranslation("common");
