@@ -7,7 +7,7 @@ function getCsp() {
   csp += `base-uri 'self';`;
   csp += `form-action 'self';`;
   csp += `default-src 'self' dts-stn.com *.dts-stn.com;`;
-  csp += `script-src 'self' ${
+  csp += `script-src 'self' 'unsafe-inline' ${
     process.env.CI === "true"
       ? "'unsafe-eval'"
       : process.env.NODE_ENV === "development"
