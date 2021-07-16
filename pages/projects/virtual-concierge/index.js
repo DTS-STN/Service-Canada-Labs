@@ -91,7 +91,7 @@ export default function Home(props) {
           />
           <p className="pb-2 ">{t("vc.scenarioPart4")}</p>
           <p className="pb-2 ">{t("vc.scenarioPart4-1")}</p>
-          <p className="pb-2 mb-4">{t("vc.scenarioPart4-2")}</p>
+          <p className="pb-2 mb-6">{t("vc.scenarioPart4-2")}</p>
         </div>
 
         {/*TODO these are the buttons on the bottom of the page that can be added if needed.  */}
