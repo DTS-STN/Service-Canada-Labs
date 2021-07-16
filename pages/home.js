@@ -37,32 +37,47 @@ export default function Home(props) {
         <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
         <meta name="dcterms.issued" content="2021-03-18" />
       </Head>
-      <section className="layout-container mb-2 mt-12">
+      <section className="layout-container my-12">
         <div className="xl:w-2/3">
-          <ActionButton href="/signup" className="rounded px-6 py-4">
+          <ActionButton
+            href="/signup"
+            id="signup-home-page"
+            dataCy="signup-home-page"
+            className="rounded px-6 py-4 font-bold"
+          >
             {t("signupHomeButton")}
           </ActionButton>
           <h2 className="my-10" tabIndex="-1" id="pageMainTitle">
             {t("experimentsAndExplorationTitle")}
           </h2>
-          <p className="mb-4">{t("experimentsAndExploration-1/3")}</p>
+          <p className="mb-4 whitespace-pre-line">
+            {t("experimentsAndExploration-1/3")}
+          </p>
+          <ul
+            className="mb-4 pl-10 text-p list-disc"
+            dangerouslySetInnerHTML={{
+              __html: t("experimentsAndExplorationList"),
+            }}
+          ></ul>
           <p className="mb-4">{t("experimentsAndExploration-2/3")}</p>
           <p className="mb-10">{t("experimentsAndExploration-3/3")}</p>
         </div>
-        <div className="flex-col flex lg:flex lg:flex-row gap-1">
-          <TextButtonField
+        <div className="flex flex-col gap-6 lg:gap-10 lg:flex-row ">
+          <ActionButton
             href="/experiments"
-            buttonText={t("experimentsBtnTxt")}
-            idButton="ExperimentsButton"
-            dataCyButton="ExperimentsButton"
-            className="flex"
+            text={t("experimentsBtnTxt")}
+            id="ExperimentsButton"
+            dataCy="ExperimentsButton"
+            className="flex py-2 px-6 justify-center font-bold rounded"
+            secondary
           />
-          <TextButtonField
+          <ActionButton
             href="/about"
-            buttonText={t("learnMoreAboutSCL")}
-            idButton="AboutButton"
-            dataCyButton="AboutButton"
-            className="flex"
+            text={t("learnMoreAboutSCL")}
+            id="AboutButton"
+            dataCy="AboutButton"
+            className="flex py-2 px-6 justify-center font-bold rounded"
+            secondary
           />
         </div>
       </section>
