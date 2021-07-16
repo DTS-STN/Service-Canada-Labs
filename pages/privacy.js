@@ -136,7 +136,7 @@ export default function Privacy(props) {
       </section>
       <CallToAction
         title={t("signupTitle")}
-        description={t("becomeAParticipantDescription")}
+        html={t("becomeAParticipantDescription")}
         href={"/signup"}
         hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
       />

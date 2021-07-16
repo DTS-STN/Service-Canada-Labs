@@ -107,6 +107,13 @@ html {
   .layout-container {
     @apply mx-6;
   }
+  .text-shadow-about-circles {
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+  }
 
   @screen xxs {
     .layout-container {
