@@ -15,7 +15,7 @@ export function MultiTextField(props) {
       }`}
     >
       <label
-        className={`block leading-tight text-sm font-body mb-5px ${
+        className={`block leading-tight text-sm lg:text-p font-body mb-5px ${
           props.boldLabel ? "font-bold" : ""
         }`}
         htmlFor={props.id}
@@ -27,13 +27,12 @@ export function MultiTextField(props) {
         {props.required ? (
           <b className="text-error-border-red">(required)</b>
         ) : (
-          <p className="inline text-form-input-gray text-sm">(optional)</p>
+          <p className="inline text-form-input-gray text-sm lg:text-p">
+            (optional)
+          </p>
         )}
       </label>
-      <p
-        id={props.describedby}
-        className="text-xs lg:text-sm mb-5 leading-30px"
-      >
+      <p id={props.describedby} className="text-sm lg:text-g mb-5 leading-30px">
         {t("doNotInclude")}
       </p>
       {props.error ? <ErrorLabel message={props.error} /> : undefined}

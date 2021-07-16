@@ -54,7 +54,6 @@ module.exports = {
         "splash-img-mobile": "url('../public/splash-mobile.png')",
         "banner-img": "url('../public/bg-banner-v2.jpg')",
         "footer-parliament-image": "url(../public/landscape.png)",
-        "lightbulb-right-img": "url('../public/lightbulb_right.jpg')",
       }),
       colors: {
         "custom-blue": {
