@@ -2,7 +2,10 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 
 /* istanbul ignore file */
 
-let devOrCI = process.env.NODE_ENV === "development" || process.env.CI === true;
+function devOrCi() {
+  if (process.env.CI === true || process.env.NODE_ENV === "development")
+    return true;
+}
 
 console.log(process.env.CI);
 console.log(devOrCI);
@@ -13,7 +16,7 @@ function getCsp() {
   csp += `form-action 'self';`;
   csp += `default-src 'self' dts-stn.com *.dts-stn.com;`;
   csp += `script-src 'self' ${
-    devOrCI ? "unsafe-eval" : ""
+    devOrCI() ? "unsafe-eval" : ""
   } https://ajax.googleapis.com;`; // NextJS requires 'unsafe-eval' in dev (faster source maps)
   csp += `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com data:;`; // NextJS requires 'unsafe-inline'
   csp += `img-src 'self';`;
