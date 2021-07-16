@@ -4,6 +4,8 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 
 let devOrCI = process.env.NODE_ENV === "development" || process.env.CI === true;
 
+console.log(devOrCI);
+
 function getCsp() {
   let csp = ``;
   csp += `base-uri 'self';`;
