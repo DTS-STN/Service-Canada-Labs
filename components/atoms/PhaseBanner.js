@@ -12,7 +12,7 @@ export const PhaseBanner = ({ phase, children }) => {
         <span className="font-body text-xs text-circle-color font-extrabold flex-shrink-0 bg-white px-4 py-1 my-auto leading-6">
           {phase}
         </span>
-        <p className="font-body text-xs mt-5 sm:mt-auto text-white sm:ml-4 pt-1 my-auto">
+        <p className="font-body text-xs mt-5 sm:mt-auto text-white sm:ml-4 pt-1 my-auto lg:pb-1">
           {children}
         </p>
       </div>
