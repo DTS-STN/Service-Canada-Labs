@@ -41,13 +41,11 @@ describe("project page", () => {
             expect($el.text()).to.eq("Active")
         });
     });
-
-    // Commented out since the Backend Endpoint provides no projects that are Coming Soon
     
-    // it("Filter projects: Coming soon", () => {
-    //     cy.get('[data-cy="coming_soon"]').click()
-    //     cy.get('[data-cy="projects-list"]>li>a>span').each(($el) => {
-    //         expect($el.text()).to.eq("Coming Soon")
-    //     });
-    // });
+    it("Filter projects: Coming soon", () => {
+        cy.get('[data-cy="coming_soon"]').click()
+        cy.get('[data-cy="projects-list"]>li>a>span').each(($el) => {
+            expect($el.text()).to.eq("Coming Soon")
+        });
+    });
 })
