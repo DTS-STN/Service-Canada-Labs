@@ -4,6 +4,7 @@ import terminalLog from '../plugins/terminalLog'
 /// <reference types="Cypress" />
 
 describe("experiment page", () => {
+    console.log(process.env.CI)
     beforeEach(() => {
         cy.visit("/experiments");
         cy.injectAxe();
