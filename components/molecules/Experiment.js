@@ -12,25 +12,29 @@ export const Experiment = (props) => {
     alpha: "custom-blue-experiment-blue",
   };
   return (
-    <a
-      className={`shadow-experiment-shadow p-4 border-b-4 h-400px ${
+    <div
+      className={`shadow-experiment-shadow p-4 border-b-4 xl:h-250px xl:max-h-250px ${
         "border-" + (tagColours[props.tag] || "gray-experiment")
       }`}
       data-testid={props.dataTestId}
       data-cy={props.dataCy}
-      tabIndex="0"
-      href={props.href}
     >
-      <h2 className="mb-2 text-p">{props.title}</h2>
+      <a
+        className="mb-2 text-p text-custom-blue-projects-link underline"
+        href={props.href}
+        tabIndex="0"
+      >
+        {props.title}
+      </a>
       <span
-        className={`inline-block py-2 px-2 uppercase font-body text-xxs text-white font-bold rounded ${
+        className={`block w-max py-2 px-2 uppercase font-body text-xxs text-white font-bold rounded ${
           "bg-" + (tagColours[props.tag] || "gray-experiment")
         }`}
       >
         {props.tagLabel}
       </span>
-      <p className="mt-2 text-sm">{props.description}</p>
-    </a>
+      <p className="mt-2 leading-30px text-sm">{props.description}</p>
+    </div>
   );
 };
 

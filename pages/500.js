@@ -62,7 +62,7 @@ export default function error500(props) {
           </div>
           <div className="flex items-center justify-center circle-background my-8 lg:mt-0">
             <img
-              className="w-68px lg:w-12 xl:100px"
+              className="w-68px xl:w-24"
               src="/crackedbulb.svg"
               alt="Cracked lightbulb"
             />
@@ -77,9 +77,8 @@ export default function error500(props) {
               </h1>
               <p className="font-bold font-body mb-8">Erreur 500</p>
               <p className="font-body text-sm mb-4 leading-30px">
-                [PENDING TRANSLATION] It may be due to server trouble or an
-                incorrect or expired URL. Si le problème persiste, veuillez
-                signaler le problème.
+                Cela peut être dû à un problème de serveur ou à une URL
+                incorrecte ou expirée. Si le problème persiste, signalez-le.
               </p>
               <div className="flex">
                 <span className="error404-link" />
@@ -87,7 +86,7 @@ export default function error500(props) {
                   Retournez à la &nbsp;
                   <Link href="/fr">
                     <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                      page d'accueil [Service Canada Labs]
+                      page d'accueil des laboratoires de Service Canada
                     </a>
                   </Link>
                 </p>

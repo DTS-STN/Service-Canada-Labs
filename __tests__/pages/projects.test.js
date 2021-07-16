@@ -6,7 +6,7 @@ import { screen } from "@testing-library/react";
 import fetchMock from "fetch-mock";
 const experiments = require("../../cypress/fixtures/experiments.json");
 
-describe("Experiments", () => {
+describe("Projects", () => {
   beforeEach(() => {
     fetchMock.getOnce(`${process.env.STRAPI_API_BACKEND_URL}/experiments`, {
       status: 200,
@@ -18,9 +18,9 @@ describe("Experiments", () => {
   });
   it("renders without crashing", async () => {
     const { render } = await getPage({
-      route: "/experiments",
+      route: "/projects",
     });
     render();
-    expect(screen.getByText("Explore our projects")).toBeInTheDocument();
+    expect(screen.getAllByText("Explore our projects")[0]).toBeInTheDocument();
   });
 });

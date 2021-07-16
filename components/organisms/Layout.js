@@ -94,7 +94,7 @@ export const Layout = ({
           signUpText={t("signupBtn")}
           items={[
             {
-              link: "/experiments",
+              link: "/projects",
               text: t("menuLink1"),
             },
             {

@@ -61,10 +61,10 @@ export default function Home(props) {
         </div>
         <div className="flex flex-col gap-6 lg:gap-10 lg:flex-row ">
           <ActionButton
-            href="/experiments"
+            href="/projects"
             text={t("experimentsBtnTxt")}
-            id="ExperimentsButton"
-            dataCy="ExperimentsButton"
+            id="ProjectsButton"
+            dataCy="ProjectsButton"
             className="flex py-2 px-6 justify-center font-bold rounded"
             secondary
           />
