@@ -22,6 +22,10 @@ securityHeaders = [
     key: 'Referrer-Policy',
     value: 'strict-origin'
   },
+  {
+    key: 'Content-Security-Policy',
+    value: `frame-ancestors 'self'`
+  }
 ]
 
 module.exports = {
