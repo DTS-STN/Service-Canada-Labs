@@ -2,7 +2,7 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 
 /* istanbul ignore file */
 
-let prod = process.env.NODE_ENV == "production";
+let devOrCI = process.env.NODE_ENV == "dev" || process.env.CI == true;
 
 function getCsp() {
   let csp = ``;
@@ -10,7 +10,7 @@ function getCsp() {
   csp += `form-action 'self';`;
   csp += `default-src 'self' dts-stn.com *.dts-stn.com;`;
   csp += `script-src 'self' ${
-    prod ? "" : "'unsafe-eval'"
+    devOrCI ? "unsafe-eval" : ""
   } https://ajax.googleapis.com;`; // NextJS requires 'unsafe-eval' in dev (faster source maps)
   csp += `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com data:;`; // NextJS requires 'unsafe-inline'
   csp += `img-src 'self';`;
