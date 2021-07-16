@@ -2,7 +2,7 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 
 /* istanbul ignore file */
 
-function devOrCi() {
+function devOrCI() {
   if (process.env.CI === true || process.env.NODE_ENV === "development")
     return true;
 }
