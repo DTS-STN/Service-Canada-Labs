@@ -2,21 +2,17 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 
 /* istanbul ignore file */
 
-function devOrCI() {
-  if (process.env.CI === true || process.env.NODE_ENV === "development")
-    return true;
-}
-
-console.log(process.env.CI);
-console.log(devOrCI());
-
 function getCsp() {
   let csp = ``;
   csp += `base-uri 'self';`;
   csp += `form-action 'self';`;
   csp += `default-src 'self' dts-stn.com *.dts-stn.com;`;
   csp += `script-src 'self' ${
-    devOrCI() ? "unsafe-eval" : ""
+    process.env.CI === true
+      ? "unsafe-eval"
+      : process.env.NODE_ENV === "development"
+      ? "unsafe-eval"
+      : ""
   } https://ajax.googleapis.com;`; // NextJS requires 'unsafe-eval' in dev (faster source maps)
   csp += `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com data:;`; // NextJS requires 'unsafe-inline'
   csp += `img-src 'self';`;
