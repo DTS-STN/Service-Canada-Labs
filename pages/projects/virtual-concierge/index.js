@@ -8,7 +8,7 @@ import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge
 import { CallToAction } from "../../../components/molecules/CallToAction";
 
 export default function Home(props) {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation(["common", "vc"]);
   const { asPath } = useRouter();
 
   return (
@@ -24,7 +24,7 @@ export default function Home(props) {
         ) : (
           ""
         )}
-        <title>{t("scLabsHome")}</title>
+        <title>{t("vc:virtualAssistantTitle")}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="dcterms.title" content={t("scLabsHome")} />
         <meta
@@ -40,7 +40,7 @@ export default function Home(props) {
       <section className="layout-container mb-2 mt-12 ">
         <div className="w-auto mb-6">
           <h2 className="mb-8 text-h1l" tabIndex="-1" id="pageMainTitle">
-            {t("vc.virtualAssistantTitle")}
+            {t("vc:virtualAssistantTitle")}
           </h2>
           <div className="grid lg:grid-cols-2 gap-6  ">
             <div className=" bg-gradient-to-tr from-custom-blue-blue to-vc-blue-lt  p-4 ">
@@ -51,7 +51,7 @@ export default function Home(props) {
               />
             </div>
 
-            <p className="mb-4 px-1 lg:px-0 ">{t("vc.virtualAssistantBio")}</p>
+            <p className="mb-4 px-1 lg:px-0 ">{t("vc:virtualAssistantBio")}</p>
           </div>
         </div>
         {/* the scenario section */}
@@ -61,37 +61,37 @@ export default function Home(props) {
             tabIndex="-1"
             id="virtualAssistantTitle"
           >
-            {t("vc.sectionTitle")}
+            {t("vc:sectionTitle")}
           </h1>
           <VirtualConcierge
             dataTestId="scenario1"
             dataCy="scenario1"
-            description={t("vc.scenarioPart1")}
-            description1={t("vc.scenarioPart1-1")}
+            description={t("vc:scenarioPart1")}
+            description1={t("vc:scenarioPart1-1")}
             className=" bg-gray-200"
             vcImage="/virtualconcierge/virtual-concierge1-2.png"
-            vcImageAltText={t("vc.altText1")}
+            vcImageAltText={t("vc:altText1")}
           />
 
           <VirtualConcierge
             dataTestId="scenario2"
             dataCy="scenario2"
-            description={t("vc.scenarioPart2")}
+            description={t("vc:scenarioPart2")}
             className=" bg-gray-200"
             vcImage="/virtualconcierge/virtual-concierge1-2.png"
-            vcImageAltText={t("vc.altText2")}
+            vcImageAltText={t("vc:altText2")}
           />
           <VirtualConcierge
             dataTestId="scenario3"
             dataCy="scenario3"
-            description={t("vc.scenarioPart3")}
+            description={t("vc:scenarioPart3")}
             className=" bg-gray-200"
             vcImage="/virtualconcierge/virtual-concierge1-2.png"
-            vcImageAltText={t("vc.altText3")}
+            vcImageAltText={t("vc:altText3")}
           />
-          <p className="pb-2 ">{t("vc.scenarioPart4")}</p>
-          <p className="pb-2 ">{t("vc.scenarioPart4-1")}</p>
-          <p className="pb-2 mb-6">{t("vc.scenarioPart4-2")}</p>
+          <p className="pb-2 ">{t("vc:scenarioPart4")}</p>
+          <p className="pb-2 ">{t("vc:scenarioPart4-1")}</p>
+          <p className="pb-2 mb-6">{t("vc:scenarioPart4-2")}</p>
         </div>
 
         {/*TODO these are the buttons on the bottom of the page that can be added if needed.  */}
@@ -113,6 +113,6 @@ export default function Home(props) {
 export const getStaticProps = async ({ locale }) => ({
   props: {
     locale: locale,
-    ...(await serverSideTranslations(locale, ["common"])),
+    ...(await serverSideTranslations(locale, ["common", "vc"])),
   },
 });
