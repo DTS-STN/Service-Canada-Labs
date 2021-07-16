@@ -41,16 +41,16 @@ export default function Home(props) {
           <h2 className="mb-8" tabIndex="-1" id="virtualAssistantTitle">
             {t("vc.virtualAssistantTitle")}
           </h2>
-          <div className="grid lg:grid-cols-2 gap-6 ">
-            <div className="bg-gradient-to-r from-blue-700 to-blue-300 p-4 ">
+          <div className="grid lg:grid-cols-2 gap-6  ">
+            <div className=" bg-gradient-to-tr from-custom-blue-blue to-vc-blue-lt  p-4 ">
               <img
-                className="object-fill w-80 h-auto mx-auto"
+                className=" object-fill w-80 h-auto mx-auto"
                 src="/virtualconcierge/VirtualConcierge.svg"
                 alt="Virtual Assistant Logo"
               />
             </div>
 
-            <p className="mb-4 px-1 lg:px-0">{t("vc.virtualAssistantBio")}</p>
+            <p className="mb-4 px-1 lg:px-0 ">{t("vc.virtualAssistantBio")}</p>
           </div>
         </div>
         {/* the scenario section */}
@@ -91,23 +91,11 @@ export default function Home(props) {
             vcImageAltText={t("vc.altText4")}
           />
         </div>
-
-        <div className="flex-col flex lg:flex lg:flex-row gap-1">
-          <TextButtonField
-            href="/experiments"
-            buttonText={t("experimentsBtnTxt")}
-            idButton="ExperimentsButton"
-            dataCyButton="ExperimentsButton"
-            className="flex"
-          />
-          <TextButtonField
-            href="/about"
-            buttonText={t("learnMoreAboutSCL")}
-            idButton="AboutButton"
-            dataCyButton="AboutButton"
-            className="flex"
-          />
-        </div>
+        {/* these are the buttons on the bottom of the page that can be added if wanted.  */}
+        {/* <div className="flex-col flex lg:flex lg:flex-row gap-1">
+          <TextButtonField href="/experiments" buttonText={t("experimentsBtnTxt")} idButton="ExperimentsButton" dataCyButton="ExperimentsButton" className="flex" />
+          <TextButtonField href="/about" buttonText={t("learnMoreAboutSCL")} idButton="AboutButton" dataCyButton="AboutButton" className="flex" />
+        </div> */}
       </section>
     </Layout>
   );
