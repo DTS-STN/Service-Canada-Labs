@@ -56,13 +56,13 @@ export default function Home(props) {
         </div>
         {/* the scenario section */}
         <div>
-          <h2
+          <h1
             className="mb-6 mt-8 text-h1"
             tabIndex="-1"
             id="virtualAssistantTitle"
           >
             {t("vc.sectionTitle")}
-          </h2>
+          </h1>
           <VirtualConcierge
             dataTestId="scenario1"
             dataCy="scenario1"
@@ -77,7 +77,7 @@ export default function Home(props) {
             dataTestId="scenario2"
             dataCy="scenario2"
             description={t("vc.scenarioPart2")}
-            className="bg-gray-200"
+            className=" bg-gray-200"
             vcImage="/virtualconcierge/virtual-concierge1-2.png"
             vcImageAltText={t("vc.altText2")}
           />
@@ -85,16 +85,13 @@ export default function Home(props) {
             dataTestId="scenario3"
             dataCy="scenario3"
             description={t("vc.scenarioPart3")}
-            className="bg-gray-200"
+            className=" bg-gray-200"
             vcImage="/virtualconcierge/virtual-concierge1-2.png"
             vcImageAltText={t("vc.altText3")}
           />
-          <VirtualConcierge
-            description={t("vc.scenarioPart4")}
-            description1={t("vc.scenarioPart4-1")}
-            description2={t("vc.scenarioPart4-2")}
-            vcImageAltText={t("vc.altText4")}
-          />
+          <p className="pb-2 ">{t("vc.scenarioPart4")}</p>
+          <p className="pb-2 ">{t("vc.scenarioPart4-1")}</p>
+          <p className="pb-2 mb-4">{t("vc.scenarioPart4-2")}</p>
         </div>
 
         {/*TODO these are the buttons on the bottom of the page that can be added if needed.  */}
