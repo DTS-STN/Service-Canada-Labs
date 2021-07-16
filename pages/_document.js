@@ -8,7 +8,7 @@ function devOrCI() {
 }
 
 console.log(process.env.CI);
-console.log(devOrCI);
+console.log(devOrCI());
 
 function getCsp() {
   let csp = ``;
