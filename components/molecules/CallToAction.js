@@ -15,7 +15,7 @@ export function CallToAction(props) {
         <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-24 gap-5">
           <p>{props.description}</p>
           <div>
-            <p className="mb-4">
+            <p className="flex mb-4 text-center">
               <ActionButton
                 id="become-a-participant-btn"
                 href={props.href}

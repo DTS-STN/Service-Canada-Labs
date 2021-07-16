@@ -87,6 +87,7 @@ export default function Experiments(props) {
         <meta name="dcterms.creator" content={t("creator")} />
         <meta name="dcterms.accessRights" content="2" />
         <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
+        <meta name="dcterms.issued" content="2021-04-22" />
       </Head>
       <section className="layout-container mb-10">
         <h1 id="pageMainTitle" tabIndex="-1" className="flex-wrap">
