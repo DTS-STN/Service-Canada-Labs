@@ -4,6 +4,7 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 
 let devOrCI = process.env.NODE_ENV === "development" || process.env.CI === true;
 
+console.log(process.env.CI);
 console.log(devOrCI);
 
 function getCsp() {
