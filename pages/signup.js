@@ -463,6 +463,7 @@ export default function Signup(props) {
               var select = document.getElementById("province-choice");
               select.selectedIndex = 0;
             })}
+            analyticsTracking="reset"
           >
             {t("clear")}
           </ActionButton>
@@ -1005,7 +1006,7 @@ export default function Signup(props) {
             type="submit"
             dataCy="signup-submit"
             dataTestId="signup-submit"
-            analyticsSubmit
+            analyticsTracking="submit"
           >
             {t("reportAProblemSubmit")}
           </ActionButton>
@@ -1017,6 +1018,7 @@ export default function Signup(props) {
               var select = document.getElementById("province-choice");
               select.selectedIndex = 0;
             })}
+            analyticsTracking="reset"
           >
             {t("clear")}
           </ActionButton>
