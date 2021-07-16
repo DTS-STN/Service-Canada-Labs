@@ -60,11 +60,6 @@ export function Menu(props) {
             </li>
           );
         })}
-        <li className="py-3 lg:py-0" role="menuitem">
-          <ActionButton href="/signup" id="signUpNavButton" className="rounded">
-            {props.signUpText}
-          </ActionButton>
-        </li>
       </ul>
     </nav>
   );
