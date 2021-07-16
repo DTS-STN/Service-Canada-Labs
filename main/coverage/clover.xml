@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1626449385018" clover="3.2.0">
-  <project timestamp="1626449385018" name="All files">
-    <metrics statements="529" coveredstatements="475" conditionals="393" coveredconditionals="291" methods="137" coveredmethods="112" elements="1059" coveredelements="878" complexity="0" loc="529" ncloc="529" packages="12" files="79" classes="79"/>
+<coverage generated="1626449415885" clover="3.2.0">
+  <project timestamp="1626449415885" name="All files">
+    <metrics statements="531" coveredstatements="477" conditionals="395" coveredconditionals="294" methods="137" coveredmethods="112" elements="1063" coveredelements="883" complexity="0" loc="531" ncloc="531" packages="12" files="79" classes="79"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/index.js">
@@ -12,19 +12,19 @@
       <metrics statements="153" coveredstatements="145" conditionals="150" coveredconditionals="121" methods="44" coveredmethods="37"/>
       <file name="ActionButton.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/atoms/ActionButton.js">
         <metrics statements="14" coveredstatements="14" conditionals="68" coveredconditionals="58" methods="3" coveredmethods="3"/>
-        <line num="11" count="108" type="stmt"/>
-        <line num="13" count="108" type="stmt"/>
-        <line num="15" count="108" type="stmt"/>
-        <line num="17" count="108" type="stmt"/>
-        <line num="19" count="108" type="stmt"/>
-        <line num="22" count="108" type="stmt"/>
-        <line num="23" count="92" type="stmt"/>
-        <line num="24" count="92" type="cond" truecount="2" falsecount="0"/>
-        <line num="25" count="74" type="stmt"/>
+        <line num="11" count="109" type="stmt"/>
+        <line num="13" count="109" type="stmt"/>
+        <line num="15" count="109" type="stmt"/>
+        <line num="17" count="109" type="stmt"/>
+        <line num="19" count="109" type="stmt"/>
+        <line num="22" count="109" type="stmt"/>
+        <line num="23" count="93" type="stmt"/>
+        <line num="24" count="93" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="75" type="stmt"/>
         <line num="26" count="1" type="cond" truecount="2" falsecount="2"/>
         <line num="27" count="1" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
-        <line num="34" count="107" type="cond" truecount="2" falsecount="0"/>
+        <line num="34" count="108" type="cond" truecount="2" falsecount="0"/>
         <line num="101" count="19" type="stmt"/>
       </file>
       <file name="ActionButton.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/atoms/ActionButton.stories.js">
@@ -243,18 +243,20 @@
       </file>
     </package>
     <package name="components.molecules">
-      <metrics statements="118" coveredstatements="111" conditionals="56" coveredconditionals="44" methods="35" coveredmethods="30"/>
+      <metrics statements="120" coveredstatements="113" conditionals="58" coveredconditionals="47" methods="35" coveredmethods="30"/>
       <file name="CallToAction.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/molecules/CallToAction.js">
-        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="10" count="9" type="stmt"/>
-        <line num="11" count="7" type="stmt"/>
-        <line num="42" count="5" type="stmt"/>
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="10" count="10" type="stmt"/>
+        <line num="11" count="8" type="stmt"/>
+        <line num="46" count="5" type="stmt"/>
       </file>
       <file name="CallToAction.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/molecules/CallToAction.stories.js">
-        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="9" count="3" type="stmt"/>
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="9" count="4" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
       </file>
       <file name="Details.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/molecules/Details.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -308,13 +310,13 @@
         <line num="13" count="1" type="stmt"/>
       </file>
       <file name="List.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/molecules/List.js">
-        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="7" count="3" type="stmt"/>
         <line num="8" count="3" type="stmt"/>
-        <line num="11" count="12" type="cond" truecount="1" falsecount="1"/>
-        <line num="13" count="12" type="stmt"/>
-        <line num="17" count="12" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
+        <line num="12" count="12" type="stmt"/>
+        <line num="15" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="12" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
       </file>
       <file name="List.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/molecules/List.stories.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -606,8 +608,8 @@
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
-        <line num="88" count="1" type="stmt"/>
-        <line num="89" count="0" type="stmt"/>
+        <line num="90" count="1" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
       </file>
       <file name="confirmation.js" path="/home/runner/work/Alpha-Site/Alpha-Site/pages/confirmation.js">
         <metrics statements="6" coveredstatements="5" conditionals="14" coveredconditionals="8" methods="2" coveredmethods="1"/>
