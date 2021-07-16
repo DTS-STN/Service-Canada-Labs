@@ -414,14 +414,14 @@ export default function Signup(props) {
             dangerouslySetInnerHTML={{ __html: t("signupList") }}
           ></ul>
           <p className="mb-10">{t("signupP1.1")}</p>
-          <h2 className="mb-5">{t("signupTitle2")}</h2>
+          <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle2")}</h2>
           <ul className="list-disc list-outside pl-2 mb-10 font-body text-p ml-3">
             <li className="mb-3">{t("signupP2.1")}</li>
             <li className="mb-3">{t("signupP2.2")}</li>
             <li className="mb-3">{t("signupP2.3")}</li>
             <li>{t("signupP2.4")}</li>
           </ul>
-          <h2 className="mb-5">{t("signupTitle3")}</h2>
+          <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle3")}</h2>
           <p className="mb-3">{t("signupP3")}</p>
           <ul className="list-disc list-outside pl-2 mb-5 font-body ml-3 text-p">
             <li>{t("email")}</li>
@@ -444,7 +444,7 @@ export default function Signup(props) {
           >
             {t("privacy")}
           </a>
-          <h2 className="mb-5">{t("signupTitle4")}</h2>
+          <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle4")}</h2>
           <p
             className="mb-3"
             dangerouslySetInnerHTML={{ __html: t("signupP5") }}
