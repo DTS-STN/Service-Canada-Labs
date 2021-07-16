@@ -39,7 +39,7 @@ export default function Home(props) {
 
       <section className="layout-container mb-2 mt-12 ">
         <div className="w-auto mb-6">
-          <h2 className="mb-8 text-h1l" tabIndex="-1" id="VCTitle">
+          <h2 className="mb-8 text-h1l" tabIndex="-1" id="pageMainTitle">
             {t("vc.virtualAssistantTitle")}
           </h2>
           <div className="grid lg:grid-cols-2 gap-6  ">
