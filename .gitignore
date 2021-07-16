@@ -43,6 +43,7 @@ yarn-error.log*
 # cypress video
 
 /cypress/videos
+/cypress/screenshots
 
 # Local .terraform directories
 **/.terraform/*

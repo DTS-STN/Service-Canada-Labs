@@ -87,10 +87,9 @@ module.exports = {
         "canada-footer-hover-font-blue": "#0535d2",
         "footer-background-color": "#f8f8f8",
         "splash-page-bottom": "#e1e4e7",
-        "vc": {
+        vc: {
           "blue-md": "#3d96c1",
           "blue-lt": "#4FB7DC",
-
         },
       },
       width: {

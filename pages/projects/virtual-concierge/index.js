@@ -5,6 +5,7 @@ import { Layout } from "../../../components/organisms/Layout";
 import { TextButtonField } from "../../../components/molecules/TextButtonField";
 import { useRouter } from "next/router";
 import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge";
+import { CallToAction } from "../../../components/molecules/CallToAction";
 
 export default function Home(props) {
   const { t } = useTranslation("common");
@@ -38,7 +39,7 @@ export default function Home(props) {
 
       <section className="layout-container mb-2 mt-12 ">
         <div className="w-auto mb-6">
-          <h2 className="mb-8" tabIndex="-1" id="virtualAssistantTitle">
+          <h2 className="mb-8 text-h1l" tabIndex="-1" id="VCTitle">
             {t("vc.virtualAssistantTitle")}
           </h2>
           <div className="grid lg:grid-cols-2 gap-6  ">
@@ -55,7 +56,11 @@ export default function Home(props) {
         </div>
         {/* the scenario section */}
         <div>
-          <h2 className="mb-6 mt-8 " tabIndex="-1" id="virtualAssistantTitle">
+          <h2
+            className="mb-6 mt-8 text-h1"
+            tabIndex="-1"
+            id="virtualAssistantTitle"
+          >
             {t("vc.sectionTitle")}
           </h2>
           <VirtualConcierge
@@ -63,7 +68,8 @@ export default function Home(props) {
             dataCy="scenario1"
             description={t("vc.scenarioPart1")}
             description1={t("vc.scenarioPart1-1")}
-            vcImage="/virtualconcierge/VirtualConcierge.svg"
+            className=" bg-gray-200"
+            vcImage="/virtualconcierge/virtual-concierge1-2.png"
             vcImageAltText={t("vc.altText1")}
           />
 
@@ -71,32 +77,38 @@ export default function Home(props) {
             dataTestId="scenario2"
             dataCy="scenario2"
             description={t("vc.scenarioPart2")}
-            vcImage="/virtualconcierge/VirtualConcierge.svg"
+            className="bg-gray-200"
+            vcImage="/virtualconcierge/virtual-concierge1-2.png"
             vcImageAltText={t("vc.altText2")}
           />
           <VirtualConcierge
             dataTestId="scenario3"
             dataCy="scenario3"
-            description={t("vc.scenarioPart2")}
-            vcImage="/virtualconcierge/VirtualConcierge.svg"
+            description={t("vc.scenarioPart3")}
+            className="bg-gray-200"
+            vcImage="/virtualconcierge/virtual-concierge1-2.png"
             vcImageAltText={t("vc.altText3")}
           />
           <VirtualConcierge
-            dataTestId="scenario4"
-            dataCy="scenario4"
             description={t("vc.scenarioPart4")}
             description1={t("vc.scenarioPart4-1")}
             description2={t("vc.scenarioPart4-2")}
-            vcImage="/virtualconcierge/VirtualConcierge.svg"
             vcImageAltText={t("vc.altText4")}
           />
         </div>
-        {/* these are the buttons on the bottom of the page that can be added if wanted.  */}
+
+        {/*TODO these are the buttons on the bottom of the page that can be added if needed.  */}
         {/* <div className="flex-col flex lg:flex lg:flex-row gap-1">
           <TextButtonField href="/experiments" buttonText={t("experimentsBtnTxt")} idButton="ExperimentsButton" dataCyButton="ExperimentsButton" className="flex" />
           <TextButtonField href="/about" buttonText={t("learnMoreAboutSCL")} idButton="AboutButton" dataCyButton="AboutButton" className="flex" />
         </div> */}
       </section>
+      <CallToAction
+        title={t("signupTitle")}
+        description={t("becomeAParticipantDescription")}
+        href={"/signup"}
+        hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
+      />
     </Layout>
   );
 }
