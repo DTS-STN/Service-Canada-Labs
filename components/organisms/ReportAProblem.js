@@ -60,7 +60,7 @@ export function ReportAProblem(props) {
         </>
       ) : (
         <form
-          data-gc-analytics-formname="ESDC:ServiceCanadaLabsReport-Problem"
+          data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsReport-Problem"
           data-gc-analytics-collect='[{"value":"input,select","emptyField":"N/A"}]'
           className="w-full"
           action="#"
