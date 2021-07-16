@@ -41,18 +41,13 @@ describe("home page", () => {
     cy.get('[data-cy="menu"]').should("be.visible");
   });
 
-  it("Menu Service Canada Labs links to home page", () => {
-    cy.get('[data-cy="menu"]').contains("Service Canada Labs").click();
-    cy.url().should("include", "/");
-  });
-
   it("Menu Experiments links to experiment page", () => {
-    cy.get('[data-cy="menu"]').contains("Experiments").click();
+    cy.get('[data-cy="menu"]').contains("Explore our projects").click();
     cy.url().should("include", "/experiments");
   });
 
   it("Menu About links to about page", () => {
-    cy.get('[data-cy="menu"]').contains("About").click();
+    cy.get('[data-cy="menu"]').contains("About these labs").click();
     cy.url().should("include", "/about");
   });
 });

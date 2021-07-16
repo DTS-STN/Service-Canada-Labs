@@ -30,11 +30,6 @@ describe("experiment page", () => {
         cy.get('[data-cy="menu"]').should('be.visible')
     });
 
-    it("Menu Service Canada Labs links to home page", () => {
-        cy.get('[data-cy="menu"]').contains('Service Canada Labs').click()
-        cy.url().should('include', '/')
-    });
-
     it("Filter experiments: All", () => {
         cy.get('[data-cy="all"]').click()
         cy.get('[data-cy="experiments-list"]>li').should('have.length', 5); // 5 needs to be changed when more or less experiments are added/removed.
