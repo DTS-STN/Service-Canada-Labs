@@ -9,9 +9,9 @@ function getCsp() {
   csp += `default-src 'self' dts-stn.com *.dts-stn.com;`;
   csp += `script-src 'self' ${
     process.env.CI === true
-      ? "unsafe-eval"
+      ? "'unsafe-eval'"
       : process.env.NODE_ENV === "development"
-      ? "unsafe-eval"
+      ? "'unsafe-eval'"
       : ""
   } https://ajax.googleapis.com;`; // NextJS requires 'unsafe-eval' in dev (faster source maps)
   csp += `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com data:;`; // NextJS requires 'unsafe-inline'
