@@ -1,4 +1,6 @@
 {
+  "BannerTag": "Test site",
+  "BannerText": "You cannot apply for services or benefits through this test site. Parts of this site may not work and will change.",
   "siteTitle": "Alpha Site",
   "bannerTitle": "Service Canada Labs",
   "bannerText": "Make government work for you",
