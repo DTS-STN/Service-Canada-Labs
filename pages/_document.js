@@ -2,7 +2,7 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 
 /* istanbul ignore file */
 
-let devOrCI = process.env.NODE_ENV === "dev" || process.env.CI === true;
+let devOrCI = process.env.NODE_ENV === "development" || process.env.CI === true;
 
 function getCsp() {
   let csp = ``;
