@@ -85,9 +85,7 @@ export function ActionButton(props) {
       data-cy={props.dataCy || props.id}
       data-cy-button={props.dataCyButton}
       disabled={props.disabled}
-      data-gc-analytics-submit={
-        props.analyticsTracking ? props.analyticsTracking : undefined
-      }
+      data-gc-analytics-submit={props.analyticsTracking ? "submit" : undefined}
     >
       {props.icon && !props.iconEnd ? (
         <span className={props.icon} data-testid={props.dataTestId} />
@@ -184,5 +182,5 @@ ActionButton.propTypes = {
   /**
    * For tracking reset or submit on forms for analytics
    */
-  analyticsTracking: PropTypes.oneOf(["submit", "reset"]),
+  analyticsTracking: PropTypes.bool,
 };
