@@ -25,10 +25,10 @@ export function MultiTextField(props) {
         ) : undefined}{" "}
         {props.label}{" "}
         {props.required ? (
-          <b className="text-error-border-red">(required)</b>
+          <b className="text-error-border-red">{t("required")}</b>
         ) : (
           <p className="inline text-form-input-gray text-sm lg:text-p">
-            (optional)
+            {t("optional")}
           </p>
         )}
       </label>
