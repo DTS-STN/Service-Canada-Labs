@@ -2,8 +2,6 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 
 /* istanbul ignore file */
 
-console.log(process.env);
-
 function getCsp() {
   let csp = ``;
   csp += `base-uri 'self';`;
