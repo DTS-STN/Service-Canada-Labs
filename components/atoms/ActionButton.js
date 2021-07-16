@@ -86,7 +86,7 @@ export function ActionButton(props) {
       data-cy-button={props.dataCyButton}
       disabled={props.disabled}
       data-gc-analytics-submit={
-        props.analyticsTracking === "submit" ? "submit" : undefined
+        props.analyticsTracking ? props.analyticsTracking : undefined
       }
     >
       {props.icon && !props.iconEnd ? (
