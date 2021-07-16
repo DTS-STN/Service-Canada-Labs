@@ -42,7 +42,7 @@ export default function Index(props) {
                 Service Canada Labs
               </h1>
               <h2 className="text-p xl:text-h4 w-32 xl:w-40" lang="fr">
-                Laboratoire de Service Canada
+                Laboratoires de Service Canada
               </h2>
             </div>
             <div className="flex w-max container pb-6 mx-auto font-display">
