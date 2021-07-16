@@ -10,7 +10,7 @@ function getCsp() {
   csp += `form-action 'self';`;
   csp += `default-src 'self' dts-stn.com *.dts-stn.com;`;
   csp += `script-src 'self' ${
-    process.env.CI === true
+    process.env.CI === "true"
       ? "'unsafe-eval'"
       : process.env.NODE_ENV === "development"
       ? "'unsafe-eval'"
