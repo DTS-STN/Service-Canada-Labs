@@ -11,7 +11,7 @@ function getCsp() {
   csp += `default-src 'self' dts-stn.com *.dts-stn.com;`;
   csp += `script-src 'self' ${
     prod ? "" : "'unsafe-eval'"
-  } http://ajax.googleapis.com;`; // NextJS requires 'unsafe-eval' in dev (faster source maps)
+  } https://ajax.googleapis.com;`; // NextJS requires 'unsafe-eval' in dev (faster source maps)
   csp += `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com data:;`; // NextJS requires 'unsafe-inline'
   csp += `img-src 'self';`;
   csp += `font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;`;
@@ -37,7 +37,7 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
           {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
             <script type="text/javascript">_satellite.pageBottom()</script>
           ) : (
