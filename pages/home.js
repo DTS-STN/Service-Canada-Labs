@@ -51,12 +51,11 @@ export default function Home(props) {
           <p className="mb-4 whitespace-pre-line">
             {t("experimentsAndExploration-1/3")}
           </p>
-          <ul
-            className="mb-4 pl-10 text-p list-disc"
-            dangerouslySetInnerHTML={{
-              __html: t("experimentsAndExplorationList"),
-            }}
-          ></ul>
+          <ul className="mb-4 pl-10 text-p list-disc">
+            <li>{t("experimentsAndExplorationList.1")}</li>
+            <li>{t("experimentsAndExplorationList.2")}</li>
+            <li>{t("experimentsAndExplorationList.3")}</li>
+          </ul>
           <p className="mb-4">{t("experimentsAndExploration-2/3")}</p>
           <p className="mb-10">{t("experimentsAndExploration-3/3")}</p>
         </div>
