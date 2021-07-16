@@ -279,6 +279,7 @@ export function ReportAProblem(props) {
             type="submit"
             dataCy="report-a-problem-submit"
             dataTestId="report-a-problem-submit"
+            analyticsSubmit
           >
             {t("reportAProblemSubmit", { lng: props.language })}
           </ActionButton>
