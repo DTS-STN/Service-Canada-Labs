@@ -5,6 +5,8 @@ import { Layout } from "../components/organisms/Layout";
 import { TextButtonField } from "../components/molecules/TextButtonField";
 import { useRouter } from "next/router";
 import { CallToAction } from "../components/molecules/CallToAction";
+import { ActionButton } from "../components/atoms/ActionButton";
+import { List } from "../components/molecules/List";
 
 export default function Home(props) {
   const { t } = useTranslation("common");
@@ -37,7 +39,10 @@ export default function Home(props) {
       </Head>
       <section className="layout-container mb-2 mt-12">
         <div className="xl:w-2/3">
-          <h2 className="mb-10" tabIndex="-1" id="pageMainTitle">
+          <ActionButton href="/signup" className="rounded px-6 py-4">
+            {t("signupHomeButton")}
+          </ActionButton>
+          <h2 className="my-10" tabIndex="-1" id="pageMainTitle">
             {t("experimentsAndExplorationTitle")}
           </h2>
           <p className="mb-4">{t("experimentsAndExploration-1/3")}</p>

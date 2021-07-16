@@ -51,7 +51,8 @@ module.exports = {
       backgroundImage: (theme) => ({
         "splash-img": "url('../public/splash-image.jpg')",
         "splash-img-mobile": "url('../public/splash-mobile.png')",
-        "banner-img": "url('../public/bg-banner-v2.jpg')",
+        "banner-img": "url('../public/bg-banner-v2.png')",
+        "banner-img-mobile": "url('../public/bg-banner-mobile.png')",
         "footer-parliament-image": "url(../public/landscape.png)",
         "lightbulb-right-img": "url('../public/lightbulb_right.jpg')",
       }),
@@ -80,7 +81,6 @@ module.exports = {
         "gray-experiment": "#575757",
         "gray-breadcrumb": "#474747",
         "text-gray": "#5c5c5c",
-        "dk-blue": "#26374a",
         "hr-red-bar": "#AE3B43",
         "canada-ca-link-colour": "#7834BC",
         "circle-color": "#083C6C",
