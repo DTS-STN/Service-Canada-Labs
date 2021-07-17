@@ -11,7 +11,7 @@ variables:
   ADO_BUILD: $(Build.BuildId)
   BUILD_DATE: $(Build.BuildNumber)
   tag: 'ADO-$(ADO_BUILD)'
-  vmImageName: 'ubuntu-latest'
+  vmImageName: 'ubuntu-18.04'
 
 stages:
 - stage: Build
