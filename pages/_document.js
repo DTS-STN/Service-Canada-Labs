@@ -16,7 +16,7 @@ function getCsp() {
   } https://ajax.googleapis.com https://assets.adobedtm.com;`; // NextJS requires 'unsafe-eval' in dev (faster source maps)
   csp += `connect-src 'self' *.demdex.net *.omtrdc.net cm.everesttech.net;`;
   csp += `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com data:;`; // NextJS requires 'unsafe-inline'
-  csp += `img-src 'self' *.omtrdc.net cm.everesttech.net assets.adobedtm.com;`;
+  csp += `img-src 'self' *.omtrdc.net *.demdex.net cm.everesttech.net assets.adobedtm.com;`;
   csp += `font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;`;
   csp += `frame-src 'self' *.demdex.net`;
   // csp += `frame-src *;` // TODO
