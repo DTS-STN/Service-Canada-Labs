@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import { Filter } from "../components/molecules/Filter";
 import { CallToAction } from "../components/molecules/CallToAction";
 
-export default function Experiments(props) {
+export default function Projects(props) {
   const { t } = useTranslation("common");
   const { asPath } = useRouter();
   const [filter, setFilter] = useState("all");
@@ -79,7 +79,7 @@ export default function Experiments(props) {
         )}
         <title>{t("scLabsExperiments")}</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content={t("scLabsExperiments")} />
+        <meta name="dcterms.title" content={t("scLabsProjects")} />
         <meta
           name="dcterms.language"
           content={props.locale === "en" ? "eng" : "fra"}
@@ -90,9 +90,10 @@ export default function Experiments(props) {
         <meta name="dcterms.issued" content="2021-04-22" />
       </Head>
       <section className="layout-container mb-10">
-        <h1 id="pageMainTitle" tabIndex="-1" className="flex-wrap">
-          {t("experimentsAndExplorationTitle")}
+        <h1 id="pageMainTitle" tabIndex="-1" className="flex-wrap mb-10">
+          {t("projectsTitle")}
         </h1>
+        <p>{t("projectsText")}</p>
         <Filter
           label={t("filterBy")}
           options={filters}
