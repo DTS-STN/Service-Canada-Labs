@@ -14,7 +14,7 @@ export function CheckBox(props) {
     : {};
   return (
     <div
-      className={`block leading-tight relative pl-40px h-40px clear-left${
+      className={`block leading-tight relative pl-40px h-46px clear-left${
         props.className ? " " + props.className : " mb-10px"
       }`}
     >
