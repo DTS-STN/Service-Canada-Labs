@@ -40,13 +40,13 @@ export default function error404(props) {
           <div>
             <div className="relative h-auto xl:w-96 xxl:w-400px lg:w-72 xl:h-400px lg:h-500px mb-8 lg:mb-0">
               <h1 className="font-bold font-display mb-4">
-                We couldn't find that Web page
+                We couldn't find that page
               </h1>
               <p className="font-bold font-body mb-8">Error 404</p>
               <p className="font-body text-sm mb-4 leading-30px">
                 We're sorry you ended up here. Sometimes a page gets moved or
                 deleted, but hopefully we can help you find what you're looking
-                for. What next?
+                for.
               </p>
               <div className="flex">
                 <span className="error404-link" />
@@ -64,7 +64,7 @@ export default function error404(props) {
           </div>
           <div className="flex items-center justify-center circle-background my-8 lg:mt-0">
             <img
-              className="w-68px lg:w-12 xl:100px"
+              className="w-68px xl:w-24"
               src="/crackedbulb.svg"
               alt="Cracked lightbulb"
             />
@@ -75,13 +75,13 @@ export default function error404(props) {
               lang="fr"
             >
               <h1 className="font-bold font-display mb-4">
-                Nous ne pouvons trouver cette page Web
+                Nous ne trouvons pas cette page
               </h1>
-              <p className="font-bold font-body mb-8">Error 404</p>
+              <p className="font-bold font-body mb-8">Erreur 404</p>
               <p className="font-body text-sm mb-4 leading-30px">
                 Nous sommes désolés que vous ayez abouti ici. Il arrive parfois
                 qu'une page ait été déplacée ou supprimée. Heureusement, nous
-                pouvons vous aider à trouver ce que vous cherchez. Que faire?
+                pouvons vous aider à trouver ce que vous cherchez.
               </p>
               <div className="flex">
                 <span className="error404-link" />
@@ -89,7 +89,7 @@ export default function error404(props) {
                   Retournez à la &nbsp;
                   <Link href="/fr">
                     <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                      page d'accueil [Service Canada Labs]
+                      page d'accueil des laboratoires de Service Canada
                     </a>
                   </Link>
                 </p>
