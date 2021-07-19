@@ -988,7 +988,7 @@ export default function Signup(props) {
               <ErrorLabel message={agreeToConditionsError} />
             ) : undefined}
             <CheckBox
-              className="mb-20 h-100px sm:h-40px"
+              className="h-187px sm:h-32"
               checked={agreeToConditions === "yes"}
               onChange={(checked, name, value) => {
                 if (checked) {
