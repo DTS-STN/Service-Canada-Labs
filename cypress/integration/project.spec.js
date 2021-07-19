@@ -3,14 +3,14 @@ import terminalLog from '../plugins/terminalLog'
 /* eslint-disable no-undef */
 /// <reference types="Cypress" />
 
-describe("experiment page", () => {
+describe("project page", () => {
     beforeEach(() => {
-        cy.visit("/experiments");
+        cy.visit("/projects");
         cy.injectAxe();
     });
 
     it("experiments page loaded", () =>{
-        cy.url().should("contains", "/experiments");
+        cy.url().should("contains", "/projects");
     })
 
     it('Has no detectable a11y violations on load', () => {

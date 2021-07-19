@@ -77,7 +77,7 @@ export default function Projects(props) {
         ) : (
           ""
         )}
-        <title>{t("scLabsExperiments")}</title>
+        <title>{t("scLabsProjects")}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="dcterms.title" content={t("scLabsProjects")} />
         <meta
@@ -108,10 +108,10 @@ export default function Projects(props) {
         </ul>
       </section>
       <CallToAction
-        title={t("signupTitle")}
+        title={t("signupTitleCallToAction")}
         html={t("becomeAParticipantDescription")}
         href={"/signup"}
-        hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
+        hrefText={t("signupBtn")}
       />
     </Layout>
   );

@@ -63,6 +63,7 @@ module.exports = {
           dark: "#26374a",
           link: "#0535d2",
           "experiment-blue": "#004986",
+          "projects-link": "#2B4380",
         },
         "error-border-red": "#D3080C",
         "error-background-red": "#F3E9E8",
@@ -109,6 +110,7 @@ module.exports = {
         "100px": "100px",
         "128px": "128px",
         "187px": "187px",
+        "250px": "250px",
         "400px": "400px",
         "500px": "500px",
       },
@@ -148,6 +150,7 @@ module.exports = {
       minHeight: {
         "40px": "40px",
         "200px": "200px",
+        "250px": "250px",
       },
 
       maxHeight: {
