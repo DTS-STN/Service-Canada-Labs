@@ -460,7 +460,7 @@ export default function Signup(props) {
           />
         ) : undefined}
         <form
-          data-gc-analytics-formname="ESDC:ServiceCanadaLabsSign-up"
+          data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsSign-up"
           data-gc-analytics-collect='[{"value":"input:not(.exclude),select","emptyField":"N/A"}]'
           onSubmit={handleSubmit}
           onReset={handlerClearData}
@@ -1016,6 +1016,7 @@ export default function Signup(props) {
             type="submit"
             dataCy="signup-submit"
             dataTestId="signup-submit"
+            analyticsTracking
           >
             {t("reportAProblemSubmit")}
           </ActionButton>
