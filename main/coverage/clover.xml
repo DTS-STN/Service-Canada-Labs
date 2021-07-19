@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1626704605629" clover="3.2.0">
-  <project timestamp="1626704605630" name="All files">
+<coverage generated="1626719254540" clover="3.2.0">
+  <project timestamp="1626719254540" name="All files">
     <metrics statements="530" coveredstatements="476" conditionals="397" coveredconditionals="297" methods="137" coveredmethods="112" elements="1064" coveredelements="885" complexity="0" loc="530" ncloc="530" packages="12" files="79" classes="79"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -116,9 +116,9 @@
         <metrics statements="5" coveredstatements="5" conditionals="12" coveredconditionals="6" methods="2" coveredmethods="2"/>
         <line num="9" count="3" type="stmt"/>
         <line num="11" count="3" type="stmt"/>
-        <line num="47" count="1" type="stmt"/>
-        <line num="63" count="15" type="stmt"/>
-        <line num="68" count="15" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="62" count="15" type="stmt"/>
+        <line num="67" count="15" type="stmt"/>
       </file>
       <file name="MultiTextField.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/atoms/MultiTextField.stories.js">
         <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
@@ -226,9 +226,9 @@
         <line num="9" count="9" type="stmt"/>
         <line num="11" count="9" type="cond" truecount="2" falsecount="0"/>
         <line num="16" count="9" type="stmt"/>
-        <line num="58" count="2" type="stmt"/>
-        <line num="67" count="15" type="stmt"/>
-        <line num="72" count="15" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="69" count="15" type="stmt"/>
+        <line num="74" count="15" type="stmt"/>
       </file>
       <file name="TextField.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/atoms/TextField.stories.js">
         <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
