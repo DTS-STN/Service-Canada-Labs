@@ -23,5 +23,6 @@
   "lifeJourneysImgAltText1": "Screenshot of the Having a child journey main page. From top to bottom: Find resources to help you make the right decisions along this journey. Showing top requests for: Canada. Link to Maternity and Parental leave from Employment Insurance with options to select more info or apply now. Link to Benefits finder from Service Canada. Link to mental and physical health resources from the Public Health Agency. Link to newborn care resources from Health Canada. ",
   "lifeJourneysImgCaption1": "When you arrive on the page, you will be able to select your province. This will allow us to recommend content based on your location. If you do not select a province, you will see content that applies to all of Canada.",
   "lifeJourneysImgAltText2": "Zoomed-out network map showing the different stages and possible paths and actions of having a child. There are 4 possible stages. Each stage has 3 to 6 possible actions.",
-  "lifeJourneysImgCaption2": "The having a child journey is complex with many possible paths."
+  "lifeJourneysImgCaption2": "The having a child journey is complex with many possible paths.",
+  "lifeJourneysImg1": "/having-a-childEN.png"
 }

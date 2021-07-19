@@ -24,7 +24,7 @@ function HTMList({ tag = "ul", content, listClassName, liClassName }) {
 }
 
 export default function LifeJourneys(props) {
-  const { t } = useTranslation("common", "dc");
+  const { t } = useTranslation("common", "lj");
   const { asPath } = useRouter();
 
   return (
@@ -33,7 +33,7 @@ export default function LifeJourneys(props) {
       langUrl={asPath}
       breadcrumbItems={[
         { text: "Service Canada Labs", link: "/" },
-        { text: "Projects", link: "/projects" },
+        { text: "Experiments", link: "/experiments" },
       ]}
     >
       <Head>
@@ -71,13 +71,9 @@ export default function LifeJourneys(props) {
         <h2 className="mb-6 font-bold leading-10">
           {t("lj:lifeJourneysHeading2")}
         </h2>
-        <figure className="mb-6 border shadow-experiment-shadow">
+        <figure className="mb-6 lg:w-2/3 border shadow-experiment-shadow">
           <img
-            src={
-              props.locale === "en"
-                ? "/having-a-childEN.png"
-                : "/having-a-childFR.png"
-            }
+            src={t("lj:lifeJourneysImg1")}
             alt={t("lj:lifeJourneysImgAltText1")}
           ></img>
           <figcaption className="p-2.5 text-sm font-display border-t">
@@ -95,7 +91,7 @@ export default function LifeJourneys(props) {
         <h2 className="mb-6 font-bold leading-10">
           {t("lj:lifeJourneysHeading3")}
         </h2>
-        <figure className="mb-6 border shadow-experiment-shadow">
+        <figure className="mb-6 lg:w-2/3 border shadow-experiment-shadow">
           <img
             src="/life-journey-map.png"
             alt={t("lj:lifeJourneysImgAltText2")}
