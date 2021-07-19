@@ -79,7 +79,15 @@ export default function Confirmation(props) {
             ) : (
               ""
             )}
-            <ActionButton id="resend_email" text={t("resendEmail")} tertiary />
+            {referrer === "signup" ? (
+              <ActionButton
+                id="resend_email"
+                text={t("resendEmail")}
+                tertiary
+              />
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </section>

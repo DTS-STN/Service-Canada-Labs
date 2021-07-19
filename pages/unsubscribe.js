@@ -175,7 +175,7 @@ export default function Unsubscribe(props) {
         ) : (
           ""
         )}
-        <title>{t("scLabsSignup")}</title>
+        <title>{t("scLabsUnsubscribe")}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="dcterms.title" content={t("scLabsUnsubscribe")} />
         <meta
