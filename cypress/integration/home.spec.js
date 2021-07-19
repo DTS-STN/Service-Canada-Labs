@@ -32,9 +32,19 @@ describe("home page", () => {
     cy.url().should("eq", "http://localhost:3000/fr/home");
   });
 
-  it("See experiments button goes to experiments page", () => {
-    cy.get('[data-cy-button="ExperimentsButton"]').click();
+  it("See experiments button goes to experiments page (button at the bottom of the content)", () => {
+    cy.get('[data-cy="ExperimentsButton"]').click();
     cy.url().should("include", "/experiments");
+  });
+
+  it("See about button goes to about page (button at the bottom of the content)", () => {
+    cy.get('[data-cy="AboutButton"]').click();
+    cy.url().should("include", "/about");
+  });
+
+  it("See signup button (not in the nav menu) goes to signup page", () => {
+    cy.get('[data-cy="signup-home-page"]').click();
+    cy.url().should("include", "/signup");
   });
 
   it("Menu appears on the homepage", () => {
