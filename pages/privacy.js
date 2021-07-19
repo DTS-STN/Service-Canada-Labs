@@ -146,7 +146,7 @@ export default function Privacy(props) {
         </div>
       </section>
       <CallToAction
-        title={t("signupTitle")}
+        title={t("signupTitleCallToAction")}
         html={t("becomeAParticipantDescription")}
         href={"/signup"}
         hrefText={t("signupBtn")}
