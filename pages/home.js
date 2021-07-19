@@ -2,9 +2,9 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
-import { TextButtonField } from "../components/molecules/TextButtonField";
 import { useRouter } from "next/router";
 import { CallToAction } from "../components/molecules/CallToAction";
+import { ActionButton } from "../components/atoms/ActionButton";
 
 export default function Home(props) {
   const { t } = useTranslation("common");
@@ -35,29 +35,46 @@ export default function Home(props) {
         <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
         <meta name="dcterms.issued" content="2021-03-18" />
       </Head>
-      <section className="layout-container mb-2 mt-12">
+      <section className="layout-container my-12">
         <div className="xl:w-2/3">
-          <h2 className="mb-10" tabIndex="-1" id="pageMainTitle">
+          <ActionButton
+            href="/signup"
+            id="signup-home-page"
+            dataCy="signup-home-page"
+            className="rounded px-6 py-4 font-bold"
+          >
+            {t("signupHomeButton")}
+          </ActionButton>
+          <h2 className="my-10" tabIndex="-1" id="pageMainTitle">
             {t("experimentsAndExplorationTitle")}
           </h2>
-          <p className="mb-4">{t("experimentsAndExploration-1/3")}</p>
+          <p className="mb-4 whitespace-pre-line">
+            {t("experimentsAndExploration-1/3")}
+          </p>
+          <ul className="mb-4 pl-10 text-p list-disc">
+            <li>{t("experimentsAndExplorationList.1")}</li>
+            <li>{t("experimentsAndExplorationList.2")}</li>
+            <li>{t("experimentsAndExplorationList.3")}</li>
+          </ul>
           <p className="mb-4">{t("experimentsAndExploration-2/3")}</p>
           <p className="mb-10">{t("experimentsAndExploration-3/3")}</p>
         </div>
-        <div className="flex-col flex lg:flex lg:flex-row gap-1">
-          <TextButtonField
+        <div className="flex flex-col gap-6 lg:gap-10 lg:flex-row ">
+          <ActionButton
             href="/experiments"
-            buttonText={t("experimentsBtnTxt")}
-            idButton="ExperimentsButton"
-            dataCyButton="ExperimentsButton"
-            className="flex"
+            text={t("experimentsBtnTxt")}
+            id="ExperimentsButton"
+            dataCy="ExperimentsButton"
+            className="flex py-2 px-6 justify-center font-bold rounded"
+            secondary
           />
-          <TextButtonField
+          <ActionButton
             href="/about"
-            buttonText={t("learnMoreAboutSCL")}
-            idButton="AboutButton"
-            dataCyButton="AboutButton"
-            className="flex"
+            text={t("learnMoreAboutSCL")}
+            id="AboutButton"
+            dataCy="AboutButton"
+            className="flex py-2 px-6 justify-center font-bold rounded"
+            secondary
           />
         </div>
       </section>
