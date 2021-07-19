@@ -38,7 +38,7 @@ export default function Confirmation(props) {
       <section className="layout-container mb-12">
         <h1
           id="pageMainTitle"
-          className="mb-10 text-h1l font-bold w-max"
+          className="mb-10 text-h1l font-bold lg:w-max"
           tabIndex="-1"
         >
           {t("pleaseCheckYourEmail")}
