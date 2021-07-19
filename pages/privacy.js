@@ -149,7 +149,7 @@ export default function Privacy(props) {
         title={t("signupTitle")}
         html={t("becomeAParticipantDescription")}
         href={"/signup"}
-        hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
+        hrefText={t("signupBtn")}
       />
     </Layout>
   );

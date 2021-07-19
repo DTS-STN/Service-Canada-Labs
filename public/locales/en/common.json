@@ -256,5 +256,6 @@
   "withdraw": "How to withdraw your information",
   "privacyWithdraw": "If you have previously signed up to become a participant and no longer wish to be contacted for future research studies, you can ",
   "privacyWithdraw2": " yourself from the participant list and we will remove your personal information.",
-  "unsubscribeWord": "unsubscribe"
+  "unsubscribeWord": "unsubscribe",
+  "signupBtn": "Sign up to get invited to research sessions"
 }

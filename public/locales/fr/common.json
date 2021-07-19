@@ -252,7 +252,10 @@
   "sentEmailTo": "Nous vous avons envoyé un courriel à",
   "toCheckEmail": "afin de vérifier et confirmer l’adresse de courrier électronique que vous nous avez fournie.",
   "pleaseCheckYourEmail": "Veuillez vérifier vos courriels (Step 2 of 3)",
+  "unsubscribeConfirmation": "Veuillez cliquer sur le lien de confirmation qui se trouve dans le courriel dans les 24 prochaines heures pour finaliser votre désinscription.",
+  "withdraw": "Comment retirer vos informations",
   "privacyWithdraw": "Si vous vous êtes déjà inscrit pour participer et que vous ne souhaitez plus être contacté pour de futures recherches, vous pouvez ",
   "privacyWithdraw2": " et nous supprimerons vos renseignements personnels.",
-  "unsubscribeWord": "vous désinscrire"
+  "unsubscribeWord": "vous désinscrire",
+  "signupBtn": "S’inscrire pour être invité aux séances de recherche"
 }
