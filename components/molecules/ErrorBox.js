@@ -14,9 +14,9 @@ export function ErrorBox(props) {
       aria-atomic="true"
     >
       <span className="icon-error absolute top-1 -left-2.5 bg-white" />
-      <p className="font-bold ml-4">{props.text}</p>
+      <p className="font-bold ml-4 text-p mb-2 lg:text-h4">{props.text}</p>
       <ul
-        className="w-full list-disc list-outside leading-loose pl-8"
+        className="w-full list-disc list-outside leading-loose pl-8 text-sm lg:text-p"
         data-cy="error-box-items"
         id="error-box-items"
       >

@@ -82,10 +82,21 @@ export default function Privacy(props) {
               className="text-custom-blue-link underline"
             >
               experience@service.gc.ca
-              {"."}
             </a>
+            {props.locale === "en" ? " address." : "."}
           </p>
           <p className="mb-8">{t("privacyPolicyContent9")}</p>
+          <h2 className="mb-4 font-bold leading-10">{t("withdraw")}</h2>
+          <p className="mb-8">
+            {t("privacyWithdraw")}
+            <a
+              href={props.locale === "en" ? "/unsubscribe" : "/fr/unsubscribe"}
+              className="text-custom-blue-link underline"
+            >
+              {t("unsubscribeWord")}
+            </a>
+            {t("privacyWithdraw2")}
+          </p>
           <h2 className="mb-4 font-bold leading-10">
             {t("privacyPolicyHeading3")}
           </h2>
@@ -108,7 +119,7 @@ export default function Privacy(props) {
             {t("privacyPolicyContent14")}
             <a
               href={t("privacyPolicyInfoHoldingsURL")}
-              className="italic text-custom-blue-link underline"
+              className="text-custom-blue-link underline"
             >
               {" "}
               {t("privacyPolicyInfoHoldings")}
@@ -126,7 +137,7 @@ export default function Privacy(props) {
             {t("privacyPolicyContent16")}
             <a
               href={t("privacyPolicyPrivacyCommissionerURL")}
-              className="italic text-custom-blue-link underline"
+              className="text-custom-blue-link underline"
             >
               {t("privacyPolicyPrivacyCommissioner")}
             </a>
@@ -135,10 +146,10 @@ export default function Privacy(props) {
         </div>
       </section>
       <CallToAction
-        title={t("signupTitle")}
+        title={t("signupTitleCallToAction")}
         html={t("becomeAParticipantDescription")}
         href={"/signup"}
-        hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
+        hrefText={t("signupBtn")}
       />
     </Layout>
   );

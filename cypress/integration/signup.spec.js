@@ -26,11 +26,6 @@ describe("signup page", () => {
     cy.get('[data-cy="menu"]').should("be.visible");
   });
 
-  it("Menu Service Canada Labs links to home page", () => {
-    cy.get('[data-cy="menu"]').contains("Service Canada Labs").click();
-    cy.url().should("include", "/");
-  });
-
   it("Fails to submit with no input", () => {
     cy.get('[data-cy="signup-submit"]').click();
     cy.url().should("contains", "/signup");

@@ -34,7 +34,7 @@ export function RadioField(props) {
         {...ifControlledProps}
       />
       <label
-        className={`radio-field-label control-label inline-block cursor-pointer pt-4px pb-5px px-15px text-xs sm:text-sm leading-tight sm:leading-6 font-normal font-body${
+        className={`radio-field-label control-label inline-block cursor-pointer pt-4px pb-5px px-15px text-sm lg:text-p leading-tight sm:leading-6 font-normal font-body${
           props.error ? " text-error-border-red" : undefined
         }`}
         htmlFor={props.id}

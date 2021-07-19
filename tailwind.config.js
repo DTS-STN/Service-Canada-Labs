@@ -55,7 +55,6 @@ module.exports = {
         "banner-img": "url('../public/bg-banner-v2.png')",
         "banner-img-mobile": "url('../public/bg-banner-mobile.png')",
         "footer-parliament-image": "url(../public/landscape.png)",
-        "lightbulb-right-img": "url('../public/lightbulb_right.jpg')",
       }),
       colors: {
         "custom-blue": {
@@ -108,6 +107,7 @@ module.exports = {
         "44px": "44px",
         "46px": "46px",
         "100px": "100px",
+        "128px": "128px",
         "187px": "187px",
         "400px": "400px",
         "500px": "500px",
