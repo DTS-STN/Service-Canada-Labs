@@ -68,7 +68,11 @@ export default function Home(props) {
             description={t("vc:scenarioPart1")}
             description1={t("vc:scenarioPart1-1")}
             className=" bg-gray-200"
-            vcImage="/virtualconcierge/virtual-concierge1-2.png"
+            vcImage={
+              props.locale === "fr"
+                ? "/virtualconcierge/fr/virtual-concierge1.png"
+                : "/virtualconcierge/en/virtual-concierge1.png"
+            }
             vcImageAltText={t("vc:altText1")}
           />
 
@@ -77,7 +81,11 @@ export default function Home(props) {
             dataCy="scenario2"
             description={t("vc:scenarioPart2")}
             className=" bg-gray-200"
-            vcImage="/virtualconcierge/virtual-concierge1-2.png"
+            vcImage={
+              props.locale === "fr"
+                ? "/virtualconcierge/fr/virtual-concierge2.png"
+                : "/virtualconcierge/en/virtual-concierge2.png"
+            }
             vcImageAltText={t("vc:altText2")}
           />
           <VirtualConcierge
@@ -85,7 +93,11 @@ export default function Home(props) {
             dataCy="scenario3"
             description={t("vc:scenarioPart3")}
             className=" bg-gray-200"
-            vcImage="/virtualconcierge/virtual-concierge1-2.png"
+            vcImage={
+              props.locale === "fr"
+                ? "/virtualconcierge/fr/virtual-concierge3.png"
+                : "/virtualconcierge/en/virtual-concierge3.png"
+            }
             vcImageAltText={t("vc:altText3")}
           />
           <p className="pb-2 ">{t("vc:scenarioPart4")}</p>
