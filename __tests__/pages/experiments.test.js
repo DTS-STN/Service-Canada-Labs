@@ -21,6 +21,6 @@ describe("Experiments", () => {
       route: "/experiments",
     });
     render();
-    expect(screen.getByText("Experiments")).toBeInTheDocument();
+    expect(screen.getByText("Explore our projects")).toBeInTheDocument();
   });
 });

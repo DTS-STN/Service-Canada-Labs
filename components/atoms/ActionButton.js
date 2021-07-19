@@ -55,6 +55,7 @@ export function ActionButton(props) {
         disabled={props.disabled}
         role="button"
         draggable="false"
+        lang={props.lang}
       >
         {props.icon && !props.iconEnd ? (
           <span className={props.icon} data-testid={props.dataTestId} />
@@ -125,6 +126,10 @@ ActionButton.propTypes = {
    */
   id: PropTypes.string.isRequired,
 
+  /**
+   * Lang attribute for links that do not match the language of the top level document
+   */
+  lang: PropTypes.string,
   /**
    * the type of the button
    */

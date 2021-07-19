@@ -23,7 +23,7 @@ export function SelectField(props) {
       }`}
     >
       <label
-        className={`select-field-label block leading-tight text-sm font-body mb-5 ${
+        className={`select-field-label block leading-tight text-sm lg:text-p font-body mb-5 ${
           props.boldLabel ? "font-bold" : ""
         }`}
         htmlFor={props.id + "-choice"}
@@ -35,7 +35,7 @@ export function SelectField(props) {
         {props.required ? (
           <b className="text-error-border-red">{t("required")}</b>
         ) : (
-          <span className="inline text-form-input-gray text-sm">
+          <span className="inline text-form-input-gray text-sm lg:text-p">
             {t("optional")}
           </span>
         )}

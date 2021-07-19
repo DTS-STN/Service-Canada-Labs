@@ -32,7 +32,9 @@ export function TextField(props) {
         {props.required ? (
           <b className="text-error-border-red">{t("required")}</b>
         ) : (
-          <p className="inline text-form-input-gray text-sm">{t("optional")}</p>
+          <p className="inline text-form-input-gray text-xs lg:text-sm">
+            {t("optional")}
+          </p>
         )}
       </label>
       <p
