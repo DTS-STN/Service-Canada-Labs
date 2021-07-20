@@ -118,7 +118,7 @@ export default function LifeJourneys(props) {
 
       <CallToAction
         title={t("signupTitleCallToAction")}
-        description={t("becomeAParticipantDescription")}
+        html={t("becomeAParticipantDescription")}
         href={"/signup"}
         hrefText={t("signupBtn")}
       />
