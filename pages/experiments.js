@@ -107,7 +107,7 @@ export default function Experiments(props) {
         </ul>
       </section>
       <CallToAction
-        title={t("signupTitle")}
+        title={t("signupTitleCallToAction")}
         html={t("becomeAParticipantDescription")}
         href={"/signup"}
         hrefText={t("signupBtn")}
