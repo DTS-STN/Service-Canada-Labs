@@ -33,7 +33,7 @@ export default function LifeJourneys(props) {
       langUrl={asPath}
       breadcrumbItems={[
         { text: "Service Canada Labs", link: "/home" },
-        { text: "Experiments", link: "/experiments" },
+        { text: "Projects", link: "/projects" },
       ]}
     >
       <Head>
@@ -71,7 +71,7 @@ export default function LifeJourneys(props) {
         <h2 className="mb-6 font-bold leading-10">
           {t("lj:lifeJourneysHeading2")}
         </h2>
-        <figure className="mb-6 lg:w-2/3 border shadow-experiment-shadow">
+        <figure className="mb-6 lg:w-2/3 border shadow-project-shadow">
           <img
             src={t("lj:lifeJourneysImg1")}
             alt={t("lj:lifeJourneysImgAltText1")}
@@ -91,7 +91,7 @@ export default function LifeJourneys(props) {
         <h2 className="mb-6 font-bold leading-10">
           {t("lj:lifeJourneysHeading3")}
         </h2>
-        <figure className="mb-6 lg:w-2/3 border shadow-experiment-shadow">
+        <figure className="mb-6 lg:w-2/3 border shadow-project-shadow">
           <img
             src="/life-journey-map.png"
             alt={t("lj:lifeJourneysImgAltText2")}

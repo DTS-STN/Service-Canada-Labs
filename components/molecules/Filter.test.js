@@ -8,7 +8,7 @@ import { Primary } from "./Filter.stories";
 
 expect.extend(toHaveNoViolations);
 
-describe("Filter Experiments", () => {
+describe("Filter Projects", () => {
   it("renders radio buttons and label correctly", () => {
     render(<Primary {...Primary.args} />);
     screen.getByText(Primary.args.label);

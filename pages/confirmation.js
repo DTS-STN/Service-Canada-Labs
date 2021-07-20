@@ -81,10 +81,10 @@ export default function Confirmation(props) {
               <p className="mb-4 text-sm lg:text-p leading-30px">
                 {t("emailConfirmationP2")}
                 <TextButtonField
-                  href="/experiments"
-                  buttonText={t("experimentsBtnTxt")}
-                  idButton="ExperimentsButton"
-                  dataCyButton="ExperimentsButton"
+                  href="/projects"
+                  buttonText={t("projectsBtnTxt")}
+                  idButton="ProjectsButton"
+                  dataCyButton="ProjectsButton"
                   className="flex mt-5"
                 />
               </p>

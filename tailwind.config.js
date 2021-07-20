@@ -8,10 +8,10 @@ module.exports = {
     ],
     options: {
       safelist: [
-        "border-custom-blue-experiment-blue",
-        "border-gray-experiment",
-        "bg-custom-blue-experiment-blue",
-        "bg-gray-experiment",
+        "border-custom-blue-project-blue",
+        "border-gray-project",
+        "bg-custom-blue-project-blue",
+        "bg-gray-project",
         "opacity-70",
         "opacity-80",
         "opacity-90",
@@ -62,7 +62,7 @@ module.exports = {
           light: "#1492B4",
           dark: "#26374a",
           link: "#0535d2",
-          "experiment-blue": "#004986",
+          "project-blue": "#004986",
         },
         "error-border-red": "#D3080C",
         "error-background-red": "#F3E9E8",
@@ -78,7 +78,7 @@ module.exports = {
         "gray-md": "#CFCFCF",
         "gray-dark": "#444",
         "gray-dark-100": "#333",
-        "gray-experiment": "#575757",
+        "gray-project": "#575757",
         "gray-breadcrumb": "#474747",
         "text-gray": "#5c5c5c",
         "hr-red-bar": "#AE3B43",
@@ -155,7 +155,7 @@ module.exports = {
       },
 
       boxShadow: {
-        "experiment-shadow": "0px 2px 8px rgba(0, 0, 0, 0.25)",
+        "project-shadow": "0px 2px 8px rgba(0, 0, 0, 0.25)",
       },
 
       lineHeight: {

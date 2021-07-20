@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { RadioButton } from "../atoms/RadioButton";
 
 /**
- *  Filter Experiments component
+ *  Filter Projects component
  */
 export function Filter(props) {
   return (

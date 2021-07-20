@@ -46,25 +46,25 @@ export default function Home(props) {
             {t("signupHomeButton")}
           </ActionButton>
           <h2 className="my-10" tabIndex="-1" id="pageMainTitle">
-            {t("experimentsAndExplorationTitle")}
+            {t("projectsAndExplorationTitle")}
           </h2>
           <p className="mb-4 whitespace-pre-line">
-            {t("experimentsAndExploration-1/3")}
+            {t("projectsAndExploration-1/3")}
           </p>
           <ul className="mb-4 pl-10 text-p list-disc">
-            <li>{t("experimentsAndExplorationList.1")}</li>
-            <li>{t("experimentsAndExplorationList.2")}</li>
-            <li>{t("experimentsAndExplorationList.3")}</li>
+            <li>{t("projectsAndExplorationList.1")}</li>
+            <li>{t("projectsAndExplorationList.2")}</li>
+            <li>{t("projectsAndExplorationList.3")}</li>
           </ul>
-          <p className="mb-4">{t("experimentsAndExploration-2/3")}</p>
-          <p className="mb-10">{t("experimentsAndExploration-3/3")}</p>
+          <p className="mb-4">{t("projectsAndExploration-2/3")}</p>
+          <p className="mb-10">{t("projectsAndExploration-3/3")}</p>
         </div>
         <div className="flex flex-col gap-6 lg:gap-10 lg:flex-row ">
           <ActionButton
-            href="/experiments"
-            text={t("experimentsBtnTxt")}
-            id="ExperimentsButton"
-            dataCy="ExperimentsButton"
+            href="/projects"
+            text={t("projectsBtnTxt")}
+            id="ProjectsButton"
+            dataCy="ProjectsButton"
             className="flex py-2 px-6 justify-center font-bold rounded"
             secondary
           />
@@ -79,10 +79,10 @@ export default function Home(props) {
         </div>
       </section>
       <CallToAction
-        title={t("signupTitle")}
+        title={t("signupTitleCallToAction")}
         html={t("becomeAParticipantDescription")}
         href={"/signup"}
-        hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
+        hrefText={t("signupBtn")}
       />
     </Layout>
   );

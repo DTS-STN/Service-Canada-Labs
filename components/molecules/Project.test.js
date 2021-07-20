@@ -4,16 +4,16 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { axe, toHaveNoViolations } from "jest-axe";
-import { Primary } from "./Experiment.stories";
+import { Primary } from "./Project.stories";
 
 expect.extend(toHaveNoViolations);
 
-describe("Experiment tests", () => {
-  it("renders Experiment in its primary state", () => {
+describe("Project tests", () => {
+  it("renders Project in its primary state", () => {
     render(<Primary {...Primary.args} />);
-    const titleElement = screen.getByText("Experiment title");
-    const tagElement = screen.getByText("Experiment tag");
-    const descriptionElement = screen.getByText("Experiment description");
+    const titleElement = screen.getByText("Project title");
+    const tagElement = screen.getByText("Project tag");
+    const descriptionElement = screen.getByText("Project description");
     expect(titleElement).toBeTruthy();
     expect(tagElement).toBeTruthy();
     expect(descriptionElement).toBeTruthy();
