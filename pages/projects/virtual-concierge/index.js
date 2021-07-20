@@ -46,7 +46,7 @@ export default function Home(props) {
               <img
                 className=" object-fill w-80 h-auto mx-auto"
                 src="/virtualconcierge/VirtualConcierge.svg"
-                alt="Virtual Assistant Logo"
+                alt={t("vc:virtualAssistantLogoAlt")}
               />
             </div>
 
