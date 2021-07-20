@@ -13,7 +13,7 @@ export const Experiment = (props) => {
   };
   return (
     <div
-      className={`shadow-experiment-shadow p-4 border-b-4 lg:h-250px lg:max-h-250px ${
+      className={`shadow-experiment-shadow p-4 border-b-4 xl:h-250px xl:max-h-250px ${
         "border-" + (tagColours[props.tag] || "gray-experiment")
       }`}
       data-testid={props.dataTestId}
