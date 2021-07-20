@@ -69,7 +69,7 @@ export default function Experiments(props) {
     <Layout
       locale={props.locale}
       langUrl={asPath}
-      breadcrumbItems={[{ text: "Service Canada Labs", link: "/" }]}
+      breadcrumbItems={[{ text: "Service Canada Labs", link: "/home" }]}
     >
       <Head>
         {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
@@ -108,7 +108,7 @@ export default function Experiments(props) {
       </section>
       <CallToAction
         title={t("signupTitle")}
-        description={t("becomeAParticipantDescription")}
+        html={t("becomeAParticipantDescription")}
         href={"/signup"}
         hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
       />

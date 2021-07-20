@@ -55,6 +55,7 @@ export function ActionButton(props) {
         disabled={props.disabled}
         role="button"
         draggable="false"
+        lang={props.lang}
       >
         {props.icon && !props.iconEnd ? (
           <span className={props.icon} data-testid={props.dataTestId} />
@@ -85,6 +86,7 @@ export function ActionButton(props) {
       data-cy={props.dataCy || props.id}
       data-cy-button={props.dataCyButton}
       disabled={props.disabled}
+      data-gc-analytics-submit={props.analyticsTracking ? "submit" : undefined}
     >
       {props.icon && !props.iconEnd ? (
         <span className={props.icon} data-testid={props.dataTestId} />
@@ -124,6 +126,10 @@ ActionButton.propTypes = {
    */
   id: PropTypes.string.isRequired,
 
+  /**
+   * Lang attribute for links that do not match the language of the top level document
+   */
+  lang: PropTypes.string,
   /**
    * the type of the button
    */
@@ -178,4 +184,8 @@ ActionButton.propTypes = {
    * Enabled or disabled the button
    */
   disabled: PropTypes.bool,
+  /**
+   * For tracking reset or submit on forms for analytics
+   */
+  analyticsTracking: PropTypes.bool,
 };

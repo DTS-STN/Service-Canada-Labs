@@ -37,6 +37,7 @@ module.exports = {
       h1: ["36px", "42px"],
       h1l: ["38px", "42px"],
       h1xl: ["45px", "54px"],
+      h1xxl: ["70px", "84px"],
     },
     screens: {
       xxs: "280px",
@@ -51,9 +52,9 @@ module.exports = {
       backgroundImage: (theme) => ({
         "splash-img": "url('../public/splash-image.jpg')",
         "splash-img-mobile": "url('../public/splash-mobile.png')",
-        "banner-img": "url('../public/bg-banner-v2.jpg')",
+        "banner-img": "url('../public/bg-banner-v2.png')",
+        "banner-img-mobile": "url('../public/bg-banner-mobile.png')",
         "footer-parliament-image": "url(../public/landscape.png)",
-        "lightbulb-right-img": "url('../public/lightbulb_right.jpg')",
       }),
       colors: {
         "custom-blue": {
@@ -80,7 +81,6 @@ module.exports = {
         "gray-experiment": "#575757",
         "gray-breadcrumb": "#474747",
         "text-gray": "#5c5c5c",
-        "dk-blue": "#26374a",
         "hr-red-bar": "#AE3B43",
         "canada-ca-link-colour": "#7834BC",
         "circle-color": "#083C6C",
@@ -107,6 +107,7 @@ module.exports = {
         "44px": "44px",
         "46px": "46px",
         "100px": "100px",
+        "128px": "128px",
         "187px": "187px",
         "400px": "400px",
         "500px": "500px",
