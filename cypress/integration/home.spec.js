@@ -32,9 +32,9 @@ describe("home page", () => {
     cy.url().should("eq", "http://localhost:3000/fr/home");
   });
 
-  it("See experiments button goes to experiments page (button at the bottom of the content)", () => {
-    cy.get('[data-cy="ExperimentsButton"]').click();
-    cy.url().should("include", "/experiments");
+  it("See projects button goes to projects page (button at the bottom of the content)", () => {
+    cy.get('[data-cy="ProjectsButton"]').click();
+    cy.url().should("include", "/projects");
   });
 
   it("See about button goes to about page (button at the bottom of the content)", () => {
@@ -51,9 +51,9 @@ describe("home page", () => {
     cy.get('[data-cy="menu"]').should("be.visible");
   });
 
-  it("Menu Experiments links to experiment page", () => {
+  it("Menu Projects links to project page", () => {
     cy.get('[data-cy="menu"]').contains("Explore our projects").click();
-    cy.url().should("include", "/experiments");
+    cy.url().should("include", "/projects");
   });
 
   it("Menu About links to about page", () => {

@@ -33,7 +33,7 @@ export default function LifeJourneys(props) {
       langUrl={asPath}
       breadcrumbItems={[
         { text: "Service Canada Labs", link: "/home" },
-        { text: "Experiments", link: "/experiments" },
+        { text: "Explore our projects", link: "/projects" },
       ]}
     >
       <Head>
