@@ -32,7 +32,7 @@ describe("project page", () => {
 
     it("Filter projects: All", () => {
         cy.get('[data-cy="all"]').click()
-        cy.get('[data-cy="projects-list"]>li').should('have.length', 5); // 5 needs to be changed when more or less projects are added/removed.
+        cy.get('[data-cy="projects-list"]>li').should('have.length', 3); // 3 needs to be changed when more or less projects are added/removed.
     });
 
     it("Filter projects: Active", () => {
@@ -42,10 +42,12 @@ describe("project page", () => {
         });
     });
 
-    it("Filter projects: Coming soon", () => {
-        cy.get('[data-cy="coming_soon"]').click()
-        cy.get('[data-cy="projects-list"]>li>a>span').each(($el) => {
-            expect($el.text()).to.eq("Coming Soon")
-        });
-    });
+    // Commented out since the Backend Endpoint provides no projects that are Coming Soon
+    
+    // it("Filter projects: Coming soon", () => {
+    //     cy.get('[data-cy="coming_soon"]').click()
+    //     cy.get('[data-cy="projects-list"]>li>a>span').each(($el) => {
+    //         expect($el.text()).to.eq("Coming Soon")
+    //     });
+    // });
 })
