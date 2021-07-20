@@ -148,7 +148,7 @@ export default function ErrorPage(props) {
             </div>
             <div className="flex items-center justify-center circle-background my-8 lg:mt-0">
               <img
-                className="w-68px lg:w-12 xl:100px"
+                className="w-68px xl:w-24"
                 src="/crackedbulb.svg"
                 alt="Cracked lightbulb"
               />
