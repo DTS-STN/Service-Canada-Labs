@@ -78,10 +78,10 @@ export default function About(props) {
         </p>
       </section>
       <CallToAction
-        title={t("signupTitle")}
+        title={t("signupTitleCallToAction")}
         html={t("becomeAParticipantDescription")}
         href={"/signup"}
-        hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
+        hrefText={t("signupBtn")}
       />
     </Layout>
   );
