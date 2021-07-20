@@ -73,7 +73,8 @@ export default function Home(props) {
                 ? "/virtualconcierge/fr/virtual-concierge1.png"
                 : "/virtualconcierge/en/virtual-concierge1.png"
             }
-            vcImageAltText={t("vc:altText1")}
+            vcImageAltText={t("vc:figureAltText")}
+            figureCaption={t("vc:figureCaption1")}
           />
 
           <VirtualConcierge
@@ -86,7 +87,8 @@ export default function Home(props) {
                 ? "/virtualconcierge/fr/virtual-concierge2.png"
                 : "/virtualconcierge/en/virtual-concierge2.png"
             }
-            vcImageAltText={t("vc:altText2")}
+            vcImageAltText={t("vc:figureAltText")}
+            figureCaption={t("vc:figureCaption2")}
           />
           <VirtualConcierge
             dataTestId="scenario3"
@@ -98,7 +100,8 @@ export default function Home(props) {
                 ? "/virtualconcierge/fr/virtual-concierge3.png"
                 : "/virtualconcierge/en/virtual-concierge3.png"
             }
-            vcImageAltText={t("vc:altText3")}
+            vcImageAltText={t("vc:figureAltText")}
+            figureCaption={t("vc:figureCaption3")}
           />
           <p className="pb-2 ">{t("vc:scenarioPart4")}</p>
           <p className="pb-2 ">{t("vc:scenarioPart4-1")}</p>

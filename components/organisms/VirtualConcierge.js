@@ -18,13 +18,18 @@ export const VirtualConcierge = (props) => {
 
       <div>
         {/* className={props.className} TODO the aspect ratio of the image for mobile needs to be resolved. this is just temp for now */}
-        <img
-          className={`mb-5 object-fill max-h-auto p-1 lg:w-1/3 lg:h-auto ${
-            props.className ? " " + props.className : " mb-4"
-          }`}
-          src={props.vcImage}
-          alt={props.vcImageAltText}
-        />
+        <figure>
+          <img
+            className={`object-fill max-h-auto p-1 lg:w-1/3 lg:h-auto ${
+              props.className ? " " + props.className : " mb-4"
+            }`}
+            src={props.vcImage}
+            alt={props.vcImageAltText}
+          />
+          <figcaption className="font-body mb-5">
+            {props.figureCaption}
+          </figcaption>
+        </figure>
       </div>
     </div>
   );
@@ -40,6 +45,11 @@ VirtualConcierge.propTypes = {
    * Image alt text
    */
   vcImageAltText: PropTypes.string,
+
+  /**
+   * Figure Caption text
+   */
+  figureCaption: PropTypes.string,
 
   /**
    * Description of the project image.
