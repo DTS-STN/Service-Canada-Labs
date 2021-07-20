@@ -32,7 +32,7 @@ export default function LifeJourneys(props) {
       locale={props.locale}
       langUrl={asPath}
       breadcrumbItems={[
-        { text: "Service Canada Labs", link: "/" },
+        { text: "Service Canada Labs", link: "/home" },
         { text: "Experiments", link: "/experiments" },
       ]}
     >
@@ -117,10 +117,10 @@ export default function LifeJourneys(props) {
       </section>
 
       <CallToAction
-        title={t("signupTitle")}
+        title={t("signupTitleCallToAction")}
         description={t("becomeAParticipantDescription")}
         href={"/signup"}
-        hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
+        hrefText={t("signupBtn")}
       />
     </Layout>
   );
