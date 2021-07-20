@@ -27,7 +27,10 @@ export const VirtualConcierge = (props) => {
             alt={props.vcImageAltText}
           />
           <figcaption className="font-body mb-5">
-            {props.figureCaption}
+            <details>
+              <summary>{props.vcImageAltText}</summary>
+              {props.figureCaption}
+            </details>
           </figcaption>
         </figure>
       </div>

@@ -73,7 +73,7 @@ export default function Home(props) {
                 ? "/virtualconcierge/fr/virtual-concierge1.png"
                 : "/virtualconcierge/en/virtual-concierge1.png"
             }
-            vcImageAltText={t("vc:figureAltText")}
+            vcImageAltText={t("vc:altTextfigure1")}
             figureCaption={t("vc:figureCaption1")}
           />
 
@@ -87,7 +87,7 @@ export default function Home(props) {
                 ? "/virtualconcierge/fr/virtual-concierge2.png"
                 : "/virtualconcierge/en/virtual-concierge2.png"
             }
-            vcImageAltText={t("vc:figureAltText")}
+            vcImageAltText={t("vc:altTextfigure2")}
             figureCaption={t("vc:figureCaption2")}
           />
           <VirtualConcierge
@@ -100,12 +100,12 @@ export default function Home(props) {
                 ? "/virtualconcierge/fr/virtual-concierge3.png"
                 : "/virtualconcierge/en/virtual-concierge3.png"
             }
-            vcImageAltText={t("vc:figureAltText")}
+            vcImageAltText={t("vc:altTextfigure3")}
             figureCaption={t("vc:figureCaption3")}
           />
           <p className="pb-2 ">{t("vc:scenarioPart4")}</p>
           <p className="pb-2 ">{t("vc:scenarioPart4-1")}</p>
-          <p className="pb-2 mb-6">{t("vc:scenarioPart4-2")}</p>
+          <p className="pb-2 mb-6 font-bold">{t("vc:scenarioPart4-2")}</p>
         </div>
 
         {/*TODO these are the buttons on the bottom of the page that can be added if needed.  */}
