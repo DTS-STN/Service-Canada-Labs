@@ -21,6 +21,6 @@ describe("Projects", () => {
       route: "/projects",
     });
     render();
-    expect(screen.getByText("Explore our projects")).toBeInTheDocument();
+    expect(screen.getAllByText("Explore our projects")[0]).toBeInTheDocument();
   });
 });

@@ -98,11 +98,11 @@ export default function Projects(props) {
           label={t("filterBy")}
           options={filters}
           onChange={handleFilter}
-          dataCy={"filter-experiments"}
+          dataCy={"filter-projects"}
         />
         <ul
           className="grid gap-y-5 lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12"
-          data-cy="experiments-list"
+          data-cy="projects-list"
         >
           {displayExperiments}
         </ul>
