@@ -14,7 +14,8 @@
     "next-page-tester": "^0.26.1",
     "react": "^17.0.2",
     "react-dom": "17.0.2",
-    "storybook-addon-next-router": "^2.0.4"
+    "storybook-addon-next-router": "^2.0.4",
+    "webpack-subresource-integrity": "^1.5.2"
   },
   "scripts": {
     "dev": "next dev",
@@ -66,8 +67,7 @@
     "prettier": "^2.3.2",
     "tailwindcss": "^2.2.4",
     "weak-napi": "^2.0.2",
-    "webpack": "^4.46.0",
-    "webpack-subresource-integrity": "^1.5.2"
+    "webpack": "^4.46.0"
   },
   "lint-staged": {
     "pages/**/*.{js,jsx,ts,tsx,json,md}": [
