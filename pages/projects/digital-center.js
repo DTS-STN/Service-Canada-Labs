@@ -56,8 +56,8 @@ export default function DigitalCenter(props) {
       locale={props.locale}
       langUrl={asPath}
       breadcrumbItems={[
-        { text: "Service Canada Labs", link: "/" },
-        { text: "Projects", link: "/projects" },
+        { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+        { text: t("menuLink1"), link: t("breadCrumbsHref2") },
       ]}
     >
       <Head>
@@ -66,9 +66,9 @@ export default function DigitalCenter(props) {
         ) : (
           ""
         )}
-        <title>{t("scLabsHome")}</title>
+        <title>{t("dc:OverviewTitle")}</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content={t("scLabsHome")} />
+        <meta name="dcterms.title" content={t("dc:OverviewTitle")} />
         <meta
           name="dcterms.language"
           content={props.locale === "en" ? "eng" : "fra"}

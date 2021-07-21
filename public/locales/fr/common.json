@@ -270,5 +270,7 @@
   "privacyWithdraw2": " et nous supprimerons vos renseignements personnels.",
   "unsubscribeWord": "vous désinscrire",
   "signupTitleCallToAction": "Inscrivez-vous pour être invité aux séances de recherche",
-  "signupBtn": "S’inscrire pour être invité aux séances de recherche"
+  "signupBtn": "S’inscrire pour être invité aux séances de recherche",
+  "breadCrumbsHref1": "/home",
+  "breadCrumbsHref2": "/projects"
 }

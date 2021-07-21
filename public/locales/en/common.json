@@ -269,5 +269,7 @@
   "privacyWithdraw2": " yourself from the participant list and we will remove your personal information.",
   "unsubscribeWord": "unsubscribe",
   "signupTitleCallToAction": "Sign up to get invited to research sessions",
-  "signupBtn": "Sign up to get invited to research sessions"
+  "signupBtn": "Sign up to get invited to research sessions",
+  "breadCrumbsHref1": "/home",
+  "breadCrumbsHref2": "/projects"
 }

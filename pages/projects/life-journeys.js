@@ -32,8 +32,8 @@ export default function LifeJourneys(props) {
       locale={props.locale}
       langUrl={asPath}
       breadcrumbItems={[
-        { text: "Service Canada Labs", link: "/home" },
-        { text: "Explore our projects", link: "/projects" },
+        { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+        { text: t("menuLink1"), link: t("breadCrumbsHref2") },
       ]}
     >
       <Head>
