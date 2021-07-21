@@ -6,7 +6,7 @@ function getCsp() {
   let csp = ``;
   csp += `base-uri 'self';`;
   csp += `form-action 'self';`;
-  csp += `default-src 'self' dts-stn.com *.dts-stn.com;`;
+  csp += `default-src 'self' dts-stn.com *.dts-stn.com *.adobe.com;`;
   csp += `script-src 'self' 'unsafe-inline' ${
     process.env.CI === "true"
       ? "'unsafe-eval'"
