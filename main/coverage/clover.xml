@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1626890027080" clover="3.2.0">
-  <project timestamp="1626890027081" name="All files">
+<coverage generated="1626890027404" clover="3.2.0">
+  <project timestamp="1626890027405" name="All files">
     <metrics statements="561" coveredstatements="502" conditionals="430" coveredconditionals="306" methods="154" coveredmethods="125" elements="1145" coveredelements="933" complexity="0" loc="561" ncloc="561" packages="14" files="84" classes="84"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -382,8 +382,8 @@
         <line num="20" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="21" count="0" type="stmt"/>
         <line num="24" count="308" type="stmt"/>
-        <line num="100" count="16" type="stmt"/>
-        <line num="104" count="16" type="stmt"/>
+        <line num="99" count="16" type="stmt"/>
+        <line num="103" count="16" type="stmt"/>
       </file>
       <file name="OptionalTextField.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/molecules/OptionalTextField.stories.js">
         <metrics statements="12" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
@@ -481,7 +481,7 @@
         <line num="34" count="0" type="stmt"/>
         <line num="37" count="2" type="stmt"/>
         <line num="40" count="45" type="stmt"/>
-        <line num="299" count="15" type="stmt"/>
+        <line num="292" count="15" type="stmt"/>
       </file>
       <file name="ReportAProblem.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/organisms/ReportAProblem.stories.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
