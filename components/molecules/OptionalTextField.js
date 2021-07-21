@@ -28,6 +28,7 @@ export function OptionalTextField(props) {
           label={props.controlLabel}
           id={props.controlId}
           name={props.controlName}
+          className={props.checkBoxStyle}
           checked={props.checked}
           uncontrolled={props.uncontrolled}
           value={props.controlValue}
@@ -249,4 +250,9 @@ OptionalTextField.propTypes = {
    * aria-describedby label id
    */
   describedby: PropTypes.string,
+
+  /**
+   * Styling for checkbox
+   */
+  checkBoxStyle: PropTypes.string,
 };
