@@ -29,12 +29,14 @@ UnOpened.args = {
   listLabel: "Please check all the reasons why you are wrong.",
   children: [
     <CheckBox
+      key="key1"
       label="I don't like fake chocolate spread"
       name="reasons"
       value="dislike"
       id="reasons-dislike"
     />,
     <CheckBox
+      key="key2"
       label="I make poor choices"
       name="reasons"
       value="poor-choice"
@@ -53,6 +55,7 @@ Opened_Checkboxes.args = {
   listLabel: "Please check all the reasons why you are wrong.",
   children: [
     <CheckBox
+      key="key1"
       label="I don't like fake chocolate spread"
       name="reasons"
       value="dislike"
@@ -60,6 +63,7 @@ Opened_Checkboxes.args = {
       dataTestId="reasons-dislike"
     />,
     <CheckBox
+      key="key2"
       label="I make poor choices"
       name="reasons"
       value="poor-choice"
@@ -79,6 +83,7 @@ Opened_Radiofields.args = {
   listLabel: "Please check all the reasons why you are wrong.",
   children: [
     <RadioField
+      key="key1"
       label="I don't like fake chocolate spread"
       name="reasons"
       value="dislike"
@@ -86,6 +91,7 @@ Opened_Radiofields.args = {
       dataTestId="reasons-dislike"
     />,
     <RadioField
+      key="key2"
       label="I make poor choices"
       name="reasons"
       value="poor-choice"
@@ -106,6 +112,7 @@ Radio.args = {
   listLabel: "Please check all the reasons why you are wrong.",
   children: [
     <CheckBox
+      key="key1"
       label="I don't like fake chocolate spread"
       name="reasons"
       value="dislike"
@@ -113,6 +120,7 @@ Radio.args = {
       dataTestId="reasons-dislike"
     />,
     <CheckBox
+      key="key2"
       label="I make poor choices"
       name="reasons"
       value="poor-choice"
@@ -132,6 +140,7 @@ UnControlled.args = {
   listLabel: "Please check all the reasons why you are wrong.",
   children: [
     <CheckBox
+      key="key1"
       label="I don't like fake chocolate spread"
       name="reasons"
       value="dislike"
@@ -139,6 +148,7 @@ UnControlled.args = {
       dataTestId="reasons-dislike"
     />,
     <CheckBox
+      key="key2"
       label="I make poor choices"
       name="reasons"
       value="poor-choice"
