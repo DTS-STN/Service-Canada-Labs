@@ -16,7 +16,7 @@ function getCsp() {
   } https://ajax.googleapis.com https://assets.adobedtm.com;`; // NextJS requires 'unsafe-eval' in dev (faster source maps)
   csp += `connect-src 'self' *.demdex.net *.omtrdc.net;`;
   csp += `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com data:;`; // NextJS requires 'unsafe-inline'
-  csp += `img-src 'self';`;
+  csp += `img-src 'self' *.omtrdc.net;`;
   csp += `font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;`;
   // csp += `frame-src *;` // TODO
   // csp += `media-src *;` // TODO
