@@ -14,8 +14,10 @@ export default function Home(props) {
     <Layout
       locale={props.locale}
       langUrl={asPath}
-      // TODO not sure what the path is here
-      breadcrumbItems={[{ text: t("bannerTitle"), link: "/home" }]}
+      breadcrumbItems={[
+        { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+        { text: t("menuLink1"), link: t("breadCrumbsHref2") },
+      ]}
     >
       <Head>
         {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
