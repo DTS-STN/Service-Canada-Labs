@@ -15,10 +15,7 @@ export default function Confirmation(props) {
       locale={props.locale}
       langUrl={asPath}
       breadcrumbItems={[
-        {
-          text: t("bannerTitle"),
-          link: props.locale === "en" ? "/home" : "/fr/home",
-        },
+        { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
       ]}
     >
       <Head>
