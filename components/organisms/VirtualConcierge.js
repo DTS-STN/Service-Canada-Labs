@@ -12,9 +12,9 @@ export const VirtualConcierge = (props) => {
       data-testid={props.dataTestId}
       data-cy={props.dataCy}
     >
-      <p className="pb-2 ">{props.description}</p>
-      <p className="pb-2 ">{props.description1}</p>
-      <p className="pb-2 ">{props.description2}</p>
+      <p className="pb-2 xl:w-3/4">{props.description}</p>
+      <p className="pb-2 xl:w-3/4">{props.description1}</p>
+      <p className="pb-2 xl:w-3/4">{props.description2}</p>
 
       <div>
         {/* images for the virtual assistant page*/}
