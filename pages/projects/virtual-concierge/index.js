@@ -38,9 +38,9 @@ export default function Home(props) {
 
       <section className="layout-container mb-2 mt-12 ">
         <div className="w-auto mb-6">
-          <h2 className="mb-8 text-h1l" tabIndex="-1" id="pageMainTitle">
+          <h1 className="mb-8 text-h1l" tabIndex="-1" id="pageMainTitle">
             {t("vc:virtualAssistantTitle")}
-          </h2>
+          </h1>
           <div className="grid lg:grid-cols-2 gap-6  ">
             <div className=" bg-gradient-to-tr from-custom-blue-blue to-vc-blue-lt  p-4 ">
               <img
