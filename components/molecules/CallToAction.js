@@ -9,37 +9,39 @@ import { useTranslation } from "next-i18next";
 export function CallToAction(props) {
   const { t } = useTranslation("common");
   return (
-    <div className="bg-circle-color text-white">
-      <div className="layout-container pb-10 pt-10 text-xs md:text-base">
-        <h2>{props.title}</h2>
-        <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-24 gap-5">
-          {props.description ? (
-            <p className="whitespace-pre-line">{props.description}</p>
-          ) : (
-            <div
-              className="whitespace-pre-line"
-              dangerouslySetInnerHTML={{ __html: props.html }}
-            />
-          )}
-          <div>
-            <p className="flex mb-4 text-center">
-              <ActionButton
-                id="become-a-participant-btn"
-                href={props.href}
-                text={props.hrefText}
+    <aside>
+      <div className="bg-circle-color text-white">
+        <div className="layout-container pb-10 pt-10 text-xs md:text-base">
+          <h2>{props.title}</h2>
+          <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-24 gap-5">
+            {props.description ? (
+              <p className="whitespace-pre-line">{props.description}</p>
+            ) : (
+              <div
+                className="whitespace-pre-line"
+                dangerouslySetInnerHTML={{ __html: props.html }}
               />
-            </p>
-            <p>
-              <Link href="/privacy">
-                <a className="text-sm underline flex xl:inline lg:mr-10">
-                  {t("privacyLinkText")}
-                </a>
-              </Link>
-            </p>
+            )}
+            <div>
+              <p className="flex mb-4 text-center">
+                <ActionButton
+                  id="become-a-participant-btn"
+                  href={props.href}
+                  text={props.hrefText}
+                />
+              </p>
+              <p>
+                <Link href="/privacy">
+                  <a className="text-sm underline flex xl:inline lg:mr-10">
+                    {t("privacyLinkText")}
+                  </a>
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </aside>
   );
 }
 
