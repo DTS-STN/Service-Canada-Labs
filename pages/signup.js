@@ -855,7 +855,11 @@ export default function Signup(props) {
                   checked={minorityGroup.includes("southAsian")}
                   onChange={handlerMinorityGroupOnChange}
                   value="southAsian"
-                  className="mb-10 lg:mb-7"
+                  className={
+                    props.locale === "en"
+                      ? "mb-20 md:mb-12 lg:mb-7"
+                      : "mb-24 md:mb-12 lg:mb-10"
+                  }
                 />
                 <CheckBox
                   label={t("SEA")}
@@ -864,7 +868,7 @@ export default function Signup(props) {
                   checked={minorityGroup.includes("southeastAsian")}
                   onChange={handlerMinorityGroupOnChange}
                   value="southeastAsian"
-                  className="mb-10 lg:mb-7"
+                  className="mb-12 md:mb-7"
                 />
                 <CheckBox
                   label={t("nonWhiteAAA")}
@@ -873,7 +877,9 @@ export default function Signup(props) {
                   checked={minorityGroup.includes("nonWhiteAAA")}
                   onChange={handlerMinorityGroupOnChange}
                   value="nonWhiteAAA"
-                  className="mb-10 lg:mb-7"
+                  className={
+                    props.locale === "en" ? "mb-12 md:mb-7" : "mb-16 md:mb-7"
+                  }
                 />
                 <CheckBox
                   label={t("LA")}
@@ -882,7 +888,7 @@ export default function Signup(props) {
                   checked={minorityGroup.includes("latinAmerican")}
                   onChange={handlerMinorityGroupOnChange}
                   value="latinAmerican"
-                  className="mb-10 lg:mb-7"
+                  className="mb-16 md:mb-7"
                 />
                 <CheckBox
                   label={t("mixedOrigin")}
@@ -891,7 +897,7 @@ export default function Signup(props) {
                   checked={minorityGroup.includes("mixedOrigin")}
                   onChange={handlerMinorityGroupOnChange}
                   value="mixedOrigin"
-                  className="mb-7"
+                  className="mb-12 md:mb-7"
                 />
                 <OptionalTextField
                   controlLabel={t("otherMinority")}
