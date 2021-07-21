@@ -8,6 +8,12 @@ import { axe, toHaveNoViolations } from "jest-axe";
 
 expect.extend(toHaveNoViolations);
 
+jest.mock("next/link", () => {
+  return ({ children }) => {
+    return children;
+  };
+});
+
 describe("CallToAction", () => {
   it("renders component correctly", () => {
     render(<Primary {...Primary.args} />);
