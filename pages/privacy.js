@@ -13,7 +13,12 @@ export default function Privacy(props) {
     <Layout
       locale={props.locale}
       langUrl={asPath}
-      breadcrumbItems={[{ text: "Service Canada Labs", link: "/home" }]}
+      breadcrumbItems={[
+        {
+          text: t("bannerTitle"),
+          link: props.locale === "en" ? "/home" : "/fr/home",
+        },
+      ]}
     >
       <Head>
         {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
