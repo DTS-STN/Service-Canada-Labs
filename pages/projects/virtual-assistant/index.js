@@ -103,16 +103,12 @@ export default function Home(props) {
             vcImageAltText={t("vc:altTextfigure3")}
             figureCaption={t("vc:figureCaption3")}
           />
-          <p className="pb-2 ">{t("vc:scenarioPart4")}</p>
-          <p className="pb-2 ">{t("vc:scenarioPart4-1")}</p>
-          <p className="pb-2 mb-6 font-bold">{t("vc:scenarioPart4-2")}</p>
+          <p className="pb-2 xl:w-3/4">{t("vc:scenarioPart4")}</p>
+          <p className="pb-2 xl:w-3/4">{t("vc:scenarioPart4-1")}</p>
+          <p className="pb-2 mb-6 font-bold xl:w-3/4">
+            {t("vc:scenarioPart4-2")}
+          </p>
         </div>
-
-        {/*TODO these are the buttons on the bottom of the page that can be added if needed.  */}
-        {/* <div className="flex-col flex lg:flex lg:flex-row gap-1">
-          <TextButtonField href="/experiments" buttonText={t("experimentsBtnTxt")} idButton="ExperimentsButton" dataCyButton="ExperimentsButton" className="flex" />
-          <TextButtonField href="/about" buttonText={t("learnMoreAboutSCL")} idButton="AboutButton" dataCyButton="AboutButton" className="flex" />
-        </div> */}
       </section>
       <CallToAction
         title={t("signupTitle")}
