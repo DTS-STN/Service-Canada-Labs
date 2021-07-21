@@ -5,12 +5,12 @@ import terminalLog from "../plugins/terminalLog";
 
 describe("Virtual concierge page", () => {
     beforeEach(() => {
-      cy.visit("/projects/virtual-concierge");
+      cy.visit("/projects/virtual-assistant");
       cy.injectAxe();
     });
   
     it("VC page loaded", () => {
-      cy.url().should("contains", "/projects/virtual-concierge");
+      cy.url().should("contains", "/projects/virtual-assistant");
     });
 
   it("Has no detectable a11y violations on load", () => {

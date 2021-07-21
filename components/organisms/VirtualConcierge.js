@@ -17,7 +17,7 @@ export const VirtualConcierge = (props) => {
       <p className="pb-2 ">{props.description2}</p>
 
       <div>
-        {/* className={props.className} TODO the aspect ratio of the image for mobile needs to be resolved. this is just temp for now */}
+        {/* images for the virtual assistant page*/}
         <figure>
           <img
             className={`object-fill max-h-auto p-1 lg:w-1/3 lg:h-auto ${

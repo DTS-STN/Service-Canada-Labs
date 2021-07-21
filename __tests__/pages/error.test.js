@@ -5,6 +5,7 @@ import React from "react";
 import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { getPage } from "next-page-tester";
+import { act } from "react-dom/test-utils";
 
 import router from "next/router";
 
@@ -12,18 +13,22 @@ jest.mock("next/router", () => require("next-router-mock"));
 
 describe("Error page", () => {
   it("renders the page", async () => {
-    const { render } = await getPage({
-      route: "/error",
+    await act(async () => {
+      const { render } = await getPage({
+        route: "/error",
+      });
+      render();
     });
-    render();
     expect(screen.getByRole("main")).toBeInTheDocument();
   });
 
   it("renders default title and message", async () => {
-    const { render } = await getPage({
-      route: "/error",
+    await act(async () => {
+      const { render } = await getPage({
+        route: "/error",
+      });
+      render();
     });
-    render();
 
     const titleEn = screen.getByTestId("heading-en");
     const titleFr = screen.getByTestId("heading-fr");
@@ -41,9 +46,11 @@ describe("Error page", () => {
   });
 
   it("renders custom title", () => {
-    router.push({
-      pathname: "/error",
-      query: { errorTitle: "custom title", errorTitleFr: "custom title fr" },
+    act(() => {
+      router.push({
+        pathname: "/error",
+        query: { errorTitle: "custom title", errorTitleFr: "custom title fr" },
+      });
     });
     expect(router).toMatchObject({
       asPath:
@@ -54,13 +61,16 @@ describe("Error page", () => {
   });
 
   it("renders custom message", () => {
-    router.push({
-      pathname: "/error",
-      query: {
-        errorMessage: "custom error message",
-        errorMessageFr: "custom error message fr",
-      },
+    act(() => {
+      router.push({
+        pathname: "/error",
+        query: {
+          errorMessage: "custom error message",
+          errorMessageFr: "custom error message fr",
+        },
+      });
     });
+
     expect(router).toMatchObject({
       asPath:
         "/error?errorMessage=custom%20error%20message&errorMessageFr=custom%20error%20message%20fr",
@@ -73,27 +83,17 @@ describe("Error page", () => {
   });
 
   it("renders the status code if it's passed in", () => {
-    router.push({
-      pathname: "/error",
-      query: { statusCode: "404" },
+    act(() => {
+      router.push({
+        pathname: "/error",
+        query: { statusCode: "404" },
+      });
     });
+
     expect(router).toMatchObject({
       asPath: "/error?statusCode=404",
       pathname: "/error",
       query: { statusCode: "404" },
     });
   });
-
-  // it("renders the status code if it's passed in", async () => {
-  //   const { render } = await getPage({
-  //     route: "/error?statusCode=404",
-  //   });
-  //   render();
-
-  //   const statusCode = screen.getByTestId("statuscode-en");
-  //   const statusCodeFr = screen.getByTestId("statuscode-fr");
-
-  //   expect(statusCode.textContent).toEqual("Error 404");
-  //   expect(statusCodeFr.textContent).toEqual("Erreur 404");
-  // });
 });
