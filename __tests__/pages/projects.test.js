@@ -5,7 +5,11 @@ import { getPage } from "next-page-tester";
 import { screen } from "@testing-library/react";
 import fetchMock from "fetch-mock";
 const experiments = require("../../cypress/fixtures/experiments.json");
-
+jest.mock("next/link", () => {
+  return ({ children }) => {
+    return children;
+  };
+});
 describe("Projects", () => {
   beforeEach(() => {
     fetchMock.getOnce(`${process.env.STRAPI_API_BACKEND_URL}/experiments`, {
