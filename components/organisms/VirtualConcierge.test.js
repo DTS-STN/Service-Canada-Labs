@@ -9,13 +9,13 @@ import { Primary } from "./VirtualConcierge.stories";
 expect.extend(toHaveNoViolations);
 
 describe("Virtual Concierge", () => {
-  it("renders the page with some text", () => {
+  it("renders the page with some text", async () => {
     render(<Primary {...Primary.args} />);
-    screen.findByText(Primary.args.vcImageAltText);
-    screen.findByText(Primary.args.description);
-    screen.findByText(Primary.args.description1);
-    screen.findByText(Primary.args.description2);
-    screen.findByText(Primary.args.dataTestId);
+    await screen.findAllByAltText(Primary.args.vcImageAltText);
+    await screen.findByText(Primary.args.description);
+    await screen.findByText(Primary.args.description1);
+    await screen.findByText(Primary.args.description2);
+    await screen.findAllByTestId(Primary.args.dataTestId);
   });
 
   //   it("renders the page with some items", () => {
