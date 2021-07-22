@@ -45,14 +45,18 @@ export function ReportAProblem(props) {
     >
       {submitted ? (
         <>
-          <h2 className="text-base font-body mb-4">
-            {t("reportAProblemThankYouForYourHelp", { lng: props.language })}
-          </h2>
-          <p role="status" className="text-sm font-body mb-4">
-            {t("reportAProblemYouWillNotBeContacted", { lng: props.language })}
-          </p>
+          <div role="status">
+            <h2 className="text-base font-body mb-4">
+              {t("reportAProblemThankYouForYourHelp", { lng: props.language })}
+            </h2>
+            <p className="text-sm font-body mb-4">
+              {t("reportAProblemYouWillNotBeContacted", {
+                lng: props.language,
+              })}
+            </p>
+          </div>
           <a
-            className="underline block text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+            className="underline text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
             href={`mailto: ${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
           >
             experience@servicecanada.gc.ca

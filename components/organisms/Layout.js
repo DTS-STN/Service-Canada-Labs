@@ -127,7 +127,7 @@ export const Layout = ({
           <DateModified date={process.env.NEXT_PUBLIC_BUILD_DATE} />
         </div>
         <Footer
-          footerLogoAltText={t("symbol")}
+          footerLogoAltText={t("symbol2")}
           footerLogoImage="/wmms-blk.svg"
           links={[
             {
