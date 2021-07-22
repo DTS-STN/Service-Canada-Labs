@@ -45,10 +45,10 @@ export function ReportAProblem(props) {
     >
       {submitted ? (
         <>
-          <h2 role="status" className="text-base font-body mb-4">
+          <h2 className="text-base font-body mb-4">
             {t("reportAProblemThankYouForYourHelp", { lng: props.language })}
           </h2>
-          <p className="text-sm font-body mb-4">
+          <p role="status" className="text-sm font-body mb-4">
             {t("reportAProblemYouWillNotBeContacted", { lng: props.language })}
           </p>
           <a
