@@ -52,7 +52,7 @@ export function ReportAProblem(props) {
             {t("reportAProblemYouWillNotBeContacted", { lng: props.language })}
           </p>
           <a
-            className="block text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+            className="underline block text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
             href={`mailto: ${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
           >
             experience@servicecanada.gc.ca
@@ -244,7 +244,7 @@ export function ReportAProblem(props) {
               <b>{t("reportAProblemNoReply", { lng: props.language })}</b>
               {t("reportAProblemEnquiries", { lng: props.language })}
               <a
-                className="block text-xxs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+                className="underline block text-xxs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                 href="mailto:experience@servicecanada.gc.ca"
               >
                 experience@servicecanada.gc.ca
@@ -265,7 +265,7 @@ export function ReportAProblem(props) {
               {t("reportAProblemMoreInfoDetails", { lng: props.language })}
               &nbsp;
               <a
-                className="text-xxs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+                className="underline text-xxs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                 href={t("reportAProblemMoreInfoLink", { lng: props.language })}
               >
                 {t("reportAProblemMoreInfoLinkText", { lng: props.language })}
@@ -273,7 +273,7 @@ export function ReportAProblem(props) {
             </li>
           </ul>
           <a
-            className="block text-xs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font my-4 underline"
+            className="underline block text-xs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font my-4 underline"
             href={t("reportAProblemPrivacyStatementLink", {
               lng: props.language,
             })}

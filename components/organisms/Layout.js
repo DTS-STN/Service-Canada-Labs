@@ -51,7 +51,7 @@ export const Layout = ({
           <div className="flex flex-row justify-between items-center lg:mt-7 mt-1.5">
             <img
               className="h-5 w-auto xs:h-6 sm:h-8 md:h-8 lg:h-7 xl:h-8"
-              src={language === "en" ? "/sig-blk-en.svg" : "/sig-blk-fr.svg"}
+              src={language === "en" ? "/sig-blk-fr.svg" : "/sig-blk-en.svg"}
               alt={t("symbol")}
             />
             <Link
@@ -127,7 +127,7 @@ export const Layout = ({
           <DateModified date={process.env.NEXT_PUBLIC_BUILD_DATE} />
         </div>
         <Footer
-          footerLogoAltText="Symbol of the Government of Canada"
+          footerLogoAltText={t("symbol")}
           footerLogoImage="/wmms-blk.svg"
           links={[
             {
