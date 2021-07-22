@@ -20,6 +20,7 @@ jobs:
         env:
           STRAPI_API_BACKEND_URL: https://alphasite-api.dts-stn.com
           NEXT_PUBLIC_API_MOCKING: enabled
+          CI: true
 
       - name: Linting Test 📝
         run: npm run lint:test
@@ -35,7 +36,6 @@ jobs:
         uses: cypress-io/github-action@v2
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true # allowing set-env funtion to run (vulnerability https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/)
-          NODE_ENV: production
           CI: true
         with:
           install: false

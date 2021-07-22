@@ -3,7 +3,6 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import { ActionButton } from "../components/atoms/ActionButton";
 
 export default function Confirmation(props) {
   const { t } = useTranslation("common");
@@ -15,7 +14,9 @@ export default function Confirmation(props) {
     <Layout
       locale={props.locale}
       langUrl={asPath}
-      breadcrumbItems={[{ text: "Service Canada Labs", link: "/" }]}
+      breadcrumbItems={[
+        { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+      ]}
     >
       <Head>
         {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
@@ -38,7 +39,7 @@ export default function Confirmation(props) {
       <section className="layout-container mb-12">
         <h1
           id="pageMainTitle"
-          className="mb-10 text-h1l font-bold w-max"
+          className="mb-10 text-h1l font-bold lg:w-max"
           tabIndex="-1"
         >
           {t("pleaseCheckYourEmail")}
@@ -47,8 +48,8 @@ export default function Confirmation(props) {
           <span className="w-full flex justify-center lg:w-1/3">
             <img
               className="w-80px mb-10 lg:mb-0 lg:ml-24 lg:w-160px"
-              src="/circle-check.svg"
-              alt="Circle with checkmark"
+              src="/circle-info.svg"
+              alt="Circle with information icon"
             />
           </span>
           <div className="lg:w-2/3">
@@ -79,7 +80,6 @@ export default function Confirmation(props) {
             ) : (
               ""
             )}
-            <ActionButton id="resend_email" text={t("resendEmail")} tertiary />
           </div>
         </div>
       </section>

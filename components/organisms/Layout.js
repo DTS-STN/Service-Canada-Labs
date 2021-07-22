@@ -44,7 +44,9 @@ export const Layout = ({
         </a>
       </nav>
       <header>
-        <PhaseBanner phase={t("BannerTag")}>{t("BannerText")}</PhaseBanner>
+        <PhaseBanner phase={t("phaseBannerTag")}>
+          {t("phaseBannerText")}
+        </PhaseBanner>
         <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">
           <div className="flex flex-row justify-between items-center lg:mt-7 mt-1.5">
             <img
@@ -92,16 +94,16 @@ export const Layout = ({
           signUpText={t("signupBtn")}
           items={[
             {
-              link: "/home",
+              link: "/projects",
               text: t("menuLink1"),
             },
             {
-              link: "/experiments",
+              link: "/about",
               text: t("menuLink2"),
             },
             {
-              link: "/about",
-              text: t("menuLink3"),
+              link: "/signup",
+              text: t("signupLink"),
             },
           ]}
         />

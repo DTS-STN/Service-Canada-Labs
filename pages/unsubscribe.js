@@ -167,7 +167,9 @@ export default function Unsubscribe(props) {
     <Layout
       locale={props.locale}
       langUrl={asPath}
-      breadcrumbItems={[{ text: "Service Canada Labs", link: "/" }]}
+      breadcrumbItems={[
+        { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+      ]}
     >
       <Head>
         {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
@@ -175,7 +177,7 @@ export default function Unsubscribe(props) {
         ) : (
           ""
         )}
-        <title>{t("scLabsSignup")}</title>
+        <title>{t("scLabsUnsubscribe")}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="dcterms.title" content={t("scLabsUnsubscribe")} />
         <meta
@@ -192,7 +194,7 @@ export default function Unsubscribe(props) {
           <h1 className="mb-12" id="pageMainTitle">
             {t("unsubscribe")}
           </h1>
-          <p className="mb-10">{t("unsubscribeInfo")}</p>
+          <p className="mb-10 text-sm lg:text-p">{t("unsubscribeInfo")}</p>
         </div>
       </section>
       <section className="layout-container">
@@ -238,7 +240,7 @@ export default function Unsubscribe(props) {
           </ActionButton>
           <ActionButton
             id="reset-bottom"
-            custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10"
+            custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10 lg:text-p"
             type="reset"
           >
             {t("clear")}

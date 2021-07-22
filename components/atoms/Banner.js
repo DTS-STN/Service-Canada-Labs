@@ -7,9 +7,12 @@ import PropTypes from "prop-types";
 
 export const Banner = ({ siteTitle, headline }) => {
   return (
-    <div title="Home banner" className="bg-banner-img py-8">
+    <div
+      title="Home banner"
+      className="bg-banner-img-mobile bg-center py-8 sm:bg-banner-img sm:bg-right sm:bg-cover"
+    >
       <div className="lg:container xxs:mx-0 xxs:px-0 lg:mx-auto lg:px-6 xxl:mx-auto">
-        <div className="xxs:w-screen lg:w-2/3 xl:w-1/2 bg-dk-blue bg-opacity-90 text-white p-4">
+        <div className=" bg-black bg-opacity-90 text-white p-4 xxs:w-screen sm:bg-opacity-30 lg:w-2/3 xl:w-1/2">
           <h1 className="text-h1 font-medium pt-4 pb-2 break-words">
             {siteTitle}
           </h1>

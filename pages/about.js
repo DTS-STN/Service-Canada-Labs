@@ -14,7 +14,9 @@ export default function About(props) {
     <Layout
       locale={props.locale}
       langUrl={asPath}
-      breadcrumbItems={[{ text: "Service Canada Labs", link: "/" }]}
+      breadcrumbItems={[
+        { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+      ]}
     >
       <Head>
         {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
@@ -78,10 +80,10 @@ export default function About(props) {
         </p>
       </section>
       <CallToAction
-        title={t("signupTitle")}
+        title={t("signupTitleCallToAction")}
         html={t("becomeAParticipantDescription")}
         href={"/signup"}
-        hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
+        hrefText={t("signupBtn")}
       />
     </Layout>
   );

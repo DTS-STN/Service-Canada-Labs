@@ -383,7 +383,9 @@ export default function Signup(props) {
     <Layout
       locale={props.locale}
       langUrl={asPath}
-      breadcrumbItems={[{ text: "Service Canada Labs", link: "/" }]}
+      breadcrumbItems={[
+        { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+      ]}
     >
       <Head>
         {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
@@ -403,28 +405,33 @@ export default function Signup(props) {
         <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
         <meta name="dcterms.issued" content="2021-06-08" />
       </Head>
-      <section className="layout-container mb-2 mt-12 xl:bg-lightbulb-right-img xl:bg-right xl:bg-no-repeat">
+      <section className="layout-container mb-2 mt-12">
         <div className="xl:w-2/3 ">
           <h1 className="mb-12" id="pageMainTitle" tabIndex="-1">
             {t("signupTitle")}
           </h1>
-          <p className="mb-10">{t("signupP1")}</p>
-          <h2 className="mb-5">{t("signupTitle2")}</h2>
-          <ul className="list-disc list-outside pl-2 mb-10 font-body ml-3">
+          <p className="mb-5 text-sm lg:text-p">{t("signupP1")}</p>
+          <ul
+            className="list-disc text-sm lg:text-p pl-10 mb-5"
+            dangerouslySetInnerHTML={{ __html: t("signupList") }}
+          ></ul>
+          <p className="mb-10 text-sm lg:text-p">{t("signupP1.1")}</p>
+          <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle2")}</h2>
+          <ul className="list-disc list-outside pl-2 mb-10 font-body text-sm lg:text-p ml-3">
             <li className="mb-3">{t("signupP2.1")}</li>
             <li className="mb-3">{t("signupP2.2")}</li>
             <li className="mb-3">{t("signupP2.3")}</li>
             <li>{t("signupP2.4")}</li>
           </ul>
-          <h3 className="mb-5">{t("signupTitle3")}</h3>
+          <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle3")}</h2>
           <p className="mb-3">{t("signupP3")}</p>
-          <ul className="list-disc list-outside pl-2 mb-5 font-body ml-3">
+          <ul className="list-disc list-outside pl-2 mb-5 font-body ml-3 text-sm lg:text-p">
             <li>{t("email")}</li>
             <li>{t("year")}</li>
-            <li>{t("language")}</li>
+            <li>{t("lang")}</li>
           </ul>
-          <p className="mb-3">{t("signupP4")}</p>
-          <ul className="list-disc list-outside pl-2 mb-5 font-body ml-3">
+          <p className="mb-3 text-sm lg:text-p">{t("signupP4")}</p>
+          <ul className="list-disc list-outside pl-2 mb-5 font-body ml-3 text-sm lg:text-p">
             <li>{t("province")}</li>
             <li>{t("gender")}</li>
             <li>{t("indigenous")}</li>
@@ -432,15 +439,21 @@ export default function Signup(props) {
             <li>{t("minority")}</li>
             <li>{t("income")}</li>
           </ul>
+          <p className="my-8 text-sm lg:text-p">{t("signupP3.1")}</p>
+          <a
+            className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5 text-sm lg:text-p"
+            href={t("privacyLink")}
+          >
+            {t("privacy")}
+          </a>
+          <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle4")}</h2>
+          <p
+            className="my-8 text-sm lg:text-p"
+            dangerouslySetInnerHTML={{ __html: t("signupP5") }}
+          ></p>
         </div>
       </section>
       <section className="layout-container">
-        <a
-          className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
-          href={t("privacyLink")}
-        >
-          {t("privacy")}
-        </a>
         {errorBoxText ? (
           <ErrorBox
             text={errorBoxText}
@@ -457,7 +470,7 @@ export default function Signup(props) {
         >
           <ActionButton
             id="reset"
-            custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
+            custom="block font-body text-sm lg:text-p hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
             type="reset"
             onClick={useEffect(() => {
               var select = document.getElementById("province-choice");
@@ -498,7 +511,7 @@ export default function Signup(props) {
               required
             />
             <fieldset className="mb-6">
-              <legend className="block leading-tight text-sm font-body mb-5 font-bold">
+              <legend className="block leading-tight text-sm font-body mb-5 lg:text-p font-bold">
                 <b className="text-error-border-red">*</b> {t("formLang")}{" "}
                 <b className="text-error-border-red">{t("required")}</b>
               </legend>
@@ -607,9 +620,9 @@ export default function Signup(props) {
             />
 
             <fieldset className="mb-6">
-              <legend className="block leading-tight text-sm font-body mb-5 font-bold">
+              <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
                 {t("formGender")}{" "}
-                <span className="inline text-form-input-gray text-sm">
+                <span className="inline text-form-input-gray text-sm lg:text-p">
                   {t("optional")}
                 </span>
               </legend>
@@ -659,9 +672,9 @@ export default function Signup(props) {
             </fieldset>
 
             <fieldset className="mb-6">
-              <legend className="block leading-tight text-sm font-body mb-5 font-bold">
+              <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
                 {t("formIndigenous")}{" "}
-                <span className="inline text-form-input-gray text-sm">
+                <span className="inline text-form-input-gray text-sm lg:text-p">
                   {t("optional")}
                 </span>
               </legend>
@@ -718,9 +731,9 @@ export default function Signup(props) {
             </fieldset>
 
             <fieldset className="mb-6">
-              <legend className="block leading-tight text-sm font-body mb-5 font-bold">
+              <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
                 {t("disability")}{" "}
-                <span className="inline text-form-input-gray text-sm">
+                <span className="inline text-form-input-gray text-sm lg:text-p">
                   {t("optional")}
                 </span>
               </legend>
@@ -776,9 +789,9 @@ export default function Signup(props) {
             </fieldset>
 
             <fieldset className="mb-6">
-              <legend className="block leading-tight text-sm font-body mb-5 font-bold">
+              <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
                 {t("formMinority")}{" "}
-                <span className="inline text-form-input-gray text-sm">
+                <span className="inline text-form-input-gray text-sm lg:text-p">
                   {t("optional")}
                 </span>
               </legend>
@@ -844,7 +857,11 @@ export default function Signup(props) {
                   checked={minorityGroup.includes("southAsian")}
                   onChange={handlerMinorityGroupOnChange}
                   value="southAsian"
-                  className="mb-10 lg:mb-7"
+                  className={
+                    props.locale === "en"
+                      ? "mb-20 md:mb-12 lg:mb-7"
+                      : "mb-24 md:mb-12 lg:mb-10"
+                  }
                 />
                 <CheckBox
                   label={t("SEA")}
@@ -853,7 +870,7 @@ export default function Signup(props) {
                   checked={minorityGroup.includes("southeastAsian")}
                   onChange={handlerMinorityGroupOnChange}
                   value="southeastAsian"
-                  className="mb-10 lg:mb-7"
+                  className="mb-12 md:mb-7"
                 />
                 <CheckBox
                   label={t("nonWhiteAAA")}
@@ -862,7 +879,9 @@ export default function Signup(props) {
                   checked={minorityGroup.includes("nonWhiteAAA")}
                   onChange={handlerMinorityGroupOnChange}
                   value="nonWhiteAAA"
-                  className="mb-10 lg:mb-7"
+                  className={
+                    props.locale === "en" ? "mb-12 md:mb-7" : "mb-16 md:mb-7"
+                  }
                 />
                 <CheckBox
                   label={t("LA")}
@@ -871,7 +890,7 @@ export default function Signup(props) {
                   checked={minorityGroup.includes("latinAmerican")}
                   onChange={handlerMinorityGroupOnChange}
                   value="latinAmerican"
-                  className="mb-10 lg:mb-7"
+                  className="mb-16 md:mb-7"
                 />
                 <CheckBox
                   label={t("mixedOrigin")}
@@ -880,7 +899,7 @@ export default function Signup(props) {
                   checked={minorityGroup.includes("mixedOrigin")}
                   onChange={handlerMinorityGroupOnChange}
                   value="mixedOrigin"
-                  className="mb-7"
+                  className="mb-12 md:mb-7"
                 />
                 <OptionalTextField
                   controlLabel={t("otherMinority")}
@@ -917,9 +936,9 @@ export default function Signup(props) {
             </fieldset>
 
             <fieldset className="mb-6">
-              <legend className="block leading-tight text-sm font-body mb-5 font-bold">
+              <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
                 {t("formIncome")}{" "}
-                <span className="inline text-form-input-gray text-sm not-italic">
+                <span className="inline text-form-input-gray text-sm lg:text-p not-italic">
                   {t("optional")}
                 </span>
               </legend>
@@ -977,7 +996,7 @@ export default function Signup(props) {
               <ErrorLabel message={agreeToConditionsError} />
             ) : undefined}
             <CheckBox
-              className="mb-20"
+              className="h-187px sm:h-32"
               checked={agreeToConditions === "yes"}
               onChange={(checked, name, value) => {
                 if (checked) {
@@ -994,7 +1013,7 @@ export default function Signup(props) {
             />
           </div>
           <a
-            className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10"
+            className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10 text-sm lg:text-p"
             href={t("privacyLink")}
           >
             {t("privacy")}
@@ -1011,7 +1030,7 @@ export default function Signup(props) {
           </ActionButton>
           <ActionButton
             id="reset-bottom"
-            custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10"
+            custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10 text-sm lg:text-p"
             type="reset"
             onClick={useEffect(() => {
               var select = document.getElementById("province-choice");

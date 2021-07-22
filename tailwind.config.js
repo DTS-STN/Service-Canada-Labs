@@ -52,9 +52,9 @@ module.exports = {
       backgroundImage: (theme) => ({
         "splash-img": "url('../public/splash-image.jpg')",
         "splash-img-mobile": "url('../public/splash-mobile.png')",
-        "banner-img": "url('../public/bg-banner-v2.jpg')",
+        "banner-img": "url('../public/bg-banner-v2.png')",
+        "banner-img-mobile": "url('../public/bg-banner-mobile.png')",
         "footer-parliament-image": "url(../public/landscape.png)",
-        "lightbulb-right-img": "url('../public/lightbulb_right.jpg')",
       }),
       colors: {
         "custom-blue": {
@@ -63,6 +63,7 @@ module.exports = {
           dark: "#26374a",
           link: "#0535d2",
           "experiment-blue": "#004986",
+          "projects-link": "#2B4380",
         },
         "error-border-red": "#D3080C",
         "error-background-red": "#F3E9E8",
@@ -81,7 +82,6 @@ module.exports = {
         "gray-experiment": "#575757",
         "gray-breadcrumb": "#474747",
         "text-gray": "#5c5c5c",
-        "dk-blue": "#26374a",
         "hr-red-bar": "#AE3B43",
         "canada-ca-link-colour": "#7834BC",
         "circle-color": "#083C6C",
@@ -89,6 +89,10 @@ module.exports = {
         "canada-footer-hover-font-blue": "#0535d2",
         "footer-background-color": "#f8f8f8",
         "splash-page-bottom": "#e1e4e7",
+        vc: {
+          "blue-md": "#3d96c1",
+          "blue-lt": "#4FB7DC",
+        },
       },
       width: {
         "40px": "40px",
@@ -108,7 +112,9 @@ module.exports = {
         "44px": "44px",
         "46px": "46px",
         "100px": "100px",
+        "128px": "128px",
         "187px": "187px",
+        "250px": "250px",
         "400px": "400px",
         "500px": "500px",
       },
@@ -132,10 +138,12 @@ module.exports = {
         "15px": "15px",
         "10px": "10px",
         "20px": "20px",
+        "4.5rem": "4.5rem",
       },
 
       maxWidth: {
         "350px": "350px",
+        "450px": "450px",
         "600px": "600px",
         "750px": "750px",
         "5rem": "5rem",
@@ -148,6 +156,7 @@ module.exports = {
       minHeight: {
         "40px": "40px",
         "200px": "200px",
+        "250px": "250px",
       },
 
       maxHeight: {

@@ -14,8 +14,8 @@ export function CheckBox(props) {
     : {};
   return (
     <div
-      className={`block leading-tight relative pl-40px h-40px clear-left${
-        props.className ? " " + props.className : " mb-10px"
+      className={`block leading-tight relative pl-40px h-46px clear-left${
+        props.className ? " " + props.className : " mb-8 lg:mb-10px"
       }`}
     >
       <input
@@ -37,7 +37,7 @@ export function CheckBox(props) {
         {...ifControlledProps}
       />
       <label
-        className={`checkbox-label control-label inline-block cursor-pointer pt-4px pb-5px px-15px text-xs sm:text-sm leading-tight sm:leading-6 font-normal font-body${
+        className={`checkbox-label control-label inline-block cursor-pointer pt-4px pb-5px px-15px text-sm lg:text-p leading-tight sm:leading-6 font-normal font-body${
           props.error ? " text-error-border-red" : undefined
         }`}
         htmlFor={props.id}

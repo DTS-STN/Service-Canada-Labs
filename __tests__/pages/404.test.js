@@ -8,7 +8,7 @@ describe("404", () => {
   it("renders without crashing", () => {
     render(<Error404 />);
     expect(
-      screen.getByRole("heading", { name: "We couldn't find that Web page" })
+      screen.getByRole("heading", { name: "We couldn't find that page" })
     ).toBeInTheDocument();
   });
 });

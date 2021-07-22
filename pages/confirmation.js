@@ -14,7 +14,9 @@ export default function Confirmation(props) {
     <Layout
       locale={props.locale}
       langUrl={asPath}
-      breadcrumbItems={[{ text: "Service Canada Labs", link: "/" }]}
+      breadcrumbItems={[
+        { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+      ]}
     >
       <Head>
         <title>
@@ -80,14 +82,14 @@ export default function Confirmation(props) {
               </p>
               <p className="mb-4 text-sm lg:text-p leading-30px">
                 {t("emailConfirmationP2")}
-                <TextButtonField
-                  href="/experiments"
-                  buttonText={t("experimentsBtnTxt")}
-                  idButton="ExperimentsButton"
-                  dataCyButton="ExperimentsButton"
-                  className="flex mt-5"
-                />
               </p>
+              <TextButtonField
+                href="/experiments"
+                buttonText={t("experimentsBtnTxt")}
+                idButton="ExperimentsButton"
+                dataCyButton="ExperimentsButton"
+                className="flex mt-5"
+              />
             </div>
           )}
         </div>

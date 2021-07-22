@@ -72,7 +72,9 @@ export default async function handler(req, res) {
           process.env.MONGO_DB
         );
         unsubUserObj = await unsubscribeUser(conn.db, id);
-        if (Object.keys(unsubUserObj.value).length === 2) {
+        // because we can't use partial or sparse id's in CosmosDB, we need to get around the unique email problem
+        // we do this by setting the email to the cuid, so we know if these 2 value are the same, the operation was a success
+        if (unsubUserObj.value.cuid === unsubUserObj.value.email) {
           return res.redirect(
             `${lang === "fr" ? "/fr" : ""}/confirmation?ref=unsubscribe`
           );

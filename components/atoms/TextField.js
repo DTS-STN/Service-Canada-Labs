@@ -20,7 +20,7 @@ export function TextField(props) {
       }`}
     >
       <label
-        className={`block leading-tight text-sm font-body mb-5 ${
+        className={`block leading-tight text-sm lg:text-p font-body mb-5 ${
           props.boldLabel ? "font-bold" : ""
         }`}
         htmlFor={props.id}
@@ -32,7 +32,9 @@ export function TextField(props) {
         {props.required ? (
           <b className="text-error-border-red">{t("required")}</b>
         ) : (
-          <p className="inline text-form-input-gray text-sm">{t("optional")}</p>
+          <p className="inline text-form-input-gray text-xs lg:text-sm">
+            {t("optional")}
+          </p>
         )}
       </label>
       <p

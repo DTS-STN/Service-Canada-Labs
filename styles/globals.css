@@ -16,7 +16,7 @@ html {
   h6 {
     @apply font-display;
   }
-  p {
+  p, li, button {
     @apply font-body
   }
   /* Font sizes */
