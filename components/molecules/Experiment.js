@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Link from "next/link";
 
 /**
  * Displays an experiment card on the page
@@ -19,13 +20,14 @@ export const Experiment = (props) => {
       data-testid={props.dataTestId}
       data-cy={props.dataCy}
     >
-      <a
-        className="mb-2 text-p text-custom-blue-projects-link underline"
-        href={props.href}
-        tabIndex="0"
-      >
-        {props.title}
-      </a>
+      <Link href={props.href}>
+        <a
+          className="mb-2 text-p text-custom-blue-projects-link underline"
+          tabIndex="0"
+        >
+          {props.title}
+        </a>
+      </Link>
       <span
         className={`mt-2 block w-max py-2 px-2 uppercase font-body text-xxs text-white font-bold rounded ${
           "bg-" + (tagColours[props.tag] || "gray-experiment")
