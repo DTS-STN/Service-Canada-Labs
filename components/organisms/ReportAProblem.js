@@ -83,7 +83,7 @@ export function ReportAProblem(props) {
             <ul className="list-outside list-disc px-6 py-2">
               <li className="text-xxs sm:text-sm font-body my-4 leading-tight sm:leading-6">
                 <b>{t("reportAProblemNoReply", { lng: props.language })}</b>{" "}
-                {t("reportAProblemEnquiries", { lng: props.language })}
+                {t("reportAProblemEnquiries", { lng: props.language })}{" "}
                 <a
                   className="underline text-xxs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                   href="mailto:experience@servicecanada.gc.ca"
