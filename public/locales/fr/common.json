@@ -285,5 +285,7 @@
   "signupTitleCallToAction": "Inscrivez-vous pour être invité aux séances de recherche",
   "signupBtn": "S’inscrire pour être invité aux séances de recherche",
   "breadCrumbsHref1": "/fr/home",
-  "breadCrumbsHref2": "/fr/projects"
+  "breadCrumbsHref2": "/fr/projects",
+  "symbol": "Gouvernement du Canada",
+  "symbol2": "Symbole du gouvernement du Canada"
 }
