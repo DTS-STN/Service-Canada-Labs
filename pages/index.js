@@ -11,7 +11,7 @@ export default function Index(props) {
 
   return (
     <>
-      <div className="bg-splash-img-mobile xs:bg-splash-img bg-cover bg-center h-screen min-w-300px min-h-screen" />
+      <div className="z-0 fixed inset-0 filter blur-sm bg-splash-img-mobile xs:bg-splash-img bg-cover bg-center h-screen min-w-300px min-h-screen" />
       <Head>
         {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
           <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
@@ -31,8 +31,8 @@ export default function Index(props) {
         <meta name="dcterms.issued" content="2021-05-06" />
       </Head>
       <main>
-        <div className="absolute inset-0 -mt-12 xl:mb-0 flex flex-col justify-center items-center">
-          <div className="bg-footer-background-color h-auto min-w-300px w-300px xl:w-500px">
+        <div className="flex flex-col justify-center items-center m-auto v-xxs:h-screen">
+          <div className="z-10 bg-white h-auto min-w-300px w-300px xl:w-500px">
             <img
               className="h-auto w-64 container mx-auto pt-6 xl:w-2/3 xl:mx-0 xl:px-6"
               src={"/sig-blk-en.svg"}
