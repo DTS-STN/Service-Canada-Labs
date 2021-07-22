@@ -66,9 +66,9 @@ export default function DigitalCenter(props) {
         ) : (
           ""
         )}
-        <title>{t("dc:OverviewTitle")}</title>
+        <title>{t("dc:OverviewTitle1")}</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content={t("dc:OverviewTitle")} />
+        <meta name="dcterms.title" content={t("dc:OverviewTitle1")} />
         <meta
           name="dcterms.language"
           content={props.locale === "en" ? "eng" : "fra"}
