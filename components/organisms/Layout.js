@@ -80,6 +80,7 @@ export const Layout = ({
                 className="lg:visible invisible pb-0 lg:pb-2 self-end underline font-body text-canada-footer-font hover:text-canada-footer-hover-font-blue "
                 data-cy="toggle-language-link"
                 data-testid="languageLink3"
+                lang={language}
                 onClick={() => setLanguage(language)}
               >
                 {language === "en" ? "English" : "Français"}
