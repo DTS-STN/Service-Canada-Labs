@@ -131,62 +131,58 @@ export const Layout = ({
           footerLogoImage="/wmms-blk.svg"
           links={[
             {
-              link: "https://www.canada.ca",
+              link: t("footerSocialMediaURL"),
               linkText: t("footerSocialMedia"),
             },
             {
-              link: "https://www.canada.ca",
+              link: t("footerMobileAppURL"),
               linkText: t("footerMobileApp"),
             },
             {
-              link: "https://www.canada.ca/en/transparency/terms.html",
+              link: t("footerTermsAndConditionURL"),
               linkText: t("footerTermsAndCondition"),
             },
             {
-              link: "https://www.canada.ca/en/transparency/terms.html",
+              link: t("footerPrivacyURL"),
               linkText: t("footerPrivacy"),
             },
           ]}
           footerBoxLinks={[
             {
-              footerBoxlink:
-                "https://www.canada.ca/en/revenue-agency/corporate/contact-information.html",
+              footerBoxlink: t("footerContactUsURL"),
               footerBoxLinkText: t("footerContactUs"),
             },
             {
-              footerBoxlink: "https://www.canada.ca/en/news.html",
+              footerBoxlink: t("footerNewsURL"),
               footerBoxLinkText: t("footerNews"),
             },
             {
-              footerBoxlink: "https://pm.gc.ca/en",
+              footerBoxlink: t("footerPmURL"),
               footerBoxLinkText: t("footerPm"),
             },
             {
-              footerBoxlink: "https://www.canada.ca/en/government/dept.html",
+              footerBoxlink: t("footerDepartmentAgenciesURL"),
               footerBoxLinkText: t("footerDepartmentAgencies"),
             },
 
             {
-              footerBoxlink:
-                "https://www.canada.ca/en/government/system/laws.html",
+              footerBoxlink: t("footerTreatiesURL"),
               footerBoxLinkText: t("footerTreaties"),
             },
             {
-              footerBoxlink: "https://www.canada.ca/en/government/system.html",
+              footerBoxlink: t("footerHowGovWorksURL"),
               footerBoxLinkText: t("footerHowGovWorks"),
             },
             {
-              footerBoxlink:
-                "https://www.canada.ca/en/government/publicservice.html",
+              footerBoxlink: t("footerPublicServiceURL"),
               footerBoxLinkText: t("footerPublicService"),
             },
             {
-              footerBoxlink:
-                "https://www.canada.ca/en/transparency/reporting.html",
+              footerBoxlink: t("footerGovReportingURL"),
               footerBoxLinkText: t("footerGovReporting"),
             },
             {
-              footerBoxlink: "https://open.canada.ca/en",
+              footerBoxlink: t("footerOpenGovURL"),
               footerBoxLinkText: t("footerOpenGov"),
             },
           ]}
