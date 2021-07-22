@@ -27,7 +27,7 @@ export const Experiment = (props) => {
         {props.title}
       </a>
       <span
-        className={`block w-max py-2 px-2 uppercase font-body text-xxs text-white font-bold rounded ${
+        className={`mt-2 block w-max py-2 px-2 uppercase font-body text-xxs text-white font-bold rounded ${
           "bg-" + (tagColours[props.tag] || "gray-experiment")
         }`}
       >
