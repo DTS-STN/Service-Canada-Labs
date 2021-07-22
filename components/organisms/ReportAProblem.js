@@ -288,7 +288,7 @@ export function ReportAProblem(props) {
           </a>
           <ActionButton
             id="submit"
-            className="rounded block"
+            className="rounded block mt-4"
             type="submit"
             dataCy="report-a-problem-submit"
             dataTestId="report-a-problem-submit"
