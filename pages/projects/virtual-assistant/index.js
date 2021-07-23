@@ -57,13 +57,9 @@ export default function Home(props) {
         </div>
         {/* the scenario section */}
         <div>
-          <p
-            className="mb-6 mt-8 text-h1 font-display font-bold"
-            tabIndex="-1"
-            id="virtualAssistantTitle"
-          >
+          <h2 className="mb-6 mt-8 text-h1" id="virtualAssistantTitle">
             {t("vc:sectionTitle")}
-          </p>
+          </h2>
           <VirtualConcierge
             dataTestId="scenario1"
             dataCy="scenario1"
