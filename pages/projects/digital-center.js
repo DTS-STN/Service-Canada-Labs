@@ -57,7 +57,7 @@ export default function DigitalCenter(props) {
         locale={props.locale}
         langUrl={asPath}
         breadcrumbItems={[
-          { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },
         ]}
       >
@@ -67,9 +67,12 @@ export default function DigitalCenter(props) {
           ) : (
             ""
           )}
-          <title>{t("dc:OverviewTitle1")}</title>
+          <title>{`${t("dc:OverviewTitle")} — ${t("siteTitle")}`}</title>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="dcterms.title" content={t("dc:OverviewTitle1")} />
+          <meta
+            name="dcterms.title"
+            content={`${t("dc:OverviewTitle")} — ${t("siteTitle")}`}
+          />
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}

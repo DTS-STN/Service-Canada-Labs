@@ -16,7 +16,7 @@ export default function Confirmation(props) {
         locale={props.locale}
         langUrl={asPath}
         breadcrumbItems={[
-          { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}
       >
         <Head>
@@ -25,9 +25,12 @@ export default function Confirmation(props) {
           ) : (
             ""
           )}
-          <title>{t("scLabsThankYou")}</title>
+          <title>{`${t("pleaseCheckYourEmail")} — ${t("siteTitle")}`}</title>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="dcterms.title" content={t("scLabsThankYou")} />
+          <meta
+            name="dcterms.title"
+            content={`${t("pleaseCheckYourEmail")} — ${t("siteTitle")}`}
+          />
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}

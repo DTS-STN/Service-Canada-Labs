@@ -17,10 +17,10 @@ export default function error500(props) {
             ""
           )}
           <title data-gc-analytics-error="500">
-            {t("bannerTitle") + " - 500"}
+            {`500 — ${t("siteTitle")}`}
           </title>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="dcterms.title" content={t("bannerTitle") + " - 500"} />
+          <meta name="dcterms.title" content={`500 — ${t("siteTitle")}`} />
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}

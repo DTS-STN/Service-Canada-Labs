@@ -13,7 +13,7 @@ export default function Home(props) {
   return (
     <>
       <Layout
-        bannerTitle={t("bannerTitle")}
+        bannerTitle={t("siteTitle")}
         bannerText={t("bannerText")}
         locale={props.locale}
         langUrl={asPath}
@@ -24,9 +24,12 @@ export default function Home(props) {
           ) : (
             ""
           )}
-          <title>{t("scLabsHome")}</title>
+          <title>{`${t("scLabsHome")} — ${t("siteTitle")}`}</title>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="dcterms.title" content={t("scLabsHome")} />
+          <meta
+            name="dcterms.title"
+            content={`${t("scLabsHome")} — ${t("siteTitle")}`}
+          />
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}

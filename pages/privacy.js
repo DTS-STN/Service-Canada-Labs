@@ -15,7 +15,7 @@ export default function Privacy(props) {
         locale={props.locale}
         langUrl={asPath}
         breadcrumbItems={[
-          { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}
       >
         <Head>
@@ -24,9 +24,12 @@ export default function Privacy(props) {
           ) : (
             ""
           )}
-          <title>{t("scLabsPrivacy")}</title>
+          <title>{`${t("privacyTitle")} — ${t("siteTitle")}`}</title>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="dcterms.title" content={t("scLabsPrivacy")} />
+          <meta
+            name="dcterms.title"
+            content={`${t("privacyTitle")} — ${t("siteTitle")}`}
+          />
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}

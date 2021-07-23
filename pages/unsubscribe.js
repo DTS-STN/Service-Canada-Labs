@@ -169,7 +169,7 @@ export default function Unsubscribe(props) {
         locale={props.locale}
         langUrl={asPath}
         breadcrumbItems={[
-          { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}
       >
         <Head>
@@ -178,9 +178,12 @@ export default function Unsubscribe(props) {
           ) : (
             ""
           )}
-          <title>{t("scLabsUnsubscribe")}</title>
+          <title>{`${t("unsubscribe")} — ${t("siteTitle")}`}</title>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="dcterms.title" content={t("scLabsUnsubscribe")} />
+          <meta
+            name="dcterms.title"
+            content={`${t("unsubscribe")} — ${t("siteTitle")}`}
+          />
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}
