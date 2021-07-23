@@ -47,6 +47,7 @@ module.exports = {
       lg: "768px",
       xl: "992px",
       xxl: "1200px",
+      "v-xxs": { raw: "(min-height: 300px)" },
     },
     extend: {
       backgroundImage: (theme) => ({
@@ -179,6 +180,7 @@ module.exports = {
     extend: {
       backgroundColor: ["active"],
       textColor: ["visited"],
+      margin: ["checked"],
     },
   },
   plugins: [

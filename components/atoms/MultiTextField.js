@@ -11,7 +11,7 @@ export function MultiTextField(props) {
   return (
     <div
       className={`block leading-tight${
-        props.className ? " " + props.className : " mb-10px"
+        props.className ? " " + props.className : " mb-12"
       }`}
     >
       <label

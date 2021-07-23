@@ -14,8 +14,7 @@
     "next-page-tester": "^0.26.1",
     "react": "^17.0.2",
     "react-dom": "17.0.2",
-    "storybook-addon-next-router": "^2.0.4",
-    "webpack-subresource-integrity": "^1.5.2"
+    "storybook-addon-next-router": "^2.0.4"
   },
   "scripts": {
     "dev": "next dev",

@@ -51,8 +51,8 @@ export const Layout = ({
           <div className="flex flex-row justify-between items-center lg:mt-7 mt-1.5">
             <img
               className="h-5 w-auto xs:h-6 sm:h-8 md:h-8 lg:h-7 xl:h-8"
-              src={language === "en" ? "/sig-blk-en.svg" : "/sig-blk-fr.svg"}
-              alt="Symbol of the Government of Canada"
+              src={language === "en" ? "/sig-blk-fr.svg" : "/sig-blk-en.svg"}
+              alt={t("symbol")}
             />
             <Link
               key={language}
@@ -80,6 +80,7 @@ export const Layout = ({
                 className="lg:visible invisible pb-0 lg:pb-2 self-end underline font-body text-canada-footer-font hover:text-canada-footer-hover-font-blue "
                 data-cy="toggle-language-link"
                 data-testid="languageLink3"
+                lang={language}
                 onClick={() => setLanguage(language)}
               >
                 {language === "en" ? "English" : "Français"}
@@ -127,66 +128,62 @@ export const Layout = ({
           <DateModified date={process.env.NEXT_PUBLIC_BUILD_DATE} />
         </div>
         <Footer
-          footerLogoAltText="Symbol of the Government of Canada"
+          footerLogoAltText={t("symbol2")}
           footerLogoImage="/wmms-blk.svg"
           links={[
             {
-              link: "https://www.canada.ca",
+              link: t("footerSocialMediaURL"),
               linkText: t("footerSocialMedia"),
             },
             {
-              link: "https://www.canada.ca",
+              link: t("footerMobileAppURL"),
               linkText: t("footerMobileApp"),
             },
             {
-              link: "https://www.canada.ca/en/transparency/terms.html",
+              link: t("footerTermsAndConditionURL"),
               linkText: t("footerTermsAndCondition"),
             },
             {
-              link: "https://www.canada.ca/en/transparency/terms.html",
+              link: t("footerPrivacyURL"),
               linkText: t("footerPrivacy"),
             },
           ]}
           footerBoxLinks={[
             {
-              footerBoxlink:
-                "https://www.canada.ca/en/revenue-agency/corporate/contact-information.html",
+              footerBoxlink: t("footerContactUsURL"),
               footerBoxLinkText: t("footerContactUs"),
             },
             {
-              footerBoxlink: "https://www.canada.ca/en/news.html",
+              footerBoxlink: t("footerNewsURL"),
               footerBoxLinkText: t("footerNews"),
             },
             {
-              footerBoxlink: "https://pm.gc.ca/en",
+              footerBoxlink: t("footerPmURL"),
               footerBoxLinkText: t("footerPm"),
             },
             {
-              footerBoxlink: "https://www.canada.ca/en/government/dept.html",
+              footerBoxlink: t("footerDepartmentAgenciesURL"),
               footerBoxLinkText: t("footerDepartmentAgencies"),
             },
 
             {
-              footerBoxlink:
-                "https://www.canada.ca/en/government/system/laws.html",
+              footerBoxlink: t("footerTreatiesURL"),
               footerBoxLinkText: t("footerTreaties"),
             },
             {
-              footerBoxlink: "https://www.canada.ca/en/government/system.html",
+              footerBoxlink: t("footerHowGovWorksURL"),
               footerBoxLinkText: t("footerHowGovWorks"),
             },
             {
-              footerBoxlink:
-                "https://www.canada.ca/en/government/publicservice.html",
+              footerBoxlink: t("footerPublicServiceURL"),
               footerBoxLinkText: t("footerPublicService"),
             },
             {
-              footerBoxlink:
-                "https://www.canada.ca/en/transparency/reporting.html",
+              footerBoxlink: t("footerGovReportingURL"),
               footerBoxLinkText: t("footerGovReporting"),
             },
             {
-              footerBoxlink: "https://open.canada.ca/en",
+              footerBoxlink: t("footerOpenGovURL"),
               footerBoxLinkText: t("footerOpenGov"),
             },
           ]}

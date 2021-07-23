@@ -67,7 +67,10 @@ export default function About(props) {
           </div>
         </div>
       </section>
-      <section className="layout-container">
+      <section className="layout-container" id="contact-us">
+        <h2 className="mb-5 pt-10 text-h1l font-bold sm:w-max">
+          {t("contactUsHeading")}
+        </h2>
         <p className="mb-12 mt-10 xl:w-2/3">
           {t("getInTouch")}&nbsp;
           <a

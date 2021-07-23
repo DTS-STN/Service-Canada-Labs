@@ -1,6 +1,7 @@
 FROM node:current-alpine AS base
 WORKDIR /base
 COPY package*.json /
+RUN apk add --no-cache python3 py3-pip make g++
 RUN npm install
 COPY . .
 

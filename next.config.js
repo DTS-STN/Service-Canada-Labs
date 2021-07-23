@@ -1,5 +1,4 @@
 const { i18n } = require('./next-i18next.config')
-const SriPlugin = require('webpack-subresource-integrity')
 
 securityHeaders = [
   // Only ever use HTTPS
@@ -42,15 +41,5 @@ module.exports = {
         headers: securityHeaders,
       },
     ]
-  },
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // Subresource Integrity config
-    config.output.crossOriginLoading = 'anonymous'
-    config.plugins.push(new SriPlugin({
-        hashFuncNames: ['sha256', 'sha384'],
-        enabled: true,
-    }))
-
-    return config
-  },
+  }
 }
