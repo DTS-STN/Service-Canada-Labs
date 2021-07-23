@@ -66,56 +66,66 @@ export default function Projects(props) {
   };
 
   return (
-    <Layout
-      locale={props.locale}
-      langUrl={asPath}
-      breadcrumbItems={[
-        { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
-      ]}
-    >
-      <Head>
-        {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
-          <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
-        ) : (
-          ""
-        )}
-        <title>{t("scLabsProjects")}</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content={t("scLabsProjects")} />
-        <meta
-          name="dcterms.language"
-          content={props.locale === "en" ? "eng" : "fra"}
+    <>
+      <Layout
+        locale={props.locale}
+        langUrl={asPath}
+        breadcrumbItems={[
+          { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+        ]}
+      >
+        <Head>
+          {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+            <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+          ) : (
+            ""
+          )}
+          <title>{t("scLabsProjects")}</title>
+          <link rel="icon" href="/favicon.ico" />
+          <meta name="dcterms.title" content={t("scLabsProjects")} />
+          <meta
+            name="dcterms.language"
+            content={props.locale === "en" ? "eng" : "fra"}
+          />
+          <meta name="dcterms.creator" content={t("creator")} />
+          <meta name="dcterms.accessRights" content="2" />
+          <meta
+            name="dcterms.service"
+            content="ESDC-EDSC_SCLabs-LaboratoireSC"
+          />
+          <meta name="dcterms.issued" content="2021-04-22" />
+        </Head>
+        <section className="layout-container mb-10">
+          <h1 id="pageMainTitle" tabIndex="-1" className="flex-wrap mb-10">
+            {t("projectsTitle")}
+          </h1>
+          <p>{t("projectsText")}</p>
+          <Filter
+            label={t("filterBy")}
+            options={filters}
+            onChange={handleFilter}
+            dataCy={"filter-projects"}
+          />
+          <ul
+            className="grid gap-y-5 lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12"
+            data-cy="projects-list"
+          >
+            {displayExperiments}
+          </ul>
+        </section>
+        <CallToAction
+          title={t("signupTitleCallToAction")}
+          html={t("becomeAParticipantDescription")}
+          href={"/signup"}
+          hrefText={t("signupBtn")}
         />
-        <meta name="dcterms.creator" content={t("creator")} />
-        <meta name="dcterms.accessRights" content="2" />
-        <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
-        <meta name="dcterms.issued" content="2021-04-22" />
-      </Head>
-      <section className="layout-container mb-10">
-        <h1 id="pageMainTitle" tabIndex="-1" className="flex-wrap mb-10">
-          {t("projectsTitle")}
-        </h1>
-        <p>{t("projectsText")}</p>
-        <Filter
-          label={t("filterBy")}
-          options={filters}
-          onChange={handleFilter}
-          dataCy={"filter-projects"}
-        />
-        <ul
-          className="grid gap-y-5 lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12"
-          data-cy="projects-list"
-        >
-          {displayExperiments}
-        </ul>
-      </section>
-      <CallToAction
-        title={t("signupTitleCallToAction")}
-        html={t("becomeAParticipantDescription")}
-        href={"/signup"}
-        hrefText={t("signupBtn")}
-      />
-    </Layout>
+      </Layout>
+      {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+        <script type="text/javascript">_satellite.pageBottom()</script>
+      ) : (
+        ""
+      )}
+    </>
   );
 }
 

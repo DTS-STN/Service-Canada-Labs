@@ -164,90 +164,100 @@ export default function Unsubscribe(props) {
   };
 
   return (
-    <Layout
-      locale={props.locale}
-      langUrl={asPath}
-      breadcrumbItems={[
-        { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
-      ]}
-    >
-      <Head>
-        {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
-          <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
-        ) : (
-          ""
-        )}
-        <title>{t("scLabsUnsubscribe")}</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content={t("scLabsUnsubscribe")} />
-        <meta
-          name="dcterms.language"
-          content={props.locale === "en" ? "eng" : "fra"}
-        />
-        <meta name="dcterms.creator" content={t("creator")} />
-        <meta name="dcterms.accessRights" content="2" />
-        <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
-        <meta name="dcterms.issued" content="2021-07-08" />
-      </Head>
-      <section className="layout-container mb-2 mt-12">
-        <div className="xl:w-2/3 ">
-          <h1 className="mb-12" id="pageMainTitle">
-            {t("unsubscribe")}
-          </h1>
-          <p className="mb-10 text-sm lg:text-p">{t("unsubscribeInfo")}</p>
-        </div>
-      </section>
-      <section className="layout-container">
-        {errorBoxText ? (
-          <ErrorBox
-            text={errorBoxText}
-            errors={errorBoxErrors}
-            onClick={handleScrollToError}
+    <>
+      <Layout
+        locale={props.locale}
+        langUrl={asPath}
+        breadcrumbItems={[
+          { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+        ]}
+      >
+        <Head>
+          {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+            <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+          ) : (
+            ""
+          )}
+          <title>{t("scLabsUnsubscribe")}</title>
+          <link rel="icon" href="/favicon.ico" />
+          <meta name="dcterms.title" content={t("scLabsUnsubscribe")} />
+          <meta
+            name="dcterms.language"
+            content={props.locale === "en" ? "eng" : "fra"}
           />
-        ) : (
-          ""
-        )}
-        <form
-          data-gc-analytics-formname="ESDC:ServiceCanadaLabsUnsubscribe"
-          data-gc-analytics-collect='[{"value":"input","emptyField":"N/A"}]'
-          onSubmit={handleSubmit}
-          onReset={handlerClearData}
-          noValidate
-        >
-          <div className="max-w-600px">
-            <TextField
-              className="mb-10"
-              label={t("email")}
-              type="email"
-              name="email"
-              id="email"
-              error={emailError}
-              value={email}
-              onChange={setEmail}
-              boldLabel={true}
-              describedby="emailDoNoInclude"
-              required
-            />
+          <meta name="dcterms.creator" content={t("creator")} />
+          <meta name="dcterms.accessRights" content="2" />
+          <meta
+            name="dcterms.service"
+            content="ESDC-EDSC_SCLabs-LaboratoireSC"
+          />
+          <meta name="dcterms.issued" content="2021-07-08" />
+        </Head>
+        <section className="layout-container mb-2 mt-12">
+          <div className="xl:w-2/3 ">
+            <h1 className="mb-12" id="pageMainTitle">
+              {t("unsubscribe")}
+            </h1>
+            <p className="mb-10 text-sm lg:text-p">{t("unsubscribeInfo")}</p>
           </div>
-          <ActionButton
-            id="signup-submit"
-            className="rounded w-72"
-            type="submit"
-            dataCy="unsubscribe-submit"
-            dataTestId="unsubscribe-submit"
+        </section>
+        <section className="layout-container">
+          {errorBoxText ? (
+            <ErrorBox
+              text={errorBoxText}
+              errors={errorBoxErrors}
+              onClick={handleScrollToError}
+            />
+          ) : (
+            ""
+          )}
+          <form
+            data-gc-analytics-formname="ESDC:ServiceCanadaLabsUnsubscribe"
+            data-gc-analytics-collect='[{"value":"input","emptyField":"N/A"}]'
+            onSubmit={handleSubmit}
+            onReset={handlerClearData}
+            noValidate
           >
-            {t("reportAProblemSubmit")}
-          </ActionButton>
-          <ActionButton
-            id="reset-bottom"
-            custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10 lg:text-p"
-            type="reset"
-          >
-            {t("clear")}
-          </ActionButton>
-        </form>
-      </section>
-    </Layout>
+            <div className="max-w-600px">
+              <TextField
+                className="mb-10"
+                label={t("email")}
+                type="email"
+                name="email"
+                id="email"
+                error={emailError}
+                value={email}
+                onChange={setEmail}
+                boldLabel={true}
+                describedby="emailDoNoInclude"
+                required
+              />
+            </div>
+            <ActionButton
+              id="signup-submit"
+              className="rounded w-72"
+              type="submit"
+              dataCy="unsubscribe-submit"
+              dataTestId="unsubscribe-submit"
+            >
+              {t("reportAProblemSubmit")}
+            </ActionButton>
+            <ActionButton
+              id="reset-bottom"
+              custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10 lg:text-p"
+              type="reset"
+            >
+              {t("clear")}
+            </ActionButton>
+          </form>
+        </section>
+      </Layout>
+      {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+        <script type="text/javascript">_satellite.pageBottom()</script>
+      ) : (
+        ""
+      )}
+    </>
   );
 }
 

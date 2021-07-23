@@ -25,9 +25,9 @@ export default function Home(props) {
         ) : (
           ""
         )}
-        <title>{t("vc:virtualAssistantTitle")}</title>
+        <title>{t("vc:virtualAssistantTitle1")}</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content={t("scLabsHome")} />
+        <meta name="dcterms.title" content={t("vc:virtualAssistantTitle1")} />
         <meta
           name="dcterms.language"
           content={props.locale === "en" ? "eng" : "fra"}

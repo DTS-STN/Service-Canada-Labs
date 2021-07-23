@@ -87,6 +87,11 @@ export default function Index(props) {
           </div>
         </div>
       </main>
+      {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+        <script type="text/javascript">_satellite.pageBottom()</script>
+      ) : (
+        ""
+      )}
     </>
   );
 }

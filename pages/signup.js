@@ -380,668 +380,678 @@ export default function Signup(props) {
   };
 
   return (
-    <Layout
-      locale={props.locale}
-      langUrl={asPath}
-      breadcrumbItems={[
-        { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
-      ]}
-    >
-      <Head>
-        {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
-          <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
-        ) : (
-          ""
-        )}
-        <title>{t("scLabsSignup")}</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content={t("scLabsSignup")} />
-        <meta
-          name="dcterms.language"
-          content={props.locale === "en" ? "eng" : "fra"}
-        />
-        <meta name="dcterms.creator" content={t("creator")} />
-        <meta name="dcterms.accessRights" content="2" />
-        <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
-        <meta name="dcterms.issued" content="2021-06-08" />
-      </Head>
-      <section className="layout-container mb-2 mt-12">
-        <div className="xl:w-2/3 ">
-          <h1 className="mb-12" id="pageMainTitle" tabIndex="-1">
-            {t("signupTitle")}
-          </h1>
-          <p className="mb-5 text-sm lg:text-p">{t("signupP1")}</p>
-          <ul
-            className="list-disc text-sm lg:text-p pl-10 mb-5"
-            dangerouslySetInnerHTML={{ __html: t("signupList") }}
-          ></ul>
-          <p className="mb-10 text-sm lg:text-p">{t("signupP1.1")}</p>
-          <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle2")}</h2>
-          <ul className="list-disc list-outside pl-2 mb-10 font-body text-sm lg:text-p ml-3">
-            <li className="mb-3">{t("signupP2.1")}</li>
-            <li className="mb-3">{t("signupP2.2")}</li>
-            <li className="mb-3">{t("signupP2.3")}</li>
-            <li>{t("signupP2.4")}</li>
-          </ul>
-          <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle3")}</h2>
-          <p className="mb-3">{t("signupP3")}</p>
-          <ul className="list-disc list-outside pl-2 mb-5 font-body ml-3 text-sm lg:text-p">
-            <li>{t("email")}</li>
-            <li>{t("year")}</li>
-            <li>{t("lang")}</li>
-          </ul>
-          <p className="mb-3 text-sm lg:text-p">{t("signupP4")}</p>
-          <ul className="list-disc list-outside pl-2 mb-5 font-body ml-3 text-sm lg:text-p">
-            <li>{t("province")}</li>
-            <li>{t("gender")}</li>
-            <li>{t("indigenous")}</li>
-            <li>{t("disabilities")}</li>
-            <li>{t("minority")}</li>
-            <li>{t("income")}</li>
-          </ul>
-          <p className="my-8 text-sm lg:text-p">{t("signupP3.1")}</p>
-          <a
-            className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5 text-sm lg:text-p"
-            href={t("privacyLink")}
-          >
-            {t("privacy")}
-          </a>
-          <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle4")}</h2>
-          <p
-            className="my-8 text-sm lg:text-p"
-            dangerouslySetInnerHTML={{ __html: t("signupP5") }}
-          ></p>
-        </div>
-      </section>
-      <section className="layout-container">
-        {errorBoxText ? (
-          <ErrorBox
-            text={errorBoxText}
-            errors={errorBoxErrors}
-            onClick={handleScrollToError}
+    <>
+      <Layout
+        locale={props.locale}
+        langUrl={asPath}
+        breadcrumbItems={[
+          { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+        ]}
+      >
+        <Head>
+          {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+            <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+          ) : (
+            ""
+          )}
+          <title>{t("scLabsSignup")}</title>
+          <link rel="icon" href="/favicon.ico" />
+          <meta name="dcterms.title" content={t("scLabsSignup")} />
+          <meta
+            name="dcterms.language"
+            content={props.locale === "en" ? "eng" : "fra"}
           />
-        ) : undefined}
-        <form
-          data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsSign-up"
-          data-gc-analytics-collect='[{"value":"input:not(.exclude),select","emptyField":"N/A"}]'
-          onSubmit={handleSubmit}
-          onReset={handlerClearData}
-          noValidate
-        >
-          <ActionButton
-            id="reset"
-            custom="block font-body text-sm lg:text-p hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
-            type="reset"
-            onClick={useEffect(() => {
-              var select = document.getElementById("province-choice");
-              select.selectedIndex = 0;
-            })}
+          <meta name="dcterms.creator" content={t("creator")} />
+          <meta name="dcterms.accessRights" content="2" />
+          <meta
+            name="dcterms.service"
+            content="ESDC-EDSC_SCLabs-LaboratoireSC"
+          />
+          <meta name="dcterms.issued" content="2021-06-08" />
+        </Head>
+        <section className="layout-container mb-2 mt-12">
+          <div className="xl:w-2/3 ">
+            <h1 className="mb-12" id="pageMainTitle" tabIndex="-1">
+              {t("signupTitle")}
+            </h1>
+            <p className="mb-5 text-sm lg:text-p">{t("signupP1")}</p>
+            <ul
+              className="list-disc text-sm lg:text-p pl-10 mb-5"
+              dangerouslySetInnerHTML={{ __html: t("signupList") }}
+            ></ul>
+            <p className="mb-10 text-sm lg:text-p">{t("signupP1.1")}</p>
+            <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle2")}</h2>
+            <ul className="list-disc list-outside pl-2 mb-10 font-body text-sm lg:text-p ml-3">
+              <li className="mb-3">{t("signupP2.1")}</li>
+              <li className="mb-3">{t("signupP2.2")}</li>
+              <li className="mb-3">{t("signupP2.3")}</li>
+              <li>{t("signupP2.4")}</li>
+            </ul>
+            <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle3")}</h2>
+            <p className="mb-3">{t("signupP3")}</p>
+            <ul className="list-disc list-outside pl-2 mb-5 font-body ml-3 text-sm lg:text-p">
+              <li>{t("email")}</li>
+              <li>{t("year")}</li>
+              <li>{t("lang")}</li>
+            </ul>
+            <p className="mb-3 text-sm lg:text-p">{t("signupP4")}</p>
+            <ul className="list-disc list-outside pl-2 mb-5 font-body ml-3 text-sm lg:text-p">
+              <li>{t("province")}</li>
+              <li>{t("gender")}</li>
+              <li>{t("indigenous")}</li>
+              <li>{t("disabilities")}</li>
+              <li>{t("minority")}</li>
+              <li>{t("income")}</li>
+            </ul>
+            <p className="my-8 text-sm lg:text-p">{t("signupP3.1")}</p>
+            <a
+              className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5 text-sm lg:text-p"
+              href={t("privacyLink")}
+            >
+              {t("privacy")}
+            </a>
+            <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle4")}</h2>
+            <p
+              className="my-8 text-sm lg:text-p"
+              dangerouslySetInnerHTML={{ __html: t("signupP5") }}
+            ></p>
+          </div>
+        </section>
+        <section className="layout-container">
+          {errorBoxText ? (
+            <ErrorBox
+              text={errorBoxText}
+              errors={errorBoxErrors}
+              onClick={handleScrollToError}
+            />
+          ) : undefined}
+          <form
+            data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsSign-up"
+            data-gc-analytics-collect='[{"value":"input:not(.exclude),select","emptyField":"N/A"}]'
+            onSubmit={handleSubmit}
+            onReset={handlerClearData}
+            noValidate
           >
-            {t("clear")}
-          </ActionButton>
-          <div className="max-w-750px">
-            <TextField
-              className="mb-10"
-              label={t("email")}
-              type="email"
-              name="email"
-              id="email"
-              error={emailError}
-              value={email}
-              onChange={setEmail}
-              boldLabel={true}
-              describedby="emailDoNoInclude"
-              required
-              exclude
-            />
-            <TextField
-              className="mb-10"
-              type="number"
-              label={t("formYear")}
-              name="yearOfBirth"
-              id="yearOfBirth"
-              error={yearOfBirthError}
-              value={yearOfBirth}
-              min={0}
-              max={new Date().getFullYear()}
-              step={1}
-              onChange={setYearOfBirth}
-              boldLabel={true}
-              describedby="yearOfBirthDoNoInclude"
-              required
-            />
-            <fieldset className="mb-6">
-              <legend className="block leading-tight text-sm font-body mb-5 lg:text-p font-bold">
-                <b className="text-error-border-red">*</b> {t("formLang")}{" "}
-                <b className="text-error-border-red">{t("required")}</b>
-              </legend>
-              {languageError ? (
-                <ErrorLabel message={languageError} />
-              ) : undefined}
-              <RadioField
-                label={t("en")}
-                id="languageEn"
-                name="language"
-                value="en"
-                error={languageError !== ""}
-                checked={language === "en"}
-                onChange={(checked, name, value) => setLanguage(value)}
+            <ActionButton
+              id="reset"
+              custom="block font-body text-sm lg:text-p hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
+              type="reset"
+              onClick={useEffect(() => {
+                var select = document.getElementById("province-choice");
+                select.selectedIndex = 0;
+              })}
+            >
+              {t("clear")}
+            </ActionButton>
+            <div className="max-w-750px">
+              <TextField
+                className="mb-10"
+                label={t("email")}
+                type="email"
+                name="email"
+                id="email"
+                error={emailError}
+                value={email}
+                onChange={setEmail}
+                boldLabel={true}
+                describedby="emailDoNoInclude"
+                required
+                exclude
+              />
+              <TextField
+                className="mb-10"
+                type="number"
+                label={t("formYear")}
+                name="yearOfBirth"
+                id="yearOfBirth"
+                error={yearOfBirthError}
+                value={yearOfBirth}
+                min={0}
+                max={new Date().getFullYear()}
+                step={1}
+                onChange={setYearOfBirth}
+                boldLabel={true}
+                describedby="yearOfBirthDoNoInclude"
                 required
               />
-              <RadioField
-                label={t("fr")}
-                id="languageFr"
-                name="language"
-                value="fr"
-                error={languageError !== ""}
-                checked={language === "fr"}
-                onChange={(checked, name, value) => setLanguage(value)}
-                required
-              />
-            </fieldset>
+              <fieldset className="mb-6">
+                <legend className="block leading-tight text-sm font-body mb-5 lg:text-p font-bold">
+                  <b className="text-error-border-red">*</b> {t("formLang")}{" "}
+                  <b className="text-error-border-red">{t("required")}</b>
+                </legend>
+                {languageError ? (
+                  <ErrorLabel message={languageError} />
+                ) : undefined}
+                <RadioField
+                  label={t("en")}
+                  id="languageEn"
+                  name="language"
+                  value="en"
+                  error={languageError !== ""}
+                  checked={language === "en"}
+                  onChange={(checked, name, value) => setLanguage(value)}
+                  required
+                />
+                <RadioField
+                  label={t("fr")}
+                  id="languageFr"
+                  name="language"
+                  value="fr"
+                  error={languageError !== ""}
+                  checked={language === "fr"}
+                  onChange={(checked, name, value) => setLanguage(value)}
+                  required
+                />
+              </fieldset>
 
-            <SelectField
-              label={t("prov")}
-              className="mb-10"
-              id="province"
-              boldLabel
-              name="province"
-              value={province}
-              error={provinceError}
-              options={[
-                {
-                  id: "on",
-                  name: t("ON"),
-                  value: "ON",
-                },
-                {
-                  id: "qc",
-                  name: t("QC"),
-                  value: "QC",
-                },
-                {
-                  id: "nl",
-                  name: t("NL"),
-                  value: "NL",
-                },
-                {
-                  id: "pe",
-                  name: t("PE"),
-                  value: "PE",
-                },
-                {
-                  id: "ns",
-                  name: t("NS"),
-                  value: "NS",
-                },
-                {
-                  id: "nb",
-                  name: t("NB"),
-                  value: "NB",
-                },
-                {
-                  id: "mb",
-                  name: t("MB"),
-                  value: "MB",
-                },
-                {
-                  id: "sk",
-                  name: t("SK"),
-                  value: "SK",
-                },
-                {
-                  id: "ab",
-                  name: t("AB"),
-                  value: "AB",
-                },
-                {
-                  id: "bc",
-                  name: t("BC"),
-                  value: "BC",
-                },
-                {
-                  id: "yt",
-                  name: t("YT"),
-                  value: "YT",
-                },
-                {
-                  id: "nt",
-                  name: t("NT"),
-                  value: "NT",
-                },
-                {
-                  id: "nu",
-                  name: t("NU"),
-                  value: "NU",
-                },
-              ]}
-              other
-              onChange={setProvince}
-            />
+              <SelectField
+                label={t("prov")}
+                className="mb-10"
+                id="province"
+                boldLabel
+                name="province"
+                value={province}
+                error={provinceError}
+                options={[
+                  {
+                    id: "on",
+                    name: t("ON"),
+                    value: "ON",
+                  },
+                  {
+                    id: "qc",
+                    name: t("QC"),
+                    value: "QC",
+                  },
+                  {
+                    id: "nl",
+                    name: t("NL"),
+                    value: "NL",
+                  },
+                  {
+                    id: "pe",
+                    name: t("PE"),
+                    value: "PE",
+                  },
+                  {
+                    id: "ns",
+                    name: t("NS"),
+                    value: "NS",
+                  },
+                  {
+                    id: "nb",
+                    name: t("NB"),
+                    value: "NB",
+                  },
+                  {
+                    id: "mb",
+                    name: t("MB"),
+                    value: "MB",
+                  },
+                  {
+                    id: "sk",
+                    name: t("SK"),
+                    value: "SK",
+                  },
+                  {
+                    id: "ab",
+                    name: t("AB"),
+                    value: "AB",
+                  },
+                  {
+                    id: "bc",
+                    name: t("BC"),
+                    value: "BC",
+                  },
+                  {
+                    id: "yt",
+                    name: t("YT"),
+                    value: "YT",
+                  },
+                  {
+                    id: "nt",
+                    name: t("NT"),
+                    value: "NT",
+                  },
+                  {
+                    id: "nu",
+                    name: t("NU"),
+                    value: "NU",
+                  },
+                ]}
+                other
+                onChange={setProvince}
+              />
 
-            <fieldset className="mb-6">
-              <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
-                {t("formGender")}{" "}
-                <span className="inline text-form-input-gray text-sm lg:text-p">
-                  {t("optional")}
-                </span>
-              </legend>
-              <RadioField
-                label={t("woman")}
-                id="genderWoman"
-                name="gender"
-                onChange={(checked, name, value) => setGender(value)}
-                checked={gender === "woman"}
-                value="woman"
-              />
-              <RadioField
-                label={t("man")}
-                id="genderMan"
-                name="gender"
-                onChange={(checked, name, value) => setGender(value)}
-                checked={gender === "man"}
-                value="man"
-              />
-              <OptionalTextField
-                controlLabel={t("other")}
-                textFieldName="genderOtherDetails"
-                textFieldId="genderOtherDetails"
-                textFieldLabel={t("otherDetails")}
-                controlName="gender"
-                controlId="genderOther"
-                controlValue="other"
-                controlType="radiofield"
-                onControlChange={(checked, name, value) => {
-                  setGender(value);
-                  setGenderOtherDetails("");
-                }}
-                onTextFieldChange={setGenderOtherDetails}
-                textFieldValue={genderOtherDetails}
-                checked={gender === "other"}
-                textLabelBold={true}
-                describedby="genderotherDescribedBy"
-              />
-              <RadioField
-                label={t("preferNotAnswer")}
-                id="genderPreferNotToAnswer"
-                name="gender"
-                onChange={(checked, name, value) => setGender(value)}
-                checked={gender === "preferNotToAnswer"}
-                value="preferNotToAnswer"
-              />
-            </fieldset>
-
-            <fieldset className="mb-6">
-              <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
-                {t("formIndigenous")}{" "}
-                <span className="inline text-form-input-gray text-sm lg:text-p">
-                  {t("optional")}
-                </span>
-              </legend>
-              <RadioField
-                label={t("FN")}
-                id="nativeStatusFirstNations"
-                checked={nativeStatus === "firstNations"}
-                onChange={(checked, name, value) => {
-                  setNativeStatus(value);
-                }}
-                name="nativeStatus"
-                value="firstNations"
-              />
-              <RadioField
-                label={t("metis")}
-                id="nativeStatusMétis"
-                checked={nativeStatus === "métis"}
-                onChange={(checked, name, value) => {
-                  setNativeStatus(value);
-                }}
-                name="nativeStatus"
-                value="métis"
-              />
-              <RadioField
-                label={t("inuit")}
-                id="nativeStatusInuit"
-                checked={nativeStatus === "inuit"}
-                onChange={(checked, name, value) => {
-                  setNativeStatus(value);
-                }}
-                name="nativeStatus"
-                value="inuit"
-              />
-              <RadioField
-                label={t("doesNotApply")}
-                id="nativeStatusNA"
-                checked={nativeStatus === "N/A"}
-                onChange={(checked, name, value) => {
-                  setNativeStatus(value);
-                }}
-                name="nativeStatus"
-                value="N/A"
-              />
-              <RadioField
-                label={t("preferNotAnswer")}
-                id="nativeStatusPreferNotToAnswer"
-                checked={nativeStatus === "preferNotToAnswer"}
-                onChange={(checked, name, value) => {
-                  setNativeStatus(value);
-                }}
-                name="nativeStatus"
-                value="preferNotToAnswer"
-              />
-            </fieldset>
-
-            <fieldset className="mb-6">
-              <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
-                {t("disability")}{" "}
-                <span className="inline text-form-input-gray text-sm lg:text-p">
-                  {t("optional")}
-                </span>
-              </legend>
-              <OptionalTextField
-                controlLabel={t("yes")}
-                textFieldName="disabilityDetails"
-                textFieldId="disabilityDetails"
-                textFieldLabel={t("yesDetails")}
-                textLabelBold={true}
-                textFieldRequired={true}
-                multiText={true}
-                checked={disability === "yes"}
-                onControlChange={(checked, name, value) => {
-                  setDisability(value);
-                  setDisabilityDetails("");
-                }}
-                onTextFieldChange={setDisabilityDetails}
-                textFieldValue={disabilityDetails}
-                controlName="disability"
-                controlId="disabilityYes"
-                controlValue="yes"
-                controlType="radiofield"
-                controlDataCy="btn-disability-yes"
-                textFieldDataCy="text-disability-yes"
-                error={disabilityError}
-                describedby="disabilityDetailsDescribedBy"
-              />
-              <RadioField
-                label={t("no")}
-                id="disabilityNo"
-                onChange={(checked, name, value) => setDisability(value)}
-                checked={disability === "no"}
-                name="disability"
-                value="no"
-                dataCy="btn-disability-no"
-              />
-              <RadioField
-                label={t("notSure")}
-                id="disabilityNotSure"
-                onChange={(checked, name, value) => setDisability(value)}
-                checked={disability === "notSure"}
-                name="disability"
-                value="notSure"
-              />
-              <RadioField
-                label={t("preferNotAnswer")}
-                id="disabilityPreferNotToAnswer"
-                onChange={(checked, name, value) => setDisability(value)}
-                checked={disability === "preferNotToAnswer"}
-                name="disability"
-                value="preferNotToAnswer"
-              />
-            </fieldset>
-
-            <fieldset className="mb-6">
-              <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
-                {t("formMinority")}{" "}
-                <span className="inline text-form-input-gray text-sm lg:text-p">
-                  {t("optional")}
-                </span>
-              </legend>
-              <OptionalListField
-                controlName="minority"
-                controlId="minorityYes"
-                controlLabel={t("yes")}
-                controlValue="yes"
-                controlType="radiofield"
-                checked={minority === "yes"}
-                onControlChange={(checked, name, value) => setMinority(value)}
-                listLabel={t("minorityYesDetails")}
-              >
-                <CheckBox
-                  label={t("black")}
-                  id="minorityGroupBlack"
-                  name="minorityGroup"
-                  checked={minorityGroup.includes("black")}
-                  onChange={handlerMinorityGroupOnChange}
-                  value="black"
-                  className="mb-7"
+              <fieldset className="mb-6">
+                <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
+                  {t("formGender")}{" "}
+                  <span className="inline text-form-input-gray text-sm lg:text-p">
+                    {t("optional")}
+                  </span>
+                </legend>
+                <RadioField
+                  label={t("woman")}
+                  id="genderWoman"
+                  name="gender"
+                  onChange={(checked, name, value) => setGender(value)}
+                  checked={gender === "woman"}
+                  value="woman"
                 />
-                <CheckBox
-                  label={t("chinese")}
-                  id="minorityGroupChinese"
-                  name="minorityGroup"
-                  checked={minorityGroup.includes("chinese")}
-                  onChange={handlerMinorityGroupOnChange}
-                  value="chinese"
-                  className="mb-7"
-                />
-                <CheckBox
-                  label={t("filipino")}
-                  id="minorityGroupFilipino"
-                  name="minorityGroup"
-                  checked={minorityGroup.includes("filipino")}
-                  onChange={handlerMinorityGroupOnChange}
-                  value="filipino"
-                  className="mb-7"
-                />
-                <CheckBox
-                  label={t("japanese")}
-                  id="minorityGroupJapanese"
-                  name="minorityGroup"
-                  checked={minorityGroup.includes("japanese")}
-                  onChange={handlerMinorityGroupOnChange}
-                  value="japanese"
-                  className="mb-7"
-                />
-                <CheckBox
-                  label={t("korean")}
-                  id="minorityGroupKorean"
-                  name="minorityGroup"
-                  checked={minorityGroup.includes("korean")}
-                  onChange={handlerMinorityGroupOnChange}
-                  value="korean"
-                  className="mb-7"
-                />
-                <CheckBox
-                  label={t("SA")}
-                  id="minorityGroupSouthAsian"
-                  name="minorityGroup"
-                  checked={minorityGroup.includes("southAsian")}
-                  onChange={handlerMinorityGroupOnChange}
-                  value="southAsian"
-                  className={
-                    props.locale === "en"
-                      ? "mb-20 md:mb-12 lg:mb-7"
-                      : "mb-24 md:mb-12 lg:mb-10"
-                  }
-                />
-                <CheckBox
-                  label={t("SEA")}
-                  id="minorityGroupSoutheastAsian"
-                  name="minorityGroup"
-                  checked={minorityGroup.includes("southeastAsian")}
-                  onChange={handlerMinorityGroupOnChange}
-                  value="southeastAsian"
-                  className="mb-12 md:mb-7"
-                />
-                <CheckBox
-                  label={t("nonWhiteAAA")}
-                  id="minorityGroupNonWhiteAAA"
-                  name="minorityGroup"
-                  checked={minorityGroup.includes("nonWhiteAAA")}
-                  onChange={handlerMinorityGroupOnChange}
-                  value="nonWhiteAAA"
-                  className={
-                    props.locale === "en" ? "mb-12 md:mb-7" : "mb-16 md:mb-7"
-                  }
-                />
-                <CheckBox
-                  label={t("LA")}
-                  id="minorityGroupLatinAmerican"
-                  name="minorityGroup"
-                  checked={minorityGroup.includes("latinAmerican")}
-                  onChange={handlerMinorityGroupOnChange}
-                  value="latinAmerican"
-                  className="mb-16 md:mb-7"
-                />
-                <CheckBox
-                  label={t("mixedOrigin")}
-                  id="minorityGroupMixedOrigin"
-                  name="minorityGroup"
-                  checked={minorityGroup.includes("mixedOrigin")}
-                  onChange={handlerMinorityGroupOnChange}
-                  value="mixedOrigin"
-                  className="mb-12 md:mb-7"
+                <RadioField
+                  label={t("man")}
+                  id="genderMan"
+                  name="gender"
+                  onChange={(checked, name, value) => setGender(value)}
+                  checked={gender === "man"}
+                  value="man"
                 />
                 <OptionalTextField
-                  controlLabel={t("otherMinority")}
-                  textFieldName="minorityGroupOther"
-                  textFieldId="minorityGroupOtherDetails"
-                  textLabelBold={true}
-                  checked={minorityGroup.includes("other")}
-                  onControlChange={handlerMinorityGroupOnChange}
-                  onTextFieldChange={setMinorityGroupOther}
-                  textFieldValue={minorityGroupOther}
-                  textFieldLabel={t("otherMinorityDetails")}
+                  controlLabel={t("other")}
+                  textFieldName="genderOtherDetails"
+                  textFieldId="genderOtherDetails"
+                  textFieldLabel={t("otherDetails")}
+                  controlName="gender"
+                  controlId="genderOther"
                   controlValue="other"
-                  controlName="minorityGroup"
-                  controlId="minorityGroupOther"
-                  describedby="minorityGroupDescribedBy"
+                  controlType="radiofield"
+                  onControlChange={(checked, name, value) => {
+                    setGender(value);
+                    setGenderOtherDetails("");
+                  }}
+                  onTextFieldChange={setGenderOtherDetails}
+                  textFieldValue={genderOtherDetails}
+                  checked={gender === "other"}
+                  textLabelBold={true}
+                  describedby="genderotherDescribedBy"
                 />
-              </OptionalListField>
-              <RadioField
-                label={t("no")}
-                id="minorityNo"
-                name="minority"
-                value="no"
-                checked={minority === "no"}
-                onChange={(checked, name, value) => setMinority(value)}
-              />
-              <RadioField
-                label={t("preferNotAnswer")}
-                id="minorityPreferNotToAnswer"
-                onChange={(checked, name, value) => setMinority(value)}
-                checked={minority === "preferNotToAnswer"}
-                name="minority"
-                value="preferNotToAnswer"
-              />
-            </fieldset>
+                <RadioField
+                  label={t("preferNotAnswer")}
+                  id="genderPreferNotToAnswer"
+                  name="gender"
+                  onChange={(checked, name, value) => setGender(value)}
+                  checked={gender === "preferNotToAnswer"}
+                  value="preferNotToAnswer"
+                />
+              </fieldset>
 
-            <fieldset className="mb-6">
-              <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
-                {t("formIncome")}{" "}
-                <span className="inline text-form-input-gray text-sm lg:text-p not-italic">
-                  {t("optional")}
-                </span>
-              </legend>
-              <RadioField
-                label={t("income1")}
-                id="income30kLess"
-                name="incomeLevel"
-                checked={incomeLevel === "30kLess"}
-                onChange={(checked, name, value) => setIncomeLevel(value)}
-                value="30kLess"
-              />
-              <RadioField
-                label={t("income2")}
-                id="income60kLess"
-                name="incomeLevel"
-                checked={incomeLevel === "30kto60k"}
-                onChange={(checked, name, value) => setIncomeLevel(value)}
-                value="30kto60k"
-              />
-              <RadioField
-                label={t("income3")}
-                id="income100kLess"
-                name="incomeLevel"
-                checked={incomeLevel === "60kto100k"}
-                onChange={(checked, name, value) => setIncomeLevel(value)}
-                value="60kto100k"
-              />
-              <RadioField
-                label={t("income4")}
-                id="income150kLess"
-                name="incomeLevel"
-                checked={incomeLevel === "100kto150k"}
-                onChange={(checked, name, value) => setIncomeLevel(value)}
-                value="100kto150k"
-              />
-              <RadioField
-                label={t("income5")}
-                id="income150kMore"
-                name="incomeLevel"
-                checked={incomeLevel === "150kMore"}
-                onChange={(checked, name, value) => setIncomeLevel(value)}
-                value="150kMore"
-              />
-              <RadioField
-                label={t("preferNotAnswer")}
-                id="incomePreferNotToAnswer"
-                name="incomeLevel"
-                checked={incomeLevel === "preferNotToAnswer"}
-                onChange={(checked, name, value) => setIncomeLevel(value)}
-                value="preferNotToAnswer"
-              />
-            </fieldset>
+              <fieldset className="mb-6">
+                <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
+                  {t("formIndigenous")}{" "}
+                  <span className="inline text-form-input-gray text-sm lg:text-p">
+                    {t("optional")}
+                  </span>
+                </legend>
+                <RadioField
+                  label={t("FN")}
+                  id="nativeStatusFirstNations"
+                  checked={nativeStatus === "firstNations"}
+                  onChange={(checked, name, value) => {
+                    setNativeStatus(value);
+                  }}
+                  name="nativeStatus"
+                  value="firstNations"
+                />
+                <RadioField
+                  label={t("metis")}
+                  id="nativeStatusMétis"
+                  checked={nativeStatus === "métis"}
+                  onChange={(checked, name, value) => {
+                    setNativeStatus(value);
+                  }}
+                  name="nativeStatus"
+                  value="métis"
+                />
+                <RadioField
+                  label={t("inuit")}
+                  id="nativeStatusInuit"
+                  checked={nativeStatus === "inuit"}
+                  onChange={(checked, name, value) => {
+                    setNativeStatus(value);
+                  }}
+                  name="nativeStatus"
+                  value="inuit"
+                />
+                <RadioField
+                  label={t("doesNotApply")}
+                  id="nativeStatusNA"
+                  checked={nativeStatus === "N/A"}
+                  onChange={(checked, name, value) => {
+                    setNativeStatus(value);
+                  }}
+                  name="nativeStatus"
+                  value="N/A"
+                />
+                <RadioField
+                  label={t("preferNotAnswer")}
+                  id="nativeStatusPreferNotToAnswer"
+                  checked={nativeStatus === "preferNotToAnswer"}
+                  onChange={(checked, name, value) => {
+                    setNativeStatus(value);
+                  }}
+                  name="nativeStatus"
+                  value="preferNotToAnswer"
+                />
+              </fieldset>
 
-            {agreeToConditionsError ? (
-              <ErrorLabel message={agreeToConditionsError} />
-            ) : undefined}
-            <CheckBox
-              className="h-187px sm:h-32"
-              checked={agreeToConditions === "yes"}
-              onChange={(checked, name, value) => {
-                if (checked) {
-                  setAgreeToConditions("");
-                } else {
-                  setAgreeToConditions(value);
-                }
-              }}
-              label={t("formCheckBox")}
-              id="agreeToConditions"
-              name="agreeToConditions"
-              value="yes"
-              showRequiredLabel
-            />
-          </div>
-          <a
-            className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10 text-sm lg:text-p"
-            href={t("privacyLink")}
-          >
-            {t("privacy")}
-          </a>
-          <ActionButton
-            id="signup-submit"
-            className="rounded w-72"
-            type="submit"
-            dataCy="signup-submit"
-            dataTestId="signup-submit"
-            analyticsTracking
-          >
-            {t("reportAProblemSubmit")}
-          </ActionButton>
-          <ActionButton
-            id="reset-bottom"
-            custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10 text-sm lg:text-p"
-            type="reset"
-            onClick={useEffect(() => {
-              var select = document.getElementById("province-choice");
-              select.selectedIndex = 0;
-            })}
-          >
-            {t("clear")}
-          </ActionButton>
-        </form>
-      </section>
-    </Layout>
+              <fieldset className="mb-6">
+                <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
+                  {t("disability")}{" "}
+                  <span className="inline text-form-input-gray text-sm lg:text-p">
+                    {t("optional")}
+                  </span>
+                </legend>
+                <OptionalTextField
+                  controlLabel={t("yes")}
+                  textFieldName="disabilityDetails"
+                  textFieldId="disabilityDetails"
+                  textFieldLabel={t("yesDetails")}
+                  textLabelBold={true}
+                  textFieldRequired={true}
+                  multiText={true}
+                  checked={disability === "yes"}
+                  onControlChange={(checked, name, value) => {
+                    setDisability(value);
+                    setDisabilityDetails("");
+                  }}
+                  onTextFieldChange={setDisabilityDetails}
+                  textFieldValue={disabilityDetails}
+                  controlName="disability"
+                  controlId="disabilityYes"
+                  controlValue="yes"
+                  controlType="radiofield"
+                  controlDataCy="btn-disability-yes"
+                  textFieldDataCy="text-disability-yes"
+                  error={disabilityError}
+                  describedby="disabilityDetailsDescribedBy"
+                />
+                <RadioField
+                  label={t("no")}
+                  id="disabilityNo"
+                  onChange={(checked, name, value) => setDisability(value)}
+                  checked={disability === "no"}
+                  name="disability"
+                  value="no"
+                  dataCy="btn-disability-no"
+                />
+                <RadioField
+                  label={t("notSure")}
+                  id="disabilityNotSure"
+                  onChange={(checked, name, value) => setDisability(value)}
+                  checked={disability === "notSure"}
+                  name="disability"
+                  value="notSure"
+                />
+                <RadioField
+                  label={t("preferNotAnswer")}
+                  id="disabilityPreferNotToAnswer"
+                  onChange={(checked, name, value) => setDisability(value)}
+                  checked={disability === "preferNotToAnswer"}
+                  name="disability"
+                  value="preferNotToAnswer"
+                />
+              </fieldset>
+
+              <fieldset className="mb-6">
+                <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
+                  {t("formMinority")}{" "}
+                  <span className="inline text-form-input-gray text-sm lg:text-p">
+                    {t("optional")}
+                  </span>
+                </legend>
+                <OptionalListField
+                  controlName="minority"
+                  controlId="minorityYes"
+                  controlLabel={t("yes")}
+                  controlValue="yes"
+                  controlType="radiofield"
+                  checked={minority === "yes"}
+                  onControlChange={(checked, name, value) => setMinority(value)}
+                  listLabel={t("minorityYesDetails")}
+                >
+                  <CheckBox
+                    label={t("black")}
+                    id="minorityGroupBlack"
+                    name="minorityGroup"
+                    checked={minorityGroup.includes("black")}
+                    onChange={handlerMinorityGroupOnChange}
+                    value="black"
+                    className="mb-7"
+                  />
+                  <CheckBox
+                    label={t("chinese")}
+                    id="minorityGroupChinese"
+                    name="minorityGroup"
+                    checked={minorityGroup.includes("chinese")}
+                    onChange={handlerMinorityGroupOnChange}
+                    value="chinese"
+                    className="mb-7"
+                  />
+                  <CheckBox
+                    label={t("filipino")}
+                    id="minorityGroupFilipino"
+                    name="minorityGroup"
+                    checked={minorityGroup.includes("filipino")}
+                    onChange={handlerMinorityGroupOnChange}
+                    value="filipino"
+                    className="mb-7"
+                  />
+                  <CheckBox
+                    label={t("japanese")}
+                    id="minorityGroupJapanese"
+                    name="minorityGroup"
+                    checked={minorityGroup.includes("japanese")}
+                    onChange={handlerMinorityGroupOnChange}
+                    value="japanese"
+                    className="mb-7"
+                  />
+                  <CheckBox
+                    label={t("korean")}
+                    id="minorityGroupKorean"
+                    name="minorityGroup"
+                    checked={minorityGroup.includes("korean")}
+                    onChange={handlerMinorityGroupOnChange}
+                    value="korean"
+                    className="mb-7"
+                  />
+                  <CheckBox
+                    label={t("SA")}
+                    id="minorityGroupSouthAsian"
+                    name="minorityGroup"
+                    checked={minorityGroup.includes("southAsian")}
+                    onChange={handlerMinorityGroupOnChange}
+                    value="southAsian"
+                    className={
+                      props.locale === "en"
+                        ? "mb-20 md:mb-12 lg:mb-7"
+                        : "mb-24 md:mb-12 lg:mb-10"
+                    }
+                  />
+                  <CheckBox
+                    label={t("SEA")}
+                    id="minorityGroupSoutheastAsian"
+                    name="minorityGroup"
+                    checked={minorityGroup.includes("southeastAsian")}
+                    onChange={handlerMinorityGroupOnChange}
+                    value="southeastAsian"
+                    className="mb-12 md:mb-7"
+                  />
+                  <CheckBox
+                    label={t("nonWhiteAAA")}
+                    id="minorityGroupNonWhiteAAA"
+                    name="minorityGroup"
+                    checked={minorityGroup.includes("nonWhiteAAA")}
+                    onChange={handlerMinorityGroupOnChange}
+                    value="nonWhiteAAA"
+                    className={
+                      props.locale === "en" ? "mb-12 md:mb-7" : "mb-16 md:mb-7"
+                    }
+                  />
+                  <CheckBox
+                    label={t("LA")}
+                    id="minorityGroupLatinAmerican"
+                    name="minorityGroup"
+                    checked={minorityGroup.includes("latinAmerican")}
+                    onChange={handlerMinorityGroupOnChange}
+                    value="latinAmerican"
+                    className="mb-16 md:mb-7"
+                  />
+                  <CheckBox
+                    label={t("mixedOrigin")}
+                    id="minorityGroupMixedOrigin"
+                    name="minorityGroup"
+                    checked={minorityGroup.includes("mixedOrigin")}
+                    onChange={handlerMinorityGroupOnChange}
+                    value="mixedOrigin"
+                    className="mb-12 md:mb-7"
+                  />
+                  <OptionalTextField
+                    controlLabel={t("otherMinority")}
+                    textFieldName="minorityGroupOther"
+                    textFieldId="minorityGroupOtherDetails"
+                    textLabelBold={true}
+                    checked={minorityGroup.includes("other")}
+                    onControlChange={handlerMinorityGroupOnChange}
+                    onTextFieldChange={setMinorityGroupOther}
+                    textFieldValue={minorityGroupOther}
+                    textFieldLabel={t("otherMinorityDetails")}
+                    controlValue="other"
+                    controlName="minorityGroup"
+                    controlId="minorityGroupOther"
+                    describedby="minorityGroupDescribedBy"
+                  />
+                </OptionalListField>
+                <RadioField
+                  label={t("no")}
+                  id="minorityNo"
+                  name="minority"
+                  value="no"
+                  checked={minority === "no"}
+                  onChange={(checked, name, value) => setMinority(value)}
+                />
+                <RadioField
+                  label={t("preferNotAnswer")}
+                  id="minorityPreferNotToAnswer"
+                  onChange={(checked, name, value) => setMinority(value)}
+                  checked={minority === "preferNotToAnswer"}
+                  name="minority"
+                  value="preferNotToAnswer"
+                />
+              </fieldset>
+
+              <fieldset className="mb-6">
+                <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
+                  {t("formIncome")}{" "}
+                  <span className="inline text-form-input-gray text-sm lg:text-p not-italic">
+                    {t("optional")}
+                  </span>
+                </legend>
+                <RadioField
+                  label={t("income1")}
+                  id="income30kLess"
+                  name="incomeLevel"
+                  checked={incomeLevel === "30kLess"}
+                  onChange={(checked, name, value) => setIncomeLevel(value)}
+                  value="30kLess"
+                />
+                <RadioField
+                  label={t("income2")}
+                  id="income60kLess"
+                  name="incomeLevel"
+                  checked={incomeLevel === "30kto60k"}
+                  onChange={(checked, name, value) => setIncomeLevel(value)}
+                  value="30kto60k"
+                />
+                <RadioField
+                  label={t("income3")}
+                  id="income100kLess"
+                  name="incomeLevel"
+                  checked={incomeLevel === "60kto100k"}
+                  onChange={(checked, name, value) => setIncomeLevel(value)}
+                  value="60kto100k"
+                />
+                <RadioField
+                  label={t("income4")}
+                  id="income150kLess"
+                  name="incomeLevel"
+                  checked={incomeLevel === "100kto150k"}
+                  onChange={(checked, name, value) => setIncomeLevel(value)}
+                  value="100kto150k"
+                />
+                <RadioField
+                  label={t("income5")}
+                  id="income150kMore"
+                  name="incomeLevel"
+                  checked={incomeLevel === "150kMore"}
+                  onChange={(checked, name, value) => setIncomeLevel(value)}
+                  value="150kMore"
+                />
+                <RadioField
+                  label={t("preferNotAnswer")}
+                  id="incomePreferNotToAnswer"
+                  name="incomeLevel"
+                  checked={incomeLevel === "preferNotToAnswer"}
+                  onChange={(checked, name, value) => setIncomeLevel(value)}
+                  value="preferNotToAnswer"
+                />
+              </fieldset>
+
+              {agreeToConditionsError ? (
+                <ErrorLabel message={agreeToConditionsError} />
+              ) : undefined}
+              <CheckBox
+                className="h-187px sm:h-32"
+                checked={agreeToConditions === "yes"}
+                onChange={(checked, name, value) => {
+                  if (checked) {
+                    setAgreeToConditions("");
+                  } else {
+                    setAgreeToConditions(value);
+                  }
+                }}
+                label={t("formCheckBox")}
+                id="agreeToConditions"
+                name="agreeToConditions"
+                value="yes"
+                showRequiredLabel
+              />
+            </div>
+            <a
+              className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10 text-sm lg:text-p"
+              href={t("privacyLink")}
+            >
+              {t("privacy")}
+            </a>
+            <ActionButton
+              id="signup-submit"
+              className="rounded w-72"
+              type="submit"
+              dataCy="signup-submit"
+              dataTestId="signup-submit"
+              analyticsTracking
+            >
+              {t("reportAProblemSubmit")}
+            </ActionButton>
+            <ActionButton
+              id="reset-bottom"
+              custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10 text-sm lg:text-p"
+              type="reset"
+              onClick={useEffect(() => {
+                var select = document.getElementById("province-choice");
+                select.selectedIndex = 0;
+              })}
+            >
+              {t("clear")}
+            </ActionButton>
+          </form>
+        </section>
+      </Layout>
+      {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+        <script type="text/javascript">_satellite.pageBottom()</script>
+      ) : (
+        ""
+      )}
+    </>
   );
 }
 
