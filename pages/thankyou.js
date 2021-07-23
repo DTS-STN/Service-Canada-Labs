@@ -11,79 +11,89 @@ export default function Confirmation(props) {
   const referrer = query.ref || "";
 
   return (
-    <Layout
-      locale={props.locale}
-      langUrl={asPath}
-      breadcrumbItems={[
-        { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
-      ]}
-    >
-      <Head>
-        {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
-          <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
-        ) : (
-          ""
-        )}
-        <title>{t("scLabsThankYou")}</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content={t("scLabsThankYou")} />
-        <meta
-          name="dcterms.language"
-          content={props.locale === "en" ? "eng" : "fra"}
-        />
-        <meta name="dcterms.creator" content={t("creator")} />
-        <meta name="dcterms.accessRights" content="2" />
-        <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
-        <meta name="dcterms.issued" content="2021-06-15" />
-      </Head>
-      <section className="layout-container mb-12">
-        <h1
-          id="pageMainTitle"
-          className="mb-10 text-h1l font-bold lg:w-max"
-          tabIndex="-1"
-        >
-          {t("pleaseCheckYourEmail")}
-        </h1>
-        <div className="lg:flex lg:flex-row-reverse">
-          <span className="w-full flex justify-center lg:w-1/3">
-            <img
-              className="w-80px mb-10 lg:mb-0 lg:ml-24 lg:w-160px"
-              src="/circle-info.svg"
-              alt="Circle with information icon"
-            />
-          </span>
-          <div className="lg:w-2/3">
-            <p className="mb-4 text-sm lg:text-p leading-30px">
-              {t("sentEmailTo")} {maskedEmail} {t("from")}{" "}
-              <a
-                className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-                href={`mailto: ${process.env.NEXT_PUBLIC_THANK_YOU_EMAIL}`}
-              >
-                {process.env.NEXT_PUBLIC_THANK_YOU_EMAIL}
-              </a>{" "}
-              {t("toCheckEmail")}
-            </p>
-            <p className="mb-4 text-sm lg:text-p leading-30px">
-              {referrer === "signup"
-                ? t("confirmationP2")
-                : t("unsubscribeConfirmation")}
-            </p>
-            <p className="mb-4 text-sm lg:text-p leading-30px">
-              {referrer === "signup"
-                ? t("confirmationP3")
-                : t("unsubscribeConfirmationP1")}
-            </p>
-            {referrer === "signup" ? (
+    <>
+      <Layout
+        locale={props.locale}
+        langUrl={asPath}
+        breadcrumbItems={[
+          { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+        ]}
+      >
+        <Head>
+          {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+            <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+          ) : (
+            ""
+          )}
+          <title>{t("scLabsThankYou")}</title>
+          <link rel="icon" href="/favicon.ico" />
+          <meta name="dcterms.title" content={t("scLabsThankYou")} />
+          <meta
+            name="dcterms.language"
+            content={props.locale === "en" ? "eng" : "fra"}
+          />
+          <meta name="dcterms.creator" content={t("creator")} />
+          <meta name="dcterms.accessRights" content="2" />
+          <meta
+            name="dcterms.service"
+            content="ESDC-EDSC_SCLabs-LaboratoireSC"
+          />
+          <meta name="dcterms.issued" content="2021-06-15" />
+        </Head>
+        <section className="layout-container mb-12">
+          <h1
+            id="pageMainTitle"
+            className="mb-10 text-h1l font-bold lg:w-max"
+            tabIndex="-1"
+          >
+            {t("pleaseCheckYourEmail")}
+          </h1>
+          <div className="lg:flex lg:flex-row-reverse">
+            <span className="w-full flex justify-center lg:w-1/3">
+              <img
+                className="w-80px mb-10 lg:mb-0 lg:ml-24 lg:w-160px"
+                src="/circle-info.svg"
+                alt="Circle with information icon"
+              />
+            </span>
+            <div className="lg:w-2/3">
               <p className="mb-4 text-sm lg:text-p leading-30px">
-                {t("confirmationP4")}
+                {t("sentEmailTo")} {maskedEmail} {t("from")}{" "}
+                <a
+                  className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+                  href={`mailto: ${process.env.NEXT_PUBLIC_THANK_YOU_EMAIL}`}
+                >
+                  {process.env.NEXT_PUBLIC_THANK_YOU_EMAIL}
+                </a>{" "}
+                {t("toCheckEmail")}
               </p>
-            ) : (
-              ""
-            )}
+              <p className="mb-4 text-sm lg:text-p leading-30px">
+                {referrer === "signup"
+                  ? t("confirmationP2")
+                  : t("unsubscribeConfirmation")}
+              </p>
+              <p className="mb-4 text-sm lg:text-p leading-30px">
+                {referrer === "signup"
+                  ? t("confirmationP3")
+                  : t("unsubscribeConfirmationP1")}
+              </p>
+              {referrer === "signup" ? (
+                <p className="mb-4 text-sm lg:text-p leading-30px">
+                  {t("confirmationP4")}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>
           </div>
-        </div>
-      </section>
-    </Layout>
+        </section>
+      </Layout>
+      {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+        <script type="text/javascript">_satellite.pageBottom()</script>
+      ) : (
+        ""
+      )}
+    </>
   );
 }
 
