@@ -1,5 +1,6 @@
 {
-  "virtualAssistantTitle": "Assistant virtuel de Service Canada ",
+  "virtualAssistantTitle": "Description de l'assistant virtuel",
+  "virtualAssistantHeader": "Assistant virtuel de Service Canada ",
   "virtualAssistantBio": "L'assistant virtuel est un robot conversationnel. Il peut vous aider à surmonter les obstacles que vous pourriez rencontrer lorsque vous faites une demande de prestation. Par exemple, il peut vous aider à obtenir les documents qui manquent dans votre dossier. Voici un aperçu de ce que l'assistant virtuel peut faire pour vous! ",
   "virtualAssistantLogoAlt": "Logo assistant virtuel",
   "sectionTitle": "Scénario",
