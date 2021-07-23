@@ -35,7 +35,7 @@ export default function Home(props) {
         <meta name="dcterms.creator" content={t("creator")} />
         <meta name="dcterms.accessRights" content="2" />
         <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
-        <meta name="dcterms.issued" content="2021-03-18" />
+        <meta name="dcterms.issued" content="2021-07-20" />
       </Head>
 
       <section className="layout-container mb-2 mt-12 ">
