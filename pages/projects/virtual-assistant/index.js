@@ -61,29 +61,25 @@ export default function Home(props) {
               </p>
             </div>
           </div>
-          {/* the scenario section */}
-          <div>
-            <p
-              className="mb-6 mt-8 text-h1 font-display font-bold"
-              tabIndex="-1"
-              id="virtualAssistantTitle"
-            >
-              {t("vc:sectionTitle")}
-            </p>
-            <VirtualConcierge
-              dataTestId="scenario1"
-              dataCy="scenario1"
-              description={t("vc:scenarioPart1")}
-              description1={t("vc:scenarioPart1-1")}
-              className=" bg-gray-200"
-              vcImage={
-                props.locale === "fr"
-                  ? "/virtualconcierge/fr/virtual-concierge1.png"
-                  : "/virtualconcierge/en/virtual-concierge1.png"
-              }
-              vcImageAltText={t("vc:altTextfigure1")}
-              figureCaption={t("vc:figureCaption1")}
-            />
+        {/* the scenario section */}
+        <div>
+          <h2 className="mb-6 mt-8 text-h1" id="virtualAssistantTitle">
+            {t("vc:sectionTitle")}
+          </h2>
+          <VirtualConcierge
+            dataTestId="scenario1"
+            dataCy="scenario1"
+            description={t("vc:scenarioPart1")}
+            description1={t("vc:scenarioPart1-1")}
+            className=" bg-gray-200"
+            vcImage={
+              props.locale === "fr"
+                ? "/virtualconcierge/fr/virtual-concierge1.png"
+                : "/virtualconcierge/en/virtual-concierge1.png"
+            }
+            vcImageAltText={t("vc:altTextfigure1")}
+            figureCaption={t("vc:figureCaption1")}
+          />
 
             <VirtualConcierge
               dataTestId="scenario2"
