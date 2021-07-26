@@ -212,8 +212,8 @@ export default function Unsubscribe(props) {
             ""
           )}
           <form
-            data-gc-analytics-formname="ESDC:ServiceCanadaLabsUnsubscribe"
-            data-gc-analytics-collect='[{"value":"input","emptyField":"N/A"}]'
+            data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsUnsubscribe"
+            data-gc-analytics-collect='[{"value":"input:not(.exclude),select","emptyField":"N/A"}]'
             onSubmit={handleSubmit}
             onReset={handlerClearData}
             noValidate
@@ -231,6 +231,7 @@ export default function Unsubscribe(props) {
                 boldLabel={true}
                 describedby="emailDoNoInclude"
                 required
+                exclude
               />
             </div>
             <ActionButton
@@ -239,6 +240,7 @@ export default function Unsubscribe(props) {
               type="submit"
               dataCy="unsubscribe-submit"
               dataTestId="unsubscribe-submit"
+              analyticsTracking
             >
               {t("reportAProblemSubmit")}
             </ActionButton>

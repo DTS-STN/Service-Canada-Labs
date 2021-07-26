@@ -138,6 +138,7 @@ export function ReportAProblem(props) {
               describedby="incorrectInformation"
               OptionalTextField
               checkBoxStyle="mb-4"
+              controlValue="Incorrect Information"
             />
             <OptionalTextField
               controlId="unclearInformationCheckBox"
@@ -161,6 +162,7 @@ export function ReportAProblem(props) {
               textFieldDataCy="unclearInformation-text"
               describedby="unclearInformation"
               checkBoxStyle="mb-4"
+              controlValue="Unclear Information"
             />
             <OptionalTextField
               controlId="infoNotFoundCheckBox"
@@ -184,6 +186,7 @@ export function ReportAProblem(props) {
               textFieldDataCy="infoNotFound-text"
               describedby="infoNotFound"
               checkBoxStyle="mb-4"
+              controlValue="You didn't find what you were looking for"
             />
             <OptionalTextField
               controlId="adaptiveTechnologyCheckBox"
@@ -208,6 +211,7 @@ export function ReportAProblem(props) {
               textFieldDataCy="adaptiveTechnology-text"
               describedby="adaptiveTechnology"
               checkBoxStyle="mb-10"
+              controlValue="Page does not work with your adaptive technologies"
             />
             <OptionalTextField
               controlId="privacyIssuesCheckBox"
@@ -231,6 +235,7 @@ export function ReportAProblem(props) {
               textFieldDataCy="privacyIssues-text"
               describedby="privacyIssues"
               checkBoxStyle="mb-4"
+              controlValue="You're worried about your privacy"
             />
             <OptionalTextField
               controlId="noWhereElseToGoCheckBox"
@@ -254,6 +259,7 @@ export function ReportAProblem(props) {
               textFieldDataCy="noWhereElseToGo-text"
               describedby="noWhereElseToGo"
               checkBoxStyle="mb-4"
+              controlValue="You don't know where else to go for help"
             />
             <OptionalTextField
               controlId="otherCheckBox"
@@ -275,6 +281,7 @@ export function ReportAProblem(props) {
               textFieldDataCy="other-text"
               describedby="other"
               checkBoxStyle="mb-4"
+              controlValue="Other"
             />
           </fieldset>
 
