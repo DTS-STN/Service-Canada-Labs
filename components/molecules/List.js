@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 export function List(props) {
   let opacity = 40;
   return (
-    <ol className={props.className}>
+    <ul className={props.className} role="presentation">
       {props.items.map((item, key) => {
         let className =
           "bg-opacity-" +
@@ -22,7 +22,7 @@ export function List(props) {
           </li>
         );
       })}
-    </ol>
+    </ul>
   );
 }
 
