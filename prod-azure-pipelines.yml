@@ -1,7 +1,7 @@
 name: $(Date:yyyyMMdd)
 
 trigger:
-- main
+- releases/*
 pr: none
 resources:
 - repo: self
@@ -49,7 +49,7 @@ stages:
     steps:
     - task: AzureCLI@2
       inputs:
-        azureSubscription: $(DECD_DEV_SUBSCRIPTION)
+        azureSubscription: $(DECD_PROD_SUBSCRIPTION)
         scriptType: 'bash'
         scriptLocation: 'inlineScript'
         inlineScript: 'az webapp config container set --docker-custom-image-name $(ACR_DOMAIN)/$(imageRepository):$(tag) --docker-registry-server-url $(ACR_DOMAIN) --name $(ALPHASITE_APPSERVICE) --slot $(SLOT_NAME) --resource-group $(RESOURCE_GROUP)'
