@@ -185,7 +185,7 @@ export function ReportAProblem(props) {
               controlDataCy="infoNotFound-checkbox"
               textFieldDataCy="infoNotFound-text"
               describedby="infoNotFound"
-              checkBoxStyle="mb-4"
+              checkBoxStyle="lg:mb-8 mb-4"
               controlValue="You didn't find what you were looking for"
             />
             <OptionalTextField
@@ -210,7 +210,7 @@ export function ReportAProblem(props) {
               controlDataCy="adaptiveTechnology-checkbox"
               textFieldDataCy="adaptiveTechnology-text"
               describedby="adaptiveTechnology"
-              checkBoxStyle="mb-10"
+              checkBoxStyle="mb-8"
               controlValue="Page does not work with your adaptive technologies"
             />
             <OptionalTextField
@@ -258,7 +258,7 @@ export function ReportAProblem(props) {
               controlDataCy="noWhereElseToGo-checkbox"
               textFieldDataCy="noWhereElseToGo-text"
               describedby="noWhereElseToGo"
-              checkBoxStyle="mb-4"
+              checkBoxStyle="lg:mb-8 mb-4"
               controlValue="You don't know where else to go for help"
             />
             <OptionalTextField
