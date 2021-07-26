@@ -1,7 +1,9 @@
 name: $(Date:yyyyMMdd)
 
 trigger:
-- releases/*
+  tags:
+    include:
+    - v*
 pr: none
 resources:
 - repo: self
