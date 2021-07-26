@@ -52,7 +52,10 @@ export default function LifeJourneys(props) {
           />
           <meta name="dcterms.creator" content={t("creator")} />
           <meta name="dcterms.accessRights" content="2" />
-          <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
+          <meta
+            name="dcterms.service"
+            content="ESDC-EDSC_SCLabs-LaboratoireSC"
+          />
         </Head>
         <section className="layout-container relative mb-10">
           <h1
