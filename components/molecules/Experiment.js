@@ -14,7 +14,7 @@ export const Experiment = (props) => {
   };
   return (
     <div
-      className={`shadow-experiment-shadow p-4 border-b-4 xl:h-250px xl:max-h-250px ${
+      className={`shadow-experiment-shadow p-4 border-b-4 xl:min-h-250px ${
         "border-" + (tagColours[props.tag] || "gray-experiment")
       }`}
       data-testid={props.dataTestId}
@@ -22,14 +22,14 @@ export const Experiment = (props) => {
     >
       <Link href={props.href}>
         <a
-          className="mb-2 text-p text-custom-blue-projects-link underline"
+          className="block text-p text-custom-blue-projects-link underline hover:opacity-70"
           tabIndex="0"
         >
           {props.title}
         </a>
       </Link>
       <span
-        className={`mt-2 block w-max py-2 px-2 uppercase font-body text-xxs text-white font-bold rounded ${
+        className={`my-4 block w-max py-2 px-2 uppercase font-body text-xxs text-white font-bold rounded ${
           "bg-" + (tagColours[props.tag] || "gray-experiment")
         }`}
       >

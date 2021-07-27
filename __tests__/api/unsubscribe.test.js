@@ -60,11 +60,13 @@ describe("unsubscribe api", () => {
     });
 
     await unsubscribeHandler(req, res);
+    console.log(submitEmail.mock.calls);
     expect(res._getStatusCode()).toBe(201);
     expect(res._getData()).toBe("USER UNSUBSCRIBE EMAIL SENT");
     expect(submitEmail.mock.calls[0]).toContainEqual({
       unsubscribe_url:
         "http://localhost:3000/api/unsubscribe?id=somecuid1&lang=en",
+      unsubscribe_page_url: "http://localhost:3000/unsubscribe",
     });
   });
 

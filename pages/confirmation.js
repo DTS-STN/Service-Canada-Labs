@@ -16,14 +16,14 @@ export default function Confirmation(props) {
         locale={props.locale}
         langUrl={asPath}
         breadcrumbItems={[
-          { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}
       >
         <Head>
           <title>
             {referrer === "unsubscribe"
-              ? t("scLabsUnsubscribeConfirmation")
-              : t("scLabsConfirmation")}
+              ? `${t("unsubscribeConfirmationTitle")} — ${t("siteTitle")}`
+              : `${t("emailConfirmationTitle")} — ${t("siteTitle")}`}
           </title>
           {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
             <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
@@ -36,8 +36,8 @@ export default function Confirmation(props) {
             name="dcterms.title"
             content={
               referrer === "unsubscribe"
-                ? t("scLabsUnsubscribeConfirmation")
-                : t("scLabsConfirmation")
+                ? `${t("unsubscribeConfirmationTitle")} — ${t("siteTitle")}`
+                : `${t("emailConfirmationTitle")} — ${t("siteTitle")}`
             }
           />
           <meta

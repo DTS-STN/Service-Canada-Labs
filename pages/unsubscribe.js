@@ -169,7 +169,7 @@ export default function Unsubscribe(props) {
         locale={props.locale}
         langUrl={asPath}
         breadcrumbItems={[
-          { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}
       >
         <Head>
@@ -178,9 +178,12 @@ export default function Unsubscribe(props) {
           ) : (
             ""
           )}
-          <title>{t("scLabsUnsubscribe")}</title>
+          <title>{`${t("unsubscribe")} — ${t("siteTitle")}`}</title>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="dcterms.title" content={t("scLabsUnsubscribe")} />
+          <meta
+            name="dcterms.title"
+            content={`${t("unsubscribe")} — ${t("siteTitle")}`}
+          />
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}
@@ -212,8 +215,8 @@ export default function Unsubscribe(props) {
             ""
           )}
           <form
-            data-gc-analytics-formname="ESDC:ServiceCanadaLabsUnsubscribe"
-            data-gc-analytics-collect='[{"value":"input","emptyField":"N/A"}]'
+            data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsUnsubscribe"
+            data-gc-analytics-collect='[{"value":"input:not(.exclude),select","emptyField":"N/A"}]'
             onSubmit={handleSubmit}
             onReset={handlerClearData}
             noValidate
@@ -231,6 +234,7 @@ export default function Unsubscribe(props) {
                 boldLabel={true}
                 describedby="emailDoNoInclude"
                 required
+                exclude
               />
             </div>
             <ActionButton
@@ -239,6 +243,7 @@ export default function Unsubscribe(props) {
               type="submit"
               dataCy="unsubscribe-submit"
               dataTestId="unsubscribe-submit"
+              analyticsTracking
             >
               {t("reportAProblemSubmit")}
             </ActionButton>

@@ -77,44 +77,9 @@ export function ReportAProblem(props) {
             value={i18n.language}
           />
           <fieldset>
-            <legend className="text-base sm:text-p font-body font-normal">
+            <legend className="text-base sm:text-p font-body font-normal mb-6">
               {t("reportAProblemCheckAllThatApply", { lng: props.language })}
             </legend>
-            <ul className="list-outside list-disc px-6 py-2">
-              <li className="text-xxs sm:text-sm font-body my-4 leading-tight sm:leading-6">
-                <b>{t("reportAProblemNoReply", { lng: props.language })}</b>{" "}
-                {t("reportAProblemEnquiries", { lng: props.language })}{" "}
-                <a
-                  className="underline text-xxs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-                  href="mailto:experience@servicecanada.gc.ca"
-                >
-                  experience@servicecanada.gc.ca
-                </a>
-              </li>
-              <li className="text-xxs sm:text-sm font-body my-4 leading-tight sm:leading-6">
-                <b>
-                  {t("reportAProblemNoPersonalInfo", { lng: props.language })}
-                </b>
-                ,&nbsp;
-                {t("reportAProblemNoPersonalInfoDetails", {
-                  lng: props.language,
-                })}
-              </li>
-              <li className="text-xxs sm:text-sm font-body my-4 leading-tight sm:leading-6">
-                <b>{t("reportAProblemMoreInfo", { lng: props.language })}</b>
-                ,&nbsp;
-                {t("reportAProblemMoreInfoDetails", { lng: props.language })}
-                &nbsp;
-                <a
-                  className="underline text-xxs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-                  href={t("reportAProblemMoreInfoLink", {
-                    lng: props.language,
-                  })}
-                >
-                  {t("reportAProblemMoreInfoLinkText", { lng: props.language })}
-                </a>
-              </li>
-            </ul>
             <OptionalTextField
               controlId="incorrectInformationCheckBox"
               textFieldId="incorrectInformationTextField"
@@ -138,6 +103,7 @@ export function ReportAProblem(props) {
               describedby="incorrectInformation"
               OptionalTextField
               checkBoxStyle="mb-4"
+              controlValue="Incorrect Information"
             />
             <OptionalTextField
               controlId="unclearInformationCheckBox"
@@ -161,6 +127,7 @@ export function ReportAProblem(props) {
               textFieldDataCy="unclearInformation-text"
               describedby="unclearInformation"
               checkBoxStyle="mb-4"
+              controlValue="Unclear Information"
             />
             <OptionalTextField
               controlId="infoNotFoundCheckBox"
@@ -183,7 +150,8 @@ export function ReportAProblem(props) {
               controlDataCy="infoNotFound-checkbox"
               textFieldDataCy="infoNotFound-text"
               describedby="infoNotFound"
-              checkBoxStyle="mb-4"
+              checkBoxStyle="lg:mb-8 mb-4"
+              controlValue="You didn't find what you were looking for"
             />
             <OptionalTextField
               controlId="adaptiveTechnologyCheckBox"
@@ -207,7 +175,8 @@ export function ReportAProblem(props) {
               controlDataCy="adaptiveTechnology-checkbox"
               textFieldDataCy="adaptiveTechnology-text"
               describedby="adaptiveTechnology"
-              checkBoxStyle="mb-10"
+              checkBoxStyle="mb-8"
+              controlValue="Page does not work with your adaptive technologies"
             />
             <OptionalTextField
               controlId="privacyIssuesCheckBox"
@@ -231,6 +200,7 @@ export function ReportAProblem(props) {
               textFieldDataCy="privacyIssues-text"
               describedby="privacyIssues"
               checkBoxStyle="mb-4"
+              controlValue="You're worried about your privacy"
             />
             <OptionalTextField
               controlId="noWhereElseToGoCheckBox"
@@ -253,7 +223,8 @@ export function ReportAProblem(props) {
               controlDataCy="noWhereElseToGo-checkbox"
               textFieldDataCy="noWhereElseToGo-text"
               describedby="noWhereElseToGo"
-              checkBoxStyle="mb-4"
+              checkBoxStyle="lg:mb-8 mb-4"
+              controlValue="You don't know where else to go for help"
             />
             <OptionalTextField
               controlId="otherCheckBox"
@@ -275,8 +246,45 @@ export function ReportAProblem(props) {
               textFieldDataCy="other-text"
               describedby="other"
               checkBoxStyle="mb-4"
+              controlValue="Other"
             />
           </fieldset>
+
+          <ul className="list-outside list-disc px-6 py-2">
+            <li className="text-xxs sm:text-sm font-body my-4 leading-tight sm:leading-6">
+              <b>{t("reportAProblemNoReply", { lng: props.language })}</b>{" "}
+              {t("reportAProblemEnquiries", { lng: props.language })}{" "}
+              <a
+                className="underline text-xxs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+                href="mailto:experience@servicecanada.gc.ca"
+              >
+                experience@servicecanada.gc.ca
+              </a>
+            </li>
+            <li className="text-xxs sm:text-sm font-body my-4 leading-tight sm:leading-6">
+              <b>
+                {t("reportAProblemNoPersonalInfo", { lng: props.language })}
+              </b>
+              ,&nbsp;
+              {t("reportAProblemNoPersonalInfoDetails", {
+                lng: props.language,
+              })}
+            </li>
+            <li className="text-xxs sm:text-sm font-body my-4 leading-tight sm:leading-6">
+              <b>{t("reportAProblemMoreInfo", { lng: props.language })}</b>
+              ,&nbsp;
+              {t("reportAProblemMoreInfoDetails", { lng: props.language })}
+              &nbsp;
+              <a
+                className="underline text-xxs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+                href={t("reportAProblemMoreInfoLink", {
+                  lng: props.language,
+                })}
+              >
+                {t("reportAProblemMoreInfoLinkText", { lng: props.language })}
+              </a>
+            </li>
+          </ul>
 
           <a
             className="underline text-xs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font my-4 underline"

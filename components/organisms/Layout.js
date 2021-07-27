@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-// import Head from "next/head";
 import { Banner } from "../atoms/Banner";
 import { Menu } from "../molecules/Menu";
 import { Footer } from "./Footer";
@@ -108,7 +107,7 @@ export const Layout = ({
             },
           ]}
         />
-        <div className="layout-container my-2">
+        <div className="layout-container mt-2 mb-8">
           <Breadcrumb items={breadcrumbItems} />
         </div>
         {bannerText && bannerTitle ? (
@@ -121,10 +120,10 @@ export const Layout = ({
       </main>
 
       <footer>
-        <div className="layout-container my-3">
+        <div className="layout-container mt-5">
           <ReportAProblem />
         </div>
-        <div className="layout-container">
+        <div className="layout-container mb-2">
           <DateModified date={process.env.NEXT_PUBLIC_BUILD_DATE} />
         </div>
         <Footer

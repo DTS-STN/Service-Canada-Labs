@@ -11,7 +11,7 @@ export default function Index(props) {
 
   return (
     <>
-      <div className="z-0 fixed inset-0 filter blur-sm bg-splash-img-mobile xs:bg-splash-img bg-cover bg-center h-screen min-w-300px min-h-screen" />
+      <div className="z-0 fixed inset-0 bg-splash-img-mobile xs:bg-splash-img bg-cover bg-center h-screen min-w-300px min-h-screen" />
       <Head>
         {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
           <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
