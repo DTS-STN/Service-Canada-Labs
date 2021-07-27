@@ -379,6 +379,13 @@ export default function Signup(props) {
     });
   };
 
+  process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL
+    ? useEffect(() => {
+        window.adobeDataLayer = window.adobeDataLayer || [];
+        window.adobeDataLayer.push({ event: "pageLoad" });
+      })
+    : "";
+
   return (
     <>
       <Layout

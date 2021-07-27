@@ -4,6 +4,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { CallToAction } from "../../components/molecules/CallToAction";
+import { useEffect } from "react";
 
 function HTMList({ tag = "ul", content, listClassName, liClassName }) {
   const parseList = (content) =>
@@ -22,6 +23,13 @@ function HTMList({ tag = "ul", content, listClassName, liClassName }) {
     <ol className={listClassName}>{parseList(content)}</ol>
   );
 }
+
+process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL
+  ? useEffect(() => {
+      window.adobeDataLayer = window.adobeDataLayer || [];
+      window.adobeDataLayer.push({ event: "pageLoad" });
+    })
+  : "";
 
 export default function LifeJourneys(props) {
   const { t } = useTranslation("common", "lj");

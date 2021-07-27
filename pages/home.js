@@ -5,10 +5,18 @@ import { Layout } from "../components/organisms/Layout";
 import { useRouter } from "next/router";
 import { CallToAction } from "../components/molecules/CallToAction";
 import { ActionButton } from "../components/atoms/ActionButton";
+import { useEffect } from "react";
 
 export default function Home(props) {
   const { t } = useTranslation("common");
   const { asPath } = useRouter();
+
+  process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL
+    ? useEffect(() => {
+        window.adobeDataLayer = window.adobeDataLayer || [];
+        window.adobeDataLayer.push({ event: "pageLoad" });
+      })
+    : "";
 
   return (
     <>

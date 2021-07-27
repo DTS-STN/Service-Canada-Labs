@@ -4,11 +4,19 @@ import { useRouter } from "next/router";
 import { Layout } from "../components/organisms/Layout";
 import Head from "next/head";
 import { TextButtonField } from "../components/molecules/TextButtonField";
+import { useEffect } from "react";
 
 export default function Confirmation(props) {
   const { t } = useTranslation("common");
   const { asPath, query } = useRouter();
   const referrer = query.ref || "";
+
+  process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL
+    ? useEffect(() => {
+        window.adobeDataLayer = window.adobeDataLayer || [];
+        window.adobeDataLayer.push({ event: "pageLoad" });
+      })
+    : "";
 
   return (
     <>
