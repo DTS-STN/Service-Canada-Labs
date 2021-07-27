@@ -26,9 +26,12 @@ export default async function handler(req, res) {
           const unsubscribeUrl =
             origin +
             `/api/unsubscribe?id=${userObj.cuid}&lang=${userObj.language}`;
+          const unsubPageUrl =
+            origin + (userObj.language === "fr" ? "/fr" : "") + "/unsubscribe";
           const [status, json] = await submitEmail(
             {
               unsubscribe_url: unsubscribeUrl,
+              unsubscribe_page_url: unsubPageUrl,
             },
             {},
             userObj.language === "fr"
