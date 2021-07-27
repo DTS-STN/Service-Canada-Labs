@@ -33,7 +33,7 @@ function ThumbnailWithCaption({
 }) {
   return (
     <div className="flex justify-center flex-col">
-      <h3 className="text-lg mt-3">{title}</h3>
+      <h3 className=" mt-3">{title}</h3>
       <figure className="shadow-experiment-shadow">
         <img src={src} alt={alt} className="border-b-2" />
         <figcaption className="text-base p-8">{children}</figcaption>
@@ -94,7 +94,7 @@ export default function DigitalCenter(props) {
           <meta name="dcterms.issued" content="2021-07-21" />
         </Head>
 
-        <section className="layout-container mb-10">
+        <section className="layout-container mb-10 text-lg">
           <h1
             id="pageMainTitle"
             className="mb-10 text-h1l font-bold sm:w-max"
@@ -102,13 +102,13 @@ export default function DigitalCenter(props) {
           >
             {t("dc:OverviewTitle")}
           </h1>
-          <p className="text-base mt-3">{t("dc:ProductGoal1")}</p>
-          <p className="text-base mt-3">{t("dc:ProductGoal2")}</p>
-          <p className="text-base mt-3">{t("dc:ProductGoal3")}</p>
+          <p className="mt-3">{t("dc:ProductGoal1")}</p>
+          <p className="mt-3">{t("dc:ProductGoal2")}</p>
+          <p className="mt-3">{t("dc:ProductGoal3")}</p>
 
-          <h2 className="text-lg mt-10">{t("dc:Concept1Heading")}</h2>
-          <p className="text-base mt-6">{t("dc:Concept1P1")}</p>
-          <p className="text-base mt-6">{t("dc:Concept1P2")}</p>
+          <h2 className="mt-10">{t("dc:Concept1Heading")}</h2>
+          <p className="mt-6">{t("dc:Concept1P1")}</p>
+          <p className="mt-6">{t("dc:Concept1P2")}</p>
           <div className="mx-auto">
             <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 items-start gap-6">
               <ThumbnailWithCaption
@@ -116,10 +116,12 @@ export default function DigitalCenter(props) {
                 alt={t("dc:Concept1Img1Alt")}
                 src={t("dc:Concept1Img1")}
               >
-                <p className="text-sm">{t("dc:Concept1Img1Caption")}</p>
+                <p className="text-base">{t("dc:Concept1Img1Caption")}</p>
                 <HTMList
                   tag="ol"
-                  listClassName={"ml-6 mt-2 text-sm list-decimal list-outside"}
+                  listClassName={
+                    "ml-6 mt-2 text-base list-decimal list-outside"
+                  }
                   liClassName={"mt-1"}
                   content={t("dc:Concept1Img1CaptionList")}
                 />
@@ -129,10 +131,12 @@ export default function DigitalCenter(props) {
                 alt={t("dc:Concept1Img2Alt")}
                 src={t("dc:Concept1Img2")}
               >
-                <p className="text-sm">{t("dc:Concept1Img2Caption")}</p>
+                <p className="text-base">{t("dc:Concept1Img2Caption")}</p>
                 <HTMList
                   tag="ol"
-                  listClassName={"ml-6 mt-2 text-sm list-decimal list-outside"}
+                  listClassName={
+                    "ml-6 mt-2 text-base list-decimal list-outside"
+                  }
                   liClassName={"mt-1"}
                   content={t("dc:Concept1Img2CaptionList")}
                 />
@@ -142,10 +146,12 @@ export default function DigitalCenter(props) {
                 alt={t("dc:Concept1Img3Alt")}
                 src={t("dc:Concept1Img3")}
               >
-                <p className="text-sm">{t("dc:Concept1Img3Caption")}</p>
+                <p className="text-base">{t("dc:Concept1Img3Caption")}</p>
                 <HTMList
                   tag="ol"
-                  listClassName={"ml-6 mt-2 text-sm list-decimal list-outside"}
+                  listClassName={
+                    "ml-6 mt-2 text-base list-decimal list-outside"
+                  }
                   liClassName={"mt-1"}
                   content={t("dc:Concept1Img3CaptionList")}
                 />
@@ -153,15 +159,15 @@ export default function DigitalCenter(props) {
             </div>
           </div>
 
-          <h2 className="text-lg mt-10">{t("dc:Concept2Heading")}</h2>
-          <p className="text-base mt-6">{t("dc:Concept2P1")}</p>
-          <ol className="text-base mt-4 ml-8 list-decimal list-outside">
+          <h2 className="mt-10">{t("dc:Concept2Heading")}</h2>
+          <p className="mt-6">{t("dc:Concept2P1")}</p>
+          <ol className="mt-4 ml-8  list-decimal list-outside">
             <li className="mt-1">
               <a
                 href={t("dc:Concept2P2Href1")}
                 target="_blank"
                 rel="noopener"
-                className="font-body hover:text-canada-footer-hover-font-blue text-custom-blue-projects-link visited:text-purple-700 underline text-base"
+                className="font-body hover:text-canada-footer-hover-font-blue text-custom-blue-projects-link visited:text-purple-700 underline "
               >
                 {t("dc:Concept2P2Link1")}
               </a>{" "}
@@ -172,7 +178,7 @@ export default function DigitalCenter(props) {
                 href={t("dc:Concept2P2Href2")}
                 target="_blank"
                 rel="noopener"
-                className="font-body hover:text-canada-footer-hover-font-blue text-custom-blue-projects-link visited:text-purple-700 underline text-base"
+                className="font-body hover:text-canada-footer-hover-font-blue text-custom-blue-projects-link visited:text-purple-700 underline "
               >
                 {t("dc:Concept2P2Link2")}
               </a>
@@ -183,7 +189,7 @@ export default function DigitalCenter(props) {
                 href={t("dc:Concept2P2Href3")}
                 target="_blank"
                 rel="noopener"
-                className="font-body hover:text-canada-footer-hover-font-blue text-custom-blue-projects-link visited:text-purple-700 underline text-base"
+                className="font-body hover:text-canada-footer-hover-font-blue text-custom-blue-projects-link visited:text-purple-700 underline "
               >
                 {t("dc:Concept2P2Link3")}
               </a>
@@ -199,10 +205,12 @@ export default function DigitalCenter(props) {
                 alt={t("dc:Concept2Img1Alt")}
                 src={t("dc:Concept2Img1")}
               >
-                <p className="text-sm">{t("dc:Concept2Img1Caption")}</p>
+                <p className="text-base">{t("dc:Concept2Img1Caption")}</p>
                 <HTMList
                   tag="ol"
-                  listClassName={"ml-6 mt-2 text-sm list-decimal list-outside"}
+                  listClassName={
+                    "ml-6 mt-2 text-base list-decimal list-outside"
+                  }
                   liClassName={"mt-1"}
                   content={t("dc:Concept2Img1CaptionList")}
                 />
@@ -212,10 +220,12 @@ export default function DigitalCenter(props) {
                 alt={t("dc:Concept2Img2Alt")}
                 src={t("dc:Concept2Img2")}
               >
-                <p className="text-sm">{t("dc:Concept2Img2Caption")}</p>
+                <p className="text-base">{t("dc:Concept2Img2Caption")}</p>
                 <HTMList
                   tag="ol"
-                  listClassName={"ml-6 mt-2 text-sm list-decimal list-outside"}
+                  listClassName={
+                    "ml-6 mt-2 text-base list-decimal list-outside"
+                  }
                   liClassName={"mt-1"}
                   content={t("dc:Concept2Img2CaptionList")}
                 />
@@ -225,10 +235,12 @@ export default function DigitalCenter(props) {
                 alt={t("dc:Concept2Img3Alt")}
                 src={t("dc:Concept2Img3")}
               >
-                <p className="text-sm">{t("dc:Concept2Img3Caption")}</p>
+                <p className="text-base">{t("dc:Concept2Img3Caption")}</p>
                 <HTMList
                   tag="ol"
-                  listClassName={"ml-6 mt-2 text-sm list-decimal list-outside"}
+                  listClassName={
+                    "ml-6 mt-2 text-base list-decimal list-outside"
+                  }
                   liClassName={"mt-1"}
                   content={t("dc:Concept2Img3CaptionList")}
                 />
@@ -236,11 +248,11 @@ export default function DigitalCenter(props) {
             </div>
           </div>
 
-          <h2 className="text-lg mt-10">{t("dc:Concept3Heading")}</h2>
-          <p className="text-base mt-6">{t("dc:Concept3P1")}</p>
+          <h2 className=" mt-10">{t("dc:Concept3Heading")}</h2>
+          <p className=" mt-6">{t("dc:Concept3P1")}</p>
           <HTMList
             tag="ol"
-            listClassName={"text-base mt-4 ml-8 list-decimal list-outside"}
+            listClassName={" mt-4 ml-8 list-decimal list-outside"}
             liClassName={"mt-1"}
             content={t("dc:Concept3P1List")}
           />
@@ -252,10 +264,12 @@ export default function DigitalCenter(props) {
                 alt={t("dc:Concept3Img1Alt")}
                 src={t("dc:Concept3Img1")}
               >
-                <p className="text-sm">{t("dc:Concept3Img1Caption")}</p>
+                <p className="text-base">{t("dc:Concept3Img1Caption")}</p>
                 <HTMList
                   tag="ol"
-                  listClassName={"ml-6 mt-2 text-sm list-decimal list-outside"}
+                  listClassName={
+                    "ml-6 mt-2 text-base list-decimal list-outside"
+                  }
                   liClassName={"mt-1"}
                   content={t("dc:Concept3Img1CaptionList")}
                 />
@@ -263,8 +277,8 @@ export default function DigitalCenter(props) {
             </div>
           </div>
 
-          <h2 className="text-lg mt-10">{t("dc:Concept4Heading")}</h2>
-          <p className="text-base mt-6">{t("dc:Concept4P1")}</p>
+          <h2 className=" mt-10">{t("dc:Concept4Heading")}</h2>
+          <p className=" mt-6">{t("dc:Concept4P1")}</p>
 
           <div className="mx-auto">
             <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 items-start gap-6">
@@ -273,10 +287,12 @@ export default function DigitalCenter(props) {
                 alt={t("dc:Concept4Img1Alt")}
                 src={t("dc:Concept4Img1")}
               >
-                <p className="text-sm">{t("dc:Concept4Img1Caption")}</p>
+                <p className="text-base">{t("dc:Concept4Img1Caption")}</p>
                 <HTMList
                   tag="ol"
-                  listClassName={"ml-6 mt-2 text-sm list-decimal list-outside"}
+                  listClassName={
+                    "ml-6 mt-2 text-base list-decimal list-outside"
+                  }
                   liClassName={"mt-1"}
                   content={t("dc:Concept4Img1CaptionList")}
                 />
