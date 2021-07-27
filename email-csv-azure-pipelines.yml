@@ -1,0 +1,19 @@
+name: $(Date:yyyyMMdd)
+
+schedules:
+  - cron: "0 */5 * * *"
+    displayName: Daily email
+    branches:
+      include:
+        - main
+    always: true
+
+resources:
+  - repo: self
+
+steps:
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        curl -H "Authorization: $(CSV_AUTH_KEY)" $(CSV_API)
