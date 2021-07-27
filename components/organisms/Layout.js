@@ -107,7 +107,7 @@ export const Layout = ({
             },
           ]}
         />
-        <div className="layout-container my-2">
+        <div className="layout-container mt-2 mb-8">
           <Breadcrumb items={breadcrumbItems} />
         </div>
         {bannerText && bannerTitle ? (

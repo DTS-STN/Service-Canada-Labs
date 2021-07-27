@@ -89,7 +89,7 @@ export default function DigitalCenter(props) {
         <section className="layout-container mb-10">
           <h1
             id="pageMainTitle"
-            className="mb-10 mt-10 text-h1l font-bold sm:w-max"
+            className="mb-10 text-h1l font-bold sm:w-max"
             tabIndex="-1"
           >
             {t("dc:OverviewTitle")}

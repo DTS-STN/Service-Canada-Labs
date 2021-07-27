@@ -47,7 +47,7 @@ export default function Home(props) {
           <meta name="dcterms.issued" content="2021-07-20" />
         </Head>
 
-        <section className="layout-container mb-2 mt-12 ">
+        <section className="layout-container mb-10">
           <div className="w-auto mb-6">
             <h1 className="mb-8 text-h1l" tabIndex="-1" id="pageMainTitle">
               {t("vc:virtualAssistantTitle")}
