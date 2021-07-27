@@ -4,8 +4,8 @@ import { parse } from "json2csv";
 import { submitEmailWithAttachment } from "../../lib/notify/submitEmail";
 
 export default async function handler(req, res) {
-  const auth = req.headers.authorization || "";
-  if (auth === process.env.CSV_AUTH_KEY) {
+  const auth = req.headers.authorization;
+  if (auth === process.env.CSV_AUTH_KEY && auth !== undefined) {
     let users;
     try {
       const conn = await connectToDatabase(
