@@ -26,10 +26,10 @@ export default function error404(props) {
             ""
           )}
           <title data-gc-analytics-error="404">
-            {t("bannerTitle") + " - 404"}
+            {`404 — ${t("siteTitle")}`}
           </title>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="dcterms.title" content={t("bannerTitle") + " - 404"} />
+          <meta name="dcterms.title" content={`404 — ${t("siteTitle")}`} />
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}

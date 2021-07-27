@@ -23,7 +23,7 @@ export default function About(props) {
         locale={props.locale}
         langUrl={asPath}
         breadcrumbItems={[
-          { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}
       >
         <Head>
@@ -32,9 +32,12 @@ export default function About(props) {
           ) : (
             ""
           )}
-          <title>{t("scLabsAbout")}</title>
+          <title>{`${t("aboutTitle")} — ${t("siteTitle")}`}</title>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="dcterms.title" content={t("scLabsAbout")} />
+          <meta
+            name="dcterms.title"
+            content={`${t("aboutTitle")} — ${t("siteTitle")}`}
+          />
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}

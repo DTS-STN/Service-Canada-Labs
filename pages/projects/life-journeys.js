@@ -41,7 +41,7 @@ export default function LifeJourneys(props) {
         locale={props.locale}
         langUrl={asPath}
         breadcrumbItems={[
-          { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },
         ]}
       >
@@ -51,9 +51,12 @@ export default function LifeJourneys(props) {
           ) : (
             ""
           )}
-          <title>{t("lj:scLabsLifeJourneys")}</title>
+          <title>{`${t("lj:lifeJourneysTitle")} — ${t("siteTitle")}`}</title>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="dcterms.title" content={t("lj:scLabsLifeJourneys")} />
+          <meta
+            name="dcterms.title"
+            content={`${t("lj:lifeJourneysTitle")} — ${t("siteTitle")}`}
+          />
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}

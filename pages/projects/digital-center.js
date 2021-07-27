@@ -65,7 +65,7 @@ export default function DigitalCenter(props) {
         locale={props.locale}
         langUrl={asPath}
         breadcrumbItems={[
-          { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },
         ]}
       >
@@ -75,9 +75,12 @@ export default function DigitalCenter(props) {
           ) : (
             ""
           )}
-          <title>{t("dc:OverviewTitle1")}</title>
+          <title>{`${t("dc:OverviewTitle")} — ${t("siteTitle")}`}</title>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="dcterms.title" content={t("dc:OverviewTitle1")} />
+          <meta
+            name="dcterms.title"
+            content={`${t("dc:OverviewTitle")} — ${t("siteTitle")}`}
+          />
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}
@@ -94,7 +97,7 @@ export default function DigitalCenter(props) {
         <section className="layout-container mb-10">
           <h1
             id="pageMainTitle"
-            className="mb-10 mt-10 text-h1l font-bold sm:w-max"
+            className="mb-10 text-h1l font-bold sm:w-max"
             tabIndex="-1"
           >
             {t("dc:OverviewTitle")}
@@ -158,7 +161,7 @@ export default function DigitalCenter(props) {
                 href={t("dc:Concept2P2Href1")}
                 target="_blank"
                 rel="noopener"
-                className="font-body hover:text-canada-footer-hover-font-blue underline text-base"
+                className="font-body hover:text-canada-footer-hover-font-blue text-custom-blue-projects-link visited:text-purple-700 underline text-base"
               >
                 {t("dc:Concept2P2Link1")}
               </a>{" "}
@@ -169,7 +172,7 @@ export default function DigitalCenter(props) {
                 href={t("dc:Concept2P2Href2")}
                 target="_blank"
                 rel="noopener"
-                className="font-body hover:text-canada-footer-hover-font-blue underline text-base"
+                className="font-body hover:text-canada-footer-hover-font-blue text-custom-blue-projects-link visited:text-purple-700 underline text-base"
               >
                 {t("dc:Concept2P2Link2")}
               </a>
@@ -180,7 +183,7 @@ export default function DigitalCenter(props) {
                 href={t("dc:Concept2P2Href3")}
                 target="_blank"
                 rel="noopener"
-                className="font-body hover:text-canada-footer-hover-font-blue underline text-base"
+                className="font-body hover:text-canada-footer-hover-font-blue text-custom-blue-projects-link visited:text-purple-700 underline text-base"
               >
                 {t("dc:Concept2P2Link3")}
               </a>
@@ -283,10 +286,10 @@ export default function DigitalCenter(props) {
         </section>
 
         <CallToAction
-          title={t("signupTitle")}
+          title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
           href={"/signup"}
-          hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
+          hrefText={t("signupBtn")}
         />
       </Layout>
       {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (

@@ -24,7 +24,7 @@ export default function Home(props) {
         locale={props.locale}
         langUrl={asPath}
         breadcrumbItems={[
-          { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },
         ]}
       >
@@ -34,9 +34,14 @@ export default function Home(props) {
           ) : (
             ""
           )}
-          <title>{t("vc:virtualAssistantTitle1")}</title>
+          <title>{`${t("vc:virtualAssistantTitle")} — ${t(
+            "siteTitle"
+          )}`}</title>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="dcterms.title" content={t("vc:virtualAssistantTitle1")} />
+          <meta
+            name="dcterms.title"
+            content={`${t("vc:virtualAssistantTitle")} — ${t("siteTitle")}`}
+          />
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}
@@ -50,7 +55,7 @@ export default function Home(props) {
           <meta name="dcterms.issued" content="2021-07-20" />
         </Head>
 
-        <section className="layout-container mb-2 mt-12 ">
+        <section className="layout-container mb-10">
           <div className="w-auto mb-6">
             <h1 className="mb-8 text-h1l" tabIndex="-1" id="pageMainTitle">
               {t("vc:virtualAssistantTitle")}
@@ -123,7 +128,7 @@ export default function Home(props) {
           </div>
         </section>
         <CallToAction
-          title={t("signupTitle")}
+          title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
           href={"/signup"}
           hrefText={t("signupBtn")}

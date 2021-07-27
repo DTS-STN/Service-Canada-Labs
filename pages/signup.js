@@ -392,7 +392,7 @@ export default function Signup(props) {
         locale={props.locale}
         langUrl={asPath}
         breadcrumbItems={[
-          { text: t("bannerTitle"), link: t("breadCrumbsHref1") },
+          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}
       >
         <Head>
@@ -401,9 +401,12 @@ export default function Signup(props) {
           ) : (
             ""
           )}
-          <title>{t("scLabsSignup")}</title>
+          <title>{`${t("signupTitle")} — ${t("siteTitle")}`}</title>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="dcterms.title" content={t("scLabsSignup")} />
+          <meta
+            name="dcterms.title"
+            content={`${t("signupTitle")} — ${t("siteTitle")}`}
+          />
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}
