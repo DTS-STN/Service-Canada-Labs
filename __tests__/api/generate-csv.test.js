@@ -17,7 +17,8 @@ describe("csv api", () => {
     process.env.USER_CSV_TEMPLATE_ID = "csv";
     process.env.MONGO_DB = "testdbuservalidate";
     process.env.CSV_AUTH_KEY = "testsecretkey";
-    process.env.NOTIFY_REPORT_A_PROBLEM_EMAIL = "some.test@email.com";
+    process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL =
+      "some.test@email.com";
 
     await conn.db.collection("users").insertMany([
       {
@@ -38,7 +39,7 @@ describe("csv api", () => {
   afterEach(async () => {
     delete process.env.MONGO_DB;
     delete process.env.CSV_AUTH_KEY;
-    delete process.env.NOTIFY_REPORT_A_PROBLEM_EMAIL;
+    delete process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL;
     await conn.db.collection("users").deleteMany();
   });
 

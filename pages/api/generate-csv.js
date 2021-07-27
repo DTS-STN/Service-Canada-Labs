@@ -27,7 +27,7 @@ export default async function handler(req, res) {
         },
         {},
         process.env.USER_CSV_TEMPLATE_ID,
-        process.env.NOTIFY_REPORT_A_PROBLEM_EMAIL, // for now it's the same email
+        process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL, // for now it's the same email
         base64Data,
         `users-${date}.csv`,
         process.env.NOTIFY_BASE_API_URL + "/v2/notifications/email",
