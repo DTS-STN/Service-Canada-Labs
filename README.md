@@ -53,7 +53,7 @@ Here is a list of all the environment variables used to configure the applicatio
 
 `NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID`: The Notify template ID for the report a problem email template
 
-`NOTIFY_REPORT_A_PROBLEM_EMAIL`: The email to send it too
+`NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL`: The email to send it too
 
 `NOTIFY_API_KEY`: The [Notify API key](https://documentation.notification.canada.ca/en/start.html#headers)
 

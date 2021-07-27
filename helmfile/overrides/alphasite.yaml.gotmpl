@@ -10,8 +10,8 @@ extraEnv:
     value: "true"
   - name: NOTIFY_API_KEY
     value: {{ requiredEnv "NOTIFY_API_KEY" | quote }}
-  - name: NOTIFY_REPORT_A_PROBLEM_EMAIL
-    value: {{ requiredEnv "NOTIFY_REPORT_A_PROBLEM_EMAIL" | quote }}
+  - name: NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL
+    value: {{ requiredEnv "NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL" | quote }}
   - name: NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID
     value: {{ requiredEnv "NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID" | quote }}
 
