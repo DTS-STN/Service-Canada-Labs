@@ -43,16 +43,18 @@ export function Menu(props) {
 
       <ul id="menuDropdown" className="menuDropdown" role="menu">
         {props.items.map((item, key) => {
-          var itemClass = "py-3 lg:py-0 cursor-pointer menuLink";
-
-          {
-            asPath === item.link
-              ? (itemClass = "py-3 lg:py-0 cursor-pointer activePage")
-              : null;
-          }
+          const exactURL = asPath === item.link; // it's exactly this url
+          const includesURL = asPath.includes(item.link); // it's a child of this url (eg, "/projects/app" includes "/projects")
 
           return (
-            <li key={key} className={itemClass} role="menuitem">
+            <li
+              key={key}
+              className={`py-3 lg:py-0 cursor-pointer ${
+                includesURL ? "activePage" : "menuLink"
+              }`}
+              role="menuitem"
+              aria-current={exactURL ? "page" : null}
+            >
               <Link href={item.link}>
                 <a className="font-body text-base">{item.text}</a>
               </Link>
