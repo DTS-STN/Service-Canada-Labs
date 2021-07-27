@@ -153,7 +153,7 @@ export default function DigitalCenter(props) {
                 href={t("dc:Concept2P2Href1")}
                 target="_blank"
                 rel="noopener"
-                className="font-body hover:text-canada-footer-hover-font-blue underline text-base"
+                className="font-body hover:text-canada-footer-hover-font-blue text-custom-blue-projects-link visited:text-purple-700 underline text-base"
               >
                 {t("dc:Concept2P2Link1")}
               </a>{" "}
@@ -164,7 +164,7 @@ export default function DigitalCenter(props) {
                 href={t("dc:Concept2P2Href2")}
                 target="_blank"
                 rel="noopener"
-                className="font-body hover:text-canada-footer-hover-font-blue underline text-base"
+                className="font-body hover:text-canada-footer-hover-font-blue text-custom-blue-projects-link visited:text-purple-700 underline text-base"
               >
                 {t("dc:Concept2P2Link2")}
               </a>
@@ -175,7 +175,7 @@ export default function DigitalCenter(props) {
                 href={t("dc:Concept2P2Href3")}
                 target="_blank"
                 rel="noopener"
-                className="font-body hover:text-canada-footer-hover-font-blue underline text-base"
+                className="font-body hover:text-canada-footer-hover-font-blue text-custom-blue-projects-link visited:text-purple-700 underline text-base"
               >
                 {t("dc:Concept2P2Link3")}
               </a>
