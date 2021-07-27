@@ -278,10 +278,10 @@ export default function DigitalCenter(props) {
         </section>
 
         <CallToAction
-          title={t("signupTitle")}
+          title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
           href={"/signup"}
-          hrefText={t("signupTitle").slice(0, t("signupTitle").length - 1)}
+          hrefText={t("signupBtn")}
         />
       </Layout>
       {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
