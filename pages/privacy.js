@@ -10,12 +10,12 @@ export default function Privacy(props) {
   const { t } = useTranslation("common");
   const { asPath } = useRouter();
 
-  process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL
-    ? useEffect(() => {
-        window.adobeDataLayer = window.adobeDataLayer || [];
-        window.adobeDataLayer.push({ event: "pageLoad" });
-      })
-    : "";
+  useEffect(() => {
+    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
+      window.adobeDataLayer = window.adobeDataLayer || [];
+      window.adobeDataLayer.push({ event: "pageLoad" });
+    }
+  });
 
   return (
     <>

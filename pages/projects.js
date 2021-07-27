@@ -66,12 +66,12 @@ export default function Projects(props) {
     }
   };
 
-  process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL
-    ? useEffect(() => {
-        window.adobeDataLayer = window.adobeDataLayer || [];
-        window.adobeDataLayer.push({ event: "pageLoad" });
-      })
-    : "";
+  useEffect(() => {
+    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
+      window.adobeDataLayer = window.adobeDataLayer || [];
+      window.adobeDataLayer.push({ event: "pageLoad" });
+    }
+  });
 
   return (
     <>

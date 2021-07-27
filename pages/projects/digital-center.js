@@ -48,12 +48,12 @@ ThumbnailWithCaption.propTypes = {
   caption: PropTypes.string,
 };
 
-process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL
-  ? useEffect(() => {
+useEffect(() => {
+    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
-    })
-  : "";
+    }
+  });
 
 export default function DigitalCenter(props) {
   const { t } = useTranslation(["common", "dc"]);

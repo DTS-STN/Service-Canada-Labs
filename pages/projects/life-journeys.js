@@ -24,12 +24,12 @@ function HTMList({ tag = "ul", content, listClassName, liClassName }) {
   );
 }
 
-process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL
-  ? useEffect(() => {
+useEffect(() => {
+    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
-    })
-  : "";
+    }
+  });
 
 export default function LifeJourneys(props) {
   const { t } = useTranslation("common", "lj");
