@@ -4,7 +4,7 @@ import { parse } from "json2csv";
 import { submitEmailWithAttachment } from "../../lib/notify/submitEmail";
 
 export default async function handler(req, res) {
-  const auth = req.headers.authorization;
+  const auth = req.headers.authorization || "";
   if (auth === process.env.CSV_AUTH_KEY) {
     let users;
     try {
@@ -27,7 +27,7 @@ export default async function handler(req, res) {
         },
         {},
         process.env.USER_CSV_TEMPLATE_ID,
-        process.env.USER_CSV_EMAIL_TO,
+        process.env.NOTIFY_REPORT_A_PROBLEM_EMAIL, // for now it's the same email
         base64Data,
         `users-${date}.csv`,
         process.env.NOTIFY_BASE_API_URL + "/v2/notifications/email",
