@@ -1,7 +1,9 @@
 name: $(Date:yyyyMMdd)
 
+pr: none
+
 schedules:
-  - cron: "0 */5 * * *"
+  - cron: "*/5 * * * *"
     displayName: Daily email
     branches:
       include:
