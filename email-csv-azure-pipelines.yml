@@ -13,9 +13,17 @@ schedules:
 resources:
   - repo: self
 
-steps:
-  - task: Bash@3
-    inputs:
-      targetType: 'inline'
-      script: |
-        curl -H "Authorization: $(CSV_AUTH_KEY)" $(CSV_API)
+stages:
+  - stage: Email
+    displayName: Generate csv and send email
+    jobs:
+      - job: Email
+        displayName: Generate csv and send email
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: |
+                curl -H "Authorization: $(CSV_AUTH_KEY)" $(CSV_API)
