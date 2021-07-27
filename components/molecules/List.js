@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 export function List(props) {
   let opacity = 40;
   return (
-    <ol className={props.className}>
+    <ul className={props.className}>
       {props.items.map((item, key) => {
         let className =
           "bg-opacity-" +
@@ -15,14 +15,16 @@ export function List(props) {
         if (opacity < 100) opacity += 20;
         return (
           <li key={key} className="flex">
-            <span className={className}>{key + 1}</span>
+            <span className={className} role="presentation">
+              {key + 1}
+            </span>
             <p className="text-sm md:text-p my-auto leading-normal font-body">
               {item}
             </p>
           </li>
         );
       })}
-    </ol>
+    </ul>
   );
 }
 
