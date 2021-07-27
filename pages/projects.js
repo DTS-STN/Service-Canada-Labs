@@ -151,7 +151,7 @@ export const getStaticProps = async ({ locale }) => {
       {
         all: {
           id: "all",
-          label: "All",
+          label: locale === "en" ? "All" : "Tous",
           checked: true,
         },
       }
