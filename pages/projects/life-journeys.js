@@ -128,7 +128,7 @@ export default function LifeJourneys(props) {
             {t("lj:lifeJourneysHeading4")}
           </h2>
           <p className="mb-6">{t("lj:lifeJourneysContent12")}</p>
-          <p className="mb-6 font-bold">{t("lj:lifeJourneysContent13")}</p>
+          <p className="my-6 font-bold">{t("projectsDisclaimer")}</p>
         </section>
 
         <CallToAction

@@ -283,6 +283,8 @@ export default function DigitalCenter(props) {
               </ThumbnailWithCaption>
             </div>
           </div>
+
+          <p className="my-6 font-bold">{t("projectsDisclaimer")}</p>
         </section>
 
         <CallToAction
