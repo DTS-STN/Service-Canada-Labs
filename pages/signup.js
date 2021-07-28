@@ -841,9 +841,7 @@ export default function Signup(props) {
                     )}
                     onChange={handlerMinorityGroupOnChange}
                     value={fr ? "southAsian" : "chinese"}
-                    className={
-                      fr ? "mb-20 md:mb-12 lg:mb-7" : "mb-24 md:mb-12 lg:mb-10"
-                    }
+                    className="mb-7"
                   />
                   <CheckBox
                     label={fr ? t("SEA") : t("filipino")}
@@ -892,7 +890,9 @@ export default function Signup(props) {
                     onChange={handlerMinorityGroupOnChange}
                     value={fr ? "japanese" : "southAsian"}
                     className={
-                      props.locale === "en"
+                      fr
+                        ? "mb-7"
+                        : props.locale === "en"
                         ? "mb-20 md:mb-12 lg:mb-7"
                         : "mb-24 md:mb-12 lg:mb-10"
                     }
