@@ -8,9 +8,9 @@ import Link from "next/link";
 
 export const Experiment = (props) => {
   const tagColours = {
-    active: "custom-blue-experiment-blue",
-    coming_soon: "gray-experiment",
-    alpha: "custom-blue-experiment-blue",
+    current_projects: "custom-blue-experiment-blue",
+    past_projects: "gray-experiment",
+    upcoming_projects: "custom-blue-experiment-blue",
   };
   return (
     <div
