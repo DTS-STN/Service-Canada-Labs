@@ -71,21 +71,17 @@ export default function LifeJourneys(props) {
         <section className="layout-container relative mb-10">
           <h1
             id="pageMainTitle"
-            className="mb-8 text-h1l font-bold flex-wrap"
+            className="mb-8 text-h1l flex-wrap"
             tabIndex="-1"
           >
             {t("lj:lifeJourneysTitle")}
           </h1>
-          <h2 className="mb-6 font-bold leading-10">
-            {t("lj:lifeJourneysHeading1")}
-          </h2>
+          <h2 className="mb-6 leading-10">{t("lj:lifeJourneysHeading1")}</h2>
           <p className="mb-6">{t("lj:lifeJourneysContent1")}</p>
           <p className="mb-6">{t("lj:lifeJourneysContent2")}</p>
           <p className="mb-6">{t("lj:lifeJourneysContent3")}</p>
           <p className="mb-6">{t("lj:lifeJourneysContent4")}</p>
-          <h2 className="mb-6 font-bold leading-10">
-            {t("lj:lifeJourneysHeading2")}
-          </h2>
+          <h2 className="mb-6 leading-10">{t("lj:lifeJourneysHeading2")}</h2>
           <figure className="mb-6 lg:w-2/3 border shadow-experiment-shadow">
             <img
               src={t("lj:lifeJourneysImg1")}
@@ -103,9 +99,7 @@ export default function LifeJourneys(props) {
             listClassName={"ml-9 mb-6 text-p list-disc"}
             content={t("lj:lifeJourneysListItems1")}
           />
-          <h2 className="mb-6 font-bold leading-10">
-            {t("lj:lifeJourneysHeading3")}
-          </h2>
+          <h2 className="mb-6 leading-10">{t("lj:lifeJourneysHeading3")}</h2>
           <figure className="mb-6 lg:w-2/3 border shadow-experiment-shadow">
             <img
               src="/life-journey-map.png"
@@ -124,11 +118,11 @@ export default function LifeJourneys(props) {
             content={t("lj:lifeJourneysListItems2")}
           />
           <p className="mb-6">{t("lj:lifeJourneysContent11")}</p>
-          <h2 className="mb-6 font-bold leading-10">
-            {t("lj:lifeJourneysHeading4")}
-          </h2>
+          <h2 className="mb-6 leading-10">{t("lj:lifeJourneysHeading4")}</h2>
           <p className="mb-6">{t("lj:lifeJourneysContent12")}</p>
-          <p className="my-6 font-bold">{t("projectsDisclaimer")}</p>
+          <p className="my-6">
+            <strong>{t("projectsDisclaimer")}</strong>
+          </p>
         </section>
 
         <CallToAction
