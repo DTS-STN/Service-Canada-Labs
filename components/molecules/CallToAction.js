@@ -31,7 +31,7 @@ export function CallToAction(props) {
                 />
               </p>
               <p>
-                <Link href="/privacy">
+                <Link href="/signup/privacy">
                   <a className="text-sm underline flex xl:inline lg:mr-10">
                     {t("privacyLinkText")}
                   </a>
