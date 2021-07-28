@@ -27,6 +27,7 @@ import { maskEmail } from "../lib/utils/maskEmail";
 export default function Signup(props) {
   const { t } = useTranslation("common");
   const { asPath, push } = useRouter();
+  const fr = props.locale === "fr";
 
   // Joi form validation schema. Only required fields are validated
   const formSchema = Joi.object({
@@ -475,6 +476,7 @@ export default function Signup(props) {
               onClick={handleScrollToError}
             />
           ) : undefined}
+          <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle5")}</h2>
           <form
             data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsSign-up"
             data-gc-analytics-collect='[{"value":"input:not(.exclude),select","emptyField":"N/A"}]'
@@ -533,22 +535,22 @@ export default function Signup(props) {
                   <ErrorLabel message={languageError} />
                 ) : undefined}
                 <RadioField
-                  label={t("en")}
-                  id="languageEn"
+                  label={fr ? t("fr") : t("en")}
+                  id={fr ? "languageFr" : "languageEn"}
                   name="language"
-                  value="en"
+                  value={fr ? "fr" : "en"}
                   error={languageError !== ""}
-                  checked={language === "en"}
+                  checked={fr ? language === "fr" : language === "en"}
                   onChange={(checked, name, value) => setLanguage(value)}
                   required
                 />
                 <RadioField
-                  label={t("fr")}
-                  id="languageFr"
+                  label={fr ? t("en") : t("fr")}
+                  id={fr ? "languageEn" : "languageFr"}
                   name="language"
-                  value="fr"
+                  value={fr ? "en" : "fr"}
                   error={languageError !== ""}
-                  checked={language === "fr"}
+                  checked={fr ? language === "en" : language === "fr"}
                   onChange={(checked, name, value) => setLanguage(value)}
                   required
                 />
@@ -820,40 +822,56 @@ export default function Signup(props) {
                   listLabel={t("minorityYesDetails")}
                 >
                   <CheckBox
-                    label={t("black")}
-                    id="minorityGroupBlack"
+                    label={fr ? t("nonWhiteAAA") : t("black")}
+                    id={fr ? "minorityGroupNonWhiteAAA" : "minorityGroupBlack"}
                     name="minorityGroup"
-                    checked={minorityGroup.includes("black")}
+                    checked={minorityGroup.includes(
+                      fr ? "nonWhiteAAA" : "black"
+                    )}
                     onChange={handlerMinorityGroupOnChange}
-                    value="black"
+                    value={fr ? "nonWhiteAAA" : "black"}
                     className="mb-7"
                   />
                   <CheckBox
-                    label={t("chinese")}
-                    id="minorityGroupChinese"
+                    label={fr ? t("SA") : t("chinese")}
+                    id={fr ? "minorityGroupSouthAsian" : "minorityGroupChinese"}
                     name="minorityGroup"
-                    checked={minorityGroup.includes("chinese")}
+                    checked={minorityGroup.includes(
+                      fr ? "southAsian" : "chinese"
+                    )}
                     onChange={handlerMinorityGroupOnChange}
-                    value="chinese"
+                    value={fr ? "southAsian" : "chinese"}
+                    className={
+                      fr ? "mb-20 md:mb-12 lg:mb-7" : "mb-24 md:mb-12 lg:mb-10"
+                    }
+                  />
+                  <CheckBox
+                    label={fr ? t("SEA") : t("filipino")}
+                    id={
+                      fr
+                        ? "minorityGroupSoutheastAsian"
+                        : "minorityGroupFilipino"
+                    }
+                    name="minorityGroup"
+                    checked={minorityGroup.includes(
+                      fr ? "southeastAsian" : "filipino"
+                    )}
+                    onChange={handlerMinorityGroupOnChange}
+                    value={fr ? "southeastAsian" : "filipino"}
                     className="mb-7"
                   />
                   <CheckBox
-                    label={t("filipino")}
-                    id="minorityGroupFilipino"
+                    label={fr ? t("chinese") : t("japanese")}
+                    id={fr ? "minorityGroupChinese" : "minorityGroupJapanese"}
                     name="minorityGroup"
-                    checked={minorityGroup.includes("filipino")}
+                    checked={minorityGroup.includes(
+                      fr ? "chinese" : "japanese"
+                    )}
                     onChange={handlerMinorityGroupOnChange}
-                    value="filipino"
-                    className="mb-7"
-                  />
-                  <CheckBox
-                    label={t("japanese")}
-                    id="minorityGroupJapanese"
-                    name="minorityGroup"
-                    checked={minorityGroup.includes("japanese")}
-                    onChange={handlerMinorityGroupOnChange}
-                    value="japanese"
-                    className="mb-7"
+                    value={fr ? "chinese" : "japanese"}
+                    className={
+                      fr ? "mb-20 md:mb-12 lg:mb-7" : "mb-24 md:mb-12 lg:mb-10"
+                    }
                   />
                   <CheckBox
                     label={t("korean")}
@@ -865,12 +883,14 @@ export default function Signup(props) {
                     className="mb-7"
                   />
                   <CheckBox
-                    label={t("SA")}
-                    id="minorityGroupSouthAsian"
+                    label={fr ? t("japanese") : t("SA")}
+                    id={fr ? "minorGroupJapanese" : "minorityGroupSouthAsian"}
                     name="minorityGroup"
-                    checked={minorityGroup.includes("southAsian")}
+                    checked={minorityGroup.includes(
+                      fr ? "japanese" : "southAsian"
+                    )}
                     onChange={handlerMinorityGroupOnChange}
-                    value="southAsian"
+                    value={fr ? "japanese" : "southAsian"}
                     className={
                       props.locale === "en"
                         ? "mb-20 md:mb-12 lg:mb-7"
@@ -878,32 +898,46 @@ export default function Signup(props) {
                     }
                   />
                   <CheckBox
-                    label={t("SEA")}
-                    id="minorityGroupSoutheastAsian"
+                    label={fr ? t("LA") : t("SEA")}
+                    id={
+                      fr
+                        ? "minorityGroupLatinAmerican"
+                        : "minorityGroupSoutheastAsian"
+                    }
                     name="minorityGroup"
-                    checked={minorityGroup.includes("southeastAsian")}
+                    checked={minorityGroup.includes(
+                      fr ? "latinAmerican" : "southeastAsian"
+                    )}
                     onChange={handlerMinorityGroupOnChange}
-                    value="southeastAsian"
+                    value={fr ? "latinAmerican" : "southeastAsian"}
                     className="mb-12 md:mb-7"
                   />
                   <CheckBox
-                    label={t("nonWhiteAAA")}
-                    id="minorityGroupNonWhiteAAA"
+                    label={fr ? t("black") : t("nonWhiteAAA")}
+                    id={fr ? "minorityGroupBlack" : "minorityGroupNonWhiteAAA"}
                     name="minorityGroup"
-                    checked={minorityGroup.includes("nonWhiteAAA")}
+                    checked={minorityGroup.includes(
+                      fr ? "black" : "nonWhiteAAA"
+                    )}
                     onChange={handlerMinorityGroupOnChange}
-                    value="nonWhiteAAA"
+                    value={fr ? "black" : "nonWhiteAAA"}
                     className={
                       props.locale === "en" ? "mb-12 md:mb-7" : "mb-16 md:mb-7"
                     }
                   />
                   <CheckBox
-                    label={t("LA")}
-                    id="minorityGroupLatinAmerican"
+                    label={fr ? t("filipino") : t("LA")}
+                    id={
+                      fr
+                        ? "minorityGroupFilipino"
+                        : "minorityGroupLatinAmerican"
+                    }
                     name="minorityGroup"
-                    checked={minorityGroup.includes("latinAmerican")}
+                    checked={minorityGroup.includes(
+                      fr ? "filipino" : "latinAmerican"
+                    )}
                     onChange={handlerMinorityGroupOnChange}
-                    value="latinAmerican"
+                    value={fr ? "filipino" : "latinAmerican"}
                     className="mb-16 md:mb-7"
                   />
                   <CheckBox
