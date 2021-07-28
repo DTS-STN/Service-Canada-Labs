@@ -35,17 +35,17 @@ describe("project page", () => {
         cy.get('[data-cy="projects-list"]>li').should('have.length', 5); // 5 needs to be changed when more or less experiments are added/removed.
     });
 
-    it("Filter projects: Active", () => {
-        cy.get('[data-cy="active"]').click()
+    it("Filter projects: Upcoming projects", () => {
+        cy.get('[data-cy="upcoming_projects"]').click()
         cy.get('[data-cy="projects-list"]>li>div>span').each(($el) => {
-            expect($el.text()).to.eq("Active")
+            expect($el.text()).to.eq("Upcoming projects")
         });
     });
     
-    xit("Filter experiments: Coming soon", () => {
-        cy.get('[data-cy="coming_soon"]').click()
+    it("Filter projects: Current projects", () => {
+        cy.get('[data-cy="current_projects"]').click()
         cy.get('[data-cy="projects-list"]>li>div>span').each(($el) => {
-            expect($el.text()).to.eq("Coming Soon")
+            expect($el.text()).to.eq("Current projects")
         });
     });
 })
