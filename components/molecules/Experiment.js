@@ -8,13 +8,13 @@ import Link from "next/link";
 
 export const Experiment = (props) => {
   const tagColours = {
-    active: "custom-blue-experiment-blue",
-    coming_soon: "gray-experiment",
-    alpha: "custom-blue-experiment-blue",
+    current_projects: "custom-blue-experiment-blue",
+    past_projects: "gray-experiment",
+    upcoming_projects: "custom-blue-experiment-blue",
   };
   return (
     <div
-      className={`shadow-experiment-shadow p-4 border-b-4 xl:min-h-250px ${
+      className={`shadow-experiment-shadow p-6 border-b-4 xl:min-h-250px ${
         "border-" + (tagColours[props.tag] || "gray-experiment")
       }`}
       data-testid={props.dataTestId}
@@ -35,7 +35,7 @@ export const Experiment = (props) => {
       >
         {props.tagLabel}
       </span>
-      <p className="mt-2 leading-30px text-sm">{props.description}</p>
+      <p className="mt-2 leading-30px text-lg">{props.description}</p>
     </div>
   );
 };

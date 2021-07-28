@@ -48,11 +48,13 @@ export const Layout = ({
         </PhaseBanner>
         <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">
           <div className="flex flex-row justify-between items-center lg:mt-7 mt-1.5">
-            <img
-              className="h-5 w-auto xs:h-6 sm:h-8 md:h-8 lg:h-7 xl:h-8"
-              src={language === "en" ? "/sig-blk-fr.svg" : "/sig-blk-en.svg"}
-              alt={t("symbol")}
-            />
+            <a href="https://www.canada.ca">
+              <img
+                className="h-5 w-auto xs:h-6 sm:h-8 md:h-8 lg:h-7 xl:h-8"
+                src={language === "en" ? "/sig-blk-fr.svg" : "/sig-blk-en.svg"}
+                alt={t("symbol")}
+              />
+            </a>
             <Link
               key={language}
               href={langUrl}

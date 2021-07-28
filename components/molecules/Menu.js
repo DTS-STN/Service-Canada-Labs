@@ -49,7 +49,7 @@ export function Menu(props) {
           return (
             <li
               key={key}
-              className={`py-3 lg:py-0 cursor-pointer ${
+              className={`py-3 lg:py-0 cursor-pointer lg:text-black text-custom-blue-projects-link ${
                 includesURL ? "activePage" : "menuLink"
               }`}
               role="menuitem"

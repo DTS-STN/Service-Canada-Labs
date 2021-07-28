@@ -56,7 +56,7 @@ export default function Home(props) {
               href="/signup"
               id="signup-home-page"
               dataCy="signup-home-page"
-              className="rounded px-6 py-4 font-bold flex text-center max-w-sm"
+              className="rounded px-6 py-4 font-bold text-center inline-block"
             >
               {t("signupHomeButton")}
             </ActionButton>

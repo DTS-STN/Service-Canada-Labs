@@ -36,7 +36,7 @@ function ThumbnailWithCaption({
       <h3 className=" mt-3">{title}</h3>
       <figure className="shadow-experiment-shadow">
         <img src={src} alt={alt} className="border-b-2" />
-        <figcaption className="text-base p-8">{children}</figcaption>
+        <figcaption className="text-base p-6">{children}</figcaption>
       </figure>
     </div>
   );
