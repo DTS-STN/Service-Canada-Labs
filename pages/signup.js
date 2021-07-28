@@ -1027,7 +1027,7 @@ export default function Signup(props) {
               />
             </div>
             <a
-              className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10 text-sm lg:text-p"
+              className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-10 text-sm lg:text-p"
               href={t("privacyLink")}
             >
               {t("privacy")}
