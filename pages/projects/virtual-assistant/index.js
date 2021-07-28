@@ -60,18 +60,18 @@ export default function Home(props) {
             <h1 className="mb-8 text-h1l" tabIndex="-1" id="pageMainTitle">
               {t("vc:virtualAssistantTitle")}
             </h1>
-            <div className="grid lg:grid-cols-2 gap-6  ">
+            <div className="flex flex-col-reverse lg:grid lg:grid-cols-3 gap-4 lg:gap-6 ">
+              <p className="lg:col-span-2 px-1 lg:px-0 ">
+                {t("vc:virtualAssistantBio")}
+              </p>
+
               <div className=" bg-gradient-to-tr from-custom-blue-blue to-vc-blue-lt  p-4 ">
                 <img
-                  className=" object-fill w-80 h-auto mx-auto"
+                  className=" object-fill w-64 h-auto mx-auto"
                   src="/virtualconcierge/VirtualConcierge.svg"
                   alt={t("vc:virtualAssistantLogoAlt")}
                 />
               </div>
-
-              <p className="mb-4 px-1 lg:px-0 ">
-                {t("vc:virtualAssistantBio")}
-              </p>
             </div>
           </div>
           {/* the scenario section */}
