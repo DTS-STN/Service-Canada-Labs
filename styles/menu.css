@@ -13,6 +13,11 @@
     border-bottom: 4px solid #1d5b90;
 }
 
+.activePage:hover > a {
+    color: #0A75C6;
+    border-bottom: 4px solid #0A75C6;
+}
+
 .active {
     display: block;
 }
