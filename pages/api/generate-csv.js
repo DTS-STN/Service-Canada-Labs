@@ -1,5 +1,5 @@
 import { connectToDatabase } from "../../lib/mongodb/connect";
-import { getUsers } from "../../lib/users/getUser";
+import { getVerifiedUsers } from "../../lib/users/getUser";
 import { parse } from "json2csv";
 import { submitEmailWithAttachment } from "../../lib/notify/submitEmail";
 
@@ -12,7 +12,7 @@ export default async function handler(req, res) {
         process.env.MONGO_URL,
         process.env.MONGO_DB
       );
-      users = await getUsers(conn.db);
+      users = await getVerifiedUsers(conn.db);
     } catch (e) {
       console.log(`Mongo error: ${e.message}`);
       return res.redirect("/error");
