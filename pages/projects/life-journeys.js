@@ -91,7 +91,7 @@ export default function LifeJourneys(props) {
               src={t("lj:lifeJourneysImg1")}
               alt={t("lj:lifeJourneysImgAltText1")}
             ></img>
-            <figcaption className="p-2.5 text-sm font-display border-t">
+            <figcaption className="p-6 text-sm font-display border-t">
               {t("lj:lifeJourneysImgCaption1")}
             </figcaption>
           </figure>
@@ -111,7 +111,7 @@ export default function LifeJourneys(props) {
               src="/life-journey-map.png"
               alt={t("lj:lifeJourneysImgAltText2")}
             ></img>
-            <figcaption className="p-2.5 text-sm font-display border-t">
+            <figcaption className="p-6 text-sm font-display border-t">
               {t("lj:lifeJourneysImgCaption2")}
             </figcaption>
           </figure>
