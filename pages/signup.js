@@ -488,7 +488,7 @@ export default function Signup(props) {
               id="reset"
               custom="block font-body text-sm lg:text-p hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
               type="reset"
-              onClick={() => setProvince("")}
+              onClick={setProvince}
             >
               {t("clear")}
             </ActionButton>
@@ -1045,7 +1045,7 @@ export default function Signup(props) {
               id="reset-bottom"
               custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10 text-sm lg:text-p"
               type="reset"
-              onClick={() => setProvince("")}
+              onClick={setProvince}
             >
               {t("clear")}
             </ActionButton>
