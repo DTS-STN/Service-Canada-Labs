@@ -27,6 +27,7 @@ import { maskEmail } from "../lib/utils/maskEmail";
 export default function Signup(props) {
   const { t } = useTranslation("common");
   const { asPath, push } = useRouter();
+  const fr = props.locale === "fr";
 
   // Joi form validation schema. Only required fields are validated
   const formSchema = Joi.object({
@@ -475,6 +476,7 @@ export default function Signup(props) {
               onClick={handleScrollToError}
             />
           ) : undefined}
+          <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle5")}</h2>
           <form
             data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsSign-up"
             data-gc-analytics-collect='[{"value":"input:not(.exclude),select","emptyField":"N/A"}]'
@@ -533,22 +535,22 @@ export default function Signup(props) {
                   <ErrorLabel message={languageError} />
                 ) : undefined}
                 <RadioField
-                  label={t("en")}
-                  id="languageEn"
+                  label={fr ? t("fr") : t("en")}
+                  id={fr ? "languageFr" : "languageEn"}
                   name="language"
-                  value="en"
+                  value={fr ? "fr" : "en"}
                   error={languageError !== ""}
-                  checked={language === "en"}
+                  checked={fr ? language === "fr" : language === "en"}
                   onChange={(checked, name, value) => setLanguage(value)}
                   required
                 />
                 <RadioField
-                  label={t("fr")}
-                  id="languageFr"
+                  label={fr ? t("en") : t("fr")}
+                  id={fr ? "languageEn" : "languageFr"}
                   name="language"
-                  value="fr"
+                  value={fr ? "en" : "fr"}
                   error={languageError !== ""}
-                  checked={language === "fr"}
+                  checked={fr ? language === "en" : language === "fr"}
                   onChange={(checked, name, value) => setLanguage(value)}
                   required
                 />
