@@ -251,17 +251,17 @@ export function ReportAProblem(props) {
           </fieldset>
 
           <ul className="list-outside list-disc px-6 py-2">
-            <li className="text-xxs sm:text-sm font-body my-4 leading-tight sm:leading-6">
+            <li className="text-xs sm:text-sm font-body my-4 leading-tight sm:leading-6">
               <b>{t("reportAProblemNoReply", { lng: props.language })}</b>{" "}
               {t("reportAProblemEnquiries", { lng: props.language })}{" "}
               <a
-                className="underline text-xxs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+                className="underline text-xs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                 href="mailto:experience@servicecanada.gc.ca"
               >
                 experience@servicecanada.gc.ca
               </a>
             </li>
-            <li className="text-xxs sm:text-sm font-body my-4 leading-tight sm:leading-6">
+            <li className="text-xs sm:text-sm font-body my-4 leading-tight sm:leading-6">
               <b>
                 {t("reportAProblemNoPersonalInfo", { lng: props.language })}
               </b>
@@ -270,13 +270,13 @@ export function ReportAProblem(props) {
                 lng: props.language,
               })}
             </li>
-            <li className="text-xxs sm:text-sm font-body my-4 leading-tight sm:leading-6">
+            <li className="text-xs sm:text-sm font-body my-4 leading-tight sm:leading-6">
               <b>{t("reportAProblemMoreInfo", { lng: props.language })}</b>
               ,&nbsp;
               {t("reportAProblemMoreInfoDetails", { lng: props.language })}
               &nbsp;
               <a
-                className="underline text-xxs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+                className="underline text-xs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                 href={t("reportAProblemMoreInfoLink", {
                   lng: props.language,
                 })}
