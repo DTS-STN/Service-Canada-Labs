@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Changed
 
-- Compressed all images over 150kb
+- Compressed all images
 - Various small content and design changes
 
 ## [v1.0.0] - 2021-07-28
