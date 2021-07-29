@@ -46,7 +46,7 @@ export default function Index(props) {
               src={"/sig-blk-en.svg"}
               alt={"Government of Canada / Gouvernement du Canada"}
             />
-            <div className="flex w-max container mx-auto py-6 font-bold font-display">
+            <div className="flex w-max container mx-auto py-6 font-display">
               <h1 className="text-p text-right xl:text-h4 mr-6 w-32 xl:w-40">
                 Service Canada Labs
               </h1>

@@ -51,11 +51,7 @@ export default function About(props) {
           <meta name="dcterms.issued" content="2021-05-11" />
         </Head>
         <section className="layout-container relative mb-10">
-          <h1
-            id="pageMainTitle"
-            className="mb-10 text-h1l font-bold sm:w-max"
-            tabIndex="-1"
-          >
+          <h1 id="pageMainTitle" className="mb-10 text-h1l" tabIndex="-1">
             {t("aboutTitle")}
           </h1>
           <div className="xl:w-2/3">
@@ -66,9 +62,7 @@ export default function About(props) {
         </section>
         <section className="bg-gray-light-200 pb-14">
           <div className="layout-container">
-            <h2 className="mb-5 pt-10 text-h1l font-bold sm:w-max">
-              {t("howWeWork")}
-            </h2>
+            <h2 className="mb-5 pt-10 text-h1l">{t("howWeWork")}</h2>
             <div className="flex flex-col-reverse pt-8 xl:grid xl:grid-cols-2 xl:gap-8">
               <List
                 items={[
@@ -82,9 +76,7 @@ export default function About(props) {
           </div>
         </section>
         <section className="layout-container" id="contact-us">
-          <h2 className="mb-5 pt-10 text-h1l font-bold sm:w-max">
-            {t("contactUsHeading")}
-          </h2>
+          <h2 className="mb-5 pt-10 text-h1l">{t("contactUsHeading")}</h2>
           <p className="mb-12 mt-10 xl:w-2/3">
             {t("getInTouch")}&nbsp;
             <a
