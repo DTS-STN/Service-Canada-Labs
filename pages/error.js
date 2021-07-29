@@ -16,7 +16,7 @@ export default function ErrorPage(props) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
-  });
+  }, []);
 
   const statusCode = query.statusCode || "";
   const errorTitle = query.errorTitle || "The web site has reported an error.";

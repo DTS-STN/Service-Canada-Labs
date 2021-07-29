@@ -14,7 +14,7 @@ export default function error500(props) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
-  });
+  }, []);
   return (
     <>
       <div className="min-h-screen relative">

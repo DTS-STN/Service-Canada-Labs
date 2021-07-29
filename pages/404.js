@@ -14,7 +14,7 @@ export default function error404(props) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
-  });
+  }, []);
 
   return (
     <>
