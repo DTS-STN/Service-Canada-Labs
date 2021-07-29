@@ -122,8 +122,8 @@ export default function Home(props) {
             />
             <p className="pb-2 xl:w-3/4">{t("vc:scenarioPart4")}</p>
             <p className="pb-2 xl:w-3/4">{t("vc:scenarioPart4-1")}</p>
-            <p className="pb-2 my-6 font-bold xl:w-3/4">
-              {t("projectsDisclaimer")}
+            <p className="my-6">
+              <strong>{t("projectsDisclaimer")}</strong>
             </p>
           </div>
         </section>

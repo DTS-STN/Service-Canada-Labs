@@ -300,7 +300,9 @@ export default function DigitalCenter(props) {
             </div>
           </div>
 
-          <p className="my-6 font-bold">{t("projectsDisclaimer")}</p>
+          <p className="my-6">
+            <strong>{t("projectsDisclaimer")}</strong>
+          </p>
         </section>
 
         <CallToAction
