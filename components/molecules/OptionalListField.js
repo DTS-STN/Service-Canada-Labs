@@ -156,9 +156,4 @@ OptionalListField.propTypes = {
    * legend text for the list items
    */
   listLabel: PropTypes.string,
-
-  /**
-   * sort the children being passed in based on labels
-   */
-  sortedChildren: PropTypes.func,
 };
