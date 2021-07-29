@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1627574907516" clover="3.2.0">
-  <project timestamp="1627574907516" name="All files">
+<coverage generated="1627575030153" clover="3.2.0">
+  <project timestamp="1627575030153" name="All files">
     <metrics statements="646" coveredstatements="542" conditionals="522" coveredconditionals="336" methods="173" coveredmethods="138" elements="1341" coveredelements="1016" complexity="0" loc="646" ncloc="646" packages="15" files="85" classes="85"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -899,7 +899,7 @@
         <line num="57" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="58" count="0" type="stmt"/>
         <line num="62" count="1" type="stmt"/>
-        <line num="322" count="1" type="stmt"/>
+        <line num="324" count="1" type="stmt"/>
       </file>
       <file name="life-journeys.js" path="/home/runner/work/Alpha-Site/Alpha-Site/pages/projects/life-journeys.js">
         <metrics statements="14" coveredstatements="11" conditionals="13" coveredconditionals="5" methods="7" coveredmethods="6"/>
