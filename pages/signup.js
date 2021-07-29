@@ -298,7 +298,7 @@ export default function Signup(props) {
           prevErrors[field] = {
             id: field,
             number: errorNumber,
-            text: `${t("error")} ${errorNumber}: ` + message,
+            text: `${t("error")} ${errorNumber}${fr ? " :" : ":"} ` + message,
           };
         }
         // override the error message if the type of error is because the field is empty
@@ -306,7 +306,9 @@ export default function Signup(props) {
           prevErrors[field] = {
             id: field,
             number: prevErrors[field].number,
-            text: `${t("error")} ${prevErrors[field].number}: ` + message,
+            text:
+              `${t("error")} ${prevErrors[field].number}${fr ? " :" : ":"} ` +
+              message,
           };
         }
         return prevErrors;
@@ -488,9 +490,10 @@ export default function Signup(props) {
               id="reset"
               custom="block font-body text-sm lg:text-p hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
               type="reset"
-              onClick={() => {
-                setProvince("");
-              }}
+              onClick={useEffect(() => {
+                var select = document.getElementById("province-choice");
+                select.selectedIndex = 0;
+              })}
             >
               {t("clear")}
             </ActionButton>
@@ -1047,9 +1050,10 @@ export default function Signup(props) {
               id="reset-bottom"
               custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10 text-sm lg:text-p"
               type="reset"
-              onClick={() => {
-                setProvince("");
-              }}
+              onClick={useEffect(() => {
+                var select = document.getElementById("province-choice");
+                select.selectedIndex = 0;
+              })}
             >
               {t("clear")}
             </ActionButton>
