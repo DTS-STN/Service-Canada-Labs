@@ -1,6 +1,6 @@
 {
   "name": "service-canada-labs",
-  "version": "0.1.1",
+  "version": "1.0.1",
   "private": true,
   "dependencies": {
     "@tailwindcss/typography": "^0.4.1",

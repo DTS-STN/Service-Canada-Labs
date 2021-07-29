@@ -52,11 +52,7 @@ export default function Confirmation(props) {
           <meta name="dcterms.issued" content="2021-06-15" />
         </Head>
         <section className="layout-container mb-12">
-          <h1
-            id="pageMainTitle"
-            className="mb-10 text-h1l font-bold lg:w-max"
-            tabIndex="-1"
-          >
+          <h1 id="pageMainTitle" className="mb-10 text-h1l" tabIndex="-1">
             {t("pleaseCheckYourEmail")}
           </h1>
           <div className="lg:flex lg:flex-row-reverse">

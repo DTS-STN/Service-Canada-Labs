@@ -95,11 +95,7 @@ export default function DigitalCenter(props) {
         </Head>
 
         <section className="layout-container mb-10 text-lg">
-          <h1
-            id="pageMainTitle"
-            className="mb-10 text-h1l font-bold sm:w-max"
-            tabIndex="-1"
-          >
+          <h1 id="pageMainTitle" className="mb-10 text-h1l" tabIndex="-1">
             {t("dc:OverviewTitle")}
           </h1>
           <p className="mt-3">{t("dc:ProductGoal1")}</p>
@@ -300,7 +296,9 @@ export default function DigitalCenter(props) {
             </div>
           </div>
 
-          <p className="my-6 font-bold">{t("projectsDisclaimer")}</p>
+          <p className="my-6">
+            <strong>{t("projectsDisclaimer")}</strong>
+          </p>
         </section>
 
         <CallToAction
