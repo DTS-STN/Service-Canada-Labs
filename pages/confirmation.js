@@ -16,7 +16,7 @@ export default function Confirmation(props) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
-  });
+  }, []);
 
   return (
     <>

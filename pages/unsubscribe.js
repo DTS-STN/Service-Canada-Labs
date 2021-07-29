@@ -22,7 +22,7 @@ export default function Unsubscribe(props) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
-  });
+  }, []);
 
   // Joi form validation schema. Only required fields are validated
   const formSchema = Joi.object({

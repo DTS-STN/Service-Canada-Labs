@@ -57,7 +57,7 @@ export default function DigitalCenter(props) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
-  });
+  }, []);
 
   return (
     <>
