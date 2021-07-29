@@ -298,7 +298,8 @@ export default function Signup(props) {
           prevErrors[field] = {
             id: field,
             number: errorNumber,
-            text: `${t("error")} ${errorNumber}: ` + message,
+            text:
+              `${t("error")} ${errorNumber}${fr ? "\u00A0:" : ":"} ` + message,
           };
         }
         // override the error message if the type of error is because the field is empty
@@ -306,7 +307,10 @@ export default function Signup(props) {
           prevErrors[field] = {
             id: field,
             number: prevErrors[field].number,
-            text: `${t("error")} ${prevErrors[field].number}: ` + message,
+            text:
+              `${t("error")} ${prevErrors[field].number}${
+                fr ? "\u00A0:" : ":"
+              } ` + message,
           };
         }
         return prevErrors;
