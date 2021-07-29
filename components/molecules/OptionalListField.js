@@ -21,6 +21,15 @@ export function OptionalListField(props) {
       props.onControlChange(wasChecked, name, value);
     }
   };
+  let sortedChildren = [...props.children].sort((a, b) => {
+    if (a.props.label < b.props.label) {
+      return -1;
+    }
+    if (b.props.label < a.props.label) {
+      return 1;
+    }
+    return 0;
+  });
   return (
     <>
       {props.controlType === "checkbox" ? (
@@ -67,7 +76,7 @@ export function OptionalListField(props) {
               </p>
             )}
           </legend>
-          <div className="gap-4">{props.children}</div>
+          <div className="gap-4">{sortedChildren}</div>
         </fieldset>
       ) : undefined}
     </>
@@ -147,4 +156,9 @@ OptionalListField.propTypes = {
    * legend text for the list items
    */
   listLabel: PropTypes.string,
+
+  /**
+   * sort the children being passed in based on labels
+   */
+  sortedChildren: PropTypes.func,
 };

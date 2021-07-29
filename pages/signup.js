@@ -879,7 +879,7 @@ export default function Signup(props) {
                     className={
                       props.locale === "en"
                         ? "mb-20 md:mb-12 lg:mb-7"
-                        : "mb-24 md:mb-12 lg:mb-10"
+                        : "mb-24 md:mb-12 lg:mb-16"
                     }
                   />
                   <CheckBox
