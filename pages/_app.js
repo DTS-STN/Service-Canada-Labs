@@ -5,8 +5,6 @@ import "../styles/forms.css";
 import "../styles/fonts.css";
 import "../styles/menu.css";
 import Head from "next/head";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
 
 if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
   require("../mocks");
