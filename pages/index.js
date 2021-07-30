@@ -26,7 +26,7 @@ export default function Index(props) {
         ) : (
           ""
         )}
-        <title>alpha.service.canada.ca</title>
+        <title>Service Canada Labs | Laboratoires de Service Canada</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="dcterms.title" content={t("scLabsSplash")} />
         <meta
