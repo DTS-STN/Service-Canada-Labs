@@ -7,10 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [v1.0.2] - 2021-07-30
+
 ## Added
 
 - Added CHANGELOG.md
 - Added SECURITY.md
+
+## Changed
+
+- Modified images on Virtual Assistant and Digital Center pages
+- Changed minority options list in signup form to alphabetical order in French and English
+
+## Fixed
+
+- Fixed issue where selecting or modifying fields in the form always cleared out the province selection
 
 ## [v1.0.1] - 2021-07-29
 
