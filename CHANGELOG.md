@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## Changed
+
+- Status div in Report a Problem is always rendered, but the contents are updated when submitting the form
+
 ## [v1.0.3] - 2021-07-30
 
 - Modified Digital Center page content
