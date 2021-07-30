@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## Changed
+
+- Add an invisible `<h1>` and change the visible headings to both be `<h2>` on splash page
+
 ## [v1.0.3] - 2021-07-30
 
 - Modified Digital Center page content
