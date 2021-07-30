@@ -1,6 +1,7 @@
 name: $(Date:yyyyMMdd)
 
-pr: none
+trigger: none # stop pipeline from running on commits
+pr: none # stop pipeline on running from PRs
 
 schedules:
   - cron: "0 0 * * *"
