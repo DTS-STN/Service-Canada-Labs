@@ -13,20 +13,6 @@ if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
 }
 
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-
-  process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL
-    ? useEffect(() => {
-        window.adobeDataLayer = window.adobeDataLayer || [];
-
-        const handleRouteChange = () => {
-          window.adobeDataLayer.push({ event: "pageLoad" });
-        };
-
-        router.events.on("routeChangeStart", handleRouteChange);
-      }, [])
-    : "";
-
   return (
     <>
       <Head>
