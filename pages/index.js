@@ -41,7 +41,7 @@ export default function Index(props) {
       <main>
         <div className="flex flex-col justify-center items-center m-auto v-xxs:h-screen">
           <div className="z-10 bg-white h-auto min-w-300px w-300px xl:w-500px">
-            <h1 className="invisible">alpha.service.canada.ca</h1>
+            <h1 className="sr-only">alpha.service.canada.ca</h1>
             <img
               className="h-auto w-64 container mx-auto pt-6 xl:w-2/3 xl:mx-0 xl:px-6"
               src={"/sig-blk-en.svg"}
