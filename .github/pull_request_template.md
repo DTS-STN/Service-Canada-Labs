@@ -26,6 +26,7 @@ Get the acceptance criteria for the story and/or task you are working on and put
 
 - [ ] Strings use placeholders for translation (No hard coded strings)
 - [ ] Unit tests have been added/updated
+- [ ] Update CHANGELOG
 
 ## Product and Sprint Backlog
 
