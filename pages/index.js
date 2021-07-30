@@ -46,10 +46,14 @@ export default function Index(props) {
               src={"/sig-blk-en.svg"}
               alt={"Government of Canada / Gouvernement du Canada"}
             />
+            <h1 className="invisible">alpha.service.canada.ca</h1>
             <div className="flex w-max container mx-auto py-6 font-display">
-              <h1 className="text-p text-right xl:text-h4 mr-6 w-32 xl:w-40">
+              <h2
+                className="text-p text-right xl:text-h4 mr-6 w-32 xl:w-40"
+                lang="en"
+              >
                 Service Canada Labs
-              </h1>
+              </h2>
               <h2 className="text-p xl:text-h4 w-32 xl:w-40" lang="fr">
                 Laboratoires de Service Canada
               </h2>
