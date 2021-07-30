@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Changed
 
 - Status div in Report a Problem is always rendered, but the contents are updated when submitting the form
+- Update `<title>` tag on splash page to be more meaningful
 
 ## [v1.0.3] - 2021-07-30
 
