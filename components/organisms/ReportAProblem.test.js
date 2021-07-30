@@ -25,6 +25,10 @@ describe("Report A Problem", () => {
     submitButton.click();
     expect(screen.getByText("reportAProblemThankYouForYourHelp")).toBeTruthy();
   });
+  it("renders an empty status div before submitting the form", () => {
+    render(<Primary {...Primary.args} />);
+    expect(screen.getByRole("status")).toBeTruthy();
+  });
   it("no accessibility issues for form", async () => {
     const { container } = render(<Primary {...Primary.args} />);
     const results = await axe(container);
