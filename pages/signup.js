@@ -334,7 +334,9 @@ export default function Signup(props) {
       // set the errors to the error list
       await setErrorBoxErrors(errorsList);
       await setErrorBoxText(
-        `${t("errorSubmit1")} ${errorsList.length} ${t("errorSubmit2")}`
+        `${t("errorSubmit1")} ${errorsList.length} ${
+          errorsList.length > 1 ? t("errorsSubmit2") : t("errorSubmit2")
+        }`
       );
     } else {
       //submit data to the api and then redirect to the thank you page
