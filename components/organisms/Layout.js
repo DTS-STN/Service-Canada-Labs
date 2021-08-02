@@ -112,12 +112,12 @@ export const Layout = ({
         <div className="layout-container mt-2 mb-8">
           <Breadcrumb items={breadcrumbItems} />
         </div>
-        {bannerText && bannerTitle ? (
-          <Banner siteTitle={bannerTitle} headline={bannerText} />
-        ) : null}
       </header>
 
       <main>
+        {bannerText && bannerTitle ? (
+          <Banner siteTitle={bannerTitle} headline={bannerText} />
+        ) : null}
         <div>{children}</div>
       </main>
 
