@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1627924747026" clover="3.2.0">
-  <project timestamp="1627924747027" name="All files">
-    <metrics statements="646" coveredstatements="546" conditionals="524" coveredconditionals="341" methods="172" coveredmethods="139" elements="1342" coveredelements="1026" complexity="0" loc="646" ncloc="646" packages="15" files="85" classes="85"/>
+<coverage generated="1627936956282" clover="3.2.0">
+  <project timestamp="1627936956282" name="All files">
+    <metrics statements="646" coveredstatements="546" conditionals="526" coveredconditionals="342" methods="172" coveredmethods="139" elements="1344" coveredelements="1027" complexity="0" loc="646" ncloc="646" packages="15" files="85" classes="85"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/index.js">
@@ -606,7 +606,7 @@
       </file>
     </package>
     <package name="pages">
-      <metrics statements="105" coveredstatements="76" conditionals="142" coveredconditionals="70" methods="33" coveredmethods="23"/>
+      <metrics statements="105" coveredstatements="76" conditionals="144" coveredconditionals="71" methods="33" coveredmethods="23"/>
       <file name="404.js" path="/home/runner/work/Alpha-Site/Alpha-Site/pages/404.js">
         <metrics statements="7" coveredstatements="5" conditionals="10" coveredconditionals="4" methods="3" coveredmethods="2"/>
         <line num="10" count="1" type="stmt"/>
@@ -646,7 +646,7 @@
         <line num="108" count="0" type="stmt"/>
       </file>
       <file name="confirmation.js" path="/home/runner/work/Alpha-Site/Alpha-Site/pages/confirmation.js">
-        <metrics statements="10" coveredstatements="7" conditionals="20" coveredconditionals="10" methods="3" coveredmethods="2"/>
+        <metrics statements="10" coveredstatements="7" conditionals="22" coveredconditionals="11" methods="3" coveredmethods="2"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="cond" truecount="2" falsecount="0"/>
@@ -655,8 +655,8 @@
         <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="17" count="0" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
-        <line num="119" count="1" type="stmt"/>
-        <line num="120" count="0" type="stmt"/>
+        <line num="123" count="1" type="stmt"/>
+        <line num="124" count="0" type="stmt"/>
       </file>
       <file name="error.js" path="/home/runner/work/Alpha-Site/Alpha-Site/pages/error.js">
         <metrics statements="14" coveredstatements="12" conditionals="32" coveredconditionals="22" methods="3" coveredmethods="3"/>
