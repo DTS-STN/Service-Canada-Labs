@@ -43,9 +43,9 @@ export function ReportAProblem(props) {
       dataCy="report-a-problem-details"
       dataTestId="report-a-problem-details"
     >
-      {submitted ? (
-        <>
-          <div role="status">
+      <div role="status">
+        {submitted ? (
+          <>
             <h2 className="text-base font-body mb-4">
               {t("reportAProblemThankYouForYourHelp", { lng: props.language })}
             </h2>
@@ -54,14 +54,19 @@ export function ReportAProblem(props) {
                 lng: props.language,
               })}
             </p>
-          </div>
-          <a
-            className="underline text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-            href={`mailto: ${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
-          >
-            experience@servicecanada.gc.ca
-          </a>
-        </>
+            <a
+              className="underline text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+              href={`mailto: ${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
+            >
+              experience@servicecanada.gc.ca
+            </a>
+          </>
+        ) : (
+          ""
+        )}
+      </div>
+      {submitted ? (
+        ""
       ) : (
         <form
           data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsReport-Problem"
