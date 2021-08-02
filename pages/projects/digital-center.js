@@ -2,28 +2,11 @@ import PropTypes from "prop-types";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { HTMList } from "../../components/atoms/HTMList";
 import { Layout } from "../../components/organisms/Layout";
 import { useRouter } from "next/router";
 import { CallToAction } from "../../components/molecules/CallToAction";
 import { useEffect } from "react";
-
-function HTMList({ tag = "ul", content, listClassName, liClassName }) {
-  const parseList = (content) =>
-    content
-      .split("*") // split the string on asterisks
-      .filter((item) => item) // filter out empty strings
-      .map((item, index) => (
-        <li className={liClassName} key={index}>
-          {item.trim()}
-        </li>
-      ));
-
-  return tag === "ul" ? (
-    <ul className={listClassName}>{parseList(content)}</ul>
-  ) : (
-    <ol className={listClassName}>{parseList(content)}</ol>
-  );
-}
 
 function ThumbnailWithCaption({
   title = "Image 1",
