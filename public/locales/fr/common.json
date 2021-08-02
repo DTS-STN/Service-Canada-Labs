@@ -221,7 +221,7 @@
   "errorDisability": "Handicap - Ce champ est obligatoire",
   "errorTerms": "Vous devez accepter les conditions avant de vous inscrire",
   "errorSubmit1": "Le formulaire n’a pas pu être soumis car",
-  "errorSubmit2": "erreur ont été trouvées",
+  "errorSubmit2": "erreur a été trouvée",
   "errorsSubmit2": "erreurs ont été trouvées",
   "errorRegistered": "Il semble que vous vous soyez déjà enregistré auprès de nous. Vérifiez votre boîte de réception pour l’email de validation !",
   "errorUnknown": "Une erreur inconnue s’est produite lors de votre inscription. Veuillez contacter experience@servicecanada.gc.ca pour poursuivre votre inscription ou réessayer plus tard",
