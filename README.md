@@ -1,39 +1,104 @@
-# Alpha Site
+# Service Canada Labs / Alpha Site
 
-[![Build Status](https://teamcity.dts-stn.com/app/rest/builds/buildType:(id:Dev_AlphaSite_Build)/statusIcon)](https://teamcity.dts-stn.com/viewType.html?buildTypeId=Dev_AlphaSite_Build&guest=1)
-[![link](https://img.shields.io/badge/link-%F0%9F%94%97-brightgreen)](https://alphasite-main.dev.dts-stn.com/)
-
-
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Service Canada Labs is a product being built by the Digital Experience and Client Data (DECD) unit within Employment and Social Development Canada (ESDC) which is a department of the Government of Canada. This product is part of a larger project occurring within ESDC to modernize benefits delivery to Canadian citizens and residents aptly called Benefits Delivery Modernization (BDM) . The goal of this product is to be a digital platform where the general public is able to be see, test and provide feedback on `Alphas` which are early stage products under development by DECD and partners. This will allow early and rapid collection of user feedback which is vital in delivering useful products with excellent user experience.
 
 ## Getting Started
 
-You can run the development server directly or through docker-compose:
+Run the development server:
 
+**NPM version <6**
 ```bash
 npm i
 npm run dev
-# or
-docker-compose run dev
+```
+
+**NPM version >7**
+```bash
+npm i --legacy-peer-deps
+npm run dev
+```
+
+Create and run a production build locally***:
+
+*** Will require either `NEXT_API_MOCKING` to have value of `enabled` or a valid value for `STRAPI_API_BACKEND_URL` to succesfully build (data is fetched at build time for production)
+
+```bash
+npm run build
+npm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Enabling Report a Problem 
+## Configuration
 
-1) First create a [GC Notify Account](https://notification.canada.ca)
-2) Once you have your account created ask to be added to the Alpha Site account
-3) Set the following environment variables (definitions below ) `REPORT_A_PROBLEM_ENABLED`, `NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID`, `NOTIFY_REPORT_A_PROBLEM_EMAIL`, `NOTIFY_API_KEY`, `NOTIFY_BASE_API_URL`
-4) Start application as usual
+There is only one required variable: `STRAPI_API_BACKEND_URL`
+
+This URL is used to fetch the data required to render the cards on the projects page.
+
+You can either:
+
+- Set the value to a locally running instance of the [CMS](https://github.com/DTS-STN/Alpha-Site-CMS) (populated with data)
+- Set the value to `https://alphasite-api.dts-stn.com` (our development environment)
+- Set `NEXT_PUBLIC_API_MOCKING` to `true` (mock service worker which intercepts API requests and returns mock data from `/cypress/fixtures/experiments`)
 
 ## Enabling User Signup
 
-1. First create a GC Notify Account
-2. Once you have your account created ask to be added to the Alpha Site account
-3. Run mongo container and mongo express using docker `docker compose up mongodb mongo-express -d`
-4. Set the following environment variables (definitions below) `MONGO_URL`, `MONGO_DB`, `USER_SIGNUP_ENABLED`, `USER_SIGNUP_FRENCH_TEMPLATE_ID`, `USER_SIGNUP_ENGLISH_TEMPLATE_ID`
-5. Start the application as usual
+Required environment variables:
+
+```code
+MONGO_URL=your mongo URL
+MONGO_DB=your mongodb name
+USER_SIGNUP_ENABLED=true
+NOTIFY_BASE_API_URL=https://api.notification.canada.ca
+NOTIFY_API_KEY=ask for this
+USER_SIGNUP_FRENCH_TEMPLATE_ID=ask for this
+USER_SIGNUP_ENGLISH_TEMPLATE_ID=ask for this
+```
+
+1. Ask the dev team for GCNotify API key and template keys
+
+2. Run mongo container and mongo express using docker `docker compose up mongo mongo-express -d`
+
+3. Ensure proper environment variables are set for connecting to mongo from the app
+
+4. Start the application as usual
+
+## Enabling Report a Problem
+
+Required environment variables:
+
+```code
+REPORT_A_PROBLEM_ENABLED=true
+NOTIFY_BASE_API_URL=https://api.notification.canada.ca
+NOTIFY_REPORT_A_PROBLEM_EMAIL=email which will receive the feedback from the form
+NOTIFY_API_KEY=ask for this
+NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID=ask for this
+```
+
+1. Ask the dev team for GCNotify API key and template keys
+
+2. Start the application as usual
+
+## Enabling Unsubscribe
+
+Required environment variables:
+
+```code
+MONGO_URL=your mongo URL
+MONGO_DB=your mongodb name
+NOTIFY_BASE_API_URL=https://api.notification.canada.ca
+NOTIFY_API_KEY=ask for this
+USER_UNSUBSCRIBE_FRENCH_TEMPLATE_ID=ask for this
+USER_UNSUBSCRIBE_ENGLISH_TEMPLATE_ID=ask for this
+```
+
+1. Ask the dev team for GCNotify API key and template keys
+
+2. Run mongo container and mongo express using docker `docker compose up mongo mongo-express -d`
+
+3. Ensure proper environment variables are set for connecting to mongo from the app
+
+4. Start the application as usual
 
 ## Environment Variables 
 
@@ -53,7 +118,7 @@ Here is a list of all the environment variables used to configure the applicatio
 
 `NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID`: The Notify template ID for the report a problem email template
 
-`NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL`: The email to send it too
+`NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL`: The email to send it to
 
 `NOTIFY_API_KEY`: The [Notify API key](https://documentation.notification.canada.ca/en/start.html#headers)
 
@@ -65,17 +130,9 @@ Here is a list of all the environment variables used to configure the applicatio
 
 `NEXT_PUBLIC_ADOBE_ANALYTICS_URL`: URL for adobe analytics. It is found in the documentation for Adobe Analytics installation.
 
-## Learn More
+## Learn More About the Framework We're Using
 
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
