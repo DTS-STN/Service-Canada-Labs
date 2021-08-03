@@ -39,7 +39,7 @@ You can either:
 
 - Set the value to a locally running instance of the [CMS](https://github.com/DTS-STN/Alpha-Site-CMS) (populated with data)
 - Set the value to `https://alphasite-api.dts-stn.com` (our development environment)
-- Set `NEXT_PUBLIC_API_MOCKING` to `true` (mock service worker which intercepts API requests and returns mock data from `/cypress/fixtures/experiments`)
+- Set `NEXT_PUBLIC_API_MOCKING` to `enabled` (mock service worker which intercepts API requests and returns mock data from `/cypress/fixtures/experiments`)
 
 ## Enabling User Signup
 
