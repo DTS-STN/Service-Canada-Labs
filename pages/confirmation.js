@@ -38,7 +38,11 @@ export default function Confirmation(props) {
           ) : (
             ""
           )}
-          <title>{t("scLabsConfirmation")}</title>
+          <title>
+            {referrer === "unsubscribe"
+              ? `${t("unsubscribeConfirmationTitle")} — ${t("siteTitle")}`
+              : `${t("emailConfirmationTitle")} — ${t("siteTitle")}`}
+          </title>
           <link rel="icon" href="/favicon.ico" />
           <meta
             name="dcterms.title"
@@ -75,7 +79,7 @@ export default function Confirmation(props) {
               <img
                 className="w-80px mb-10 lg:mb-0 lg:ml-24 lg:w-160px"
                 src="/circle-check.svg"
-                alt="Circle with checkmark"
+                alt=""
               />
             </span>
             {referrer === "unsubscribe" ? (

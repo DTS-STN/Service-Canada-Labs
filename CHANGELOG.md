@@ -7,10 +7,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## Changed
+
+- Skip to main content button on home page links to banner
+- Moved banner on home page in main
+- Add an invisible `<h1>` and change the visible headings to both be `<h2>` on splash page
+- Status div in Report a Problem is always rendered, but the contents are updated when submitting the form
+- Update `<title>` tag on splash page to be more meaningful
+- Upgraded Nextjs from 10.2.3 to 11.0.1
+
+## [v1.0.3] - 2021-07-30
+
+- Modified Digital Center page content
+
+## [v1.0.2] - 2021-07-30
+
 ## Added
 
 - Added CHANGELOG.md
 - Added SECURITY.md
+
+## Changed
+
+- Modified images on Virtual Assistant and Digital Center pages
+- Changed minority options list in signup form to alphabetical order in French and English
+
+## Fixed
+
+- Fixed issue where selecting or modifying fields in the form always cleared out the province selection
 
 ## [v1.0.1] - 2021-07-29
 

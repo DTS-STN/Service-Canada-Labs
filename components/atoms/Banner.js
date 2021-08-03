@@ -13,7 +13,11 @@ export const Banner = ({ siteTitle, headline }) => {
     >
       <div className="lg:container xxs:mx-0 xxs:px-0 lg:mx-auto lg:px-6 xxl:mx-auto">
         <div className=" bg-black bg-opacity-90 text-white p-4 xxs:w-screen sm:bg-opacity-30 lg:w-2/3 xl:w-1/2">
-          <h1 className="text-h1 font-medium pt-4 pb-2 break-words">
+          <h1
+            className="text-h1 font-medium pt-4 pb-2 break-words"
+            id="pageMainTitle"
+            tabIndex="-1"
+          >
             {siteTitle}
           </h1>
           <hr className="border-2 border-hr-red-bar bg-hr-red-bar bg-opacity-90 border-opacity-90 w-3/4" />

@@ -60,7 +60,7 @@ export default function Confirmation(props) {
               <img
                 className="w-80px mb-10 lg:mb-0 lg:ml-24 lg:w-160px"
                 src="/circle-info.svg"
-                alt="Circle with information icon"
+                alt=""
               />
             </span>
             <div className="lg:w-2/3">

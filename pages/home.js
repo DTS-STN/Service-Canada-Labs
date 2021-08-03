@@ -60,9 +60,7 @@ export default function Home(props) {
             >
               {t("signupHomeButton")}
             </ActionButton>
-            <h2 className="my-10" tabIndex="-1" id="pageMainTitle">
-              {t("projectsAndExplorationTitle")}
-            </h2>
+            <h2 className="my-10">{t("projectsAndExplorationTitle")}</h2>
             <p className="mb-4 whitespace-pre-line">
               {t("experimentsAndExploration-1/3")}
             </p>
