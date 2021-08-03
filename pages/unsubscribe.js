@@ -11,18 +11,10 @@ import { Layout } from "../components/organisms/Layout";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { TextField } from "../components/atoms/TextField";
 import { maskEmail } from "../lib/utils/maskEmail";
-import { useEffect } from "react";
 
 export default function Unsubscribe(props) {
   const { t } = useTranslation("common");
   const { asPath, push } = useRouter();
-
-  useEffect(() => {
-    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
-      window.adobeDataLayer = window.adobeDataLayer || [];
-      window.adobeDataLayer.push({ event: "pageLoad" });
-    }
-  }, []);
 
   // Joi form validation schema. Only required fields are validated
   const formSchema = Joi.object({
