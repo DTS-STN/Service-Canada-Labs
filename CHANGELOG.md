@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update `<title>` tag on splash page to be more meaningful
 - Upgraded Nextjs from 10.2.3 to 11.0.1
 
+## Added
+
+- Add robots.txt
+
 ## [v1.0.3] - 2021-07-30
 
 - Modified Digital Center page content
