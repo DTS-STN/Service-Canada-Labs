@@ -79,6 +79,8 @@ NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID=ask for this
 
 ## Enabling Unsubscribe
 
+Required environment variables:
+
 ```code
 MONGO_URL=your mongo URL
 MONGO_DB=your mongodb name
