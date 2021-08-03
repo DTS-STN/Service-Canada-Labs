@@ -5,6 +5,7 @@ import { Layout } from "../components/organisms/Layout";
 import { useRouter } from "next/router";
 import { CallToAction } from "../components/molecules/CallToAction";
 import { ActionButton } from "../components/atoms/ActionButton";
+import { HTMList } from "../components/atoms/HTMList";
 
 export default function Home(props) {
   const { t } = useTranslation("common");
@@ -56,11 +57,10 @@ export default function Home(props) {
             <p className="mb-4 whitespace-pre-line">
               {t("experimentsAndExploration-1/3")}
             </p>
-            <ul className="mb-4 pl-10 text-p list-disc">
-              <li>{t("experimentsAndExplorationList.1")}</li>
-              <li>{t("experimentsAndExplorationList.2")}</li>
-              <li>{t("experimentsAndExplorationList.3")}</li>
-            </ul>
+            <HTMList
+              listClassName={"mb-4 pl-10 text-p list-disc"}
+              content={t("experimentsAndExplorationList")}
+            />
             <p className="mb-4">{t("experimentsAndExploration-2/3")}</p>
             <p className="mb-10">{t("experimentsAndExploration-3/3")}</p>
           </div>

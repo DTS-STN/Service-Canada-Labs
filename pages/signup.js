@@ -9,6 +9,7 @@ import { ErrorLabel } from "../components/atoms/ErrorLabel";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
+import { HTMList } from "../components/atoms/HTMList";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { TextField } from "../components/atoms/TextField";
 import { RadioField } from "../components/atoms/RadioField";
@@ -425,34 +426,36 @@ export default function Signup(props) {
               {t("signupTitle")}
             </h1>
             <p className="mb-5 text-sm lg:text-p">{t("signupP1")}</p>
-            <ul
-              className="list-disc text-sm lg:text-p pl-10 mb-5"
-              dangerouslySetInnerHTML={{ __html: t("signupList") }}
-            ></ul>
+            <HTMList
+              listClassName={"list-disc text-sm lg:text-p pl-10 mb-5"}
+              content={t("signupList1")}
+            />
             <p className="mb-10 text-sm lg:text-p">{t("signupP1.1")}</p>
             <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle2")}</h2>
-            <ul className="list-disc list-outside pl-2 mb-10 font-body text-sm lg:text-p ml-3">
-              <li className="mb-3">{t("signupP2.1")}</li>
-              <li className="mb-3">{t("signupP2.2")}</li>
-              <li className="mb-3">{t("signupP2.3")}</li>
-              <li>{t("signupP2.4")}</li>
-            </ul>
+            <HTMList
+              listClassName={
+                "list-disc list-outside pl-2 mb-10 font-body text-sm lg:text-p ml-3"
+              }
+              liClassName={"mb-3"}
+              content={t("signupList2")}
+            />
+
             <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle3")}</h2>
             <p className="mb-3">{t("signupP3")}</p>
-            <ul className="list-disc list-outside pl-2 mb-5 font-body ml-3 text-sm lg:text-p">
-              <li>{t("email")}</li>
-              <li>{t("year")}</li>
-              <li>{t("lang")}</li>
-            </ul>
+            <HTMList
+              listClassName={
+                "list-disc list-outside pl-2 mb-5 font-body ml-3 text-sm lg:text-p"
+              }
+              content={t("privacyPolicyList1")}
+            />
             <p className="mb-3 text-sm lg:text-p">{t("signupP4")}</p>
-            <ul className="list-disc list-outside pl-2 mb-5 font-body ml-3 text-sm lg:text-p">
-              <li>{t("province")}</li>
-              <li>{t("gender")}</li>
-              <li>{t("indigenous")}</li>
-              <li>{t("disabilities")}</li>
-              <li>{t("minority")}</li>
-              <li>{t("income")}</li>
-            </ul>
+            <HTMList
+              listClassName={
+                "list-disc list-outside pl-2 mb-5 font-body ml-3 text-sm lg:text-p"
+              }
+              content={t("privacyPolicyList2")}
+            />
+
             <p className="my-8 text-sm lg:text-p">{t("signupP3.1")}</p>
             <a
               className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5 text-sm lg:text-p"

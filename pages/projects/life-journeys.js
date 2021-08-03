@@ -3,25 +3,8 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import { HTMList } from "../../components/atoms/HTMList";
 import { CallToAction } from "../../components/molecules/CallToAction";
-
-function HTMList({ tag = "ul", content, listClassName, liClassName }) {
-  const parseList = (content) =>
-    content
-      .split("*") // split the string on asterisks
-      .filter((item) => item) // filter out empty strings
-      .map((item, index) => (
-        <li className={liClassName} key={index}>
-          {item.trim()}
-        </li>
-      ));
-
-  return tag === "ul" ? (
-    <ul className={listClassName}>{parseList(content)}</ul>
-  ) : (
-    <ol className={listClassName}>{parseList(content)}</ol>
-  );
-}
 
 export default function LifeJourneys(props) {
   const { t } = useTranslation("common", "lj");

@@ -3,6 +3,7 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import { HTMList } from "../../components/atoms/HTMList";
 import { CallToAction } from "../../components/molecules/CallToAction";
 
 export default function Privacy(props) {
@@ -56,20 +57,15 @@ export default function Privacy(props) {
               {t("privacyPolicyHeading1")}
             </h2>
             <p className="mb-4">{t("privacyPolicyContent2")}</p>
-            <ul className="ml-9 mb-4 text-p list-disc">
-              <li>{t("privacyPolicyListItem1")}</li>
-              <li>{t("privacyPolicyListItem2")}</li>
-              <li>{t("privacyPolicyListItem3")}</li>
-            </ul>
+            <HTMList
+              listClassName={"ml-9 mb-4 text-p list-disc"}
+              content={t("privacyPolicyList1")}
+            />
             <p className="mb-4">{t("privacyPolicyContent3")}</p>
-            <ul className="ml-9 mb-4 text-p list-disc">
-              <li>{t("privacyPolicyListItem4")}</li>
-              <li>{t("privacyPolicyListItem5")}</li>
-              <li>{t("privacyPolicyListItem6")}</li>
-              <li>{t("privacyPolicyListItem7")}</li>
-              <li>{t("privacyPolicyListItem8")}</li>
-              <li>{t("privacyPolicyListItem9")}</li>
-            </ul>
+            <HTMList
+              listClassName={"ml-9 mb-4 text-p list-disc"}
+              content={t("privacyPolicyList2")}
+            />
             <p className="mb-4">
               {t("privacyPolicyContent4")}
               <span>
