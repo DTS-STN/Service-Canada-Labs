@@ -18,7 +18,9 @@ npm i --legacy-peer-deps
 npm run dev
 ```
 
-Create and run a production build locally:
+Create and run a production build locally***:
+
+*** Will require either `NEXT_API_MOCKING` to have value of `enabled` or a valid value for `STRAPI_API_BACKEND_URL` to succesfully build (data is fetched at build time for production)
 
 ```bash
 npm run build
