@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Joi from "joi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ErrorBox } from "../components/molecules/ErrorBox";
@@ -386,13 +386,6 @@ export default function Signup(props) {
       behavior: "smooth",
     });
   };
-
-  useEffect(() => {
-    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
-      window.adobeDataLayer = window.adobeDataLayer || [];
-      window.adobeDataLayer.push({ event: "pageLoad" });
-    }
-  }, []);
 
   return (
     <>
