@@ -5,7 +5,6 @@ import { useTranslation } from "next-i18next";
 import { Layout } from "../../components/organisms/Layout";
 import { useRouter } from "next/router";
 import { CallToAction } from "../../components/molecules/CallToAction";
-import { useEffect } from "react";
 
 function HTMList({ tag = "ul", content, listClassName, liClassName }) {
   const parseList = (content) =>
@@ -51,13 +50,6 @@ ThumbnailWithCaption.propTypes = {
 export default function DigitalCenter(props) {
   const { t } = useTranslation(["common", "dc"]);
   const { asPath } = useRouter();
-
-  useEffect(() => {
-    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
-      window.adobeDataLayer = window.adobeDataLayer || [];
-      window.adobeDataLayer.push({ event: "pageLoad" });
-    }
-  }, []);
 
   return (
     <>
