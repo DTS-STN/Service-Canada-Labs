@@ -81,7 +81,7 @@ export default function About(props) {
             {t("getInTouch")}&nbsp;
             <a
               className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font break-words"
-              href={`mailto: ${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
+              href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
             >
               {process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}
             </a>
