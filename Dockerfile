@@ -9,7 +9,7 @@ FROM base AS build
 # TC BUILD ENVIRONMENT VARIABLES
 ARG BUILD_DATE
 ARG TC_BUILD
-ARG STRAPI_API_BACKEND_URL
+ARG STRAPI_API_BACKEND_URL=https://alphasite-api.dts-stn.com
 ARG NEXT_PUBLIC_ADOBE_ANALYTICS_URL
 ARG NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL
 ENV NEXT_PUBLIC_BUILD_DATE=$BUILD_DATE
@@ -41,7 +41,7 @@ COPY --from=build /build/next-i18next.config.js ./
 COPY --from=build /build/package*.json ./
 COPY --from=build /build/.next ./.next
 COPY --from=build /build/public ./public
-RUN npm install next
+RUN npm install next --legacy-peer-deps
 
 EXPOSE 3000
 CMD npm run start
