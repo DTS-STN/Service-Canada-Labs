@@ -19,7 +19,7 @@ securityHeaders = [
   // Only allow secure origin to be delivered over HTTPS
   {
     key: "Referrer-Policy",
-    value: "strict-origin",
+    value: "same-origin",
   },
   {
     key: "Content-Security-Policy",
