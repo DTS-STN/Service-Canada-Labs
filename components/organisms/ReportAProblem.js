@@ -209,9 +209,9 @@ export function ReportAProblem(props) {
             />
             <OptionalTextField
               controlId="noWhereElseToGoCheckBox"
-              textFieldId="no_where_else_to_go"
-              controlName="no_where_else_to_go_details"
-              textFieldName="noWhereElseToGoTextField"
+              textFieldId="noWhereElseToGoTextField"
+              controlName="no_where_else_to_go"
+              textFieldName="no_where_else_to_go_details"
               controlLabel={t("reportAProblemNoWhereElseToGo", {
                 lng: props.language,
               })}
