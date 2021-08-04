@@ -7,15 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [v1.0.4] - 2021-08-04
+
 ## Changed
 
+- Upgraded Nextjs from 10.2.3 to 11.0.1
+- Updated README.md
 - Skip to main content button on home page links to banner
 - Moved banner on home page in main
 - Add an invisible `<h1>` and change the visible headings to both be `<h2>` on splash page
 - Status div in Report a Problem is always rendered, but the contents are updated when submitting the form
 - Update `<title>` tag on splash page to be more meaningful
-- Upgraded Nextjs from 10.2.3 to 11.0.1
-- Updated README.md
 
 ## Added
 
