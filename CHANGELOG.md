@@ -21,6 +21,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add robots.txt
 
+## Fixes
+
+- Fixed bug with Report a Problem not sending along certain selection options
+
 ## [v1.0.3] - 2021-07-30
 
 - Modified Digital Center page content
