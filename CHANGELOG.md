@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add robots.txt
 
-## Fixes
+## Fixed
 
 - Fixed bug with Report a Problem not sending along certain selection options
 
