@@ -22,6 +22,6 @@ describe("robots api", () => {
       method: "GET",
     });
     await handler(req, res);
-    expect(res._getData()).toBe("User-agent: *\nDisallow: /api/*\n");
+    expect(res._getData()).toBe("User-agent: *\nDisallow: /api\n");
   });
 });
