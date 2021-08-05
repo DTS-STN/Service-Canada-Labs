@@ -26,7 +26,10 @@ export default function Index(props) {
         )}
         <title>Service Canada Labs | Laboratoires de Service Canada</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content={t("scLabsSplash")} />
+        <meta
+          name="dcterms.title"
+          content={`${t("scLabsSplash")} — ${t("siteTitle")}`}
+        />
         <meta
           name="dcterms.language"
           content={props.locale === "en" ? "eng" : "fra"}
