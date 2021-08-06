@@ -167,4 +167,12 @@ html {
   background:#26374a url(../public/landscape.png) no-repeat right bottom;
 }
 
+.active {
+  display: block;
+}
+
+.feedbackDropdown {
+  display: none;
+}
+
 
