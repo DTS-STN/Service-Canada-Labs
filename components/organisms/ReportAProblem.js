@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import Link from "next/link";
 import { useState } from "react";
 import { useTranslation } from "next-i18next";
 import { OptionalTextField } from "../molecules/OptionalTextField";
@@ -68,195 +69,10 @@ export function ReportAProblem(props) {
       {submitted ? (
         ""
       ) : (
-        <form
-          data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsReport-Problem"
-          data-gc-analytics-collect='[{"value":"input,select","emptyField":"N/A"}]'
-          className="w-full"
-          action="#"
-          onSubmit={onSubmitHandler}
-        >
-          <input
-            type="hidden"
-            id="language"
-            name="language"
-            value={i18n.language}
-          />
-          <fieldset>
-            <legend className="text-base sm:text-p font-body font-normal mb-6">
-              {t("reportAProblemCheckAllThatApply", { lng: props.language })}
-            </legend>
-            <OptionalTextField
-              controlId="incorrectInformationCheckBox"
-              textFieldId="incorrectInformationTextField"
-              controlName="incorrect_information"
-              textFieldName="incorrect_information_details"
-              controlLabel={t("reportAProblemIncorrectInformation", {
-                lng: props.language,
-              })}
-              textFieldLabel={t("reportAProblemProvideMoreDetails", {
-                lng: props.language,
-              })}
-              uncontrolled={true}
-              multiText={true}
-              textLabelBold={true}
-              wrap="hard"
-              maxLength={750}
-              controlDataTestId="incorrectInformation-checkbox"
-              textFieldDataTestId="incorrectInformation-text"
-              controlDataCy="incorrectInformation-checkbox"
-              textFieldDataCy="incorrectInformation-text"
-              describedby="incorrectInformation"
-              OptionalTextField
-              checkBoxStyle="mb-4"
-              controlValue="yes"
-            />
-            <OptionalTextField
-              controlId="unclearInformationCheckBox"
-              textFieldId="unclearInformationTextField"
-              controlName="unclear_information"
-              textFieldName="unclear_information_details"
-              controlLabel={t("reportAProblemUnclearInformation", {
-                lng: props.language,
-              })}
-              textFieldLabel={t("reportAProblemProvideMoreDetails", {
-                lng: props.language,
-              })}
-              uncontrolled={true}
-              multiText={true}
-              textLabelBold={true}
-              wrap="hard"
-              maxLength={750}
-              controlDataTestId="unclearInformation-checkbox"
-              textFieldDataTestId="unclearInformation-text"
-              controlDataCy="unclearInformation-checkbox"
-              textFieldDataCy="unclearInformation-text"
-              describedby="unclearInformation"
-              checkBoxStyle="mb-4"
-              controlValue="yes"
-            />
-            <OptionalTextField
-              controlId="infoNotFoundCheckBox"
-              textFieldId="infoNotFoundTextField"
-              controlName="info_not_found"
-              textFieldName="info_not_found_details"
-              controlLabel={t("reportAProblemDidNotFindWhatYoureLookingFor", {
-                lng: props.language,
-              })}
-              textFieldLabel={t("reportAProblemProvideMoreDetails", {
-                lng: props.language,
-              })}
-              uncontrolled={true}
-              multiText={true}
-              textLabelBold={true}
-              wrap="hard"
-              maxLength={750}
-              controlDataTestId="infoNotFound-checkbox"
-              textFieldDataTestId="infoNotFound-text"
-              controlDataCy="infoNotFound-checkbox"
-              textFieldDataCy="infoNotFound-text"
-              describedby="infoNotFound"
-              checkBoxStyle="lg:mb-8 mb-4"
-              controlValue="yes"
-            />
-            <OptionalTextField
-              controlId="adaptiveTechnologyCheckBox"
-              textFieldId="adaptiveTechnologyTextField"
-              controlName="adaptive_technology"
-              textFieldName="adaptive_technology_details"
-              controlLabel={t(
-                "reportAProblemPageDoesNotWorkWithAdaptiveTechnology",
-                { lng: props.language }
-              )}
-              textFieldLabel={t("reportAProblemProvideMoreDetails", {
-                lng: props.language,
-              })}
-              uncontrolled={true}
-              multiText={true}
-              textLabelBold={true}
-              wrap="hard"
-              maxLength={750}
-              controlDataTestId="adaptiveTechnology-checkbox"
-              textFieldDataTestId="adaptiveTechnology-text"
-              controlDataCy="adaptiveTechnology-checkbox"
-              textFieldDataCy="adaptiveTechnology-text"
-              describedby="adaptiveTechnology"
-              checkBoxStyle="mb-8"
-              controlValue="yes"
-            />
-            <OptionalTextField
-              controlId="privacyIssuesCheckBox"
-              textFieldId="privacyIssuesTextField"
-              controlName="privacy_issues"
-              textFieldName="privacy_issues_details"
-              controlLabel={t("reportAProblemYoureWorriedAboutYourPrivacy", {
-                lng: props.language,
-              })}
-              textFieldLabel={t("reportAProblemProvideMoreDetails", {
-                lng: props.language,
-              })}
-              uncontrolled={true}
-              multiText={true}
-              textLabelBold={true}
-              wrap="hard"
-              maxLength={750}
-              controlDataTestId="privacyIssues-checkbox"
-              textFieldDataTestId="privacyIssues-text"
-              controlDataCy="privacyIssues-checkbox"
-              textFieldDataCy="privacyIssues-text"
-              describedby="privacyIssues"
-              checkBoxStyle="mb-4"
-              controlValue="yes"
-            />
-            <OptionalTextField
-              controlId="noWhereElseToGoCheckBox"
-              textFieldId="noWhereElseToGoTextField"
-              controlName="no_where_else_to_go"
-              textFieldName="no_where_else_to_go_details"
-              controlLabel={t("reportAProblemNoWhereElseToGo", {
-                lng: props.language,
-              })}
-              textFieldLabel={t("reportAProblemProvideMoreDetails", {
-                lng: props.language,
-              })}
-              uncontrolled={true}
-              multiText={true}
-              textLabelBold={true}
-              wrap="hard"
-              maxLength={750}
-              controlDataTestId="noWhereElseToGo-checkbox"
-              textFieldDataTestId="noWhereElseToGo-text"
-              controlDataCy="noWhereElseToGo-checkbox"
-              textFieldDataCy="noWhereElseToGo-text"
-              describedby="noWhereElseToGo"
-              checkBoxStyle="lg:mb-8 mb-4"
-              controlValue="yes"
-            />
-            <OptionalTextField
-              controlId="otherCheckBox"
-              textFieldId="otherTextField"
-              controlName="other"
-              textFieldName="other_details"
-              controlLabel={t("reportAProblemOther", { lng: props.language })}
-              textFieldLabel={t("reportAProblemProvideMoreDetails", {
-                lng: props.language,
-              })}
-              uncontrolled={true}
-              multiText={true}
-              textLabelBold={true}
-              wrap="hard"
-              maxLength={750}
-              controlDataTestId="other-checkbox"
-              textFieldDataTestId="other-text"
-              controlDataCy="other-checkbox"
-              textFieldDataCy="other-text"
-              describedby="other"
-              checkBoxStyle="mb-4"
-              controlValue="yes"
-            />
-          </fieldset>
-
+        <>
+          <h2 className="text-base font-body">{t("reportAProblemTitle")}</h2>
           <ul className="list-outside list-disc px-6 py-2">
-            <li className="text-xs sm:text-sm font-body my-4 leading-tight sm:leading-6">
+            <li className="text-xs sm:text-sm font-body mb-4 leading-tight sm:leading-6">
               <b>{t("reportAProblemNoReply", { lng: props.language })}</b>{" "}
               {t("reportAProblemEnquiries", { lng: props.language })}{" "}
               <a
@@ -268,48 +84,215 @@ export function ReportAProblem(props) {
             </li>
             <li className="text-xs sm:text-sm font-body my-4 leading-tight sm:leading-6">
               <b>
-                {t("reportAProblemNoPersonalInfo", { lng: props.language })}
-              </b>
-              ,&nbsp;
-              {t("reportAProblemNoPersonalInfoDetails", {
-                lng: props.language,
-              })}
-            </li>
-            <li className="text-xs sm:text-sm font-body my-4 leading-tight sm:leading-6">
-              <b>{t("reportAProblemMoreInfo", { lng: props.language })}</b>
-              ,&nbsp;
-              {t("reportAProblemMoreInfoDetails", { lng: props.language })}
-              &nbsp;
-              <a
-                className="underline text-xs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-                href={t("reportAProblemMoreInfoLink", {
+                {t("reportAProblemFeedbackConfidential", {
                   lng: props.language,
                 })}
-              >
-                {t("reportAProblemMoreInfoLinkText", { lng: props.language })}
-              </a>
+              </b>{" "}
+              <Link href="/signup/privacy">
+                <a className="underline text-xs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font">
+                  {t("reportAProblemPrivacyStatement")}
+                </a>
+              </Link>
             </li>
           </ul>
-
-          <a
-            className="underline text-xs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font my-4 underline"
-            href={t("reportAProblemPrivacyStatementLink", {
-              lng: props.language,
-            })}
+          <form
+            data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsReport-Problem"
+            data-gc-analytics-collect='[{"value":"input,select","emptyField":"N/A"}]'
+            className="w-full"
+            action="#"
+            onSubmit={onSubmitHandler}
           >
-            {t("reportAProblemPrivacyStatement", { lng: props.language })}
-          </a>
-          <ActionButton
-            id="submit"
-            className="rounded block mt-4"
-            type="submit"
-            dataCy="report-a-problem-submit"
-            dataTestId="report-a-problem-submit"
-            analyticsTracking
-          >
-            {t("reportAProblemSubmit", { lng: props.language })}
-          </ActionButton>
-        </form>
+            <input
+              type="hidden"
+              id="language"
+              name="language"
+              value={i18n.language}
+            />
+            <fieldset>
+              <legend className="text-base sm:text-p font-body font-normal mb-6">
+                {t("reportAProblemCheckAllThatApply", { lng: props.language })}
+              </legend>
+              <OptionalTextField
+                controlId="incorrectInformationCheckBox"
+                textFieldId="incorrectInformationTextField"
+                controlName="incorrect_information"
+                textFieldName="incorrect_information_details"
+                controlLabel={t("reportAProblemIncorrectInformation", {
+                  lng: props.language,
+                })}
+                textFieldLabel={t("reportAProblemProvideMoreDetails", {
+                  lng: props.language,
+                })}
+                uncontrolled={true}
+                multiText={true}
+                textLabelBold={true}
+                wrap="hard"
+                maxLength={750}
+                controlDataTestId="incorrectInformation-checkbox"
+                textFieldDataTestId="incorrectInformation-text"
+                controlDataCy="incorrectInformation-checkbox"
+                textFieldDataCy="incorrectInformation-text"
+                describedby="incorrectInformation"
+                OptionalTextField
+                checkBoxStyle="mb-4"
+                controlValue="yes"
+              />
+              <OptionalTextField
+                controlId="unclearInformationCheckBox"
+                textFieldId="unclearInformationTextField"
+                controlName="unclear_information"
+                textFieldName="unclear_information_details"
+                controlLabel={t("reportAProblemUnclearInformation", {
+                  lng: props.language,
+                })}
+                textFieldLabel={t("reportAProblemProvideMoreDetails", {
+                  lng: props.language,
+                })}
+                uncontrolled={true}
+                multiText={true}
+                textLabelBold={true}
+                wrap="hard"
+                maxLength={750}
+                controlDataTestId="unclearInformation-checkbox"
+                textFieldDataTestId="unclearInformation-text"
+                controlDataCy="unclearInformation-checkbox"
+                textFieldDataCy="unclearInformation-text"
+                describedby="unclearInformation"
+                checkBoxStyle="mb-4"
+                controlValue="yes"
+              />
+              <OptionalTextField
+                controlId="infoNotFoundCheckBox"
+                textFieldId="infoNotFoundTextField"
+                controlName="info_not_found"
+                textFieldName="info_not_found_details"
+                controlLabel={t("reportAProblemDidNotFindWhatYoureLookingFor", {
+                  lng: props.language,
+                })}
+                textFieldLabel={t("reportAProblemProvideMoreDetails", {
+                  lng: props.language,
+                })}
+                uncontrolled={true}
+                multiText={true}
+                textLabelBold={true}
+                wrap="hard"
+                maxLength={750}
+                controlDataTestId="infoNotFound-checkbox"
+                textFieldDataTestId="infoNotFound-text"
+                controlDataCy="infoNotFound-checkbox"
+                textFieldDataCy="infoNotFound-text"
+                describedby="infoNotFound"
+                checkBoxStyle="lg:mb-8 mb-4"
+                controlValue="yes"
+              />
+              <OptionalTextField
+                controlId="adaptiveTechnologyCheckBox"
+                textFieldId="adaptiveTechnologyTextField"
+                controlName="adaptive_technology"
+                textFieldName="adaptive_technology_details"
+                controlLabel={t(
+                  "reportAProblemPageDoesNotWorkWithAdaptiveTechnology",
+                  { lng: props.language }
+                )}
+                textFieldLabel={t("reportAProblemProvideMoreDetails", {
+                  lng: props.language,
+                })}
+                uncontrolled={true}
+                multiText={true}
+                textLabelBold={true}
+                wrap="hard"
+                maxLength={750}
+                controlDataTestId="adaptiveTechnology-checkbox"
+                textFieldDataTestId="adaptiveTechnology-text"
+                controlDataCy="adaptiveTechnology-checkbox"
+                textFieldDataCy="adaptiveTechnology-text"
+                describedby="adaptiveTechnology"
+                checkBoxStyle="mb-8"
+                controlValue="yes"
+              />
+              <OptionalTextField
+                controlId="privacyIssuesCheckBox"
+                textFieldId="privacyIssuesTextField"
+                controlName="privacy_issues"
+                textFieldName="privacy_issues_details"
+                controlLabel={t("reportAProblemYoureWorriedAboutYourPrivacy", {
+                  lng: props.language,
+                })}
+                textFieldLabel={t("reportAProblemProvideMoreDetails", {
+                  lng: props.language,
+                })}
+                uncontrolled={true}
+                multiText={true}
+                textLabelBold={true}
+                wrap="hard"
+                maxLength={750}
+                controlDataTestId="privacyIssues-checkbox"
+                textFieldDataTestId="privacyIssues-text"
+                controlDataCy="privacyIssues-checkbox"
+                textFieldDataCy="privacyIssues-text"
+                describedby="privacyIssues"
+                checkBoxStyle="mb-4"
+                controlValue="yes"
+              />
+              <OptionalTextField
+                controlId="noWhereElseToGoCheckBox"
+                textFieldId="noWhereElseToGoTextField"
+                controlName="no_where_else_to_go"
+                textFieldName="no_where_else_to_go_details"
+                controlLabel={t("reportAProblemNoWhereElseToGo", {
+                  lng: props.language,
+                })}
+                textFieldLabel={t("reportAProblemProvideMoreDetails", {
+                  lng: props.language,
+                })}
+                uncontrolled={true}
+                multiText={true}
+                textLabelBold={true}
+                wrap="hard"
+                maxLength={750}
+                controlDataTestId="noWhereElseToGo-checkbox"
+                textFieldDataTestId="noWhereElseToGo-text"
+                controlDataCy="noWhereElseToGo-checkbox"
+                textFieldDataCy="noWhereElseToGo-text"
+                describedby="noWhereElseToGo"
+                checkBoxStyle="lg:mb-8 mb-4"
+                controlValue="yes"
+              />
+              <OptionalTextField
+                controlId="otherCheckBox"
+                textFieldId="otherTextField"
+                controlName="other"
+                textFieldName="other_details"
+                controlLabel={t("reportAProblemOther", { lng: props.language })}
+                textFieldLabel={t("reportAProblemProvideMoreDetails", {
+                  lng: props.language,
+                })}
+                uncontrolled={true}
+                multiText={true}
+                textLabelBold={true}
+                wrap="hard"
+                maxLength={750}
+                controlDataTestId="other-checkbox"
+                textFieldDataTestId="other-text"
+                controlDataCy="other-checkbox"
+                textFieldDataCy="other-text"
+                describedby="other"
+                checkBoxStyle="mb-4"
+                controlValue="yes"
+              />
+            </fieldset>
+            <ActionButton
+              id="submit"
+              className="rounded block mt-4"
+              type="submit"
+              dataCy="report-a-problem-submit"
+              dataTestId="report-a-problem-submit"
+              analyticsTracking
+            >
+              {t("reportAProblemSubmit", { lng: props.language })}
+            </ActionButton>
+          </form>
+        </>
       )}
     </Details>
   );
