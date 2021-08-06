@@ -5,6 +5,7 @@ import { Layout } from "../../../components/organisms/Layout";
 import { useRouter } from "next/router";
 import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge";
 import { CallToAction } from "../../../components/molecules/CallToAction";
+import { ActionButton } from "../../../components//atoms/ActionButton";
 
 export default function Home(props) {
   const { t } = useTranslation(["common", "vc"]);
@@ -50,18 +51,28 @@ export default function Home(props) {
         {/* Virtual Assitant Demo section start -  with link to working prototype */}
         <section className="layout-container mb-10">
           <h1 className="mb-8 text-h1l" tabIndex="-1" id="pageMainTitle">
-            {t("vc:virtualAssistantDemoTitle")}
+            {t("vc:virtualAssistantTitle")}
           </h1>
           {/* the scenario section */}
           <div className="whitespace-pre-line ">
             <h2 className="mb-6 mt-8 text-h1" id="virtualAssistantTitle">
-              {t("vc:scenarioDemoTitle")}
+              {t("vc:scenarioTitle")}
             </h2>
             <p
               className="mb-6 lg:col-span-2 px-1 lg:px-0 "
-              dangerouslySetInnerHTML={{ __html: t("vc:scenarioDemoBody") }}
+              dangerouslySetInnerHTML={{ __html: t("vc:scenarioBody") }}
             >
               {/* {t("vc:scenarioDemoBody")} */}
+            </p>
+            <p className="flex mb-16 text-center">
+              <ActionButton
+                href="https://virtual-assistant.toadfor.ca/en"
+                id="meet-va-link"
+                dataCy="meet-va-link"
+                className="rounded px-6 py-4 font-bold text-center inline-block"
+              >
+                {t("vc:meetAssistant")}
+              </ActionButton>
             </p>
           </div>
 
@@ -91,11 +102,11 @@ export default function Home(props) {
         {/* <section className="layout-container mb-10">
           <div className="w-auto mb-6">
             <h1 className="mb-8 text-h1l" tabIndex="-1" id="pageMainTitle">
-              {t("vc:virtualAssistantTitle")}
+              {t("vc:virtualAssistantTitleStatic")}
             </h1>
             <div className="flex flex-col-reverse lg:grid lg:grid-cols-3 gap-4 lg:gap-6 ">
               <p className="lg:col-span-2 px-1 lg:px-0 ">
-                {t("vc:virtualAssistantBio")}
+                {t("vc:virtualAssistantBioStatic")}
               </p>
 
               <div className=" bg-gradient-to-tr from-custom-blue-blue to-vc-blue-lt  p-4 ">

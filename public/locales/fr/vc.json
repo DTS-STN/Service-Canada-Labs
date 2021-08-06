@@ -1,6 +1,6 @@
 {
-  "virtualAssistantTitle": "Assistant virtuel de Service Canada",
-  "virtualAssistantBio": "L’assistant virtuel est un robot conversationnel. Il peut vous aider à surmonter les obstacles que vous pourriez rencontrer lorsque vous faites une demande de prestation.  Par exemple, il peut vous aider à obtenir les documents qui manquent à votre dossier. Jetons un coup d’œil sur ce que l’assistant virtuel peut faire pour vous! ",
+  "virtualAssistantTitleStatic": "Assistant virtuel de Service Canada",
+  "virtualAssistantBioStatic": "L’assistant virtuel est un robot conversationnel. Il peut vous aider à surmonter les obstacles que vous pourriez rencontrer lorsque vous faites une demande de prestation.  Par exemple, il peut vous aider à obtenir les documents qui manquent à votre dossier. Jetons un coup d’œil sur ce que l’assistant virtuel peut faire pour vous! ",
   "virtualAssistantLogoAlt": "Logo assistant virtuel",
   "sectionTitle": "Scénario",
   "scenarioPart1": "Marie perd son emploi. Elle fait une demande d’assurance-emploi. Deux ou trois semaines plus tard, elle commence à se demander où en est sa demande et pourquoi elle n’a pas été payée.",
@@ -15,9 +15,10 @@
   "altTextfigure1": "Première partie de la conversation",
   "altTextfigure2": "Deuxième partie de la conversation",
   "altTextfigure3": "Troisième partie de la conversation",
-  "virtualAssistantDemoTitle": "L’assistant virtuel",
-  "scenarioDemoTitle": "Le Scénario",
-  "scenarioDemoBody": "Imaginez que vous vous appelez Mary. Vous venez de perdre votre emploi et vous faites une demande d'assurance-emploi. Deux ou trois semaines plus tard, vous n'avez toujours pas reçu de réponse à votre demande, ni d'argent. \n\n\n\nÀ la recherche de réponses, vous ouvrez une session au Centre numérique de Service Canada et vous voyez qu’il y a un nouveau message dans votre boîte de réception... ",
+  "virtualAssistantTitle": "L’assistant virtuel",
+  "scenarioTitle": "Le Scénario",
+  "meetAssistant": "Rencontrer l'assistant virtuel",
+  "scenarioBody": "Imaginez que vous vous appelez Mary. Vous venez de perdre votre emploi et vous faites une demande d'assurance-emploi. Deux ou trois semaines plus tard, vous n'avez toujours pas reçu de réponse à votre demande, ni d'argent. \n\n\n\nÀ la recherche de réponses, vous ouvrez une session au Centre numérique de Service Canada et vous voyez qu’il y a un nouveau message dans votre boîte de réception... ",
   "virtualAssistantBioTitle": "À propos de l’assistant virtuel de Service Canada",
   "virtualAssistantBioBody": "L'assistant virtuel est un robot conversationnel. Il peut vous aider à surmonter les obstacles que vous pourriez rencontrer lorsque vous faites une demande de prestation. Cette démonstration donne une idée de ce qui se passe lorsqu’une personne fait une demande d’assurance-emploi quand il lui manque un document."
 }

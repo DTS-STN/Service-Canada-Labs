@@ -1,6 +1,6 @@
 {
-  "virtualAssistantTitle": "The Service Canada Virtual Assistant",
-  "virtualAssistantBio": "The Virtual Assistant is a chatbot. It can help you overcome obstacles you may face when applying for a benefit. For example, it can help you get documents that are missing in your file. Here is a sneak peek of what the Virtual Assistant could help with! ",
+  "virtualAssistantTitleStatic": "The Service Canada Virtual Assistant",
+  "virtualAssistantBioStatic": "The Virtual Assistant is a chatbot. It can help you overcome obstacles you may face when applying for a benefit. For example, it can help you get documents that are missing in your file. Here is a sneak peek of what the Virtual Assistant could help with! ",
   "virtualAssistantLogoAlt": "Virtual assistant logo",
   "sectionTitle": "Scenario",
   "scenarioPart1": "Mary loses her job. She applies for Employment Insurance. Two or three weeks go by, and she’s starting to wonder about the status of her application, and why she has not been paid. ",
@@ -15,9 +15,10 @@
   "altTextfigure1": "First part of the conversation",
   "altTextfigure2": "Second part of the conversation",
   "altTextfigure3": "Third part of the conversation",
-  "virtualAssistantDemoTitle": "Virtual Assistant",
-  "scenarioDemoTitle": "The Scenario",
-  "scenarioDemoBody": "Imagine you are someone named Mary. You <b>recently lost your job</b> and apply for <b>Employment Insurance</b>. Two or three weeks later, you have not heard anything about your application, or received any money. \n\nLooking for answers, you log into the Service Canada Digital Centre, and find a <b>new message</b> in your Inbox…",
+  "virtualAssistantTitle": "Virtual Assistant",
+  "scenarioTitle": "The Scenario",
+  "meetAssistant": "Meet the Virtual Assistant",
+  "scenarioBody": "Imagine you are someone named Mary. You <b>recently lost your job</b> and apply for <b>Employment Insurance</b>. Two or three weeks later, you have not heard anything about your application, or received any money. \n\nLooking for answers, you log into the Service Canada Digital Centre, and find a <b>new message</b> in your Inbox…",
   "virtualAssistantBioTitle": "About the Service Canada Virtual Assistant",
   "virtualAssistantBioBody": "The Virtual Assistant is a chatbot. It can help you overcome obstacles you may face when applying for a benefit. This demo shows what it might be like for someone who is applying for Employment  Insurance, but is missing a document. "
 }
