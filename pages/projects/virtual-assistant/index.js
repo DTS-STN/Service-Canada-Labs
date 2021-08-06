@@ -47,7 +47,48 @@ export default function Home(props) {
           <meta name="dcterms.issued" content="2021-07-20" />
         </Head>
 
+        {/* Virtual Assitant Demo section start -  with link to working prototype */}
         <section className="layout-container mb-10">
+          <h1 className="mb-8 text-h1l" tabIndex="-1" id="pageMainTitle">
+            {t("vc:virtualAssistantDemoTitle")}
+          </h1>
+          {/* the scenario section */}
+          <div className="whitespace-pre-line ">
+            <h2 className="mb-6 mt-8 text-h1" id="virtualAssistantTitle">
+              {t("vc:scenarioDemoTitle")}
+            </h2>
+            <p
+              className="mb-6 lg:col-span-2 px-1 lg:px-0 "
+              dangerouslySetInnerHTML={{ __html: t("vc:scenarioDemoBody") }}
+            >
+              {/* {t("vc:scenarioDemoBody")} */}
+            </p>
+          </div>
+
+          <div className="w-auto mb-6 ">
+            <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 lg:gap-6 ">
+              <h2 className="mb-0 text-h1" id="virtualAssistantTitle">
+                {t("vc:virtualAssistantBioTitle")}
+              </h2>
+
+              <div className="row-span-2 bg-gradient-to-tr from-custom-blue-blue to-vc-blue-lt  p-4 ">
+                <img
+                  className=" object-fill w-64 h-auto mx-auto"
+                  src="/virtualconcierge/VirtualConcierge.svg"
+                  alt={t("vc:virtualAssistantLogoAlt")}
+                />
+              </div>
+              <p className=" font-body text-lg px-1 lg:px-0 ">
+                {t("vc:virtualAssistantBioBody")}
+              </p>
+            </div>
+          </div>
+        </section>
+        {/* END Virtual Assistant Demo section end for working prototype */}
+
+        {/* Original section start */}
+
+        {/* <section className="layout-container mb-10">
           <div className="w-auto mb-6">
             <h1 className="mb-8 text-h1l" tabIndex="-1" id="pageMainTitle">
               {t("vc:virtualAssistantTitle")}
@@ -65,9 +106,9 @@ export default function Home(props) {
                 />
               </div>
             </div>
-          </div>
-          {/* the scenario section */}
-          <div>
+          </div> */}
+        {/* the scenario section */}
+        {/* <div>
             <h2 className="mb-6 mt-8 text-h1" id="virtualAssistantTitle">
               {t("vc:sectionTitle")}
             </h2>
@@ -84,9 +125,9 @@ export default function Home(props) {
               }
               vcImageAltText={t("vc:altTextfigure1")}
               figureCaption={t("vc:figureCaption1")}
-            />
+            /> */}
 
-            <VirtualConcierge
+        {/* <VirtualConcierge
               dataTestId="scenario2"
               dataCy="scenario2"
               description={t("vc:scenarioPart2")}
@@ -98,8 +139,8 @@ export default function Home(props) {
               }
               vcImageAltText={t("vc:altTextfigure2")}
               figureCaption={t("vc:figureCaption2")}
-            />
-            <VirtualConcierge
+            /> */}
+        {/* <VirtualConcierge
               dataTestId="scenario3"
               dataCy="scenario3"
               description={t("vc:scenarioPart3")}
@@ -118,7 +159,9 @@ export default function Home(props) {
               <strong>{t("projectsDisclaimer")}</strong>
             </p>
           </div>
-        </section>
+        </section> */}
+        {/* Original section end */}
+
         <CallToAction
           title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
