@@ -66,7 +66,7 @@ export default function Home(props) {
             </p>
             <p className="flex mb-16 text-center">
               <ActionButton
-                href="https://virtual-assistant.toadfor.ca/en"
+                href="https://virtual-assistant.toadfor.ca"
                 id="meet-va-link"
                 dataCy="meet-va-link"
                 className="rounded px-6 py-4 font-bold text-center inline-block"
