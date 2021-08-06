@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import Link from "next/link";
 import { useState } from "react";
 import { useTranslation } from "next-i18next";
 import { OptionalTextField } from "../molecules/OptionalTextField";
@@ -86,19 +87,14 @@ export function ReportAProblem(props) {
                 {t("reportAProblemFeedbackConfidential", {
                   lng: props.language,
                 })}
-              </b>
+              </b>{" "}
+              <Link href="/signup/privacy">
+                <a className="underline text-xs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font">
+                  {t("reportAProblemPrivacyStatement")}
+                </a>
+              </Link>
             </li>
           </ul>
-          <div className="mb-6">
-            <a
-              className="underline text-xs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-              href={t("reportAProblemPrivacyStatementLink", {
-                lng: props.language,
-              })}
-            >
-              {t("reportAProblemPrivacyStatement", { lng: props.language })}
-            </a>
-          </div>
           <form
             data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsReport-Problem"
             data-gc-analytics-collect='[{"value":"input,select","emptyField":"N/A"}]'
