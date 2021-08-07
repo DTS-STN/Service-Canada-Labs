@@ -34,10 +34,46 @@ export function Feedback(props) {
     setSubmitted(true);
   };
 
+  //Function for closing feedback
+  function closeFeedback() {
+    const feedbackButton = document.getElementById("feedbackButton");
+    const feedbackDropdown = document.getElementById("feedbackDropdown");
+    const caret = document.getElementById("caret");
+
+    feedbackDropdown.classList.toggle("active");
+    feedbackButton.getAttribute("aria-expanded") === "true"
+      ? feedbackButton.setAttribute("aria-expanded", false)
+      : feedbackButton.setAttribute("aria-expanded", true);
+
+    feedbackButton.getAttribute("aria-expanded") === "true"
+      ? (caret.innerHTML = "&#9660;")
+      : (caret.innerHTML = "&#9656;");
+  }
+
   return (
-    <div id="feedbackDropdown" className="feedbackDropdown" role="status">
-      <div className="layout-container">
-        <p className="text-base font-body mb-4">Thank you for your feedback!</p>
+    <div
+      id="feedbackDropdown"
+      className="feedbackDropdown bg-custom-blue-blue"
+      role="status"
+    >
+      <div className="layout-container text-white flex justify-between">
+        <p className="text-xs font-body mt-2 mb-4">
+          Thank you for your feedback!
+        </p>
+        <button
+          id="feedbackClose"
+          onClick={closeFeedback}
+          className="font-body text-xs text-white flex text-left sm:ml-4 my-2 sm:my-0"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="feedbackDropdown"
+          data-testid="closeButton"
+        >
+          <span id="close" className="text-p">
+            &times;
+          </span>
+          <span className="underline mt-2 ml-2 font-bold">{t("Close")}</span>
+        </button>
       </div>
     </div>
   );

@@ -39,19 +39,19 @@ export const PhaseBanner = ({ phase, children }) => {
               id="back-projects"
               dataCy="back-projects"
               dataTestId="back-projects"
-              custom="font-body text-xs py-2 underline hover:text-canada-footer-hover-font-blue text-white block w-32"
+              custom="font-body text-xs mt-0 sm:mt-4 underline hover:text-canada-footer-hover-font-blue text-white block w-32"
               text={t("backProjects")}
               href={t("breadCrumbsHref2")}
             />
           </div>
           <div>
-            <p className="font-body text-xs mt-5 sm:mt-auto text-white sm:ml-4 pt-1 my-auto lg:pb-1">
+            <p className="font-body text-xs mt-5 sm:mt-auto text-white sm:ml-4 pt-1 my-auto sm:mb-0 lg:pb-1">
               {children}
             </p>
             <button
               id="feedbackButton"
               onClick={onfeedbackClick}
-              className="bg-circle-color font-body text-xs text-white flex text-left sm:ml-4 my-2"
+              className="bg-circle-color font-body text-xs text-white flex text-left sm:ml-4 my-2 sm:my-0"
               aria-haspopup="true"
               aria-expanded="false"
               aria-controls="feedbackDropdown"
