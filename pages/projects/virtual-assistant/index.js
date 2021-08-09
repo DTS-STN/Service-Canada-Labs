@@ -59,7 +59,7 @@ export default function Home(props) {
               {t("vc:scenarioTitle")}
             </h2>
             <p
-              className="mb-6 lg:col-span-2 px-1 lg:px-0 "
+              className="mb-6 lg:col-span-2 px-1 lg:px-0 xl:w-3/4"
               dangerouslySetInnerHTML={{ __html: t("vc:scenarioBody") }}
             >
               {/* {t("vc:scenarioDemoBody")} */}
@@ -77,7 +77,7 @@ export default function Home(props) {
           </div>
 
           <div className="w-auto mb-6 ">
-            <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 lg:gap-6 ">
+            <div className="flex flex-col break-words lg:grid lg:grid-cols-2 gap-4 lg:gap-6 ">
               <h2 className="mb-0 text-h1" id="virtualAssistantTitle">
                 {t("vc:virtualAssistantBioTitle")}
               </h2>
@@ -97,88 +97,12 @@ export default function Home(props) {
         </section>
         {/* END Virtual Assistant Demo section end for working prototype */}
 
-        {/* Original section start */}
-
-        {/* <section className="layout-container mb-10">
-          <div className="w-auto mb-6">
-            <h1 className="mb-8 text-h1l" tabIndex="-1" id="pageMainTitle">
-              {t("vc:virtualAssistantTitleStatic")}
-            </h1>
-            <div className="flex flex-col-reverse lg:grid lg:grid-cols-3 gap-4 lg:gap-6 ">
-              <p className="lg:col-span-2 px-1 lg:px-0 ">
-                {t("vc:virtualAssistantBioStatic")}
-              </p>
-
-              <div className=" bg-gradient-to-tr from-custom-blue-blue to-vc-blue-lt  p-4 ">
-                <img
-                  className=" object-fill w-64 h-auto mx-auto"
-                  src="/virtualconcierge/VirtualConcierge.svg"
-                  alt={t("vc:virtualAssistantLogoAlt")}
-                />
-              </div>
-            </div>
-          </div> */}
-        {/* the scenario section */}
-        {/* <div>
-            <h2 className="mb-6 mt-8 text-h1" id="virtualAssistantTitle">
-              {t("vc:sectionTitle")}
-            </h2>
-            <VirtualConcierge
-              dataTestId="scenario1"
-              dataCy="scenario1"
-              description={t("vc:scenarioPart1")}
-              description1={t("vc:scenarioPart1-1")}
-              className=" bg-gray-200"
-              vcImage={
-                props.locale === "fr"
-                  ? "/virtualconcierge/fr/virtual-concierge1.png"
-                  : "/virtualconcierge/en/virtual-concierge1.png"
-              }
-              vcImageAltText={t("vc:altTextfigure1")}
-              figureCaption={t("vc:figureCaption1")}
-            /> */}
-
-        {/* <VirtualConcierge
-              dataTestId="scenario2"
-              dataCy="scenario2"
-              description={t("vc:scenarioPart2")}
-              className=" bg-gray-200"
-              vcImage={
-                props.locale === "fr"
-                  ? "/virtualconcierge/fr/virtual-concierge2.png"
-                  : "/virtualconcierge/en/virtual-concierge2.png"
-              }
-              vcImageAltText={t("vc:altTextfigure2")}
-              figureCaption={t("vc:figureCaption2")}
-            /> */}
-        {/* <VirtualConcierge
-              dataTestId="scenario3"
-              dataCy="scenario3"
-              description={t("vc:scenarioPart3")}
-              className=" bg-gray-200"
-              vcImage={
-                props.locale === "fr"
-                  ? "/virtualconcierge/fr/virtual-concierge3.png"
-                  : "/virtualconcierge/en/virtual-concierge3.png"
-              }
-              vcImageAltText={t("vc:altTextfigure3")}
-              figureCaption={t("vc:figureCaption3")}
-            />
-            <p className="pb-2 xl:w-3/4">{t("vc:scenarioPart4")}</p>
-            <p className="pb-2 xl:w-3/4">{t("vc:scenarioPart4-1")}</p>
-            <p className="my-6">
-              <strong>{t("projectsDisclaimer")}</strong>
-            </p>
-          </div>
-        </section> */}
-        {/* Original section end */}
-
-        <CallToAction
+        {/* <CallToAction
           title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
           href={"/signup"}
           hrefText={t("signupBtn")}
-        />
+        /> */}
       </Layout>
       {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
