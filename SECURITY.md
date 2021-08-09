@@ -6,4 +6,4 @@ ______________________
 
 # Sécurité
 
-**Ne publiez pas de problèmes de sécurité dans nos dépôts publics.** Les problèmes de sécurité doivent être signalés par courriel à <securite@cds-snc.ca>.
+**Ne publiez pas de problèmes de sécurité dans nos dépôts publics.** Les problèmes de sécurité doivent être signalés par courriel à <experience@servicecanada.gc.ca>.
