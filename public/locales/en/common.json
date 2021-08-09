@@ -73,7 +73,6 @@
   "reportAProblemFeedbackConfidential": "Your feedback will be confidential.",
   "reportAProblemSubmit": "Submit",
   "menuTitle": "MENU",
-  "closeMenu": "Close",
   "menuLink1": "Explore our projects",
   "menuLink2": "About these labs",
   "aboutThisSiteContent1": "The Digital Experience and Client Data group at Employment and Social Development Canada created this virtual lab where anyone can see and take part in experiments to test and provide feedback on new services in development.",
@@ -226,6 +225,7 @@
   "scLabsSplash": "Service Canada Labs - Splash",
   "scLabsHome": "Home",
   "doNotInclude": "Do not include any personal, medical or financial details, such as your name, social insurance number (SIN), home or business address, phone number or any case or file numbers.",
+  "doNotInclude2": "Do not include any personal, medical or financial details",
   "getInTouch": "If you have any questions or comments and would like to get in touch with us, please email",
   "unsubscribe": "Unsubscribe (Step 1 of 3)",
   "unsubscribeInfo": "Enter your email address to unsubscribe from the participant list. You will not be contacted for future research studies.",
@@ -251,5 +251,11 @@
   "symbol2": "Symbol of the Government of Canada",
   "projectsDisclaimer": "You cannot apply for services or benefits through this test site. Parts of this site may not work and will change.",
   "backProjects": "Back to projects",
-  "giveFeedback": "Give feedback to help improve this website"
+  "giveFeedback": "Give feedback to help improve this website",
+  "thankYouFeedback": "Thank you for your feedback!",
+  "close": "Close",
+  "improveService": "Help us improve this service",
+  "doBetter": "How can we do better?",
+  "maximum2000": "Maximum of 2000 characters",
+  "confidential": "Your feedback is confidential and anonymous."
 }
