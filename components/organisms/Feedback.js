@@ -158,6 +158,7 @@ export function Feedback(props) {
               className={
                 "text-input font-body w-full min-h-40px shadow-sm text-form-input-gray border-2 py-6px px-12px rounded"
               }
+              required
             />
             <ActionButton
               id="submit"
