@@ -5,6 +5,7 @@ import { ActionButton } from "../components/atoms/ActionButton";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export default function ErrorPage(props) {
   const { t } = useTranslation("common");
@@ -19,6 +20,13 @@ export default function ErrorPage(props) {
   const errorMessageFr =
     query.errorMessageFr ||
     "Si le problème persiste, veuillez signaler le problème.";
+
+  useEffect(() => {
+    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
+      window.adobeDataLayer = window.adobeDataLayer || [];
+      window.adobeDataLayer.push({ event: "pageLoad" });
+    }
+  }, []);
 
   return (
     <>
