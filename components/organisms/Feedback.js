@@ -52,7 +52,11 @@ export function Feedback(props) {
   }
 
   return (
-    <div id="feedbackDropdown" className="feedbackDropdown bg-custom-blue-blue">
+    <div
+      id="feedbackDropdown"
+      className="feedbackDropdown bg-custom-blue-blue"
+      data-testid="feedbackDropdown"
+    >
       <div role="status">
         {submitted ? (
           <div className="layout-container text-white flex justify-between">
@@ -161,7 +165,7 @@ export function Feedback(props) {
               required
             />
             <ActionButton
-              id="submit"
+              id="feedback-submit"
               custom="rounded block w-full lg:w-auto lg:px-12 text-xs lg:text-sm py-2 mt-2 font-bold text-custom-blue-projects-link bg-details-button-gray hover:bg-gray-300"
               type="submit"
               dataCy="feedback-submit"

@@ -4,7 +4,7 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { axe, toHaveNoViolations } from "jest-axe";
-import { Primary } from "./PhaseBanner.stories";
+import { Primary, WithFeedback } from "./PhaseBanner.stories";
 
 expect.extend(toHaveNoViolations);
 
@@ -15,6 +15,12 @@ describe("PhaseBanner tests", () => {
     const textElement = screen.getByText("PhaseBanner Text");
     expect(phaseElement).toBeTruthy();
     expect(textElement).toBeTruthy();
+  });
+
+  it("renders PhaseBanner with the feedback", () => {
+    render(<WithFeedback {...WithFeedback.args} />);
+    const feedback = screen.getByTestId("feedbackDropdown");
+    expect(feedback).toBeTruthy();
   });
 
   it("has no a11y violations", async () => {
