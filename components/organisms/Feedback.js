@@ -52,10 +52,7 @@ export function Feedback(props) {
   }
 
   return (
-    <div
-      id="feedbackDropdown"
-      className="feedbackDropdown bg-custom-blue-blue"
-    >
+    <div id="feedbackDropdown" className="feedbackDropdown bg-custom-blue-blue">
       <div role="status">
         {submitted ? (
           <div className="layout-container text-white flex justify-between">
@@ -71,10 +68,15 @@ export function Feedback(props) {
               aria-controls="feedbackDropdown"
               data-testid="closeButton"
             >
-              <span id="close" className="text-h3 lg:text-h2 leading-4 lg:leading-10">
+              <span
+                id="close"
+                className="text-h3 lg:text-h2 leading-4 lg:leading-10"
+              >
                 &times;
               </span>
-              <span className="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10">{t("close")}</span>
+              <span className="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10">
+                {t("close")}
+              </span>
             </button>
           </div>
         ) : (
@@ -98,47 +100,68 @@ export function Feedback(props) {
               aria-controls="feedbackDropdown"
               data-testid="closeButton"
             >
-              <span id="close" className="text-h3 lg:text-h2 leading-4 lg:leading-10">
+              <span
+                id="close"
+                className="text-h3 lg:text-h2 leading-4 lg:leading-10"
+              >
                 &times;
               </span>
-              <span className="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10">{t("close")}</span>
+              <span className="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10">
+                {t("close")}
+              </span>
             </button>
           </div>
+          <ul className="list-outside list-disc px-6 py-2">
+            <li className="text-xs lg:text-sm font-body mb-4">
+              <b>{t("reportAProblemNoReply", { lng: props.language })}</b>{" "}
+              {t("reportAProblemEnquiries", { lng: props.language })}{" "}
+              <a
+                className="underline text-xs lg:text-sm font-body hover:text-gray-300 text-white"
+                href="mailto:experience@servicecanada.gc.ca"
+              >
+                experience@servicecanada.gc.ca
+              </a>
+              .
+            </li>
+            <li className="text-xs lg:text-sm font-body mb-4">
+              <b>{t("confidential", { lng: props.language })}</b>
+              <ActionButton
+                id="link-privacyPage"
+                dataCy="link-privacyPage"
+                dataTestId="link-privacyPage"
+                href={t("privacyLink")}
+                text={t("reportAProblemPrivacyStatement")}
+                custom="text-xs lg:text-sm underline ml-2 hover:text-gray-300"
+              />
+            </li>
+          </ul>
           <form
-            data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsReport-Problem"
+            data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsFeedback-Form"
             data-gc-analytics-collect='[{"value":"input,select","emptyField":"N/A"}]'
             className="w-full"
             action="#"
             onSubmit={onSubmitHandler}
           >
-            <label htmlFor="feedbackTextArea" className="text-xs lg:text-sm font-body font-bold">{t("doBetter")}</label>
+            <label
+              htmlFor="feedbackTextArea"
+              className="text-xs lg:text-sm font-body font-bold"
+            >
+              {t("doBetter")}
+            </label>
+            <p className="text-xs lg:text-sm my-2">{t("doNotInclude")}</p>
             <p className="text-xs lg:text-sm my-2">{t("maximum2000")}</p>
-            <textarea id="feedbackTextArea" name="feedbackTextArea" className={"text-input font-body w-full min-h-40px shadow-sm text-form-input-gray border-2 py-6px px-12px rounded"} />
-            <ul className="list-outside list-disc px-6 py-2 mb-6 lg:mb-2">
-              <li className="text-xs lg:text-sm font-body mb-4">
-                <b>{t("reportAProblemNoReply", { lng: props.language })}</b>{" "}
-                {t("reportAProblemEnquiries", { lng: props.language })}{" "}
-              </li>
-              <li className="text-xs lg:text-sm font-body mb-4">
-                <b>{t("doNotInclude2", { lng: props.language })}</b>{" "}
-                {t("reportAProblemNoPersonalInfoDetails", { lng: props.language })}{" "}
-              </li>
-              <li className="text-xs lg:text-sm font-body mb-4">
-                <b>{t("confidential", { lng: props.language })}</b>
-              </li>
-            </ul>
-
-            <ActionButton
-              id="link-privacyPage"
-              dataCy="link-privacyPage"
-              dataTestId="link-privacyPage"
-              href={t("privacyLink")}
-              text={t("privacyTitle")}
-              custom="text-xs lg:text-sm underline ml-2"
+            <textarea
+              id="feedbackTextArea"
+              name="feedbackTextArea"
+              maxLength="2000"
+              rows="5"
+              className={
+                "text-input font-body w-full min-h-40px shadow-sm text-form-input-gray border-2 py-6px px-12px rounded"
+              }
             />
             <ActionButton
               id="submit"
-              custom="rounded block w-full lg:w-auto lg:px-12 text-xs lg:text-sm py-2 mt-2 font-bold text-custom-blue-projects-link bg-details-button-gray"
+              custom="rounded block w-full lg:w-auto lg:px-12 text-xs lg:text-sm py-2 mt-2 font-bold text-custom-blue-projects-link bg-details-button-gray hover:bg-gray-300"
               type="submit"
               dataCy="feedback-submit"
               dataTestId="feedback-submit"

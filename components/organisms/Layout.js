@@ -25,6 +25,7 @@ export const Layout = ({
   locale,
   langUrl,
   breadcrumbItems,
+  active,
 }) => {
   const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
@@ -43,7 +44,7 @@ export const Layout = ({
         </a>
       </nav>
       <header>
-        <PhaseBanner phase={t("phaseBannerTag")}>
+        <PhaseBanner phase={t("phaseBannerTag")} feedback={active}>
           {t("phaseBannerText")}
         </PhaseBanner>
         <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">
@@ -240,4 +241,9 @@ Layout.propTypes = {
       link: PropTypes.string,
     })
   ),
+
+  /**
+   * For activating feedback on active projects pages
+   */
+  active: PropTypes.bool,
 };
