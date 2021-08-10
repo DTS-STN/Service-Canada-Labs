@@ -11,6 +11,7 @@ import { Layout } from "../components/organisms/Layout";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { TextField } from "../components/atoms/TextField";
 import { maskEmail } from "../lib/utils/maskEmail";
+import { useEffect } from "react";
 
 export default function Unsubscribe(props) {
   const { t } = useTranslation("common");
@@ -162,6 +163,13 @@ export default function Unsubscribe(props) {
       behavior: "smooth",
     });
   };
+
+  useEffect(() => {
+    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
+      window.adobeDataLayer = window.adobeDataLayer || [];
+      window.adobeDataLayer.push({ event: "pageLoad" });
+    }
+  }, []);
 
   return (
     <>

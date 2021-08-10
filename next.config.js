@@ -19,7 +19,7 @@ securityHeaders = [
   // Only allow secure origin to be delivered over HTTPS
   {
     key: "Referrer-Policy",
-    value: "strict-origin",
+    value: "same-origin",
   },
   {
     key: "Content-Security-Policy",
@@ -33,6 +33,7 @@ module.exports = {
     NEXT_PUBLIC_BUILD_DATE: process.env.NEXT_PUBLIC_BUILD_DATE,
     NEXT_PUBLIC_TC_BUILD: process.env.NEXT_PUBLIC_TC_BUILD,
   },
+  poweredByHeader: false,
   async headers() {
     return [
       {

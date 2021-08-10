@@ -18,6 +18,7 @@ import { SelectField } from "../components/atoms/SelectField";
 import { CheckBox } from "../components/atoms/CheckBox";
 import { OptionalListField } from "../components/molecules/OptionalListField";
 import { maskEmail } from "../lib/utils/maskEmail";
+import { useEffect } from "react";
 
 // TODO
 //  - fix bug with error messages not showing custom error message [x]
@@ -386,6 +387,13 @@ export default function Signup(props) {
       behavior: "smooth",
     });
   };
+
+  useEffect(() => {
+    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
+      window.adobeDataLayer = window.adobeDataLayer || [];
+      window.adobeDataLayer.push({ event: "pageLoad" });
+    }
+  }, []);
 
   return (
     <>

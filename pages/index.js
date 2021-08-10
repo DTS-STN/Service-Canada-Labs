@@ -3,9 +3,17 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { ActionButton } from "../components/atoms/ActionButton";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Index(props) {
   const { t } = useTranslation("common");
+
+  useEffect(() => {
+    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
+      window.adobeDataLayer = window.adobeDataLayer || [];
+      window.adobeDataLayer.push({ event: "pageLoad" });
+    }
+  }, []);
 
   return (
     <>
@@ -18,7 +26,10 @@ export default function Index(props) {
         )}
         <title>Service Canada Labs | Laboratoires de Service Canada</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="dcterms.title" content={t("scLabsSplash")} />
+        <meta
+          name="dcterms.title"
+          content={`${t("scLabsSplash")} — ${t("siteTitle")}`}
+        />
         <meta
           name="dcterms.language"
           content={props.locale === "en" ? "eng" : "fra"}
