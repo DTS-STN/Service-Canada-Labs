@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added CONTRIBUTING.md
 
+## Changed
+
+- Updated robots.txt so that subdirectories of `/projects` won't be indexed by search engines
+
 ## [v1.0.4] - 2021-08-04
 
 ## Changed
