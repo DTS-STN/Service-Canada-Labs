@@ -25,13 +25,6 @@ describe("Feedback tests", () => {
     expect(feedback).toBeTruthy();
   });
 
-  it("displays thank you message after submit button is pressed", () => {
-    render(<Primary {...Primary.args} />);
-    const submitButton = screen.getByTestId("feedback-submit");
-    submitButton.click();
-    expect(screen.getByText("thankYouFeedback")).toBeTruthy();
-  });
-
   it("renders an empty status div before submitting the form", () => {
     render(<Primary {...Primary.args} />);
     expect(screen.getByRole("status")).toBeTruthy();

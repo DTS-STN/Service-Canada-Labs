@@ -256,5 +256,6 @@
   "improveService": "Aidez-nous à améliorer ce service",
   "doBetter": "Comment pouvons-nous faire mieux?",
   "maximum2000": "Maximum de 2000 caractères",
-  "confidential": "Vos commentaires sont confidentiels et anonymes."
+  "confidential": "Vos commentaires sont confidentiels et anonymes.",
+  "feedbackRequired": "Ce champ est obligatoire"
 }

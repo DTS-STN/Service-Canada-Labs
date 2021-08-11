@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { useTranslation } from "next-i18next";
 import { ActionButton } from "./ActionButton";
 import { Feedback } from "../organisms/Feedback";
+import { useState } from "react";
 
 /**
  * Displays the PhaseBanner on the page
@@ -10,21 +11,17 @@ import { Feedback } from "../organisms/Feedback";
 
 export const PhaseBanner = ({ phase, children, feedback }) => {
   const { t } = useTranslation("common");
+  const [ariaExpanded, setAriaExpanded] = useState(false);
+  const [caretHtml, setCaretHtml] = useState("&#9656;");
 
   //Function for changing feedback button state
   function onfeedbackClick() {
-    const feedbackButton = document.getElementById("feedbackButton");
     const feedbackDropdown = document.getElementById("feedbackDropdown");
-    const caret = document.getElementById("caret");
 
     feedbackDropdown.classList.toggle("active");
-    feedbackButton.getAttribute("aria-expanded") === "true"
-      ? feedbackButton.setAttribute("aria-expanded", false)
-      : feedbackButton.setAttribute("aria-expanded", true);
+    ariaExpanded === true ? setAriaExpanded(false) : setAriaExpanded(true);
 
-    feedbackButton.getAttribute("aria-expanded") === "true"
-      ? (caret.innerHTML = "&#9660;")
-      : (caret.innerHTML = "&#9656;");
+    ariaExpanded === false ? setCaretHtml("&#9660;") : setCaretHtml("&#9656;");
   }
 
   return (
@@ -62,16 +59,20 @@ export const PhaseBanner = ({ phase, children, feedback }) => {
                 onClick={onfeedbackClick}
                 className="bg-circle-color font-body text-xs lg:text-sm text-white flex text-left sm:ml-4 my-2 sm:my-0"
                 aria-haspopup="true"
-                aria-expanded="false"
+                aria-expanded={ariaExpanded}
                 aria-controls="feedbackDropdown"
                 data-testid="feedbackButton"
               >
-                <span id="caret" className="text-p leading-5">
-                  &#9656;
-                </span>
-                <span className="underline mt-2 lg:mt-0 ml-2 font-bold">
+                <span
+                  id="caret"
+                  className={`${
+                    caretHtml === "&#9660;" ? "text-sm" : "text-p"
+                  } leading-7 lg:leading-5`}
+                  dangerouslySetInnerHTML={{ __html: caretHtml }}
+                />
+                <strong className="underline mt-2 lg:mt-0 ml-2">
                   {t("giveFeedback")}
-                </span>
+                </strong>
               </button>
             ) : (
               ""
@@ -79,7 +80,11 @@ export const PhaseBanner = ({ phase, children, feedback }) => {
           </div>
         </div>
       </div>
-      <Feedback />
+      <Feedback
+        ariaExpanded={ariaExpanded}
+        setAriaExpanded={setAriaExpanded}
+        setCaretHtml={setCaretHtml}
+      />
     </>
   );
 };
