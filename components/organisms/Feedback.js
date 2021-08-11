@@ -8,7 +8,7 @@ import { ActionButton } from "../atoms/ActionButton";
  */
 export function Feedback(props) {
   const [submitted, setSubmitted] = useState(false);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   let onSubmitHandler = (e) => {
     // prevent default behaviour of form

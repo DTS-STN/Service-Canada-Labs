@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Changed
 
+- Updated PhaseBanner to include Feedback component
 - Upgraded Nextjs from 10.2.3 to 11.0.1
 - Updated README.md
 - Skip to main content button on home page links to banner
@@ -21,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Added
 
+- Add Feedback Componenent
 - Add robots.txt
 
 ## Fixed
