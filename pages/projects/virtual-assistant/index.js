@@ -3,10 +3,12 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../../../components/organisms/Layout";
 import { useRouter } from "next/router";
-import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge";
-import { CallToAction } from "../../../components/molecules/CallToAction";
 import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect } from "react";
+
+//  On hold for now
+//  import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge";
+// import { CallToAction } from "../../../components/molecules/CallToAction";
 
 export default function Home(props) {
   const { t } = useTranslation(["common", "vc"]);
@@ -63,7 +65,7 @@ export default function Home(props) {
           </h1>
           {/* the scenario section */}
           <div className="whitespace-pre-line ">
-            <h2 className="mb-6 mt-8 text-h1" id="virtualAssistantTitle">
+            <h2 className="mb-6 mt-8 text-h1" id="virtualAssistantScenario">
               {t("vc:scenarioTitle")}
             </h2>
             <p
