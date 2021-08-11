@@ -5,7 +5,7 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.4.1",
     "cuid": "^2.1.8",
-    "i18next": "^20.3.2",
+    "i18next": "^20.3.4",
     "i18next-http-backend": "^1.2.6",
     "joi": "^17.4.1",
     "json2csv": "^5.0.6",
