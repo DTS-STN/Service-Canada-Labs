@@ -22,10 +22,11 @@ export const Experiment = (props) => {
     >
       <Link href={props.href}>
         <a
-          className="block text-p text-custom-blue-projects-link underline hover:opacity-70"
+          className="flex block text-p text-custom-blue-projects-link underline hover:opacity-70"
           tabIndex="0"
         >
           {props.title}
+          {props.icon}
         </a>
       </Link>
       <span

@@ -34,6 +34,11 @@ export default function Projects(props) {
             ? experiment.ExperimentTitle_FR
             : experiment.ExperimentTitle_EN
         }
+        icon={
+          experiment.ExperimentLink_EN.substring(0, 8) === "https://" ? (
+            <img src="/external-link.svg" className="px-1 py-2" />
+          ) : undefined
+        }
         tag={experiment.ExperimentStatus}
         tagLabel={t(experiment.ExperimentStatus)}
         description={
