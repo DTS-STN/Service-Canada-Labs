@@ -26,7 +26,7 @@ export const Experiment = (props) => {
           tabIndex="0"
         >
           {props.title}
-          {props.url.substring(0, 8) === "https://" ? (
+          {props.url && props.url.substring(0, 8) === "https://" ? (
             <img src="/external-link.svg" className="px-1 py-2" />
           ) : undefined}
         </a>
