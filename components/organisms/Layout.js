@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Banner } from "../atoms/Banner";
 import { Menu } from "../molecules/Menu";
 import { Footer } from "./Footer";
-import { PhaseBanner } from "../atoms/PhaseBanner";
+import { PhaseBanner } from "./PhaseBanner";
 import { ReportAProblem } from "./ReportAProblem";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
@@ -44,7 +44,10 @@ export const Layout = ({
         </a>
       </nav>
       <header>
-        <PhaseBanner phase={t("phaseBannerTag")} feedbackActive={true}>
+        <PhaseBanner
+          phase={t("phaseBannerTag")}
+          feedbackActive={feedbackActive}
+        >
           {t("phaseBannerText")}
         </PhaseBanner>
         <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "next-i18next";
-import { ActionButton } from "./ActionButton";
+import { ActionButton } from "../atoms/ActionButton";
 import { useState } from "react";
 import Joi from "joi";
 import { ErrorLabel } from "../atoms/ErrorLabel";
