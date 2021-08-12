@@ -159,7 +159,7 @@ export default function ErrorPage(props) {
                     </div>
                   )}
                 </div>
-                <ReportAProblem language={"en"} />
+                <ReportAProblem language="en" />
               </div>
               <div className="flex items-center justify-center circle-background my-8 lg:mt-0">
                 <img
@@ -263,7 +263,7 @@ export default function ErrorPage(props) {
                         Retournez à la &nbsp;
                         <Link href="/fr">
                           <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                            page d'accueil [Service Canada Labs]
+                            page d'accueil des laboratoires de Service Canada
                           </a>
                         </Link>
                       </p>

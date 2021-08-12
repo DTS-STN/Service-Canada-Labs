@@ -67,7 +67,7 @@ export default function Confirmation(props) {
         <section className="layout-container mb-12">
           <h1
             id="pageMainTitle"
-            className="mb-10 text-p xl:text-h1l"
+            className="mb-10 text-p xl:text-h1l lg:w-2/3"
             tabIndex="-1"
           >
             {referrer === "unsubscribe"
