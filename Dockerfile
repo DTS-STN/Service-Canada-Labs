@@ -2,7 +2,7 @@ FROM node:current-alpine AS base
 WORKDIR /base
 COPY package*.json /
 RUN apk add --no-cache python3 py3-pip make g++
-RUN npm install
+RUN npm install --legacy-peer-deps
 COPY . .
 
 FROM base AS build
@@ -41,7 +41,7 @@ COPY --from=build /build/next-i18next.config.js ./
 COPY --from=build /build/package*.json ./
 COPY --from=build /build/.next ./.next
 COPY --from=build /build/public ./public
-RUN npm install next
+RUN npm install next --legacy-peer-deps
 
 EXPOSE 3000
 CMD npm run start
