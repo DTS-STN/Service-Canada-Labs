@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## Changed
+
+- Updated `/signup`, `/thankyou`, `/confirmation`, and `/unsubscribe` pages with the proper content and translations
+
+## [v1.0.5] - 2021-08-12
+
 ## Added
 
 - Added CONTRIBUTING.md
@@ -14,7 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Changed
 
 - Updated robots.txt so that subdirectories of `/projects` won't be indexed by search engines
-- Updated `/signup`, `/thankyou`, `/confirmation`, and `/unsubscribe` pages with the proper content and translations
+- Updated dockerfile to include --legacy-peer-deps on npm installs and rebuilt package-lock.json
 
 ## [v1.0.4] - 2021-08-04
 
