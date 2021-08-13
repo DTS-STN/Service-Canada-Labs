@@ -254,5 +254,8 @@
   "mainSiteFooterTitle": "Pied de page du site principal",
   "officialSiteNavTitle": "Navigation sur le site officiel du Canada",
   "languageToggleTitle": "Bascule de langue",
-  "mainSiteNavTitle": "Navigation sur le site principal"
+  "mainSiteNavTitle": "Navigation sur le site principal",
+  "breadcrumbNavTitle": "Navigation dans le fil d'Ariane",
+  "footerNavTitle1": "Navigation en pied de page 1",
+  "footerNavTitle2": "Navigation en pied de page 2"
 }

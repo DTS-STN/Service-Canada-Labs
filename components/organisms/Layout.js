@@ -93,8 +93,14 @@ export const Layout = ({
           </div>
         </div>
 
-        <div className="mb-2 border-t pb-2 mt-4"></div>
-        <h3 className="sr-only">{t("mainSiteNavTitle")}</h3>
+        <div
+          className="mb-2 border-t pb-2 mt-4"
+          role="navigation"
+          aria-labelledby="primaryNavigation"
+        ></div>
+        <h3 className="sr-only" id="primaryNavigation">
+          {t("mainSiteNavTitle")}
+        </h3>
         <Menu
           menuButtonTitle={t("menuTitle")}
           signUpText={t("signupBtn")}
@@ -113,7 +119,14 @@ export const Layout = ({
             },
           ]}
         />
-        <div className="layout-container mt-2 mb-8">
+        <div
+          className="layout-container mt-2 mb-8"
+          role="navigation"
+          aria-labelledby="breadcrumbNavigation"
+        >
+          <h3 className="sr-only" id="breadcrumbNavigation">
+            {t("breadcrumbNavTitle")}
+          </h3>
           <Breadcrumb items={breadcrumbItems} />
         </div>
       </header>
@@ -136,6 +149,8 @@ export const Layout = ({
         <Footer
           footerLogoAltText={t("symbol2")}
           footerLogoImage="/wmms-blk.svg"
+          footerTitle1={t("footerNavTitle1")}
+          footerTitle2={t("footerNavTitle2")}
           links={[
             {
               link: t("footerSocialMediaURL"),

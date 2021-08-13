@@ -254,5 +254,8 @@
   "mainSiteFooterTitle": "Main site footer",
   "officialSiteNavTitle": "Cananda official site navigation",
   "languageToggleTitle": "Language toggle",
-  "mainSiteNavTitle": "Main site navigation"
+  "mainSiteNavTitle": "Main site navigation",
+  "breadcrumbNavTitle": "Breadcrumb navigation",
+  "footerNavTitle1": "Footer navigation 1",
+  "footerNavTitle2": "Footer navigation 2"
 }
