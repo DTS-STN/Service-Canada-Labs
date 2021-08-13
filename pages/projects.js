@@ -34,7 +34,6 @@ export default function Projects(props) {
             ? experiment.ExperimentTitle_FR
             : experiment.ExperimentTitle_EN
         }
-        url={experiment.ExperimentLink_EN}
         tag={experiment.ExperimentStatus}
         tagLabel={t(experiment.ExperimentStatus)}
         description={
