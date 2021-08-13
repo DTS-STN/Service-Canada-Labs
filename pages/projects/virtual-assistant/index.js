@@ -13,6 +13,7 @@ import { useEffect } from "react";
 export default function Home(props) {
   const { t } = useTranslation(["common", "vc"]);
   const { asPath } = useRouter();
+  const language = locale === "en" ? "fr" : "en";
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -76,13 +77,18 @@ export default function Home(props) {
             </p>
             <p className="flex mb-16 text-center">
               <ActionButton
-                href="https://av-va.alpha.service.canada.ca"
+                href={
+                  language === "en"
+                    ? "https://av-va.alpha.service.canada.ca/fr"
+                    : "https://av-va.alpha.service.canada.ca/en"
+                }
                 id="meet-va-link"
                 dataCy="meet-va-link"
                 className="rounded px-6 py-4 font-bold text-center inline-block"
               >
                 {t("vc:meetAssistant")}
               </ActionButton>
+              {/* href="https://av-va.alpha.service.canada.ca" */}
             </p>
           </div>
 

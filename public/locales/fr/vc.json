@@ -20,5 +20,6 @@
   "meetAssistant": "Rencontrer l'assistant virtuel",
   "scenarioBody": "Imaginez que vous vous appelez Mary. Vous <b>venez de perdre votre emploi</b> et vous faites une demande <b>d'assurance-emploi</b>. Deux ou trois semaines plus tard, vous n'avez toujours pas reçu de réponse à votre demande, ni d'argent. \n\nÀ la recherche de réponses, vous ouvrez une session au Centre numérique de Service Canada et vous voyez qu’il y a un <b>nouveau message</b> dans votre boîte de réception... ",
   "virtualAssistantBioTitle": "À propos de l’assistant virtuel de Service Canada",
-  "virtualAssistantBioBody": "L'assistant virtuel est un robot conversationnel. Il peut vous aider à surmonter les obstacles que vous pourriez rencontrer lorsque vous faites une demande de prestation. Cette démonstration donne une idée de ce qui se passe lorsqu’une personne fait une demande d’assurance-emploi quand il lui manque un document."
+  "virtualAssistantBioBody": "L'assistant virtuel est un robot conversationnel. Il peut vous aider à surmonter les obstacles que vous pourriez rencontrer lorsque vous faites une demande de prestation. Cette démonstration donne une idée de ce qui se passe lorsqu’une personne fait une demande d’assurance-emploi quand il lui manque un document.",
+  "vaLink": "https://av-va.alpha.service.canada.ca/fr"
 }
