@@ -13,7 +13,7 @@ import { useEffect } from "react";
 export default function Home(props) {
   const { t } = useTranslation(["common", "vc"]);
   const { asPath } = useRouter();
-  const language = locale === "en" ? "fr" : "en";
+  const language = props.locale === "en" ? "fr" : "en";
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
