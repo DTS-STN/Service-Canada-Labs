@@ -249,5 +249,12 @@
   "breadCrumbsHref2": "/fr/projects",
   "symbol": "Gouvernement du Canada",
   "symbol2": "Symbole du gouvernement du Canada",
-  "projectsDisclaimer": "Vous ne pouvez pas demander de services ou de prestations par l’intermédiaire de ce site d’essai. Certaines parties du site pourraient ne pas fonctionner et seront modifiées."
+  "projectsDisclaimer": "Vous ne pouvez pas demander de services ou de prestations par l’intermédiaire de ce site d’essai. Certaines parties du site pourraient ne pas fonctionner et seront modifiées.",
+  "globalHeader": "En-tête général",
+  "testSiteNotice": "Avis de site d'essai",
+  "siteFooter": "Pied de page du site",
+  "officialSiteNavigation": "Navigation vers le site Canada.ca",
+  "languageSelection": "Sélection de la langue",
+  "aboutGovernment": "Au sujet du gouvernement",
+  "aboutThisSite": "À propos de ce site"
 }

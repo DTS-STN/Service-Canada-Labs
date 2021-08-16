@@ -43,11 +43,14 @@ export const Layout = ({
         </a>
       </nav>
       <header>
+        <h2 className="sr-only">{t("globalHeader")}</h2>
+        <h3 className="sr-only">{t("testSiteNotice")}</h3>
         <PhaseBanner phase={t("phaseBannerTag")}>
           {t("phaseBannerText")}
         </PhaseBanner>
         <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">
           <div className="flex flex-row justify-between items-center lg:mt-7 mt-1.5">
+            <h3 className="sr-only">{t("officialSiteNavigation")}</h3>
             <a href="https://www.canada.ca">
               <img
                 className="h-5 w-auto xs:h-6 sm:h-8 md:h-8 lg:h-7 xl:h-8"
@@ -55,6 +58,7 @@ export const Layout = ({
                 alt={t("symbol")}
               />
             </a>
+            <h3 className="sr-only">{t("languageSelection")}</h3>
             <Link
               key={language}
               href={langUrl}
@@ -91,6 +95,7 @@ export const Layout = ({
         </div>
 
         <div className="mb-2 border-t pb-2 mt-4"></div>
+        <h3 className="sr-only">Menu</h3>
         <Menu
           menuButtonTitle={t("menuTitle")}
           signUpText={t("signupBtn")}
@@ -122,6 +127,7 @@ export const Layout = ({
       </main>
 
       <footer>
+        <h2 className="sr-only">{t("siteFooter")}</h2>
         <div className="layout-container mt-5">
           <ReportAProblem />
         </div>
