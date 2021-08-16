@@ -250,9 +250,11 @@
   "symbol": "Government of Canada",
   "symbol2": "Symbol of the Government of Canada",
   "projectsDisclaimer": "You cannot apply for services or benefits through this test site. Parts of this site may not work and will change.",
-  "mainSiteHeaderTitle": "Main site header",
-  "mainSiteFooterTitle": "Main site footer",
-  "officialSiteNavTitle": "Cananda official site navigation",
-  "languageToggleTitle": "Language toggle",
-  "mainSiteNavTitle": "Main site navigation"
+  "globalHeader": "Global header",
+  "testSiteNotice": "Test site notice",
+  "siteFooter": "Site footer",
+  "officialSiteNavigation": "Cananda.ca site navigation",
+  "languageSelection": "Language selection",
+  "aboutGovernment": "About government",
+  "aboutThisSite": "About this site"
 }
