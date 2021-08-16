@@ -1,12 +1,12 @@
 {
   "name": "service-canada-labs",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "private": true,
   "dependencies": {
     "@tailwindcss/typography": "^0.4.1",
     "cuid": "^2.1.8",
     "i18next": "^20.3.4",
-    "i18next-http-backend": "^1.2.6",
+    "i18next-http-backend": "^1.2.7",
     "joi": "^17.4.1",
     "json2csv": "^5.0.6",
     "mongodb": "^3.6.10",

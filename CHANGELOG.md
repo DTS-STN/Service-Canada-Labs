@@ -7,7 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+<<<<<<< HEAD
 - Updated PhaseBanner to include Feedback component
+=======
+## [v1.0.6] - 2021-08-13
+
+## Changed
+
+- Updated `/signup`, `/thankyou`, `/confirmation`, and `/unsubscribe` pages with the proper content and translations
+- Added button on Virtual Assistant page linking to Virtual Assistant prototype
+>>>>>>> main
 
 ## [v1.0.5] - 2021-08-12
 
