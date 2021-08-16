@@ -22,10 +22,13 @@ export const Experiment = (props) => {
     >
       <Link href={props.href}>
         <a
-          className="block text-p text-custom-blue-projects-link underline hover:opacity-70"
+          className="flex block text-p text-custom-blue-projects-link underline hover:opacity-70"
           tabIndex="0"
         >
           {props.title}
+          {props.href.substring(0, 8) === "https://" ? (
+            <img src="/external-link.svg" className="px-1 py-2" />
+          ) : undefined}
         </a>
       </Link>
       <span
