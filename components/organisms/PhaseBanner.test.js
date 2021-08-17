@@ -19,23 +19,27 @@ describe("PhaseBanner tests", () => {
 
   it("renders PhaseBanner with the feedback", () => {
     render(<WithFeedback {...WithFeedback.args} />);
+    screen.getByTestId("feedbackButton").click();
     const feedback = screen.getByTestId("feedbackDropdown");
     expect(feedback).toBeTruthy();
   });
 
   it("renders an empty status div before submitting the form", () => {
-    render(<WithFeedback {...Primary.args} />);
+    render(<WithFeedback {...WithFeedback.args} />);
+    screen.getByTestId("feedbackButton").click();
     expect(screen.getByRole("status")).toBeTruthy();
   });
 
   it("no accessibility issues for form", async () => {
-    const { container } = render(<WithFeedback {...Primary.args} />);
+    const { container } = render(<WithFeedback {...WithFeedback.args} />);
+    screen.getByTestId("feedbackButton").click();
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
 
   it("no accessibility issues for thank you message", async () => {
-    const { container } = render(<WithFeedback {...Primary.args} />);
+    const { container } = render(<WithFeedback {...WithFeedback.args} />);
+    screen.getByTestId("feedbackButton").click();
     const submitButton = screen.getByTestId("feedback-submit");
     submitButton.click();
     const results = await axe(container);

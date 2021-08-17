@@ -19,5 +19,5 @@ Primary.args = {
 WithFeedback.args = {
   phase: "PhaseBanner Phase",
   children: "PhaseBanner Text",
-  feedback: true,
+  feedbackActive: true,
 };
