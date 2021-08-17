@@ -49,8 +49,6 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
       abortEarly: false,
       allowUnknown: true,
     });
-    console.log(formData);
-    console.log(error);
     const valid = error === undefined;
 
     if (valid) {
