@@ -133,11 +133,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
         </div>
       </div>
       {showFeedback ? (
-        <div
-          id="feedbackDropdown"
-          className="feedbackDropdown bg-custom-blue-blue"
-          data-testid="feedbackDropdown"
-        >
+        <div className="bg-custom-blue-blue" data-testid="feedbackDropdown">
           <div role="status">
             {submitted ? (
               <div className="layout-container text-white flex justify-between">
