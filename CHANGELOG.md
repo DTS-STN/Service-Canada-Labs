@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## Fixed
+
+- [Bug #344](https://github.com/DTS-STN/Alpha-Site/issues/344) issue with ReportAProblem component on `/error` now translates properly
+
+## Changed
+
+- Updated menu items to have an underline so they appear more like links
+- Updated CallToAction component to have a white border on hover/active state
+
 ## [v1.0.6] - 2021-08-13
 
 ## Changed

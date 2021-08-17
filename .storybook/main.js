@@ -12,6 +12,7 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",
     "@storybook/addon-postcss",
+    "storybook-addon-next-router"
   ],
   webpackFinal: (config) => {
     // useTranslation() hook in next-i18next is looking for a server environment and storybooks
