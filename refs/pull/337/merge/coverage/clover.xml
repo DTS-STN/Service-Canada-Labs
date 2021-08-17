@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1629209717795" clover="3.2.0">
-  <project timestamp="1629209717796" name="All files">
+<coverage generated="1629209811870" clover="3.2.0">
+  <project timestamp="1629209811870" name="All files">
     <metrics statements="680" coveredstatements="544" conditionals="547" coveredconditionals="334" methods="177" coveredmethods="133" elements="1404" coveredelements="1011" complexity="0" loc="680" ncloc="680" packages="15" files="87" classes="87"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -12,19 +12,19 @@
       <metrics statements="153" coveredstatements="145" conditionals="155" coveredconditionals="125" methods="46" coveredmethods="39"/>
       <file name="ActionButton.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/atoms/ActionButton.js">
         <metrics statements="14" coveredstatements="14" conditionals="70" coveredconditionals="59" methods="3" coveredmethods="3"/>
-        <line num="11" count="102" type="stmt"/>
-        <line num="13" count="102" type="stmt"/>
-        <line num="15" count="102" type="stmt"/>
-        <line num="17" count="102" type="stmt"/>
-        <line num="19" count="102" type="stmt"/>
-        <line num="22" count="102" type="stmt"/>
-        <line num="23" count="101" type="stmt"/>
-        <line num="24" count="101" type="cond" truecount="1" falsecount="1"/>
-        <line num="25" count="101" type="stmt"/>
+        <line num="11" count="87" type="stmt"/>
+        <line num="13" count="87" type="stmt"/>
+        <line num="15" count="87" type="stmt"/>
+        <line num="17" count="87" type="stmt"/>
+        <line num="19" count="87" type="stmt"/>
+        <line num="22" count="87" type="stmt"/>
+        <line num="23" count="86" type="stmt"/>
+        <line num="24" count="86" type="cond" truecount="1" falsecount="1"/>
+        <line num="25" count="86" type="stmt"/>
         <line num="26" count="1" type="cond" truecount="2" falsecount="2"/>
         <line num="27" count="1" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
-        <line num="34" count="101" type="cond" truecount="2" falsecount="0"/>
+        <line num="34" count="86" type="cond" truecount="2" falsecount="0"/>
         <line num="103" count="20" type="stmt"/>
       </file>
       <file name="ActionButton.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/atoms/ActionButton.stories.js">
@@ -457,10 +457,10 @@
         <line num="30" count="15" type="stmt"/>
         <line num="31" count="15" type="cond" truecount="1" falsecount="1"/>
         <line num="33" count="15" type="stmt"/>
-        <line num="71" count="0" type="stmt"/>
-        <line num="82" count="0" type="stmt"/>
-        <line num="90" count="1" type="stmt"/>
-        <line num="204" count="11" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="93" count="1" type="stmt"/>
+        <line num="207" count="11" type="stmt"/>
       </file>
       <file name="Layout.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/organisms/Layout.stories.js">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
