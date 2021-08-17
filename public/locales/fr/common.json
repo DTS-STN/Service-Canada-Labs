@@ -250,12 +250,11 @@
   "symbol": "Gouvernement du Canada",
   "symbol2": "Symbole du gouvernement du Canada",
   "projectsDisclaimer": "Vous ne pouvez pas demander de services ou de prestations par l’intermédiaire de ce site d’essai. Certaines parties du site pourraient ne pas fonctionner et seront modifiées.",
-  "mainSiteHeaderTitle": "En-tête du site principal",
-  "mainSiteFooterTitle": "Pied de page du site principal",
-  "officialSiteNavTitle": "Navigation sur le site officiel du Canada",
-  "languageToggleTitle": "Bascule de langue",
-  "mainSiteNavTitle": "Navigation sur le site principal",
-  "breadcrumbNavTitle": "Navigation dans le fil d'Ariane",
-  "footerNavTitle1": "Navigation en pied de page 1",
-  "footerNavTitle2": "Navigation en pied de page 2"
+  "globalHeader": "En-tête général",
+  "testSiteNotice": "Avis de site d'essai",
+  "siteFooter": "Pied de page du site",
+  "officialSiteNavigation": "Navigation vers le site Canada.ca",
+  "languageSelection": "Sélection de la langue",
+  "aboutGovernment": "Au sujet du gouvernement",
+  "aboutThisSite": "À propos de ce site"
 }
