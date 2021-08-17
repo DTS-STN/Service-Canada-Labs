@@ -49,14 +49,18 @@ export function Menu(props) {
           return (
             <li
               key={key}
-              className={`py-3 lg:py-0 cursor-pointer text-custom-blue-projects-link ${
-                includesURL ? "activePage" : "menuLink"
-              }`}
+              className={`py-3 lg:py-0 cursor-pointer text-custom-blue-projects-link `}
               role="menuitem"
               aria-current={exactURL ? "page" : null}
             >
               <Link href={item.link}>
-                <a className="font-body text-base">{item.text}</a>
+                <a
+                  className={`font-body text-base ${
+                    includesURL ? "activePage" : "menuLink underline"
+                  }`}
+                >
+                  {item.text}
+                </a>
               </Link>
             </li>
           );
