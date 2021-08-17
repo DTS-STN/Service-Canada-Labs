@@ -119,9 +119,6 @@ export const Layout = ({
           role="navigation"
           aria-labelledby="breadcrumbNavigation"
         >
-          <h3 className="sr-only" id="breadcrumbNavigation">
-            {t("breadcrumbNavTitle")}
-          </h3>
           <Breadcrumb items={breadcrumbItems} />
         </div>
       </header>
@@ -144,8 +141,8 @@ export const Layout = ({
         <Footer
           footerLogoAltText={t("symbol2")}
           footerLogoImage="/wmms-blk.svg"
-          footerTitle1={t("footerNavTitle1")}
-          footerTitle2={t("footerNavTitle2")}
+          footerTitle1={t("aboutGovernment")}
+          footerTitle2={t("aboutThisSite")}
           links={[
             {
               link: t("footerSocialMediaURL"),
