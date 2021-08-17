@@ -100,14 +100,7 @@ export const Layout = ({
           </div>
         </div>
 
-        <div
-          className="mb-2 border-t pb-2 mt-4"
-          role="navigation"
-          aria-labelledby="mainSiteNav"
-        >
-          <h3 className="sr-only" id="mainSiteNav">
-            Menu
-          </h3>
+        <div className="mb-2 border-t pb-2 mt-4">
           <Menu
             menuButtonTitle={t("menuTitle")}
             signUpText={t("signupBtn")}

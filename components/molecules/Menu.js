@@ -25,7 +25,12 @@ export function Menu(props) {
       title="Menu"
       className="layout-container lg:justify-end lg:flex"
       data-cy="menu"
+      role="navigation"
+      aria-labelledby="mainSiteNav"
     >
+      <h3 className="sr-only" id="mainSiteNav">
+        Menu
+      </h3>
       <button
         id="menuButton"
         onClick={onMenuClick}
