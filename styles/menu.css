@@ -5,15 +5,15 @@
     background-color: white;
 }
 
-.menuLink:hover > a {
+.menuLink:hover {
     color: #0A75C6;
 }
 
-.activePage > a {
+.activePage {
     border-bottom: 4px solid #1d5b90;
 }
 
-.activePage:hover > a {
+.activePage:hover{
     color: #0A75C6;
     border-bottom: 4px solid #0A75C6;
 }

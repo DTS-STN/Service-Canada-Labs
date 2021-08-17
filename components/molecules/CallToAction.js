@@ -26,6 +26,10 @@ export function CallToAction(props) {
               <p className="flex mb-4 text-center">
                 <ActionButton
                   id="become-a-participant-btn"
+                  custom={
+                    "py-2 px-4 bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark active:border-2 active:border-white hover:border-2 hover:border-white hover:bg-custom-blue-light"
+                  }
+                  className=""
                   href={props.href}
                   text={props.hrefText}
                 />
