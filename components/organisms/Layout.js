@@ -88,7 +88,7 @@ export const Layout = ({
               data-testid="languageLink2"
             >
               <a
-                className="lg:visible invisible pb-0 lg:pb-2 self-end underline font-body text-canada-footer-font hover:text-canada-footer-hover-font-blue "
+                className="lg:visible invisible pb-0 lg:pb-2 self-end underline font-body text-canada-footer-font hover:text-canada-footer-hover-font-blue"
                 data-cy="toggle-language-link"
                 data-testid="languageLink3"
                 lang={language}
