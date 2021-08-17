@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Updated PhaseBanner to include Feedback component
 
+## Fixed
+
+- [Bug #344](https://github.com/DTS-STN/Alpha-Site/issues/344) issue with ReportAProblem component on `/error` now translates properly
+
 ## [v1.0.6] - 2021-08-13
 
 ## Changed
