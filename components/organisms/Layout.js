@@ -35,7 +35,7 @@ export const Layout = ({
       <nav className="skip-main">
         <a
           id="skipToMainContent"
-          className="bg-custom-blue-dark text-white py-1 px-2 focus:outline-black-solid hover:bg-gray-dark"
+          className="bg-white text-custom-blue-dark text-lg underline py-1 px-2 focus:outline-dark-goldenrod hover:bg-gray-dark"
           href="#pageMainTitle"
           data-cy-button={"skip-Content"}
           draggable="false"
@@ -46,10 +46,7 @@ export const Layout = ({
       <header>
         <h2 className="sr-only">{t("globalHeader")}</h2>
         <h3 className="sr-only">{t("testSiteNotice")}</h3>
-        <PhaseBanner
-          phase={t("phaseBannerTag")}
-          feedbackActive={feedbackActive}
-        >
+        <PhaseBanner phase={t("phaseBannerTag")} feedbackActive={feedbackActive}>
           {t("phaseBannerText")}
         </PhaseBanner>
         <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">

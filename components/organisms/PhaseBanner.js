@@ -84,7 +84,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
               feedbackActive ? "mt-2" : ""
             }`}
           >
-            <span className="font-body text-xs text-circle-color font-extrabold block w-max bg-white px-4 py-1 my-auto leading-6">
+            <span className="font-body text-xs text-white border block w-max px-4 py-1 my-auto leading-6">
               {phase}
             </span>
             {feedbackActive ? (
@@ -92,7 +92,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                 id="back-projects"
                 dataCy="back-projects"
                 dataTestId="back-projects"
-                custom="font-body text-xs mt-0 sm:mt-4 underline hover:text-canada-footer-hover-font-blue text-white block w-32"
+                custom="font-body text-xs mt-0 sm:mt-4 underline text-white block w-32"
                 text={t("backProjects")}
                 href={t("breadCrumbsHref2")}
               />
@@ -108,7 +108,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
               <button
                 id="feedbackButton"
                 onClick={() => setShowFeedback(!showFeedback)}
-                className="bg-circle-color font-body text-xs lg:text-sm text-white flex text-left sm:ml-4 my-2 sm:my-0"
+                className="group bg-circle-color font-body text-xs lg:text-sm text-white flex text-left sm:ml-4 my-2 sm:my-0"
                 data-testid="feedbackButton"
               >
                 <span
@@ -120,7 +120,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                     __html: showFeedback ? "&#9660;" : "&#9656;",
                   }}
                 />
-                <strong className="underline mt-2 lg:mt-0 ml-2">
+                <strong className="mt-2 lg:mt-0 ml-2 group-hover:underline">
                   {t("giveFeedback")}
                 </strong>
               </button>
