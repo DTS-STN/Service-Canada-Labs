@@ -14,6 +14,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
   const [submitted, setSubmitted] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
   const { t } = useTranslation("common");
+  const [response, setResponse] = useState(t("thankYouFeedback"));
 
   // Joi form validation schema.
   const formSchema = Joi.object({
@@ -52,22 +53,21 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
     const valid = error === undefined;
 
     if (valid) {
-      // create URLSearchParams object from FormData object
-      // this will be used to create url encoded string of names and values of the form fields
-      const urlEncoded = new URLSearchParams(formData);
-      // call feedback API route
-      fetch("/api/feedback", {
+      //Submit data to the api
+      const response = await fetch("/api/feedback", {
         method: "POST",
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+          "Content-Type": "application/json",
         },
-        body: urlEncoded.toString(),
-      }).catch((e) => {
-        // handle error if fetch fails
-        // fetch only fails if there is no internet connection not for the actual
-        // request so there is nothing really to do here other than to log it
-        console.log(e);
+        body: JSON.stringify(formData),
       });
+
+      // if the response is good, show thank you message
+      if (response.status === 201 || response.status === 200) {
+        await setResponse(t("thankYouFeedback"));
+      } else {
+        await setResponse(t("sorryFeedback"));
+      }
 
       setSubmitted(true);
     } else {
@@ -78,9 +78,9 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
   return (
     <>
       <div className="bg-circle-color">
-        <div className="block sm:flex py-4 layout-container">
+        <div className="block lg:flex py-4 layout-container">
           <div
-            className={`flex justify-between sm:block sm:w-max ${
+            className={`flex justify-between lg:block lg:w-max ${
               feedbackActive ? "mt-2" : ""
             }`}
           >
@@ -92,7 +92,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                 id="back-projects"
                 dataCy="back-projects"
                 dataTestId="back-projects"
-                custom="font-body text-xs mt-0 sm:mt-4 underline text-white block w-32"
+                custom="font-body text-xs mt-0 lg:mt-4 underline text-white block w-32"
                 text={t("backProjects")}
                 href={t("breadCrumbsHref2")}
               />
@@ -100,15 +100,15 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
               ""
             )}
           </div>
-          <div>
-            <p className="font-body text-xs lg:text-sm mt-5 sm:mt-auto text-white sm:ml-4 pt-1 my-auto sm:mb-0 lg:pb-1">
+          <div className="lg:ml-4 xl:ml-8 xxl:ml-12">
+            <p className="font-body text-xs lg:text-sm mt-5 lg:mt-auto text-white lg:ml-4 pt-1 my-auto lg:mb-0 lg:pb-1">
               {children}
             </p>
             {feedbackActive ? (
               <button
                 id="feedbackButton"
                 onClick={() => setShowFeedback(!showFeedback)}
-                className="group bg-circle-color font-body text-xs lg:text-sm text-white flex text-left sm:ml-4 my-2 sm:my-0"
+                className="group bg-circle-color font-body text-xs lg:text-sm text-white flex text-left lg:ml-4 my-2 lg:my-0"
                 data-testid="feedbackButton"
               >
                 <span
@@ -135,9 +135,21 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
           <div role="status">
             {submitted ? (
               <div className="layout-container text-white flex justify-between">
-                <h2 className="text-xs lg:text-sm font-body mt-2 mb-4">
-                  {t("thankYouFeedback")}
-                </h2>
+                <span className="text-xs lg:text-sm font-body mt-2 mb-4">
+                  {response}
+                  {response === t("sorryFeedback") ? (
+                    <a
+                      href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
+                      className="underline"
+                    >
+                      {" "}
+                      experience@service.gc.ca
+                    </a>
+                  ) : (
+                    " "
+                  )}
+                  .
+                </span>
                 <button
                   id="feedbackClose"
                   onClick={() => setShowFeedback(!showFeedback)}
@@ -146,11 +158,11 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                 >
                   <span
                     id="close"
-                    className="text-h3 lg:text-h2 leading-4 lg:leading-10"
+                    className="text-h2 lg:text-h1 leading-4 lg:leading-10"
                   >
                     &times;
                   </span>
-                  <span className="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10">
+                  <span className="text-xs leading-4 lg:text-sm underline ml-1 lg:ml-2 lg:leading-10">
                     {t("close")}
                   </span>
                 </button>
@@ -189,7 +201,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                   <strong>{t("reportAProblemNoReply")}</strong>{" "}
                   {t("reportAProblemEnquiries")}{" "}
                   <a
-                    className="underline text-xs lg:text-sm font-body hover:text-gray-300 text-white"
+                    className="underline text-xs lg:text-sm font-body"
                     href="mailto:experience@servicecanada.gc.ca"
                   >
                     experience@servicecanada.gc.ca
@@ -204,7 +216,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                     dataTestId="link-privacyPage"
                     href={t("privacyLink")}
                     text={t("reportAProblemPrivacyStatement")}
-                    custom="text-xs lg:text-sm underline ml-2 hover:text-gray-300"
+                    custom="text-xs lg:text-sm underline ml-2"
                   />
                 </li>
               </ul>
