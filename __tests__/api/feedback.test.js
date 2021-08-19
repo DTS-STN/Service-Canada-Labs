@@ -85,4 +85,32 @@ describe("feedback api", () => {
     expect(resData.error).not.toBeNull();
     expect(resData.error.length).toBe(1);
   });
+
+  it("returns a 500 if Notify fails", async () => {
+    submitEmail.mockResolvedValue([
+      500,
+      { error: "Notify encountered an error" },
+    ]);
+    const { req, res } = createMocks({
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: {
+        project: "some project",
+        pageUrl: "https://www.someurl.com",
+        feedback: "some feedback",
+      },
+    });
+    await feedbackHandler(req, res);
+    expect(res._getStatusCode()).toBe(500);
+    expect(res._getData()).toBe(
+      JSON.stringify({
+        reason: "Notify",
+        explanation:
+          "Notify failed to send the validation email: " +
+          JSON.stringify({ error: "Notify encountered an error" }),
+      })
+    );
+  });
 });
