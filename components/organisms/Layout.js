@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Banner } from "../atoms/Banner";
 import { Menu } from "../molecules/Menu";
 import { Footer } from "./Footer";
-import { PhaseBanner } from "../atoms/PhaseBanner";
+import { PhaseBanner } from "./PhaseBanner";
 import { ReportAProblem } from "./ReportAProblem";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
@@ -25,6 +25,7 @@ export const Layout = ({
   locale,
   langUrl,
   breadcrumbItems,
+  feedbackActive,
 }) => {
   const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
@@ -34,7 +35,7 @@ export const Layout = ({
       <nav className="skip-main">
         <a
           id="skipToMainContent"
-          className="bg-custom-blue-dark text-white py-1 px-2 focus:outline-black-solid hover:bg-gray-dark"
+          className="bg-white text-custom-blue-dark text-lg underline py-1 px-2 focus:outline-dark-goldenrod hover:bg-gray-dark"
           href="#pageMainTitle"
           data-cy-button={"skip-Content"}
           draggable="false"
@@ -45,7 +46,10 @@ export const Layout = ({
       <header>
         <h2 className="sr-only">{t("globalHeader")}</h2>
         <h3 className="sr-only">{t("testSiteNotice")}</h3>
-        <PhaseBanner phase={t("phaseBannerTag")}>
+        <PhaseBanner
+          phase={t("phaseBannerTag")}
+          feedbackActive={feedbackActive}
+        >
           {t("phaseBannerText")}
         </PhaseBanner>
         <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">
@@ -254,4 +258,9 @@ Layout.propTypes = {
       link: PropTypes.string,
     })
   ),
+
+  /**
+   * For activating feedback on active projects pages
+   */
+  feedbackActive: PropTypes.bool,
 };
