@@ -92,7 +92,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                 id="back-projects"
                 dataCy="back-projects"
                 dataTestId="back-projects"
-                custom="font-body text-xs mt-0 lg:mt-4 underline text-white block w-32"
+                custom="font-body w-max text-xs mt-0 lg:mt-4 underline text-white block w-32 outline-none focus:outline-white-solid"
                 text={t("backProjects")}
                 href={t("breadCrumbsHref2")}
               />
@@ -108,7 +108,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
               <button
                 id="feedbackButton"
                 onClick={() => setShowFeedback(!showFeedback)}
-                className="group bg-circle-color font-body text-xs lg:text-sm text-white flex text-left lg:ml-4 my-2 lg:my-0"
+                className="group outline-none focus:outline-white-solid bg-circle-color font-body text-xs lg:text-sm text-white flex text-left lg:ml-4 my-2 lg:my-0"
                 data-testid="feedbackButton"
               >
                 <span
