@@ -49,8 +49,14 @@ export const Layout = ({
           {t("phaseBannerText")}
         </PhaseBanner>
         <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">
-          <div className="flex flex-row justify-between items-center lg:mt-7 mt-1.5">
-            <h3 className="sr-only">{t("officialSiteNavigation")}</h3>
+          <div
+            className="flex flex-row justify-between items-center lg:mt-7 mt-1.5"
+            role="navigation"
+            aria-labelledby="officialSiteNav"
+          >
+            <h3 className="sr-only" id="officialSiteNav">
+              {t("officialSiteNavigation")}
+            </h3>
             <a href="https://www.canada.ca">
               <img
                 className="h-5 w-auto xs:h-6 sm:h-8 md:h-8 lg:h-7 xl:h-8"
@@ -82,7 +88,7 @@ export const Layout = ({
               data-testid="languageLink2"
             >
               <a
-                className="lg:visible invisible pb-0 lg:pb-2 self-end underline font-body text-canada-footer-font hover:text-canada-footer-hover-font-blue "
+                className="lg:visible invisible pb-0 lg:pb-2 self-end underline font-body text-canada-footer-font hover:text-canada-footer-hover-font-blue"
                 data-cy="toggle-language-link"
                 data-testid="languageLink3"
                 lang={language}
@@ -94,28 +100,28 @@ export const Layout = ({
           </div>
         </div>
 
-        <div className="mb-2 border-t pb-2 mt-4"></div>
-        <h3 className="sr-only">Menu</h3>
-        <Menu
-          menuButtonTitle={t("menuTitle")}
-          signUpText={t("signupBtn")}
-          items={[
-            {
-              link: "/projects",
-              text: t("menuLink1"),
-            },
-            {
-              link: "/about",
-              text: t("menuLink2"),
-            },
-            {
-              link: "/signup",
-              text: t("signupLink"),
-            },
-          ]}
-        />
-        <div className="layout-container mt-2 mb-8">
-          <Breadcrumb items={breadcrumbItems} />
+        <div className="mb-2 border-t pb-2 mt-4">
+          <Menu
+            menuButtonTitle={t("menuTitle")}
+            signUpText={t("signupBtn")}
+            items={[
+              {
+                link: "/projects",
+                text: t("menuLink1"),
+              },
+              {
+                link: "/about",
+                text: t("menuLink2"),
+              },
+              {
+                link: "/signup",
+                text: t("signupLink"),
+              },
+            ]}
+          />
+          <div className="layout-container mt-2 mb-8">
+            <Breadcrumb items={breadcrumbItems} />
+          </div>
         </div>
       </header>
 
@@ -137,6 +143,8 @@ export const Layout = ({
         <Footer
           footerLogoAltText={t("symbol2")}
           footerLogoImage="/wmms-blk.svg"
+          footerNav1={t("aboutGovernment")}
+          footerNav2={t("aboutThisSite")}
           links={[
             {
               link: t("footerSocialMediaURL"),
