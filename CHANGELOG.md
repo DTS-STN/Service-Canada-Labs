@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Updated menu items to have an underline so they appear more like links
 - Updated CallToAction component to have a white border on hover/active state
+- Updated PhaseBanner to include Feedback component
 
 ## [v1.0.6] - 2021-08-13
 
