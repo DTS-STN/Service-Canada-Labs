@@ -8,11 +8,12 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
 import { Breadcrumb } from "../atoms/Breadcrumb";
+import cookieCutter from "cookie-cutter";
 
 const setLanguage = (language) => {
   language === "fr"
-    ? window.localStorage.setItem("lang", "fr")
-    : window.localStorage.setItem("lang", "en");
+    ? cookieCutter.set("lang", "fr")
+    : cookieCutter.set("lang", "en");
 };
 
 /**
