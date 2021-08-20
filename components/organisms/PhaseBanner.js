@@ -140,7 +140,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                   {response === t("sorryFeedback") ? (
                     <a
                       href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
-                      className="underline"
+                      className="underline outline-none focus:outline-white-solid"
                     >
                       {" "}
                       experience@service.gc.ca
@@ -153,7 +153,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                 <button
                   id="feedbackClose"
                   onClick={() => setShowFeedback(!showFeedback)}
-                  className="font-body text-white flex mt-2.5 lg:mt-0"
+                  className="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
                   data-testid="closeButton"
                 >
                   <span
@@ -182,7 +182,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                 <button
                   id="feedbackClose"
                   onClick={() => setShowFeedback(!showFeedback)}
-                  className="font-body text-white flex mt-2.5 lg:mt-0"
+                  className="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
                   data-testid="closeButton"
                 >
                   <span
@@ -201,7 +201,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                   <strong>{t("reportAProblemNoReply")}</strong>{" "}
                   {t("reportAProblemEnquiries")}{" "}
                   <a
-                    className="underline text-xs lg:text-sm font-body"
+                    className="underline text-xs lg:text-sm font-body outline-none focus:outline-white-solid"
                     href="mailto:experience@servicecanada.gc.ca"
                   >
                     experience@servicecanada.gc.ca
@@ -216,7 +216,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                     dataTestId="link-privacyPage"
                     href={t("privacyLink")}
                     text={t("reportAProblemPrivacyStatement")}
-                    custom="text-xs lg:text-sm underline ml-2"
+                    custom="text-xs lg:text-sm underline ml-2 outline-none focus:outline-white-solid"
                   />
                 </li>
               </ul>
@@ -253,7 +253,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                 />
                 <ActionButton
                   id="feedback-submit"
-                  custom="rounded block w-full lg:w-auto lg:px-12 text-xs lg:text-sm py-2 mt-2 font-bold text-custom-blue-projects-link bg-details-button-gray hover:bg-gray-300"
+                  custom="outline-none focus:outline-black-solid rounded block w-full lg:w-auto lg:px-12 text-xs lg:text-sm py-2 mt-2 font-bold text-custom-blue-projects-link bg-details-button-gray hover:bg-gray-300"
                   type="submit"
                   dataCy="feedback-submit"
                   dataTestId="feedback-submit"
