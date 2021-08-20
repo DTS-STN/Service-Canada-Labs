@@ -54,7 +54,7 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: "/",
+        source: "/:path",
         has: [
           {
             type: "cookie",
@@ -63,10 +63,10 @@ module.exports = {
           },
         ],
         permanent: false,
-        destination: "/fr/home",
+        destination: "/fr/:path",
       },
       {
-        source: "/",
+        source: "/:path",
         has: [
           {
             type: "cookie",
@@ -75,7 +75,7 @@ module.exports = {
           },
         ],
         permanent: false,
-        destination: "/home",
+        destination: "/:path",
       },
     ];
   },
