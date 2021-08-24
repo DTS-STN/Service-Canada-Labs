@@ -62,7 +62,6 @@ module.exports = {
         "custom-blue": {
           blue: "#1D5B90",
           light: "#1F809A",
-          medium: "#287AC3",
           dark: "#26374a",
           link: "#0535d2",
           "experiment-blue": "#004986",
@@ -87,7 +86,7 @@ module.exports = {
         "text-gray": "#5c5c5c",
         "hr-red-bar": "#AE3B43",
         "canada-ca-link-colour": "#7834BC",
-        "circle-color": "#062F56",
+        "circle-color": "#083C6C",
         "canada-footer-font": "#284162",
         "canada-footer-hover-font-blue": "#0535d2",
         "footer-background-color": "#f8f8f8",
