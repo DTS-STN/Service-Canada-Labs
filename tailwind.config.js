@@ -174,6 +174,8 @@ module.exports = {
       },
       outline: {
         "black-solid": ["2px solid #000", "1px"],
+        "dark-goldenrod": ["2px solid #c78100"],
+        "white-solid": ["2px solid #ffffff"],
       },
     },
   },
