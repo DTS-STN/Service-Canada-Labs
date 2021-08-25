@@ -11,6 +11,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Add language cookie and redirects so the user always sees the site in the language they've chosen
 - Feedback api
+- Add CORS to feedback api so it can be called externally
 
 ## Fixed
 
@@ -22,6 +23,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated menu items to have an underline so they appear more like links
 - Updated CallToAction component to have a white border on hover/active state
 - Updated PhaseBanner to include Feedback component
+- Updated Home page banner contrast for medium screen size
+- Updated signup button color to have sufficient contrast with the blue background
 
 ## [v1.0.6] - 2021-08-13
 

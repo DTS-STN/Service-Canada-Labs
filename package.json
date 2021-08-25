@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@tailwindcss/typography": "^0.4.1",
+    "cors": "^2.8.5",
     "cookie-cutter": "^0.2.0",
     "cuid": "^2.1.8",
     "i18next": "^20.3.4",
