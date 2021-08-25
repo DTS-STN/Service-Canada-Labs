@@ -174,7 +174,7 @@ export const getStaticProps = async ({ locale }) => {
           experimentData: data,
           filters,
         },
-        revalidate: 60 * 60, // revalidate once an hour
+        revalidate: 60, // revalidate once an minute
       }
     : {
         props: {
