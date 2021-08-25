@@ -134,7 +134,7 @@ export function ReportAProblem(props) {
                 textFieldDataCy="incorrectInformation-text"
                 describedby="incorrectInformation"
                 OptionalTextField
-                checkBoxStyle="mb-4"
+                checkBoxStyle="mb-4 inline-block"
                 controlValue="yes"
               />
               <OptionalTextField
@@ -158,7 +158,7 @@ export function ReportAProblem(props) {
                 controlDataCy="unclearInformation-checkbox"
                 textFieldDataCy="unclearInformation-text"
                 describedby="unclearInformation"
-                checkBoxStyle="mb-4"
+                checkBoxStyle="mb-4 inline-block"
                 controlValue="yes"
               />
               <OptionalTextField
@@ -182,7 +182,7 @@ export function ReportAProblem(props) {
                 controlDataCy="infoNotFound-checkbox"
                 textFieldDataCy="infoNotFound-text"
                 describedby="infoNotFound"
-                checkBoxStyle="lg:mb-8 mb-4"
+                checkBoxStyle="lg:mb-8 mb-4 inline-block"
                 controlValue="yes"
               />
               <OptionalTextField
@@ -207,7 +207,7 @@ export function ReportAProblem(props) {
                 controlDataCy="adaptiveTechnology-checkbox"
                 textFieldDataCy="adaptiveTechnology-text"
                 describedby="adaptiveTechnology"
-                checkBoxStyle="mb-8"
+                checkBoxStyle="mb-8 inline-block"
                 controlValue="yes"
               />
               <OptionalTextField
@@ -231,7 +231,7 @@ export function ReportAProblem(props) {
                 controlDataCy="privacyIssues-checkbox"
                 textFieldDataCy="privacyIssues-text"
                 describedby="privacyIssues"
-                checkBoxStyle="mb-4"
+                checkBoxStyle="mb-4 inline-block"
                 controlValue="yes"
               />
               <OptionalTextField
@@ -255,7 +255,7 @@ export function ReportAProblem(props) {
                 controlDataCy="noWhereElseToGo-checkbox"
                 textFieldDataCy="noWhereElseToGo-text"
                 describedby="noWhereElseToGo"
-                checkBoxStyle="lg:mb-8 mb-4"
+                checkBoxStyle="lg:mb-8 mb-4 inline-block"
                 controlValue="yes"
               />
               <OptionalTextField
