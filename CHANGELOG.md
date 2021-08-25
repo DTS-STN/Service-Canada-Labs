@@ -15,6 +15,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - [Bug #344](https://github.com/DTS-STN/Alpha-Site/issues/344) issue with ReportAProblem component on `/error` now
   translates properly
+- WCAG issue: Text overlap when user increase the text size to 200% in firefox
 
 ## Changed
 
