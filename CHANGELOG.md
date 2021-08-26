@@ -10,11 +10,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## Added
 
 - Feedback api
+- Implement [ISR](https://vercel.com/docs/next.js/incremental-static-regeneration) on projects page
+- Add CORS to feedback api so it can be called externally
 
 ## Fixed
 
 - [Bug #344](https://github.com/DTS-STN/Alpha-Site/issues/344) issue with ReportAProblem component on `/error` now
   translates properly
+- WCAG issue: Text overlap when user increase the text size to 200% in firefox
 
 ## Changed
 
@@ -22,6 +25,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated CallToAction component to have a white border on hover/active state
 - Updated PhaseBanner to include Feedback component
 - Updated Home page banner contrast for medium screen size
+- Updated signup button color to have sufficient contrast with the blue background
 
 ## [v1.0.6] - 2021-08-13
 

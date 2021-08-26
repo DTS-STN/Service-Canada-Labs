@@ -148,7 +148,7 @@ export function ReportAProblem(props) {
                 textFieldDataCy="incorrectInformation-text"
                 describedby="incorrectInformation"
                 OptionalTextField
-                checkBoxStyle="mb-4"
+                checkBoxStyle="mb-4 inline-block"
                 controlValue="Incorrect Information"
               />
               <OptionalTextField
@@ -172,7 +172,7 @@ export function ReportAProblem(props) {
                 controlDataCy="unclearInformation-checkbox"
                 textFieldDataCy="unclearInformation-text"
                 describedby="unclearInformation"
-                checkBoxStyle="mb-4"
+                checkBoxStyle="mb-4 inline-block"
                 controlValue="Unclear Information"
               />
               <OptionalTextField
@@ -196,7 +196,7 @@ export function ReportAProblem(props) {
                 controlDataCy="infoNotFound-checkbox"
                 textFieldDataCy="infoNotFound-text"
                 describedby="infoNotFound"
-                checkBoxStyle="lg:mb-8 mb-4"
+                checkBoxStyle="lg:mb-8 mb-4 inline-block"
                 controlValue="You didn’t find what you were looking for"
               />
               <OptionalTextField
@@ -221,7 +221,7 @@ export function ReportAProblem(props) {
                 controlDataCy="adaptiveTechnology-checkbox"
                 textFieldDataCy="adaptiveTechnology-text"
                 describedby="adaptiveTechnology"
-                checkBoxStyle="mb-8"
+                checkBoxStyle="mb-8 inline-block"
                 controlValue="Page does not work with your adaptive technologies"
               />
               <OptionalTextField
@@ -245,7 +245,7 @@ export function ReportAProblem(props) {
                 controlDataCy="privacyIssues-checkbox"
                 textFieldDataCy="privacyIssues-text"
                 describedby="privacyIssues"
-                checkBoxStyle="mb-4"
+                checkBoxStyle="mb-4 inline-block"
                 controlValue="You’re worried about your privacy"
               />
               <OptionalTextField
@@ -269,7 +269,7 @@ export function ReportAProblem(props) {
                 controlDataCy="noWhereElseToGo-checkbox"
                 textFieldDataCy="noWhereElseToGo-text"
                 describedby="noWhereElseToGo"
-                checkBoxStyle="lg:mb-8 mb-4"
+                checkBoxStyle="lg:mb-8 mb-4 inline-block"
                 controlValue="You don’t know where else to go for help"
               />
               <OptionalTextField
