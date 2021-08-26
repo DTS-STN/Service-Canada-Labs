@@ -84,7 +84,10 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
               feedbackActive ? "mt-2" : ""
             }`}
           >
-            <span className="font-body text-xs text-white border block w-max px-4 py-1 my-auto leading-6">
+            <span
+              className="font-body text-xs text-white border block w-max px-4 py-1 my-auto leading-6"
+              role="alert"
+            >
               {phase}
             </span>
             {feedbackActive ? (
