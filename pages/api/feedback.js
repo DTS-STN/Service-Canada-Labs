@@ -8,8 +8,8 @@ import initMiddleware from "../../middlewares/initMiddleware";
 const cors = initMiddleware(
   // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
   Cors({
-    // Only allow requests with POST
-    methods: ["POST"],
+    origin: "*", // allow from anywhere
+    methods: ["POST"], // Only allow requests with POST
   })
 );
 
