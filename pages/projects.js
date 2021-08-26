@@ -166,12 +166,24 @@ export const getStaticProps = async ({ locale }) => {
     )
   );
 
-  return {
-    props: {
-      locale: locale,
-      ...(await serverSideTranslations(locale, ["common"])),
-      experimentData: data,
-      filters,
-    },
-  };
+  const returnObj = process.env.ISR_ENABLED
+    ? {
+        props: {
+          locale: locale,
+          ...(await serverSideTranslations(locale, ["common"])),
+          experimentData: data,
+          filters,
+        },
+        revalidate: 60, // revalidate once an minute
+      }
+    : {
+        props: {
+          locale: locale,
+          ...(await serverSideTranslations(locale, ["common"])),
+          experimentData: data,
+          filters,
+        },
+      };
+
+  return returnObj;
 };

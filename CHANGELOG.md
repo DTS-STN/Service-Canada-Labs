@@ -10,6 +10,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## Added
 
 - Feedback api
+- Implement [ISR](https://vercel.com/docs/next.js/incremental-static-regeneration) on projects page
 - Add CORS to feedback api so it can be called externally
 
 ## Fixed
