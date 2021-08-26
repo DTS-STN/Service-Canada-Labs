@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 export function Footer(props) {
   return (
     <div className="w-full">
-      <div className="w-full h-auto footerBackground bg-custom-blue-dark">
+      <div className="w-full h-auto footerBackground">
         <div
           className="py-7 layout-container"
           role="navigation"
