@@ -8,15 +8,11 @@ import initMiddleware from "../../middlewares/initMiddleware";
 const cors = initMiddleware(
   // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
   Cors({
-    // Only allow requests with POST
     methods: ["POST"],
   })
 );
 
 async function handler(req, res) {
-  // Run cors
-  await cors(req, res);
-
   // this route only accepts a POST method
   if (req.method === "POST") {
     let data = req.body;
@@ -65,7 +61,10 @@ const schema = Joi.object({
   feedback: Joi.string().required(),
 });
 
-export default validate(schema, handler, {
-  abortEarly: false,
-  allowUnknown: true,
-});
+export default async function enableMiddleware(req, res) {
+  await cors(req, res);
+  return validate(schema, handler, {
+    abortEarly: false,
+    allowUnknown: true,
+  })(req, res);
+}
