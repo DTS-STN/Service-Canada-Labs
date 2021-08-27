@@ -8,10 +8,10 @@ import initMiddleware from "../../middlewares/initMiddleware";
 const cors = initMiddleware(
   // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
   Cors({
+    origin: [/alpha\.service\.canada\.ca/],
     methods: ["POST"],
   })
 );
-
 async function handler(req, res) {
   // this route only accepts a POST method
   if (req.method === "POST") {
