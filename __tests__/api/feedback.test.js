@@ -50,7 +50,7 @@ describe("feedback api", () => {
     await feedbackHandler(req, res);
     expect(res._getStatusCode()).toBe(405);
     expect(res._getHeaders()).toStrictEqual({
-      "access-control-allow-origin": "*",
+      vary: "Origin",
       allow: ["POST"],
     });
   });
