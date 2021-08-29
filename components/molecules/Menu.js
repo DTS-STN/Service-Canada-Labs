@@ -41,7 +41,9 @@ export function Menu(props) {
         <button
           id="menuClose"
           onClick={() => setShowMenu(!showMenu)}
-          className="sr-only font-body flex text-canada-footer-font outline-none focus:not-sr-only focus:outline-black-solid lg:invisible"
+          className={`${
+            showMenu ? "" : "hidden"
+          } sr-only font-body flex text-canada-footer-font outline-none focus:not-sr-only focus:outline-black-solid lg:invisible`}
           aria-expanded={showMenu}
           aria-controls="menuDropdown"
           aria-label="Close"
