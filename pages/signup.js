@@ -668,7 +668,7 @@ export default function Signup(props) {
                   value="man"
                 />
                 <OptionalTextField
-                  controlLabel={t("other")}
+                  controlLabel={t("another")}
                   textFieldName="genderOtherDetails"
                   textFieldId="genderOtherDetails"
                   textFieldLabel={t("otherDetails")}
