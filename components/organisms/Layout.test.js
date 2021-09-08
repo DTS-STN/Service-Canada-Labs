@@ -23,7 +23,8 @@ describe("Layout", () => {
 
   it("renders with the banner", () => {
     render(<WithBanner {...WithBanner.args} />);
-    screen.getByTitle("Home banner");
+    const bannerTitle = screen.getByText("Banner Text");
+    expect(bannerTitle).toBeTruthy();
   });
 
   it("changes the language from French to English when language toggle clicked", () => {

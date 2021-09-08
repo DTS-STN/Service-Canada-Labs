@@ -141,7 +141,11 @@ export default function Projects(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  const res = await fetch(`${process.env.STRAPI_API_BACKEND_URL}/experiments`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_STRAPI_API_BACKEND_URL}/experiments`
+  ).catch((e) => {
+    console.error(e);
+  });
   const data = await res.json();
 
   const filters = Object.values(
@@ -166,12 +170,22 @@ export const getStaticProps = async ({ locale }) => {
     )
   );
 
-  return {
-    props: {
-      locale: locale,
-      ...(await serverSideTranslations(locale, ["common"])),
-      experimentData: data,
-      filters,
-    },
-  };
+  return process.env.NEXT_PUBLIC_ISR_ENABLED
+    ? {
+        props: {
+          locale: locale,
+          ...(await serverSideTranslations(locale, ["common"])),
+          experimentData: data,
+          filters,
+        },
+        revalidate: 60, // revalidate once an minute
+      }
+    : {
+        props: {
+          locale: locale,
+          ...(await serverSideTranslations(locale, ["common"])),
+          experimentData: data,
+          filters,
+        },
+      };
 };

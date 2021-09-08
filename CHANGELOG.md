@@ -11,12 +11,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Add language cookie and redirects so the user always sees the site in the language they've chosen
 - Feedback api
+- Implement [ISR](https://vercel.com/docs/next.js/incremental-static-regeneration) on projects page
 - Add CORS to feedback api so it can be called externally
 
 ## Fixed
 
 - [Bug #344](https://github.com/DTS-STN/Alpha-Site/issues/344) issue with ReportAProblem component on `/error` now
   translates properly
+- WCAG issue: Text overlap when user increase the text size to 200% in firefox
 
 ## Changed
 

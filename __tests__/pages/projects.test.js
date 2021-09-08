@@ -4,6 +4,7 @@
 // import { getPage } from "next-page-tester";
 import { screen } from "@testing-library/react";
 import fetchMock from "fetch-mock";
+
 const experiments = require("../../cypress/fixtures/experiments.json");
 jest.mock("next/link", () => {
   return ({ children }) => {
@@ -13,10 +14,13 @@ jest.mock("next/link", () => {
 
 describe("Projects", () => {
   beforeEach(() => {
-    fetchMock.getOnce(`${process.env.STRAPI_API_BACKEND_URL}/experiments`, {
-      status: 200,
-      body: experiments,
-    });
+    fetchMock.getOnce(
+      `${process.env.NEXT_PUBLIC_STRAPI_API_BACKEND_URL}/experiments`,
+      {
+        status: 200,
+        body: experiments,
+      }
+    );
   });
   afterEach(() => {
     fetchMock.restore();
