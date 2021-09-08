@@ -110,7 +110,7 @@ export default function Projects(props) {
           <h1 id="pageMainTitle" tabIndex="-1" className="flex-wrap mb-10">
             {t("projectsTitle")}
           </h1>
-          <p>{t("projectsText")}</p>
+          <p className="whitespace-pre-line">{t("projectsText")}</p>
           <Filter
             label={t("filterBy")}
             options={filters}

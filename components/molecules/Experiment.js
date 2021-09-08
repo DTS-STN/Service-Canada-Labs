@@ -32,7 +32,7 @@ export const Experiment = (props) => {
         </a>
       </Link>
       <span
-        className={`my-4 block w-max py-2 px-2 uppercase font-body text-xxs text-white font-bold rounded ${
+        className={`my-4 block w-max py-2 px-2 font-body text-xxs text-white font-bold rounded ${
           "bg-" + (tagColours[props.tag] || "gray-experiment")
         }`}
       >
