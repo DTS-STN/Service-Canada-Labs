@@ -9,11 +9,15 @@ import { useEffect } from "react";
 
 export default function About(props) {
   const { t } = useTranslation("common");
-  const { asPath } = useRouter();
   const router = useRouter();
 
   useEffect(() => {
-    props.locale === "fr" ? router.push("/a-propos") : router.push("/about");
+    if (props.locale === "fr") {
+      router.push("/a-propos");
+    }
+    if (props.locale === "en") {
+      router.push("/about");
+    }
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
@@ -24,7 +28,7 @@ export default function About(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={asPath}
+        langUrl={props.locale === "fr" ? "/a-propos" : "/about"}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}

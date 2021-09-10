@@ -28,7 +28,7 @@ import { useEffect } from "react";
 //  - write cypress tests
 export default function Signup(props) {
   const { t } = useTranslation("common");
-  const { asPath, push } = useRouter();
+  const { push } = useRouter();
   const router = useRouter();
   const fr = props.locale === "fr";
 
@@ -390,9 +390,12 @@ export default function Signup(props) {
   };
 
   useEffect(() => {
-    props.locale === "fr"
-      ? router.push("/inscription")
-      : router.push("/signup");
+    if (props.locale === "fr") {
+      router.push("/inscription");
+    }
+    if (props.locale === "en") {
+      router.push("/signup");
+    }
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
@@ -403,7 +406,7 @@ export default function Signup(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={asPath}
+        langUrl={props.locale === "fr" ? "/inscription" : "/signup"}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}

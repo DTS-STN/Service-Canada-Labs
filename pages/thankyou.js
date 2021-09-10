@@ -7,13 +7,18 @@ import { useEffect } from "react";
 
 export default function Confirmation(props) {
   const { t } = useTranslation("common");
-  const { asPath, query } = useRouter();
+  const { query } = useRouter();
   const router = useRouter();
   const maskedEmail = String(query.e);
   const referrer = query.ref || "";
 
   useEffect(() => {
-    props.locale === "fr" ? router.push("/merci") : router.push("/thankyou");
+    if (props.locale === "fr") {
+      router.push("/merci");
+    }
+    if (props.locale === "en") {
+      router.push("/thankyou");
+    }
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
@@ -24,7 +29,7 @@ export default function Confirmation(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={asPath}
+        langUrl={props.locale === "fr" ? "/merci" : "/thankyou"}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}
