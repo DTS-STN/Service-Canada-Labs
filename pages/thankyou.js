@@ -12,6 +12,7 @@ export default function Confirmation(props) {
   const referrer = query.ref || "";
 
   useEffect(() => {
+    props.locale === "fr" ? router.push("/merci") : router.push("/thankyou");
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });

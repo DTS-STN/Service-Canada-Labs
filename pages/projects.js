@@ -12,6 +12,7 @@ import { useEffect } from "react";
 export default function Projects(props) {
   const { t } = useTranslation("common");
   const { asPath } = useRouter();
+  const router = useRouter();
   const [filter, setFilter] = useState("all");
   const [filteredExperiments, setFilteredExperiments] = useState(
     props.experimentData
@@ -67,6 +68,7 @@ export default function Projects(props) {
   };
 
   useEffect(() => {
+    props.locale === "fr" ? router.push("/projets") : router.push("/projects");
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });

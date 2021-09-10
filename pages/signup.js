@@ -29,6 +29,7 @@ import { useEffect } from "react";
 export default function Signup(props) {
   const { t } = useTranslation("common");
   const { asPath, push } = useRouter();
+  const router = useRouter();
   const fr = props.locale === "fr";
 
   // Joi form validation schema. Only required fields are validated
@@ -389,6 +390,9 @@ export default function Signup(props) {
   };
 
   useEffect(() => {
+    props.locale === "fr"
+      ? router.push("/inscription")
+      : router.push("/signup");
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });

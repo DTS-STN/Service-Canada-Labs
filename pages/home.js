@@ -2,7 +2,7 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { CallToAction } from "../components/molecules/CallToAction";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { HTMList } from "../components/atoms/HTMList";
@@ -11,8 +11,10 @@ import { useEffect } from "react";
 export default function Home(props) {
   const { t } = useTranslation("common");
   const { asPath } = useRouter();
+  const router = useRouter();
 
   useEffect(() => {
+    props.locale === "fr" ? router.push("/accueil") : router.push("/home");
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });

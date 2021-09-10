@@ -10,8 +10,10 @@ import { useEffect } from "react";
 export default function About(props) {
   const { t } = useTranslation("common");
   const { asPath } = useRouter();
+  const router = useRouter();
 
   useEffect(() => {
+    props.locale === "fr" ? router.push("/a-propos") : router.push("/about");
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });

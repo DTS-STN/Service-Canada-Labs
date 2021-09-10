@@ -51,7 +51,27 @@ module.exports = {
       },
       {
         source: "/accueil",
-        destination: "/fr/home",
+        destination: "/home",
+      },
+      {
+        source: "/a-propos",
+        destination: "/about",
+      },
+      {
+        source: "/projets",
+        destination: "/projects",
+      },
+      {
+        source: "/inscription",
+        destination: "/signup",
+      },
+      {
+        source: "/merci",
+        destination: "/thankyou",
+      },
+      {
+        source: "/desabonnement",
+        destination: "/unsubscribe",
       },
     ];
   },
