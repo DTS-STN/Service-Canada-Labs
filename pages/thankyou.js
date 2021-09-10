@@ -8,6 +8,7 @@ import { useEffect } from "react";
 export default function Confirmation(props) {
   const { t } = useTranslation("common");
   const { asPath, query } = useRouter();
+  const router = useRouter();
   const maskedEmail = String(query.e);
   const referrer = query.ref || "";
 
