@@ -49,6 +49,10 @@ module.exports = {
         source: "/robots.txt",
         destination: "/api/robots",
       },
+      {
+        source: "/accueil",
+        destination: "/fr/home",
+      },
     ];
   },
 };

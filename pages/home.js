@@ -2,7 +2,7 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 import { CallToAction } from "../components/molecules/CallToAction";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { HTMList } from "../components/atoms/HTMList";
