@@ -19,7 +19,7 @@ describe("unsubscribe page", () => {
 
   it("Adds subpath for french pages", () => {
     cy.get('[data-cy="toggle-language-link"]').click();
-    cy.url().should("eq", "http://localhost:3000/fr/unsubscribe");
+    cy.url().should("eq", "http://localhost:3000/fr/desabonnement");
   });
 
   it("Fails to submit with no input", () => {

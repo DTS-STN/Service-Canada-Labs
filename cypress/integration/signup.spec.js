@@ -19,7 +19,7 @@ describe("signup page", () => {
 
   it("Adds subpath for french pages", () => {
     cy.get('[data-cy="toggle-language-link"]').click();
-    cy.url().should("eq", "http://localhost:3000/fr/signup");
+    cy.url().should("eq", "http://localhost:3000/fr/inscription");
   });
 
   it("Menu appears on the page", () => {
