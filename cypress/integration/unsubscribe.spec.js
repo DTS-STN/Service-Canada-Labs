@@ -47,13 +47,6 @@ describe("unsubscribe page", () => {
 
     cy.get('[id="email"]').type("some@email.com");
     cy.get('[data-cy="unsubscribe-submit"]').click();
-<<<<<<< HEAD
-    cy.url().should(
-      "contains",
-      "/thankyou?e=s***%40****l.***&ref=unsubscribe|/fr/merci?e=s***%40****l.***&ref=unsubscribe"
-    );
-=======
     cy.url().should("contains", "/thankyou?e=s***%40****l.***&ref=unsubscribe");
->>>>>>> parent of e3caad194 (test redirect thankyou)
   });
 });
