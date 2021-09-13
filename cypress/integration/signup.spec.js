@@ -120,7 +120,7 @@ describe("signup page", () => {
     cy.get('[data-cy="signup-submit"]').click();
     cy.url().should(
       "contains",
-      "/thankyou?e=s***%40****l.***&ref=signup|/merci?e=s***%40****l.***&ref=signup"
+      "/thankyou?e=s***%40****l.***&ref=signup|/fr/merci?e=s***%40****l.***&ref=signup"
     );
   });
 });

@@ -49,7 +49,7 @@ describe("unsubscribe page", () => {
     cy.get('[data-cy="unsubscribe-submit"]').click();
     cy.url().should(
       "contains",
-      "/thankyou?e=s***%40****l.***&ref=unsubscribe|/merci?e=s***%40****l.***&ref=unsubscribe"
+      "/thankyou?e=s***%40****l.***&ref=unsubscribe|/fr/merci?e=s***%40****l.***&ref=unsubscribe"
     );
   });
 });
