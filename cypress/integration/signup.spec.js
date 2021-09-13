@@ -119,18 +119,14 @@ describe("signup page", () => {
     cy.get('[id="agreeToConditions"]').click();
     cy.get('[data-cy="signup-submit"]').click();
     //cy.url().should("contains", "/thankyou?e=s***%40****l.***&ref=signup");
-    cy.url()
-      .invoke("text")
-      .then((text) => {
-        if (text.includes("thankyou")) {
-          cy.url().should(
-            "contains",
-            "/thankyou?e=s***%40****l.***&ref=signup"
-          );
-        }
-        if (text.includes("merci")) {
-          cy.url().should("contains", "/merci?e=s***%40****l.***&ref=signup");
-        }
-      });
+    if (cy.url().substring(0, 9) === "/thankyou") {
+      cy.url().should(
+        "contains",
+        "/thankyou?e=s***%40****l.***&ref=unsubscribe"
+      );
+    }
+    if (cy.url().substring(0, 6) === "/merci") {
+      cy.url().should("contains", "/merci?e=s***%40****l.***&ref=unsubscribe");
+    }
   });
 });
