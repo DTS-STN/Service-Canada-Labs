@@ -47,6 +47,6 @@ describe("unsubscribe page", () => {
 
     cy.get('[id="email"]').type("some@email.com");
     cy.get('[data-cy="unsubscribe-submit"]').click();
-    //cy.url().should("contains", "/thankyou?e=s***%40****l.***&ref=unsubscribe");
+    cy.url().should("contains", "/thankyou?e=s***%40****l.***&ref=unsubscribe");
   });
 });
