@@ -2,22 +2,14 @@ import { Layout } from "../components/organisms/Layout";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
 import { List } from "../components/molecules/List";
 import { CallToAction } from "../components/molecules/CallToAction";
 import { useEffect } from "react";
 
 export default function About(props) {
   const { t } = useTranslation("common");
-  const router = useRouter();
 
   useEffect(() => {
-    if (props.locale === "fr") {
-      router.push("/a-propos");
-    }
-    if (props.locale === "en") {
-      router.push("/about");
-    }
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
@@ -28,7 +20,7 @@ export default function About(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={props.locale === "fr" ? "/a-propos" : "/about"}
+        langUrl={props.locale === "en" ? "/a-propos" : "/about"}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}

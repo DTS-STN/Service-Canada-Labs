@@ -4,14 +4,12 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
 import { Experiment } from "../components/molecules/Experiment";
-import { useRouter } from "next/router";
 import { Filter } from "../components/molecules/Filter";
 import { CallToAction } from "../components/molecules/CallToAction";
 import { useEffect } from "react";
 
 export default function Projects(props) {
   const { t } = useTranslation("common");
-  const router = useRouter();
   const [filter, setFilter] = useState("all");
   const [filteredExperiments, setFilteredExperiments] = useState(
     props.experimentData
@@ -67,12 +65,6 @@ export default function Projects(props) {
   };
 
   useEffect(() => {
-    if (props.locale === "fr") {
-      router.push("/projets");
-    }
-    if (props.locale === "en") {
-      router.push("/projects");
-    }
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
@@ -83,7 +75,7 @@ export default function Projects(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={props.locale === "fr" ? "/projets" : "/projects"}
+        langUrl={props.locale === "en" ? "/projets" : "/projects"}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}

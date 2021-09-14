@@ -2,7 +2,6 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
-import { useRouter } from "next/router";
 import { CallToAction } from "../components/molecules/CallToAction";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { HTMList } from "../components/atoms/HTMList";
@@ -10,15 +9,8 @@ import { useEffect } from "react";
 
 export default function Home(props) {
   const { t } = useTranslation("common");
-  const router = useRouter();
 
   useEffect(() => {
-    if (props.locale === "fr") {
-      router.push("/accueil");
-    }
-    if (props.locale === "en") {
-      router.push("/home");
-    }
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
@@ -31,7 +23,7 @@ export default function Home(props) {
         bannerTitle={t("siteTitle")}
         bannerText={t("bannerText")}
         locale={props.locale}
-        langUrl={props.locale === "fr" ? "/accueil" : "/home"}
+        langUrl={props.locale === "en" ? "/accueil" : "/home"}
       >
         <Head>
           {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (

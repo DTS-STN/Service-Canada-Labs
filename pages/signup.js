@@ -29,7 +29,6 @@ import { useEffect } from "react";
 export default function Signup(props) {
   const { t } = useTranslation("common");
   const { push } = useRouter();
-  const router = useRouter();
   const fr = props.locale === "fr";
 
   // Joi form validation schema. Only required fields are validated
@@ -390,12 +389,6 @@ export default function Signup(props) {
   };
 
   useEffect(() => {
-    if (props.locale === "fr") {
-      router.push("/inscription");
-    }
-    if (props.locale === "en") {
-      router.push("/signup");
-    }
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
@@ -406,7 +399,7 @@ export default function Signup(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={props.locale === "fr" ? "/inscription" : "/signup"}
+        langUrl={props.locale === "en" ? "/inscription" : "/signup"}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}

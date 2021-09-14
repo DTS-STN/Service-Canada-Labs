@@ -110,15 +110,15 @@ export const Layout = ({
             signUpText={t("signupBtn")}
             items={[
               {
-                link: "/projects",
+                link: locale === "fr" ? "/projets" : "/projects",
                 text: t("menuLink1"),
               },
               {
-                link: "/about",
+                link: locale === "fr" ? "/a-propos" : "/about",
                 text: t("menuLink2"),
               },
               {
-                link: "/signup",
+                link: locale === "fr" ? "/inscription" : "/signup",
                 text: t("signupLink"),
               },
             ]}
