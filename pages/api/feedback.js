@@ -4,11 +4,16 @@ import validate from "../../middlewares/joi";
 import Cors from "cors";
 import initMiddleware from "../../middlewares/initMiddleware";
 
+const origins = {
+  development: "*",
+  production: /alpha\.service\.canada\.ca/,
+};
+
 // Initialize the cors middleware
 const cors = initMiddleware(
   // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
   Cors({
-    origin: [/alpha\.service\.canada\.ca/],
+    origin: [origins[process.env.ENVIRONMENT]],
     methods: ["POST"],
   })
 );
