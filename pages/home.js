@@ -72,7 +72,7 @@ export default function Home(props) {
           </div>
           <div className="flex flex-col gap-6 lg:gap-10 lg:flex-row ">
             <ActionButton
-              href="/projects"
+              href={props.locale === "fr" ? "/projets" : "/projects"}
               text={t("experimentsBtnTxt")}
               id="ProjectsButton"
               dataCy="ProjectsButton"
@@ -80,7 +80,7 @@ export default function Home(props) {
               secondary
             />
             <ActionButton
-              href="/about"
+              href={props.locale === "fr" ? "/a-propos" : "/about"}
               text={t("learnMoreAboutSCL")}
               id="AboutButton"
               dataCy="AboutButton"
@@ -92,7 +92,7 @@ export default function Home(props) {
         <CallToAction
           title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
-          href={"/signup"}
+          href={props.locale === "fr" ? "/inscription" : "/signup"}
           hrefText={t("signupBtn")}
         />
       </Layout>

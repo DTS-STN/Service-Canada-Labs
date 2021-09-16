@@ -90,7 +90,7 @@ export default function About(props) {
         <CallToAction
           title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
-          href={"/signup"}
+          href={props.locale === "fr" ? "/inscription" : "/signup"}
           hrefText={t("signupBtn")}
         />
       </Layout>

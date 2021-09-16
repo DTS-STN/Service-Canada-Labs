@@ -66,6 +66,10 @@ module.exports = {
         destination: "/signup",
       },
       {
+        source: "/inscription/politique",
+        destination: "/signup/privacy",
+      },
+      {
         source: "/merci",
         destination: "/thankyou",
       },
