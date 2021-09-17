@@ -50,24 +50,20 @@ module.exports = {
         destination: "/api/robots",
       },
       {
-        source: "/fr/accueil",
-        destination: "/fr/home",
-        locale: false,
+        source: "/accueil",
+        destination: "/home",
       },
       {
-        source: "/fr/a-propos",
-        destination: "/fr/about",
-        locale: false,
+        source: "/a-propos",
+        destination: "/about",
       },
       {
-        source: "/fr/projets",
-        destination: "/fr/projects",
-        locale: false,
+        source: "/projets",
+        destination: "/projects",
       },
       {
-        source: "/fr/inscription",
-        destination: "/fr/signup",
-        locale: false,
+        source: "/inscription",
+        destination: "/signup",
       },
       // {
       //   source: "/inscription/politique",
@@ -75,14 +71,12 @@ module.exports = {
       //   locale: false,
       // },
       {
-        source: "/fr/merci",
-        destination: "/fr/thankyou",
-        locale: false,
+        source: "/merci",
+        destination: "/thankyou",
       },
       {
-        source: "/fr/desabonnement",
-        destination: "/fr/unsubscribe",
-        locale: false,
+        source: "/desabonnement",
+        destination: "/unsubscribe",
       },
     ];
   },
