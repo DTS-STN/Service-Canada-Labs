@@ -73,9 +73,9 @@ module.exports = {
           lighter: "#D8EECA",
           darker: "#278400",
         },
-        "custom-gray": {
-          lighter: "#EFEFEF",
-          darker: "#444",
+        "custom-red": {
+          lighter: "#F3E9E8",
+          darker: "#D3080C",
         },
         "error-border-red": "#D3080C",
         "error-background-red": "#F3E9E8",

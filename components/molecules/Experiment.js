@@ -9,7 +9,7 @@ import Link from "next/link";
 export const Experiment = (props) => {
   const tagColours = {
     current_projects: "custom-green",
-    past_projects: "custom-gray",
+    past_projects: "custom-red",
     upcoming_projects: "custom-blue",
   };
   return (
