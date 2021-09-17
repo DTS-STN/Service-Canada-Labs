@@ -50,32 +50,39 @@ module.exports = {
         destination: "/api/robots",
       },
       {
-        source: "/accueil",
-        destination: "/home",
+        source: "/fr/accueil",
+        destination: "/fr/home",
+        locale: false,
       },
       {
-        source: "/a-propos",
-        destination: "/about",
+        source: "/fr/a-propos",
+        destination: "/fr/about",
+        locale: false,
       },
       {
-        source: "/projets",
-        destination: "/projects",
+        source: "/fr/projets",
+        destination: "/fr/projects",
+        locale: false,
       },
       {
-        source: "/inscription",
-        destination: "/signup",
+        source: "/fr/inscription",
+        destination: "/fr/signup",
+        locale: false,
+      },
+      // {
+      //   source: "/inscription/politique",
+      //   destination: "/signup/privacy",
+      //   locale: false,
+      // },
+      {
+        source: "/fr/merci",
+        destination: "/fr/thankyou",
+        locale: false,
       },
       {
-        source: "/inscription/politique",
-        destination: "/signup/privacy",
-      },
-      {
-        source: "/merci",
-        destination: "/thankyou",
-      },
-      {
-        source: "/desabonnement",
-        destination: "/unsubscribe",
+        source: "/fr/desabonnement",
+        destination: "/fr/unsubscribe",
+        locale: false,
       },
     ];
   },
