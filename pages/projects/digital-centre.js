@@ -4,7 +4,6 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { HTMList } from "../../components/atoms/HTMList";
 import { Layout } from "../../components/organisms/Layout";
-import { useRouter } from "next/router";
 import { CallToAction } from "../../components/molecules/CallToAction";
 import { useEffect } from "react";
 
@@ -33,7 +32,6 @@ ThumbnailWithCaption.propTypes = {
 
 export default function DigitalCenter(props) {
   const { t } = useTranslation(["common", "dc"]);
-  const { asPath } = useRouter();
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {

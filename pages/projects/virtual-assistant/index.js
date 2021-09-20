@@ -2,7 +2,6 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../../../components/organisms/Layout";
-import { useRouter } from "next/router";
 import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect } from "react";
 
@@ -12,7 +11,6 @@ import { useEffect } from "react";
 
 export default function Home(props) {
   const { t } = useTranslation(["common", "vc"]);
-  const { asPath } = useRouter();
   const language = props.locale === "en" ? "fr" : "en";
 
   useEffect(() => {
