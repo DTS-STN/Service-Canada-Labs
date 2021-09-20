@@ -61,11 +61,21 @@ module.exports = {
       colors: {
         "custom-blue": {
           blue: "#1D5B90",
+          lighter: "#E8F2F4",
           light: "#1F809A",
           dark: "#26374a",
+          darker: "#083C6C",
           link: "#0535d2",
           "experiment-blue": "#004986",
           "projects-link": "#2B4380",
+        },
+        "custom-green": {
+          lighter: "#D8EECA",
+          darker: "#278400",
+        },
+        "custom-red": {
+          lighter: "#F3E9E8",
+          darker: "#D3080C",
         },
         "error-border-red": "#D3080C",
         "error-background-red": "#F3E9E8",
