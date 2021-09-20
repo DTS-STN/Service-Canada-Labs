@@ -46,7 +46,11 @@ export default function DigitalCenter(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={asPath}
+        langUrl={
+          props.locale === "en"
+            ? "/projets/centre-num%C3%A9rique"
+            : "/projects/digital-centre"
+        }
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },
@@ -287,7 +291,8 @@ export default function DigitalCenter(props) {
         <CallToAction
           title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
-          href={"/signup"}
+          lang={props.locale}
+          href={props.locale === "fr" ? "/inscription" : "/signup"}
           hrefText={t("signupBtn")}
         />
       </Layout>

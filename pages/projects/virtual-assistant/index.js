@@ -26,7 +26,11 @@ export default function Home(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={asPath}
+        langUrl={
+          props.locale === "en"
+            ? "/projets/assistant-virtuel"
+            : "/projects/virtual-assistant"
+        }
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },

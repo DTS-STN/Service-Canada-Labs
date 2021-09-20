@@ -77,6 +77,14 @@ module.exports = {
         source: "/desabonnement",
         destination: "/unsubscribe",
       },
+      {
+        source: "/projets/centre-num%C3%A9rique",
+        destination: "/projects/digital-centre",
+      },
+      {
+        source: "/projets/assistant-virtuel",
+        destination: "/projects/virtual-assistant",
+      },
     ];
   },
 };
