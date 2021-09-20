@@ -65,11 +65,10 @@ module.exports = {
         source: "/inscription",
         destination: "/signup",
       },
-      // {
-      //   source: "/inscription/politique",
-      //   destination: "/signup/privacy",
-      //   locale: false,
-      // },
+      {
+        source: "/inscription/politique",
+        destination: "/signup/privacy",
+      },
       {
         source: "/merci",
         destination: "/thankyou",
