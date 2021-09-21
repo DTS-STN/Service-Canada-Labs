@@ -5,11 +5,16 @@ import { useTranslation } from "next-i18next";
 import { HTMList } from "../../components/atoms/HTMList";
 import { CallToAction } from "../../components/molecules/CallToAction";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 export default function Privacy(props) {
   const { t } = useTranslation("common");
+  const router = useRouter();
 
   useEffect(() => {
+    if (window.location.pathname === "/inscription/politique") {
+      router.push("/fr/inscription/politique");
+    }
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });

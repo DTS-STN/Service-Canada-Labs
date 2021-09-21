@@ -30,6 +30,7 @@ import Link from "next/link";
 export default function Signup(props) {
   const { t } = useTranslation("common");
   const { push } = useRouter();
+  const router = useRouter();
   const fr = props.locale === "fr";
 
   // Joi form validation schema. Only required fields are validated
@@ -390,6 +391,9 @@ export default function Signup(props) {
   };
 
   useEffect(() => {
+    if (window.location.pathname === "/inscription") {
+      router.push("/fr/inscription");
+    }
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });

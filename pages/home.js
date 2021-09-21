@@ -6,11 +6,16 @@ import { CallToAction } from "../components/molecules/CallToAction";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { HTMList } from "../components/atoms/HTMList";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 export default function Home(props) {
   const { t } = useTranslation("common");
+  const router = useRouter();
 
   useEffect(() => {
+    if (window.location.pathname === "/accueil") {
+      router.push("/fr/accueil");
+    }
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });

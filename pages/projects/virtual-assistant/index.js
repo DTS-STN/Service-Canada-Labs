@@ -4,6 +4,7 @@ import { useTranslation } from "next-i18next";
 import { Layout } from "../../../components/organisms/Layout";
 import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 //  On hold for now
 //  import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge";
@@ -12,8 +13,12 @@ import { useEffect } from "react";
 export default function Home(props) {
   const { t } = useTranslation(["common", "vc"]);
   const language = props.locale === "en" ? "fr" : "en";
+  const router = useRouter();
 
   useEffect(() => {
+    if (window.location.pathname === "/projets/assistant-virtuel") {
+      router.push("/fr/projets/assistant-virtuel");
+    }
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });

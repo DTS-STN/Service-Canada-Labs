@@ -5,11 +5,16 @@ import { useTranslation } from "next-i18next";
 import { List } from "../components/molecules/List";
 import { CallToAction } from "../components/molecules/CallToAction";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 export default function About(props) {
   const { t } = useTranslation("common");
+  const router = useRouter();
 
   useEffect(() => {
+    if (window.location.pathname === "/a-propos") {
+      router.push("/fr/a-propos");
+    }
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
