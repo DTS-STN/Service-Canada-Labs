@@ -25,6 +25,7 @@ export default function Privacy(props) {
         langUrl={asPath}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
+          { text: t("signupHomeButton"), link: t("breadCrumbsHref3") },
         ]}
       >
         <Head>
