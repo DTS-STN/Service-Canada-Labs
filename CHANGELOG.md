@@ -21,6 +21,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Changed
 
+- Moved error list under the signup form heading
 - Updated menu items to have an underline so they appear more like links
 - Updated CallToAction component to have a white border on hover/active state
 - Updated PhaseBanner to include Feedback component
