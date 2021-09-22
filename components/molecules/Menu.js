@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 export function Menu(props) {
   //Router
   const { asPath } = useRouter();
+  const router = useRouter();
 
   //Function for changing menu state
   function onMenuClick() {
@@ -61,7 +62,11 @@ export function Menu(props) {
               <Link href={item.link}>
                 <a
                   className={`font-body text-base ${
-                    includesURL ? "activePage" : "menuLink underline"
+                    includesURL
+                      ? router.pathname !== "/signup/privacy"
+                        ? "activePage"
+                        : "menuLink underline"
+                      : "menuLink underline"
                   }`}
                 >
                   {item.text}
