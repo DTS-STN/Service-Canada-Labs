@@ -18,7 +18,6 @@ import { SelectField } from "../components/atoms/SelectField";
 import { CheckBox } from "../components/atoms/CheckBox";
 import { OptionalListField } from "../components/molecules/OptionalListField";
 import { maskEmail } from "../lib/utils/maskEmail";
-import { useEffect } from "react";
 import Link from "next/link";
 
 // TODO
