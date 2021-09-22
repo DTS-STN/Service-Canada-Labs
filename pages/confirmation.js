@@ -100,7 +100,7 @@ export default function Confirmation(props) {
                   {t("emailConfirmationP2")}
                 </p>
                 <TextButtonField
-                  href={props.locale === "fr" ? "/projets" : "/projects"}
+                  href={t("projectRedirect")}
                   buttonText={t("experimentsBtnTxt")}
                   idButton="ExperimentsButton"
                   dataCyButton="ExperimentsButton"

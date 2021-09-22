@@ -102,9 +102,7 @@ export default function Privacy(props) {
             <p className="mb-8">
               {t("privacyWithdraw")}
               <a
-                href={
-                  props.locale === "en" ? "/unsubscribe" : "/fr/desabonnement"
-                }
+                href={t("unsubRedirect")}
                 className="text-custom-blue-link underline"
               >
                 {t("unsubscribeWord")}
