@@ -56,6 +56,7 @@ export function ActionButton(props) {
         role="button"
         draggable="false"
         lang={props.lang}
+        locale={props.langUrl}
       >
         {props.icon && !props.iconEnd ? (
           <span className={props.icon} data-testid={props.dataTestId} />

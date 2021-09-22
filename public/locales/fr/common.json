@@ -265,5 +265,22 @@
   "officialSiteNavigation": "Site officiel de Canada.ca",
   "languageSelection": "Sélection de la langue",
   "aboutGovernment": "Au sujet du gouvernement",
-  "aboutThisSite": "À propos de ce site"
+  "aboutThisSite": "À propos de ce site",
+  "homePath": "/home",
+  "signupPath": "/signup",
+  "signupRedirect": "/inscription",
+  "projectPath": "/projects",
+  "projectRedirect": "/projets",
+  "aboutPath": "/about",
+  "aboutRedirect": "/a-propos",
+  "privacyPath": "/signup/privacy",
+  "privacyRedirect": "/inscription/protection-renseignements-personnels",
+  "thankyouPath": "/thanyou",
+  "thankyouRedirect": "/merci",
+  "unsubPath": "/unsubscribe",
+  "unsubRedirect": "/desabonnement",
+  "virtualAssistantPath": "/projects/virtual-assistant",
+  "virtualAssistantRedirect": "/projets/assistant-virtuel",
+  "digitalCentrePath": "/projects/digital-centre",
+  "digitalCentreRedirect": "/projets/centre-numerique"
 }

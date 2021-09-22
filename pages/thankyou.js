@@ -22,7 +22,7 @@ export default function Confirmation(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={props.locale === "en" ? "/merci" : "/thankyou"}
+        langUrl={t("thankyouPath")}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}

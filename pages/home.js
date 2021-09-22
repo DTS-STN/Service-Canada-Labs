@@ -6,16 +6,11 @@ import { CallToAction } from "../components/molecules/CallToAction";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { HTMList } from "../components/atoms/HTMList";
 import { useEffect } from "react";
-import { useRouter } from "next/router";
 
 export default function Home(props) {
   const { t } = useTranslation("common");
-  const router = useRouter();
 
   useEffect(() => {
-    if (window.location.pathname === "/accueil") {
-      router.push("/fr/accueil");
-    }
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
@@ -28,7 +23,7 @@ export default function Home(props) {
         bannerTitle={t("siteTitle")}
         bannerText={t("bannerText")}
         locale={props.locale}
-        langUrl={props.locale === "en" ? "/accueil" : "/home"}
+        langUrl={t("homePath")}
       >
         <Head>
           {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
@@ -57,7 +52,7 @@ export default function Home(props) {
         <section className="layout-container my-12">
           <div className="xl:w-2/3">
             <ActionButton
-              href={props.locale === "fr" ? "/inscription" : "/signup"}
+              href={t("signupRedirect")}
               id="signup-home-page"
               dataCy="signup-home-page"
               className="rounded px-6 py-4 font-bold text-center inline-block"
@@ -77,15 +72,16 @@ export default function Home(props) {
           </div>
           <div className="flex flex-col gap-6 lg:gap-10 lg:flex-row ">
             <ActionButton
-              href={props.locale === "fr" ? "/projets" : "/projects"}
+              href={t("projectRedirect")}
               text={t("experimentsBtnTxt")}
               id="ProjectsButton"
               dataCy="ProjectsButton"
               className="flex py-2 px-6 justify-center font-bold rounded"
               secondary
+              locale={props.locale}
             />
             <ActionButton
-              href={props.locale === "fr" ? "/a-propos" : "/about"}
+              href={t("aboutRedirect")}
               text={t("learnMoreAboutSCL")}
               id="AboutButton"
               dataCy="AboutButton"
@@ -98,7 +94,7 @@ export default function Home(props) {
           title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
           lang={props.locale}
-          href={props.locale === "fr" ? "/inscription" : "/signup"}
+          href={t("signupRedirect")}
           hrefText={t("signupBtn")}
         />
       </Layout>

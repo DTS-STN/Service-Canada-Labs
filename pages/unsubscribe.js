@@ -16,7 +16,6 @@ import { useEffect } from "react";
 export default function Unsubscribe(props) {
   const { t } = useTranslation("common");
   const { push } = useRouter();
-  const router = useRouter();
 
   // Joi form validation schema. Only required fields are validated
   const formSchema = Joi.object({
@@ -166,12 +165,6 @@ export default function Unsubscribe(props) {
   };
 
   useEffect(() => {
-    if (props.locale === "fr") {
-      router.push("/desabonnement");
-    }
-    if (props.locale === "en") {
-      router.push("/unsubscribe");
-    }
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
@@ -182,7 +175,7 @@ export default function Unsubscribe(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={props.locale === "fr" ? "/desabonnement" : "/unsubscribe"}
+        langUrl={t("unsubPath")}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}

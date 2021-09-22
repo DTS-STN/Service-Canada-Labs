@@ -4,7 +4,6 @@ import { useTranslation } from "next-i18next";
 import { Layout } from "../../../components/organisms/Layout";
 import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect } from "react";
-import { useRouter } from "next/router";
 
 //  On hold for now
 //  import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge";
@@ -13,12 +12,8 @@ import { useRouter } from "next/router";
 export default function Home(props) {
   const { t } = useTranslation(["common", "vc"]);
   const language = props.locale === "en" ? "fr" : "en";
-  const router = useRouter();
 
   useEffect(() => {
-    if (window.location.pathname === "/projets/assistant-virtuel") {
-      router.push("/fr/projets/assistant-virtuel");
-    }
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
@@ -29,11 +24,7 @@ export default function Home(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={
-          props.locale === "en"
-            ? "/projets/assistant-virtuel"
-            : "/projects/virtual-assistant"
-        }
+        langUrl={t("virtualAssistantPath")}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },

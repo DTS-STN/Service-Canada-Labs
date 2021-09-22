@@ -7,11 +7,9 @@ import { Experiment } from "../components/molecules/Experiment";
 import { Filter } from "../components/molecules/Filter";
 import { CallToAction } from "../components/molecules/CallToAction";
 import { useEffect } from "react";
-import { useRouter } from "next/router";
 
 export default function Projects(props) {
   const { t } = useTranslation("common");
-  const router = useRouter();
   const [filter, setFilter] = useState("all");
   const [filteredExperiments, setFilteredExperiments] = useState(
     props.experimentData
@@ -67,9 +65,6 @@ export default function Projects(props) {
   };
 
   useEffect(() => {
-    if (window.location.pathname === "/projets") {
-      router.push("/fr/projets");
-    }
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
@@ -80,7 +75,7 @@ export default function Projects(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={props.locale === "en" ? "/projets" : "/projects"}
+        langUrl={t("projectPath")}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}
@@ -131,7 +126,7 @@ export default function Projects(props) {
           title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
           lang={props.locale}
-          href={props.locale === "fr" ? "/inscription" : "/signup"}
+          href={t("signupRedirect")}
           hrefText={t("signupBtn")}
         />
       </Layout>

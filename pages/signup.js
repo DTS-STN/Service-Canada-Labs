@@ -30,7 +30,6 @@ import Link from "next/link";
 export default function Signup(props) {
   const { t } = useTranslation("common");
   const { push } = useRouter();
-  const router = useRouter();
   const fr = props.locale === "fr";
 
   // Joi form validation schema. Only required fields are validated
@@ -391,9 +390,6 @@ export default function Signup(props) {
   };
 
   useEffect(() => {
-    if (window.location.pathname === "/inscription") {
-      router.push("/fr/inscription");
-    }
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
@@ -404,7 +400,7 @@ export default function Signup(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={props.locale === "en" ? "/inscription" : "/signup"}
+        langUrl={t("signupPath")}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}
@@ -470,14 +466,7 @@ export default function Signup(props) {
             />
 
             <p className="my-8 text-sm lg:text-p">{t("signupP3.1")}</p>
-            <Link
-              href={
-                props.locale === "fr"
-                  ? "/inscription/politique"
-                  : "/signup/privacy"
-              }
-              locale={props.locale}
-            >
+            <Link href={t("privacyRedirect")} locale={props.locale}>
               <a className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5 text-sm lg:text-p">
                 {t("privacy")}
               </a>
@@ -1048,14 +1037,7 @@ export default function Signup(props) {
                 showRequiredLabel
               />
             </div>
-            <Link
-              href={
-                props.locale === "fr"
-                  ? "/inscription/politique"
-                  : "/signup/privacy"
-              }
-              locale={props.locale}
-            >
+            <Link href={t("privacyRedirect")} locale={props.locale}>
               <a className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-10 text-sm lg:text-p">
                 {t("privacy")}
               </a>

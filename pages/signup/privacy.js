@@ -5,16 +5,11 @@ import { useTranslation } from "next-i18next";
 import { HTMList } from "../../components/atoms/HTMList";
 import { CallToAction } from "../../components/molecules/CallToAction";
 import { useEffect } from "react";
-import { useRouter } from "next/router";
 
 export default function Privacy(props) {
   const { t } = useTranslation("common");
-  const router = useRouter();
 
   useEffect(() => {
-    if (window.location.pathname === "/inscription/politique") {
-      router.push("/fr/inscription/politique");
-    }
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
@@ -25,9 +20,7 @@ export default function Privacy(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={
-          props.locale === "en" ? "/inscription/politique" : "/signup/privacy"
-        }
+        langUrl={t("privacyPath")}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}
@@ -168,7 +161,7 @@ export default function Privacy(props) {
         <CallToAction
           title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
-          href={props.locale === "fr" ? "/inscription" : "/signup"}
+          href={t("signupRedirect")}
           hrefText={t("signupBtn")}
         />
       </Layout>

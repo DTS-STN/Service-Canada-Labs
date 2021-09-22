@@ -66,7 +66,7 @@ module.exports = {
         destination: "/signup",
       },
       {
-        source: "/inscription/politique",
+        source: "/inscription/protection-renseignements-personnels",
         destination: "/signup/privacy",
       },
       {
@@ -78,7 +78,7 @@ module.exports = {
         destination: "/unsubscribe",
       },
       {
-        source: "/projets/centre-num%C3%A9rique",
+        source: "/projets/centre-numerique",
         destination: "/projects/digital-centre",
       },
       {

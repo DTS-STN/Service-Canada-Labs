@@ -6,7 +6,6 @@ import { HTMList } from "../../components/atoms/HTMList";
 import { Layout } from "../../components/organisms/Layout";
 import { CallToAction } from "../../components/molecules/CallToAction";
 import { useEffect } from "react";
-import { useRouter } from "next/router";
 
 function ThumbnailWithCaption({
   title = "Image 1",
@@ -33,12 +32,8 @@ ThumbnailWithCaption.propTypes = {
 
 export default function DigitalCenter(props) {
   const { t } = useTranslation(["common", "dc"]);
-  const router = useRouter();
 
   useEffect(() => {
-    if (window.location.pathname === "/projets/centre-numérique") {
-      router.push("/fr/projets/centre-numérique");
-    }
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
@@ -49,11 +44,7 @@ export default function DigitalCenter(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={
-          props.locale === "en"
-            ? "/projets/centre-num%C3%A9rique"
-            : "/projects/digital-centre"
-        }
+        langUrl={t("digitalCentrePath")}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },
@@ -295,7 +286,7 @@ export default function DigitalCenter(props) {
           title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
           lang={props.locale}
-          href={props.locale === "fr" ? "/inscription" : "/signup"}
+          href={t("signupRedirect")}
           hrefText={t("signupBtn")}
         />
       </Layout>
