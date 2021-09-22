@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+## [v1.1.0] - 2021-09-22
+
 ## Added
 
 - Feedback api
