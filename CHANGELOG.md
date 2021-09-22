@@ -19,6 +19,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   translates properly
 - WCAG issue: Text overlap when user increase the text size to 200% in firefox
 - Filters on the project page no longer wrap to a newline in mobile view
+- Project status label colours now appear properly
 
 ## Changed
 
