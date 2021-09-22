@@ -2,12 +2,12 @@ import terminalLog from '../plugins/terminalLog'
 
 describe("Digital Center page", () => {
   beforeEach(() => {
-    cy.visit("/projects/digital-center");
+    cy.visit("/projects/digital-centre");
     cy.injectAxe();
   });
 
   it("Digital Center page loaded", () => {
-    cy.url().should("contains", "/digital-center");
+    cy.url().should("contains", "/digital-centre");
   });
 
   it("Has no detectable a11y violations on load", () => {

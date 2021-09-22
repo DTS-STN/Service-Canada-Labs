@@ -18,14 +18,21 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - [Bug #344](https://github.com/DTS-STN/Alpha-Site/issues/344) issue with ReportAProblem component on `/error` now
   translates properly
 - WCAG issue: Text overlap when user increase the text size to 200% in firefox
+- Filters on the project page no longer wrap to a newline in mobile view
+- Project status label colours now appear properly
 
 ## Changed
 
+- Remove underline on the signup link when privacy page is active
+- Moved error list under the signup form heading
 - Updated menu items to have an underline so they appear more like links
 - Updated CallToAction component to have a white border on hover/active state
 - Updated PhaseBanner to include Feedback component
 - Updated Home page banner contrast for medium screen size
 - Updated signup button color to have sufficient contrast with the blue background
+- Changed Digital Center URL from 'projects/digital-center' to 'projects/digital-centre'
+- Updated breadcrumbs on the privacy page
+- Updated project status label colours
 
 ## [v1.0.6] - 2021-08-13
 

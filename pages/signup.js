@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Joi from "joi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ErrorBox } from "../components/molecules/ErrorBox";
@@ -479,6 +479,7 @@ export default function Signup(props) {
           </div>
         </section>
         <section className="layout-container">
+          <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle5")}</h2>
           {errorBoxText ? (
             <ErrorBox
               text={errorBoxText}
@@ -486,7 +487,6 @@ export default function Signup(props) {
               onClick={handleScrollToError}
             />
           ) : undefined}
-          <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle5")}</h2>
           <form
             data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsSign-up"
             data-gc-analytics-collect='[{"value":"input:not(.exclude),select","emptyField":"N/A"}]'
