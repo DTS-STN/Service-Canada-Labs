@@ -16,6 +16,7 @@ module.exports = {
         "opacity-80",
         "opacity-90",
         "opacity-100",
+        /(bg|border)-(custom-blue|custom-red|custom-green)-(lighter|darker)/,
       ],
     },
   },
