@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "next-i18next";
 import { ActionButton } from "../atoms/ActionButton";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Joi from "joi";
 import { ErrorLabel } from "../atoms/ErrorLabel";
 
@@ -73,6 +73,11 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
     } else {
       setFeedbackError(error.message);
     }
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   return (
