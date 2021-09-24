@@ -78,7 +78,6 @@ export default function Home(props) {
               dataCy="ProjectsButton"
               className="flex py-2 px-6 justify-center font-bold rounded"
               secondary
-              locale={props.locale}
             />
             <ActionButton
               href={t("aboutRedirect")}
