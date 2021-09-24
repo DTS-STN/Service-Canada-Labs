@@ -36,6 +36,7 @@ describe("sign up api", () => {
       body: {
         language: "en",
         email: "email@email.com",
+        yearOfBirthRange: "1996-1999",
         other: "content",
       },
     });
@@ -62,6 +63,7 @@ describe("sign up api", () => {
       body: {
         language: "fr",
         email: "email@email.com",
+        yearOfBirthRange: "1996-1999",
         other: "content",
       },
     });
@@ -83,6 +85,7 @@ describe("sign up api", () => {
       body: {
         language: "hfwiofwe",
         email: "email email.com",
+        yearOfBirthRange: "1996-1999",
         other: "content",
       },
     });
@@ -106,6 +109,7 @@ describe("sign up api", () => {
       body: {
         language: "en",
         email: "email@email.com",
+        yearOfBirthRange: "1996-1999",
         other: "content",
       },
     });
@@ -130,6 +134,7 @@ describe("sign up api", () => {
       body: {
         language: "en",
         email: "email@email.com",
+        yearOfBirthRange: "1996-1999",
         other: "content",
       },
     });
@@ -154,6 +159,7 @@ describe("sign up api", () => {
       body: {
         language: "en",
         email: "email@email.com",
+        yearOfBirthRange: "1996-1999",
         other: "content",
       },
     });
@@ -181,6 +187,7 @@ describe("sign up api", () => {
       body: {
         language: "en",
         email: "email@email.com",
+        yearOfBirthRange: "1996-1999",
         other: "content",
       },
     });
