@@ -266,5 +266,7 @@
   "officialSiteNavigation": "Cananda.ca official site",
   "languageSelection": "Language selection",
   "aboutGovernment": "About government",
-  "aboutThisSite": "About this site"
+  "aboutThisSite": "About this site",
+  "before": "Before",
+  "after": "After"
 }

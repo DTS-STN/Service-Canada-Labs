@@ -30,6 +30,26 @@ export default function Signup(props) {
   const { asPath, push } = useRouter();
   const fr = props.locale === "fr";
 
+  // get the options for the year of birth ranges
+  const minYear = new Date().getFullYear() - 18;
+  const oldestYear = minYear + 18 - 85;
+  let yearOptions = [
+    {
+      id: `${t("after").toLowerCase()}${minYear}`,
+      value: `${t("after")} ${minYear}`,
+    },
+  ];
+  for (let i = minYear - 3; i >= oldestYear; i -= 4) {
+    yearOptions.push({
+      id: `${i}-${i + 3}`,
+      value: `${i}-${i + 3}`,
+    });
+  }
+  yearOptions.push({
+    id: `${t("before").toLowerCase()}${oldestYear}`,
+    value: `${t("before")} ${oldestYear}`,
+  });
+
   // Joi form validation schema. Only required fields are validated
   const formSchema = Joi.object({
     email: Joi.string()
@@ -49,10 +69,8 @@ export default function Signup(props) {
         });
         return errors;
       }),
-    yearOfBirth: Joi.number()
-      .integer()
-      .min(1850)
-      .max(new Date().getFullYear() - 18)
+    yearOfBirthRange: Joi.string()
+      .invalid(yearOptions[0].id)
       .required()
       .error((errors) => {
         errors.forEach((error) => {
@@ -60,13 +78,7 @@ export default function Signup(props) {
             case "any.required":
               error.message = t("yearRequired");
               break;
-            case "number.integer":
-              error.message = t("errorInt");
-              break;
-            case "number.min":
-              error.message = t("errorMinMax");
-              break;
-            case "number.max":
+            case "any.invalid":
               error.message = t("errorMustBe18");
               break;
             default:
@@ -157,8 +169,8 @@ export default function Signup(props) {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
 
-  const [yearOfBirth, setYearOfBirth] = useState("");
-  const [yearOfBirthError, setYearOfBirthError] = useState("");
+  const [yearOfBirthRange, setYearOfBirthRange] = useState("");
+  const [yearOfBirthRangeError, setYearOfBirthRangeError] = useState("");
 
   const [language, setLanguage] = useState("");
   const [languageError, setLanguageError] = useState("");
@@ -209,13 +221,13 @@ export default function Signup(props) {
     e.preventDefault();
     setEmailError("");
     setLanguageError("");
-    setYearOfBirthError("");
+    setYearOfBirthRangeError("");
     setProvinceError("");
     setDisabilityError("");
     setAgreeToConditionsError("");
 
     setEmail("");
-    setYearOfBirth("");
+    setYearOfBirthRange("");
     setLanguage("");
     setGender("");
     setGenderOtherDetails("");
@@ -234,7 +246,7 @@ export default function Signup(props) {
     // clear out error values
     await setEmailError("");
     await setLanguageError("");
-    await setYearOfBirthError("");
+    await setYearOfBirthRangeError("");
     await setProvinceError("");
     await setDisabilityError("");
     await setAgreeToConditionsError("");
@@ -244,7 +256,7 @@ export default function Signup(props) {
     // compile data into one object
     const formData = {
       email,
-      yearOfBirth: parseInt(yearOfBirth),
+      yearOfBirthRange,
       language,
       province,
       gender,
@@ -281,7 +293,7 @@ export default function Signup(props) {
       const errorSetFunctions = {
         email: setEmailError,
         language: setLanguageError,
-        yearOfBirth: setYearOfBirthError,
+        yearOfBirthRange: setYearOfBirthRangeError,
         province: setProvinceError,
         disabilityDetails: setDisabilityError,
         agreeToConditions: setAgreeToConditionsError,
@@ -328,6 +340,8 @@ export default function Signup(props) {
         // likewise with province its province choice
         else if (errors[error].id === "province") {
           errors[error].id = "province-choice";
+        } else if (errors[error].id === "yearOfBirthRange") {
+          errors[error].id = "yearOfBirthRange-choice";
         }
         errorsList.push(errors[error]);
       }
@@ -518,21 +532,23 @@ export default function Signup(props) {
                 required
                 exclude
               />
-              <TextField
-                className="mb-10"
-                type="number"
+              <SelectField
                 label={t("formYear")}
-                name="yearOfBirth"
-                id="yearOfBirth"
-                error={yearOfBirthError}
-                value={yearOfBirth}
-                min={0}
-                max={new Date().getFullYear()}
-                step={1}
-                onChange={setYearOfBirth}
-                boldLabel={true}
-                describedby="yearOfBirthDoNoInclude"
-                required
+                className="mb-10"
+                id="yearOfBirthRange"
+                boldLabel
+                ignoreSort
+                name="yearOfBirthRange"
+                value={yearOfBirthRange}
+                error={yearOfBirthRangeError}
+                options={yearOptions.map((value) => {
+                  return {
+                    id: value.id,
+                    name: value.value,
+                    value: value.id,
+                  };
+                })}
+                onChange={setYearOfBirthRange}
               />
               <fieldset className="mb-6">
                 <legend className="block leading-tight text-sm font-body mb-5 lg:text-p font-bold">
