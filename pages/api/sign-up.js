@@ -12,7 +12,7 @@ async function handler(req, res) {
   // this route only accepts a POST method
   if (req.method === "POST") {
     let data = req.body;
-    data.yearOfBirth = convertYearOfBirth(data.yearOfBirth);
+    data.yearOfBirthRange = convertYearOfBirth(data.yearOfBirthRange);
     const conn = await connectToDatabase(
       process.env.MONGO_URL,
       process.env.MONGO_DB
@@ -26,9 +26,11 @@ async function handler(req, res) {
     // no need to check if a user already exists with the same email
     // if they do then the insert will fail
     try {
-      let extraData = { ...data };
+      const yearOfBirth = "";
+      let extraData = { yearOfBirth, ...data };
       origin = req.headers.origin;
       delete extraData.email;
+
       userCreationObj = await createUser(conn.db, data.email, extraData);
       userCuid = userCreationObj.ops[0].cuid;
     } catch (e) {

@@ -69,7 +69,7 @@ export default function Signup(props) {
         });
         return errors;
       }),
-    yearOfBirth: Joi.string()
+    yearOfBirthRange: Joi.string()
       .invalid(yearOptions[0].id)
       .required()
       .error((errors) => {
@@ -169,8 +169,8 @@ export default function Signup(props) {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
 
-  const [yearOfBirth, setYearOfBirth] = useState("");
-  const [yearOfBirthError, setYearOfBirthError] = useState("");
+  const [yearOfBirthRange, setYearOfBirthRange] = useState("");
+  const [yearOfBirthRangeError, setYearOfBirthRangeError] = useState("");
 
   const [language, setLanguage] = useState("");
   const [languageError, setLanguageError] = useState("");
@@ -221,13 +221,13 @@ export default function Signup(props) {
     e.preventDefault();
     setEmailError("");
     setLanguageError("");
-    setYearOfBirthError("");
+    setYearOfBirthRangeError("");
     setProvinceError("");
     setDisabilityError("");
     setAgreeToConditionsError("");
 
     setEmail("");
-    setYearOfBirth("");
+    setYearOfBirthRange("");
     setLanguage("");
     setGender("");
     setGenderOtherDetails("");
@@ -246,7 +246,7 @@ export default function Signup(props) {
     // clear out error values
     await setEmailError("");
     await setLanguageError("");
-    await setYearOfBirthError("");
+    await setYearOfBirthRangeError("");
     await setProvinceError("");
     await setDisabilityError("");
     await setAgreeToConditionsError("");
@@ -256,7 +256,7 @@ export default function Signup(props) {
     // compile data into one object
     const formData = {
       email,
-      yearOfBirth,
+      yearOfBirthRange,
       language,
       province,
       gender,
@@ -293,7 +293,7 @@ export default function Signup(props) {
       const errorSetFunctions = {
         email: setEmailError,
         language: setLanguageError,
-        yearOfBirth: setYearOfBirthError,
+        yearOfBirthRange: setYearOfBirthRangeError,
         province: setProvinceError,
         disabilityDetails: setDisabilityError,
         agreeToConditions: setAgreeToConditionsError,
@@ -340,6 +340,8 @@ export default function Signup(props) {
         // likewise with province its province choice
         else if (errors[error].id === "province") {
           errors[error].id = "province-choice";
+        } else if (errors[error].id === "yearOfBirthRange") {
+          errors[error].id = "yearOfBirthRange-choice";
         }
         errorsList.push(errors[error]);
       }
@@ -533,12 +535,12 @@ export default function Signup(props) {
               <SelectField
                 label={t("formYear")}
                 className="mb-10"
-                id="yearOfBirth"
+                id="yearOfBirthRange"
                 boldLabel
                 ignoreSort
-                name="yearOfBirth"
-                value={yearOfBirth}
-                error={yearOfBirthError}
+                name="yearOfBirthRange"
+                value={yearOfBirthRange}
+                error={yearOfBirthRangeError}
                 options={yearOptions.map((value) => {
                   return {
                     id: value.id,
@@ -546,7 +548,7 @@ export default function Signup(props) {
                     value: value.id,
                   };
                 })}
-                onChange={setYearOfBirth}
+                onChange={setYearOfBirthRange}
               />
               <fieldset className="mb-6">
                 <legend className="block leading-tight text-sm font-body mb-5 lg:text-p font-bold">
