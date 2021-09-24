@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+## [v1.1.1] - 2021-09-24
+
 ## Changed
 
 - Changed year of birth field on signup form to a dropdown of year ranges
