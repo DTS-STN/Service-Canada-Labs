@@ -1,3 +1,4 @@
+import { submitEmail } from "../../lib/notify/submitEmail";
 import { createUser } from "../../lib/users/createUser";
 import { connectToDatabase } from "../../lib/mongodb/connect";
 import Joi from "joi";
