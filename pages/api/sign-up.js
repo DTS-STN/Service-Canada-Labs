@@ -1,4 +1,3 @@
-import { submitEmail } from "../../lib/notify/submitEmail";
 import { createUser } from "../../lib/users/createUser";
 import { connectToDatabase } from "../../lib/mongodb/connect";
 import Joi from "joi";
@@ -13,6 +12,7 @@ async function handler(req, res) {
   // this route only accepts a POST method
   if (req.method === "POST") {
     let data = req.body;
+    data.yearOfBirth = convertYearOfBirth(data.yearOfBirth);
     const conn = await connectToDatabase(
       process.env.MONGO_URL,
       process.env.MONGO_DB
@@ -44,7 +44,7 @@ async function handler(req, res) {
       });
     }
 
-    // attempt to send validation email through notify
+    //attempt to send validation email through notify
     try {
       const validationUrl =
         origin + `/api/validate?id=${userCuid}&lang=${data.language}`;
@@ -101,3 +101,12 @@ export default validate(schema, handler, {
   abortEarly: false,
   allowUnknown: true,
 });
+
+function convertYearOfBirth(yearRange) {
+  const years = yearRange.split("-");
+  let allYears = [];
+  for (let i = parseInt(years[0]); i <= parseInt(years[1]); i++) {
+    allYears.push(i);
+  }
+  return allYears;
+}

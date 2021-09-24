@@ -266,5 +266,7 @@
   "officialSiteNavigation": "Site officiel de Canada.ca",
   "languageSelection": "Sélection de la langue",
   "aboutGovernment": "Au sujet du gouvernement",
-  "aboutThisSite": "À propos de ce site"
+  "aboutThisSite": "À propos de ce site",
+  "before": "Avant",
+  "after": "Après"
 }
