@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+## Changed
+
+- Updated French path in French language
+
 ## [v1.1.0] - 2021-09-22
 
 ## Added
@@ -36,7 +40,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Changed Digital Center URL from 'projects/digital-center' to 'projects/digital-centre'
 - Updated breadcrumbs on the privacy page
 - Updated project status label colours
-- Updated French path in French language
 
 ## [v1.0.6] - 2021-08-13
 
