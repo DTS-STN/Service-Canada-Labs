@@ -43,13 +43,13 @@ export function Menu(props) {
           onClick={() => setShowMenu(!showMenu)}
           className={`${
             showMenu ? "" : "hidden"
-          } sr-only text-h2 font-body flex text-canada-footer-font outline-none focus:not-sr-only focus:outline-black-solid lg:invisible`}
+          } sr-only mb-4 text-canada-footer-font outline-none focus:not-sr-only focus:outline-black-solid lg:invisible`}
           aria-expanded={showMenu}
           aria-controls="menuDropdown"
           aria-label="Close the expanded menu options"
           data-testid="menuCloseButton"
         >
-          &times;
+          <img src="/close-x.svg" alt={props.srCloseBtnText}></img>
         </button>
       </div>
 
@@ -101,6 +101,11 @@ Menu.propTypes = {
    * text for sign up button
    */
   signUpText: PropTypes.string.isRequired,
+
+  /**
+   * Alt text for Sr only close Btn
+   */
+  srCloseBtnText: PropTypes.string,
 
   /**
    * Array of Items for the menu

@@ -108,6 +108,7 @@ export const Layout = ({
           <Menu
             menuButtonTitle={t("menuTitle")}
             signUpText={t("signupBtn")}
+            srCloseBtnText={t("srCloseBtn")}
             items={[
               {
                 link: "/projects",
