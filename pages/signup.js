@@ -538,6 +538,7 @@ export default function Signup(props) {
                 id="yearOfBirthRange"
                 boldLabel
                 ignoreSort
+                required
                 name="yearOfBirthRange"
                 value={yearOfBirthRange}
                 error={yearOfBirthRangeError}

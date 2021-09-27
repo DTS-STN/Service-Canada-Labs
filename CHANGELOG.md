@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+## Fixed
+
+- Fix the year of birth question on signup for to indicate it's a required field
+
 ## [v1.1.1] - 2021-09-24
 
 ## Changed
