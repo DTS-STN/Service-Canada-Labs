@@ -110,7 +110,7 @@ export default function Projects(props) {
           <h1 id="pageMainTitle" tabIndex="-1" className="flex-wrap mb-10">
             {t("projectsTitle")}
           </h1>
-          <p>{t("projectsText")}</p>
+          <p className="whitespace-pre-line">{t("projectsText")}</p>
           <Filter
             label={t("filterBy")}
             options={filters}
@@ -141,7 +141,11 @@ export default function Projects(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  const res = await fetch(`${process.env.STRAPI_API_BACKEND_URL}/experiments`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_STRAPI_API_BACKEND_URL}/experiments`
+  ).catch((e) => {
+    console.error(e);
+  });
   const data = await res.json();
 
   const filters = Object.values(
@@ -166,7 +170,7 @@ export const getStaticProps = async ({ locale }) => {
     )
   );
 
-  const returnObj = process.env.ISR_ENABLED
+  return process.env.NEXT_PUBLIC_ISR_ENABLED
     ? {
         props: {
           locale: locale,
@@ -184,6 +188,4 @@ export const getStaticProps = async ({ locale }) => {
           filters,
         },
       };
-
-  return returnObj;
 };

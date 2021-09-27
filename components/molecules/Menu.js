@@ -75,7 +75,11 @@ export function Menu(props) {
               <Link href={item.link}>
                 <a
                   className={`font-body text-base ${
-                    includesURL ? "activePage" : "menuLink underline"
+                    includesURL
+                      ? router.pathname !== "/signup/privacy"
+                        ? "activePage"
+                        : "menuLink underline"
+                      : "menuLink underline"
                   }`}
                 >
                   {item.text}

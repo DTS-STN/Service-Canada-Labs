@@ -35,18 +35,7 @@ describe("signup page", () => {
 
   it("Validates that an email is entered in the email field", () => {
     cy.get('[id="email"]').type("not an email");
-    cy.get('[id="yearOfBirth"]').type("1990");
-    cy.get('[id="languageEn"]').click();
-    cy.get('[id="agreeToConditions"]').click();
-    cy.get('[data-cy="signup-submit"]').click();
-
-    cy.get('[data-cy="error-box"').should("exist");
-    cy.get('[data-cy="error-box-items"').children().should("have.length", 1);
-  });
-
-  it("Validates year of birth is a number", () => {
-    cy.get('[id="email"]').type("some@email.com");
-    cy.get('[id="yearOfBirth"]').type("abc");
+    cy.get('[id="yearOfBirthRange-choice"]').select("before1936");
     cy.get('[id="languageEn"]').click();
     cy.get('[id="agreeToConditions"]').click();
     cy.get('[data-cy="signup-submit"]').click();
@@ -57,9 +46,7 @@ describe("signup page", () => {
 
   it("Validates age of user is greater or equal to 18", () => {
     cy.get('[id="email"]').type("some@email.com");
-    cy.get('[id="yearOfBirth"]').type(
-      (new Date().getFullYear() - 10).toString()
-    );
+    cy.get('[id="yearOfBirthRange-choice"]').select("after2003");
     cy.get('[id="languageEn"]').click();
     cy.get('[id="agreeToConditions"]').click();
     cy.get('[data-cy="signup-submit"]').click();
@@ -70,7 +57,7 @@ describe("signup page", () => {
 
   it("Validates disability field is required if yes is selected", () => {
     cy.get('[id="email"]').type("some@email.com");
-    cy.get('[id="yearOfBirth"]').type("1990");
+    cy.get('[id="yearOfBirthRange-choice"]').select("before1936");
     cy.get('[id="languageEn"]').click();
     cy.get('[id="agreeToConditions"]').click();
     cy.get('[data-cy="btn-disability-yes"').click();
@@ -83,7 +70,7 @@ describe("signup page", () => {
 
   it("Validates disability field is not required after yes has been unselected (selected no)", () => {
     cy.get('[id="email"]').type("some@email.com");
-    cy.get('[id="yearOfBirth"]').type("1990");
+    cy.get('[id="yearOfBirthRange-choice"]').select("before1936");
     cy.get('[data-cy="btn-disability-yes"').click();
     cy.get('[data-cy="btn-disability-no"').click();
     cy.get('[data-cy="signup-submit"]').click();
@@ -114,7 +101,7 @@ describe("signup page", () => {
     });
 
     cy.get('[id="email"]').type("some@email.com");
-    cy.get('[id="yearOfBirth"]').type("1990");
+    cy.get('[id="yearOfBirthRange-choice"]').select("before1936");
     cy.get('[id="languageEn"]').click();
     cy.get('[id="agreeToConditions"]').click();
     cy.get('[data-cy="signup-submit"]').click();

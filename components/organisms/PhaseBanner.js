@@ -73,6 +73,11 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
     } else {
       setFeedbackError(error.message);
     }
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -120,7 +125,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                     showFeedback ? "text-sm" : "text-p"
                   } leading-7 lg:leading-5`}
                   dangerouslySetInnerHTML={{
-                    __html: showFeedback ? "&#9660;" : "&#9656;",
+                    __html: showFeedback ? "&#9660;" : "&#11208;",
                   }}
                 />
                 <strong className="mt-2 lg:mt-0 ml-2 group-hover:underline">

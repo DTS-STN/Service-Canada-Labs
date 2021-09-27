@@ -21,13 +21,27 @@ export function ReportAProblem(props) {
     // create URLSearchParams object from FormData object
     // this will be used to create url encoded string of names and values of the form fields
     const urlEncoded = new URLSearchParams(formData);
+    let urlString = urlEncoded.toString();
+    //Replace the values with yes for GCNotify
+    let values = [
+      "Incorrect+Information",
+      "Unclear+Information",
+      "You+didn%E2%80%99t+find+what+you+were+looking+for",
+      "Page+does+not+work+with+your+adaptive+technologies",
+      "You%E2%80%99re+worried+about+your+privacy",
+      "You+don%E2%80%99t+know+where+else+to+go+for+help",
+      "Other",
+    ];
+    for (const value of values) {
+      urlString = urlString.replace(value, "yes");
+    }
     // call report a problem API route
     fetch("/api/report-a-problem", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
       },
-      body: urlEncoded.toString(),
+      body: urlString,
     }).catch((e) => {
       // handle error if fetch fails
       // fetch only fails if there is no internet connection not for the actual
@@ -135,7 +149,7 @@ export function ReportAProblem(props) {
                 describedby="incorrectInformation"
                 OptionalTextField
                 checkBoxStyle="mb-4 inline-block"
-                controlValue="yes"
+                controlValue="Incorrect Information"
               />
               <OptionalTextField
                 controlId="unclearInformationCheckBox"
@@ -159,7 +173,7 @@ export function ReportAProblem(props) {
                 textFieldDataCy="unclearInformation-text"
                 describedby="unclearInformation"
                 checkBoxStyle="mb-4 inline-block"
-                controlValue="yes"
+                controlValue="Unclear Information"
               />
               <OptionalTextField
                 controlId="infoNotFoundCheckBox"
@@ -183,7 +197,7 @@ export function ReportAProblem(props) {
                 textFieldDataCy="infoNotFound-text"
                 describedby="infoNotFound"
                 checkBoxStyle="lg:mb-8 mb-4 inline-block"
-                controlValue="yes"
+                controlValue="You didn’t find what you were looking for"
               />
               <OptionalTextField
                 controlId="adaptiveTechnologyCheckBox"
@@ -208,7 +222,7 @@ export function ReportAProblem(props) {
                 textFieldDataCy="adaptiveTechnology-text"
                 describedby="adaptiveTechnology"
                 checkBoxStyle="mb-8 inline-block"
-                controlValue="yes"
+                controlValue="Page does not work with your adaptive technologies"
               />
               <OptionalTextField
                 controlId="privacyIssuesCheckBox"
@@ -232,7 +246,7 @@ export function ReportAProblem(props) {
                 textFieldDataCy="privacyIssues-text"
                 describedby="privacyIssues"
                 checkBoxStyle="mb-4 inline-block"
-                controlValue="yes"
+                controlValue="You’re worried about your privacy"
               />
               <OptionalTextField
                 controlId="noWhereElseToGoCheckBox"
@@ -256,7 +270,7 @@ export function ReportAProblem(props) {
                 textFieldDataCy="noWhereElseToGo-text"
                 describedby="noWhereElseToGo"
                 checkBoxStyle="lg:mb-8 mb-4 inline-block"
-                controlValue="yes"
+                controlValue="You don’t know where else to go for help"
               />
               <OptionalTextField
                 controlId="otherCheckBox"
@@ -278,7 +292,7 @@ export function ReportAProblem(props) {
                 textFieldDataCy="other-text"
                 describedby="other"
                 checkBoxStyle="mb-4"
-                controlValue="yes"
+                controlValue="Other"
               />
             </fieldset>
             <ActionButton
