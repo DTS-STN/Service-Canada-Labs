@@ -49,7 +49,7 @@ export function Menu(props) {
           aria-label="Close the expanded menu options"
           data-testid="menuCloseButton"
         >
-          <img src="/close-x.svg" alt={props.srCloseBtnText}></img>
+          <img src="/close-x.svg" alt="Close button"></img>
         </button>
       </div>
 
@@ -101,11 +101,6 @@ Menu.propTypes = {
    * text for sign up button
    */
   signUpText: PropTypes.string.isRequired,
-
-  /**
-   * Alt text for Sr only close Btn
-   */
-  srCloseBtnText: PropTypes.string,
 
   /**
    * Array of Items for the menu

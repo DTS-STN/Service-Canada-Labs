@@ -163,13 +163,13 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                   onClick={() => setShowFeedback(!showFeedback)}
                   className="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
                   data-testid="closeButton"
+                  aria-label="Close the expanded feedback section"
                 >
-                  <span
-                    id="close"
-                    className="text-h2 lg:text-h1 leading-4 lg:leading-10"
-                  >
-                    &times;
-                  </span>
+                  <img
+                    src="/close-x-white.svg"
+                    alt="Close button"
+                    className="mt-0.5 lg:mt-4 ml-2"
+                  />
                   <span className="text-xs leading-4 lg:text-sm underline ml-1 lg:ml-2 lg:leading-10">
                     {t("close")}
                   </span>
@@ -193,12 +193,11 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                   className="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
                   data-testid="closeButton"
                 >
-                  <span
-                    id="close"
-                    className="text-h3 lg:text-h2 leading-4 lg:leading-10"
-                  >
-                    &times;
-                  </span>
+                  <img
+                    src="/close-x-white.svg"
+                    alt="Close button"
+                    className="mt-0.5 lg:mt-4 ml-2"
+                  />
                   <span className="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10">
                     {t("close")}
                   </span>
