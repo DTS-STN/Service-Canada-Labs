@@ -120,7 +120,7 @@
   "signupTitle": "Sign up to get invited to research sessions (Step 1 of 3)",
   "signupP1": "Get invited to test our experimental ideas and participate in research interviews to make government services better for everyone. Every bit of feedback helps us make sure we’re making our services simple and easy to use.",
   "signupList1": "* Meet virtually with a member of our team to test an early version of a service * Meet virtually with a member of our team to answer questions about your experience with government services",
-  "signupP1.1": "You can try out the projects and give anonymous feedback without signing up to be a participant. If you want to be more involved, you can fill out our participant form below to be invited to research sessions.",
+  "signupP1.1": "You can try out the projects and give anonymous feedback without signing up to be a participant. If you want to be more involved, you can fill out our participant form below to be invited to research sessions. You must be at least 18 years old to sign up.",
   "signupTitle2": "Privacy policy",
   "signupList2": "* Your information will not be used for any decision-making process that affects your access to Government of Canada services. Your personal information will not be used for any administrative purposes * Your participation is completely voluntary. You can withdraw your participation and personal information from our list at any time with no impact on your access to government services or benefits * Your personal information and feedback is confidential * Your information will be used by Employment and Social Development Canada for policy analysis, research, and evaluation purposes",
   "signupTitle3": "What we will collect",
@@ -237,7 +237,7 @@
   "pleaseCheckYourEmail": "Please check your emails (Step 2 of 3)",
   "unsubscribeConfirmation": "Please click the confirmation link in the email within 24 hours to finish unsubscribing.",
   "projectsTitle": "Explore our projects",
-  "projectsText": "Upcoming projects provide some initial information about our new ideas, so that you can see what we’re working on. Current projects include interactive prototypes, so that you can explore and test them out. You will soon be able to provide anonymous feedback on prototypes.\n\nYou can sign up to get invited to research sessions.",
+  "projectsText": "Upcoming projects provide some initial information about our new ideas, so that you can see what we’re working on. Current projects are interactive, so that you can explore and test them out.\n\nYou will soon be able to provide anonymous feedback on current projects.\n\nYou can sign up to get invited to research sessions.",
   "withdraw": "How to withdraw your information",
   "privacyWithdraw": "If you have previously signed up to become a participant and no longer wish to be contacted for future research studies, you can ",
   "privacyWithdraw2": " yourself from the participant list and we will remove your personal information.",
@@ -268,5 +268,6 @@
   "aboutGovernment": "About government",
   "aboutThisSite": "About this site",
   "before": "Before",
-  "after": "After"
+  "after": "After",
+  "contactUsResponse": "You will receive a response within 3-5 business days from Monday to Friday, except holidays."
 }

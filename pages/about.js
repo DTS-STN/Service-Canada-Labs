@@ -78,7 +78,7 @@ export default function About(props) {
         </section>
         <section className="layout-container" id="contact-us">
           <h2 className="mb-5 pt-10 text-h1l">{t("contactUsHeading")}</h2>
-          <p className="mb-12 mt-10 xl:w-2/3">
+          <p className="mb-8 mt-10 xl:w-2/3">
             {t("getInTouch")}&nbsp;
             <a
               className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font break-words"
@@ -88,6 +88,7 @@ export default function About(props) {
             </a>
             .
           </p>
+          <p className="mb-12 xl:w-2/3">{t("contactUsResponse")}</p>
         </section>
         <CallToAction
           title={t("signupTitleCallToAction")}
