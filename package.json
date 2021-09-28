@@ -1,6 +1,6 @@
 {
   "name": "service-canada-labs",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "private": true,
   "dependencies": {
     "@tailwindcss/typography": "^0.4.1",
@@ -12,7 +12,7 @@
     "json2csv": "^5.0.6",
     "mongodb": "^3.7.0",
     "next": "11.1.2",
-    "next-i18next": "^8.5.5",
+    "next-i18next": "^8.7.0",
     "react": "^17.0.2",
     "react-dom": "17.0.2"
   },

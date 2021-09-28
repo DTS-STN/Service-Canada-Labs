@@ -11,6 +11,18 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Updated French path in French language
 
+## [v1.1.2] - 2021-09-27
+
+## Fixed
+
+- Fix the year of birth question on signup for to indicate it's a required field
+
+## [v1.1.1] - 2021-09-24
+
+## Changed
+
+- Changed year of birth field on signup form to a dropdown of year ranges
+
 ## [v1.1.0] - 2021-09-22
 
 ## Added

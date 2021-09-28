@@ -11,10 +11,12 @@ export function SelectField(props) {
       }
     : {};
 
-  props.options.sort(function (a, b) {
-    var collator = new Intl.Collator("fr");
-    return collator.compare(a.name.toLowerCase(), b.name.toLowerCase());
-  });
+  if (!props.ignoreSort) {
+    props.options.sort(function (a, b) {
+      var collator = new Intl.Collator("fr");
+      return collator.compare(a.name.toLowerCase(), b.name.toLowerCase());
+    });
+  }
 
   return (
     <div
@@ -160,4 +162,9 @@ SelectField.propTypes = {
    * cypress tests selector
    */
   dataCy: PropTypes.string,
+
+  /**
+   * if true, skip sorting the options
+   */
+  ignoreSort: PropTypes.bool,
 };
