@@ -13,6 +13,7 @@ async function handler(req, res) {
   // this route only accepts a POST method
   if (req.method === "POST") {
     let data = req.body;
+    data.yearOfBirthRange = convertYearOfBirth(data.yearOfBirthRange);
     const conn = await connectToDatabase(
       process.env.MONGO_URL,
       process.env.MONGO_DB
@@ -26,9 +27,11 @@ async function handler(req, res) {
     // no need to check if a user already exists with the same email
     // if they do then the insert will fail
     try {
-      let extraData = { ...data };
+      const yearOfBirth = "";
+      let extraData = { yearOfBirth, ...data };
       origin = req.headers.origin;
       delete extraData.email;
+
       userCreationObj = await createUser(conn.db, data.email, extraData);
       userCuid = userCreationObj.ops[0].cuid;
     } catch (e) {
@@ -44,7 +47,7 @@ async function handler(req, res) {
       });
     }
 
-    // attempt to send validation email through notify
+    //attempt to send validation email through notify
     try {
       const validationUrl =
         origin + `/api/validate?id=${userCuid}&lang=${data.language}`;
@@ -101,3 +104,12 @@ export default validate(schema, handler, {
   abortEarly: false,
   allowUnknown: true,
 });
+
+function convertYearOfBirth(yearRange) {
+  const years = yearRange.split("-");
+  let allYears = [];
+  for (let i = parseInt(years[0]); i <= parseInt(years[1]); i++) {
+    allYears.push(i);
+  }
+  return allYears;
+}
