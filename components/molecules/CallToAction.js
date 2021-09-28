@@ -35,7 +35,7 @@ export function CallToAction(props) {
                 />
               </p>
               <p>
-                <Link href="/signup/privacy">
+                <Link href={t("privacyRedirect")} locale={props.lang}>
                   <a className="text-sm underline flex xl:inline lg:mr-10">
                     {t("privacyLinkText")}
                   </a>

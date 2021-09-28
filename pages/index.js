@@ -71,7 +71,7 @@ export default function Index(props) {
                 id="french-button"
                 text="Français"
                 className="text-center w-7.5rem xl:w-138px text-sm py-3.5 rounded leading-3"
-                href="/fr/home"
+                href="/fr/accueil"
                 lang="fr"
               />
             </div>

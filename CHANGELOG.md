@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+## Changed
+
+- Updated French path in French language
+
 ## [v1.1.2] - 2021-09-27
 
 ## Fixed

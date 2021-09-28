@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 export default function Confirmation(props) {
   const { t } = useTranslation("common");
-  const { asPath, query } = useRouter();
+  const { query } = useRouter();
   const maskedEmail = String(query.e);
   const referrer = query.ref || "";
 
@@ -22,7 +22,7 @@ export default function Confirmation(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={asPath}
+        langUrl={t("thankyouPath")}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}
