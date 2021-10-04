@@ -240,6 +240,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                   className="text-xs lg:text-sm font-body font-bold"
                 >
                   {t("doBetter")}
+                  <span className="text-gray-md"> {t("required")}</span>
                 </label>
                 <p className="text-xs lg:text-sm my-2">{t("doNotInclude")}</p>
                 <p className="text-xs lg:text-sm my-2">{t("maximum2000")}</p>
