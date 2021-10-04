@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "next-i18next";
 import { ActionButton } from "../atoms/ActionButton";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Joi from "joi";
 import { ErrorLabel } from "../atoms/ErrorLabel";
 
@@ -15,6 +15,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
   const [showFeedback, setShowFeedback] = useState(false);
   const { t } = useTranslation("common");
   const [response, setResponse] = useState(t("thankYouFeedback"));
+  const toggle = useRef("Collapsed");
 
   // Joi form validation schema.
   const formSchema = Joi.object({
@@ -37,6 +38,17 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
 
   const [feedback, setFeedback] = useState("");
   const [feedbackError, setFeedbackError] = useState("");
+
+  let toggleSummary = async (e) => {
+    if (showFeedback) {
+      toggle.current = "Collapsed";
+    } else {
+      toggle.current = "Expanded";
+    }
+
+    srSpeak(toggle.current);
+    setShowFeedback(!showFeedback);
+  };
 
   let onSubmitHandler = async (e) => {
     // prevent default behaviour of form
@@ -72,6 +84,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
       setSubmitted(true);
     } else {
       setFeedbackError(error.message);
+      srSpeak(error.message);
     }
 
     window.scrollTo({
@@ -79,6 +92,23 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
       behavior: "smooth",
     });
   };
+
+  function srSpeak(text, priority) {
+    var el = document.createElement("div");
+    var id = "speak-" + Date.now();
+    el.setAttribute("id", id);
+    el.setAttribute("aria-live", priority || "polite");
+    el.classList.add("sr-only");
+    document.body.appendChild(el);
+
+    window.setTimeout(function () {
+      document.getElementById(id).innerHTML = text;
+    }, 100);
+
+    window.setTimeout(function () {
+      document.body.removeChild(document.getElementById(id));
+    }, 1000);
+  }
 
   return (
     <>
@@ -115,7 +145,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
             {feedbackActive ? (
               <button
                 id="feedbackButton"
-                onClick={() => setShowFeedback(!showFeedback)}
+                onClick={toggleSummary}
                 className="group outline-none focus:outline-white-solid bg-circle-color font-body text-xs lg:text-sm text-white flex text-left lg:ml-4 my-2 lg:my-0"
                 data-testid="feedbackButton"
               >
@@ -130,6 +160,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                 />
                 <strong className="mt-2 lg:mt-0 ml-2 group-hover:underline">
                   {t("giveFeedback")}
+                  <span className="sr-only"> {toggle.current}</span>
                 </strong>
               </button>
             ) : (
@@ -160,7 +191,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                 </span>
                 <button
                   id="feedbackClose"
-                  onClick={() => setShowFeedback(!showFeedback)}
+                  onClick={toggleSummary}
                   className="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
                   data-testid="closeButton"
                 >
@@ -183,27 +214,25 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
             ""
           ) : (
             <div className="layout-container text-white pb-4">
-              <div className="flex justify-between pt-4">
-                <h2 className="text-h4 lg:text-h3 lg:text-sm font-display mt-2 mb-4 w-48 sm:w-auto">
-                  {t("improveService")}
-                </h2>
-                <button
-                  id="feedbackClose"
-                  onClick={() => setShowFeedback(!showFeedback)}
-                  className="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
-                  data-testid="closeButton"
+              <button
+                id="feedbackClose"
+                onClick={toggleSummary}
+                className="flex float-right pt-4 font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
+                data-testid="closeButton"
+              >
+                <span
+                  id="close"
+                  className="text-h3 lg:text-h2 leading-4 lg:leading-10"
                 >
-                  <span
-                    id="close"
-                    className="text-h3 lg:text-h2 leading-4 lg:leading-10"
-                  >
-                    &times;
-                  </span>
-                  <span className="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10">
-                    {t("close")}
-                  </span>
-                </button>
-              </div>
+                  &times;
+                </span>
+                <span className="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10">
+                  {t("close")}
+                </span>
+              </button>
+              <h2 className="text-h4 lg:text-h3 lg:text-sm font-display pt-6 mb-4 w-48 sm:w-auto">
+                {t("improveService")}
+              </h2>
               <ul className="list-outside list-disc px-6 py-2">
                 <li className="text-xs lg:text-sm font-body mb-4">
                   <strong>{t("reportAProblemNoReply")}</strong>{" "}
@@ -242,8 +271,10 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                   {t("doBetter")}
                   <span className="text-gray-md"> {t("required")}</span>
                 </label>
-                <p className="text-xs lg:text-sm my-2">{t("doNotInclude")}</p>
-                <p className="text-xs lg:text-sm my-2">{t("maximum2000")}</p>
+                <div id="feedbackInfo">
+                  <p className="text-xs lg:text-sm my-2">{t("doNotInclude")}</p>
+                  <p className="text-xs lg:text-sm my-2">{t("maximum2000")}</p>
+                </div>
                 {feedbackError ? (
                   <ErrorLabel
                     message={feedbackError}
@@ -251,6 +282,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                   />
                 ) : undefined}
                 <textarea
+                  aria-describedby="feedbackInfo"
                   id="feedbackTextArea"
                   name="feedbackTextArea"
                   maxLength="2000"
