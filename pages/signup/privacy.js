@@ -2,14 +2,12 @@ import { Layout } from "../../components/organisms/Layout";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
 import { HTMList } from "../../components/atoms/HTMList";
 import { CallToAction } from "../../components/molecules/CallToAction";
 import { useEffect } from "react";
 
 export default function Privacy(props) {
   const { t } = useTranslation("common");
-  const { asPath } = useRouter();
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -22,7 +20,7 @@ export default function Privacy(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={asPath}
+        langUrl={t("privacyPath")}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("signupHomeButton"), link: t("breadCrumbsHref3") },
@@ -104,9 +102,7 @@ export default function Privacy(props) {
             <p className="mb-8">
               {t("privacyWithdraw")}
               <a
-                href={
-                  props.locale === "en" ? "/unsubscribe" : "/fr/unsubscribe"
-                }
+                href={t("unsubRedirect")}
                 className="text-custom-blue-link underline"
               >
                 {t("unsubscribeWord")}
@@ -164,7 +160,7 @@ export default function Privacy(props) {
         <CallToAction
           title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
-          href={"/signup"}
+          href={t("signupRedirect")}
           hrefText={t("signupBtn")}
         />
       </Layout>

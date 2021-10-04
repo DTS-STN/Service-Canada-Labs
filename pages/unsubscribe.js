@@ -15,7 +15,7 @@ import { useEffect } from "react";
 
 export default function Unsubscribe(props) {
   const { t } = useTranslation("common");
-  const { asPath, push } = useRouter();
+  const { push } = useRouter();
 
   // Joi form validation schema. Only required fields are validated
   const formSchema = Joi.object({
@@ -175,7 +175,7 @@ export default function Unsubscribe(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={asPath}
+        langUrl={t("unsubPath")}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}

@@ -4,14 +4,12 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
 import { Experiment } from "../components/molecules/Experiment";
-import { useRouter } from "next/router";
 import { Filter } from "../components/molecules/Filter";
 import { CallToAction } from "../components/molecules/CallToAction";
 import { useEffect } from "react";
 
 export default function Projects(props) {
   const { t } = useTranslation("common");
-  const { asPath } = useRouter();
   const [filter, setFilter] = useState("all");
   const [filteredExperiments, setFilteredExperiments] = useState(
     props.experimentData
@@ -77,7 +75,7 @@ export default function Projects(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={asPath}
+        langUrl={t("projectPath")}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}
@@ -127,7 +125,8 @@ export default function Projects(props) {
         <CallToAction
           title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
-          href={"/signup"}
+          lang={props.locale}
+          href={t("signupRedirect")}
           hrefText={t("signupBtn")}
         />
       </Layout>
