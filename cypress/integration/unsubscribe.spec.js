@@ -19,7 +19,7 @@ describe("unsubscribe page", () => {
 
   it("Adds subpath for french pages", () => {
     cy.get('[data-cy="toggle-language-link"]').click();
-    cy.url().should("eq", "http://localhost:3000/fr/unsubscribe");
+    cy.url().should("eq", "http://localhost:3000/fr/desabonnement");
   });
 
   it("Fails to submit with no input", () => {
@@ -47,6 +47,20 @@ describe("unsubscribe page", () => {
 
     cy.get('[id="email"]').type("some@email.com");
     cy.get('[data-cy="unsubscribe-submit"]').click();
-    cy.url().should("contains", "/thankyou?e=s***%40****l.***&ref=unsubscribe");
+    cy.get('[data-cy="toggle-language-link"]').then(($el) => {
+      const text = $el.text();
+      if (text === "English") {
+        cy.url().should(
+          "contains",
+          "/merci?e=s***%40****l.***&ref=unsubscribe"
+        );
+      }
+      if (text === "Français") {
+        cy.url().should(
+          "contains",
+          "/thankyou?e=s***%40****l.***&ref=unsubscribe"
+        );
+      }
+    });
   });
 });

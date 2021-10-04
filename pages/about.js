@@ -2,14 +2,12 @@ import { Layout } from "../components/organisms/Layout";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
 import { List } from "../components/molecules/List";
 import { CallToAction } from "../components/molecules/CallToAction";
 import { useEffect } from "react";
 
 export default function About(props) {
   const { t } = useTranslation("common");
-  const { asPath } = useRouter();
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -22,7 +20,7 @@ export default function About(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={asPath}
+        langUrl={t("aboutPath")}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}
@@ -78,7 +76,7 @@ export default function About(props) {
         </section>
         <section className="layout-container" id="contact-us">
           <h2 className="mb-5 pt-10 text-h1l">{t("contactUsHeading")}</h2>
-          <p className="mb-12 mt-10 xl:w-2/3">
+          <p className="mb-8 mt-10 xl:w-2/3">
             {t("getInTouch")}&nbsp;
             <a
               className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font break-words"
@@ -88,11 +86,13 @@ export default function About(props) {
             </a>
             .
           </p>
+          <p className="mb-12 xl:w-2/3">{t("contactUsResponse")}</p>
         </section>
         <CallToAction
           title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
-          href={"/signup"}
+          lang={props.locale}
+          href={t("signupRedirect")}
           hrefText={t("signupBtn")}
         />
       </Layout>

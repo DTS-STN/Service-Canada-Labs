@@ -107,15 +107,15 @@ export const Layout = ({
             signUpText={t("signupBtn")}
             items={[
               {
-                link: "/projects",
+                link: t("projectRedirect"),
                 text: t("menuLink1"),
               },
               {
-                link: "/about",
+                link: t("aboutRedirect"),
                 text: t("menuLink2"),
               },
               {
-                link: "/signup",
+                link: t("signupRedirect"),
                 text: t("signupLink"),
               },
             ]}

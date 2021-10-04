@@ -18,6 +18,7 @@ import { SelectField } from "../components/atoms/SelectField";
 import { CheckBox } from "../components/atoms/CheckBox";
 import { OptionalListField } from "../components/molecules/OptionalListField";
 import { maskEmail } from "../lib/utils/maskEmail";
+import Link from "next/link";
 
 // TODO
 //  - fix bug with error messages not showing custom error message [x]
@@ -27,7 +28,7 @@ import { maskEmail } from "../lib/utils/maskEmail";
 //  - write cypress tests
 export default function Signup(props) {
   const { t } = useTranslation("common");
-  const { asPath, push } = useRouter();
+  const { push } = useRouter();
   const fr = props.locale === "fr";
 
   // get the options for the year of birth ranges
@@ -412,7 +413,7 @@ export default function Signup(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={asPath}
+        langUrl={t("signupPath")}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}
@@ -478,12 +479,11 @@ export default function Signup(props) {
             />
 
             <p className="my-8 text-sm lg:text-p">{t("signupP3.1")}</p>
-            <a
-              className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5 text-sm lg:text-p"
-              href={t("privacyLink")}
-            >
-              {t("privacy")}
-            </a>
+            <Link href={t("privacyRedirect")} locale={props.locale}>
+              <a className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5 text-sm lg:text-p">
+                {t("privacy")}
+              </a>
+            </Link>
             <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle4")}</h2>
             <p
               className="my-8 text-sm lg:text-p"
@@ -1053,12 +1053,11 @@ export default function Signup(props) {
                 showRequiredLabel
               />
             </div>
-            <a
-              className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-10 text-sm lg:text-p"
-              href={t("privacyLink")}
-            >
-              {t("privacy")}
-            </a>
+            <Link href={t("privacyRedirect")} locale={props.locale}>
+              <a className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-10 text-sm lg:text-p">
+                {t("privacy")}
+              </a>
+            </Link>
             <ActionButton
               id="signup-submit"
               className="rounded w-72"
