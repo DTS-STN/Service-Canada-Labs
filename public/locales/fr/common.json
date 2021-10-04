@@ -120,7 +120,7 @@
   "signupTitle": "S’inscrire pour être invité aux séances de recherche (étape 1 sur 3)",
   "signupP1": "Recevez nos invitations à analyser minutieusement des idées expérimentales et à participer à des entretiens de recherche afin d’améliorer les services gouvernementaux au bénéfice de tous. Chaque commentaire nous aide à nous assurer que nos services sont simples et faciles à utiliser.",
   "signupList1": "* Rencontrez virtuellement un membre de notre équipe pour analyser une première version d’un service * Rencontrez virtuellement un membre de notre équipe pour répondre à des questions sur votre expérience des services publics",
-  "signupP1.1": "Vous pouvez analyser les projets et donner vos commentaires de façon anonyme sans vous inscrire pour être invité à participer aux séances avec notre équipe. Si vous souhaitez vous impliquer davantage, vous pouvez vous inscrire en remplissant notre formulaire ci-dessous.",
+  "signupP1.1": "Vous pouvez analyser les projets et donner vos commentaires de façon anonyme sans vous inscrire pour être invité à participer aux séances avec notre équipe. Si vous souhaitez vous impliquer davantage, vous pouvez vous inscrire pour être invité aux séances de recherche en remplissant notre formulaire ci-dessous. Vous devez être âgé de 18 ans ou plus pour vous inscrire.",
   "signupTitle2": "Politique en matière de protection des renseignements personnels",
   "signupList2": "* Vos renseignements personnels ne seront pas utilisés dans le cadre d’un processus décisionnel qui vous touche directement ou qui vous donne accès aux services du gouvernement du Canada. Vos renseignements ne seront pas utilisés à des fins administratives * Votre participation est volontaire. Vous pouvez retirer votre participation et vos renseignements personnels de notre liste à tout moment, sans aucune conséquence sur votre accès aux services ou prestations du gouvernement * Vos renseignements personnels et vos commentaires sont confidentiels * Vos renseignements seront utilisés par Emploi et Développement social Canada à des fins d’analyse des politiques, de recherche et d’évaluation",
   "signupTitle3": "Ce que nous allons recueillir",
@@ -236,7 +236,7 @@
   "toCheckEmail": "afin de vérifier et confirmer l’adresse de courrier électronique que vous nous avez fournie.",
   "pleaseCheckYourEmail": "Veuillez vérifier vos courriels (étape 2 sur 3)",
   "projectsTitle": "Explorer nos projets",
-  "projectsText": "Les projets à venir fournissent de l’information sur nos nouvelles idées, afin que vous puissiez nous faire part de vos commentaires pendant que nous les développons. Les projets en cours incluent des prototypes interactifs que vous pouvez explorer et essayer. Vous pourrez bientôt nous faire part de vos commentaires de façon anonyme.\n\nVous pouvez vous inscrire pour être invité aux séances de recherche.",
+  "projectsText": "Les projets à venir fournissent de l’information sur nos nouvelles idées, afin que vous puissiez nous faire part de vos commentaires pendant que nous les développons. Les projets en cours sont interactifs, vous pouvez les explorer et les essayer.\n\nVous pourrez bientôt nous faire part de vos commentaires sur les projets en cours de façon anonyme.\n\nVous pouvez vous inscrire pour être invité aux séances de recherche.",
   "unsubscribeConfirmation": "Veuillez cliquer sur le lien de confirmation qui se trouve dans le courriel dans les 24 prochaines heures pour finaliser votre désabonnement.",
   "withdraw": "Comment retirer vos informations",
   "privacyWithdraw": "Si vous vous êtes déjà inscrit pour participer et que vous ne souhaitez plus être contacté pour de futures recherches, vous pouvez ",
@@ -285,5 +285,6 @@
   "digitalCentrePath": "/projects/digital-centre",
   "digitalCentreRedirect": "/projets/centre-numerique",
   "before": "Avant",
-  "after": "Après"
+  "after": "Après",
+  "contactUsResponse": "Vous recevrez une réponse dans un délai de 3 à 5 jours ouvrables du lundi au vendredi, sauf les jours fériés."
 }
