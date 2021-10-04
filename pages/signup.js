@@ -502,7 +502,6 @@ export default function Signup(props) {
           ) : undefined}
           <form
             data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsSign-up"
-            data-gc-analytics-collect='[{"value":"input:not(.exclude),select","emptyField":"N/A"}]'
             onSubmit={handleSubmit}
             onReset={handlerClearData}
             noValidate
@@ -530,7 +529,6 @@ export default function Signup(props) {
                 boldLabel={true}
                 describedby="emailDoNoInclude"
                 required
-                exclude
               />
               <SelectField
                 label={t("formYear")}
