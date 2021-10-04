@@ -39,7 +39,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
   const [feedback, setFeedback] = useState("");
   const [feedbackError, setFeedbackError] = useState("");
 
-  let toggleSummary = async (e) => {
+  let toggleForm = async (e) => {
     if (showFeedback) {
       toggle.current = "Collapsed";
     } else {
@@ -145,7 +145,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
             {feedbackActive ? (
               <button
                 id="feedbackButton"
-                onClick={toggleSummary}
+                onClick={toggleForm}
                 className="group outline-none focus:outline-white-solid bg-circle-color font-body text-xs lg:text-sm text-white flex text-left lg:ml-4 my-2 lg:my-0"
                 data-testid="feedbackButton"
               >
@@ -191,7 +191,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                 </span>
                 <button
                   id="feedbackClose"
-                  onClick={toggleSummary}
+                  onClick={toggleForm}
                   className="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
                   data-testid="closeButton"
                 >
@@ -216,7 +216,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
             <div className="layout-container text-white pb-4">
               <button
                 id="feedbackClose"
-                onClick={toggleSummary}
+                onClick={toggleForm}
                 className="flex float-right pt-4 font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
                 data-testid="closeButton"
               >
