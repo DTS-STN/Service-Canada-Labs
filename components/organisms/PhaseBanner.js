@@ -220,12 +220,12 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                 className="flex float-right pt-4 font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
                 data-testid="closeButton"
                 aria-label="Close the expanded feedback section"
-                >
-                  <img
-                    src="/close-x.svg"
-                    alt="Close button"
-                    className="mt-0.5 lg:mt-3.5"
-                  />
+              >
+                <img
+                  src="/close-x.svg"
+                  alt="Close button"
+                  className="mt-0.5 lg:mt-3.5"
+                />
                 <span className="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10">
                   {t("close")}
                 </span>
