@@ -12,6 +12,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated content on the experiments, about and sign up pages
 - Updated French path in French language
 - Added text to the feedback form to clearly indicate that the text area is required
+- Added projects disclaimer to the main body text of each page
 
 ## Fixed
 
