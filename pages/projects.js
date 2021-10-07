@@ -109,6 +109,7 @@ export default function Projects(props) {
             {t("projectsTitle")}
           </h1>
           <p className="whitespace-pre-line">{t("projectsText")}</p>
+          <p className="mt-4 mb-10">{t("projectsDisclaimerBody")}</p>
           <Filter
             label={t("filterBy")}
             options={filters}

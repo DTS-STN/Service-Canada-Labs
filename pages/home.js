@@ -68,7 +68,8 @@ export default function Home(props) {
               content={t("experimentsAndExplorationList")}
             />
             <p className="mb-4">{t("experimentsAndExploration-2/3")}</p>
-            <p className="mb-10">{t("experimentsAndExploration-3/3")}</p>
+            <p className="mb-4">{t("experimentsAndExploration-3/3")}</p>
+            <p className="mb-10">{t("projectsDisclaimerBody")}</p>
           </div>
           <div className="flex flex-col gap-6 lg:gap-10 lg:flex-row ">
             <ActionButton
