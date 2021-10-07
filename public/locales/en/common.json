@@ -268,6 +268,7 @@
   "aboutGovernment": "About government",
   "aboutThisSite": "About this site",
   "homePath": "/accueil",
+  "homeMetaPath": "/home",
   "signupPath": "/inscription",
   "signupRedirect": "/signup",
   "projectPath": "/projets",

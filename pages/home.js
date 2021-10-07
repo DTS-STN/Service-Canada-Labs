@@ -31,8 +31,26 @@ export default function Home(props) {
           ) : (
             ""
           )}
+
+          {/* Primary HTML Meta Tags */}
           <title>{`${t("scLabsHome")} — ${t("siteTitle")}`}</title>
+          <meta
+            name="title"
+            content={`${t("scLabsHome")} — ${t("siteTitle")}`}
+          />
+          <meta
+            name="description"
+            content={
+              `${t("projectsAndExplorationTitle")}` +
+              " — " +
+              `${t("experimentsAndExploration-1/3")}` +
+              `${t("experimentsAndExploration-2/3")}` +
+              `${t("experimentsAndExploration-3/3")}`
+            }
+          />
           <link rel="icon" href="/favicon.ico" />
+
+          {/* DCMI Meta Tags */}
           <meta
             name="dcterms.title"
             content={`${t("scLabsHome")} — ${t("siteTitle")}`}
@@ -48,6 +66,61 @@ export default function Home(props) {
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
           <meta name="dcterms.issued" content="2021-03-18" />
+
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="website" />
+          <meta property="og:locale" content={props.locale} />
+          <meta
+            property="og:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("homeMetaPath")}`
+            }
+          />
+          <meta
+            property="og:title"
+            content={`${t("scLabsHome")} — ${t("siteTitle")}`}
+          />
+          <meta
+            property="og:description"
+            content={
+              `${t("projectsAndExplorationTitle")}` +
+              " — " +
+              `${t("experimentsAndExploration-1/3")}` +
+              `${t("experimentsAndExploration-2/3")}` +
+              `${t("experimentsAndExploration-3/3")}`
+            }
+          />
+          <meta property="og:image" content="/public/splash-image.jpg" />
+
+          {/* Twitter */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta
+            property="twitter:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("homeMetaPath")}`
+            }
+          />
+          <meta
+            property="twitter:title"
+            content={`${t("scLabsHome")} — ${t("siteTitle")}`}
+          />
+          <meta name="twitter:creator" content={t("creator")} />
+          <meta
+            property="twitter:description"
+            content={
+              `${t("projectsAndExplorationTitle")}` +
+              " — " +
+              `${t("experimentsAndExploration-1/3")}` +
+              `${t("experimentsAndExploration-2/3")}` +
+              `${t("experimentsAndExploration-3/3")}`
+            }
+          />
+          <meta property="twitter:image" content="/public/splash-image.jpg" />
+          <meta property="twitter:image:alt" content={`${t("scLabsSplash")}`} />
         </Head>
         <section className="layout-container my-12">
           <div className="xl:w-2/3">
