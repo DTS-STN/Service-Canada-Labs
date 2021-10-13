@@ -46,7 +46,10 @@ export const Layout = ({
       <header>
         <h2 className="sr-only">{t("globalHeader")}</h2>
         <h3 className="sr-only">{t("testSiteNotice")}</h3>
-        <PhaseBanner phase={t("phaseBannerTag")} feedbackActive={true}>
+        <PhaseBanner
+          phase={t("phaseBannerTag")}
+          feedbackActive={feedbackActive}
+        >
           {t("phaseBannerText")}
         </PhaseBanner>
         <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">
