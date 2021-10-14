@@ -452,7 +452,10 @@ export default function Signup(props) {
               listClassName={"list-disc text-sm lg:text-p pl-10 mb-5"}
               content={t("signupList1")}
             />
-            <p className="mb-10 text-sm lg:text-p">{t("signupP1.1")}</p>
+            <p className="mb-5 text-sm lg:text-p">{t("signupP1.1")}</p>
+            <p className="mb-10 text-sm lg:text-p">
+              {t("projectsDisclaimerBody")}
+            </p>
             <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle2")}</h2>
             <HTMList
               listClassName={
@@ -502,7 +505,6 @@ export default function Signup(props) {
           ) : undefined}
           <form
             data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsSign-up"
-            data-gc-analytics-collect='[{"value":"input:not(.exclude),select","emptyField":"N/A"}]'
             onSubmit={handleSubmit}
             onReset={handlerClearData}
             noValidate
@@ -530,7 +532,6 @@ export default function Signup(props) {
                 boldLabel={true}
                 describedby="emailDoNoInclude"
                 required
-                exclude
               />
               <SelectField
                 label={t("formYear")}
