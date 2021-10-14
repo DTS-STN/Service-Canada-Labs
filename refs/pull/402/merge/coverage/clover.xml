@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1633623900154" clover="3.2.0">
-  <project timestamp="1633623900154" name="All files">
+<coverage generated="1634216909078" clover="3.2.0">
+  <project timestamp="1634216909078" name="All files">
     <metrics statements="728" coveredstatements="589" conditionals="569" coveredconditionals="347" methods="185" coveredmethods="142" elements="1482" coveredelements="1078" complexity="0" loc="728" ncloc="728" packages="15" files="89" classes="89"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -714,8 +714,8 @@
         <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="15" count="0" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
-        <line num="108" count="1" type="stmt"/>
-        <line num="109" count="0" type="stmt"/>
+        <line num="109" count="1" type="stmt"/>
+        <line num="110" count="0" type="stmt"/>
       </file>
       <file name="confirmation.js" path="/home/runner/work/Alpha-Site/Alpha-Site/pages/confirmation.js">
         <metrics statements="10" coveredstatements="7" conditionals="22" coveredconditionals="11" methods="3" coveredmethods="2"/>
@@ -755,7 +755,7 @@
         <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="16" count="0" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
-        <line num="109" count="1" type="stmt"/>
+        <line num="110" count="1" type="stmt"/>
       </file>
       <file name="index.js" path="/home/runner/work/Alpha-Site/Alpha-Site/pages/index.js">
         <metrics statements="7" coveredstatements="5" conditionals="10" coveredconditionals="4" methods="3" coveredmethods="2"/>
@@ -788,15 +788,15 @@
         <line num="69" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="70" count="0" type="stmt"/>
         <line num="74" count="0" type="stmt"/>
-        <line num="142" count="0" type="stmt"/>
         <line num="143" count="0" type="stmt"/>
-        <line num="146" count="0" type="stmt"/>
-        <line num="148" count="0" type="stmt"/>
-        <line num="150" count="0" type="stmt"/>
-        <line num="153" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="154" count="0" type="stmt"/>
-        <line num="160" count="0" type="stmt"/>
-        <line num="172" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="144" count="0" type="stmt"/>
+        <line num="147" count="0" type="stmt"/>
+        <line num="149" count="0" type="stmt"/>
+        <line num="151" count="0" type="stmt"/>
+        <line num="154" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="155" count="0" type="stmt"/>
+        <line num="161" count="0" type="stmt"/>
+        <line num="173" count="0" type="cond" truecount="0" falsecount="2"/>
       </file>
       <file name="thankyou.js" path="/home/runner/work/Alpha-Site/Alpha-Site/pages/thankyou.js">
         <metrics statements="11" coveredstatements="8" conditionals="18" coveredconditionals="9" methods="3" coveredmethods="2"/>
