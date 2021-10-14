@@ -9,6 +9,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Changed
 
+- Updated e2e test for signup and unsubscribe workflow
 - Updated content on the experiments, about and sign up pages
 - Updated French path in French language
 - Added text to the feedback form to clearly indicate that the text area is required
