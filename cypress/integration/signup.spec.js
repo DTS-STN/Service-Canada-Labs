@@ -91,28 +91,26 @@ describe("signup page", () => {
     cy.get('[data-cy="error-item-email"').scrollIntoView().should("be.visible");
   });
 
-  // skipping for now until thank you page is available
-  it("Redirects to thank you page on successful submit", () => {
-    cy.intercept("POST", "/api/**", {
-      statusCode: 201,
-      body: {
-        data: "test success",
-      },
-    });
+  it("Test signup on successful submit", () => {
+    cy.intercept("/api/**", {
+      fixture: "signup",
+    }).as("response");
 
     cy.get('[id="email"]').type("some@email.com");
     cy.get('[id="yearOfBirthRange-choice"]').select("before1936");
     cy.get('[id="languageEn"]').click();
     cy.get('[id="agreeToConditions"]').click();
     cy.get('[data-cy="signup-submit"]').click();
-    cy.get('[data-cy="toggle-language-link"]').then(($el) => {
-      const text = $el.text();
-      if (text === "English") {
-        cy.url().should("contains", "/merci?e=s***%40****l.***&ref=signup");
-      }
-      if (text === "Français") {
-        cy.url().should("contains", "/thankyou?e=s***%40****l.***&ref=signup");
-      }
+
+    cy.wait("@response").then((xhr) => {
+      cy.log(xhr);
+      expect(xhr.request.method).to.equal("POST");
+      expect(xhr.response.statusCode).to.equal(200);
+
+      // redirect to thankyou page on successful submit and confirm email
+      cy.url().should("contains", "/thankyou?e=s***%40****l.***&ref=signup");
+      expect(xhr.response.body.email).to.equal("some@email.com");
+      cy.visit("/confirmation?ref=signup");
     });
   });
 });
