@@ -113,4 +113,36 @@ describe("signup page", () => {
       cy.visit("/confirmation?ref=signup");
     });
   });
+
+  it("Test 400 bad resquest", () => {
+    cy.intercept("/api/**", { statusCode: 400 }).as("response");
+
+    cy.get('[id="email"]').type("some@email.com");
+    cy.get('[id="yearOfBirthRange-choice"]').select("before1936");
+    cy.get('[id="languageEn"]').click();
+    cy.get('[id="agreeToConditions"]').click();
+    cy.get('[data-cy="signup-submit"]').click();
+
+    cy.wait("@response").then((xhr) => {
+      cy.log(xhr);
+      expect(xhr.request.method).to.equal("POST");
+      expect(xhr.response.statusCode).to.equal(400);
+    });
+  });
+
+  it("Server return 500 bad response", () => {
+    cy.intercept("/api/**", { statusCode: 500 }).as("response");
+
+    cy.get('[id="email"]').type("some@email.com");
+    cy.get('[id="yearOfBirthRange-choice"]').select("before1936");
+    cy.get('[id="languageEn"]').click();
+    cy.get('[id="agreeToConditions"]').click();
+    cy.get('[data-cy="signup-submit"]').click();
+
+    cy.wait("@response").then((xhr) => {
+      cy.log(xhr);
+      expect(xhr.request.method).to.equal("POST");
+      expect(xhr.response.statusCode).to.equal(500);
+    });
+  });
 });

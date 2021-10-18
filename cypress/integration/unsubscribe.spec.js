@@ -58,4 +58,30 @@ describe("unsubscribe page", () => {
       cy.visit("/confirmation?ref=unsubscribe");
     });
   });
+
+  it("Test 400 bad resquest", () => {
+    cy.intercept("/api/**", { statusCode: 400 }).as("response");
+
+    cy.get('[id="email"]').type("some@email.com");
+    cy.get('[data-cy="unsubscribe-submit"]').click();
+
+    cy.wait("@response").then((xhr) => {
+      cy.log(xhr);
+      expect(xhr.request.method).to.equal("POST");
+      expect(xhr.response.statusCode).to.equal(400);
+    });
+  });
+
+  it("Server return 500 bad response", () => {
+    cy.intercept("/api/**", { statusCode: 500 }).as("response");
+
+    cy.get('[id="email"]').type("some@email.com");
+    cy.get('[data-cy="unsubscribe-submit"]').click();
+
+    cy.wait("@response").then((xhr) => {
+      cy.log(xhr);
+      expect(xhr.request.method).to.equal("POST");
+      expect(xhr.response.statusCode).to.equal(500);
+    });
+  });
 });
