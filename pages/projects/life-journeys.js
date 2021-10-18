@@ -34,8 +34,22 @@ export default function LifeJourneys(props) {
           ) : (
             ""
           )}
+
+          {/* Primary HTML Meta Tags */}
           <title>{`${t("lj:lifeJourneysTitle")} — ${t("siteTitle")}`}</title>
+          <meta
+            name="title"
+            content={`${t("lj:lifeJourneysTitle")} — ${t("siteTitle")}`}
+          />
+          <meta
+            name="description"
+            content={`${t("lj:lifeJourneysContent2")} ${t(
+              "lj:lifeJourneysContent3"
+            )}`}
+          />
           <link rel="icon" href="/favicon.ico" />
+
+          {/* DCMI Meta Tags */}
           <meta
             name="dcterms.title"
             content={`${t("lj:lifeJourneysTitle")} — ${t("siteTitle")}`}
@@ -50,6 +64,56 @@ export default function LifeJourneys(props) {
             name="dcterms.service"
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
+
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="website" />
+          <meta property="og:locale" content={props.locale} />
+          <meta
+            property="og:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("projectRedirect")}` +
+              "/life-journeys"
+            }
+          />
+          <meta
+            property="og:title"
+            content={`${t("lj:lifeJourneysTitle")} — ${t("siteTitle")}`}
+          />
+          <meta
+            property="og:description"
+            content={`${t("lj:lifeJourneysContent2")} ${t(
+              "lj:lifeJourneysContent3"
+            )}`}
+          />
+          <meta property="og:image" content={`${t("metaImage")}`} />
+          <meta property="og:image:alt" content={`${t("siteTitle")}`} />
+
+          {/* Twitter */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta
+            property="twitter:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("projectRedirect")}` +
+              "/life-journeys"
+            }
+          />
+          <meta
+            property="twitter:title"
+            content={`${t("lj:lifeJourneysTitle")} — ${t("siteTitle")}`}
+          />
+          <meta name="twitter:creator" content={t("creator")} />
+          <meta
+            property="twitter:description"
+            content={`${t("lj:lifeJourneysContent2")} ${t(
+              "lj:lifeJourneysContent3"
+            )}`}
+          />
+          <meta property="twitter:image" content={`${t("metaImage")}`} />
+          <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <section className="layout-container relative mb-10">
           <h1

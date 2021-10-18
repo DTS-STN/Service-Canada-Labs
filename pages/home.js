@@ -38,16 +38,7 @@ export default function Home(props) {
             name="title"
             content={`${t("scLabsHome")} — ${t("siteTitle")}`}
           />
-          <meta
-            name="description"
-            content={
-              `${t("projectsAndExplorationTitle")}` +
-              " — " +
-              `${t("experimentsAndExploration-1/3")}` +
-              `${t("experimentsAndExploration-2/3")}` +
-              `${t("experimentsAndExploration-3/3")}`
-            }
-          />
+          <meta name="description" content={`${t("homeMetaDescription")}`} />
           <link rel="icon" href="/favicon.ico" />
 
           {/* DCMI Meta Tags */}
@@ -84,15 +75,10 @@ export default function Home(props) {
           />
           <meta
             property="og:description"
-            content={
-              `${t("projectsAndExplorationTitle")}` +
-              " — " +
-              `${t("experimentsAndExploration-1/3")}` +
-              `${t("experimentsAndExploration-2/3")}` +
-              `${t("experimentsAndExploration-3/3")}`
-            }
+            content={`${t("homeMetaDescription")}`}
           />
-          <meta property="og:image" content="/public/splash-image.jpg" />
+          <meta property="og:image" content={`${t("metaImage")}`} />
+          <meta property="og:image:alt" content={`${t("siteTitle")}`} />
 
           {/* Twitter */}
           <meta property="twitter:card" content="summary_large_image" />
@@ -111,16 +97,10 @@ export default function Home(props) {
           <meta name="twitter:creator" content={t("creator")} />
           <meta
             property="twitter:description"
-            content={
-              `${t("projectsAndExplorationTitle")}` +
-              " — " +
-              `${t("experimentsAndExploration-1/3")}` +
-              `${t("experimentsAndExploration-2/3")}` +
-              `${t("experimentsAndExploration-3/3")}`
-            }
+            content={`${t("homeMetaDescription")}`}
           />
-          <meta property="twitter:image" content="/public/splash-image.jpg" />
-          <meta property="twitter:image:alt" content={`${t("scLabsSplash")}`} />
+          <meta property="twitter:image" content={`${t("metaImage")}`} />
+          <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <section className="layout-container my-12">
           <div className="xl:w-2/3">
@@ -134,14 +114,15 @@ export default function Home(props) {
             </ActionButton>
             <h2 className="my-10">{t("projectsAndExplorationTitle")}</h2>
             <p className="mb-4 whitespace-pre-line">
-              {t("experimentsAndExploration-1/3")}
+              {t("experimentsAndExploration-1/4")}
             </p>
+            <p className="mb-4">{t("experimentsAndExploration-2/4")}</p>
             <HTMList
               listClassName={"mb-4 pl-10 text-p list-disc"}
               content={t("experimentsAndExplorationList")}
             />
-            <p className="mb-4">{t("experimentsAndExploration-2/3")}</p>
-            <p className="mb-10">{t("experimentsAndExploration-3/3")}</p>
+            <p className="mb-4">{t("experimentsAndExploration-3/4")}</p>
+            <p className="mb-10">{t("experimentsAndExploration-4/4")}</p>
           </div>
           <div className="flex flex-col gap-6 lg:gap-10 lg:flex-row ">
             <ActionButton

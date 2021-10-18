@@ -33,8 +33,24 @@ export default function Confirmation(props) {
           ) : (
             ""
           )}
+
+          {/* Primary HTML Meta Tags */}
           <title>{`${t("pleaseCheckYourEmail")} — ${t("siteTitle")}`}</title>
+          <meta
+            name="title"
+            content={`${t("pleaseCheckYourEmail")} — ${t("siteTitle")}`}
+          />
+          <meta
+            name="description"
+            content={
+              referrer === "signup"
+                ? `${t("thankyouMetaDescription1")}`
+                : `${t("thankyouMetaDescription2")}`
+            }
+          />
           <link rel="icon" href="/favicon.ico" />
+
+          {/* DCMI Meta Tags */}
           <meta
             name="dcterms.title"
             content={`${t("pleaseCheckYourEmail")} — ${t("siteTitle")}`}
@@ -50,6 +66,58 @@ export default function Confirmation(props) {
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
           <meta name="dcterms.issued" content="2021-06-15" />
+
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="website" />
+          <meta property="og:locale" content={props.locale} />
+          <meta
+            property="og:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("thankyouRedirect")}`
+            }
+          />
+          <meta
+            property="og:title"
+            content={`${t("pleaseCheckYourEmail")} — ${t("siteTitle")}`}
+          />
+          <meta
+            property="og:description"
+            content={
+              referrer === "signup"
+                ? `${t("thankyouMetaDescription1")}`
+                : `${t("thankyouMetaDescription2")}`
+            }
+          />
+          <meta property="og:image" content={`${t("metaImage")}`} />
+          <meta property="og:image:alt" content={`${t("siteTitle")}`} />
+
+          {/* Twitter */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta
+            property="twitter:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("thankyouRedirect")}`
+            }
+          />
+          <meta
+            property="twitter:title"
+            content={`${t("pleaseCheckYourEmail")} — ${t("siteTitle")}`}
+          />
+          <meta name="twitter:creator" content={t("creator")} />
+          <meta
+            property="twitter:description"
+            content={
+              referrer === "signup"
+                ? `${t("thankyouMetaDescription1")}`
+                : `${t("thankyouMetaDescription2")}`
+            }
+          />
+          <meta property="twitter:image" content={`${t("metaImage")}`} />
+          <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <section className="layout-container mb-12">
           <h1 id="pageMainTitle" className="mb-10 text-h1l" tabIndex="-1">

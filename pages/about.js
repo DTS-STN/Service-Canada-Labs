@@ -31,8 +31,17 @@ export default function About(props) {
           ) : (
             ""
           )}
+
+          {/* Primary HTML Meta Tags */}
           <title>{`${t("aboutTitle")} — ${t("siteTitle")}`}</title>
+          <meta
+            name="title"
+            content={`${t("aboutTitle")} — ${t("siteTitle")}`}
+          />
+          <meta name="description" content={`${t("aboutMetaDescription")}`} />
           <link rel="icon" href="/favicon.ico" />
+
+          {/* DCMI Meta Tags */}
           <meta
             name="dcterms.title"
             content={`${t("aboutTitle")} — ${t("siteTitle")}`}
@@ -48,6 +57,50 @@ export default function About(props) {
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
           <meta name="dcterms.issued" content="2021-05-11" />
+
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="website" />
+          <meta property="og:locale" content={props.locale} />
+          <meta
+            property="og:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("aboutRedirect")}`
+            }
+          />
+          <meta
+            property="og:title"
+            content={`${t("aboutTitle")} — ${t("siteTitle")}`}
+          />
+          <meta
+            property="og:description"
+            content={`${t("aboutMetaDescription")}`}
+          />
+          <meta property="og:image" content={`${t("metaImage")}`} />
+          <meta property="og:image:alt" content={`${t("siteTitle")}`} />
+
+          {/* Twitter */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta
+            property="twitter:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("aboutRedirect")}`
+            }
+          />
+          <meta
+            property="twitter:title"
+            content={`${t("aboutTitle")} — ${t("siteTitle")}`}
+          />
+          <meta name="twitter:creator" content={t("creator")} />
+          <meta
+            property="twitter:description"
+            content={`${t("aboutMetaDescription")}`}
+          />
+          <meta property="twitter:image" content={`${t("metaImage")}`} />
+          <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <section className="layout-container relative mb-10">
           <h1 id="pageMainTitle" className="mb-10 text-h1l" tabIndex="-1">

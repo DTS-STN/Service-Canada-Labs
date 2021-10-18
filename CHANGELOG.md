@@ -12,6 +12,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated content on the experiments, about and sign up pages
 - Updated French path in French language
 - Added text to the feedback form to clearly indicate that the text area is required
+- Added metadata support for HTML, OpenGraph and Twitter to every page
 
 ## Fixed
 
@@ -19,6 +20,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - The error message that appears when a user submits an empty feedback form is now announced to screen reader users
 - The two `<p>` tags above the feedback form textarea are now announced to screen reader users by use of `aria-describedby`
 - The feedback form close button is now before the `<h2>` in page order
+- Typo in the redirect path for the thank you page when switching back to EN
 
 ## [v1.1.2] - 2021-09-27
 
