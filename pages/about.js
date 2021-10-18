@@ -110,6 +110,7 @@ export default function About(props) {
             <p className="mb-4">{t("aboutThisSiteContent1")}</p>
             <p className="mb-4">{t("aboutThisSiteContent2")}</p>
             <p className="mb-4">{t("aboutThisSiteContent3")}</p>
+            <p className="mb-4">{t("projectsDisclaimerBody")}</p>
           </div>
         </section>
         <section className="bg-gray-light-200 pb-14">

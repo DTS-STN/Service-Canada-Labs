@@ -123,6 +123,7 @@ export default function Home(props) {
             />
             <p className="mb-4">{t("experimentsAndExploration-3/4")}</p>
             <p className="mb-10">{t("experimentsAndExploration-4/4")}</p>
+            <p className="mb-10">{t("projectsDisclaimerBody")}</p>
           </div>
           <div className="flex flex-col gap-6 lg:gap-10 lg:flex-row ">
             <ActionButton
