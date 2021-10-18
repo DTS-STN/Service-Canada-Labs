@@ -173,7 +173,13 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
         <div className="bg-custom-blue-blue" data-testid="feedbackDropdown">
           <div role="status">
             {submitted ? (
-              <div className="layout-container text-white flex justify-between">
+              <div
+                className={`${
+                  response === t("thankYouFeedback")
+                    ? "bg-custom-green-darker font-bold"
+                    : ""
+                } text-white flex justify-between py-2 px-6`}
+              >
                 <span className="text-xs lg:text-sm font-body mt-2 mb-4">
                   {response}
                   {response === t("sorryFeedback") ? (
@@ -187,7 +193,6 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                   ) : (
                     " "
                   )}
-                  .
                 </span>
                 <button
                   id="feedbackClose"
