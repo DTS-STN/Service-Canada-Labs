@@ -9,10 +9,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Changed
 
+- test-signup-unsubscribe-flow
 - Updated e2e test for signup and unsubscribe workflow
+- Change color on confirmation when feedback submited successfully for feedback component
 - Updated content on the experiments, about and sign up pages
 - Updated French path in French language
 - Added text to the feedback form to clearly indicate that the text area is required
+- Removed signup confirmation/validation pages from search engine indexing
+- Added projects disclaimer to the main body text of each page
 
 ## Fixed
 
