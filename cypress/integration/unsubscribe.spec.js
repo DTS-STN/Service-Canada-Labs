@@ -72,6 +72,8 @@ describe("unsubscribe page", () => {
       cy.log(xhr);
       expect(xhr.request.method).to.equal("POST");
       expect(xhr.response.statusCode).to.equal(400);
+      cy.get('[data-cy="error-box"').should("exist");
+      cy.get('[data-cy="error-box"').should("contain.text", "can’t be found");
     });
   });
 
@@ -85,6 +87,8 @@ describe("unsubscribe page", () => {
       cy.log(xhr);
       expect(xhr.request.method).to.equal("POST");
       expect(xhr.response.statusCode).to.equal(500);
+      cy.get('[data-cy="error-box"').should("exist");
+      cy.get('[data-cy="error-box"').should("contain.text", "unknown error");
     });
   });
 });
