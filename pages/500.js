@@ -30,11 +30,11 @@ export default function error500(props) {
           <title data-gc-analytics-error="500">
             {`500 — ${t("siteTitle")}`}
           </title>
-          <meta name="title" content={`500 — ${t("siteTitle")}`} />
           <meta
             name="description"
             content={`${t("500errorMetaDescription")}`}
           />
+          <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
 
           {/* DCMI Meta Tags */}

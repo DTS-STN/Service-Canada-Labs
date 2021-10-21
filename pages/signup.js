@@ -427,11 +427,8 @@ export default function Signup(props) {
 
           {/* Primary HTML Meta Tags */}
           <title>{`${t("signupTitle")} — ${t("siteTitle")}`}</title>
-          <meta
-            name="title"
-            content={`${t("signupTitle")} — ${t("siteTitle")}`}
-          />
           <meta name="description" content={`${t("signupMetaDescription")}`} />
+          <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
 
           {/* DCMI Meta Tags */}

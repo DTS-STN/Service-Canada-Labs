@@ -35,11 +35,8 @@ export default function Privacy(props) {
 
           {/* Primary HTML Meta Tags */}
           <title>{`${t("privacyTitle")} — ${t("siteTitle")}`}</title>
-          <meta
-            name="title"
-            content={`${t("privacyTitle")} — ${t("siteTitle")}`}
-          />
           <meta name="description" content={`${t("privacyMetaDescription")}`} />
+          <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
 
           {/* DCMI Meta Tags */}

@@ -34,11 +34,8 @@ export default function About(props) {
 
           {/* Primary HTML Meta Tags */}
           <title>{`${t("aboutTitle")} — ${t("siteTitle")}`}</title>
-          <meta
-            name="title"
-            content={`${t("aboutTitle")} — ${t("siteTitle")}`}
-          />
           <meta name="description" content={`${t("aboutMetaDescription")}`} />
+          <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
 
           {/* DCMI Meta Tags */}

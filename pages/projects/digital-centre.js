@@ -59,11 +59,8 @@ export default function DigitalCenter(props) {
 
           {/* Primary HTML Meta Tags */}
           <title>{`${t("dc:OverviewTitle")} — ${t("siteTitle")}`}</title>
-          <meta
-            name="title"
-            content={`${t("dc:OverviewTitle")} — ${t("siteTitle")}`}
-          />
           <meta name="description" content={`${t("dc:ProductGoal1")}`} />
+          <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
 
           {/* DCMI Meta Tags */}

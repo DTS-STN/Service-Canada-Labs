@@ -40,14 +40,6 @@ export default function Confirmation(props) {
               : `${t("emailConfirmationTitle")} — ${t("siteTitle")}`}
           </title>
           <meta
-            name="title"
-            content={
-              referrer === "unsubscribe"
-                ? `${t("unsubscribeConfirmationTitle")} — ${t("siteTitle")}`
-                : `${t("emailConfirmationTitle")} — ${t("siteTitle")}`
-            }
-          />
-          <meta
             name="description"
             content={
               referrer === "unsubscribe"
@@ -55,6 +47,7 @@ export default function Confirmation(props) {
                 : `${t("confirmationMetaDescription1")}`
             }
           />
+          <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
 
           {/* DCMI Meta Tags */}

@@ -38,15 +38,12 @@ export default function LifeJourneys(props) {
           {/* Primary HTML Meta Tags */}
           <title>{`${t("lj:lifeJourneysTitle")} — ${t("siteTitle")}`}</title>
           <meta
-            name="title"
-            content={`${t("lj:lifeJourneysTitle")} — ${t("siteTitle")}`}
-          />
-          <meta
             name="description"
             content={`${t("lj:lifeJourneysContent2")} ${t(
               "lj:lifeJourneysContent3"
             )}`}
           />
+          <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
 
           {/* DCMI Meta Tags */}

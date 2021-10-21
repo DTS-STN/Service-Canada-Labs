@@ -42,7 +42,6 @@ export default function ErrorPage(props) {
           <title data-gc-analytics-error={props.statusCode}>
             Error - Erreur
           </title>
-          <meta name="title" content="Error - Erreur" />
           <meta
             name="description"
             content={
@@ -51,9 +50,10 @@ export default function ErrorPage(props) {
                 : `${errorTitleFr}` + `${errorMessageFr}`
             }
           />
+          <meta name="author" content="Service Canada" />
+          <link rel="icon" href="/favicon.ico" />
 
           {/* DCMI Meta Tags */}
-          <link rel="icon" href="/favicon.ico" />
           <meta name="dcterms.title" content="Error - Erreur" />
           <meta
             name="dcterms.language"

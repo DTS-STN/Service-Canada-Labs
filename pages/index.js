@@ -28,13 +28,10 @@ export default function Index(props) {
         {/* Primary HTML Meta Tags */}
         <title>Service Canada Labs | Laboratoires de Service Canada</title>
         <meta
-          name="title"
-          content="Service Canada Labs | Laboratoires de Service Canada"
-        />
-        <meta
           name="description"
           content={`${t("scLabsSplash")} — ${t("siteTitle")}`}
         />
+        <meta name="author" content="Service Canada" />
         <link rel="icon" href="/favicon.ico" />
 
         {/* DCMI Meta Tags */}

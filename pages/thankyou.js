@@ -37,10 +37,6 @@ export default function Confirmation(props) {
           {/* Primary HTML Meta Tags */}
           <title>{`${t("pleaseCheckYourEmail")} — ${t("siteTitle")}`}</title>
           <meta
-            name="title"
-            content={`${t("pleaseCheckYourEmail")} — ${t("siteTitle")}`}
-          />
-          <meta
             name="description"
             content={
               referrer === "signup"
@@ -48,6 +44,7 @@ export default function Confirmation(props) {
                 : `${t("thankyouMetaDescription2")}`
             }
           />
+          <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
 
           {/* DCMI Meta Tags */}

@@ -34,11 +34,8 @@ export default function Home(props) {
 
           {/* Primary HTML Meta Tags */}
           <title>{`${t("scLabsHome")} — ${t("siteTitle")}`}</title>
-          <meta
-            name="title"
-            content={`${t("scLabsHome")} — ${t("siteTitle")}`}
-          />
           <meta name="description" content={`${t("homeMetaDescription")}`} />
+          <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
 
           {/* DCMI Meta Tags */}

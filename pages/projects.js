@@ -93,10 +93,7 @@ export default function Projects(props) {
             name="title"
             content={`${t("projectsTitle")} — ${t("siteTitle")}`}
           />
-          <meta
-            name="description"
-            content={`${t("projectsMetaDescription")}`}
-          />
+          <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
 
           {/* DCMI Meta Tags */}

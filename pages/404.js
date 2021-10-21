@@ -30,11 +30,11 @@ export default function error404(props) {
           <title data-gc-analytics-error="404">
             {`404 — ${t("siteTitle")}`}
           </title>
-          <meta name="title" content={`404 — ${t("siteTitle")}`} />
           <meta
             name="description"
             content={`${t("404errorMetaDescription")}`}
           />
+          <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
 
           {/* DCMI Meta Tags */}

@@ -190,13 +190,10 @@ export default function Unsubscribe(props) {
           {/* Primary HTML Meta Tags */}
           <title>{`${t("unsubscribe")} — ${t("siteTitle")}`}</title>
           <meta
-            name="title"
-            content={`${t("unsubscribe")} — ${t("siteTitle")}`}
-          />
-          <meta
             name="description"
             content={`${t("unsubscribeMetaDescription")}`}
           />
+          <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
 
           {/* DCMI Meta Tags */}

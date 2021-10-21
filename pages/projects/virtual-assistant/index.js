@@ -42,13 +42,10 @@ export default function Home(props) {
             "siteTitle"
           )}`}</title>
           <meta
-            name="title"
-            content={`${t("vc:virtualAssistantTitle")} — ${t("siteTitle")}`}
-          />
-          <meta
             name="description"
             content={`${t("vc:virtualAssistantBioBody")}`}
           />
+          <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
 
           {/* DCMI Meta Tags */}
