@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 /**
  * Menu component
@@ -8,18 +9,7 @@ import { useRouter } from "next/router";
 export function Menu(props) {
   //Router
   const { asPath } = useRouter();
-  const router = useRouter();
-
-  //Function for changing menu state
-  function onMenuClick() {
-    const menuButton = document.getElementById("menuButton");
-    const menuDropdown = document.getElementById("menuDropdown");
-
-    menuDropdown.classList.toggle("active");
-    menuButton.getAttribute("aria-expanded") === "true"
-      ? menuButton.setAttribute("aria-expanded", false)
-      : menuButton.setAttribute("aria-expanded", true);
-  }
+  const [showMenu, setShowMenu] = useState(false);
 
   return (
     <nav
@@ -32,22 +22,43 @@ export function Menu(props) {
       <h3 className="sr-only" id="mainSiteNav">
         Menu
       </h3>
-      <button
-        id="menuButton"
-        onClick={onMenuClick}
-        className="text-h4 text-canada-footer-font focus:outline-none focus:ring-2 focus:ring-black mb-4 py-1"
-        aria-haspopup="true"
-        aria-expanded="false"
-        aria-controls="menuDropdown"
-        data-testid="menuButton"
-      >
-        <span className="inline-block align-middle icon-menu" />
-        <span className="inline-block align-middle pl-3 font-body text-p leading-none">
-          {props.menuButtonTitle}
-        </span>
-      </button>
+      <div className="flex justify-between">
+        <button
+          id="menuButton"
+          onClick={() => setShowMenu(!showMenu)}
+          className="text-h4 text-canada-footer-font focus:outline-none focus:ring-2 focus:ring-black mb-4 py-1"
+          aria-haspopup="true"
+          aria-expanded={showMenu}
+          aria-controls="menuDropdown"
+          data-testid="menuButton"
+        >
+          <span className="inline-block align-middle icon-menu" />
+          <span className="inline-block align-middle pl-3 font-body text-p leading-none">
+            {props.menuButtonTitle}
+          </span>
+        </button>
 
-      <ul id="menuDropdown" className="menuDropdown" role="menu">
+        <button
+          id="menuClose"
+          onClick={() => setShowMenu(!showMenu)}
+          className={`${
+            showMenu ? "" : "hidden"
+          } sr-only mb-4 text-canada-footer-font outline-none focus:not-sr-only focus:outline-black-solid lg:invisible`}
+          aria-expanded={showMenu}
+          aria-controls="menuDropdown"
+          aria-label="Close the expanded menu options"
+          data-testid="menuCloseButton"
+        >
+          <img src="/close-x-menu.svg" alt="Close button"></img>
+        </button>
+      </div>
+
+      <ul
+        id="menuDropdown"
+        className={`menuDropdown ${showMenu ? "active" : ""}`}
+        role="menu"
+        aria-expanded={showMenu}
+      >
         {props.items.map((item, key) => {
           const exactURL = asPath === item.link; // it's exactly this url
           const includesURL = asPath.includes(item.link); // it's a child of this url (eg, "/projects/app" includes "/projects")
