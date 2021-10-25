@@ -9,6 +9,7 @@ import { useState } from "react";
 export function Menu(props) {
   //Router
   const { asPath } = useRouter();
+  const router = useRouter();
   const [showMenu, setShowMenu] = useState(false);
 
   return (
