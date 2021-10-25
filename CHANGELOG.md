@@ -26,6 +26,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - The two `<p>` tags above the feedback form textarea are now announced to screen reader users by use of `aria-describedby`
 - The feedback form close button is now before the `<h2>` in page order
 - Typo in the redirect path for the thank you page when switching back to EN
+- Focus is properly set to before elements in status message after submitting feedback form
 
 ## [v1.1.2] - 2021-09-27
 
