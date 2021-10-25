@@ -37,10 +37,23 @@ export default function ErrorPage(props) {
           ) : (
             ""
           )}
+
+          {/* Primary HTML Meta Tags */}
           <title data-gc-analytics-error={props.statusCode}>
             Error - Erreur
           </title>
+          <meta
+            name="description"
+            content={
+              props.locale === "en"
+                ? `${errorTitle}` + `${errorMessage}`
+                : `${errorTitleFr}` + `${errorMessageFr}`
+            }
+          />
+          <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
+
+          {/* DCMI Meta Tags */}
           <meta name="dcterms.title" content="Error - Erreur" />
           <meta
             name="dcterms.language"
@@ -53,6 +66,48 @@ export default function ErrorPage(props) {
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
           <meta name="dcterms.issued" content="2021-06-28" />
+
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="website" />
+          <meta property="og:locale" content={props.locale} />
+          <meta
+            property="og:url"
+            content={
+              "https://alpha.service.canada.ca/" + `${props.locale}` + "/error"
+            }
+          />
+          <meta property="og:title" content="Error - Erreur" />
+          <meta
+            property="og:description"
+            content={
+              props.locale === "en"
+                ? `${errorTitle}` + `${errorMessage}`
+                : `${errorTitleFr}` + `${errorMessageFr}`
+            }
+          />
+          <meta property="og:image" content={`${t("metaImage")}`} />
+          <meta property="og:image:alt" content={`${t("siteTitle")}`} />
+
+          {/* Twitter */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta
+            property="twitter:url"
+            content={
+              "https://alpha.service.canada.ca/" + `${props.locale}` + "/error"
+            }
+          />
+          <meta property="twitter:title" content="Error - Erreur" />
+          <meta name="twitter:creator" content={t("creator")} />
+          <meta
+            property="twitter:description"
+            content={
+              props.locale === "en"
+                ? `${errorTitle}` + `${errorMessage}`
+                : `${errorTitleFr}` + `${errorMessageFr}`
+            }
+          />
+          <meta property="twitter:image" content={`${t("metaImage")}`} />
+          <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <main>
           <section className="layout-container pb-44">

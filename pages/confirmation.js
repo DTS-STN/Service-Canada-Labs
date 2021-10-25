@@ -28,22 +28,29 @@ export default function Confirmation(props) {
         ]}
       >
         <Head>
-          <title>
-            {referrer === "unsubscribe"
-              ? `${t("unsubscribeConfirmationTitle")} — ${t("siteTitle")}`
-              : `${t("emailConfirmationTitle")} — ${t("siteTitle")}`}
-          </title>
           {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
             <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
           ) : (
             ""
           )}
+          {/* Primary HTML Meta Tags */}
           <title>
             {referrer === "unsubscribe"
               ? `${t("unsubscribeConfirmationTitle")} — ${t("siteTitle")}`
               : `${t("emailConfirmationTitle")} — ${t("siteTitle")}`}
           </title>
+          <meta
+            name="description"
+            content={
+              referrer === "unsubscribe"
+                ? `${t("confirmationMetaDescription2")}`
+                : `${t("confirmationMetaDescription1")}`
+            }
+          />
+          <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
+
+          {/* DCMI Meta Tags */}
           <meta
             name="dcterms.title"
             content={
@@ -63,6 +70,66 @@ export default function Confirmation(props) {
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
           <meta name="dcterms.issued" content="2021-06-22" />
+
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="website" />
+          <meta property="og:locale" content={props.locale} />
+          <meta
+            property="og:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              "/confirmation"
+            }
+          />
+          <meta
+            property="og:title"
+            content={
+              referrer === "unsubscribe"
+                ? `${t("unsubscribeConfirmationTitle")} — ${t("siteTitle")}`
+                : `${t("emailConfirmationTitle")} — ${t("siteTitle")}`
+            }
+          />
+          <meta
+            property="og:description"
+            content={
+              referrer === "unsubscribe"
+                ? `${t("confirmationMetaDescription2")}`
+                : `${t("confirmationMetaDescription1")}`
+            }
+          />
+          <meta property="og:image" content={`${t("metaImage")}`} />
+          <meta property="og:image:alt" content={`${t("siteTitle")}`} />
+
+          {/* Twitter */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta
+            property="twitter:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              "/confirmation"
+            }
+          />
+          <meta
+            property="twitter:title"
+            content={
+              referrer === "unsubscribe"
+                ? `${t("unsubscribeConfirmationTitle")} — ${t("siteTitle")}`
+                : `${t("emailConfirmationTitle")} — ${t("siteTitle")}`
+            }
+          />
+          <meta name="twitter:creator" content={t("creator")} />
+          <meta
+            property="twitter:description"
+            content={
+              referrer === "unsubscribe"
+                ? `${t("confirmationMetaDescription2")}`
+                : `${t("confirmationMetaDescription1")}`
+            }
+          />
+          <meta property="twitter:image" content={`${t("metaImage")}`} />
+          <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <section className="layout-container mb-12">
           <h1
