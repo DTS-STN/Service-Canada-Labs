@@ -82,6 +82,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
       }
 
       setSubmitted(true);
+      setFocusAfterSubmit();
     } else {
       setFeedbackError(error.message);
       srSpeak(error.message);
@@ -108,6 +109,10 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
     window.setTimeout(function () {
       document.body.removeChild(document.getElementById(id));
     }, 1000);
+  }
+
+  function setFocusAfterSubmit() {
+    document.getElementById("feedbackButton").focus();
   }
 
   return (
