@@ -91,7 +91,10 @@ export function ActionButton(props) {
       {props.icon && !props.iconEnd ? (
         <span className={props.icon} data-testid={props.dataTestId} />
       ) : undefined}
-      {props.text}
+      <span className="flex">
+        {props.text}
+        {props.svg}
+      </span>
       {props.children}
       {props.icon && props.iconEnd ? (
         <span className={props.icon} data-testid={props.dataTestId} />

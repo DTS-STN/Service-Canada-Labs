@@ -147,62 +147,89 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
             <p className="font-body text-xs lg:text-sm mt-5 lg:mt-auto text-white lg:ml-4 pt-1 my-auto lg:mb-0 lg:pb-1">
               {children}
             </p>
-            {feedbackActive ? (
-              <button
-                id="feedbackButton"
-                onClick={toggleForm}
-                className="group outline-none focus:outline-white-solid bg-circle-color font-body text-xs lg:text-sm text-white flex text-left lg:ml-4 my-2 lg:my-0"
-                data-testid="feedbackButton"
-              >
-                <span
-                  id="caret"
-                  className={`${
-                    showFeedback ? "text-sm" : "text-p"
-                  } leading-7 lg:leading-5`}
-                  dangerouslySetInnerHTML={{
-                    __html: showFeedback ? "&#9660;" : "&#11208;",
-                  }}
-                />
-                <strong className="mt-2 lg:mt-0 ml-2 group-hover:underline">
-                  {t("giveFeedback")}
-                  <span className="sr-only"> {toggle.current}</span>
-                </strong>
-              </button>
-            ) : (
-              ""
-            )}
           </div>
         </div>
       </div>
+      {feedbackActive ? (
+        <div className="py-4 w-full outline-none bg-custom-blue-blue font-body text-xs lg:text-sm text-white flex justify-center items-center text-left lg:my-0">
+          <button
+            id="feedbackButton"
+            onClick={toggleForm}
+            className="flex focus:outline-white-solid items-center"
+            data-testid="feedbackButton"
+          >
+            <strong className="ml-2 underline">
+              {t("giveFeedback")}
+              <span className="sr-only"> {toggle.current}</span>
+            </strong>
+            <img
+              className="px-2 flex items-center"
+              src="/feedback-icon-white.svg"
+              alt=""
+            />
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
       {showFeedback ? (
-        <div className="bg-custom-blue-blue" data-testid="feedbackDropdown">
-          <div role="status">
+        <div className="fixed top-0 left-0 w-full h-full bg-opacity-50 bg-gray-400 flex justify-center items-center">
+          <div
+            className="ralative flex w-full justify-center items-center bg-custom-blue-blue"
+            data-testid="feedbackDropdown"
+          >
+            <div role="status">
+              {submitted ? (
+                <div
+                  className={`${
+                    response === t("thankYouFeedback")
+                      ? "bg-custom-green-darker font-bold"
+                      : ""
+                  } text-white flex justify-between py-2 px-6`}
+                >
+                  <span className="text-xs lg:text-sm font-body mt-2 mb-4">
+                    {response}
+                    {response === t("sorryFeedback") ? (
+                      <a
+                        href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
+                        className="underline outline-none focus:outline-white-solid"
+                      >
+                        {" "}
+                        experience@service.gc.ca
+                      </a>
+                    ) : (
+                      " "
+                    )}
+                  </span>
+                  <button
+                    id="feedbackClose"
+                    onClick={toggleForm}
+                    className="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
+                    data-testid="closeButton"
+                    aria-label="Close the expanded feedback section"
+                  >
+                    <img
+                      src="/close-x.svg"
+                      alt="Close button"
+                      className="mt-0.5 lg:mt-3.5"
+                    />
+                    <span className="text-xs leading-4 lg:text-sm underline ml-1 lg:ml-2 lg:leading-10">
+                      {t("close")}
+                    </span>
+                  </button>
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
             {submitted ? (
-              <div
-                className={`${
-                  response === t("thankYouFeedback")
-                    ? "bg-custom-green-darker font-bold"
-                    : ""
-                } text-white flex justify-between py-2 px-6`}
-              >
-                <span className="text-xs lg:text-sm font-body mt-2 mb-4">
-                  {response}
-                  {response === t("sorryFeedback") ? (
-                    <a
-                      href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
-                      className="underline outline-none focus:outline-white-solid"
-                    >
-                      {" "}
-                      experience@service.gc.ca
-                    </a>
-                  ) : (
-                    " "
-                  )}
-                </span>
+              ""
+            ) : (
+              <div className="layout-container text-white pb-4">
                 <button
                   id="feedbackClose"
                   onClick={toggleForm}
-                  className="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
+                  className="flex float-right pt-4 font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
                   data-testid="closeButton"
                   aria-label="Close the expanded feedback section"
                 >
@@ -211,109 +238,89 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                     alt="Close button"
                     className="mt-0.5 lg:mt-3.5"
                   />
-                  <span className="text-xs leading-4 lg:text-sm underline ml-1 lg:ml-2 lg:leading-10">
+                  <span className="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10">
                     {t("close")}
                   </span>
                 </button>
+                <h2 className="text-h4 lg:text-h3 lg:text-sm font-display pt-6 mb-4 w-48 sm:w-auto">
+                  {t("improveService")}
+                </h2>
+                <ul className="list-outside list-disc px-6 py-2">
+                  <li className="text-xs lg:text-sm font-body mb-4">
+                    <strong>{t("reportAProblemNoReply")}</strong>{" "}
+                    {t("reportAProblemEnquiries")}{" "}
+                    <a
+                      className="underline text-xs lg:text-sm font-body outline-none focus:outline-white-solid"
+                      href="mailto:experience@servicecanada.gc.ca"
+                    >
+                      experience@servicecanada.gc.ca
+                    </a>
+                    .
+                  </li>
+                  <li className="text-xs lg:text-sm font-body mb-4">
+                    <strong>{t("confidential")}</strong>
+                    <ActionButton
+                      id="link-privacyPage"
+                      dataCy="link-privacyPage"
+                      dataTestId="link-privacyPage"
+                      href={t("privacyLink")}
+                      text={t("reportAProblemPrivacyStatement")}
+                      custom="text-xs lg:text-sm underline ml-2 outline-none focus:outline-white-solid"
+                    />
+                  </li>
+                </ul>
+                <form
+                  data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsFeedback-Form"
+                  data-gc-analytics-collect='[{"value":"input,select","emptyField":"N/A"}]'
+                  className="w-full"
+                  action="#"
+                  onSubmit={onSubmitHandler}
+                >
+                  <label
+                    htmlFor="feedbackTextArea"
+                    className="text-xs lg:text-sm font-body font-bold"
+                  >
+                    {t("doBetter")}
+                    <span className="text-gray-md"> {t("required")}</span>
+                  </label>
+                  <div id="feedbackInfo">
+                    <p className="text-xs lg:text-sm my-2">
+                      {t("doNotInclude")}
+                    </p>
+                    <p className="text-xs lg:text-sm my-2">
+                      {t("maximum2000")}
+                    </p>
+                  </div>
+                  {feedbackError ? (
+                    <ErrorLabel
+                      message={feedbackError}
+                      className="text-black mt-4"
+                    />
+                  ) : undefined}
+                  <textarea
+                    aria-describedby="feedbackInfo"
+                    id="feedbackTextArea"
+                    name="feedbackTextArea"
+                    maxLength="2000"
+                    rows="5"
+                    className={
+                      "text-input font-body w-full min-h-40px shadow-sm text-form-input-gray border-2 py-6px px-12px rounded"
+                    }
+                    onChange={(e) => setFeedback(e.currentTarget.value)}
+                  />
+                  <ActionButton
+                    id="feedback-submit"
+                    custom="outline-none focus:outline-black-solid rounded block w-full lg:w-auto lg:px-12 text-xs lg:text-sm py-2 mt-2 font-bold text-custom-blue-projects-link bg-details-button-gray hover:bg-gray-300"
+                    type="submit"
+                    dataCy="feedback-submit"
+                    dataTestId="feedback-submit"
+                    text={t("reportAProblemSubmit")}
+                    analyticsTracking
+                  />
+                </form>
               </div>
-            ) : (
-              ""
             )}
           </div>
-          {submitted ? (
-            ""
-          ) : (
-            <div className="layout-container text-white pb-4">
-              <button
-                id="feedbackClose"
-                onClick={toggleForm}
-                className="flex float-right pt-4 font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
-                data-testid="closeButton"
-                aria-label="Close the expanded feedback section"
-              >
-                <img
-                  src="/close-x.svg"
-                  alt="Close button"
-                  className="mt-0.5 lg:mt-3.5"
-                />
-                <span className="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10">
-                  {t("close")}
-                </span>
-              </button>
-              <h2 className="text-h4 lg:text-h3 lg:text-sm font-display pt-6 mb-4 w-48 sm:w-auto">
-                {t("improveService")}
-              </h2>
-              <ul className="list-outside list-disc px-6 py-2">
-                <li className="text-xs lg:text-sm font-body mb-4">
-                  <strong>{t("reportAProblemNoReply")}</strong>{" "}
-                  {t("reportAProblemEnquiries")}{" "}
-                  <a
-                    className="underline text-xs lg:text-sm font-body outline-none focus:outline-white-solid"
-                    href="mailto:experience@servicecanada.gc.ca"
-                  >
-                    experience@servicecanada.gc.ca
-                  </a>
-                  .
-                </li>
-                <li className="text-xs lg:text-sm font-body mb-4">
-                  <strong>{t("confidential")}</strong>
-                  <ActionButton
-                    id="link-privacyPage"
-                    dataCy="link-privacyPage"
-                    dataTestId="link-privacyPage"
-                    href={t("privacyLink")}
-                    text={t("reportAProblemPrivacyStatement")}
-                    custom="text-xs lg:text-sm underline ml-2 outline-none focus:outline-white-solid"
-                  />
-                </li>
-              </ul>
-              <form
-                data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsFeedback-Form"
-                data-gc-analytics-collect='[{"value":"input,select","emptyField":"N/A"}]'
-                className="w-full"
-                action="#"
-                onSubmit={onSubmitHandler}
-              >
-                <label
-                  htmlFor="feedbackTextArea"
-                  className="text-xs lg:text-sm font-body font-bold"
-                >
-                  {t("doBetter")}
-                  <span className="text-gray-md"> {t("required")}</span>
-                </label>
-                <div id="feedbackInfo">
-                  <p className="text-xs lg:text-sm my-2">{t("doNotInclude")}</p>
-                  <p className="text-xs lg:text-sm my-2">{t("maximum2000")}</p>
-                </div>
-                {feedbackError ? (
-                  <ErrorLabel
-                    message={feedbackError}
-                    className="text-black mt-4"
-                  />
-                ) : undefined}
-                <textarea
-                  aria-describedby="feedbackInfo"
-                  id="feedbackTextArea"
-                  name="feedbackTextArea"
-                  maxLength="2000"
-                  rows="5"
-                  className={
-                    "text-input font-body w-full min-h-40px shadow-sm text-form-input-gray border-2 py-6px px-12px rounded"
-                  }
-                  onChange={(e) => setFeedback(e.currentTarget.value)}
-                />
-                <ActionButton
-                  id="feedback-submit"
-                  custom="outline-none focus:outline-black-solid rounded block w-full lg:w-auto lg:px-12 text-xs lg:text-sm py-2 mt-2 font-bold text-custom-blue-projects-link bg-details-button-gray hover:bg-gray-300"
-                  type="submit"
-                  dataCy="feedback-submit"
-                  dataTestId="feedback-submit"
-                  text={t("reportAProblemSubmit")}
-                  analyticsTracking
-                />
-              </form>
-            </div>
-          )}
         </div>
       ) : (
         ""
