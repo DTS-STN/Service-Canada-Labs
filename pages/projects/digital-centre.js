@@ -5,7 +5,8 @@ import { useTranslation } from "next-i18next";
 import { HTMList } from "../../components/atoms/HTMList";
 import { Layout } from "../../components/organisms/Layout";
 import { CallToAction } from "../../components/molecules/CallToAction";
-import { useEffect, useState } from "react";
+import { FeedbackWidget } from "../../components/molecules/FeedbackWidget";
+import { useEffect, useState, useRef } from "react";
 
 function ThumbnailWithCaption({
   title = "Image 1",
@@ -33,6 +34,8 @@ ThumbnailWithCaption.propTypes = {
 export default function DigitalCenter(props) {
   const { t } = useTranslation(["common", "dc"]);
   const [feedbackActive, setFeedbackActive] = useState(true);
+  const [showFeedback, setShowFeedback] = useState(false);
+  const toggle = useRef("Collapsed");
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -40,6 +43,34 @@ export default function DigitalCenter(props) {
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
   }, []);
+
+  let toggleForm = async (e) => {
+    if (showFeedback) {
+      toggle.current = "Collapsed";
+    } else {
+      toggle.current = "Expanded";
+    }
+
+    srSpeak(toggle.current);
+    setShowFeedback(!showFeedback);
+  };
+
+  function srSpeak(text, priority) {
+    var el = document.createElement("div");
+    var id = "speak-" + Date.now();
+    el.setAttribute("id", id);
+    el.setAttribute("aria-live", priority || "polite");
+    el.classList.add("sr-only");
+    document.body.appendChild(el);
+
+    window.setTimeout(function () {
+      document.getElementById(id).innerHTML = text;
+    }, 100);
+
+    window.setTimeout(function () {
+      document.body.removeChild(document.getElementById(id));
+    }, 1000);
+  }
 
   return (
     <>
@@ -52,6 +83,8 @@ export default function DigitalCenter(props) {
         ]}
         feedbackActive={feedbackActive}
       >
+        <FeedbackWidget showFeedback={showFeedback} toggleForm={toggleForm} />
+
         <Head>
           {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
             <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
@@ -346,6 +379,7 @@ export default function DigitalCenter(props) {
           href={feedbackActive ? "" : t("signupRedirect")}
           hrefText={feedbackActive ? t("bottomFeedbackBtn") : t("signupBtn")}
           feedbackActive={feedbackActive}
+          clicked={() => setShowFeedback(true)}
         />
       </Layout>
       {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (

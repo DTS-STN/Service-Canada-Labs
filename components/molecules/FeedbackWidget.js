@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "next-i18next";
 import { ActionButton } from "../atoms/ActionButton";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Joi from "joi";
 import { ErrorLabel } from "../atoms/ErrorLabel";
 
@@ -10,17 +10,10 @@ import { ErrorLabel } from "../atoms/ErrorLabel";
  * Displays the PhaseBanner on the page
  */
 
-export const PhaseBanner = ({
-  phase,
-  children,
-  feedbackActive,
-  feedbackBottom,
-}) => {
+export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
   const [submitted, setSubmitted] = useState(false);
-  const [showFeedback, setShowFeedback] = useState(false);
   const { t } = useTranslation("common");
   const [response, setResponse] = useState(t("thankYouFeedback"));
-  const toggle = useRef("Collapsed");
 
   // Joi form validation schema.
   const formSchema = Joi.object({
@@ -41,19 +34,12 @@ export const PhaseBanner = ({
       }),
   });
 
+  function setFocusAfterSubmit() {
+    document.getElementById("feedbackButton").focus();
+  }
+
   const [feedback, setFeedback] = useState("");
   const [feedbackError, setFeedbackError] = useState("");
-
-  let toggleForm = async (e) => {
-    if (showFeedback) {
-      toggle.current = "Collapsed";
-    } else {
-      toggle.current = "Expanded";
-    }
-
-    srSpeak(toggle.current);
-    setShowFeedback(!showFeedback);
-  };
 
   let onSubmitHandler = async (e) => {
     // prevent default behaviour of form
@@ -116,71 +102,12 @@ export const PhaseBanner = ({
     }, 1000);
   }
 
-  function setFocusAfterSubmit() {
-    document.getElementById("feedbackButton").focus();
-  }
-
   return (
     <>
-      <div className="bg-circle-color">
-        <div className="block lg:flex py-4 layout-container">
-          <div
-            className={`flex justify-between lg:block lg:w-max ${
-              feedbackActive ? "mt-2" : ""
-            }`}
-          >
-            <span
-              className="font-body text-xs text-white border block w-max px-4 py-1 my-auto leading-6"
-              role="alert"
-            >
-              {phase}
-            </span>
-            {feedbackActive ? (
-              <ActionButton
-                id="back-projects"
-                dataCy="back-projects"
-                dataTestId="back-projects"
-                custom="font-body w-max text-xs mt-0 lg:mt-4 underline text-white block w-32 outline-none focus:outline-white-solid"
-                text={t("backProjects")}
-                href={t("breadCrumbsHref2")}
-              />
-            ) : (
-              ""
-            )}
-          </div>
-          <div className="lg:ml-4 xl:ml-8 xxl:ml-12">
-            <p className="font-body text-xs lg:text-sm mt-5 lg:mt-auto text-white lg:ml-4 pt-1 my-auto lg:mb-0 lg:pb-1">
-              {children}
-            </p>
-          </div>
-        </div>
-      </div>
-      {feedbackActive ? (
-        <div className="py-4 w-full outline-none bg-custom-blue-blue font-body text-xs lg:text-sm text-white flex justify-center items-center text-left lg:my-0">
-          <button
-            id="feedbackButton"
-            onClick={toggleForm}
-            className="flex focus:outline-white-solid items-center"
-            data-testid="feedbackButton"
-          >
-            <strong className="ml-2 underline">
-              {t("giveFeedback")}
-              <span className="sr-only"> {toggle.current}</span>
-            </strong>
-            <img
-              className="px-2 flex items-center"
-              src="/feedback-icon-white.svg"
-              alt=""
-            />
-          </button>
-        </div>
-      ) : (
-        ""
-      )}
       {showFeedback ? (
         <div className="fixed top-0 left-0 w-full h-full bg-opacity-50 bg-gray-400 flex justify-center items-center">
           <div
-            className="ralative flex w-full justify-center items-center bg-custom-blue-blue"
+            className="relative flex w-full justify-center items-center bg-custom-blue-blue"
             data-testid="feedbackDropdown"
           >
             <div role="status">
@@ -314,7 +241,7 @@ export const PhaseBanner = ({
                   />
                   <ActionButton
                     id="feedback-submit"
-                    custom="outline-none focus:outline-black-solid rounded block w-full lg:w-auto lg:px-12 text-xs lg:text-sm py-2 mt-2 font-bold text-custom-blue-projects-link bg-details-button-gray hover:bg-gray-300"
+                    custom="outline-none focus:outline-black-solid rounded block w-full lg:w-auto lg:px-12 text-xs lg:text-sm py-2 mt-2 font-bold text-custom-blue-projects-link bg-details-button-gray hover:bg-gray-300 flex justify-center"
                     type="submit"
                     dataCy="feedback-submit"
                     dataTestId="feedback-submit"
@@ -329,23 +256,16 @@ export const PhaseBanner = ({
       ) : (
         ""
       )}
+      )
     </>
   );
 };
 
-PhaseBanner.propTypes = {
-  /**
-   * Phase stage in the PhaseBanner
-   */
-  phase: PropTypes.string.isRequired,
-  /**
-   * Phase stage in the PhaseBanner
-   */
-  children: PropTypes.string.isRequired,
+FeedbackWidget.propTypes = {
   /**
    * This is for showing the feedback component
    */
   feedbackActive: PropTypes.bool,
 };
 
-export default PhaseBanner;
+export default FeedbackWidget;
