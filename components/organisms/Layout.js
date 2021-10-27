@@ -49,7 +49,7 @@ export const Layout = ({
         <h3 className="sr-only">{t("testSiteNotice")}</h3>
         <PhaseBanner
           phase={t("phaseBannerTag")}
-          feedbackActive={true}
+          feedbackActive={feedbackActive}
           feedbackBottom={feedbackBottom}
         >
           {t("phaseBannerText")}
