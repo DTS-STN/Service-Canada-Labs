@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1635364179620" clover="3.2.0">
-  <project timestamp="1635364179621" name="All files">
-    <metrics statements="797" coveredstatements="629" conditionals="627" coveredconditionals="367" methods="201" coveredmethods="149" elements="1625" coveredelements="1145" complexity="0" loc="797" ncloc="797" packages="15" files="91" classes="91"/>
+<coverage generated="1635364171512" clover="3.2.0">
+  <project timestamp="1635364171512" name="All files">
+    <metrics statements="797" coveredstatements="628" conditionals="631" coveredconditionals="369" methods="201" coveredmethods="148" elements="1629" coveredelements="1145" complexity="0" loc="797" ncloc="797" packages="15" files="91" classes="91"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/index.js">
@@ -241,7 +241,7 @@
       </file>
     </package>
     <package name="components.molecules">
-      <metrics statements="174" coveredstatements="156" conditionals="100" coveredconditionals="69" methods="46" coveredmethods="38"/>
+      <metrics statements="174" coveredstatements="155" conditionals="102" coveredconditionals="70" methods="46" coveredmethods="37"/>
       <file name="CallToAction.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/molecules/CallToAction.js">
         <metrics statements="3" coveredstatements="3" conditionals="12" coveredconditionals="7" methods="1" coveredmethods="1"/>
         <line num="10" count="8" type="stmt"/>
@@ -296,7 +296,7 @@
         <line num="13" count="1" type="stmt"/>
       </file>
       <file name="FeedbackWidget.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/molecules/FeedbackWidget.js">
-        <metrics statements="44" coveredstatements="33" conditionals="20" coveredconditionals="9" methods="9" coveredmethods="6"/>
+        <metrics statements="44" coveredstatements="32" conditionals="22" coveredconditionals="10" methods="9" coveredmethods="5"/>
         <line num="13" count="2" type="stmt"/>
         <line num="14" count="6" type="stmt"/>
         <line num="15" count="6" type="stmt"/>
@@ -335,12 +335,12 @@
         <line num="93" count="1" type="stmt"/>
         <line num="94" count="1" type="stmt"/>
         <line num="96" count="1" type="stmt"/>
-        <line num="97" count="1" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
         <line num="100" count="1" type="stmt"/>
         <line num="101" count="0" type="stmt"/>
         <line num="105" count="6" type="stmt"/>
-        <line num="233" count="0" type="stmt"/>
-        <line num="256" count="2" type="stmt"/>
+        <line num="240" count="0" type="stmt"/>
+        <line num="264" count="2" type="stmt"/>
       </file>
       <file name="FeedbackWidget.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/molecules/FeedbackWidget.stories.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -490,7 +490,7 @@
       </file>
     </package>
     <package name="components.organisms">
-      <metrics statements="104" coveredstatements="89" conditionals="50" coveredconditionals="32" methods="28" coveredmethods="22"/>
+      <metrics statements="104" coveredstatements="89" conditionals="52" coveredconditionals="33" methods="28" coveredmethods="22"/>
       <file name="Footer.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/organisms/Footer.js">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
         <line num="8" count="16" type="stmt"/>
@@ -528,7 +528,7 @@
         <line num="33" count="1" type="stmt"/>
       </file>
       <file name="PhaseBanner.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/organisms/PhaseBanner.js">
-        <metrics statements="52" coveredstatements="40" conditionals="28" coveredconditionals="16" methods="10" coveredmethods="7"/>
+        <metrics statements="52" coveredstatements="40" conditionals="30" coveredconditionals="17" methods="10" coveredmethods="7"/>
         <line num="13" count="12" type="stmt"/>
         <line num="14" count="27" type="stmt"/>
         <line num="15" count="27" type="stmt"/>
@@ -579,8 +579,8 @@
         <line num="110" count="0" type="stmt"/>
         <line num="115" count="0" type="stmt"/>
         <line num="118" count="27" type="stmt"/>
-        <line num="301" count="0" type="stmt"/>
-        <line num="323" count="12" type="stmt"/>
+        <line num="308" count="0" type="stmt"/>
+        <line num="331" count="12" type="stmt"/>
       </file>
       <file name="PhaseBanner.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/organisms/PhaseBanner.stories.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>

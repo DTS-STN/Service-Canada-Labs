@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">72.73% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>33/44</span>
+                <span class='fraction'>32/44</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">45% </span>
+                <span class="strong">45.45% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>9/20</span>
+                <span class='fraction'>10/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.67% </span>
+                <span class="strong">55.56% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>6/9</span>
+                <span class='fraction'>5/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">72.73% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>33/44</span>
+                <span class='fraction'>32/44</span>
             </div>
         
             
@@ -320,7 +320,15 @@
 <a name='L261'></a><a href='#L261'>261</a>
 <a name='L262'></a><a href='#L262'>262</a>
 <a name='L263'></a><a href='#L263'>263</a>
-<a name='L264'></a><a href='#L264'>264</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L264'></a><a href='#L264'>264</a>
+<a name='L265'></a><a href='#L265'>265</a>
+<a name='L266'></a><a href='#L266'>266</a>
+<a name='L267'></a><a href='#L267'>267</a>
+<a name='L268'></a><a href='#L268'>268</a>
+<a name='L269'></a><a href='#L269'>269</a>
+<a name='L270'></a><a href='#L270'>270</a>
+<a name='L271'></a><a href='#L271'>271</a>
+<a name='L272'></a><a href='#L272'>272</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -416,7 +424,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -552,7 +560,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -678,8 +694,8 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) =&gt; {
     el.classList.add("sr-only");
     document.body.appendChild(el);
 &nbsp;
-    window.setTimeout(function () {
-      document.getElementById(id).innerHTML = text;
+    window.setTimeout(<span class="fstat-no" title="function not covered" >fu</span>nction () {
+<span class="cstat-no" title="statement not covered" >      document.getElementById(id).innerHTML = text;</span>
     }, 100);
 &nbsp;
     window.setTimeout(<span class="fstat-no" title="function not covered" >fu</span>nction () {
@@ -692,7 +708,7 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) =&gt; {
       {showFeedback ? (
         &lt;div className="fixed top-0 left-0 w-full h-full bg-opacity-50 bg-gray-400 flex justify-center items-center"&gt;
           &lt;div
-            className="relative w-full bg-custom-blue-blue"
+            className="relative flex w-full justify-center items-center bg-custom-blue-blue"
             data-testid="feedbackDropdown"
           &gt;
             &lt;div role="status"&gt;
@@ -701,10 +717,10 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) =&gt; {
                   className={`${
                     response === t("thankYouFeedback")
                       ? "bg-custom-green-darker font-bold"
-                      : "bg-circle-color"
-                  } text-white flex py-2 w-screen justify-center`}
+                      : ""
+                  } text-white flex justify-between py-2 px-24 w-screen`}
                 &gt;
-                  &lt;span className="text-xs lg:text-sm font-body mt-2 mb-4"&gt;
+                  &lt;span className="text-xs lg:text-sm font-body mt-2 mb-4 flex justify-center w-full"&gt;
                     {response}
                     {response === t("sorryFeedback") ? (
                       &lt;a
@@ -720,7 +736,7 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) =&gt; {
                   &lt;button
                     id="feedbackClose"
                     onClick={toggleForm}
-                    className="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid ml-12"
+                    className="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
                     data-testid="closeButton"
                     aria-label="Close the expanded feedback section"
                   &gt;
@@ -738,96 +754,104 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) =&gt; {
                 ""
               )}
             &lt;/div&gt;
-            &lt;div className="layout-container text-white pb-4"&gt;
-              &lt;button
-                id="feedbackClose"
-                onClick={toggleForm}
-                className="flex float-right pt-4 font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
-                data-testid="closeButton"
-                aria-label="Close the expanded feedback section"
-              &gt;
-                &lt;img
-                  src="/close-x.svg"
-                  alt="Close button"
-                  className="mt-0.5 lg:mt-3.5"
-                /&gt;
-                &lt;span className="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10"&gt;
-                  {t("close")}
-                &lt;/span&gt;
-              &lt;/button&gt;
-              &lt;h2 className="text-h4 lg:text-h3 lg:text-sm font-display pt-6 mb-4 w-48 sm:w-auto"&gt;
-                {t("improveService")}
-              &lt;/h2&gt;
-              &lt;ul className="list-outside list-disc px-6 py-2"&gt;
-                &lt;li className="text-xs lg:text-sm font-body mb-4"&gt;
-                  &lt;strong&gt;{t("reportAProblemNoReply")}&lt;/strong&gt;{" "}
-                  {t("reportAProblemEnquiries")}{" "}
-                  &lt;a
-                    className="underline text-xs lg:text-sm font-body outline-none focus:outline-white-solid"
-                    href="mailto:experience@servicecanada.gc.ca"
-                  &gt;
-                    experience@servicecanada.gc.ca
-                  &lt;/a&gt;
-                  .
-                &lt;/li&gt;
-                &lt;li className="text-xs lg:text-sm font-body mb-4"&gt;
-                  &lt;strong&gt;{t("confidential")}&lt;/strong&gt;
-                  &lt;ActionButton
-                    id="link-privacyPage"
-                    dataCy="link-privacyPage"
-                    dataTestId="link-privacyPage"
-                    href={t("privacyLink")}
-                    text={t("reportAProblemPrivacyStatement")}
-                    custom="text-xs lg:text-sm underline ml-2 outline-none focus:outline-white-solid"
-                  /&gt;
-                &lt;/li&gt;
-              &lt;/ul&gt;
-              &lt;form
-                data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsFeedback-Form"
-                data-gc-analytics-collect='[{"value":"input,select","emptyField":"N/A"}]'
-                className="w-full"
-                action="#"
-                onSubmit={onSubmitHandler}
-              &gt;
-                &lt;label
-                  htmlFor="feedbackTextArea"
-                  className="text-xs lg:text-sm font-body font-bold"
+            {submitted ? (
+<span class="branch-0 cbranch-no" title="branch not covered" >              ""</span>
+            ) : (
+              &lt;div className="layout-container text-white pb-4"&gt;
+                &lt;button
+                  id="feedbackClose"
+                  onClick={toggleForm}
+                  className="flex float-right pt-4 font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
+                  data-testid="closeButton"
+                  aria-label="Close the expanded feedback section"
                 &gt;
-                  {t("doBetter")}
-                  &lt;span className="text-gray-md"&gt; {t("required")}&lt;/span&gt;
-                &lt;/label&gt;
-                &lt;div id="feedbackInfo"&gt;
-                  &lt;p className="text-xs lg:text-sm my-2"&gt;{t("doNotInclude")}&lt;/p&gt;
-                  &lt;p className="text-xs lg:text-sm my-2"&gt;{t("maximum2000")}&lt;/p&gt;
-                &lt;/div&gt;
-                {feedbackError ? (
-                  &lt;ErrorLabel
-                    message={feedbackError}
-                    className="text-black mt-4"
+                  &lt;img
+                    src="/close-x.svg"
+                    alt="Close button"
+                    className="mt-0.5 lg:mt-3.5"
                   /&gt;
-                ) : undefined}
-                &lt;textarea
-                  aria-describedby="feedbackInfo"
-                  id="feedbackTextArea"
-                  name="feedbackTextArea"
-                  maxLength="2000"
-                  rows="5"
-                  className={
-                    "text-input font-body w-full min-h-40px shadow-sm text-form-input-gray border-2 py-6px px-12px rounded"
-                  }
-                  onChange={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setFeedback(e.currentTarget.value)}</span>
-                /&gt;
-                &lt;ActionButton
-                  id="feedback-submit"
-                  custom="outline-none focus:outline-black-solid rounded block w-full lg:w-auto lg:px-12 text-xs lg:text-sm py-2 mt-2 font-bold text-custom-blue-projects-link bg-details-button-gray hover:bg-gray-300 flex justify-center"
-                  type="submit"
-                  dataCy="feedback-submit"
-                  dataTestId="feedback-submit"
-                  text={t("reportAProblemSubmit")}
-                  analyticsTracking
-                /&gt;
-              &lt;/form&gt;
-            &lt;/div&gt;
+                  &lt;span className="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10"&gt;
+                    {t("close")}
+                  &lt;/span&gt;
+                &lt;/button&gt;
+                &lt;h2 className="text-h4 lg:text-h3 lg:text-sm font-display pt-6 mb-4 w-48 sm:w-auto"&gt;
+                  {t("improveService")}
+                &lt;/h2&gt;
+                &lt;ul className="list-outside list-disc px-6 py-2"&gt;
+                  &lt;li className="text-xs lg:text-sm font-body mb-4"&gt;
+                    &lt;strong&gt;{t("reportAProblemNoReply")}&lt;/strong&gt;{" "}
+                    {t("reportAProblemEnquiries")}{" "}
+                    &lt;a
+                      className="underline text-xs lg:text-sm font-body outline-none focus:outline-white-solid"
+                      href="mailto:experience@servicecanada.gc.ca"
+                    &gt;
+                      experience@servicecanada.gc.ca
+                    &lt;/a&gt;
+                    .
+                  &lt;/li&gt;
+                  &lt;li className="text-xs lg:text-sm font-body mb-4"&gt;
+                    &lt;strong&gt;{t("confidential")}&lt;/strong&gt;
+                    &lt;ActionButton
+                      id="link-privacyPage"
+                      dataCy="link-privacyPage"
+                      dataTestId="link-privacyPage"
+                      href={t("privacyLink")}
+                      text={t("reportAProblemPrivacyStatement")}
+                      custom="text-xs lg:text-sm underline ml-2 outline-none focus:outline-white-solid"
+                    /&gt;
+                  &lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;form
+                  data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsFeedback-Form"
+                  data-gc-analytics-collect='[{"value":"input,select","emptyField":"N/A"}]'
+                  className="w-full"
+                  action="#"
+                  onSubmit={onSubmitHandler}
+                &gt;
+                  &lt;label
+                    htmlFor="feedbackTextArea"
+                    className="text-xs lg:text-sm font-body font-bold"
+                  &gt;
+                    {t("doBetter")}
+                    &lt;span className="text-gray-md"&gt; {t("required")}&lt;/span&gt;
+                  &lt;/label&gt;
+                  &lt;div id="feedbackInfo"&gt;
+                    &lt;p className="text-xs lg:text-sm my-2"&gt;
+                      {t("doNotInclude")}
+                    &lt;/p&gt;
+                    &lt;p className="text-xs lg:text-sm my-2"&gt;
+                      {t("maximum2000")}
+                    &lt;/p&gt;
+                  &lt;/div&gt;
+                  {feedbackError ? (
+                    &lt;ErrorLabel
+                      message={feedbackError}
+                      className="text-black mt-4"
+                    /&gt;
+                  ) : undefined}
+                  &lt;textarea
+                    aria-describedby="feedbackInfo"
+                    id="feedbackTextArea"
+                    name="feedbackTextArea"
+                    maxLength="2000"
+                    rows="5"
+                    className={
+                      "text-input font-body w-full min-h-40px shadow-sm text-form-input-gray border-2 py-6px px-12px rounded"
+                    }
+                    onChange={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setFeedback(e.currentTarget.value)}</span>
+                  /&gt;
+                  &lt;ActionButton
+                    id="feedback-submit"
+                    custom="outline-none focus:outline-black-solid rounded block w-full lg:w-auto lg:px-12 text-xs lg:text-sm py-2 mt-2 font-bold text-custom-blue-projects-link bg-details-button-gray hover:bg-gray-300 flex justify-center"
+                    type="submit"
+                    dataCy="feedback-submit"
+                    dataTestId="feedback-submit"
+                    text={t("reportAProblemSubmit")}
+                    analyticsTracking
+                  /&gt;
+                &lt;/form&gt;
+              &lt;/div&gt;
+            )}
           &lt;/div&gt;
         &lt;/div&gt;
       ) : (
@@ -853,7 +877,7 @@ export default FeedbackWidget;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Oct 27 2021 19:49:39 GMT+0000 (Coordinated Universal Time)
+                at Wed Oct 27 2021 19:49:31 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
