@@ -7,6 +7,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+
+## [v1.1.3] - 2021-10-27
+
 ## Changed
 
 - test-signup-unsubscribe-flow
