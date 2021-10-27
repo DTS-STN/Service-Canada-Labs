@@ -10,12 +10,7 @@ import { ErrorLabel } from "../atoms/ErrorLabel";
  * Displays the PhaseBanner on the page
  */
 
-export const PhaseBanner = ({
-  phase,
-  children,
-  feedbackActive,
-  feedbackBottom,
-}) => {
+export const PhaseBanner = ({ phase, children, feedbackActive }) => {
   const [submitted, setSubmitted] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
   const { t } = useTranslation("common");
