@@ -2,7 +2,7 @@ import React from "react";
 import FeedbackWidget from "./FeedbackWidget";
 
 export default {
-  title: "Components/Organisms/FeedbackWidget",
+  title: "Components/Molecules/FeedbackWidget",
   component: FeedbackWidget,
 };
 
