@@ -41,7 +41,7 @@ export function CallToAction(props) {
                       <img className="px-2" src="/feedback-icon.svg" alt="" />
                     ) : undefined
                   }
-                  onClick={props.clicked}
+                  onClick={props.feedbackActive ? props.clicked : undefined}
                 />
               </p>
               <p>

@@ -25,7 +25,6 @@ export const Layout = ({
   locale,
   langUrl,
   breadcrumbItems,
-  feedbackBottom,
   feedbackActive,
 }) => {
   const { t } = useTranslation("common");
@@ -50,7 +49,6 @@ export const Layout = ({
         <PhaseBanner
           phase={t("phaseBannerTag")}
           feedbackActive={feedbackActive}
-          feedbackBottom={feedbackBottom}
         >
           {t("phaseBannerText")}
         </PhaseBanner>
