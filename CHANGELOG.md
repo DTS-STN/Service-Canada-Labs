@@ -21,6 +21,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added metadata support for HTML, OpenGraph and Twitter to every page
 - Removed signup confirmation/validation pages from search engine indexing
 - Added projects disclaimer to the main body text of each page
+- Updated `See the projects` button text on home and confirmation pages to be `Explore our projects` for consistency
 
 ## Fixed
 
