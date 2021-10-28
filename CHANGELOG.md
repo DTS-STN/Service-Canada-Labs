@@ -32,6 +32,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - The feedback form close button is now before the `<h2>` in page order
 - Typo in the redirect path for the thank you page when switching back to EN
 - Focus is properly set to before elements in status message after submitting feedback form
+- Added thank you email env var as a build arg in both dev and prod
 
 ## [v1.1.2] - 2021-09-27
 
