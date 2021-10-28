@@ -12,6 +12,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Changed
 
+- Added sr-only close button to menu
 - test-signup-unsubscribe-flow
 - Updated e2e test for signup and unsubscribe workflow
 - Change color on confirmation when feedback submited successfully for feedback component
