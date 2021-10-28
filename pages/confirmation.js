@@ -168,7 +168,7 @@ export default function Confirmation(props) {
                 </p>
                 <TextButtonField
                   href={t("projectRedirect")}
-                  buttonText={t("experimentsBtnTxt")}
+                  buttonText={t("menuLink1")}
                   idButton="ExperimentsButton"
                   dataCyButton="ExperimentsButton"
                   className="flex mt-5"
