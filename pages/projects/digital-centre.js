@@ -33,7 +33,7 @@ ThumbnailWithCaption.propTypes = {
 
 export default function DigitalCenter(props) {
   const { t } = useTranslation(["common", "dc"]);
-  const [feedbackActive, setFeedbackActive] = useState(false);
+  const [feedbackActive] = useState(true);
   const [showFeedback, setShowFeedback] = useState(false);
   const toggle = useRef("Collapsed");
 
