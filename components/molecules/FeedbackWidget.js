@@ -102,28 +102,28 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
   return (
     <>
       {showFeedback ? (
-        <div className="fixed top-0 left-0 w-full h-full bg-opacity-50 bg-gray-400 flex justify-center items-center">
+        <div className="fixed top-0 left-0 w-screen h-full bg-opacity-50 bg-gray-400 flex items-center">
           <div
-            className="relative w-full bg-custom-blue-blue"
+            className="w-full bg-custom-blue-blue"
             data-testid="feedbackDropdown"
           >
-            <div role="status">
-              {submitted ? (
-                <div>
-                  {!feedbackClose ? (
-                    <div
-                      className={`${
-                        response === t("thankYouFeedback")
-                          ? "bg-custom-green-darker font-bold"
-                          : "bg-circle-color"
-                      } text-white flex py-2 w-screen justify-center`}
-                    >
-                      <span className="text-xs lg:text-sm font-body mt-2 mb-4 px-8">
+            {submitted ? (
+              <div role="status" className="w-full">
+                {!feedbackClose ? (
+                  <div
+                    className={`${
+                      response === t("thankYouFeedback")
+                        ? "bg-custom-green-darker font-bold"
+                        : "bg-circle-color"
+                    } text-white flex py-2`}
+                  >
+                    <div className="layout-container flex">
+                      <span className="flex text-xs lg:text-sm font-body mt-2 mb-4 w-5/6">
                         {response}
                         {response === t("sorryFeedback") ? (
                           <a
                             href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
-                            className="px-2 underline outline-none focus:outline-white-solid"
+                            className="px-2 underline outline-none focus:outline-white-solid flex items-end"
                           >
                             experience@service.gc.ca
                           </a>
@@ -134,7 +134,7 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
                       <button
                         id="feedbackClose"
                         onClick={() => setFeedbackClose(true)}
-                        className="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid ml-12"
+                        className="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid justify-end w-1/6"
                         data-testid="closeButton"
                         aria-label="Close the expanded feedback section"
                       >
@@ -148,14 +148,14 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
                         </span>
                       </button>
                     </div>
-                  ) : (
-                    ""
-                  )}
-                </div>
-              ) : (
-                ""
-              )}
-            </div>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
+            ) : (
+              ""
+            )}
             <div className="layout-container text-white pb-4">
               <button
                 id="feedbackClose"

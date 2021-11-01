@@ -12,7 +12,7 @@ describe("FeedbackWidget tests", () => {
   it("renders FeedbackWidget in its primary state", () => {
     render(<Primary {...Primary.args} />);
     expect(screen.getByTestId("feedbackDropdown")).toHaveClass(
-      "relative w-full bg-custom-blue-blue"
+      "w-full bg-custom-blue-blue"
     );
   });
 

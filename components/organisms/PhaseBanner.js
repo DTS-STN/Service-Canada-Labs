@@ -78,11 +78,11 @@ export const PhaseBanner = ({ phase, text, feedbackActive }) => {
         </div>
         {feedbackActive ? (
           <div className="py-4 outline-none bg-custom-blue-blue font-body text-xs lg:text-sm text-white flex items-center lg:my-0">
-            <div className="flex md:w-3/4 justify-center">
+            <div className="flex layout-container">
               <button
                 id="feedbackButton"
                 onClick={toggleForm}
-                className="flex focus:outline-white-solid items-center lg:ml-4 my-auto lg:mt-0"
+                className="flex focus:outline-white-solid items-center lg:ml-4 my-auto lg:mt-0 md:px-36"
                 data-testid="feedbackButton"
               >
                 <strong className="ml-2 underline">
