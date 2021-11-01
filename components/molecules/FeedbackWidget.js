@@ -70,8 +70,7 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
       if (response.status === 201 || response.status === 200) {
         await setResponse(t("thankYouFeedback"));
       } else {
-        // await setResponse(t("sorryFeedback"));
-        await setResponse(t("thankYouFeedback"));
+        await setResponse(t("sorryFeedback"));
       }
 
       setSubmitted(true);
@@ -119,7 +118,7 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
                           : "bg-circle-color"
                       } text-white flex py-2 w-screen justify-center`}
                     >
-                      <span className="text-xs lg:text-sm font-body mt-2 mb-4">
+                      <span className="text-xs lg:text-sm font-body mt-2 mb-4 px-8">
                         {response}
                         {response === t("sorryFeedback") ? (
                           <a
@@ -252,7 +251,6 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
       ) : (
         ""
       )}
-      )
     </>
   );
 };

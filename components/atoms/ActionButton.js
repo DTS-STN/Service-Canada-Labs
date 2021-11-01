@@ -93,7 +93,7 @@ export function ActionButton(props) {
       ) : undefined}
       <span className="flex">
         {props.text}
-        {props.svg}
+        {props.expandIcon}
       </span>
       {props.children}
       {props.icon && props.iconEnd ? (
@@ -191,4 +191,8 @@ ActionButton.propTypes = {
    * For tracking reset or submit on forms for analytics
    */
   analyticsTracking: PropTypes.bool,
+  /**
+   * Expand icon that will show the Feedback as popup
+   */
+  expandIcon: PropTypes.object,
 };

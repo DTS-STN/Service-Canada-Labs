@@ -36,7 +36,7 @@ export function CallToAction(props) {
                   className=""
                   href={props.href}
                   text={props.hrefText}
-                  svg={
+                  expandIcon={
                     props.feedbackActive ? (
                       <img className="px-2" src="/feedback-icon.svg" alt="" />
                     ) : undefined
