@@ -7,9 +7,13 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+
+## [v1.1.3] - 2021-10-27
+
 ## Changed
 
 - Apply new design to the feedback widget
+- Added sr-only close button to menu
 - Updated e2e test for signup and unsubscribe workflow
 - Change color on confirmation when feedback submited successfully for feedback component
 - Updated content on the experiments, about and sign up pages
@@ -18,6 +22,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added metadata support for HTML, OpenGraph and Twitter to every page
 - Removed signup confirmation/validation pages from search engine indexing
 - Added projects disclaimer to the main body text of each page
+- Updated `See the projects` button text on home and confirmation pages to be `Explore our projects` for consistency
 
 ## Fixed
 
@@ -27,6 +32,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - The feedback form close button is now before the `<h2>` in page order
 - Typo in the redirect path for the thank you page when switching back to EN
 - Focus is properly set to before elements in status message after submitting feedback form
+- Added thank you email env var as a build arg in both dev and prod
 
 ## [v1.1.2] - 2021-09-27
 
