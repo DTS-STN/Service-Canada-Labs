@@ -74,6 +74,7 @@ export default function DigitalCenter(props) {
 
   return (
     <>
+      <FeedbackWidget showFeedback={showFeedback} toggleForm={toggleForm} />
       <Layout
         locale={props.locale}
         langUrl={t("digitalCentrePath")}
@@ -83,8 +84,6 @@ export default function DigitalCenter(props) {
         ]}
         feedbackActive={feedbackActive}
       >
-        <FeedbackWidget showFeedback={showFeedback} toggleForm={toggleForm} />
-
         <Head>
           {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
             <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
