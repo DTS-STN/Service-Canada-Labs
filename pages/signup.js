@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Joi from "joi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ErrorBox } from "../components/molecules/ErrorBox";
@@ -18,7 +18,7 @@ import { SelectField } from "../components/atoms/SelectField";
 import { CheckBox } from "../components/atoms/CheckBox";
 import { OptionalListField } from "../components/molecules/OptionalListField";
 import { maskEmail } from "../lib/utils/maskEmail";
-import { useEffect } from "react";
+import Link from "next/link";
 
 // TODO
 //  - fix bug with error messages not showing custom error message [x]
@@ -28,8 +28,28 @@ import { useEffect } from "react";
 //  - write cypress tests
 export default function Signup(props) {
   const { t } = useTranslation("common");
-  const { asPath, push } = useRouter();
+  const { push } = useRouter();
   const fr = props.locale === "fr";
+
+  // get the options for the year of birth ranges
+  const minYear = new Date().getFullYear() - 18;
+  const oldestYear = minYear + 18 - 85;
+  let yearOptions = [
+    {
+      id: `${t("after").toLowerCase()}${minYear}`,
+      value: `${t("after")} ${minYear}`,
+    },
+  ];
+  for (let i = minYear - 3; i >= oldestYear; i -= 4) {
+    yearOptions.push({
+      id: `${i}-${i + 3}`,
+      value: `${i}-${i + 3}`,
+    });
+  }
+  yearOptions.push({
+    id: `${t("before").toLowerCase()}${oldestYear}`,
+    value: `${t("before")} ${oldestYear}`,
+  });
 
   // Joi form validation schema. Only required fields are validated
   const formSchema = Joi.object({
@@ -50,10 +70,8 @@ export default function Signup(props) {
         });
         return errors;
       }),
-    yearOfBirth: Joi.number()
-      .integer()
-      .min(1850)
-      .max(new Date().getFullYear() - 18)
+    yearOfBirthRange: Joi.string()
+      .invalid(yearOptions[0].id)
       .required()
       .error((errors) => {
         errors.forEach((error) => {
@@ -61,13 +79,7 @@ export default function Signup(props) {
             case "any.required":
               error.message = t("yearRequired");
               break;
-            case "number.integer":
-              error.message = t("errorInt");
-              break;
-            case "number.min":
-              error.message = t("errorMinMax");
-              break;
-            case "number.max":
+            case "any.invalid":
               error.message = t("errorMustBe18");
               break;
             default:
@@ -158,8 +170,8 @@ export default function Signup(props) {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
 
-  const [yearOfBirth, setYearOfBirth] = useState("");
-  const [yearOfBirthError, setYearOfBirthError] = useState("");
+  const [yearOfBirthRange, setYearOfBirthRange] = useState("");
+  const [yearOfBirthRangeError, setYearOfBirthRangeError] = useState("");
 
   const [language, setLanguage] = useState("");
   const [languageError, setLanguageError] = useState("");
@@ -210,13 +222,13 @@ export default function Signup(props) {
     e.preventDefault();
     setEmailError("");
     setLanguageError("");
-    setYearOfBirthError("");
+    setYearOfBirthRangeError("");
     setProvinceError("");
     setDisabilityError("");
     setAgreeToConditionsError("");
 
     setEmail("");
-    setYearOfBirth("");
+    setYearOfBirthRange("");
     setLanguage("");
     setGender("");
     setGenderOtherDetails("");
@@ -235,7 +247,7 @@ export default function Signup(props) {
     // clear out error values
     await setEmailError("");
     await setLanguageError("");
-    await setYearOfBirthError("");
+    await setYearOfBirthRangeError("");
     await setProvinceError("");
     await setDisabilityError("");
     await setAgreeToConditionsError("");
@@ -245,7 +257,7 @@ export default function Signup(props) {
     // compile data into one object
     const formData = {
       email,
-      yearOfBirth: parseInt(yearOfBirth),
+      yearOfBirthRange,
       language,
       province,
       gender,
@@ -282,7 +294,7 @@ export default function Signup(props) {
       const errorSetFunctions = {
         email: setEmailError,
         language: setLanguageError,
-        yearOfBirth: setYearOfBirthError,
+        yearOfBirthRange: setYearOfBirthRangeError,
         province: setProvinceError,
         disabilityDetails: setDisabilityError,
         agreeToConditions: setAgreeToConditionsError,
@@ -329,6 +341,8 @@ export default function Signup(props) {
         // likewise with province its province choice
         else if (errors[error].id === "province") {
           errors[error].id = "province-choice";
+        } else if (errors[error].id === "yearOfBirthRange") {
+          errors[error].id = "yearOfBirthRange-choice";
         }
         errorsList.push(errors[error]);
       }
@@ -399,7 +413,7 @@ export default function Signup(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={asPath}
+        langUrl={t("signupPath")}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}
@@ -410,8 +424,14 @@ export default function Signup(props) {
           ) : (
             ""
           )}
+
+          {/* Primary HTML Meta Tags */}
           <title>{`${t("signupTitle")} — ${t("siteTitle")}`}</title>
+          <meta name="description" content={`${t("signupMetaDescription")}`} />
+          <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
+
+          {/* DCMI Meta Tags */}
           <meta
             name="dcterms.title"
             content={`${t("signupTitle")} — ${t("siteTitle")}`}
@@ -427,6 +447,50 @@ export default function Signup(props) {
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
           <meta name="dcterms.issued" content="2021-06-08" />
+
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="website" />
+          <meta property="og:locale" content={props.locale} />
+          <meta
+            property="og:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("signupRedirect")}`
+            }
+          />
+          <meta
+            property="og:title"
+            content={`${t("signupTitle")} — ${t("siteTitle")}`}
+          />
+          <meta
+            property="og:description"
+            content={`${t("signupMetaDescription")}`}
+          />
+          <meta property="og:image" content={`${t("metaImage")}`} />
+          <meta property="og:image:alt" content={`${t("siteTitle")}`} />
+
+          {/* Twitter */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta
+            property="twitter:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("signupRedirect")}`
+            }
+          />
+          <meta
+            property="twitter:title"
+            content={`${t("signupTitle")} — ${t("siteTitle")}`}
+          />
+          <meta name="twitter:creator" content={t("creator")} />
+          <meta
+            property="twitter:description"
+            content={`${t("signupMetaDescription")}`}
+          />
+          <meta property="twitter:image" content={`${t("metaImage")}`} />
+          <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <section className="layout-container mb-2 mt-12">
           <div className="xl:w-2/3 ">
@@ -438,7 +502,10 @@ export default function Signup(props) {
               listClassName={"list-disc text-sm lg:text-p pl-10 mb-5"}
               content={t("signupList1")}
             />
-            <p className="mb-10 text-sm lg:text-p">{t("signupP1.1")}</p>
+            <p className="mb-5 text-sm lg:text-p">{t("signupP1.1")}</p>
+            <p className="mb-10 text-sm lg:text-p">
+              {t("projectsDisclaimerBody")}
+            </p>
             <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle2")}</h2>
             <HTMList
               listClassName={
@@ -465,12 +532,11 @@ export default function Signup(props) {
             />
 
             <p className="my-8 text-sm lg:text-p">{t("signupP3.1")}</p>
-            <a
-              className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5 text-sm lg:text-p"
-              href={t("privacyLink")}
-            >
-              {t("privacy")}
-            </a>
+            <Link href={t("privacyRedirect")} locale={props.locale}>
+              <a className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5 text-sm lg:text-p">
+                {t("privacy")}
+              </a>
+            </Link>
             <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle4")}</h2>
             <p
               className="my-8 text-sm lg:text-p"
@@ -479,6 +545,7 @@ export default function Signup(props) {
           </div>
         </section>
         <section className="layout-container">
+          <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle5")}</h2>
           {errorBoxText ? (
             <ErrorBox
               text={errorBoxText}
@@ -486,10 +553,8 @@ export default function Signup(props) {
               onClick={handleScrollToError}
             />
           ) : undefined}
-          <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle5")}</h2>
           <form
             data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsSign-up"
-            data-gc-analytics-collect='[{"value":"input:not(.exclude),select","emptyField":"N/A"}]'
             onSubmit={handleSubmit}
             onReset={handlerClearData}
             noValidate
@@ -517,23 +582,25 @@ export default function Signup(props) {
                 boldLabel={true}
                 describedby="emailDoNoInclude"
                 required
-                exclude
               />
-              <TextField
-                className="mb-10"
-                type="number"
+              <SelectField
                 label={t("formYear")}
-                name="yearOfBirth"
-                id="yearOfBirth"
-                error={yearOfBirthError}
-                value={yearOfBirth}
-                min={0}
-                max={new Date().getFullYear()}
-                step={1}
-                onChange={setYearOfBirth}
-                boldLabel={true}
-                describedby="yearOfBirthDoNoInclude"
+                className="mb-10"
+                id="yearOfBirthRange"
+                boldLabel
+                ignoreSort
                 required
+                name="yearOfBirthRange"
+                value={yearOfBirthRange}
+                error={yearOfBirthRangeError}
+                options={yearOptions.map((value) => {
+                  return {
+                    id: value.id,
+                    name: value.value,
+                    value: value.id,
+                  };
+                })}
+                onChange={setYearOfBirthRange}
               />
               <fieldset className="mb-6">
                 <legend className="block leading-tight text-sm font-body mb-5 lg:text-p font-bold">
@@ -668,7 +735,7 @@ export default function Signup(props) {
                   value="man"
                 />
                 <OptionalTextField
-                  controlLabel={t("other")}
+                  controlLabel={t("another")}
                   textFieldName="genderOtherDetails"
                   textFieldId="genderOtherDetails"
                   textFieldLabel={t("otherDetails")}
@@ -1037,12 +1104,11 @@ export default function Signup(props) {
                 showRequiredLabel
               />
             </div>
-            <a
-              className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-10 text-sm lg:text-p"
-              href={t("privacyLink")}
-            >
-              {t("privacy")}
-            </a>
+            <Link href={t("privacyRedirect")} locale={props.locale}>
+              <a className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-10 text-sm lg:text-p">
+                {t("privacy")}
+              </a>
+            </Link>
             <ActionButton
               id="signup-submit"
               className="rounded w-72"

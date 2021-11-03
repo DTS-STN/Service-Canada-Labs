@@ -4,7 +4,6 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { HTMList } from "../../components/atoms/HTMList";
 import { Layout } from "../../components/organisms/Layout";
-import { useRouter } from "next/router";
 import { CallToAction } from "../../components/molecules/CallToAction";
 import { useEffect } from "react";
 
@@ -33,7 +32,6 @@ ThumbnailWithCaption.propTypes = {
 
 export default function DigitalCenter(props) {
   const { t } = useTranslation(["common", "dc"]);
-  const { asPath } = useRouter();
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -46,7 +44,7 @@ export default function DigitalCenter(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={asPath}
+        langUrl={t("digitalCentrePath")}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },
@@ -58,8 +56,14 @@ export default function DigitalCenter(props) {
           ) : (
             ""
           )}
+
+          {/* Primary HTML Meta Tags */}
           <title>{`${t("dc:OverviewTitle")} — ${t("siteTitle")}`}</title>
+          <meta name="description" content={`${t("dc:ProductGoal1")}`} />
+          <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
+
+          {/* DCMI Meta Tags */}
           <meta
             name="dcterms.title"
             content={`${t("dc:OverviewTitle")} — ${t("siteTitle")}`}
@@ -75,6 +79,49 @@ export default function DigitalCenter(props) {
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
           <meta name="dcterms.issued" content="2021-07-21" />
+
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="website" />
+          <meta property="og:locale" content={props.locale} />
+          <meta
+            property="og:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("projectRedirect")}` +
+              "/digital-centre"
+            }
+          />
+          <meta
+            property="og:title"
+            content={`${t("dc:OverviewTitle")} — ${t("siteTitle")}`}
+          />
+          <meta property="og:description" content={`${t("dc:ProductGoal1")}`} />
+          <meta property="og:image" content={`${t("metaImage")}`} />
+          <meta property="og:image:alt" content={`${t("siteTitle")}`} />
+
+          {/* Twitter */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta
+            property="twitter:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("projectRedirect")}` +
+              "/digital-centre"
+            }
+          />
+          <meta
+            property="twitter:title"
+            content={`${t("dc:OverviewTitle")} — ${t("siteTitle")}`}
+          />
+          <meta name="twitter:creator" content={t("creator")} />
+          <meta
+            property="twitter:description"
+            content={`${t("dc:ProductGoal1")}`}
+          />
+          <meta property="twitter:image" content={`${t("metaImage")}`} />
+          <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
 
         <section className="layout-container mb-10 text-lg">
@@ -287,7 +334,8 @@ export default function DigitalCenter(props) {
         <CallToAction
           title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
-          href={"/signup"}
+          lang={props.locale}
+          href={t("signupRedirect")}
           hrefText={t("signupBtn")}
         />
       </Layout>

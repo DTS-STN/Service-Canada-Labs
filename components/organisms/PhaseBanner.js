@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "next-i18next";
 import { ActionButton } from "../atoms/ActionButton";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Joi from "joi";
 import { ErrorLabel } from "../atoms/ErrorLabel";
 
@@ -15,6 +15,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
   const [showFeedback, setShowFeedback] = useState(false);
   const { t } = useTranslation("common");
   const [response, setResponse] = useState(t("thankYouFeedback"));
+  const toggle = useRef("Collapsed");
 
   // Joi form validation schema.
   const formSchema = Joi.object({
@@ -37,6 +38,17 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
 
   const [feedback, setFeedback] = useState("");
   const [feedbackError, setFeedbackError] = useState("");
+
+  let toggleForm = async (e) => {
+    if (showFeedback) {
+      toggle.current = "Collapsed";
+    } else {
+      toggle.current = "Expanded";
+    }
+
+    srSpeak(toggle.current);
+    setShowFeedback(!showFeedback);
+  };
 
   let onSubmitHandler = async (e) => {
     // prevent default behaviour of form
@@ -70,10 +82,38 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
       }
 
       setSubmitted(true);
+      setFocusAfterSubmit();
     } else {
       setFeedbackError(error.message);
+      srSpeak(error.message);
     }
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
+
+  function srSpeak(text, priority) {
+    var el = document.createElement("div");
+    var id = "speak-" + Date.now();
+    el.setAttribute("id", id);
+    el.setAttribute("aria-live", priority || "polite");
+    el.classList.add("sr-only");
+    document.body.appendChild(el);
+
+    window.setTimeout(function () {
+      document.getElementById(id).innerHTML = text;
+    }, 100);
+
+    window.setTimeout(function () {
+      document.body.removeChild(document.getElementById(id));
+    }, 1000);
+  }
+
+  function setFocusAfterSubmit() {
+    document.getElementById("feedbackButton").focus();
+  }
 
   return (
     <>
@@ -84,7 +124,10 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
               feedbackActive ? "mt-2" : ""
             }`}
           >
-            <span className="font-body text-xs text-white border block w-max px-4 py-1 my-auto leading-6">
+            <span
+              className="font-body text-xs text-white border block w-max px-4 py-1 my-auto leading-6"
+              role="alert"
+            >
               {phase}
             </span>
             {feedbackActive ? (
@@ -107,7 +150,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
             {feedbackActive ? (
               <button
                 id="feedbackButton"
-                onClick={() => setShowFeedback(!showFeedback)}
+                onClick={toggleForm}
                 className="group outline-none focus:outline-white-solid bg-circle-color font-body text-xs lg:text-sm text-white flex text-left lg:ml-4 my-2 lg:my-0"
                 data-testid="feedbackButton"
               >
@@ -117,11 +160,12 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                     showFeedback ? "text-sm" : "text-p"
                   } leading-7 lg:leading-5`}
                   dangerouslySetInnerHTML={{
-                    __html: showFeedback ? "&#9660;" : "&#9656;",
+                    __html: showFeedback ? "&#9660;" : "&#11208;",
                   }}
                 />
                 <strong className="mt-2 lg:mt-0 ml-2 group-hover:underline">
                   {t("giveFeedback")}
+                  <span className="sr-only"> {toggle.current}</span>
                 </strong>
               </button>
             ) : (
@@ -134,7 +178,13 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
         <div className="bg-custom-blue-blue" data-testid="feedbackDropdown">
           <div role="status">
             {submitted ? (
-              <div className="layout-container text-white flex justify-between">
+              <div
+                className={`${
+                  response === t("thankYouFeedback")
+                    ? "bg-custom-green-darker font-bold"
+                    : ""
+                } text-white flex justify-between py-2 px-6`}
+              >
                 <span className="text-xs lg:text-sm font-body mt-2 mb-4">
                   {response}
                   {response === t("sorryFeedback") ? (
@@ -148,20 +198,19 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                   ) : (
                     " "
                   )}
-                  .
                 </span>
                 <button
                   id="feedbackClose"
-                  onClick={() => setShowFeedback(!showFeedback)}
+                  onClick={toggleForm}
                   className="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
                   data-testid="closeButton"
+                  aria-label="Close the expanded feedback section"
                 >
-                  <span
-                    id="close"
-                    className="text-h2 lg:text-h1 leading-4 lg:leading-10"
-                  >
-                    &times;
-                  </span>
+                  <img
+                    src="/close-x.svg"
+                    alt="Close button"
+                    className="mt-0.5 lg:mt-3.5"
+                  />
                   <span className="text-xs leading-4 lg:text-sm underline ml-1 lg:ml-2 lg:leading-10">
                     {t("close")}
                   </span>
@@ -175,27 +224,25 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
             ""
           ) : (
             <div className="layout-container text-white pb-4">
-              <div className="flex justify-between pt-4">
-                <h2 className="text-h4 lg:text-h3 lg:text-sm font-display mt-2 mb-4 w-48 sm:w-auto">
-                  {t("improveService")}
-                </h2>
-                <button
-                  id="feedbackClose"
-                  onClick={() => setShowFeedback(!showFeedback)}
-                  className="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
-                  data-testid="closeButton"
-                >
-                  <span
-                    id="close"
-                    className="text-h3 lg:text-h2 leading-4 lg:leading-10"
-                  >
-                    &times;
-                  </span>
-                  <span className="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10">
-                    {t("close")}
-                  </span>
-                </button>
-              </div>
+              <button
+                id="feedbackClose"
+                onClick={toggleForm}
+                className="flex float-right pt-4 font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
+                data-testid="closeButton"
+                aria-label="Close the expanded feedback section"
+              >
+                <img
+                  src="/close-x.svg"
+                  alt="Close button"
+                  className="mt-0.5 lg:mt-3.5"
+                />
+                <span className="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10">
+                  {t("close")}
+                </span>
+              </button>
+              <h2 className="text-h4 lg:text-h3 lg:text-sm font-display pt-6 mb-4 w-48 sm:w-auto">
+                {t("improveService")}
+              </h2>
               <ul className="list-outside list-disc px-6 py-2">
                 <li className="text-xs lg:text-sm font-body mb-4">
                   <strong>{t("reportAProblemNoReply")}</strong>{" "}
@@ -232,9 +279,12 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                   className="text-xs lg:text-sm font-body font-bold"
                 >
                   {t("doBetter")}
+                  <span className="text-gray-md"> {t("required")}</span>
                 </label>
-                <p className="text-xs lg:text-sm my-2">{t("doNotInclude")}</p>
-                <p className="text-xs lg:text-sm my-2">{t("maximum2000")}</p>
+                <div id="feedbackInfo">
+                  <p className="text-xs lg:text-sm my-2">{t("doNotInclude")}</p>
+                  <p className="text-xs lg:text-sm my-2">{t("maximum2000")}</p>
+                </div>
                 {feedbackError ? (
                   <ErrorLabel
                     message={feedbackError}
@@ -242,6 +292,7 @@ export const PhaseBanner = ({ phase, children, feedbackActive }) => {
                   />
                 ) : undefined}
                 <textarea
+                  aria-describedby="feedbackInfo"
                   id="feedbackTextArea"
                   name="feedbackTextArea"
                   maxLength="2000"

@@ -2,14 +2,12 @@ import { Layout } from "../../components/organisms/Layout";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
 import { HTMList } from "../../components/atoms/HTMList";
 import { CallToAction } from "../../components/molecules/CallToAction";
 import { useEffect } from "react";
 
 export default function Privacy(props) {
   const { t } = useTranslation("common");
-  const { asPath } = useRouter();
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -22,9 +20,10 @@ export default function Privacy(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={asPath}
+        langUrl={t("privacyPath")}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
+          { text: t("signupHomeButton"), link: t("breadCrumbsHref3") },
         ]}
       >
         <Head>
@@ -33,8 +32,14 @@ export default function Privacy(props) {
           ) : (
             ""
           )}
+
+          {/* Primary HTML Meta Tags */}
           <title>{`${t("privacyTitle")} — ${t("siteTitle")}`}</title>
+          <meta name="description" content={`${t("privacyMetaDescription")}`} />
+          <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
+
+          {/* DCMI Meta Tags */}
           <meta
             name="dcterms.title"
             content={`${t("privacyTitle")} — ${t("siteTitle")}`}
@@ -50,6 +55,50 @@ export default function Privacy(props) {
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
           <meta name="dcterms.issued" content="2021-06-30" />
+
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="website" />
+          <meta property="og:locale" content={props.locale} />
+          <meta
+            property="og:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("privacyRedirect")}`
+            }
+          />
+          <meta
+            property="og:title"
+            content={`${t("privacyTitle")} — ${t("siteTitle")}`}
+          />
+          <meta
+            property="og:description"
+            content={`${t("privacyMetaDescription")}`}
+          />
+          <meta property="og:image" content={`${t("metaImage")}`} />
+          <meta property="og:image:alt" content={`${t("siteTitle")}`} />
+
+          {/* Twitter */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta
+            property="twitter:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("privacyRedirect")}`
+            }
+          />
+          <meta
+            property="twitter:title"
+            content={`${t("privacyTitle")} — ${t("siteTitle")}`}
+          />
+          <meta name="twitter:creator" content={t("creator")} />
+          <meta
+            property="twitter:description"
+            content={`${t("privacyMetaDescription")}`}
+          />
+          <meta property="twitter:image" content={`${t("metaImage")}`} />
+          <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <section className="layout-container relative mb-10">
           <h1
@@ -103,9 +152,7 @@ export default function Privacy(props) {
             <p className="mb-8">
               {t("privacyWithdraw")}
               <a
-                href={
-                  props.locale === "en" ? "/unsubscribe" : "/fr/unsubscribe"
-                }
+                href={t("unsubRedirect")}
                 className="text-custom-blue-link underline"
               >
                 {t("unsubscribeWord")}
@@ -163,7 +210,7 @@ export default function Privacy(props) {
         <CallToAction
           title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
-          href={"/signup"}
+          href={t("signupRedirect")}
           hrefText={t("signupBtn")}
         />
       </Layout>

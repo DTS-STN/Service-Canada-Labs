@@ -7,24 +7,75 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+
+## [v1.1.3] - 2021-10-27
+
+## Changed
+
+- Added sr-only close button to menu
+- test-signup-unsubscribe-flow
+- Updated e2e test for signup and unsubscribe workflow
+- Change color on confirmation when feedback submited successfully for feedback component
+- Updated content on the experiments, about and sign up pages
+- Updated French path in French language
+- Added text to the feedback form to clearly indicate that the text area is required
+- Added metadata support for HTML, OpenGraph and Twitter to every page
+- Removed signup confirmation/validation pages from search engine indexing
+- Added projects disclaimer to the main body text of each page
+- Updated `See the projects` button text on home and confirmation pages to be `Explore our projects` for consistency
+
+## Fixed
+
+- Screen reader users are now notified of the current state of the feedback form (whether it's expanded or collapsed)
+- The error message that appears when a user submits an empty feedback form is now announced to screen reader users
+- The two `<p>` tags above the feedback form textarea are now announced to screen reader users by use of `aria-describedby`
+- The feedback form close button is now before the `<h2>` in page order
+- Typo in the redirect path for the thank you page when switching back to EN
+- Focus is properly set to before elements in status message after submitting feedback form
+- Added thank you email env var as a build arg in both dev and prod
+
+## [v1.1.2] - 2021-09-27
+
+## Fixed
+
+- Fix the year of birth question on signup for to indicate it's a required field
+
+## [v1.1.1] - 2021-09-24
+
+## Changed
+
+- Changed year of birth field on signup form to a dropdown of year ranges
+
+## [v1.1.0] - 2021-09-22
+
 ## Added
 
 - Add language cookie and redirects so the user always sees the site in the language they've chosen
 - Feedback api
+- Implement [ISR](https://vercel.com/docs/next.js/incremental-static-regeneration) on projects page
 - Add CORS to feedback api so it can be called externally
 
 ## Fixed
 
 - [Bug #344](https://github.com/DTS-STN/Alpha-Site/issues/344) issue with ReportAProblem component on `/error` now
   translates properly
+- WCAG issue: Text overlap when user increase the text size to 200% in firefox
+- Filters on the project page no longer wrap to a newline in mobile view
+- Project status label colours now appear properly
+- User is now scrolled to top after submitting the feedback form
 
 ## Changed
 
+- Remove underline on the signup link when privacy page is active
+- Moved error list under the signup form heading
 - Updated menu items to have an underline so they appear more like links
 - Updated CallToAction component to have a white border on hover/active state
 - Updated PhaseBanner to include Feedback component
 - Updated Home page banner contrast for medium screen size
 - Updated signup button color to have sufficient contrast with the blue background
+- Changed Digital Center URL from 'projects/digital-center' to 'projects/digital-centre'
+- Updated breadcrumbs on the privacy page
+- Updated project status label colours
 
 ## [v1.0.6] - 2021-08-13
 

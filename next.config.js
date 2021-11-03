@@ -49,6 +49,42 @@ module.exports = {
         source: "/robots.txt",
         destination: "/api/robots",
       },
+      {
+        source: "/accueil",
+        destination: "/home",
+      },
+      {
+        source: "/a-propos",
+        destination: "/about",
+      },
+      {
+        source: "/projets",
+        destination: "/projects",
+      },
+      {
+        source: "/inscription",
+        destination: "/signup",
+      },
+      {
+        source: "/inscription/protection-renseignements-personnels",
+        destination: "/signup/privacy",
+      },
+      {
+        source: "/merci",
+        destination: "/thankyou",
+      },
+      {
+        source: "/desabonnement",
+        destination: "/unsubscribe",
+      },
+      {
+        source: "/projets/centre-numerique",
+        destination: "/projects/digital-centre",
+      },
+      {
+        source: "/projets/assistant-virtuel",
+        destination: "/projects/virtual-assistant",
+      },
     ];
   },
   async redirects() {

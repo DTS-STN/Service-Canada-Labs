@@ -8,9 +8,9 @@ import Link from "next/link";
 
 export const Experiment = (props) => {
   const tagColours = {
-    current_projects: "custom-blue-experiment-blue",
-    past_projects: "gray-experiment",
-    upcoming_projects: "custom-blue-experiment-blue",
+    current_projects: "custom-green",
+    past_projects: "custom-red",
+    upcoming_projects: "custom-blue",
   };
   return (
     <div
@@ -32,9 +32,9 @@ export const Experiment = (props) => {
         </a>
       </Link>
       <span
-        className={`my-4 block w-max py-2 px-2 uppercase font-body text-xxs text-white font-bold rounded ${
-          "bg-" + (tagColours[props.tag] || "gray-experiment")
-        }`}
+        className={`block w-max py-2 px-2 my-4 font-body font-bold border-l-4 ${
+          "border-" + (tagColours[props.tag] || "gray-experiment") + "-darker"
+        } ${"bg-" + (tagColours[props.tag] || "gray-experiment") + "-lighter"}`}
       >
         {props.tagLabel}
       </span>

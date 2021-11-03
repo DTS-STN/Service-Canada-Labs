@@ -12,7 +12,7 @@ export function RadioButton(props) {
         defaultChecked: props.checked || false,
       };
   return (
-    <div className="inline-block relative">
+    <div className="flex relative">
       <input
         type="radio"
         className="radio-button absolute top-0 left-0 w-full h-full appearance-none cursor-pointer"

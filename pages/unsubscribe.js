@@ -15,7 +15,7 @@ import { useEffect } from "react";
 
 export default function Unsubscribe(props) {
   const { t } = useTranslation("common");
-  const { asPath, push } = useRouter();
+  const { push } = useRouter();
 
   // Joi form validation schema. Only required fields are validated
   const formSchema = Joi.object({
@@ -175,7 +175,7 @@ export default function Unsubscribe(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={asPath}
+        langUrl={t("unsubPath")}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}
@@ -186,8 +186,17 @@ export default function Unsubscribe(props) {
           ) : (
             ""
           )}
+
+          {/* Primary HTML Meta Tags */}
           <title>{`${t("unsubscribe")} — ${t("siteTitle")}`}</title>
+          <meta
+            name="description"
+            content={`${t("unsubscribeMetaDescription")}`}
+          />
+          <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
+
+          {/* DCMI Meta Tags */}
           <meta
             name="dcterms.title"
             content={`${t("unsubscribe")} — ${t("siteTitle")}`}
@@ -203,6 +212,50 @@ export default function Unsubscribe(props) {
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
           <meta name="dcterms.issued" content="2021-07-08" />
+
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="website" />
+          <meta property="og:locale" content={props.locale} />
+          <meta
+            property="og:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("unsubRedirect")}`
+            }
+          />
+          <meta
+            property="og:title"
+            content={`${t("unsubscribe")} — ${t("siteTitle")}`}
+          />
+          <meta
+            property="og:description"
+            content={`${t("unsubscribeMetaDescription")}`}
+          />
+          <meta property="og:image" content={`${t("metaImage")}`} />
+          <meta property="og:image:alt" content={`${t("siteTitle")}`} />
+
+          {/* Twitter */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta
+            property="twitter:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("unsubRedirect")}`
+            }
+          />
+          <meta
+            property="twitter:title"
+            content={`${t("unsubscribe")} — ${t("siteTitle")}`}
+          />
+          <meta name="twitter:creator" content={t("creator")} />
+          <meta
+            property="twitter:description"
+            content={`${t("unsubscribeMetaDescription")}`}
+          />
+          <meta property="twitter:image" content={`${t("metaImage")}`} />
+          <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <section className="layout-container mb-2 mt-12">
           <div className="xl:w-2/3 ">
