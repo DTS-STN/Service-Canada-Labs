@@ -18,7 +18,7 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
   const [response, setResponse] = useState(t("thankYouFeedback"));
 
   useEffect(() => {
-    if (showFeedback) {
+    if (!showFeedback) {
       setFeedbackError("");
     }
   }, [showFeedback]);
