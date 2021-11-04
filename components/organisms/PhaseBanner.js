@@ -79,22 +79,30 @@ export const PhaseBanner = ({ phase, text, feedbackActive }) => {
         {feedbackActive ? (
           <div className="py-4 outline-none bg-custom-blue-blue font-body text-xs lg:text-sm text-white flex items-center lg:my-0">
             <div className="flex layout-container">
-              <button
-                id="feedbackButton"
-                onClick={toggleForm}
-                className="flex focus:outline-white-solid items-center lg:ml-4 my-auto lg:mt-0 md:px-36"
-                data-testid="feedbackButton"
+              <span
+                className="invisible hidden md:block font-body text-xs text-white border block w-max px-4 py-1 my-auto leading-6 items-center"
+                role="alert"
               >
-                <strong className="ml-2 underline">
-                  {t("giveFeedback")}
-                  <span className="sr-only">{toggle.current}</span>
-                </strong>
-                <img
-                  className="px-2 flex items-center"
-                  src="/feedback-icon-white.svg"
-                  alt=""
-                />
-              </button>
+                {phase}
+              </span>
+              <div className="lg:ml-6 xl:ml-12 xxl:ml-14 my-auto">
+                <button
+                  id="feedbackButton"
+                  onClick={toggleForm}
+                  className="flex focus:outline-white-solid items-center lg:ml-4 my-auto"
+                  data-testid="feedbackButton"
+                >
+                  <strong className="underline">
+                    {t("giveFeedback")}
+                    <span className="sr-only">{toggle.current}</span>
+                  </strong>
+                  <img
+                    className="px-2 flex items-center"
+                    src="/feedback-icon-white.svg"
+                    alt=""
+                  />
+                </button>
+              </div>
             </div>
           </div>
         ) : (

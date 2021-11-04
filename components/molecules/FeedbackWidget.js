@@ -120,7 +120,7 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
                       } text-white flex py-2`}
                     >
                       <div className="layout-container flex">
-                        <span className="flex text-xs lg:text-sm font-body mt-2 mb-4 w-5/6">
+                        <span className="flex text-xs lg:text-sm font-body mt-2 mb-4 w-full">
                           {response}
                           {response === t("sorryFeedback") ? (
                             <a
@@ -136,15 +136,11 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
                         <button
                           id="feedbackClose"
                           onClick={() => setFeedbackClose(true)}
-                          className="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid justify-end w-1/6"
+                          className="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid justify-end items-center w-1/4"
                           data-testid="closeButton"
                           aria-label="Close the expanded feedback section"
                         >
-                          <img
-                            src="/close-x.svg"
-                            alt="Close button"
-                            className="mt-0.5 lg:mt-3.5"
-                          />
+                          <img src="/close-x.svg" alt="Close button" />
                           <span className="text-xs leading-4 lg:text-sm underline ml-1 lg:ml-2 lg:leading-10">
                             {t("close")}
                           </span>
@@ -166,11 +162,7 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
                   data-testid="closeButton"
                   aria-label="Close the expanded feedback section"
                 >
-                  <img
-                    src="/close-x.svg"
-                    alt="Close button"
-                    className="mt-0.5 lg:mt-3.5"
-                  />
+                  <img src="/close-x.svg" alt="Close button" />
                   <span className="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10">
                     {t("close")}
                   </span>
