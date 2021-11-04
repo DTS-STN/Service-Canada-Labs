@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "next-i18next";
 import { ActionButton } from "../atoms/ActionButton";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Joi from "joi";
 import { ErrorLabel } from "../atoms/ErrorLabel";
 import FocusTrap from "focus-trap-react";
@@ -16,6 +16,12 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
   const [feedbackClose, setFeedbackClose] = useState(false);
   const { t } = useTranslation("common");
   const [response, setResponse] = useState(t("thankYouFeedback"));
+
+  useEffect(() => {
+    if (showFeedback) {
+      setFeedbackError("");
+    }
+  }, [showFeedback]);
 
   // Joi form validation schema.
   const formSchema = Joi.object({
@@ -120,17 +126,17 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
                       } text-white flex py-2`}
                     >
                       <div className="layout-container flex">
-                        <span className="flex text-xs lg:text-sm font-body mt-2 mb-4 w-full">
+                        <span className="flex flex-col text-xs lg:text-sm font-body mt-2 mb-4 w-full">
                           {response}
                           {response === t("sorryFeedback") ? (
                             <a
                               href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
-                              className="px-2 underline outline-none focus:outline-white-solid flex items-end"
+                              className="underline outline-none focus:outline-white-solid "
                             >
                               experience@service.gc.ca
                             </a>
                           ) : (
-                            " "
+                            ""
                           )}
                         </span>
                         <button

@@ -31,7 +31,9 @@ export function CallToAction(props) {
                 <ActionButton
                   id="become-a-participant-btn"
                   custom={`py-2 ${
-                    props.feedbackActive ? "px-36 lg:ml-16" : "px-4"
+                    props.feedbackActive
+                      ? "text-sm md:text-base px-24 lg:ml-8"
+                      : "px-4"
                   } rounded text-custom-blue-projects-link bg-details-button-gray hover:bg-gray-300 border border-custom-blue-blue active:bg-custom-blue-dark active:border-2 active:border-white hover:border-2 hover:border-white`}
                   className=""
                   href={props.href}
