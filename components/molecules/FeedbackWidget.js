@@ -158,7 +158,7 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
                 <button
                   id="feedbackClose"
                   onClick={toggleForm}
-                  className="flex float-right pt-4 font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid"
+                  className="flex float-right pt-4 font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid items-center"
                   data-testid="closeButton"
                   aria-label="Close the expanded feedback section"
                 >
