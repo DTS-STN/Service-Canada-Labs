@@ -133,7 +133,10 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
                               href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
                               className="underline outline-none focus:outline-white-solid "
                             >
-                              experience@service.gc.ca
+                              {
+                                process.env
+                                  .NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL
+                              }
                             </a>
                           ) : (
                             ""
@@ -182,9 +185,9 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
                     {t("reportAProblemEnquiries")}{" "}
                     <a
                       className="underline text-xs lg:text-sm font-body outline-none focus:outline-white-solid"
-                      href="mailto:experience@servicecanada.gc.ca"
+                      href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
                     >
-                      experience@servicecanada.gc.ca
+                      {process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}
                     </a>
                     .
                   </li>
