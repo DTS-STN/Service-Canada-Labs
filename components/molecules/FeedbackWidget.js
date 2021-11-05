@@ -16,11 +16,13 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
   const [feedbackClose, setFeedbackClose] = useState(false);
   const { t } = useTranslation("common");
   const [response, setResponse] = useState(t("thankYouFeedback"));
+  const email = process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL;
 
   useEffect(() => {
     if (!showFeedback) {
       setFeedbackError("");
     }
+    console.log(email);
   }, [showFeedback]);
 
   // Joi form validation schema.
@@ -130,13 +132,11 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
                           {response}
                           {response === t("sorryFeedback") ? (
                             <a
-                              href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
-                              className="underline outline-none focus:outline-white-solid "
+                              href={`mailto:${email}`}
+                              className="underline outline-none focus:outline-white-solid"
+                              aria-label="Service Canada email"
                             >
-                              {
-                                process.env
-                                  .NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL
-                              }
+                              {email}
                             </a>
                           ) : (
                             ""
@@ -185,9 +185,10 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
                     {t("reportAProblemEnquiries")}{" "}
                     <a
                       className="underline text-xs lg:text-sm font-body outline-none focus:outline-white-solid"
-                      href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
+                      href={`mailto:${email}`}
+                      aria-label="Service Canada email"
                     >
-                      {process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}
+                      {email}
                     </a>
                     .
                   </li>
