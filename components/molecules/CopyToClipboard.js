@@ -21,6 +21,7 @@ export function CopyToClipboard(props) {
         {...ifControlledProps}
         data-testid={props.dataTestId}
         data-cy={props.dataCy}
+        aria-label={props.aria_label}
       />
       <Clipboard text={props.value}>
         <ActionButton
@@ -104,6 +105,11 @@ CopyToClipboard.propTypes = {
    * aria-describedby label id
    */
   describedby: PropTypes.string,
+
+  /**
+   * aria-label
+   */
+  aria_label: PropTypes.string,
 
   /**
    * Text for ActionButton

@@ -43,6 +43,7 @@ module.exports = {
       },
     ];
   },
+
   async rewrites() {
     return [
       {
@@ -84,6 +85,22 @@ module.exports = {
       {
         source: "/projets/assistant-virtuel",
         destination: "/projects/virtual-assistant",
+      },
+    ];
+  },
+  async redirects() {
+    return [
+      {
+        source: "/",
+        has: [
+          {
+            type: "header",
+            key: "User-Agent",
+            value: "(.*Trident.*)",
+          },
+        ],
+        destination: "/notsupported",
+        permanent: false,
       },
     ];
   },

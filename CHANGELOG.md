@@ -7,6 +7,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+## Added
+- Added `/notsupported` which IE users are redirected to by making use of the next.js redirects function
+- Added the `CopyToClickboard` component as part of the `/notsupported` page
+- Added IE specific styling to `globals.css` for the `/notsupported` page
+
 
 ## [v1.1.3] - 2021-10-27
 

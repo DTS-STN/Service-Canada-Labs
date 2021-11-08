@@ -184,6 +184,7 @@ export default function error404(props) {
                 id="enClipboard"
                 name="clipboard_en"
                 textFieldStyle="ieTextField"
+                aria_label="Copy the link below and paste in that browser."
               />
               <p className="font-body text-sm pt-6 leading-normal">
                 If you do not have any of these browsers installed, you can
@@ -221,6 +222,7 @@ export default function error404(props) {
                   id="frClipboard"
                   name="clipboard_fr"
                   textFieldStyle="ieTextField"
+                  aria_label="Vous n'avez qu'à copier le lien ci-dessous et le coller dans ce navigateur."
                 />
                 <p className="font-body text-sm pt-6 leading-normal">
                   Si aucun de ces navigateurs n'est installé, vous pouvez
