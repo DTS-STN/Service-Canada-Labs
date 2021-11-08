@@ -5,7 +5,8 @@ import { useTranslation } from "next-i18next";
 import { HTMList } from "../../components/atoms/HTMList";
 import { Layout } from "../../components/organisms/Layout";
 import { CallToAction } from "../../components/molecules/CallToAction";
-import { useEffect } from "react";
+import { FeedbackWidget } from "../../components/molecules/FeedbackWidget";
+import { useEffect, useState, useRef } from "react";
 
 function ThumbnailWithCaption({
   title = "Image 1",
@@ -32,6 +33,9 @@ ThumbnailWithCaption.propTypes = {
 
 export default function DigitalCenter(props) {
   const { t } = useTranslation(["common", "dc"]);
+  const [feedbackActive] = useState(true);
+  const [showFeedback, setShowFeedback] = useState(false);
+  const toggle = useRef("Collapsed");
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -40,8 +44,37 @@ export default function DigitalCenter(props) {
     }
   }, []);
 
+  let toggleForm = async (e) => {
+    if (showFeedback) {
+      toggle.current = "Collapsed";
+    } else {
+      toggle.current = "Expanded";
+    }
+
+    srSpeak(toggle.current);
+    setShowFeedback(!showFeedback);
+  };
+
+  function srSpeak(text, priority) {
+    var el = document.createElement("div");
+    var id = "speak-" + Date.now();
+    el.setAttribute("id", id);
+    el.setAttribute("aria-live", priority || "polite");
+    el.classList.add("sr-only");
+    document.body.appendChild(el);
+
+    window.setTimeout(function () {
+      document.getElementById(id).innerHTML = text;
+    }, 100);
+
+    window.setTimeout(function () {
+      document.body.removeChild(document.getElementById(id));
+    }, 1000);
+  }
+
   return (
     <>
+      <FeedbackWidget showFeedback={showFeedback} toggleForm={toggleForm} />
       <Layout
         locale={props.locale}
         langUrl={t("digitalCentrePath")}
@@ -49,6 +82,7 @@ export default function DigitalCenter(props) {
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },
         ]}
+        feedbackActive={feedbackActive}
       >
         <Head>
           {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
@@ -332,11 +366,19 @@ export default function DigitalCenter(props) {
         </section>
 
         <CallToAction
-          title={t("signupTitleCallToAction")}
-          html={t("becomeAParticipantDescription")}
+          title={
+            feedbackActive ? t("giveFeedback") : t("signupTitleCallToAction")
+          }
+          html={
+            feedbackActive
+              ? t("bottomFeedbackDescription")
+              : t("becomeAParticipantDescription")
+          }
           lang={props.locale}
-          href={t("signupRedirect")}
-          hrefText={t("signupBtn")}
+          href={feedbackActive ? "" : t("signupRedirect")}
+          hrefText={feedbackActive ? t("bottomFeedbackBtn") : t("signupBtn")}
+          feedbackActive={feedbackActive}
+          clicked={() => setShowFeedback(true)}
         />
       </Layout>
       {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
