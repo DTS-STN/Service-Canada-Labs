@@ -10,7 +10,11 @@ export function CallToAction(props) {
   const { t } = useTranslation("common");
   return (
     <aside>
-      <div className="bg-circle-color text-white">
+      <div
+        className={`${
+          props.feedbackActive ? "bg-custom-blue-blue" : "bg-circle-color"
+        } text-white`}
+      >
         <div className="layout-container pb-10 pt-10 text-sm md:text-base">
           <h2>{props.title}</h2>
           <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-24 gap-5">
@@ -26,20 +30,30 @@ export function CallToAction(props) {
               <p className="flex mb-4 text-center">
                 <ActionButton
                   id="become-a-participant-btn"
-                  custom={
-                    "py-2 px-4 rounded text-custom-blue-projects-link bg-details-button-gray hover:bg-gray-300 border border-custom-blue-blue active:bg-custom-blue-dark active:border-2 active:border-white hover:border-2 hover:border-white"
-                  }
+                  custom={`py-2 ${
+                    props.feedbackActive
+                      ? "text-sm md:text-base px-24 lg:ml-8"
+                      : "px-4"
+                  } rounded text-custom-blue-projects-link bg-details-button-gray hover:bg-gray-300 border border-custom-blue-blue active:bg-custom-blue-dark active:border-2 active:border-white hover:border-2 hover:border-white`}
                   className=""
                   href={props.href}
                   text={props.hrefText}
+                  expandIcon={
+                    props.feedbackActive ? (
+                      <img className="px-2" src="/feedback-icon.svg" alt="" />
+                    ) : undefined
+                  }
+                  onClick={props.feedbackActive ? props.clicked : undefined}
                 />
               </p>
               <p>
-                <Link href={t("privacyRedirect")} locale={props.lang}>
-                  <a className="text-sm underline flex xl:inline lg:mr-10">
-                    {t("privacyLinkText")}
-                  </a>
-                </Link>
+                {props.feedbackActive ? undefined : (
+                  <Link href={t("privacyRedirect")} locale={props.lang}>
+                    <a className="text-sm underline flex xl:inline lg:mr-10">
+                      {t("privacyLinkText")}
+                    </a>
+                  </Link>
+                )}
               </p>
             </div>
           </div>

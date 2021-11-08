@@ -49,9 +49,8 @@ export const Layout = ({
         <PhaseBanner
           phase={t("phaseBannerTag")}
           feedbackActive={feedbackActive}
-        >
-          {t("phaseBannerText")}
-        </PhaseBanner>
+          text={t("phaseBannerText")}
+        />
         <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">
           <div
             className="flex flex-row justify-between items-center lg:mt-7 mt-1.5"
