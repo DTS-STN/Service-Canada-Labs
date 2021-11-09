@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "@tailwindcss/typography": "^0.4.1",
-    "cors": "^2.8.5",
     "cookie-cutter": "^0.2.0",
+    "cors": "^2.8.5",
     "cuid": "^2.1.8",
     "focus-trap-react": "^8.8.2",
     "i18next": "^20.6.1",
