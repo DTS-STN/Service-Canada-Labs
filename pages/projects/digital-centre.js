@@ -6,7 +6,7 @@ import { HTMList } from "../../components/atoms/HTMList";
 import { Layout } from "../../components/organisms/Layout";
 import { CallToAction } from "../../components/molecules/CallToAction";
 import { FeedbackWidget } from "../../components/molecules/FeedbackWidget";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function ThumbnailWithCaption({
   title = "Image 1",
