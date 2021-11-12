@@ -7,6 +7,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+## Added
+
+- Added language detection to redirect user to the page in prefered language
 
 ## [v1.1.3] - 2021-10-27
 
@@ -50,6 +53,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Added
 
+- Add language cookie and redirects so the user always sees the site in the language they've chosen
 - Feedback api
 - Implement [ISR](https://vercel.com/docs/next.js/incremental-static-regeneration) on projects page
 - Add CORS to feedback api so it can be called externally

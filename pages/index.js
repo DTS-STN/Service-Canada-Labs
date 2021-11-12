@@ -4,9 +4,16 @@ import { useTranslation } from "next-i18next";
 import { ActionButton } from "../components/atoms/ActionButton";
 import Link from "next/link";
 import { useEffect } from "react";
+import cookieCutter from "cookie-cutter";
 
 export default function Index(props) {
   const { t } = useTranslation("common");
+
+  const setLanguage = (event) => {
+    event.target.id === "french-button"
+      ? cookieCutter.set("lang", "fr")
+      : cookieCutter.set("lang", "en");
+  };
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -108,6 +115,7 @@ export default function Index(props) {
                 lang="en"
                 className="text-center text-sm w-7.5rem xl:w-138px py-3.5 mr-6 rounded leading-3"
                 href="/home"
+                onClick={setLanguage}
               />
               <ActionButton
                 id="french-button"
@@ -115,6 +123,7 @@ export default function Index(props) {
                 className="text-center w-7.5rem xl:w-138px text-sm py-3.5 rounded leading-3"
                 href="/fr/accueil"
                 lang="fr"
+                onClick={setLanguage}
               />
             </div>
           </div>
