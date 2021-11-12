@@ -7,7 +7,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
-## Changed
+## Added
 
 - Added language detection to redirect user to the page in prefered language
 
