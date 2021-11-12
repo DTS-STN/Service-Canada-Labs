@@ -1,14 +1,7 @@
 name: $(Date:yyyyMMdd)
 
-resources:
-  repositories:
-    - repository: sclabs
-      type: github
-      name: DTS-STN/Alpha-Site
-      endpoint: DTS-STN (8)
-      trigger:
-        branches:
-          include: main
+trigger:
+  - main
 
 pr: none
 
