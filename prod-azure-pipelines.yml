@@ -4,9 +4,8 @@ trigger:
   tags:
     include:
     - v*
+
 pr: none
-resources:
-- repo: self
 
 variables:
   imageRepository: 'alphasite'

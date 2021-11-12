@@ -2,9 +2,8 @@ name: $(Date:yyyyMMdd)
 
 trigger:
   - main
+
 pr: none
-resources:
-  - repo: self
 
 variables:
   imageRepository: 'alphasite'
