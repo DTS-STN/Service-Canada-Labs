@@ -1,10 +1,16 @@
 name: $(Date:yyyyMMdd)
 
-trigger:
-  - main
-pr: none
 resources:
-  - repo: self
+  repositories:
+    - repository: sclabs
+      type: github
+      name: DTS-STN/Alpha-Site
+      endpoint: DTS-STN (8)
+      trigger:
+        branches:
+          include: refs/heads/main
+
+pr: none
 
 variables:
   imageRepository: 'alphasite'
