@@ -2,7 +2,6 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../../../components/organisms/Layout";
-import { useRouter } from "next/router";
 import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect } from "react";
 
@@ -12,7 +11,6 @@ import { useEffect } from "react";
 
 export default function Home(props) {
   const { t } = useTranslation(["common", "vc"]);
-  const { asPath } = useRouter();
   const language = props.locale === "en" ? "fr" : "en";
 
   useEffect(() => {
@@ -26,7 +24,7 @@ export default function Home(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={asPath}
+        langUrl={t("virtualAssistantPath")}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },
@@ -38,10 +36,19 @@ export default function Home(props) {
           ) : (
             ""
           )}
+
+          {/* Primary HTML Meta Tags */}
           <title>{`${t("vc:virtualAssistantTitle")} — ${t(
             "siteTitle"
           )}`}</title>
+          <meta
+            name="description"
+            content={`${t("vc:virtualAssistantBioBody")}`}
+          />
+          <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
+
+          {/* DCMI Meta Tags */}
           <meta
             name="dcterms.title"
             content={`${t("vc:virtualAssistantTitle")} — ${t("siteTitle")}`}
@@ -57,6 +64,52 @@ export default function Home(props) {
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
           <meta name="dcterms.issued" content="2021-07-20" />
+
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="website" />
+          <meta property="og:locale" content={props.locale} />
+          <meta
+            property="og:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("projectRedirect")}` +
+              "/virtual-assistant"
+            }
+          />
+          <meta
+            property="og:title"
+            content={`${t("vc:virtualAssistantTitle")} — ${t("siteTitle")}`}
+          />
+          <meta
+            property="og:description"
+            content={`${t("vc:virtualAssistantBioBody")}`}
+          />
+          <meta property="og:image" content={`${t("metaImage")}`} />
+          <meta property="og:image:alt" content={`${t("siteTitle")}`} />
+
+          {/* Twitter */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta
+            property="twitter:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("projectRedirect")}` +
+              "/virtual-assistant"
+            }
+          />
+          <meta
+            property="twitter:title"
+            content={`${t("vc:virtualAssistantTitle")} — ${t("siteTitle")}`}
+          />
+          <meta name="twitter:creator" content={t("creator")} />
+          <meta
+            property="twitter:description"
+            content={`${t("vc:virtualAssistantBioBody")}`}
+          />
+          <meta property="twitter:image" content={`${t("metaImage")}`} />
+          <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
 
         {/* Virtual Assitant Demo section start -  with link to working prototype */}

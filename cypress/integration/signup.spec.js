@@ -19,7 +19,7 @@ describe("signup page", () => {
 
   it("Adds subpath for french pages", () => {
     cy.get('[data-cy="toggle-language-link"]').click();
-    cy.url().should("eq", "http://localhost:3000/fr/signup");
+    cy.url().should("eq", "http://localhost:3000/fr/inscription");
   });
 
   it("Menu appears on the page", () => {
@@ -35,18 +35,7 @@ describe("signup page", () => {
 
   it("Validates that an email is entered in the email field", () => {
     cy.get('[id="email"]').type("not an email");
-    cy.get('[id="yearOfBirth"]').type("1990");
-    cy.get('[id="languageEn"]').click();
-    cy.get('[id="agreeToConditions"]').click();
-    cy.get('[data-cy="signup-submit"]').click();
-
-    cy.get('[data-cy="error-box"').should("exist");
-    cy.get('[data-cy="error-box-items"').children().should("have.length", 1);
-  });
-
-  it("Validates year of birth is a number", () => {
-    cy.get('[id="email"]').type("some@email.com");
-    cy.get('[id="yearOfBirth"]').type("abc");
+    cy.get('[id="yearOfBirthRange-choice"]').select("before1936");
     cy.get('[id="languageEn"]').click();
     cy.get('[id="agreeToConditions"]').click();
     cy.get('[data-cy="signup-submit"]').click();
@@ -57,9 +46,7 @@ describe("signup page", () => {
 
   it("Validates age of user is greater or equal to 18", () => {
     cy.get('[id="email"]').type("some@email.com");
-    cy.get('[id="yearOfBirth"]').type(
-      (new Date().getFullYear() - 10).toString()
-    );
+    cy.get('[id="yearOfBirthRange-choice"]').select("after2003");
     cy.get('[id="languageEn"]').click();
     cy.get('[id="agreeToConditions"]').click();
     cy.get('[data-cy="signup-submit"]').click();
@@ -70,7 +57,7 @@ describe("signup page", () => {
 
   it("Validates disability field is required if yes is selected", () => {
     cy.get('[id="email"]').type("some@email.com");
-    cy.get('[id="yearOfBirth"]').type("1990");
+    cy.get('[id="yearOfBirthRange-choice"]').select("before1936");
     cy.get('[id="languageEn"]').click();
     cy.get('[id="agreeToConditions"]').click();
     cy.get('[data-cy="btn-disability-yes"').click();
@@ -83,7 +70,7 @@ describe("signup page", () => {
 
   it("Validates disability field is not required after yes has been unselected (selected no)", () => {
     cy.get('[id="email"]').type("some@email.com");
-    cy.get('[id="yearOfBirth"]').type("1990");
+    cy.get('[id="yearOfBirthRange-choice"]').select("before1936");
     cy.get('[data-cy="btn-disability-yes"').click();
     cy.get('[data-cy="btn-disability-no"').click();
     cy.get('[data-cy="signup-submit"]').click();
@@ -104,20 +91,68 @@ describe("signup page", () => {
     cy.get('[data-cy="error-item-email"').scrollIntoView().should("be.visible");
   });
 
-  // skipping for now until thank you page is available
-  it("Redirects to thank you page on successful submit", () => {
-    cy.intercept("POST", "/api/**", {
-      statusCode: 201,
-      body: {
-        data: "test success",
-      },
-    });
+  it("Test signup on successful submit", () => {
+    cy.intercept("/api/**", {
+      fixture: "signup",
+    }).as("response");
 
     cy.get('[id="email"]').type("some@email.com");
-    cy.get('[id="yearOfBirth"]').type("1990");
+    cy.get('[id="yearOfBirthRange-choice"]').select("before1936");
     cy.get('[id="languageEn"]').click();
     cy.get('[id="agreeToConditions"]').click();
     cy.get('[data-cy="signup-submit"]').click();
-    cy.url().should("contains", "/thankyou?e=s***%40****l.***&ref=signup");
+
+    cy.wait("@response").then((xhr) => {
+      cy.log(xhr);
+      expect(xhr.request.method).to.equal("POST");
+      expect(xhr.response.statusCode).to.equal(200);
+      expect(xhr.response).to.have.property("headers");
+      expect(xhr.response).to.have.property("body");
+
+      // redirect to thankyou page on successful submit and confirm email
+      cy.url().should("contains", "/thankyou?e=s***%40****l.***&ref=signup");
+
+      // confirm email
+      expect(xhr.response.body.email).to.equal("some@email.com");
+    });
+  });
+
+  it("Test 400 bad resquest", () => {
+    cy.intercept("/api/**", { statusCode: 400 }).as("response");
+
+    cy.get('[id="email"]').type("some@email.com");
+    cy.get('[id="yearOfBirthRange-choice"]').select("before1936");
+    cy.get('[id="languageEn"]').click();
+    cy.get('[id="agreeToConditions"]').click();
+    cy.get('[data-cy="signup-submit"]').click();
+
+    cy.wait("@response").then((xhr) => {
+      cy.log(xhr);
+      expect(xhr.request.method).to.equal("POST");
+      expect(xhr.response.statusCode).to.equal(400);
+      cy.get('[data-cy="error-box"').should("exist");
+      cy.get('[data-cy="error-box"').should(
+        "contain.text",
+        "previously registered"
+      );
+    });
+  });
+
+  it("Server return 500 bad response", () => {
+    cy.intercept("/api/**", { statusCode: 500 }).as("response");
+
+    cy.get('[id="email"]').type("some@email.com");
+    cy.get('[id="yearOfBirthRange-choice"]').select("before1936");
+    cy.get('[id="languageEn"]').click();
+    cy.get('[id="agreeToConditions"]').click();
+    cy.get('[data-cy="signup-submit"]').click();
+
+    cy.wait("@response").then((xhr) => {
+      cy.log(xhr);
+      expect(xhr.request.method).to.equal("POST");
+      expect(xhr.response.statusCode).to.equal(500);
+      cy.get('[data-cy="error-box"').should("exist");
+      cy.get('[data-cy="error-box"').should("contain.text", "unknown error");
+    });
   });
 });

@@ -49,12 +49,48 @@ module.exports = {
         source: "/robots.txt",
         destination: "/api/robots",
       },
+      {
+        source: "/accueil",
+        destination: "/home",
+      },
+      {
+        source: "/a-propos",
+        destination: "/about",
+      },
+      {
+        source: "/projets",
+        destination: "/projects",
+      },
+      {
+        source: "/inscription",
+        destination: "/signup",
+      },
+      {
+        source: "/inscription/protection-renseignements-personnels",
+        destination: "/signup/privacy",
+      },
+      {
+        source: "/merci",
+        destination: "/thankyou",
+      },
+      {
+        source: "/desabonnement",
+        destination: "/unsubscribe",
+      },
+      {
+        source: "/projets/centre-numerique",
+        destination: "/projects/digital-centre",
+      },
+      {
+        source: "/projets/assistant-virtuel",
+        destination: "/projects/virtual-assistant",
+      },
     ];
   },
   async redirects() {
     return [
       {
-        source: "/:path",
+        source: "/en",
         has: [
           {
             type: "cookie",
@@ -62,11 +98,12 @@ module.exports = {
             value: "fr",
           },
         ],
+        locale: false,
         permanent: false,
-        destination: "/fr/:path",
+        destination: "/fr/accueil",
       },
       {
-        source: "/:path",
+        source: "/en",
         has: [
           {
             type: "cookie",
@@ -74,8 +111,77 @@ module.exports = {
             value: "en",
           },
         ],
+        locale: false,
         permanent: false,
-        destination: "/:path",
+        destination: "/home",
+      },
+      {
+        source: "/en/:path",
+        has: [
+          {
+            type: "cookie",
+            key: "lang",
+            value: "fr",
+          },
+        ],
+        locale: false,
+        permanent: false,
+        destination: "/fr/:path",
+      },
+      {
+        source: "/fr/:path",
+        has: [
+          {
+            type: "cookie",
+            key: "lang",
+            value: "en",
+          },
+        ],
+        locale: false,
+        permanent: false,
+        destination: "/en/:path",
+      },
+      {
+        source: "/fr/home",
+        locale: false,
+        permanent: false,
+        destination: "/fr/accueil",
+      },
+      {
+        source: "/fr/about",
+        locale: false,
+        permanent: false,
+        destination: "/fr/a-propos",
+      },
+      {
+        source: "/fr/signup",
+        locale: false,
+        permanent: false,
+        destination: "/fr/inscription",
+      },
+      {
+        source: "/fr/projects",
+        locale: false,
+        permanent: false,
+        destination: "/fr/projets",
+      },
+      {
+        source: "/fr/signup/privacy",
+        locale: false,
+        permanent: false,
+        destination: "fr/inscription/protection-renseignements-personnels",
+      },
+      {
+        source: "/fr/thankyou",
+        locale: false,
+        permanent: false,
+        destination: "/fr/merci",
+      },
+      {
+        source: "/fr/unsubscribe",
+        locale: false,
+        permanent: false,
+        destination: "/fr/desabonnement",
       },
     ];
   },

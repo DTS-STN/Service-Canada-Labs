@@ -91,7 +91,10 @@ export function ActionButton(props) {
       {props.icon && !props.iconEnd ? (
         <span className={props.icon} data-testid={props.dataTestId} />
       ) : undefined}
-      {props.text}
+      <span className="flex">
+        {props.text}
+        {props.expandIcon}
+      </span>
       {props.children}
       {props.icon && props.iconEnd ? (
         <span className={props.icon} data-testid={props.dataTestId} />
@@ -188,4 +191,8 @@ ActionButton.propTypes = {
    * For tracking reset or submit on forms for analytics
    */
   analyticsTracking: PropTypes.bool,
+  /**
+   * Expand icon that will show the Feedback as popup
+   */
+  expandIcon: PropTypes.object,
 };

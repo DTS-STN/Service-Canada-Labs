@@ -13,11 +13,11 @@ export const WithFeedback = Template.bind({});
 
 Primary.args = {
   phase: "PhaseBanner Phase",
-  children: "PhaseBanner Text",
+  text: "PhaseBanner Text",
 };
 
 WithFeedback.args = {
   phase: "PhaseBanner Phase",
-  children: "PhaseBanner Text",
+  text: "PhaseBanner Text",
   feedbackActive: true,
 };
