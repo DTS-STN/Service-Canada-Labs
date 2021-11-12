@@ -6,7 +6,7 @@ import { HTMList } from "../../components/atoms/HTMList";
 import { Layout } from "../../components/organisms/Layout";
 import { CallToAction } from "../../components/molecules/CallToAction";
 import { FeedbackWidget } from "../../components/molecules/FeedbackWidget";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function ThumbnailWithCaption({
   title = "Image 1",
@@ -33,7 +33,6 @@ ThumbnailWithCaption.propTypes = {
 
 export default function DigitalCenter(props) {
   const { t } = useTranslation(["common", "dc"]);
-  const [feedbackActive] = useState(true);
   const [showFeedback, setShowFeedback] = useState(false);
   const toggle = useRef("Collapsed");
 
@@ -82,7 +81,7 @@ export default function DigitalCenter(props) {
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },
         ]}
-        feedbackActive={feedbackActive}
+        feedbackActive={true}
       >
         <Head>
           {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
@@ -366,18 +365,12 @@ export default function DigitalCenter(props) {
         </section>
 
         <CallToAction
-          title={
-            feedbackActive ? t("giveFeedback") : t("signupTitleCallToAction")
-          }
-          html={
-            feedbackActive
-              ? t("bottomFeedbackDescription")
-              : t("becomeAParticipantDescription")
-          }
+          title={t("giveFeedback")}
+          html={t("bottomFeedbackDescription")}
           lang={props.locale}
-          href={feedbackActive ? "" : t("signupRedirect")}
-          hrefText={feedbackActive ? t("bottomFeedbackBtn") : t("signupBtn")}
-          feedbackActive={feedbackActive}
+          href=""
+          hrefText={t("bottomFeedbackBtn")}
+          feedbackActive={true}
           clicked={() => setShowFeedback(true)}
         />
       </Layout>
