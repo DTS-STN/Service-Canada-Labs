@@ -1,4 +1,4 @@
-FROM node:16.8.0-alpine3.13 AS base
+FROM node:16-alpine3.13 AS base
 WORKDIR /base
 COPY package*.json /
 RUN apk add --no-cache python3 py3-pip make g++
@@ -27,7 +27,7 @@ WORKDIR /build
 COPY --from=base /base ./
 RUN npm run build
 
-FROM node:16.8.0-alpine3.13 AS production
+FROM node:16-alpine3.13 AS production
 ENV NODE_ENV=production
 ENV REPORT_A_PROBLEM_ENABLED=true
 ENV NOTIFY_BASE_API_URL=https://api.notification.canada.ca
