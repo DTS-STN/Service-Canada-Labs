@@ -4,15 +4,15 @@ import { useTranslation } from "next-i18next";
 import { ActionButton } from "../components/atoms/ActionButton";
 import Link from "next/link";
 import { useEffect } from "react";
-import cookieCutter from "cookie-cutter";
+import Cookies from "js-cookie";
 
 export default function Index(props) {
   const { t } = useTranslation("common");
 
   const setLanguage = (event) => {
     event.target.id === "french-button"
-      ? cookieCutter.set("lang", "fr")
-      : cookieCutter.set("lang", "en");
+      ? Cookies.set("lang", "fr")
+      : Cookies.set("lang", "en");
   };
 
   useEffect(() => {

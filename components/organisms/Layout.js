@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useEffect } from "react";
 import { Banner } from "../atoms/Banner";
 import { Menu } from "../molecules/Menu";
 import { Footer } from "./Footer";
@@ -8,12 +9,10 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
 import { Breadcrumb } from "../atoms/Breadcrumb";
-import cookieCutter from "cookie-cutter";
+import Cookies from "js-cookie";
 
 const setLanguage = (language) => {
-  language === "fr"
-    ? cookieCutter.set("lang", "fr")
-    : cookieCutter.set("lang", "en");
+  language === "fr" ? Cookies.set("lang", "fr") : Cookies.set("lang", "en");
 };
 
 /**
@@ -30,6 +29,10 @@ export const Layout = ({
 }) => {
   const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
+
+  useEffect(() => {
+    console.log("lang: ", Cookies.get("lang"));
+  }, []);
 
   return (
     <div className="overflow-x-hidden">
