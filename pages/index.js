@@ -11,8 +11,8 @@ export default function Index(props) {
 
   const setLanguage = (event) => {
     event.target.id === "french-button"
-      ? Cookies.set("lang", "fr", { secure: true })
-      : Cookies.set("lang", "en", { secure: true });
+      ? Cookies.set("lang", "fr", { sameSite: "strict" })
+      : Cookies.set("lang", "en", { sameSite: "strict" });
   };
 
   useEffect(() => {

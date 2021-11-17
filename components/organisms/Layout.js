@@ -12,8 +12,8 @@ import Cookies from "js-cookie";
 
 const setLanguage = (language) => {
   language === "fr"
-    ? Cookies.set("lang", "fr", { secure: true })
-    : Cookies.set("lang", "en", { secure: true });
+    ? Cookies.set("lang", "fr", { sameSite: "strict" })
+    : Cookies.set("lang", "en", { sameSite: "strict" });
 };
 
 /**
