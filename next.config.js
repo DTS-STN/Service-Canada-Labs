@@ -119,8 +119,8 @@ module.exports = {
       },
       // Redirect to French path en cookie set to fr
       {
-        source: "/home",
-        destination: "/accueil",
+        source: "/en/home",
+        destination: "/fr/accueil",
         has: [
           {
             type: "cookie",
@@ -128,11 +128,12 @@ module.exports = {
             value: "fr",
           },
         ],
+        locale: false,
         permanent: false,
       },
       {
-        source: "/about",
-        destination: "/a-propos",
+        source: "/en/about",
+        destination: "/fr/a-propos",
         has: [
           {
             type: "cookie",
@@ -140,11 +141,12 @@ module.exports = {
             value: "fr",
           },
         ],
+        locale: false,
         permanent: false,
       },
       {
-        source: "/signup",
-        destination: "/inscription",
+        source: "/en/signup",
+        destination: "/fr/inscription",
         has: [
           {
             type: "cookie",
@@ -152,11 +154,12 @@ module.exports = {
             value: "fr",
           },
         ],
+        locale: false,
         permanent: false,
       },
       {
-        source: "/projects",
-        destination: "/projets",
+        source: "/en/projects",
+        destination: "/fr/projets",
         has: [
           {
             type: "cookie",
@@ -164,11 +167,12 @@ module.exports = {
             value: "fr",
           },
         ],
+        locale: false,
         permanent: false,
       },
       {
-        source: "/signup/privacy",
-        destination: "/inscription/protection-renseignements-personnels",
+        source: "/en/signup/privacy",
+        destination: "/fr/inscription/protection-renseignements-personnels",
         has: [
           {
             type: "cookie",
@@ -176,11 +180,12 @@ module.exports = {
             value: "fr",
           },
         ],
+        locale: false,
         permanent: false,
       },
       {
-        source: "/thankyou",
-        destination: "/merci",
+        source: "/en/thankyou",
+        destination: "/fr/merci",
         has: [
           {
             type: "cookie",
@@ -188,11 +193,12 @@ module.exports = {
             value: "fr",
           },
         ],
+        locale: false,
         permanent: false,
       },
       {
-        source: "/unsubscribe",
-        destination: "/desabonnement",
+        source: "/en/unsubscribe",
+        destination: "/fr/desabonnement",
         has: [
           {
             type: "cookie",
@@ -200,13 +206,14 @@ module.exports = {
             value: "fr",
           },
         ],
+        locale: false,
         permanent: false,
       },
 
       // Redirect to English path when cookie set to en
       {
-        source: "/accueil",
-        destination: "/home",
+        source: "/fr/accueil",
+        destination: "/en/home",
         has: [
           {
             type: "cookie",
@@ -214,11 +221,12 @@ module.exports = {
             value: "en",
           },
         ],
+        locale: false,
         permanent: false,
       },
       {
-        source: "/a-propos",
-        destination: "/about",
+        source: "/fr/a-propos",
+        destination: "/en/about",
         has: [
           {
             type: "cookie",
@@ -226,11 +234,12 @@ module.exports = {
             value: "en",
           },
         ],
+        locale: false,
         permanent: false,
       },
       {
-        source: "/inscription",
-        destination: "/signup",
+        source: "/fr/inscription",
+        destination: "/en/signup",
         has: [
           {
             type: "cookie",
@@ -238,11 +247,12 @@ module.exports = {
             value: "en",
           },
         ],
+        locale: false,
         permanent: false,
       },
       {
-        source: "/projets",
-        destination: "/projects",
+        source: "/fr/projets",
+        destination: "/en/projects",
         has: [
           {
             type: "cookie",
@@ -250,11 +260,12 @@ module.exports = {
             value: "en",
           },
         ],
+        locale: false,
         permanent: false,
       },
       {
-        source: "/inscription/protection-renseignements-personnels",
-        destination: "/signup/privacy",
+        source: "/fr/inscription/protection-renseignements-personnels",
+        destination: "/en/signup/privacy",
         has: [
           {
             type: "cookie",
@@ -262,11 +273,12 @@ module.exports = {
             value: "en",
           },
         ],
+        locale: false,
         permanent: false,
       },
       {
-        source: "/merci",
-        destination: "/thankyou",
+        source: "/fr/merci",
+        destination: "/en/thankyou",
         has: [
           {
             type: "cookie",
@@ -274,11 +286,12 @@ module.exports = {
             value: "en",
           },
         ],
+        locale: false,
         permanent: false,
       },
       {
-        source: "/desabonnement",
-        destination: "/unsubscribe",
+        source: "/fr/desabonnement",
+        destination: "/en/unsubscribe",
         has: [
           {
             type: "cookie",
@@ -286,6 +299,7 @@ module.exports = {
             value: "en",
           },
         ],
+        locale: false,
         permanent: false,
       },
     ];

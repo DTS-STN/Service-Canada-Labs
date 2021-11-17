@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { useEffect } from "react";
 import { Banner } from "../atoms/Banner";
 import { Menu } from "../molecules/Menu";
 import { Footer } from "./Footer";
@@ -12,7 +11,9 @@ import { Breadcrumb } from "../atoms/Breadcrumb";
 import Cookies from "js-cookie";
 
 const setLanguage = (language) => {
-  language === "fr" ? Cookies.set("lang", "fr") : Cookies.set("lang", "en");
+  language === "fr"
+    ? Cookies.set("lang", "fr", { secure: true })
+    : Cookies.set("lang", "en", { secure: true });
 };
 
 /**
@@ -29,10 +30,6 @@ export const Layout = ({
 }) => {
   const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
-
-  useEffect(() => {
-    console.log("lang: ", Cookies.get("lang"));
-  }, []);
 
   return (
     <div className="overflow-x-hidden">
