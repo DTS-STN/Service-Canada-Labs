@@ -11,6 +11,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Added language detection to redirect user to the page in prefered language
 
+## Changed
+
+- Fixed infinite redirect issue when switch language and refresh the page
+
 ## [v1.1.3] - 2021-10-27
 
 ## Changed

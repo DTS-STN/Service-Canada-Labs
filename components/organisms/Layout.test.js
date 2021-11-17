@@ -5,7 +5,7 @@ import { act, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { axe, toHaveNoViolations } from "jest-axe";
 import { NoBanner, WithBanner } from "./Layout.stories";
-import cookieCutter from "cookie-cutter";
+import Cookies from "js-cookie";
 
 expect.extend(toHaveNoViolations);
 
@@ -33,7 +33,7 @@ describe("Layout", () => {
     act(() => {
       inputElem3.click();
     });
-    const currentLang = cookieCutter.get("lang");
+    const currentLang = Cookies.get("lang");
     expect(currentLang).toEqual("en");
   });
 
