@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "next-i18next";
 import { ActionButton } from "../atoms/ActionButton";
-import { useState, useEffect } from "react";
 import Joi from "joi";
 import { ErrorLabel } from "../atoms/ErrorLabel";
 import FocusTrap from "focus-trap-react";
@@ -22,7 +21,6 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
     if (!showFeedback) {
       setFeedbackError("");
     }
-    console.log(email);
   }, [showFeedback]);
 
   // Joi form validation schema.

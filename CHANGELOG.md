@@ -15,9 +15,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added IE detection to `/404` and `/500` pages as they don't auto redirect using the next.js redirects function
 - Added language detection to redirect user to the page in prefered language
 
-## Changed
+## Fixed
 
 - Fixed infinite redirect issue when switch language and refresh the page
+- Fixed tailwind configuration so font and some css are showing properly again
 
 ## [v1.1.3] - 2021-10-27
 
