@@ -8,12 +8,12 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
 import { Breadcrumb } from "../atoms/Breadcrumb";
-import cookieCutter from "cookie-cutter";
+import Cookies from "js-cookie";
 
 const setLanguage = (language) => {
   language === "fr"
-    ? cookieCutter.set("lang", "fr")
-    : cookieCutter.set("lang", "en");
+    ? Cookies.set("lang", "fr", { sameSite: "strict" })
+    : Cookies.set("lang", "en", { sameSite: "strict" });
 };
 
 /**

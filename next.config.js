@@ -90,6 +90,8 @@ module.exports = {
   },
   async redirects() {
     return [
+      // Note: pathmatch is removed because subpaths are in different languages, so subpath match doesn't work anymore.
+      // Redirect to home page when user set prefered language
       {
         source: '/',
         has: [
@@ -296,8 +298,10 @@ module.exports = {
         permanent: false,
         destination: "/home",
       },
+      // Redirect to French path en cookie set to fr
       {
-        source: "/en/:path",
+        source: "/en/home",
+        destination: "/fr/accueil",
         has: [
           {
             type: "cookie",
@@ -307,10 +311,90 @@ module.exports = {
         ],
         locale: false,
         permanent: false,
-        destination: "/fr/:path",
       },
       {
-        source: "/fr/:path",
+        source: "/en/about",
+        destination: "/fr/a-propos",
+        has: [
+          {
+            type: "cookie",
+            key: "lang",
+            value: "fr",
+          },
+        ],
+        locale: false,
+        permanent: false,
+      },
+      {
+        source: "/en/signup",
+        destination: "/fr/inscription",
+        has: [
+          {
+            type: "cookie",
+            key: "lang",
+            value: "fr",
+          },
+        ],
+        locale: false,
+        permanent: false,
+      },
+      {
+        source: "/en/projects",
+        destination: "/fr/projets",
+        has: [
+          {
+            type: "cookie",
+            key: "lang",
+            value: "fr",
+          },
+        ],
+        locale: false,
+        permanent: false,
+      },
+      {
+        source: "/en/signup/privacy",
+        destination: "/fr/inscription/protection-renseignements-personnels",
+        has: [
+          {
+            type: "cookie",
+            key: "lang",
+            value: "fr",
+          },
+        ],
+        locale: false,
+        permanent: false,
+      },
+      {
+        source: "/en/thankyou",
+        destination: "/fr/merci",
+        has: [
+          {
+            type: "cookie",
+            key: "lang",
+            value: "fr",
+          },
+        ],
+        locale: false,
+        permanent: false,
+      },
+      {
+        source: "/en/unsubscribe",
+        destination: "/fr/desabonnement",
+        has: [
+          {
+            type: "cookie",
+            key: "lang",
+            value: "fr",
+          },
+        ],
+        locale: false,
+        permanent: false,
+      },
+
+      // Redirect to English path when cookie set to en
+      {
+        source: "/fr/accueil",
+        destination: "/en/home",
         has: [
           {
             type: "cookie",
@@ -320,49 +404,84 @@ module.exports = {
         ],
         locale: false,
         permanent: false,
-        destination: "/en/:path",
       },
       {
-        source: "/fr/home",
+        source: "/fr/a-propos",
+        destination: "/en/about",
+        has: [
+          {
+            type: "cookie",
+            key: "lang",
+            value: "en",
+          },
+        ],
         locale: false,
         permanent: false,
-        destination: "/fr/accueil",
       },
       {
-        source: "/fr/about",
+        source: "/fr/inscription",
+        destination: "/en/signup",
+        has: [
+          {
+            type: "cookie",
+            key: "lang",
+            value: "en",
+          },
+        ],
         locale: false,
         permanent: false,
-        destination: "/fr/a-propos",
       },
       {
-        source: "/fr/signup",
+        source: "/fr/projets",
+        destination: "/en/projects",
+        has: [
+          {
+            type: "cookie",
+            key: "lang",
+            value: "en",
+          },
+        ],
         locale: false,
         permanent: false,
-        destination: "/fr/inscription",
       },
       {
-        source: "/fr/projects",
+        source: "/fr/inscription/protection-renseignements-personnels",
+        destination: "/en/signup/privacy",
+        has: [
+          {
+            type: "cookie",
+            key: "lang",
+            value: "en",
+          },
+        ],
         locale: false,
         permanent: false,
-        destination: "/fr/projets",
       },
       {
-        source: "/fr/signup/privacy",
+        source: "/fr/merci",
+        destination: "/en/thankyou",
+        has: [
+          {
+            type: "cookie",
+            key: "lang",
+            value: "en",
+          },
+        ],
         locale: false,
         permanent: false,
-        destination: "fr/inscription/protection-renseignements-personnels",
       },
       {
-        source: "/fr/thankyou",
+        source: "/fr/desabonnement",
+        destination: "/en/unsubscribe",
+        has: [
+          {
+            type: "cookie",
+            key: "lang",
+            value: "en",
+          },
+        ],
         locale: false,
         permanent: false,
-        destination: "/fr/merci",
-      },
-      {
-        source: "/fr/unsubscribe",
-        locale: false,
-        permanent: false,
-        destination: "/fr/desabonnement",
       },
     ];
   },
