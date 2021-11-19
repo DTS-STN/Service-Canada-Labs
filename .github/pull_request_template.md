@@ -30,4 +30,4 @@ Get the acceptance criteria for the story and/or task you are working on and put
 
 ## Product and Sprint Backlog
 
-[Trello](https://trello.com/b/ZqWtJSyh/alpha-site-board)
+[Jira](https://jira-dev.bdm-dev.dts-stn.com/secure/RapidBoard.jspa?rapidView=96&projectKey=SCL)
