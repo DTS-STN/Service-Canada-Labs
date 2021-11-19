@@ -11,6 +11,7 @@ export default async function handler(req, res) {
     res.write("Disallow: /projects/*\n");
     res.write("Disallow: /confirmation.js\n");
     res.write("Disallow: /thankyou.js\n");
+    res.write("Disallow: /notsupported.js\n");
   } else {
     res.write("User-agent: *\n");
     res.write("Disallow: /\n");

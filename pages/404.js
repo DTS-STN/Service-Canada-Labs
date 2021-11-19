@@ -4,17 +4,32 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
 import { ReportAProblem } from "../components/organisms/ReportAProblem";
 import { ActionButton } from "../components/atoms/ActionButton";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 export default function error404(props) {
   const { t } = useTranslation("common");
+  const [loaded, setLoaded] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
+
+    //If using Internet Explorer, redirect to /notsupported
+    if (window.document.documentMode) {
+      router.push("/notsupported");
+    } else {
+      setLoaded(true);
+    }
   }, []);
+
+  //If using Internet Explorer, render empty page so page doesn't flash before redirect
+  if (!loaded) {
+    return <div></div>;
+  }
 
   return (
     <>

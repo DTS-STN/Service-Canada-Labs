@@ -9,6 +9,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Added
 
+- Added `/notsupported` which IE users are redirected to by making use of the next.js redirects function
+- Added the `CopyToClickboard` component as part of the `/notsupported` page
+- Added IE specific styling to `globals.css` for the `/notsupported` page
+- Added IE detection to `/404` and `/500` pages as they don't auto redirect using the next.js redirects function
 - Added language detection to redirect user to the page in prefered language
 
 ## Changed

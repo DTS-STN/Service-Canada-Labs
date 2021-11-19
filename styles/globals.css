@@ -10,14 +10,20 @@ html {
 
 @layer base {
   /* Font families */
-  h1, h2, h3, h4, h5 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     @apply font-display font-semibold;
   }
   h6 {
     @apply font-display;
   }
-  p, li, button {
-    @apply font-body
+  p,
+  li,
+  button {
+    @apply font-body;
   }
   /* Font sizes */
   h1 {
@@ -32,7 +38,8 @@ html {
   h4 {
     @apply text-h4;
   }
-  h5, p {
+  h5,
+  p {
     @apply text-p;
   }
   h6 {
@@ -47,11 +54,11 @@ html {
 @layer utilities {
   /*Default page layout*/
 
-  .blur{
+  .blur {
     filter: blur(1.5px);
   }
 
-  .error404-link::before{
+  .error404-link::before {
     display: inline-block;
     margin: 2px 5px;
     content: " ";
@@ -62,7 +69,7 @@ html {
     height: 4px;
   }
 
-  .splash-link::after{
+  .splash-link::after {
     display: inline-block;
     margin: 2px 5px;
     content: " ";
@@ -77,15 +84,20 @@ html {
     border-radius: 50%;
     width: 148px;
     height: 148px;
-    background-color: #EEEEEE;
+    background-color: #eeeeee;
   }
 
-  .textbuttonField > p{
-    @apply text-sm leading-normal font-normal font-body py-4
+  .textbuttonField > p {
+    @apply text-sm leading-normal font-normal font-body py-4;
   }
 
-  .textbuttonField > h1, h2, h3, h4, h5, h6{
-    @apply mb-4
+  .textbuttonField > h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply mb-4;
   }
 
   .border-outset {
@@ -96,23 +108,20 @@ html {
     content: url(../public/up-caret.svg);
   }
 
-  .skip-main{
-    @apply absolute w-px h-px -left-96
+  .skip-main {
+    @apply absolute w-px h-px -left-96;
   }
 
-  .skip-main:focus-within{
-    @apply absolute w-screen h-auto top-4 left-0 z-50 flex justify-center
+  .skip-main:focus-within {
+    @apply absolute w-screen h-auto top-4 left-0 z-50 flex justify-center;
   }
 
   .layout-container {
     @apply mx-6;
   }
   .text-shadow-about-circles {
-    text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+      1px 1px 0 #000;
   }
 
   @screen xxs {
@@ -120,7 +129,7 @@ html {
       @apply mx-4;
     }
   }
-  
+
   @screen xs {
     .layout-container {
       @apply px-0;
@@ -132,8 +141,8 @@ html {
       @apply px-0;
     }
 
-    .textbuttonField > p{
-      @apply text-p
+    .textbuttonField > p {
+      @apply text-p;
     }
   }
 
@@ -161,8 +170,85 @@ html {
       height: 218px;
     }
   }
+
+  /* Internet explorer css */
+  @media (min-width: 280px) {
+    .canadaLogo {
+      height: auto;
+      width: 240px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .circle-background {
+      width: 120px;
+      height: 120px;
+    }
+  }
+  @media (min-width: 992px) {
+    .circle-background {
+      width: 150px;
+      height: 150px;
+    }
+    .canadaLogo {
+      width: 384px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .circle-background {
+      width: 218px;
+      height: 218px;
+    }
+    .canadaLogo {
+      width: 50%;
+    }
+  }
+  .bgGray {
+    background-color: #f8f8f8;
+  }
+
+  .ieButton {
+    background-color: #1D5B90;
+    color: white;
+    border-radius: 7px;
+    border-color: #1D5B90;
+    border-width: 1px;
+  }
+  .ieButton:focus {
+    box-shadow: 0 0 0 1pt black;
+  }
+  .ieButton:hover {
+    background-color: #1F809A;
+  }
+  .ieButton:active {
+    background-color: #26374a;
+  }
+  .ieTextField {
+    border-width: 2px;
+    border-color: #D1D5DB;
+    border-radius: 7px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+    color: #555; 
+  }
+  .ieTextField:focus {
+    border-color: black;
+  }
+  .ieLinksList {
+    color: #284162;
+  }
+  ul.ieLinksList > li >a:focus {
+    color: #0535d2;
+    border-width: 2px;
+    border-color: black;
+  }
+  ul.ieLinksList > li:hover {
+    color: #0535d2;
+  }
+  li.browser-item:not(:last-child) {
+    margin-bottom: 3px;
+  }
 }
 
 .footerBackground {
-  background:#26374a url(../public/landscape.png) no-repeat right bottom;
+  background: #26374a url(../public/landscape.png) no-repeat right bottom;
 }

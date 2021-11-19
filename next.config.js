@@ -43,6 +43,7 @@ module.exports = {
       },
     ];
   },
+
   async rewrites() {
     return [
       {
@@ -91,6 +92,186 @@ module.exports = {
     return [
       // Note: pathmatch is removed because subpaths are in different languages, so subpath match doesn't work anymore.
       // Redirect to home page when user set prefered language
+      {
+        source: '/',
+        has: [
+          {
+            type: "header",
+            key: "User-Agent",
+            value: "(.*Trident.*)",
+          },
+        ],
+        destination: "/notsupported",
+        permanent: false,
+      },
+      {
+        source: '/home',
+        has: [
+          {
+            type: "header",
+            key: "User-Agent",
+            value: "(.*Trident.*)",
+          },
+        ],
+        destination: "/notsupported",
+        permanent: false,
+      },
+      {
+        source: '/404',
+        has: [
+          {
+            type: "header",
+            key: "User-Agent",
+            value: "(.*Trident.*)",
+          },
+        ],
+        destination: "/notsupported",
+        permanent: false,
+      },
+      {
+        source: '/500',
+        has: [
+          {
+            type: "header",
+            key: "User-Agent",
+            value: "(.*Trident.*)",
+          },
+        ],
+        destination: "/notsupported",
+        permanent: false,
+      },
+      {
+        source: '/about',
+        has: [
+          {
+            type: "header",
+            key: "User-Agent",
+            value: "(.*Trident.*)",
+          },
+        ],
+        destination: "/notsupported",
+        permanent: false,
+      },
+      {
+        source: '/confirmation',
+        has: [
+          {
+            type: "header",
+            key: "User-Agent",
+            value: "(.*Trident.*)",
+          },
+        ],
+        destination: "/notsupported",
+        permanent: false,
+      },
+      {
+        source: '/error',
+        has: [
+          {
+            type: "header",
+            key: "User-Agent",
+            value: "(.*Trident.*)",
+          },
+        ],
+        destination: "/notsupported",
+        permanent: false,
+      },
+      {
+        source: '/projects',
+        has: [
+          {
+            type: "header",
+            key: "User-Agent",
+            value: "(.*Trident.*)",
+          },
+        ],
+        destination: "/notsupported",
+        permanent: false,
+      },
+      {
+        source: '/signup',
+        has: [
+          {
+            type: "header",
+            key: "User-Agent",
+            value: "(.*Trident.*)",
+          },
+        ],
+        destination: "/notsupported",
+        permanent: false,
+      },
+      {
+        source: '/thankyou',
+        has: [
+          {
+            type: "header",
+            key: "User-Agent",
+            value: "(.*Trident.*)",
+          },
+        ],
+        destination: "/notsupported",
+        permanent: false,
+      },
+      {
+        source: '/unsubscribe',
+        has: [
+          {
+            type: "header",
+            key: "User-Agent",
+            value: "(.*Trident.*)",
+          },
+        ],
+        destination: "/notsupported",
+        permanent: false,
+      },
+      {
+        source: '/signup/privacy',
+        has: [
+          {
+            type: "header",
+            key: "User-Agent",
+            value: "(.*Trident.*)",
+          },
+        ],
+        destination: "/notsupported",
+        permanent: false,
+      },
+      {
+        source: '/projects/virtual-assistant',
+        has: [
+          {
+            type: "header",
+            key: "User-Agent",
+            value: "(.*Trident.*)",
+          },
+        ],
+        destination: "/notsupported",
+        permanent: false,
+      },
+      {
+        source: '/projects/digital-centre',
+        has: [
+          {
+            type: "header",
+            key: "User-Agent",
+            value: "(.*Trident.*)",
+          },
+        ],
+        destination: "/notsupported",
+        permanent: false,
+      },
+      {
+        source: '/projects/life-journeys',
+        has: [
+          {
+            type: "header",
+            key: "User-Agent",
+            value: "(.*Trident.*)",
+          },
+        ],
+        destination: "/notsupported",
+        permanent: false,
+      },
       {
         source: "/en",
         has: [
