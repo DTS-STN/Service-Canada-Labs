@@ -9,13 +9,7 @@ import { ActionButton } from "../atoms/ActionButton";
  * Displays the PhaseBanner on the page
  */
 
-export const PhaseBanner = ({
-  phase,
-  text,
-  feedbackActive,
-  projectName,
-  href,
-}) => {
+export const PhaseBanner = ({ phase, text, feedbackActive, projectName }) => {
   const [showFeedback, setShowFeedback] = useState(false);
   const { t } = useTranslation("common");
   const toggle = useRef("Collapsed");
