@@ -9,7 +9,13 @@ import { ActionButton } from "../atoms/ActionButton";
  * Displays the PhaseBanner on the page
  */
 
-export const PhaseBanner = ({ phase, text, feedbackActive }) => {
+export const PhaseBanner = ({
+  phase,
+  text,
+  feedbackActive,
+  projectName,
+  href,
+}) => {
   const [showFeedback, setShowFeedback] = useState(false);
   const { t } = useTranslation("common");
   const toggle = useRef("Collapsed");
@@ -110,7 +116,11 @@ export const PhaseBanner = ({ phase, text, feedbackActive }) => {
         )}
       </div>
 
-      <FeedbackWidget showFeedback={showFeedback} toggleForm={toggleForm} />
+      <FeedbackWidget
+        showFeedback={showFeedback}
+        toggleForm={toggleForm}
+        projectName={projectName}
+      />
     </>
   );
 };
@@ -128,6 +138,10 @@ PhaseBanner.propTypes = {
    * This is for showing the feedback component
    */
   feedbackActive: PropTypes.bool,
+  /**
+   * Project/page name that feedback is coming from
+   */
+  projectName: PropTypes.string,
 };
 
 export default PhaseBanner;

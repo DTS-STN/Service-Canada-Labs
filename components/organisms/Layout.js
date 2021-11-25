@@ -27,6 +27,7 @@ export const Layout = ({
   langUrl,
   breadcrumbItems,
   feedbackActive,
+  projectName,
 }) => {
   const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
@@ -51,6 +52,7 @@ export const Layout = ({
           phase={t("phaseBannerTag")}
           feedbackActive={feedbackActive}
           text={t("phaseBannerText")}
+          projectName={projectName}
         />
         <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">
           <div
@@ -263,4 +265,8 @@ Layout.propTypes = {
    * For activating feedback on active projects pages
    */
   feedbackActive: PropTypes.bool,
+  /**
+   * Project/page name that feedback is coming from
+   */
+  projectName: PropTypes.string,
 };

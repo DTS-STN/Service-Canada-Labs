@@ -35,6 +35,7 @@ export default function DigitalCenter(props) {
   const { t } = useTranslation(["common", "dc"]);
   const [showFeedback, setShowFeedback] = useState(false);
   const toggle = useRef("Collapsed");
+  const path = useRef("");
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -73,7 +74,11 @@ export default function DigitalCenter(props) {
 
   return (
     <>
-      <FeedbackWidget showFeedback={showFeedback} toggleForm={toggleForm} />
+      <FeedbackWidget
+        showFeedback={showFeedback}
+        toggleForm={toggleForm}
+        projectName={t("dc:OverviewTitle")}
+      />
       <Layout
         locale={props.locale}
         langUrl={t("digitalCentrePath")}
@@ -82,6 +87,7 @@ export default function DigitalCenter(props) {
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },
         ]}
         feedbackActive={true}
+        projectName={t("dc:OverviewTitle")}
       >
         <Head>
           {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (

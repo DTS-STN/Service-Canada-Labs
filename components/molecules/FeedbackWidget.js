@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "next-i18next";
 import { ActionButton } from "../atoms/ActionButton";
@@ -10,12 +10,17 @@ import FocusTrap from "focus-trap-react";
  * Displays the PhaseBanner on the page
  */
 
-export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
+export const FeedbackWidget = ({ showFeedback, toggleForm, projectName }) => {
   const [submitted, setSubmitted] = useState(false);
   const [feedbackClose, setFeedbackClose] = useState(false);
   const { t } = useTranslation("common");
   const [response, setResponse] = useState(t("thankYouFeedback"));
   const email = process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL;
+  const path =
+    typeof window !== "undefined" && window.location.origin
+      ? window.location.href
+      : "";
+  console.log(path);
 
   useEffect(() => {
     if (!showFeedback) {
@@ -48,14 +53,32 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
 
   const [feedback, setFeedback] = useState("");
   const [feedbackError, setFeedbackError] = useState("");
+  const [feedbackObject, setFeedbackObject] = useState({
+    feedbackToSend: {
+      project: projectName,
+      pageUrl: path,
+      feedback: feedback,
+    },
+  });
 
   let onSubmitHandler = async (e) => {
     // prevent default behaviour of form
     e.preventDefault();
     // clear out error values
     await setFeedbackError("");
-    // compile data into one object
+    // set values in feedback object
+    await setFeedbackObject({
+      ...feedbackObject,
+      feedbackToSend: {
+        project: projectName,
+        pageUrl: path,
+        feedback: feedback,
+      },
+    });
+    // compile feedback into object to be validated
     const formData = { feedback };
+    console.log(formData);
+    console.log(feedbackObject.feedbackToSend);
     // validate data using Joi schema
     const { error } = formSchema.validate(formData, {
       abortEarly: false,
@@ -70,7 +93,7 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(feedbackObject.feedbackToSend),
       });
 
       // if the response is good, show thank you message
