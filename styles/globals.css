@@ -214,6 +214,7 @@ html {
     border-color: #1D5B90;
     border-width: 1px;
   }
+
   .ieButton:focus {
     box-shadow: 0 0 0 1pt black;
   }
@@ -223,6 +224,23 @@ html {
   .ieButton:active {
     background-color: #26374a;
   }
+
+  .ieButtonCopied {
+    background-color: #278400;
+    color: white;
+    border-radius: 7px;
+    border-color: #278400;
+    border-width: 1px;
+  }
+
+  .ieButtonCopied:hover {
+    background-color: #237600;
+  }
+
+  .ieButtonCopied:active {
+    background-color: #278400;
+  }
+
   .ieTextField {
     border-width: 2px;
     border-color: #D1D5DB;

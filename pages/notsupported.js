@@ -4,9 +4,12 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { useEffect } from "react";
 import { CopyToClipboard } from "../components/molecules/CopyToClipboard";
+import { useState } from "react";
 
 export default function error404(props) {
   const { t } = useTranslation("common");
+  const [enCopied, setEnCopied] = useState(false);
+  const [frCopied, setFrCopied] = useState(false);
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -15,6 +18,15 @@ export default function error404(props) {
     }
   }, []);
 
+  function onClickEn() {
+    setEnCopied(true);
+    setFrCopied(false);
+  }
+
+  function onClickFr() {
+    setFrCopied(true);
+    setEnCopied(false);
+  }
   return (
     <>
       <div className="min-h-screen relative">
@@ -178,9 +190,10 @@ export default function error404(props) {
               </p>
               <CopyToClipboard
                 buttonId="enClipboardButton"
-                buttonText="Copy link"
-                buttonStyle="ieButton"
+                buttonText={enCopied ? "Copied!" : "Copy link"}
+                buttonStyle={enCopied ? "ieButtonCopied" : "ieButton"}
                 value="http://alpha.service.canada.ca/home"
+                onClick={onClickEn}
                 id="enClipboard"
                 name="clipboard_en"
                 textFieldStyle="ieTextField"
@@ -215,10 +228,11 @@ export default function error404(props) {
                   ce navigateur.
                 </p>
                 <CopyToClipboard
-                  buttonText="Copier lien"
+                  buttonText={frCopied ? "Copié!" : "Copier lien"}
                   buttonId="frClipboardButton"
-                  buttonStyle="ieButton"
+                  buttonStyle={frCopied ? "ieButtonCopied" : "ieButton"}
                   value="http://alpha.service.canada.ca/fr/home"
+                  onClick={onClickFr}
                   id="frClipboard"
                   name="clipboard_fr"
                   textFieldStyle="ieTextField"

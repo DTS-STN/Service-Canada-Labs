@@ -27,6 +27,7 @@ export function CopyToClipboard(props) {
         <ActionButton
           id={props.buttonId}
           className={`w-full ${props.buttonStyle}`}
+          onClick={props.onClick}
         >
           {props.buttonText}
         </ActionButton>
@@ -75,6 +76,11 @@ CopyToClipboard.propTypes = {
    * call back for when the value of the text field changes
    */
   onChange: PropTypes.func,
+
+  /**
+   * call back for when the link has been copied
+   */
+  onClick: PropTypes.func,
 
   /**
    * message to display if there is an error
