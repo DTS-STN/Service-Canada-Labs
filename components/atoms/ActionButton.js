@@ -69,7 +69,7 @@ export function ActionButton(props) {
     </Link>
   ) : (
     <button
-      aria-expanded={`${props.ariaExpanded ? props.ariaExpanded : ""}`}
+      aria-expanded={`${props.ariaExpanded ? props.ariaExpanded : undefined}`}
       className={`${basicStyle}
       ${
         !props.secondary && !props.tertiary && !props.disabled && !props.custom
