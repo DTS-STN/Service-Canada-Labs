@@ -19,6 +19,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Fixed infinite redirect issue when switch language and refresh the page
 - Fixed tailwind configuration so font and some css are showing properly again
+- Fixed feedback widget so it sends the proper payload to the feedback API
 
 ## [v1.1.3] - 2021-10-27
 

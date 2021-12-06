@@ -74,7 +74,6 @@ export const FeedbackWidget = ({
       pageUrl: path,
       feedback: formData.feedback,
     };
-    console.log(feedbackObject.current.feedbackToSend);
     // validate data using Joi schema
     const { error } = formSchema.validate(formData, {
       abortEarly: false,
