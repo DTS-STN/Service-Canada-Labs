@@ -69,6 +69,7 @@ export function ActionButton(props) {
     </Link>
   ) : (
     <button
+      aria-expanded={`${props.ariaExpanded ? props.ariaExpanded : ""}`}
       className={`${basicStyle}
       ${
         !props.secondary && !props.tertiary && !props.disabled && !props.custom
@@ -195,4 +196,8 @@ ActionButton.propTypes = {
    * Expand icon that will show the Feedback as popup
    */
   expandIcon: PropTypes.object,
+  /**
+   * Aria expanded state
+   */
+  ariaExpanded: PropTypes.string,
 };
