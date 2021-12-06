@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "next-i18next";
 import { ActionButton } from "../atoms/ActionButton";
@@ -10,17 +10,17 @@ import FocusTrap from "focus-trap-react";
  * Displays the PhaseBanner on the page
  */
 
-export const FeedbackWidget = ({ showFeedback, toggleForm, projectName }) => {
+export const FeedbackWidget = ({
+  showFeedback,
+  toggleForm,
+  projectName,
+  path,
+}) => {
   const [submitted, setSubmitted] = useState(false);
   const [feedbackClose, setFeedbackClose] = useState(false);
   const { t } = useTranslation("common");
   const [response, setResponse] = useState(t("thankYouFeedback"));
   const email = process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL;
-  const path =
-    typeof window !== "undefined" && window.location.origin
-      ? window.location.href
-      : "";
-  console.log(path);
 
   useEffect(() => {
     if (!showFeedback) {
@@ -53,11 +53,11 @@ export const FeedbackWidget = ({ showFeedback, toggleForm, projectName }) => {
 
   const [feedback, setFeedback] = useState("");
   const [feedbackError, setFeedbackError] = useState("");
-  const [feedbackObject, setFeedbackObject] = useState({
+  const feedbackObject = useRef({
     feedbackToSend: {
-      project: projectName,
-      pageUrl: path,
-      feedback: feedback,
+      project: "",
+      pageUrl: "",
+      feedback: "",
     },
   });
 
@@ -66,19 +66,15 @@ export const FeedbackWidget = ({ showFeedback, toggleForm, projectName }) => {
     e.preventDefault();
     // clear out error values
     await setFeedbackError("");
-    // set values in feedback object
-    await setFeedbackObject({
-      ...feedbackObject,
-      feedbackToSend: {
-        project: projectName,
-        pageUrl: path,
-        feedback: feedback,
-      },
-    });
     // compile feedback into object to be validated
     const formData = { feedback };
-    console.log(formData);
-    console.log(feedbackObject.feedbackToSend);
+    // set values in feedback object
+    feedbackObject.current.feedbackToSend = {
+      project: projectName,
+      pageUrl: path,
+      feedback: formData.feedback,
+    };
+    console.log(feedbackObject.current.feedbackToSend);
     // validate data using Joi schema
     const { error } = formSchema.validate(formData, {
       abortEarly: false,
@@ -93,7 +89,7 @@ export const FeedbackWidget = ({ showFeedback, toggleForm, projectName }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(feedbackObject.feedbackToSend),
+        body: JSON.stringify(feedbackObject.current.feedbackToSend),
       });
 
       // if the response is good, show thank you message
@@ -106,6 +102,7 @@ export const FeedbackWidget = ({ showFeedback, toggleForm, projectName }) => {
       setSubmitted(true);
       setFeedbackClose(false);
       setFocusAfterSubmit();
+      setFeedback("");
     } else {
       setFeedbackError(error.message);
       srSpeak(error.message);

@@ -5,7 +5,6 @@ import { useTranslation } from "next-i18next";
 import { HTMList } from "../../components/atoms/HTMList";
 import { Layout } from "../../components/organisms/Layout";
 import { CallToAction } from "../../components/molecules/CallToAction";
-import { FeedbackWidget } from "../../components/molecules/FeedbackWidget";
 import { useEffect, useRef, useState } from "react";
 
 function ThumbnailWithCaption({
@@ -35,7 +34,6 @@ export default function DigitalCenter(props) {
   const { t } = useTranslation(["common", "dc"]);
   const [showFeedback, setShowFeedback] = useState(false);
   const toggle = useRef("Collapsed");
-  const path = useRef("");
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -74,11 +72,6 @@ export default function DigitalCenter(props) {
 
   return (
     <>
-      <FeedbackWidget
-        showFeedback={showFeedback}
-        toggleForm={toggleForm}
-        projectName={t("dc:OverviewTitle")}
-      />
       <Layout
         locale={props.locale}
         langUrl={t("digitalCentrePath")}
