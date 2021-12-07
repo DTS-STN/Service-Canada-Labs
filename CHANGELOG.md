@@ -22,6 +22,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Fixed tailwind configuration so font and some css are showing properly again
 - Fixed feedback widget so it sends the proper payload to the feedback API
 
+## Changed
+
+- Changed number of steps for signup and unsubscribe from 3 to 2
+
 ## [v1.1.3] - 2021-10-27
 
 ## Changed
