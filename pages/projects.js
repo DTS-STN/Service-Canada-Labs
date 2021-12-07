@@ -161,8 +161,24 @@ export default function Projects(props) {
           <h1 id="pageMainTitle" tabIndex="-1" className="flex-wrap mb-10">
             {t("projectsTitle")}
           </h1>
-          <p className="whitespace-pre-line">{t("projectsText")}</p>
-          <p className="mt-4 mb-10">{t("projectsDisclaimerBody")}</p>
+          <p
+            className="whitespace-pre-line"
+            dangerouslySetInnerHTML={{ __html: t("projectsText") }}
+          ></p>
+          <p className="whitespace-pre-line">{t("projectQuestions")}</p>
+          <div className="text-lg">
+            <li>{t("projectQuestion1")}</li>
+            <li>{t("projectQuestion2")}</li>
+            <li>{t("projectQuestion3")}</li>
+            <li>{t("projectQuestion4")}</li>
+          </div>
+          <p
+            className="whitespace-pre-line"
+            dangerouslySetInnerHTML={{ __html: t("projectSignup") }}
+          ></p>
+          <p className="mt-4 mb-10">
+            <strong>{t("projectsDisclaimerBody")}</strong>
+          </p>
           <Filter
             label={t("filterBy")}
             options={filters}
