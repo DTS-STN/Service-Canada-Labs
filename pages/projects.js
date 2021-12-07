@@ -166,12 +166,12 @@ export default function Projects(props) {
             dangerouslySetInnerHTML={{ __html: t("projectsText") }}
           ></p>
           <p className="whitespace-pre-line">{t("projectQuestions")}</p>
-          <div className="text-lg">
+          <ul className="text-lg list-disc ml-8">
             <li>{t("projectQuestion1")}</li>
             <li>{t("projectQuestion2")}</li>
             <li>{t("projectQuestion3")}</li>
             <li>{t("projectQuestion4")}</li>
-          </div>
+          </ul>
           <p
             className="whitespace-pre-line"
             dangerouslySetInnerHTML={{ __html: t("projectSignup") }}

@@ -244,7 +244,7 @@
   "projectQuestion2": "Did you expect the website or app to look or interact differently?",
   "projectQuestion3": "Do you feel confident navigating the system?",
   "projectQuestion4": "Would you need the help of a technical person to be able to use this system?",
-  "projectSignup": "\n\nIf you are interested in participating in our research tests and interviews, you can <a href='/signup' style='text-decoration: underline; color: rgba(43, 67, 128, 1);'>sign up to join our participant pool</a>, and we will contact you about projects based on eligibility.",
+  "projectSignup": "\nIf you are interested in participating in our research tests and interviews, you can <a href='/signup' style='text-decoration: underline; color: rgba(43, 67, 128, 1);'>sign up to join our participant pool</a>, and we will contact you about projects based on eligibility.",
   "withdraw": "How to withdraw your information",
   "privacyWithdraw": "If you have previously signed up to become a participant and no longer wish to be contacted for future research studies, you can ",
   "privacyWithdraw2": " yourself from the participant list and we will remove your personal information.",
