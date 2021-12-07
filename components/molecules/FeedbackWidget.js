@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "next-i18next";
 import { ActionButton } from "../atoms/ActionButton";
@@ -10,7 +10,12 @@ import FocusTrap from "focus-trap-react";
  * Displays the PhaseBanner on the page
  */
 
-export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
+export const FeedbackWidget = ({
+  showFeedback,
+  toggleForm,
+  projectName,
+  path,
+}) => {
   const [submitted, setSubmitted] = useState(false);
   const [feedbackClose, setFeedbackClose] = useState(false);
   const { t } = useTranslation("common");
@@ -48,14 +53,27 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
 
   const [feedback, setFeedback] = useState("");
   const [feedbackError, setFeedbackError] = useState("");
+  const feedbackObject = useRef({
+    feedbackToSend: {
+      project: "",
+      pageUrl: "",
+      feedback: "",
+    },
+  });
 
   let onSubmitHandler = async (e) => {
     // prevent default behaviour of form
     e.preventDefault();
     // clear out error values
     await setFeedbackError("");
-    // compile data into one object
+    // compile feedback into object to be validated
     const formData = { feedback };
+    // set values in feedback object
+    feedbackObject.current.feedbackToSend = {
+      project: projectName,
+      pageUrl: path,
+      feedback: formData.feedback,
+    };
     // validate data using Joi schema
     const { error } = formSchema.validate(formData, {
       abortEarly: false,
@@ -70,7 +88,7 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(feedbackObject.current.feedbackToSend),
       });
 
       // if the response is good, show thank you message
@@ -83,6 +101,7 @@ export const FeedbackWidget = ({ showFeedback, toggleForm }) => {
       setSubmitted(true);
       setFeedbackClose(false);
       setFocusAfterSubmit();
+      setFeedback("");
     } else {
       setFeedbackError(error.message);
       srSpeak(error.message);

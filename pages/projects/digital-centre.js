@@ -5,8 +5,8 @@ import { useTranslation } from "next-i18next";
 import { HTMList } from "../../components/atoms/HTMList";
 import { Layout } from "../../components/organisms/Layout";
 import { CallToAction } from "../../components/molecules/CallToAction";
-import { FeedbackWidget } from "../../components/molecules/FeedbackWidget";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import FeedbackWidget from "../../components/molecules/FeedbackWidget";
 
 function ThumbnailWithCaption({
   title = "Image 1",
@@ -34,7 +34,14 @@ ThumbnailWithCaption.propTypes = {
 export default function DigitalCenter(props) {
   const { t } = useTranslation(["common", "dc"]);
   const [showFeedback, setShowFeedback] = useState(false);
-  const toggle = useRef("Collapsed");
+  let path =
+    typeof window !== "undefined" && window.location.origin
+      ? window.location.href
+      : "";
+
+  let toggleForm = async (e) => {
+    setShowFeedback(!showFeedback);
+  };
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -43,37 +50,14 @@ export default function DigitalCenter(props) {
     }
   }, []);
 
-  let toggleForm = async (e) => {
-    if (showFeedback) {
-      toggle.current = "Collapsed";
-    } else {
-      toggle.current = "Expanded";
-    }
-
-    srSpeak(toggle.current);
-    setShowFeedback(!showFeedback);
-  };
-
-  function srSpeak(text, priority) {
-    var el = document.createElement("div");
-    var id = "speak-" + Date.now();
-    el.setAttribute("id", id);
-    el.setAttribute("aria-live", priority || "polite");
-    el.classList.add("sr-only");
-    document.body.appendChild(el);
-
-    window.setTimeout(function () {
-      document.getElementById(id).innerHTML = text;
-    }, 100);
-
-    window.setTimeout(function () {
-      document.body.removeChild(document.getElementById(id));
-    }, 1000);
-  }
-
   return (
     <>
-      <FeedbackWidget showFeedback={showFeedback} toggleForm={toggleForm} />
+      <FeedbackWidget
+        showFeedback={showFeedback}
+        toggleForm={toggleForm}
+        projectName={t("dc:OverviewTitle")}
+        path={path}
+      />
       <Layout
         locale={props.locale}
         langUrl={t("digitalCentrePath")}
@@ -82,6 +66,7 @@ export default function DigitalCenter(props) {
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },
         ]}
         feedbackActive={true}
+        projectName={t("dc:OverviewTitle")}
       >
         <Head>
           {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
@@ -372,6 +357,7 @@ export default function DigitalCenter(props) {
           hrefText={t("bottomFeedbackBtn")}
           feedbackActive={true}
           clicked={() => setShowFeedback(true)}
+          ariaExpanded={showFeedback.toString()}
         />
       </Layout>
       {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (

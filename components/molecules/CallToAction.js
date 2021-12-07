@@ -44,6 +44,7 @@ export function CallToAction(props) {
                     ) : undefined
                   }
                   onClick={props.feedbackActive ? props.clicked : undefined}
+                  ariaExpanded={props.ariaExpanded}
                 />
               </p>
               <p>
@@ -88,4 +89,8 @@ CallToAction.propTypes = {
    * url text to be displayed
    */
   hrefText: PropTypes.string.isRequired,
+  /**
+   * Aria expanded state
+   */
+  ariaExpanded: PropTypes.string,
 };
