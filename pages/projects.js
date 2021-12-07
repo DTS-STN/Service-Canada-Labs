@@ -161,21 +161,19 @@ export default function Projects(props) {
           <h1 id="pageMainTitle" tabIndex="-1" className="flex-wrap mb-10">
             {t("projectsTitle")}
           </h1>
+          <p className="mb-8">{t("projectsIntro")}</p>
           <p
-            className="whitespace-pre-line"
+            className="whitespace-pre-line mb-8"
             dangerouslySetInnerHTML={{ __html: t("projectsText") }}
           ></p>
-          <p className="whitespace-pre-line">{t("projectQuestions")}</p>
-          <ul className="text-lg list-disc ml-8">
+          <p>{t("projectQuestions")}</p>
+          <ul className="text-lg list-disc ml-8 my-8">
             <li>{t("projectQuestion1")}</li>
             <li>{t("projectQuestion2")}</li>
             <li>{t("projectQuestion3")}</li>
             <li>{t("projectQuestion4")}</li>
           </ul>
-          <p
-            className="whitespace-pre-line"
-            dangerouslySetInnerHTML={{ __html: t("projectSignup") }}
-          ></p>
+          <p dangerouslySetInnerHTML={{ __html: t("projectSignup") }}></p>
           <p className="mt-4 mb-10">
             <strong>{t("projectsDisclaimerBody")}</strong>
           </p>
