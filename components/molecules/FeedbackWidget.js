@@ -5,6 +5,7 @@ import { ActionButton } from "../atoms/ActionButton";
 import Joi from "joi";
 import { ErrorLabel } from "../atoms/ErrorLabel";
 import FocusTrap from "focus-trap-react";
+import lockScroll from "react-lock-scroll";
 
 /**
  * Displays the PhaseBanner on the page
@@ -21,6 +22,8 @@ export const FeedbackWidget = ({
   const { t } = useTranslation("common");
   const [response, setResponse] = useState(t("thankYouFeedback"));
   const email = process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL;
+
+  lockScroll(showFeedback);
 
   useEffect(() => {
     if (!showFeedback) {

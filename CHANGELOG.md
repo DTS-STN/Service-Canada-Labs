@@ -18,7 +18,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 # Changed
 
-- updated introduction paragraph on the project page
+- Lock scroll when feedback module is active
+- Deactivate auto focus when feedback module is active
+- Updated introduction paragraph on the project page
 
 ## Fixed
 
