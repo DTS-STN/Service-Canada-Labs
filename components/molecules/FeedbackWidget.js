@@ -128,7 +128,7 @@ export const FeedbackWidget = ({
   return (
     <>
       {showFeedback ? (
-        <FocusTrap>
+        <FocusTrap focusTrapOptions={{ initialFocus: false }}>
           <div className="fixed top-0 left-0 w-screen h-full bg-opacity-50 bg-gray-400 flex items-center">
             <div
               className="w-full bg-custom-blue-blue"
