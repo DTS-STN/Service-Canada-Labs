@@ -102,7 +102,7 @@ export default function Home(props) {
         <section className="layout-container my-12">
           <div className="xl:w-2/3">
             <ActionButton
-              href={t("signupRedirect")}
+              href={t("signupInfoRedirect")}
               id="signup-home-page"
               dataCy="signup-home-page"
               className="rounded px-6 py-4 font-bold text-center inline-block"
@@ -145,7 +145,7 @@ export default function Home(props) {
           title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
           lang={props.locale}
-          href={t("signupRedirect")}
+          href={t("signupInfoRedirect")}
           hrefText={t("signupBtn")}
         />
       </Layout>
