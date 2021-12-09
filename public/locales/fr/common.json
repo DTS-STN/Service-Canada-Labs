@@ -303,5 +303,16 @@
   "confirmationMetaDescription1": "Message indiquant que votre adresse électronique a été confirmée.",
   "confirmationMetaDescription2": "Message confirmant que vous avec réussi à vous désabonner.",
   "500errorMetaDescription": "Erreur 500 — Le site Web a signalé une erreur. Veuiller réessayer plus tard. Cela peut être dû à un problème de serveur ou à une URL incorrecte ou expirée. Si le problème persiste, signalez-le.",
-  "404errorMetaDescription": "Message d’erreur indiquant que la page n’a pu être trouvée."
+  "404errorMetaDescription": "Message d’erreur indiquant que la page n’a pu être trouvée.",
+  "signupInfoTitle": "S’inscrire pour participer à l’élaboration des services de demain",
+  "signupInfoTitle2": "Ce qui vous attend pour la suite",
+  "signupInfoP1": "Une fois que vous vous serez inscrit pour participer à nos activités de recherche, nous vous contacterons par courriel afin de solliciter votre aide.",
+  "signupInfoP2": "Voici quelques exemples des types de projets de recherche auxquels vous pourriez être invité à participer : ",
+  "signupInfoUsabilityTitle": "Tests de convivialité",
+  "signupInfoUsabilityContent": "Lors d’un appel vidéo, nous vous demanderons d'accomplir un certain nombre de tâches sur un site ou une application numérique. L'objectif de cette séance est de comprendre les endroits portant à confusion ou de trouver des opportunités pour nous d'améliorer le service.",
+  "signupInfoInterviewsTitle": "Entretiens avec les utilisateurs",
+  "signupInfoInterviewsContent": "Lors d’un appel vidéo, nous vous poserons une série de questions liées à un sujet d'intérêt. Cette conversation nous permettra de savoir ce que vous pensez d'un service.",
+  "signupInfoSurveysTitle": "Questionnaires",
+  "signupInfoSurveysContent": "Nous vous enverrons un lien vers un questionnaire et vous demanderons de répondre à une série de questions relatives à l'un de nos services.",
+  "signupInfoContinue": "Continuer"
 }
