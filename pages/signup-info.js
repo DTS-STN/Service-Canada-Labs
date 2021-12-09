@@ -1,6 +1,5 @@
 import { Layout } from "../components/organisms/Layout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { HTMList } from "../components/atoms/HTMList";
 import { useEffect } from "react";
@@ -10,8 +9,6 @@ import Head from "next/head";
 
 export default function SignupInfo(props) {
   const { t } = useTranslation("common");
-  const { push } = useRouter();
-  const fr = props.locale === "fr";
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -24,7 +21,7 @@ export default function SignupInfo(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={t("signupPath")}
+        langUrl={t("signupInfoPath")}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}
@@ -173,7 +170,7 @@ export default function SignupInfo(props) {
               className="text-base font-bold px-24 py-3 rounded bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light"
               dataCy="signupInfo-continue"
               dataTestId="signupInfo-continue"
-              href="/signup"
+              href={t("signupRedirect")}
               analyticsTracking
             >
               {t("signupInfoContinue")}

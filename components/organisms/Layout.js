@@ -126,7 +126,7 @@ export const Layout = ({
                 text: t("menuLink2"),
               },
               {
-                link: t("signupRedirect"),
+                link: t("signupInfoRedirect"),
                 text: t("signupLink"),
               },
             ]}
