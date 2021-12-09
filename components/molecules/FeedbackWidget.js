@@ -132,9 +132,9 @@ export const FeedbackWidget = ({
     <>
       {showFeedback ? (
         <FocusTrap focusTrapOptions={{ initialFocus: false }}>
-          <div className="fixed top-0 left-0 w-screen h-full bg-opacity-50 bg-gray-400 flex items-center">
+          <div className="fixed top-0 left-0 w-screen h-full bg-opacity-90 bg-gray-900 flex items-center">
             <div
-              className="w-full bg-custom-blue-blue"
+              className="md:w-3/4 m-auto bg-custom-blue-blue shadow-lg border-2"
               data-testid="feedbackDropdown"
             >
               {submitted ? (
@@ -259,7 +259,7 @@ export const FeedbackWidget = ({
                     maxLength="2000"
                     rows="5"
                     className={
-                      "text-input font-body w-full min-h-40px shadow-sm text-form-input-gray border-2 py-6px px-12px rounded"
+                      "text-input font-body w-full min-h-40px shadow-sm text-form-input-gray border-2 my-2 py-6px px-12px rounded"
                     }
                     onChange={(e) => setFeedback(e.currentTarget.value)}
                   />
