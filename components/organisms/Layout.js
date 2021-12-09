@@ -27,9 +27,15 @@ export const Layout = ({
   langUrl,
   breadcrumbItems,
   feedbackActive,
+  projectName,
+  path,
 }) => {
   const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
+  path =
+    typeof window !== "undefined" && window.location.origin
+      ? window.location.href
+      : "";
 
   return (
     <div className="overflow-x-hidden">
@@ -51,6 +57,8 @@ export const Layout = ({
           phase={t("phaseBannerTag")}
           feedbackActive={feedbackActive}
           text={t("phaseBannerText")}
+          projectName={projectName}
+          path={path}
         />
         <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">
           <div
@@ -263,4 +271,12 @@ Layout.propTypes = {
    * For activating feedback on active projects pages
    */
   feedbackActive: PropTypes.bool,
+  /**
+   * Project/page name that feedback is coming from
+   */
+  projectName: PropTypes.string,
+  /**
+   * Path that the feedback is coming from
+   */
+  path: PropTypes.string,
 };

@@ -9,38 +9,27 @@ import { ActionButton } from "../atoms/ActionButton";
  * Displays the PhaseBanner on the page
  */
 
-export const PhaseBanner = ({ phase, text, feedbackActive }) => {
+export const PhaseBanner = ({
+  phase,
+  text,
+  feedbackActive,
+  projectName,
+  path,
+  toggleForm,
+}) => {
   const [showFeedback, setShowFeedback] = useState(false);
   const { t } = useTranslation("common");
   const toggle = useRef("Collapsed");
 
-  let toggleForm = async (e) => {
+  toggleForm = async (e) => {
     if (showFeedback) {
       toggle.current = "Collapsed";
     } else {
       toggle.current = "Expanded";
     }
 
-    srSpeak(toggle.current);
     setShowFeedback(!showFeedback);
   };
-
-  function srSpeak(text, priority) {
-    var el = document.createElement("div");
-    var id = "speak-" + Date.now();
-    el.setAttribute("id", id);
-    el.setAttribute("aria-live", priority || "polite");
-    el.classList.add("sr-only");
-    document.body.appendChild(el);
-
-    window.setTimeout(function () {
-      document.getElementById(id).innerHTML = text;
-    }, 100);
-
-    window.setTimeout(function () {
-      document.body.removeChild(document.getElementById(id));
-    }, 1000);
-  }
 
   return (
     <>
@@ -110,7 +99,12 @@ export const PhaseBanner = ({ phase, text, feedbackActive }) => {
         )}
       </div>
 
-      <FeedbackWidget showFeedback={showFeedback} toggleForm={toggleForm} />
+      <FeedbackWidget
+        showFeedback={showFeedback}
+        toggleForm={toggleForm}
+        projectName={projectName}
+        path={path}
+      />
     </>
   );
 };
@@ -128,6 +122,14 @@ PhaseBanner.propTypes = {
    * This is for showing the feedback component
    */
   feedbackActive: PropTypes.bool,
+  /**
+   * Project/page name that feedback is coming from
+   */
+  projectName: PropTypes.string,
+  /**
+   * Path that the feedback is coming from
+   */
+  path: PropTypes.string,
 };
 
 export default PhaseBanner;
