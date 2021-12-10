@@ -67,6 +67,10 @@ module.exports = {
         destination: "/signup",
       },
       {
+        source: "/inscription-info",
+        destination: "/signup-info",
+      },
+      {
         source: "/inscription/protection-renseignements-personnels",
         destination: "/signup/privacy",
       },
@@ -190,6 +194,18 @@ module.exports = {
       },
       {
         source: '/signup',
+        has: [
+          {
+            type: "header",
+            key: "User-Agent",
+            value: "(.*Trident.*)",
+          },
+        ],
+        destination: "/notsupported",
+        permanent: false,
+      },
+      {
+        source: '/signup-info',
         has: [
           {
             type: "header",
@@ -339,6 +355,19 @@ module.exports = {
         permanent: false,
       },
       {
+        source: "/en/signup-info",
+        destination: "/fr/inscription-info",
+        has: [
+          {
+            type: "cookie",
+            key: "lang",
+            value: "fr",
+          },
+        ],
+        locale: false,
+        permanent: false,
+      },
+      {
         source: "/en/projects",
         destination: "/fr/projets",
         has: [
@@ -421,6 +450,19 @@ module.exports = {
       {
         source: "/fr/inscription",
         destination: "/en/signup",
+        has: [
+          {
+            type: "cookie",
+            key: "lang",
+            value: "en",
+          },
+        ],
+        locale: false,
+        permanent: false,
+      },
+      {
+        source: "/fr/inscription-info",
+        destination: "/en/signup-info",
         has: [
           {
             type: "cookie",
