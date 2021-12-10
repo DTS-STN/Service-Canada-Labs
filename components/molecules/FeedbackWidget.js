@@ -132,9 +132,12 @@ export const FeedbackWidget = ({
     <>
       {showFeedback ? (
         <FocusTrap focusTrapOptions={{ initialFocus: false }}>
-          <div className="fixed top-0 left-0 w-screen h-full bg-opacity-90 bg-gray-900 flex items-center">
+          <div
+            className="fixed top-0 left-0 w-screen h-full flex items-center"
+            style={{ background: "rgba(71, 71, 71, 0.8)" }}
+          >
             <div
-              className="md:w-3/4 m-auto bg-custom-blue-blue shadow-lg border-2"
+              className="md:w-4/5 m-auto bg-custom-blue-blue shadow-lg border-black border-4"
               data-testid="feedbackDropdown"
             >
               {submitted ? (
