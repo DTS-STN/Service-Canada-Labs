@@ -9,7 +9,6 @@ import { ErrorLabel } from "../components/atoms/ErrorLabel";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
-import { HTMList } from "../components/atoms/HTMList";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { TextField } from "../components/atoms/TextField";
 import { RadioField } from "../components/atoms/RadioField";
