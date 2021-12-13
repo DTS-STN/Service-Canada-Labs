@@ -1,84 +1,83 @@
-.control-label::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    box-sizing: border-box;
-    background: white;
-    width: 40px;
-    height: 40px;
-    border: 2px solid black;
+.control-label::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  background: white;
+  width: 40px;
+  height: 40px;
+  border: 2px solid black;
 }
 
-.radio-field-label.control-label::before{
-    border-radius: 50%;
+.radio-field-label.control-label::before {
+  border-radius: 50%;
 }
 
 .control-label::after {
-    content: "";
-    box-sizing: border-box;
-    position: absolute;
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
 }
 
-.checkbox-label.control-label::after{
-    transform: rotate(-45deg);
-    border: solid black;
-    border-width: 0 0 5px 5px;
-    border-top-color: transparent;
-    opacity: 0;
-    background: transparent;
-    top: 11px;
-    left: 9px;
-    width: 23px;
-    height: 13px;
+.checkbox-label.control-label::after {
+  transform: rotate(-45deg);
+  border: solid black;
+  border-width: 0 0 5px 5px;
+  border-top-color: transparent;
+  opacity: 0;
+  background: transparent;
+  top: 11px;
+  left: 9px;
+  width: 23px;
+  height: 13px;
 }
 
-.radio-field-label.control-label::after{
-    border: solid black;
-    border-radius: 50%;
-    opacity: 0;
-    top: 5px;
-    left: 5px;
-    width: 30px;
-    height: 30px;
-    background: black;
+.radio-field-label.control-label::after {
+  border: solid black;
+  border-radius: 50%;
+  opacity: 0;
+  top: 5px;
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  background: black;
 }
 
-.control-label{
-    touch-action: manipulation;
+.control-label {
+  touch-action: manipulation;
 }
 
-.control-input:checked + .control-label::after{
-    opacity: 1;
+.control-input:checked + .control-label::after {
+  opacity: 1;
 }
 
-.radio-field:checked + .control-label::after{
-    opacity: 1;
+.radio-field:checked + .control-label::after {
+  opacity: 1;
 }
 
 .control-input:focus + .control-label::before {
-    border-width: 4px;
-    -webkit-box-shadow: 0 0 0 3px #fd0;
-    box-shadow: 0 0 0 3px #fd0;
+  border-width: 4px;
+  -webkit-box-shadow: 0 0 0 3px #fd0;
+  box-shadow: 0 0 0 3px #fd0;
 }
 
-.text-input:focus{
-    border-width: 4px;
-    box-shadow: 0 0 0 3px #fd0;
-    outline: 0;
+.text-input:focus {
+  outline: 4px;
+  box-shadow: 0 0 0 3px #fd0;
+  outline: 0;
 }
 
 .radio-button:checked + .radio-button-label {
-    background-color: #004986;
-    color: white;
-    font-weight: bold;
+  background-color: #004986;
+  color: white;
+  font-weight: bold;
 }
 
-
-.select-field::-webkit-calendar-picker-indicator{
-    display: none;
+.select-field::-webkit-calendar-picker-indicator {
+  display: none;
 }
 
 form > label {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
