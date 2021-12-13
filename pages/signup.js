@@ -9,7 +9,6 @@ import { ErrorLabel } from "../components/atoms/ErrorLabel";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
-import { HTMList } from "../components/atoms/HTMList";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { TextField } from "../components/atoms/TextField";
 import { RadioField } from "../components/atoms/RadioField";
@@ -416,6 +415,7 @@ export default function Signup(props) {
         langUrl={t("signupPath")}
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
+          { text: t("signupInfoTitle"), link: t("breadCrumbsHref4") },
         ]}
       >
         <Head>
@@ -493,59 +493,13 @@ export default function Signup(props) {
           <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <section className="layout-container mb-2 mt-12">
-          <div className="xl:w-2/3 ">
+          <div className="xl:w-2/3">
             <h1 className="mb-12" id="pageMainTitle" tabIndex="-1">
               {t("signupTitle")}
             </h1>
-            <p className="mb-5 text-sm lg:text-p">{t("signupP1")}</p>
-            <HTMList
-              listClassName={"list-disc text-sm lg:text-p pl-10 mb-5"}
-              content={t("signupList1")}
-            />
-            <p className="mb-5 text-sm lg:text-p">{t("signupP1.1")}</p>
-            <p className="mb-10 text-sm lg:text-p">
-              {t("projectsDisclaimerBody")}
-            </p>
-            <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle2")}</h2>
-            <HTMList
-              listClassName={
-                "list-disc list-outside pl-2 mb-10 font-body text-sm lg:text-p ml-3"
-              }
-              liClassName={"mb-3"}
-              content={t("signupList2")}
-            />
-
-            <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle3")}</h2>
-            <p className="mb-3">{t("signupP3")}</p>
-            <HTMList
-              listClassName={
-                "list-disc list-outside pl-2 mb-5 font-body ml-3 text-sm lg:text-p"
-              }
-              content={t("privacyPolicyList1")}
-            />
-            <p className="mb-3 text-sm lg:text-p">{t("signupP4")}</p>
-            <HTMList
-              listClassName={
-                "list-disc list-outside pl-2 mb-5 font-body ml-3 text-sm lg:text-p"
-              }
-              content={t("privacyPolicyList2")}
-            />
-
-            <p className="my-8 text-sm lg:text-p">{t("signupP3.1")}</p>
-            <Link href={t("privacyRedirect")} locale={props.locale}>
-              <a className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5 text-sm lg:text-p">
-                {t("privacy")}
-              </a>
-            </Link>
-            <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle4")}</h2>
-            <p
-              className="my-8 text-sm lg:text-p"
-              dangerouslySetInnerHTML={{ __html: t("signupP5") }}
-            ></p>
           </div>
         </section>
         <section className="layout-container">
-          <h2 className="mb-5 text-h3 lg:text-h2">{t("signupTitle5")}</h2>
           {errorBoxText ? (
             <ErrorBox
               text={errorBoxText}
@@ -559,16 +513,6 @@ export default function Signup(props) {
             onReset={handlerClearData}
             noValidate
           >
-            <ActionButton
-              id="reset"
-              custom="block font-body text-sm lg:text-p hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-5"
-              type="reset"
-              onClick={() => {
-                setProvince("");
-              }}
-            >
-              {t("clear")}
-            </ActionButton>
             <div className="max-w-750px">
               <TextField
                 className="mb-10"
@@ -1111,7 +1055,7 @@ export default function Signup(props) {
             </Link>
             <ActionButton
               id="signup-submit"
-              className="rounded w-72"
+              className="rounded w-72 my-6 text-base font-bold py-2"
               type="submit"
               dataCy="signup-submit"
               dataTestId="signup-submit"
@@ -1121,6 +1065,7 @@ export default function Signup(props) {
             </ActionButton>
             <ActionButton
               id="reset-bottom"
+              className="pb-12"
               custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10 text-sm lg:text-p"
               type="reset"
               onClick={() => {

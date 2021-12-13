@@ -210,7 +210,7 @@ export default function Privacy(props) {
         <CallToAction
           title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
-          href={t("signupRedirect")}
+          href={t("signupInfoRedirect")}
           hrefText={t("signupBtn")}
         />
       </Layout>
