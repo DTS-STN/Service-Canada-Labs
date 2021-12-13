@@ -19,8 +19,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 # Changed
 
-- Lock scroll when feedback module is active
-- Deactivate auto focus when feedback module is active
+- Add border to feedback popup, and give background a darker color
+- Lock scroll when feedback popup is active
+- Deactivate auto focus when feedback popup is active
 - Updated introduction paragraph on the project page
 - Removed all the initial text on signup page
 
