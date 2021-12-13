@@ -1032,7 +1032,7 @@ export default function Signup(props) {
                 <ErrorLabel message={agreeToConditionsError} />
               ) : undefined}
               <CheckBox
-                className="h-187px sm:h-32"
+                className="h-187px sm:h-32 xxs:mb-6 xs:mb-0"
                 checked={agreeToConditions === "yes"}
                 onChange={(checked, name, value) => {
                   if (checked) {
@@ -1055,7 +1055,7 @@ export default function Signup(props) {
             </Link>
             <ActionButton
               id="signup-submit"
-              className="rounded w-72 my-6 text-base font-bold py-2"
+              className="rounded xxs:w-full xs:w-72 my-6 text-base font-bold py-2"
               type="submit"
               dataCy="signup-submit"
               dataTestId="signup-submit"
