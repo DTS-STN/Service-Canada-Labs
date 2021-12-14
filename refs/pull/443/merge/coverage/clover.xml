@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1639509283385" clover="3.2.0">
-  <project timestamp="1639509283385" name="All files">
+<coverage generated="1639509385332" clover="3.2.0">
+  <project timestamp="1639509385332" name="All files">
     <metrics statements="800" coveredstatements="639" conditionals="647" coveredconditionals="389" methods="205" coveredmethods="151" elements="1652" coveredelements="1179" complexity="0" loc="800" ncloc="800" packages="15" files="95" classes="95"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -71,9 +71,9 @@
         <line num="8" count="187" type="stmt"/>
         <line num="10" count="187" type="cond" truecount="2" falsecount="0"/>
         <line num="15" count="187" type="stmt"/>
-        <line num="28" count="5" type="stmt"/>
-        <line num="57" count="18" type="stmt"/>
-        <line num="63" count="18" type="stmt"/>
+        <line num="29" count="5" type="stmt"/>
+        <line num="58" count="18" type="stmt"/>
+        <line num="64" count="18" type="stmt"/>
       </file>
       <file name="CheckBox.stories.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/atoms/CheckBox.stories.js">
         <metrics statements="10" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
