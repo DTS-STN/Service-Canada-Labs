@@ -10,11 +10,14 @@ import PropTypes from "prop-types";
  */
 export function OptionalTextField(props) {
   let [showTextField, setShowTextField] = useState(props.checked || false);
+  const [expanded, setExpanded] = useState("collapsed");
   let handleCheckChange = (wasChecked, name, value) => {
     if (wasChecked) {
       setShowTextField(false);
+      setExpanded("collapsed");
     } else {
       setShowTextField(true);
+      setExpanded("expanded");
     }
 
     if (props.onControlChange) {
@@ -36,6 +39,7 @@ export function OptionalTextField(props) {
           dataTestId={props.controlDataTestId}
           required={props.controlRequired}
           dataCy={props.controlDataCy}
+          ariaLabel={expanded}
         />
       )}
       {props.controlType === "radiofield" && (
