@@ -20,17 +20,19 @@ export const Experiment = (props) => {
       data-testid={props.dataTestId}
       data-cy={props.dataCy}
     >
-      <Link href={props.href}>
-        <a
-          className="flex block text-p text-custom-blue-projects-link underline hover:opacity-70"
-          tabIndex="0"
-        >
-          {props.title}
-          {props.href.substring(0, 8) === "https://" ? (
-            <img src="/external-link.svg" className="px-1 py-2" />
-          ) : undefined}
-        </a>
-      </Link>
+      <h2>
+        <Link href={props.href}>
+          <a
+            className="flex block text-p text-custom-blue-projects-link underline hover:opacity-70"
+            tabIndex="0"
+          >
+            {props.title}
+            {props.href.substring(0, 8) === "https://" ? (
+              <img src="/external-link.svg" className="px-1 py-2" />
+            ) : undefined}
+          </a>
+        </Link>
+      </h2>
       <span
         className={`block w-max py-2 px-2 my-4 font-body font-bold border-l-4 ${
           "border-" + (tagColours[props.tag] || "gray-experiment") + "-darker"
