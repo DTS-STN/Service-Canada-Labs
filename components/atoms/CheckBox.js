@@ -24,6 +24,7 @@ export function CheckBox(props) {
         name={props.name}
         value={props.value}
         type="checkbox"
+        aria-label={props.ariaLabel}
         onChange={(e) =>
           props.onChange(
             props.uncontrolled ? !e.currentTarget.checked : props.checked,
