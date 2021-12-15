@@ -45,7 +45,7 @@ export function CheckBox(props) {
         {props.showRequiredLabel ? (
           <b className="text-error-border-red">*</b>
         ) : undefined}{" "}
-        {props.label} <p className="sr-only">{props.expandState}</p>
+        {props.label} {<p className="sr-only">{props.expandState}</p>}
         {props.showRequiredLabel ? (
           <b className="text-error-border-red">{t("required")}</b>
         ) : undefined}
