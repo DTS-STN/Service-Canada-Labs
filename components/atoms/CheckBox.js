@@ -24,7 +24,6 @@ export function CheckBox(props) {
         name={props.name}
         value={props.value}
         type="checkbox"
-        aria-label={props.ariaLabel}
         onChange={(e) =>
           props.onChange(
             props.uncontrolled ? !e.currentTarget.checked : props.checked,
@@ -46,7 +45,7 @@ export function CheckBox(props) {
         {props.showRequiredLabel ? (
           <b className="text-error-border-red">*</b>
         ) : undefined}{" "}
-        {props.label}{" "}
+        {props.label} <p className="sr-only">{props.expandState}</p>
         {props.showRequiredLabel ? (
           <b className="text-error-border-red">{t("required")}</b>
         ) : undefined}
