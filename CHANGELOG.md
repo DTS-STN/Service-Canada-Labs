@@ -20,6 +20,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 # Changed
 
+- Add collape and expand state on the checkbox on the Report A Problem form
 - Add border to feedback popup, and give background a darker color
 - Lock scroll when feedback popup is active
 - Deactivate auto focus when feedback popup is active
