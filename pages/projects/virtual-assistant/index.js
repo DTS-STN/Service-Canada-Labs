@@ -41,12 +41,12 @@ export default function Home(props) {
           <title>{`${t("vc:virtualAssistantTitle")} — ${t(
             "siteTitle"
           )}`}</title>
-          <meta
-            name="description"
-            content={`${t("vc:virtualAssistantBioBody")}`}
-          />
+          <meta name="description" content={`${t("vc:metaDescription")}`} />
           <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
+          <link rel="canonical" href={t("vc:canonicalURL")} />
+          <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+          <meta name="keywords" content={t("vc:keywords")} />
 
           {/* DCMI Meta Tags */}
           <meta
@@ -56,60 +56,54 @@ export default function Home(props) {
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}
+            title="ISO639-2/T"
           />
-          <meta name="dcterms.creator" content={t("creator")} />
+          <meta name="dcterms.creator" content="Service Canada" />
           <meta name="dcterms.accessRights" content="2" />
           <meta
             name="dcterms.service"
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
-          <meta name="dcterms.issued" content="2021-07-20" />
+          <meta name="dcterms.issued" title="W3CDTF" content="2021-07-20" />
+
+          <meta name="dcterms.modified" title="W3CDTF" content="2021-12-16" />
+          <meta name="dcterms.description" content={t("vc:metaDescription")} />
+          <meta
+            name="dcterms.subject"
+            title="gccore"
+            content={`${t("vc:metaSubject")}`}
+          />
+          <meta name="dcterms.spatial" content="Canada" />
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
           <meta property="og:locale" content={props.locale} />
-          <meta
-            property="og:url"
-            content={
-              "https://alpha.service.canada.ca/" +
-              `${props.locale}` +
-              `${t("projectRedirect")}` +
-              "/virtual-assistant"
-            }
-          />
+          <meta property="og:url" content={t("vc:canonicalURL")} />
           <meta
             property="og:title"
             content={`${t("vc:virtualAssistantTitle")} — ${t("siteTitle")}`}
           />
           <meta
             property="og:description"
-            content={`${t("vc:virtualAssistantBioBody")}`}
+            content={t("vc:virtualAssistantBioBody")}
           />
-          <meta property="og:image" content={`${t("metaImage")}`} />
-          <meta property="og:image:alt" content={`${t("siteTitle")}`} />
+          <meta property="og:image" content={t("metaImage")} />
+          <meta property="og:image:alt" content={t("siteTitle")} />
 
           {/* Twitter */}
           <meta property="twitter:card" content="summary_large_image" />
-          <meta
-            property="twitter:url"
-            content={
-              "https://alpha.service.canada.ca/" +
-              `${props.locale}` +
-              `${t("projectRedirect")}` +
-              "/virtual-assistant"
-            }
-          />
+          <meta property="twitter:url" content={t("vc:canonicalURL")} />
           <meta
             property="twitter:title"
             content={`${t("vc:virtualAssistantTitle")} — ${t("siteTitle")}`}
           />
-          <meta name="twitter:creator" content={t("creator")} />
+          <meta name="twitter:creator" content="Service Canada" />
           <meta
             property="twitter:description"
-            content={`${t("vc:virtualAssistantBioBody")}`}
+            content={t("vc:virtualAssistantBioBody")}
           />
-          <meta property="twitter:image" content={`${t("metaImage")}`} />
-          <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
+          <meta property="twitter:image" content={t("metaImage")} />
+          <meta property="twitter:image:alt" content={t("siteTitle")} />
         </Head>
 
         {/* Virtual Assitant Demo section start -  with link to working prototype */}

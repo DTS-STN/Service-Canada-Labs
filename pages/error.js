@@ -40,8 +40,11 @@ export default function ErrorPage(props) {
 
           {/* Primary HTML Meta Tags */}
           <title data-gc-analytics-error={props.statusCode}>
-            Error - Erreur
+            The web site has reported an error | Le site Web a signalé une
+            erreur
           </title>
+          <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+          <meta content="width=device-width, initial-scale=1" name="viewport" />
           <meta
             name="description"
             content={
@@ -52,20 +55,65 @@ export default function ErrorPage(props) {
           />
           <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
+          <meta name="robots" content="noindex, nofollow" />
 
           {/* DCMI Meta Tags */}
-          <meta name="dcterms.title" content="Error - Erreur" />
+          <meta
+            property="dcterms:title"
+            lang="en"
+            content="The web site has reported an error"
+          />
+          <meta
+            property="dcterms:title"
+            lang="fr"
+            content="Le site Web a signalé une erreur"
+          />
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}
+            title="ISO639-2"
+          />
+          <meta property="dcterms:creator" lang="en" content="Service Canada" />
+          <meta property="dcterms:creator" lang="fr" content="Service Canada" />
+
+          <meta
+            property="dcterms:subject"
+            lang="en"
+            title="gccore"
+            content="GV Government and Politics;Government services"
+          />
+          <meta
+            property="dcterms:subject"
+            lang="fr"
+            title="gccore"
+            content="GV Gouvernement et vie politique;Services gouvernementaux"
+          />
+          <meta
+            property="dcterms:description"
+            lang="en"
+            content="Error message stating that the site has reported an error."
+          />
+          <meta
+            property="dcterms:description"
+            lang="fr"
+            content="Message d’erreur indiquant que le site a signalé une erreur."
           />
           <meta name="dcterms.creator" content={t("creator")} />
+
           <meta name="dcterms.accessRights" content="2" />
           <meta
             name="dcterms.service"
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
-          <meta name="dcterms.issued" content="2021-06-28" />
+          <meta name="dcterms.issued" title="W3CDTF" content="2021-06-28" />
+          <meta name="dcterms.modified" title="W3CDTF" content="2021-12-16" />
+          <meta property="dcterms:modified" content="2021-12-16" />
+          <meta property="dcterms:issued" content="2021-06-28" />
+          <meta
+            name="dcterms.subject"
+            content="GV Government and Politics;Government services"
+          />
+          <meta name="dcterms.language" title="ISO639-2" content="eng" />
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
@@ -76,7 +124,10 @@ export default function ErrorPage(props) {
               "https://alpha.service.canada.ca/" + `${props.locale}` + "/error"
             }
           />
-          <meta property="og:title" content="Error - Erreur" />
+          <meta
+            property="og:title"
+            content="The web site has reported an error | Le site Web a signalé une erreur"
+          />
           <meta
             property="og:description"
             content={
@@ -96,8 +147,11 @@ export default function ErrorPage(props) {
               "https://alpha.service.canada.ca/" + `${props.locale}` + "/error"
             }
           />
-          <meta property="twitter:title" content="Error - Erreur" />
-          <meta name="twitter:creator" content={t("creator")} />
+          <meta
+            property="twitter:title"
+            content="The web site has reported an error | Le site Web a signalé une erreur"
+          />
+          <meta name="twitter:creator" content="Service Canada" />
           <meta
             property="twitter:description"
             content={

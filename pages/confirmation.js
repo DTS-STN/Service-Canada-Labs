@@ -49,6 +49,7 @@ export default function Confirmation(props) {
           />
           <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
+          <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
 
           {/* DCMI Meta Tags */}
           <meta
@@ -62,14 +63,30 @@ export default function Confirmation(props) {
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}
+            title="ISO639-2/T"
           />
-          <meta name="dcterms.creator" content={t("creator")} />
+          <meta
+            name="dcterms.description"
+            content={
+              referrer === "unsubscribe"
+                ? `${t("confirmationMetaDescription2")}`
+                : `${t("confirmationMetaDescription1")}`
+            }
+          />
+          <meta
+            name="dcterms.subject"
+            title="gccore"
+            content={t("metaSubject")}
+          />
+          <meta name="dcterms.creator" content="Service Canada" />
           <meta name="dcterms.accessRights" content="2" />
           <meta
             name="dcterms.service"
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
-          <meta name="dcterms.issued" content="2021-06-22" />
+          <meta name="dcterms.issued" title="W3CDTF" content="2021-06-22" />
+          <meta name="dcterms.modified" title="W3CDTF" content="2021-12-16" />
+          <meta name="dcterms.spatial" content="Canada" />
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
@@ -119,7 +136,7 @@ export default function Confirmation(props) {
                 : `${t("emailConfirmationTitle")} — ${t("siteTitle")}`
             }
           />
-          <meta name="twitter:creator" content={t("creator")} />
+          <meta name="twitter:creator" content="Service Canada" />
           <meta
             property="twitter:description"
             content={

@@ -16,6 +16,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added IE detection to `/404` and `/500` pages as they don't auto redirect using the next.js redirects function
 - Added language detection to redirect user to the page in prefered language
 - Added a signup info page prior to the signup page
+- Added metadata for `/500`, `/error`, `/404`, `/notsupported`, `/projects/virtual-assistant`, `/projects/digital-centre`, `/signup-info`, and the splash page
 
 # Changed
 
@@ -24,6 +25,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Deactivate auto focus when feedback popup is active
 - Updated introduction paragraph on the project page
 - Removed all the initial text on signup page
+- Updated metadata on every page according to the master content inventory
 
 ## Fixed
 

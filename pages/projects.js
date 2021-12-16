@@ -93,8 +93,11 @@ export default function Projects(props) {
             name="title"
             content={`${t("projectsTitle")} — ${t("siteTitle")}`}
           />
+          <meta name="description" content={t("projectsMetaDescription")} />
           <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
+          <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+          <meta name="keywords" content={t("homeKeywords")} />
 
           {/* DCMI Meta Tags */}
           <meta
@@ -104,14 +107,26 @@ export default function Projects(props) {
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}
+            title="ISO639-2/T"
           />
-          <meta name="dcterms.creator" content={t("creator")} />
+          <meta
+            name="dcterms.description"
+            content={t("projectsMetaDescription")}
+          />
+          <meta
+            name="dcterms.subject"
+            title="gccore"
+            content={t("metaSubject")}
+          />
+          <meta name="dcterms.creator" content="Service Canada" />
           <meta name="dcterms.accessRights" content="2" />
           <meta
             name="dcterms.service"
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
           <meta name="dcterms.issued" content="2021-04-22" />
+          <meta name="dcterms.modified" title="W3CDTF" content="2021-12-16" />
+          <meta name="dcterms.spatial" title="W3CDTF" content="Canada" />
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
@@ -149,7 +164,7 @@ export default function Projects(props) {
             property="twitter:title"
             content={`${t("projectsTitle")} — ${t("siteTitle")}`}
           />
-          <meta name="twitter:creator" content={t("creator")} />
+          <meta name="twitter:creator" content="Service Canada" />
           <meta
             property="twitter:description"
             content={`${t("projectsMetaDescription")}`}
