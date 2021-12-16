@@ -72,6 +72,8 @@
   "reportAProblemPrivacyStatementLink": "https://alphasite.dts-stn.com/signup/privacy",
   "reportAProblemFeedbackConfidential": "Your feedback will be confidential.",
   "reportAProblemSubmit": "Submit",
+  "expanded": "expanded",
+  "collapsed": "collapsed",
   "menuTitle": "MENU",
   "menuLink1": "Explore our projects",
   "menuLink2": "About these labs",
