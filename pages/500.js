@@ -43,28 +43,68 @@ export default function error500(props) {
 
           {/* Primary HTML Meta Tags */}
           <title data-gc-analytics-error="500">
-            {`500 — ${t("siteTitle")}`}
+            The web site has reported an error (500) | Le site Web a signalé une
+            erreur (500)
           </title>
           <meta
             name="description"
-            content={`${t("500errorMetaDescription")}`}
+            content="Error message stating that the server is down, or the URL is incorrect or expired"
           />
           <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
+          <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+          <meta content="width=device-width, initial-scale=1" name="viewport" />
+          <meta name="robots" content="noindex, nofollow" />
 
           {/* DCMI Meta Tags */}
-          <meta name="dcterms.title" content={`500 — ${t("siteTitle")}`} />
+          <meta
+            property="dcterms:title"
+            lang="en"
+            content="The web site has reported an error (500)"
+          />
+          <meta
+            property="dcterms:title"
+            lang="fr"
+            content="Le site Web a signalé une erreur (500)"
+          />
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}
+            title="ISO639-2"
           />
-          <meta name="dcterms.creator" content={t("creator")} />
+          <meta
+            property="dcterms:description"
+            lang="en"
+            content="Error message stating that the server is down, or the URL is incorrect or expired."
+          />
+          <meta
+            property="dcterms:description"
+            lang="fr"
+            content="Message d’erreur indiquant que le serveur est en panne ou l’URL est incorrecte ou expirée."
+          />
+          <meta property="dcterms:creator" lang="en" content="Service Canada" />
+          <meta property="dcterms:creator" lang="fr" content="Service Canada" />
+          <meta
+            property="dcterms:subject"
+            lang="en"
+            title="gccore"
+            content="GV Government and Politics;Government services"
+          />
+          <meta
+            property="dcterms:subject"
+            lang="fr"
+            title="gccore"
+            content="GV Gouvernement et vie politique;Services gouvernementaux"
+          />
           <meta name="dcterms.accessRights" content="2" />
           <meta
             name="dcterms.service"
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
-          <meta name="dcterms.issued" content="2021-06-22" />
+          <meta name="dcterms.issued" title="W3CDTF" content="2021-06-22" />
+          <meta name="dcterms.modified" title="W3CDTF" content="2021-12-16" />
+          <meta property="dcterms:issued" content="2021-06-22" />
+          <meta property="dcterms:modified" content="2021-MM-DD" />
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
@@ -75,10 +115,14 @@ export default function error500(props) {
               "https://alpha.service.canada.ca/" + `${props.locale}` + "/500"
             }
           />
-          <meta property="og:title" content={`500 — ${t("siteTitle")}`} />
+          <meta
+            property="og:title"
+            content="The web site has reported an error (500) | Le site Web a signalé une
+            erreur (500)"
+          />
           <meta
             property="og:description"
-            content={`${t("500errorMetaDescription")}`}
+            content="Error message stating that the server is down, or the URL is incorrect or expired"
           />
           <meta property="og:image" content={`${t("metaImage")}`} />
           <meta property="og:image:alt" content={`${t("siteTitle")}`} />
@@ -91,11 +135,14 @@ export default function error500(props) {
               "https://alpha.service.canada.ca/" + `${props.locale}` + "/500"
             }
           />
-          <meta property="twitter:title" content={`500 — ${t("siteTitle")}`} />
-          <meta name="twitter:creator" content={t("creator")} />
+          <meta
+            property="twitter:title"
+            content="Error message stating that the server is down, or the URL is incorrect or expired"
+          />
+          <meta name="twitter:creator" content="Service Canada" />
           <meta
             property="twitter:description"
-            content={`${t("500errorMetaDescription")}`}
+            content="Error message stating that the server is down, or the URL is incorrect or expired"
           />
           <meta property="twitter:image" content={`${t("metaImage")}`} />
           <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
