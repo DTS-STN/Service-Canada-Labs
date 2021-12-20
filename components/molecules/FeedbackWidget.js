@@ -28,6 +28,7 @@ export const FeedbackWidget = ({
   useEffect(() => {
     if (!showFeedback) {
       setFeedbackError("");
+      setFeedback("");
     }
   }, [showFeedback]);
 
@@ -97,6 +98,7 @@ export const FeedbackWidget = ({
       // if the response is good, show thank you message
       if (response.status === 201 || response.status === 200) {
         await setResponse(t("thankYouFeedback"));
+        setFeedback("");
       } else {
         await setResponse(t("sorryFeedback"));
       }
@@ -104,7 +106,6 @@ export const FeedbackWidget = ({
       setSubmitted(true);
       setFeedbackClose(false);
       setFocusAfterSubmit();
-      setFeedback("");
     } else {
       setFeedbackError(error.message);
       srSpeak(error.message);
@@ -264,6 +265,7 @@ export const FeedbackWidget = ({
                     className={
                       "text-input font-body w-full min-h-40px shadow-sm text-form-input-gray border-2 my-2 py-6px px-12px rounded"
                     }
+                    value={feedback}
                     onChange={(e) => setFeedback(e.currentTarget.value)}
                   />
                   <ActionButton
