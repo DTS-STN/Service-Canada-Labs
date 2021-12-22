@@ -2,7 +2,6 @@ import { appWithTranslation } from "next-i18next";
 import "../icomoon/style.css";
 import "../styles/globals.css";
 import "../styles/forms.css";
-import "../styles/fonts.css";
 import "../styles/menu.css";
 import Head from "next/head";
 
