@@ -84,6 +84,7 @@ module.exports = {
         "custom-green": {
           lighter: "#D8EECA",
           darker: "#278400",
+          hover: "#237600",
         },
         "custom-red": {
           lighter: "#F3E9E8",

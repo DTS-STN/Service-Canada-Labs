@@ -1,22 +1,68 @@
+import { useState, useRef } from "react";
 import { Layout } from "../components/organisms/Layout";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { ActionButton } from "../components/atoms/ActionButton";
+import { submitEmail } from "../lib/notify/submitEmail";
 
 export default function Confirmation(props) {
   const { t } = useTranslation("common");
+  const ref = useRef(null);
   const { query } = useRouter();
   const maskedEmail = String(query.e);
   const referrer = query.ref || "";
+  const [resent, setResent] = useState(true);
 
   useEffect(() => {
+    import("@lottiefiles/lottie-player");
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
   }, []);
+
+  //attempt to send validation email through notify
+  // try {
+  //   const validationUrl =
+  //     origin + `/api/validate?id=${userCuid}&lang=${data.language}`;
+  //   const unsubUrl = origin + `/api/unsubscribe?id=${userCuid}`;
+  //   const [status, json] = await submitEmail(
+  //     {
+  //       validation_url: validationUrl,
+  //       unsubscribe_url: unsubUrl,
+  //     },
+  //     {},
+  //     data.language === "fr"
+  //       ? process.env.USER_SIGNUP_FRENCH_TEMPLATE_ID
+  //       : process.env.USER_SIGNUP_ENGLISH_TEMPLATE_ID,
+  //     data.email,
+  //     process.env.NOTIFY_BASE_API_URL + "/v2/notifications/email",
+  //     process.env.NOTIFY_API_KEY
+  //   );
+
+  //   // non okay status code return 500
+  //   if (status >= 300) {
+  //     await conn.db.collection("users").deleteOne({
+  //       cuid: userCuid,
+  //     });
+  //     return res.status(500).json({
+  //       reason: "Notify",
+  //       explanation:
+  //         "Notify failed to send the validation email: " + JSON.stringify(json),
+  //     });
+  //   }
+  // } catch (e) {
+  //   await conn.db.collection("users").deleteOne({
+  //     cuid: userCuid,
+  //   });
+  //   return res.status(500).json({
+  //     reason: "Notify",
+  //     explanation: e.message,
+  //   });
+  // }
 
   return (
     <>
@@ -174,6 +220,21 @@ export default function Confirmation(props) {
                 ""
               )}
             </div>
+          </div>
+          <div className="my-8 mb-36">
+            <ActionButton
+              id="resend-email"
+              className={`${
+                resent
+                  ? "bg-custom-green-darker hover:bg-custom-green-hover"
+                  : "bg-custom-blue-blue hover:bg-custom-blue-light"
+              } text-base xxs:px-16 font-bold xs:px-24 py-3 rounded text-white border border-custom-blue-blue active:bg-custom-blue-dark`}
+              dataCy="resend-email"
+              dataTestId="resend-email"
+              analyticsTracking
+            >
+              {resent ? t("emailResent") : t("resendEmail")}
+            </ActionButton>
           </div>
         </section>
       </Layout>
