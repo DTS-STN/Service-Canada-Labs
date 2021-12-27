@@ -72,7 +72,7 @@ export default function Signup(props) {
     confirmEmail: Joi.string()
       .email({ tlds: { allow: false } })
       .required()
-      .valid(Joi.ref("email"))
+      .equal(Joi.ref("email"))
       .error((errors) => {
         errors.forEach((error) => {
           switch (error.code) {
@@ -81,7 +81,7 @@ export default function Signup(props) {
               break;
             case "string.email":
               error.message = t("errorEmail");
-            case "string.valid":
+            case "any.only":
               error.message = t("emailError");
             default:
               break;
@@ -282,6 +282,7 @@ export default function Signup(props) {
     // compile data into one object
     const formData = {
       email,
+      confirmEmail,
       yearOfBirthRange,
       language,
       province,
@@ -392,6 +393,8 @@ export default function Signup(props) {
 
       // if the response is good, redirect to the thankyou page
       if (response.status === 201 || response.status === 200) {
+        // Remove confirm email since it's no longer needed
+        delete formData["confirmEmail"];
         let maskedEmail = maskEmail(formData.email);
         await push({
           pathname: "/thankyou",
