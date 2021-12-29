@@ -3,7 +3,7 @@ import "../icomoon/style.css";
 import "../styles/globals.css";
 import "../styles/forms.css";
 import "../styles/menu.css";
-import "./fonts.css"
+import "./fonts.css";
 
 import i18n from "./i18n.js";
 import { I18nProviderWrapper } from "./i18nextProviderWrapper";
