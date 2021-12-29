@@ -215,6 +215,7 @@ export default function Signup(props) {
   const [minorityGroupOther, setMinorityGroupOther] = useState("");
 
   const [incomeLevel, setIncomeLevel] = useState("");
+  const [publicServant, setPublicServant] = useState("");
 
   const [agreeToConditions, setAgreeToConditions] = useState("");
   const [agreeToConditionsError, setAgreeToConditionsError] = useState("");
@@ -263,6 +264,7 @@ export default function Signup(props) {
     setMinorityGroup([]);
     setMinorityGroupOther("");
     setIncomeLevel("");
+    setPublicServant("");
     setAgreeToConditions("");
   };
 
@@ -295,6 +297,7 @@ export default function Signup(props) {
       minorityGroup,
       minorityGroupOther,
       incomeLevel,
+      publicServant,
       agreeToConditions,
     };
 
@@ -1080,6 +1083,31 @@ export default function Signup(props) {
                   checked={incomeLevel === "preferNotToAnswer"}
                   onChange={(checked, name, value) => setIncomeLevel(value)}
                   value="preferNotToAnswer"
+                />
+              </fieldset>
+
+              <fieldset className="mb-16">
+                <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
+                  {t("formPublicServant")}{" "}
+                  <span className="inline text-form-input-gray text-sm lg:text-p not-italic">
+                    {t("optional")}
+                  </span>
+                </legend>
+                <RadioField
+                  label={t("yes")}
+                  id="publicServantYes"
+                  name="publicServant"
+                  checked={publicServant === "yes"}
+                  onChange={(checked, name, value) => setPublicServant(value)}
+                  value="yes"
+                />
+                <RadioField
+                  label={t("no")}
+                  id="publicServantNo"
+                  name="publicServant"
+                  checked={publicServant === "no"}
+                  onChange={(checked, name, value) => setPublicServant(value)}
+                  value="no"
                 />
               </fieldset>
 
