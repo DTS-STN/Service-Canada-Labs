@@ -69,6 +69,26 @@ export default function Signup(props) {
         });
         return errors;
       }),
+    confirmEmail: Joi.string()
+      .email({ tlds: { allow: false } })
+      .required()
+      .equal(Joi.ref("email"))
+      .error((errors) => {
+        errors.forEach((error) => {
+          switch (error.code) {
+            case "any.required":
+              error.message = t("emailRequired");
+              break;
+            case "string.email":
+              error.message = t("errorEmail");
+            case "any.only":
+              error.message = t("emailError");
+            default:
+              break;
+          }
+        });
+        return errors;
+      }),
     yearOfBirthRange: Joi.string()
       .invalid(yearOptions[0].id)
       .required()
@@ -169,6 +189,9 @@ export default function Signup(props) {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
 
+  const [confirmEmail, setConfirmEmail] = useState("");
+  const [confirmEmailError, setConfirmEmailError] = useState("");
+
   const [yearOfBirthRange, setYearOfBirthRange] = useState("");
   const [yearOfBirthRangeError, setYearOfBirthRangeError] = useState("");
 
@@ -221,6 +244,7 @@ export default function Signup(props) {
   const handlerClearData = (e) => {
     e.preventDefault();
     setEmailError("");
+    setConfirmEmailError("");
     setLanguageError("");
     setYearOfBirthRangeError("");
     setProvinceError("");
@@ -228,6 +252,7 @@ export default function Signup(props) {
     setAgreeToConditionsError("");
 
     setEmail("");
+    setConfirmEmail("");
     setYearOfBirthRange("");
     setLanguage("");
     setGender("");
@@ -247,6 +272,7 @@ export default function Signup(props) {
     e.preventDefault();
     // clear out error values
     await setEmailError("");
+    await setConfirmEmailError("");
     await setLanguageError("");
     await setYearOfBirthRangeError("");
     await setProvinceError("");
@@ -258,6 +284,7 @@ export default function Signup(props) {
     // compile data into one object
     const formData = {
       email,
+      confirmEmail,
       yearOfBirthRange,
       language,
       province,
@@ -295,6 +322,7 @@ export default function Signup(props) {
       // map error message setters to field names so that they can be called dynamically
       const errorSetFunctions = {
         email: setEmailError,
+        confirmEmail: setConfirmEmailError,
         language: setLanguageError,
         yearOfBirthRange: setYearOfBirthRangeError,
         province: setProvinceError,
@@ -368,6 +396,8 @@ export default function Signup(props) {
 
       // if the response is good, redirect to the thankyou page
       if (response.status === 201 || response.status === 200) {
+        // Remove confirm email since it's no longer needed
+        delete formData["confirmEmail"];
         let maskedEmail = maskEmail(formData.email);
         await push({
           pathname: "/thankyou",
@@ -541,6 +571,18 @@ export default function Signup(props) {
                 onChange={setEmail}
                 boldLabel={true}
                 describedby="emailDoNoInclude"
+                required
+              />
+              <TextField
+                className="mb-10"
+                label={t("confirmEmail")}
+                type="email"
+                name="confirmEmail"
+                id="confirmEmail"
+                error={confirmEmailError}
+                value={confirmEmail}
+                onChange={setConfirmEmail}
+                boldLabel={true}
                 required
               />
               <SelectField

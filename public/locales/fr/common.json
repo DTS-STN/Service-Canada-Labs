@@ -331,5 +331,7 @@
   "signupInfoKeywords": "services numériques, recherche sur l’expérience utilisateur",
   "homeKeywords": "services numériques",
   "privacyKeywords": "Renseignements personnels",
-  "privacyMetaSubject": "SO Société et culture;Vie privée"
+  "privacyMetaSubject": "SO Société et culture;Vie privée",
+  "confirmEmail": "Confirmer l'adresse courriel",
+  "emailError": "les courriels doivent être identiques"
 }

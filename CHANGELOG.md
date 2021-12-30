@@ -19,6 +19,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added a signup info page prior to the signup page
 - Added metadata for `/500`, `/error`, `/404`, `/notsupported`, `/projects/virtual-assistant`, `/projects/digital-centre`, `/signup-info`, and the splash page
 - Added an optional `Are you a public servant` question to sign-up form
+- Added an `Confirm email` field to sign-up form
 
 # Changed
 

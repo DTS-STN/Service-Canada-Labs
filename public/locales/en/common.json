@@ -340,5 +340,7 @@
   "signupInfoKeywords": "digital services, user experience research",
   "homeKeywords": "digital services",
   "privacyKeywords": "privacy",
-  "privacyMetaSubject": "SO Society and Culture;Privacy"
+  "privacyMetaSubject": "SO Society and Culture;Privacy",
+  "confirmEmail": "Confirm Email address",
+  "emailError": "Email must match"
 }
