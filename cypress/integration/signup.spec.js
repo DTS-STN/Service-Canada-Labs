@@ -35,7 +35,7 @@ describe("signup page", () => {
 
   it("Validates that an email is entered in the email field", () => {
     cy.get('[id="email"]').type("not an email");
-      cy.get('[id="confirmEmail"]').type("not an email");
+    cy.get('[id="confirmEmail"]').type("not an email");
     cy.get('[id="yearOfBirthRange-choice"]').select("before1937");
     cy.get('[id="languageEn"]').click();
     cy.get('[id="agreeToConditions"]').click();
@@ -48,7 +48,7 @@ describe("signup page", () => {
   it("Validates age of user is greater or equal to 18", () => {
     cy.get('[id="email"]').type("some@email.com");
     cy.get('[id="confirmEmail"]').type("some@email.com");
-    cy.get('[id="yearOfBirthRange-choice"]').select("after2003");
+    cy.get('[id="yearOfBirthRange-choice"]').select("after2004");
     cy.get('[id="languageEn"]').click();
     cy.get('[id="agreeToConditions"]').click();
     cy.get('[data-cy="signup-submit"]').click();
