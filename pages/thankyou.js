@@ -7,22 +7,26 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { submitEmail } from "../lib/notify/submitEmail";
+import { Player, Controls } from "@lottiefiles/react-lottie-player";
+import animatedCheckmark from "../public/animatedCheckmark.json";
 
 export default function Confirmation(props) {
   const { t } = useTranslation("common");
-  const ref = useRef(null);
   const { query } = useRouter();
   const maskedEmail = String(query.e);
   const referrer = query.ref || "";
-  const [resent, setResent] = useState(true);
+  const [resent, setResent] = useState(false);
 
   useEffect(() => {
-    import("@lottiefiles/lottie-player");
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
   }, []);
+
+  const handleResend = () => {
+    setResent(true);
+  };
 
   //attempt to send validation email through notify
   // try {
@@ -226,15 +230,34 @@ export default function Confirmation(props) {
               id="resend-email"
               className={`${
                 resent
-                  ? "bg-custom-green-darker hover:bg-custom-green-hover"
+                  ? "bg-custom-green-darker hover:bg-custom-green-darker active:bg-custom-green-darker"
                   : "bg-custom-blue-blue hover:bg-custom-blue-light"
-              } text-base xxs:px-16 font-bold xs:px-24 py-3 rounded text-white border border-custom-blue-blue active:bg-custom-blue-dark`}
+              } text-base xxs:px-16 font-bold xs:px-24 py-3 rounded text-white border border-custom-blue-blue`}
               dataCy="resend-email"
               dataTestId="resend-email"
               analyticsTracking
+              onClick={!resent ? handleResend : undefined}
             >
               {resent ? t("emailResent") : t("resendEmail")}
             </ActionButton>
+            {resent ? (
+              <div className="flex justify-start my-6">
+                <Player
+                  autoplay
+                  keepLastFrame
+                  src={animatedCheckmark}
+                  style={{
+                    height: "248px",
+                    width: "248px",
+                  }}
+                >
+                  <Controls
+                    visible={false}
+                    buttons={["play", "repeat", "frame", "debug"]}
+                  />
+                </Player>
+              </div>
+            ) : undefined}
           </div>
         </section>
       </Layout>
