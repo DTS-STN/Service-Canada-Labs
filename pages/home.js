@@ -116,7 +116,7 @@ export default function Home(props) {
               href={t("signupInfoRedirect")}
               id="signup-home-page"
               dataCy="signup-home-page"
-              className="rounded px-6 py-4 font-bold text-center inline-block"
+              className="rounded !px-6 !py-4 font-bold text-center inline-block"
             >
               {t("signupHomeButton")}
             </ActionButton>
@@ -139,7 +139,7 @@ export default function Home(props) {
               text={t("menuLink1")}
               id="ProjectsButton"
               dataCy="ProjectsButton"
-              className="flex py-2 px-6 justify-center font-bold rounded"
+              className="flex py-2 !px-6 justify-center font-bold rounded"
               secondary
             />
             <ActionButton
@@ -147,7 +147,7 @@ export default function Home(props) {
               text={t("learnMoreAboutSCL")}
               id="AboutButton"
               dataCy="AboutButton"
-              className="flex py-2 px-6 justify-center font-bold rounded"
+              className="flex py-2 !px-6 justify-center font-bold rounded"
               secondary
             />
           </div>

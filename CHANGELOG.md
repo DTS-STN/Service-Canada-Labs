@@ -30,6 +30,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated introduction paragraph on the project page
 - Removed all the initial text on signup page
 - Updated metadata on every page according to the master content inventory
+- Updated project to use Tailwind V3
 
 ## Fixed
 
