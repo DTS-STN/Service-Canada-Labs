@@ -1,37 +1,32 @@
 const plugin = require("tailwindcss/plugin");
 
 module.exports = {
-  purge: {
-    content: [
-      "./pages/**/*.{js,ts,jsx,tsx}",
-      "./components/**/*.{js,ts,jsx,tsx}",
-    ],
-    options: {
-      safelist: [
-        "border-custom-blue-experiment-blue",
-        "border-gray-experiment",
-        "bg-custom-blue-experiment-blue",
-        "bg-gray-experiment",
-        "opacity-70",
-        "opacity-80",
-        "opacity-90",
-        "opacity-100",
-        "bg-custom-blue-lighter",
-        "bg-custom-blue-darker",
-        "bg-custom-red-lighter",
-        "bg-custom-red-darker",
-        "bg-custom-green-lighter",
-        "bg-custom-green-darker",
-        "border-custom-blue-lighter",
-        "border-custom-blue-darker",
-        "border-custom-red-lighter",
-        "border-custom-red-darker",
-        "border-custom-green-lighter",
-        "border-custom-green-darker",
-      ],
-    },
-  },
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+  safelist: [
+    "border-custom-blue-experiment-blue",
+    "border-gray-experiment",
+    "bg-custom-blue-experiment-blue",
+    "bg-gray-experiment",
+    "opacity-70",
+    "opacity-80",
+    "opacity-90",
+    "opacity-100",
+    "bg-custom-blue-lighter",
+    "bg-custom-blue-darker",
+    "bg-custom-red-lighter",
+    "bg-custom-red-darker",
+    "bg-custom-green-lighter",
+    "bg-custom-green-darker",
+    "border-custom-blue-lighter",
+    "border-custom-blue-darker",
+    "border-custom-red-lighter",
+    "border-custom-red-darker",
+    "border-custom-green-lighter",
+    "border-custom-green-darker",
+  ],
   theme: {
     fontFamily: {
       display: ["Lato"],
@@ -71,6 +66,7 @@ module.exports = {
         "footer-parliament-image": "url(../public/landscape.png)",
       }),
       colors: {
+        current: 'currentColor',
         "custom-blue": {
           blue: "#1D5B90",
           lighter: "#E8F2F4",
@@ -199,13 +195,6 @@ module.exports = {
         "dark-goldenrod": ["2px solid #c78100"],
         "white-solid": ["2px solid #ffffff"],
       },
-    },
-  },
-  variants: {
-    extend: {
-      backgroundColor: ["active"],
-      textColor: ["visited"],
-      margin: ["checked"],
     },
   },
   plugins: [
