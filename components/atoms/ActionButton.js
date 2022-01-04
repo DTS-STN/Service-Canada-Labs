@@ -8,7 +8,7 @@ import { useEffect } from "react";
 export function ActionButton(props) {
   //Styling for buttons and links
   const basicStyle =
-    "rounded-sm focus:ring-1 focus:ring-black focus:ring-offset-2";
+    "rounded focus:ring-1 focus:ring-black focus:ring-offset-2";
   const defaultStyle =
     "py-2 px-4 bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light";
   const secondaryStyle =
