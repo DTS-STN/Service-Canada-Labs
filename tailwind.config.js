@@ -66,7 +66,7 @@ module.exports = {
         "footer-parliament-image": "url(../public/landscape.png)",
       }),
       colors: {
-        current: 'currentColor',
+        current: "currentColor",
         "custom-blue": {
           blue: "#1D5B90",
           lighter: "#E8F2F4",
