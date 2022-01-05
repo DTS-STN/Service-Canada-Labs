@@ -13,8 +13,8 @@ import animatedCheckmark from "../public/animatedCheckmark.json";
 export default function Confirmation(props) {
   const { t } = useTranslation("common");
   const { query } = useRouter();
-  const email = String(query.email);
-  const maskedEmail = maskEmail(String(query.email));
+  const email = String(query.e);
+  const maskedEmail = maskEmail(String(query.e));
   const referrer = query.ref || "";
   const [resent, setResent] = useState(false);
 

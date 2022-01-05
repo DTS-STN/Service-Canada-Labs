@@ -366,7 +366,7 @@ export default function Signup(props) {
       if (response.status === 201 || response.status === 200) {
         await push({
           pathname: "/thankyou",
-          query: { email: formData.email, ref: "signup" },
+          query: { e: formData.email, ref: "signup" },
         });
       } else if (response.status === 400) {
         await setErrorBoxText(t("errorRegistered"));
