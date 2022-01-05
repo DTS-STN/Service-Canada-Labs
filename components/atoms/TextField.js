@@ -37,12 +37,17 @@ export function TextField(props) {
           </p>
         )}
       </label>
-      <p
-        id={props.describedby}
-        className="text-xs lg:text-sm mb-5 leading-30px"
-      >
-        {t("doNotInclude")}
-      </p>
+      {props.describedby ? (
+        <p
+          id={props.describedby}
+          className="text-xs lg:text-sm mb-5 leading-30px"
+        >
+          {t("doNotInclude")}
+        </p>
+      ) : (
+        ""
+      )}
+
       {props.error ? <ErrorLabel message={props.error} /> : undefined}
       <input
         className={`text-input font-body w-full lg:w-3/4 min-h-40px shadow-sm text-form-input-gray border-2 py-6px px-12px ${

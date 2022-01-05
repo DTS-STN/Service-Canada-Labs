@@ -19,6 +19,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added language detection to redirect user to the page in prefered language
 - Added a signup info page prior to the signup page
 - Added metadata for `/500`, `/error`, `/404`, `/notsupported`, `/projects/virtual-assistant`, `/projects/digital-centre`, `/signup-info`, and the splash page
+- Added an optional `Are you a public servant` question to sign-up form
+- Added an `Confirm email` field to sign-up form
 
 # Changed
 
@@ -29,6 +31,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated introduction paragraph on the project page
 - Removed all the initial text on signup page
 - Updated metadata on every page according to the master content inventory
+- Updated project to use Tailwind V3
 
 ## Fixed
 

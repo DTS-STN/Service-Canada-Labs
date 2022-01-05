@@ -184,6 +184,7 @@
   "otherMinority": "Autre groupe de minorité visible",
   "otherMinorityDetails": "Si vous avez répondu « Autre groupe des minorités visibles », veuillez préciser.",
   "formIncome": "Quel est le revenu annuel approximatif de votre ménage (avant impôts)?",
+  "formPublicServant": "Travaillez-vous actuellement en tant que fonctionnaire?",
   "income1": "Moins de 30 000 $",
   "income2": "De 30 001 $ à 59 999 $",
   "income3": "De 60 000 $ à 99 999 $",
@@ -331,5 +332,7 @@
   "signupInfoKeywords": "services numériques, recherche sur l’expérience utilisateur",
   "homeKeywords": "services numériques",
   "privacyKeywords": "Renseignements personnels",
-  "privacyMetaSubject": "SO Société et culture;Vie privée"
+  "privacyMetaSubject": "SO Société et culture;Vie privée",
+  "confirmEmail": "Confirmer l'adresse courriel",
+  "emailError": "les courriels doivent être identiques"
 }

@@ -184,6 +184,7 @@
   "otherMinority": "Another visible minority group",
   "otherMinorityDetails": "If “Another visible minority group”, please specify",
   "formIncome": "What is your approximate annual household income (before taxes)?",
+  "formPublicServant": "Are you currently working as a public servant?",
   "income1": "Less than $30,000",
   "income2": "$30,001 to $59,999",
   "income3": "$60,000 to $99,999",
@@ -341,5 +342,7 @@
   "signupInfoKeywords": "digital services, user experience research",
   "homeKeywords": "digital services",
   "privacyKeywords": "privacy",
-  "privacyMetaSubject": "SO Society and Culture;Privacy"
+  "privacyMetaSubject": "SO Society and Culture;Privacy",
+  "confirmEmail": "Confirm Email address",
+  "emailError": "Email must match"
 }
