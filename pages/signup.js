@@ -16,7 +16,6 @@ import { OptionalTextField } from "../components/molecules/OptionalTextField";
 import { SelectField } from "../components/atoms/SelectField";
 import { CheckBox } from "../components/atoms/CheckBox";
 import { OptionalListField } from "../components/molecules/OptionalListField";
-import { maskEmail } from "../lib/utils/maskEmail";
 import Link from "next/link";
 
 // TODO
@@ -365,10 +364,9 @@ export default function Signup(props) {
 
       // if the response is good, redirect to the thankyou page
       if (response.status === 201 || response.status === 200) {
-        let maskedEmail = maskEmail(formData.email);
         await push({
           pathname: "/thankyou",
-          query: { e: maskedEmail, ref: "signup" },
+          query: { email: formData.email, ref: "signup" },
         });
       } else if (response.status === 400) {
         await setErrorBoxText(t("errorRegistered"));

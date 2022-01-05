@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Layout } from "../components/organisms/Layout";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -6,14 +6,15 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { ActionButton } from "../components/atoms/ActionButton";
-import { submitEmail } from "../lib/notify/submitEmail";
+import { maskEmail } from "../lib/utils/maskEmail";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import animatedCheckmark from "../public/animatedCheckmark.json";
 
 export default function Confirmation(props) {
   const { t } = useTranslation("common");
   const { query } = useRouter();
-  const maskedEmail = String(query.e);
+  const email = String(query.email);
+  const maskedEmail = maskEmail(String(query.email));
   const referrer = query.ref || "";
   const [resent, setResent] = useState(false);
 
@@ -24,49 +25,19 @@ export default function Confirmation(props) {
     }
   }, []);
 
-  const handleResend = () => {
-    setResent(true);
+  // Send email to /thank-you api
+  const handleResend = async () => {
+    const response = await fetch("/api/thank-you", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: email }),
+    });
+    if (response.status === 201 || response.status === 200) {
+      setResent(true);
+    }
   };
-
-  //attempt to send validation email through notify
-  // try {
-  //   const validationUrl =
-  //     origin + `/api/validate?id=${userCuid}&lang=${data.language}`;
-  //   const unsubUrl = origin + `/api/unsubscribe?id=${userCuid}`;
-  //   const [status, json] = await submitEmail(
-  //     {
-  //       validation_url: validationUrl,
-  //       unsubscribe_url: unsubUrl,
-  //     },
-  //     {},
-  //     data.language === "fr"
-  //       ? process.env.USER_SIGNUP_FRENCH_TEMPLATE_ID
-  //       : process.env.USER_SIGNUP_ENGLISH_TEMPLATE_ID,
-  //     data.email,
-  //     process.env.NOTIFY_BASE_API_URL + "/v2/notifications/email",
-  //     process.env.NOTIFY_API_KEY
-  //   );
-
-  //   // non okay status code return 500
-  //   if (status >= 300) {
-  //     await conn.db.collection("users").deleteOne({
-  //       cuid: userCuid,
-  //     });
-  //     return res.status(500).json({
-  //       reason: "Notify",
-  //       explanation:
-  //         "Notify failed to send the validation email: " + JSON.stringify(json),
-  //     });
-  //   }
-  // } catch (e) {
-  //   await conn.db.collection("users").deleteOne({
-  //     cuid: userCuid,
-  //   });
-  //   return res.status(500).json({
-  //     reason: "Notify",
-  //     explanation: e.message,
-  //   });
-  // }
 
   return (
     <>
