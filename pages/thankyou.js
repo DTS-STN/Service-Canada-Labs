@@ -1,28 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Layout } from "../components/organisms/Layout";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { ActionButton } from "../components/atoms/ActionButton";
-import { maskEmail } from "../lib/utils/maskEmail";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import animatedCheckmark from "../public/animatedCheckmark.json";
+import Cookies from "js-cookie";
 
 export default function Confirmation(props) {
   const { t } = useTranslation("common");
   const { query } = useRouter();
-  const email = String(query.e);
-  const maskedEmail = maskEmail(String(query.e));
+  const maskedEmail = String(query.e);
   const referrer = query.ref || "";
   const [resent, setResent] = useState(false);
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
+    setEmail(sessionStorage.getItem("email"));
   }, []);
 
   // Send email to /thank-you api
