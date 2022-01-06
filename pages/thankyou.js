@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import animatedCheckmark from "../public/animatedCheckmark.json";
-import Cookies from "js-cookie";
 
 export default function Confirmation(props) {
   const { t } = useTranslation("common");
