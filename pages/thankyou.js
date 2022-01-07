@@ -1,22 +1,42 @@
+import { useState, useEffect } from "react";
 import { Layout } from "../components/organisms/Layout";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { ActionButton } from "../components/atoms/ActionButton";
+import { Player, Controls } from "@lottiefiles/react-lottie-player";
+import animatedCheckmark from "../public/animatedCheckmark.json";
 
 export default function Confirmation(props) {
   const { t } = useTranslation("common");
   const { query } = useRouter();
   const maskedEmail = String(query.e);
   const referrer = query.ref || "";
+  const [resent, setResent] = useState(false);
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
+    setEmail(sessionStorage.getItem("email"));
   }, []);
+
+  // Send email to /thank-you api
+  const handleResend = async () => {
+    const response = await fetch("/api/thank-you", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: email }),
+    });
+    if (response.status === 201 || response.status === 200) {
+      setResent(true);
+    }
+  };
 
   return (
     <>
@@ -174,6 +194,40 @@ export default function Confirmation(props) {
                 ""
               )}
             </div>
+          </div>
+          <div className="my-8 mb-36">
+            <ActionButton
+              id="resend-email"
+              className={`${
+                resent
+                  ? "bg-custom-green-darker hover:bg-custom-green-darker active:bg-custom-green-darker"
+                  : "bg-custom-blue-blue hover:bg-custom-blue-light"
+              } text-base xxs:px-16 font-bold xs:px-24 py-3 rounded text-white border border-custom-blue-blue`}
+              dataCy="resend-email"
+              dataTestId="resend-email"
+              analyticsTracking
+              onClick={!resent ? handleResend : undefined}
+            >
+              {resent ? t("emailResent") : t("resendEmail")}
+            </ActionButton>
+            {resent ? (
+              <div className="flex justify-start my-6">
+                <Player
+                  autoplay
+                  keepLastFrame
+                  src={animatedCheckmark}
+                  style={{
+                    height: "248px",
+                    width: "248px",
+                  }}
+                >
+                  <Controls
+                    visible={false}
+                    buttons={["play", "repeat", "frame", "debug"]}
+                  />
+                </Player>
+              </div>
+            ) : undefined}
           </div>
         </section>
       </Layout>

@@ -396,9 +396,11 @@ export default function Signup(props) {
 
       // if the response is good, redirect to the thankyou page
       if (response.status === 201 || response.status === 200) {
+        sessionStorage.setItem("email", formData.email);
         // Remove confirm email since it's no longer needed
         delete formData["confirmEmail"];
         let maskedEmail = maskEmail(formData.email);
+
         await push({
           pathname: "/thankyou",
           query: { e: maskedEmail, ref: "signup" },

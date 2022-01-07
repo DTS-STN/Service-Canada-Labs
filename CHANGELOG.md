@@ -9,6 +9,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Added
 
+- Added a button to resend email after user signup
 - Added OWASP ZAP testing to github action
 - Added copied state for IE error
 - Added `/notsupported` which IE users are redirected to by making use of the next.js redirects function
