@@ -31,11 +31,15 @@ export function SelectField(props) {
         htmlFor={props.id + "-choice"}
       >
         {props.required ? (
-          <b className="text-error-border-red">*</b>
+          <b className="text-error-border-red" aria-hidden="true">
+            *
+          </b>
         ) : undefined}{" "}
         {props.label}{" "}
         {props.required ? (
-          <b className="text-error-border-red">{t("required")}</b>
+          <b className="text-error-border-red" aria-hidden="true">
+            {t("required")}
+          </b>
         ) : (
           <span className="inline text-form-input-gray text-sm lg:text-p">
             {t("optional")}
@@ -49,7 +53,8 @@ export function SelectField(props) {
         }`}
         id={props.id + "-choice"}
         name={props.name}
-        required={props.required}
+        aria-required={props.required}
+        aria-invalid={props.error ? "true" : undefined}
         onChange={(e) => props.onChange(e.currentTarget.value)}
         {...ifControlledProps}
         data-testid={props.dataTestId + "-choice"}

@@ -608,8 +608,13 @@ export default function Signup(props) {
               />
               <fieldset className="mb-6">
                 <legend className="block leading-tight text-sm font-body mb-5 lg:text-p font-bold">
-                  <b className="text-error-border-red">*</b> {t("formLang")}{" "}
-                  <b className="text-error-border-red">{t("required")}</b>
+                  <b className="text-error-border-red" aria-hidden="true">
+                    *
+                  </b>{" "}
+                  {t("formLang")}{" "}
+                  <b className="text-error-border-red" aria-hidden="true">
+                    {t("required")}
+                  </b>
                 </legend>
                 {languageError ? (
                   <ErrorLabel message={languageError} />
