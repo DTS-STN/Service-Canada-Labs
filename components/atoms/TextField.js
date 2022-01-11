@@ -66,6 +66,7 @@ export function TextField(props) {
         {...ifControlledProps}
         data-testid={props.dataTestId}
         data-cy={props.dataCy}
+        autoComplete={props.autoComplete}
       />
     </div>
   );
@@ -74,6 +75,7 @@ export function TextField(props) {
 TextField.defaultProps = {
   value: "",
   type: "text",
+  autoComplete: "off",
 };
 
 TextField.propTypes = {
@@ -171,4 +173,9 @@ TextField.propTypes = {
    * aria-describedby label id
    */
   describedby: PropTypes.string,
+
+  /**
+   * Option to enable autocomplete on field
+   */
+  autocomplete: PropTypes.string,
 };
