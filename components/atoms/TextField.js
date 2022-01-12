@@ -75,7 +75,6 @@ export function TextField(props) {
 TextField.defaultProps = {
   value: "",
   type: "text",
-  autoComplete: "off",
 };
 
 TextField.propTypes = {
