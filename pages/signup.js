@@ -562,6 +562,12 @@ export default function Signup(props) {
             noValidate
           >
             <div className="max-w-750px">
+              <p className="text-sm mb-8">
+                <b className="text-error-border-red mr-2" aria-hidden="true">
+                  *
+                </b>
+                {t("requiredInfo")}
+              </p>
               <TextField
                 className="mb-10"
                 label={t("email")}
@@ -612,7 +618,9 @@ export default function Signup(props) {
                   aria-required="true"
                 >
                   <b className="text-error-border-red">*</b> {t("formLang")}{" "}
-                  <b className="text-error-border-red">{t("required")}</b>
+                  <b className="text-error-border-red sr-only">
+                    {t("required")}
+                  </b>
                 </legend>
                 {languageError ? (
                   <ErrorLabel message={languageError} />
