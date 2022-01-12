@@ -607,7 +607,10 @@ export default function Signup(props) {
                 onChange={setYearOfBirthRange}
               />
               <fieldset className="mb-6">
-                <legend className="block leading-tight text-sm font-body mb-5 lg:text-p font-bold">
+                <legend
+                  className="block leading-tight text-sm font-body mb-5 lg:text-p font-bold"
+                  aria-required="true"
+                >
                   <b className="text-error-border-red">*</b> {t("formLang")}{" "}
                   <b className="text-error-border-red">{t("required")}</b>
                 </legend>
@@ -622,7 +625,6 @@ export default function Signup(props) {
                   error={languageError !== ""}
                   checked={fr ? language === "fr" : language === "en"}
                   onChange={(checked, name, value) => setLanguage(value)}
-                  required
                 />
                 <RadioField
                   label={fr ? t("en") : t("fr")}
@@ -632,7 +634,6 @@ export default function Signup(props) {
                   error={languageError !== ""}
                   checked={fr ? language === "en" : language === "fr"}
                   onChange={(checked, name, value) => setLanguage(value)}
-                  required
                 />
               </fieldset>
 
