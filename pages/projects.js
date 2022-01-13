@@ -7,6 +7,7 @@ import { Experiment } from "../components/molecules/Experiment";
 import { Filter } from "../components/molecules/Filter";
 import { CallToAction } from "../components/molecules/CallToAction";
 import { useEffect } from "react";
+import strapiService from "./api/StrapiService";
 
 export default function Projects(props) {
   const { t } = useTranslation("common");
@@ -223,13 +224,10 @@ export default function Projects(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_API_BACKEND_URL}/experiments`
-  ).catch((e) => {
-    console.error(e);
-  });
-  const data = await res.json();
+  // get projects data from stapi service instance
+  const projects = await strapiService.getFragment("/experiments");
 
+  const data = projects.data;
   const filters = Object.values(
     data.reduce(
       (filters, { ExperimentStatus }) => {
