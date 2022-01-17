@@ -1,7 +1,6 @@
-export class StrapiService {
+export default class StrapiService {
   constructor(baseUrl, cacheBust) {
     if (!baseUrl?.trim?.()) throw new Error("Provide a base URL for Strapi");
-
     this.cacheBustString = !!cacheBust?.trim?.()
       ? cacheBust
       : new Date().toLocaleDateString("en-CA");
@@ -34,10 +33,3 @@ export class StrapiService {
     return { data, error };
   }
 }
-
-const strapiService = new StrapiService(
-  process.env.NEXT_PUBLIC_STRAPI_API_BACKEND_URL,
-  process.env.NEXT_PUBLIC_BUILD_DATE
-);
-
-export default strapiService;
