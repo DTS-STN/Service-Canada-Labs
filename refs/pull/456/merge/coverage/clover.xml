@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1642460542434" clover="3.2.0">
-  <project timestamp="1642460542434" name="All files">
-    <metrics statements="832" coveredstatements="645" conditionals="681" coveredconditionals="400" methods="207" coveredmethods="151" elements="1720" coveredelements="1196" complexity="0" loc="832" ncloc="832" packages="15" files="96" classes="96"/>
+<coverage generated="1642460602626" clover="3.2.0">
+  <project timestamp="1642460602626" name="All files">
+    <metrics statements="832" coveredstatements="646" conditionals="681" coveredconditionals="400" methods="207" coveredmethods="152" elements="1720" coveredelements="1198" complexity="0" loc="832" ncloc="832" packages="15" files="96" classes="96"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/index.js">
@@ -241,7 +241,7 @@
       </file>
     </package>
     <package name="components.molecules">
-      <metrics statements="196" coveredstatements="172" conditionals="108" coveredconditionals="80" methods="52" coveredmethods="41"/>
+      <metrics statements="196" coveredstatements="173" conditionals="108" coveredconditionals="80" methods="52" coveredmethods="42"/>
       <file name="CallToAction.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/molecules/CallToAction.js">
         <metrics statements="3" coveredstatements="3" conditionals="12" coveredconditionals="12" methods="1" coveredmethods="1"/>
         <line num="10" count="8" type="stmt"/>
@@ -310,7 +310,7 @@
         <line num="13" count="1" type="stmt"/>
       </file>
       <file name="FeedbackWidget.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/molecules/FeedbackWidget.js">
-        <metrics statements="55" coveredstatements="40" conditionals="24" coveredconditionals="11" methods="11" coveredmethods="6"/>
+        <metrics statements="55" coveredstatements="41" conditionals="24" coveredconditionals="11" methods="11" coveredmethods="7"/>
         <line num="14" count="14" type="stmt"/>
         <line num="20" count="26" type="stmt"/>
         <line num="21" count="26" type="stmt"/>
@@ -359,7 +359,7 @@
         <line num="120" count="1" type="stmt"/>
         <line num="121" count="1" type="stmt"/>
         <line num="123" count="1" type="stmt"/>
-        <line num="124" count="0" type="stmt"/>
+        <line num="124" count="1" type="stmt"/>
         <line num="127" count="1" type="stmt"/>
         <line num="128" count="0" type="stmt"/>
         <line num="132" count="26" type="stmt"/>
