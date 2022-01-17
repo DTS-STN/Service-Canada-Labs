@@ -63,13 +63,15 @@ export function OptionalListField(props) {
         <fieldset className="mb-10px">
           <legend className="block leading-tight text-sm font-body mb-5px font-bold">
             {props.listFieldRequired ? (
-              <b className="text-error-border-red">*</b>
+              <b className="text-error-border-red" aria-hidden="true">
+                *
+              </b>
             ) : (
               ""
             )}
             {props.listLabel}
             {props.listFieldRequired ? (
-              <b className="text-error-border-red">{t("required")}</b>
+              ""
             ) : (
               <p className="inline text-form-input-gray text-sm">
                 {t("optional")}

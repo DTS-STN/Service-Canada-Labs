@@ -617,10 +617,7 @@ export default function Signup(props) {
                   className="block leading-tight text-sm font-body mb-5 lg:text-p font-bold"
                   aria-required="true"
                 >
-                  <b className="text-error-border-red">*</b> {t("formLang")}{" "}
-                  <b className="text-error-border-red sr-only">
-                    {t("required")}
-                  </b>
+                  <b className="text-error-border-red">*</b> {t("formLang")}
                 </legend>
                 {languageError ? (
                   <ErrorLabel message={languageError} />

@@ -37,9 +37,7 @@ export function SelectField(props) {
         ) : undefined}{" "}
         {props.label}{" "}
         {props.required ? (
-          <b className="text-error-border-red sr-only" aria-hidden="true">
-            {t("required")}
-          </b>
+          ""
         ) : (
           <span className="inline text-form-input-gray text-sm lg:text-p">
             {t("optional")}
