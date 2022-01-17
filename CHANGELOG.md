@@ -22,6 +22,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added an optional `Are you a public servant` question to sign-up form
 - Added an `Confirm email` field to sign-up form
 - Added a wrapper class that uses singleton pattern to manage Strapi data
+- Added `autoComplete` prop type to TextField component
 
 # Changed
 
