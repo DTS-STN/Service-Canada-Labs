@@ -580,6 +580,7 @@ export default function Signup(props) {
                 boldLabel={true}
                 describedby="emailDoNoInclude"
                 required
+                autoComplete="email"
               />
               <TextField
                 className="mb-10"
@@ -592,6 +593,7 @@ export default function Signup(props) {
                 onChange={setConfirmEmail}
                 boldLabel={true}
                 required
+                autoComplete="email"
               />
               <SelectField
                 label={t("formYear")}
