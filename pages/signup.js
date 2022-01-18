@@ -614,12 +614,11 @@ export default function Signup(props) {
                 })}
                 onChange={setYearOfBirthRange}
               />
-              <fieldset className="mb-6">
+              <fieldset className="mb-6" aria-required="true">
                 <legend
                   className="block leading-tight text-sm font-body mb-5 lg:text-p font-bold"
-                  aria-required="true"
                 >
-                  <b className="text-error-border-red">*</b> {t("formLang")}
+                  <b className="text-error-border-red" aria-hidden="true">*</b> {t("formLang")}
                 </legend>
                 {languageError ? (
                   <ErrorLabel message={languageError} />
@@ -1139,6 +1138,7 @@ export default function Signup(props) {
                 name="agreeToConditions"
                 value="yes"
                 showRequiredLabel
+                required
               />
             </div>
             <Link href={t("privacyRedirect")} locale={props.locale}>
