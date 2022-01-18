@@ -614,7 +614,7 @@ export default function Signup(props) {
                 })}
                 onChange={setYearOfBirthRange}
               />
-              <fieldset className="mb-6" aria-required="true">
+              <fieldset className="mb-6">
                 <legend className="block leading-tight text-sm font-body mb-5 lg:text-p font-bold">
                   <b className="text-error-border-red" aria-hidden="true">
                     *
