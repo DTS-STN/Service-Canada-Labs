@@ -632,6 +632,7 @@ export default function Signup(props) {
                   error={languageError !== ""}
                   checked={fr ? language === "fr" : language === "en"}
                   onChange={(checked, name, value) => setLanguage(value)}
+                  required
                 />
                 <RadioField
                   label={fr ? t("en") : t("fr")}
@@ -641,6 +642,7 @@ export default function Signup(props) {
                   error={languageError !== ""}
                   checked={fr ? language === "en" : language === "fr"}
                   onChange={(checked, name, value) => setLanguage(value)}
+                  required
                 />
               </fieldset>
 
