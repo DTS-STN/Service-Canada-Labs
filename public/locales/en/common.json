@@ -344,5 +344,6 @@
   "privacyKeywords": "privacy",
   "privacyMetaSubject": "SO Society and Culture;Privacy",
   "confirmEmail": "Confirm Email address",
-  "emailError": "Email must match"
+  "emailError": "Email must match",
+  "externalLink": "external link"
 }
