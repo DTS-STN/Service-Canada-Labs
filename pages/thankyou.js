@@ -26,13 +26,24 @@ export default function Confirmation(props) {
 
   // Send email to /thank-you api
   const handleResend = async () => {
-    const response = await fetch("/api/thank-you", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email: email }),
-    });
+    let response;
+    if (referrer === "unsubscribe") {
+      response = await fetch("/api/unsubscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email }),
+      });
+    } else {
+      response = await fetch("/api/thank-you", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email, ref: referrer }),
+      });
+    }
     if (response.status === 201 || response.status === 200) {
       setResent(true);
     }
