@@ -334,5 +334,6 @@
   "privacyKeywords": "Renseignements personnels",
   "privacyMetaSubject": "SO Société et culture;Vie privée",
   "confirmEmail": "Confirmer l'adresse courriel",
-  "emailError": "les courriels doivent être identiques"
+  "emailError": "les courriels doivent être identiques",
+  "externalLink": "lien externe"
 }

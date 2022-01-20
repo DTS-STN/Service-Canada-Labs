@@ -1,12 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 
 /**
  * Displays an experiment card on the page
  */
 
 export const Experiment = (props) => {
+  const { t } = useTranslation("common");
   const tagColours = {
     current_projects: "custom-green",
     past_projects: "custom-red",
@@ -28,7 +30,11 @@ export const Experiment = (props) => {
           >
             {props.title}
             {props.href.substring(0, 8) === "https://" ? (
-              <img src="/external-link.svg" className="px-1 py-2" />
+              <img
+                src="/external-link.svg"
+                className="px-1 py-2"
+                alt={t("externalLink")}
+              />
             ) : undefined}
           </a>
         </Link>
