@@ -41,7 +41,7 @@ export default function Confirmation(props) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email: email, ref: referrer }),
+        body: JSON.stringify({ email: email }),
       });
     }
     if (response.status === 201 || response.status === 200) {
