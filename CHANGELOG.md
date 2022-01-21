@@ -43,6 +43,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Fixed tailwind configuration so font and some css are showing properly again
 - Fixed feedback widget so it sends the proper payload to the feedback API
 - Fixed issue where the continue button and submit button on the `signup-info` and `signup` pages would go offscreen at <280px
+- Fixed re-send to get correct unsubscribe email
 - Fixed how we handle data from Strapi
 
 ## Changed
