@@ -26,11 +26,13 @@ export function TextField(props) {
         htmlFor={props.id}
       >
         {props.required ? (
-          <b className="text-error-border-red">*</b>
+          <b className="text-error-border-red" aria-hidden="true">
+            *
+          </b>
         ) : undefined}{" "}
         {props.label}{" "}
         {props.required ? (
-          <b className="text-error-border-red">{t("required")}</b>
+          ""
         ) : (
           <p className="inline text-form-input-gray text-xs lg:text-sm">
             {t("optional")}
@@ -61,7 +63,8 @@ export function TextField(props) {
         min={props.min}
         max={props.max}
         step={props.step}
-        required={props.required}
+        aria-required={props.required}
+        aria-invalid={props.error ? "true" : undefined}
         onChange={(e) => props.onChange(e.currentTarget.value)}
         {...ifControlledProps}
         data-testid={props.dataTestId}

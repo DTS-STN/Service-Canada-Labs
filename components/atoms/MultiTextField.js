@@ -21,11 +21,13 @@ export function MultiTextField(props) {
         htmlFor={props.id}
       >
         {props.required ? (
-          <b className="text-error-border-red">*</b>
+          <b className="text-error-border-red" aria-hidden="true">
+            *
+          </b>
         ) : undefined}{" "}
         {props.label}{" "}
         {props.required ? (
-          <b className="text-error-border-red">{t("required")}</b>
+          ""
         ) : (
           <p className="inline text-form-input-gray text-sm lg:text-p">
             {t("optional")}

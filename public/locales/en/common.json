@@ -345,5 +345,6 @@
   "privacyMetaSubject": "SO Society and Culture;Privacy",
   "confirmEmail": "Confirm Email address",
   "emailError": "Email must match",
+  "requiredInfo": "Indicates required information",
   "externalLink": "external link"
 }
