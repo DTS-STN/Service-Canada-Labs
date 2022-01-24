@@ -21,6 +21,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added metadata for `/500`, `/error`, `/404`, `/notsupported`, `/projects/virtual-assistant`, `/projects/digital-centre`, `/signup-info`, and the splash page
 - Added an optional `Are you a public servant` question to sign-up form
 - Added an `Confirm email` field to sign-up form
+- Added a wrapper class that uses singleton pattern to manage Strapi data
 - Added `autoComplete` prop type to TextField component
 
 # Changed
@@ -43,6 +44,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Fixed tailwind configuration so font and some css are showing properly again
 - Fixed feedback widget so it sends the proper payload to the feedback API
 - Fixed issue where the continue button and submit button on the `signup-info` and `signup` pages would go offscreen at <280px
+- Fixed re-send to get correct unsubscribe email
+- Fixed how we handle data from Strapi
 
 ## Changed
 

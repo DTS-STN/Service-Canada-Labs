@@ -1,12 +1,12 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
 import { Experiment } from "../components/molecules/Experiment";
 import { Filter } from "../components/molecules/Filter";
 import { CallToAction } from "../components/molecules/CallToAction";
-import { useEffect } from "react";
+import strapiServiceInstance from "./api/StrapiServiceInstance";
 
 export default function Projects(props) {
   const { t } = useTranslation("common");
@@ -29,20 +29,20 @@ export default function Projects(props) {
       <Experiment
         title={
           props.locale === "fr"
-            ? experiment.ExperimentTitle_FR
-            : experiment.ExperimentTitle_EN
+            ? experiment.attributes.ExperimentTitle_FR
+            : experiment.attributes.ExperimentTitle_EN
         }
-        tag={experiment.ExperimentStatus}
-        tagLabel={t(experiment.ExperimentStatus)}
+        tag={experiment.attributes.ExperimentStatus}
+        tagLabel={t(experiment.attributes.ExperimentStatus)}
         description={
           props.locale === "fr"
-            ? experiment.ExperimentDescription_FR
-            : experiment.ExperimentDescription_EN
+            ? experiment.attributes.ExperimentDescription_FR
+            : experiment.attributes.ExperimentDescription_EN
         }
         href={
           props.locale === "fr"
-            ? experiment.ExperimentLink_FR
-            : experiment.ExperimentLink_EN
+            ? experiment.attributes.ExperimentLink_FR
+            : experiment.attributes.ExperimentLink_EN
         }
         dataTestId={`${experiment.id}`}
         dataCy={`${experiment.id}`}
@@ -58,7 +58,7 @@ export default function Projects(props) {
       setFilter(value);
       setFilteredExperiments(
         props.experimentData.filter(
-          (experiment) => experiment.ExperimentStatus === value
+          (experiment) => experiment.attributes.ExperimentStatus === value
         )
       );
     }
@@ -223,20 +223,17 @@ export default function Projects(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_API_BACKEND_URL}/experiments`
-  ).catch((e) => {
-    console.error(e);
-  });
-  const data = await res.json();
+  // get projects data from stapi service instance
+  const projects = await strapiServiceInstance.getFragment("/experiments");
 
+  const data = projects.data.data;
   const filters = Object.values(
     data.reduce(
-      (filters, { ExperimentStatus }) => {
-        if (!filters[ExperimentStatus]) {
-          filters[ExperimentStatus] = {
-            id: ExperimentStatus,
-            label: ExperimentStatus,
+      (filters, { attributes }) => {
+        if (!filters[attributes.ExperimentStatus]) {
+          filters[attributes.ExperimentStatus] = {
+            id: attributes.ExperimentStatus,
+            label: attributes.ExperimentStatus,
             checked: false,
           };
         }

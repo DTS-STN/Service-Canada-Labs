@@ -32,7 +32,9 @@ describe("project page", () => {
 
   it("Filter projects: All", () => {
     cy.get('[data-cy="all"]').click();
-    cy.get('[data-cy="projects-list"]>li').should("have.length", 5); // 5 needs to be changed when more or less experiments are added/removed.
+    // list is actually pretty annoying since the pages are pre-rendered using the dev strapi api
+    // meaning we can't intercept the api link and use our fixtures
+    cy.get('[data-cy="projects-list"]>li').should("have.length", 4);
   });
 
   it("Filter projects: Upcoming projects", () => {
