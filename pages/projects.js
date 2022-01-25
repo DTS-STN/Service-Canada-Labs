@@ -209,7 +209,7 @@ export default function Projects(props) {
           title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
           lang={props.locale}
-          href={t("signupRedirect")}
+          href={t("signupInfoRedirect")}
           hrefText={t("signupBtn")}
         />
       </Layout>
