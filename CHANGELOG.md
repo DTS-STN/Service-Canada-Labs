@@ -46,6 +46,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Fixed issue where the continue button and submit button on the `signup-info` and `signup` pages would go offscreen at <280px
 - Fixed re-send to get correct unsubscribe email
 - Fixed how we handle data from Strapi
+- Fixed CallToAction redirect on `/projects` page so that it links to `/signup-info` instead of `/signup`
 
 ## Changed
 
