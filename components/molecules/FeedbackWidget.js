@@ -155,29 +155,31 @@ export const FeedbackWidget = ({
                         <span className="flex flex-col text-xs lg:text-sm font-body mt-2 mb-4 w-full">
                           {response}
                           {response === t("sorryFeedback") ? (
-                            <a
+                            <ActionButton
+                              id="link-mail"
+                              dataCy="link-mail"
+                              dataTestId="link-mail"
                               href={`mailto:${email}`}
-                              className="underline outline-none focus:outline-white-solid"
-                              aria-label="Service Canada email"
-                            >
-                              {email}
-                            </a>
+                              ariaLabel="Service Canada email"
+                              text={email}
+                              custom="w-max text-xs lg:text-sm underline outline-none focus:outline-white-solid"
+                            />
                           ) : (
                             ""
                           )}
                         </span>
-                        <button
+                        <ActionButton
                           id="feedbackClose"
+                          dataCy="closeButton"
+                          dataTestId="closeButton"
+                          ariaLabel="Close the expanded feedback section"
+                          custom="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid justify-end items-center w-1/4"
+                          imageSource="/close-x.svg"
+                          imageAlt="Close button"
+                          imageSpanClass="text-xs leading-4 lg:text-sm underline ml-1 lg:ml-2 lg:leading-10"
+                          imageSpanText={t("close")}
                           onClick={() => setFeedbackClose(true)}
-                          className="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid justify-end items-center w-1/4"
-                          data-testid="closeButton"
-                          aria-label="Close the expanded feedback section"
-                        >
-                          <img src="/close-x.svg" alt="Close button" />
-                          <span className="text-xs leading-4 lg:text-sm underline ml-1 lg:ml-2 lg:leading-10">
-                            {t("close")}
-                          </span>
-                        </button>
+                        />
                       </div>
                     </div>
                   ) : (
@@ -188,18 +190,18 @@ export const FeedbackWidget = ({
                 ""
               )}
               <div className="layout-container text-white pb-4">
-                <button
+                <ActionButton
                   id="feedbackClose"
+                  dataCy="closeButton"
+                  dataTestId="closeButton"
+                  ariaLabel="Close the expanded feedback section"
+                  custom="flex float-right pt-2 font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid items-center"
+                  imageSource="/close-x.svg"
+                  imageAlt="Close button"
+                  imageSpanClass="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10"
+                  imageSpanText={t("close")}
                   onClick={toggleForm}
-                  className="flex float-right pt-4 font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid items-center"
-                  data-testid="closeButton"
-                  aria-label="Close the expanded feedback section"
-                >
-                  <img src="/close-x.svg" alt="Close button" />
-                  <span className="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10">
-                    {t("close")}
-                  </span>
-                </button>
+                />
                 <h2 className="text-h4 lg:text-h3 lg:text-sm font-display pt-6 mb-4 w-48 sm:w-auto">
                   {t("improveService")}
                 </h2>
@@ -207,13 +209,15 @@ export const FeedbackWidget = ({
                   <li className="text-xs lg:text-sm font-body mb-4">
                     <strong>{t("reportAProblemNoReply")}</strong>{" "}
                     {t("reportAProblemEnquiries")}{" "}
-                    <a
-                      className="underline text-xs lg:text-sm font-body outline-none focus:outline-white-solid"
+                    <ActionButton
+                      id="link-mail"
+                      dataCy="link-mail"
+                      dataTestId="link-mail"
                       href={`mailto:${email}`}
-                      aria-label="Service Canada email"
-                    >
-                      {email}
-                    </a>
+                      ariaLabel="Service Canada email"
+                      text={email}
+                      custom="text-xs lg:text-sm underline outline-none focus:outline-white-solid"
+                    />
                     .
                   </li>
                   <li className="text-xs lg:text-sm font-body mb-4">

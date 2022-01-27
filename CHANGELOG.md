@@ -23,6 +23,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added an `Confirm email` field to sign-up form
 - Added a wrapper class that uses singleton pattern to manage Strapi data
 - Added `autoComplete` prop type to TextField component
+- Added `imageSource` prop type to ActionButton component
+- Added `imageAlt` prop type to ActionButton component
+- Added `imageSpanText` prop type to ActionButton component
+- Added `imageSpanClass` prop type to ActionButton component
 
 # Changed
 
@@ -47,6 +51,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Fixed re-send to get correct unsubscribe email
 - Fixed how we handle data from Strapi
 - Fixed CallToAction redirect on `/projects` page so that it links to `/signup-info` instead of `/signup`
+- Fixed email and close button focus on the feedback widget
 
 ## Changed
 
