@@ -27,23 +27,11 @@ export default function Projects(props) {
   const displayExperiments = filteredExperiments.map((experiment) => (
     <li key={experiment.id} className="flex items-stretch">
       <Experiment
-        title={
-          props.locale === "fr"
-            ? experiment.attributes.ExperimentTitle_FR
-            : experiment.attributes.ExperimentTitle_EN
-        }
-        tag={experiment.attributes.ExperimentStatus}
-        tagLabel={t(experiment.attributes.ExperimentStatus)}
-        description={
-          props.locale === "fr"
-            ? experiment.attributes.ExperimentDescription_FR
-            : experiment.attributes.ExperimentDescription_EN
-        }
-        href={
-          props.locale === "fr"
-            ? experiment.attributes.ExperimentLink_FR
-            : experiment.attributes.ExperimentLink_EN
-        }
+        title={experiment.attributes.Title}
+        tag={experiment.attributes.Status}
+        tagLabel={t(experiment.attributes.Status)}
+        description={experiment.attributes.Description}
+        href={experiment.attributes.Link}
         dataTestId={`${experiment.id}`}
         dataCy={`${experiment.id}`}
       />
@@ -58,7 +46,7 @@ export default function Projects(props) {
       setFilter(value);
       setFilteredExperiments(
         props.experimentData.filter(
-          (experiment) => experiment.attributes.ExperimentStatus === value
+          (experiment) => experiment.attributes.Status === value
         )
       );
     }
@@ -223,17 +211,17 @@ export default function Projects(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  // get projects data from stapi service instance
-  const projects = await strapiServiceInstance.getFragment("/experiments");
+  // get experiments data from stapi service instance
+  const experiments = await strapiServiceInstance.getFragment("/experiments");
 
-  const data = projects.data.data;
+  const data = experiments.data.data;
   const filters = Object.values(
     data.reduce(
       (filters, { attributes }) => {
-        if (!filters[attributes.ExperimentStatus]) {
-          filters[attributes.ExperimentStatus] = {
-            id: attributes.ExperimentStatus,
-            label: attributes.ExperimentStatus,
+        if (!filters[attributes.Status]) {
+          filters[attributes.Status] = {
+            id: attributes.Status,
+            label: attributes.Status,
             checked: false,
           };
         }
