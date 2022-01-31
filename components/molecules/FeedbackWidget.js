@@ -157,6 +157,7 @@ export const FeedbackWidget = ({
                           {response === t("sorryFeedback") ? (
                             <ActionButton
                               id="link-mail"
+                              ariaLabel="Service Canada email"
                               dataCy="link-mail"
                               dataTestId="link-mail"
                               href={`mailto:${email}`}
@@ -169,6 +170,7 @@ export const FeedbackWidget = ({
                         </span>
                         <ActionButton
                           id="feedbackClose"
+                          ariaLabel="Close the expanded feedback section"
                           dataCy="closeButton"
                           dataTestId="closeButton"
                           custom="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid justify-end items-center w-1/4"
@@ -190,6 +192,7 @@ export const FeedbackWidget = ({
               <div className="layout-container text-white pb-4">
                 <ActionButton
                   id="feedbackClose"
+                  ariaLabel="Close the expanded feedback section"
                   dataCy="closeButton"
                   dataTestId="closeButton"
                   custom="flex float-right pt-2 font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid items-center"
@@ -208,6 +211,7 @@ export const FeedbackWidget = ({
                     {t("reportAProblemEnquiries")}{" "}
                     <ActionButton
                       id="link-mail"
+                      ariaLabel="Service Canada email"
                       dataCy="link-mail"
                       dataTestId="link-mail"
                       href={`mailto:${email}`}
@@ -219,6 +223,7 @@ export const FeedbackWidget = ({
                   <li className="text-xs lg:text-sm font-body mb-4">
                     <strong>{t("confidential")}</strong>
                     <ActionButton
+                      ariaLabel="Privacy page link"
                       id="link-privacyPage"
                       dataCy="link-privacyPage"
                       dataTestId="link-privacyPage"
