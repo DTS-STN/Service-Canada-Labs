@@ -254,13 +254,13 @@ export const FeedbackWidget = ({
                     <p className="text-xs lg:text-sm my-2">
                       {t("maximum2000")}
                     </p>
+                    {feedbackError ? (
+                      <ErrorLabel
+                        message={feedbackError}
+                        className="text-black mt-4"
+                      />
+                    ) : undefined}
                   </div>
-                  {feedbackError ? (
-                    <ErrorLabel
-                      message={feedbackError}
-                      className="text-black mt-4"
-                    />
-                  ) : undefined}
                   <textarea
                     aria-describedby="feedbackInfo"
                     id="feedbackTextArea"
