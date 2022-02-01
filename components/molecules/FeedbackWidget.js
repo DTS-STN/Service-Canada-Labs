@@ -286,6 +286,7 @@ export const FeedbackWidget = ({
                     onInput={(e) =>
                       setCount(maxLength - e.currentTarget.value.length)
                     }
+                    aria-required="true"
                   />
                   <ActionButton
                     id="feedback-submit"
