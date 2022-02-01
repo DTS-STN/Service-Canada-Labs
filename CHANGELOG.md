@@ -35,7 +35,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated metadata on every page according to the master content inventory
 - Updated project to use Tailwind V3
 - Updated the language question on the signup page by putting `aria-required` on the legend and removing `required` from each radio button so screen readers only announce required once for the grouping
-- Removed red `required` from signup page fields to match Figma design 
+- Removed red `required` from signup page fields to match Figma design
+- Updated the content type for experiment data
 
 ## Fixed
 
