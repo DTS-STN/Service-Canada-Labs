@@ -23,6 +23,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added an `Confirm email` field to sign-up form
 - Added a wrapper class that uses singleton pattern to manage Strapi data
 - Added `autoComplete` prop type to TextField component
+- Added remaining character counter to feedback widget
 
 # Changed
 
@@ -35,7 +36,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated metadata on every page according to the master content inventory
 - Updated project to use Tailwind V3
 - Updated the language question on the signup page by putting `aria-required` on the legend and removing `required` from each radio button so screen readers only announce required once for the grouping
-- Removed red `required` from signup page fields to match Figma design 
+- Removed red `required` from signup page fields to match Figma design
+- Updated feedback widget's color scheme to improve a11y
+- Move feedback error message in the feedbackinfo div which links to the textarea
 
 ## Fixed
 
