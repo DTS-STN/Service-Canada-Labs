@@ -22,6 +22,8 @@ export const FeedbackWidget = ({
   const { t } = useTranslation("common");
   const [response, setResponse] = useState(t("thankYouFeedback"));
   const email = process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL;
+  const [count, setCount] = useState(2000);
+  var maxLength = 2000;
 
   lockScroll(showFeedback);
 
@@ -99,6 +101,7 @@ export const FeedbackWidget = ({
       if (response.status === 201 || response.status === 200) {
         await setResponse(t("thankYouFeedback"));
         setFeedback("");
+        setCount(2000);
       } else {
         await setResponse(t("sorryFeedback"));
       }
@@ -138,7 +141,7 @@ export const FeedbackWidget = ({
             style={{ background: "rgba(71, 71, 71, 0.8)" }}
           >
             <div
-              className="w-auto mx-12 md:mx-24 bg-custom-blue-blue shadow-lg border-black border-4"
+              className="w-auto mx-12 md:mx-24 bg-white shadow-lg border-black border-4"
               data-testid="feedbackDropdown"
             >
               {submitted ? (
@@ -173,10 +176,10 @@ export const FeedbackWidget = ({
                           ariaLabel="Close the expanded feedback section"
                           dataCy="closeButton"
                           dataTestId="closeButton"
-                          custom="font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid justify-end items-center w-1/4"
+                          custom="font-body text-gray-dark-100 flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid justify-end items-center w-1/4"
                           imageSource="/close-x.svg"
                           imageAlt="Close button"
-                          imageSpanClass="text-xs leading-4 lg:text-sm underline ml-1 lg:ml-2 lg:leading-10"
+                          imageSpanClass="text-xs text-white leading-4 lg:text-sm underline ml-1 lg:ml-2 lg:leading-10"
                           imageSpanText={t("close")}
                           onClick={() => setFeedbackClose(true)}
                         />
@@ -189,18 +192,21 @@ export const FeedbackWidget = ({
               ) : (
                 ""
               )}
-              <div className="layout-container text-white pb-4">
+              <div className="layout-container text-gray-dark-100 pb-4">
                 <ActionButton
                   id="feedbackClose"
                   ariaLabel="Close the expanded feedback section"
                   dataCy="closeButton"
                   dataTestId="closeButton"
-                  custom="flex float-right pt-2 font-body text-white flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid items-center"
+                  custom="flex float-right pt-4 font-body text-gray-dark-100 flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid items-center"
                   imageSource="/close-x.svg"
                   imageAlt="Close button"
                   imageSpanClass="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10"
                   imageSpanText={t("close")}
-                  onClick={toggleForm}
+                  onClick={() => {
+                    toggleForm();
+                    setCount(2000);
+                  }}
                 />
                 <h2 className="text-h4 lg:text-h3 lg:text-sm font-display pt-6 mb-4 w-48 sm:w-auto">
                   {t("improveService")}
@@ -242,25 +248,31 @@ export const FeedbackWidget = ({
                 >
                   <label
                     htmlFor="feedbackTextArea"
-                    className="text-xs lg:text-sm font-body font-bold"
+                    className="text-xs lg:text-sm font-body"
                   >
-                    {t("doBetter")}
-                    <span className="text-gray-md"> {t("required")}</span>
+                    <b
+                      className="text-error-border-red mr-1"
+                      aria-hidden="true"
+                    >
+                      *
+                    </b>
+                    <b>{t("doBetter")}</b>
                   </label>
                   <div id="feedbackInfo">
                     <p className="text-xs lg:text-sm my-2">
                       {t("doNotInclude")}
                     </p>
-                    <p className="text-xs lg:text-sm my-2">
+                    <p className="text-xs lg:text-sm mb-1 mt-4">
+                      {count}
                       {t("maximum2000")}
                     </p>
-                    {feedbackError ? (
-                      <ErrorLabel
-                        message={feedbackError}
-                        className="text-black mt-4"
-                      />
-                    ) : undefined}
                   </div>
+                  {feedbackError ? (
+                    <ErrorLabel
+                      message={feedbackError}
+                      className="text-black mt-4"
+                    />
+                  ) : undefined}
                   <textarea
                     aria-describedby="feedbackInfo"
                     id="feedbackTextArea"
@@ -268,15 +280,19 @@ export const FeedbackWidget = ({
                     maxLength="2000"
                     rows="5"
                     className={
-                      "text-input font-body w-full min-h-40px shadow-sm text-form-input-gray border-2 my-2 py-6px px-12px rounded"
+                      "text-input font-body w-full min-h-40px shadow-sm text-form-input-gray border-2 border-gray-dark-100 my-2 py-6px px-12px rounded"
                     }
                     value={feedback}
                     onChange={(e) => setFeedback(e.currentTarget.value)}
+                    onInput={(e) =>
+                      setCount(maxLength - e.currentTarget.value.length)
+                    }
+                    aria-required="true"
                   />
                   <ActionButton
                     id="feedback-submit"
                     ariaLabel="Submit feedback button"
-                    custom="outline-none focus:outline-black-solid rounded block w-full lg:w-auto lg:px-12 text-xs lg:text-sm py-2 mt-2 font-bold text-custom-blue-projects-link bg-details-button-gray hover:bg-gray-300 flex justify-center"
+                    custom="outline-none focus:outline-black-solid rounded block w-full lg:w-auto lg:px-12 text-xs lg:text-sm py-2 mt-2 font-bold bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light flex justify-center"
                     type="submit"
                     dataCy="feedback-submit"
                     dataTestId="feedback-submit"
