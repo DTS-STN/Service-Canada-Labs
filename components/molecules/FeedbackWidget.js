@@ -275,6 +275,7 @@ export const FeedbackWidget = ({
                   />
                   <ActionButton
                     id="feedback-submit"
+                    ariaLabel="Submit feedback button"
                     custom="outline-none focus:outline-black-solid rounded block w-full lg:w-auto lg:px-12 text-xs lg:text-sm py-2 mt-2 font-bold text-custom-blue-projects-link bg-details-button-gray hover:bg-gray-300 flex justify-center"
                     type="submit"
                     dataCy="feedback-submit"
