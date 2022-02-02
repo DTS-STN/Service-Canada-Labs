@@ -11,8 +11,15 @@ import strapiServiceInstance from "./api/StrapiServiceInstance";
 export default function Projects(props) {
   const { t } = useTranslation("common");
   const [filter, setFilter] = useState("all");
+  const [experimentData] = useState(
+    props.experimentData.filter(
+      (experiment) => experiment.attributes.locale === props.locale
+    )
+  );
   const [filteredExperiments, setFilteredExperiments] = useState(
-    props.experimentData
+    props.experimentData.filter(
+      (experiment) => experiment.attributes.locale === props.locale
+    )
   );
 
   // get the filters from the data
@@ -24,41 +31,15 @@ export default function Projects(props) {
     };
   });
 
-  const displayExperiments = filteredExperiments.map((experiment) => (
-    <li key={experiment.id} className="flex items-stretch">
-      <Experiment
-        title={
-          props.locale === "fr"
-            ? experiment.attributes.ExperimentTitle_FR
-            : experiment.attributes.ExperimentTitle_EN
-        }
-        tag={experiment.attributes.ExperimentStatus}
-        tagLabel={t(experiment.attributes.ExperimentStatus)}
-        description={
-          props.locale === "fr"
-            ? experiment.attributes.ExperimentDescription_FR
-            : experiment.attributes.ExperimentDescription_EN
-        }
-        href={
-          props.locale === "fr"
-            ? experiment.attributes.ExperimentLink_FR
-            : experiment.attributes.ExperimentLink_EN
-        }
-        dataTestId={`${experiment.id}`}
-        dataCy={`${experiment.id}`}
-      />
-    </li>
-  ));
-
   const handleFilter = (value) => {
     if (value === "all") {
       setFilter("all");
-      setFilteredExperiments(props.experimentData);
+      setFilteredExperiments(experimentData);
     } else {
       setFilter(value);
       setFilteredExperiments(
-        props.experimentData.filter(
-          (experiment) => experiment.attributes.ExperimentStatus === value
+        experimentData.filter(
+          (experiment) => experiment.attributes.Status === value
         )
       );
     }
@@ -202,7 +183,20 @@ export default function Projects(props) {
             className="grid gap-y-5 lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12"
             data-cy="projects-list"
           >
-            {displayExperiments}
+            {filteredExperiments &&
+              filteredExperiments.map((experiment) => (
+                <li key={experiment.id} className="flex items-stretch">
+                  <Experiment
+                    title={experiment.attributes.Title}
+                    tag={experiment.attributes.Status}
+                    tagLabel={t(experiment.attributes.Status)}
+                    description={experiment.attributes.Description}
+                    href={experiment.attributes.Link}
+                    dataTestId={`${experiment.id}`}
+                    dataCy={`${experiment.id}`}
+                  />
+                </li>
+              ))}
           </ul>
         </section>
         <CallToAction
@@ -224,16 +218,15 @@ export default function Projects(props) {
 
 export const getStaticProps = async ({ locale }) => {
   // get projects data from stapi service instance
-  const projects = await strapiServiceInstance.getFragment("/experiments");
-
-  const data = projects.data.data;
+  const experiments = await strapiServiceInstance.getFragment("/experiments");
+  const data = experiments.data.data;
   const filters = Object.values(
     data.reduce(
       (filters, { attributes }) => {
-        if (!filters[attributes.ExperimentStatus]) {
-          filters[attributes.ExperimentStatus] = {
-            id: attributes.ExperimentStatus,
-            label: attributes.ExperimentStatus,
+        if (!filters[attributes.Status]) {
+          filters[attributes.Status] = {
+            id: attributes.Status,
+            label: attributes.Status,
             checked: false,
           };
         }
