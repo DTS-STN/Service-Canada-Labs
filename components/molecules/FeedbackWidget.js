@@ -171,18 +171,20 @@ export const FeedbackWidget = ({
                             ""
                           )}
                         </span>
-                        <ActionButton
-                          id="feedbackClose"
-                          ariaLabel="Close the expanded feedback section"
-                          dataCy="closeButton"
-                          dataTestId="closeButton"
-                          custom="font-body text-gray-dark-100 flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid justify-end items-center w-1/4"
-                          imageSource="/close-x.svg"
-                          imageAlt="Close button"
-                          imageSpanClass="text-xs text-white leading-4 lg:text-sm underline ml-1 lg:ml-2 lg:leading-10"
-                          imageSpanText={t("close")}
-                          onClick={() => setFeedbackClose(true)}
-                        />
+                        <div className="w-1/4 flex justify-end">
+                          <ActionButton
+                            id="feedbackClose"
+                            ariaLabel="Close the expanded feedback section"
+                            dataCy="closeButton"
+                            dataTestId="closeButton"
+                            custom="font-body text-gray-dark-100 flex -py-1 mt-2.5 lg:mt-0 outline-none focus:outline-white-solid items-center"
+                            imageSource="/close-x.svg"
+                            imageAlt="Close button"
+                            imageSpanClass="text-xs text-white leading-4 lg:text-sm underline ml-1 lg:ml-2 lg:leading-10"
+                            imageSpanText={t("close")}
+                            onClick={() => setFeedbackClose(true)}
+                          />
+                        </div>
                       </div>
                     </div>
                   ) : (
@@ -193,21 +195,23 @@ export const FeedbackWidget = ({
                 ""
               )}
               <div className="layout-container text-gray-dark-100 pb-4">
-                <ActionButton
-                  id="feedbackClose"
-                  ariaLabel="Close the expanded feedback section"
-                  dataCy="closeButton"
-                  dataTestId="closeButton"
-                  custom="flex float-right pt-4 font-body text-gray-dark-100 flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid items-center"
-                  imageSource="/close-x.svg"
-                  imageAlt="Close button"
-                  imageSpanClass="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10"
-                  imageSpanText={t("close")}
-                  onClick={() => {
-                    toggleForm();
-                    setCount(2000);
-                  }}
-                />
+                <div className="pt-4">
+                  <ActionButton
+                    id="feedbackClose"
+                    ariaLabel="Close the expanded feedback section"
+                    dataCy="closeButton"
+                    dataTestId="closeButton"
+                    custom="flex float-right font-body text-gray-dark-100 flex mt-2.5 lg:mt-0 outline-none focus:outline-white-solid items-center"
+                    imageSource="/close-x.svg"
+                    imageAlt="Close button"
+                    imageSpanClass="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10"
+                    imageSpanText={t("close")}
+                    onClick={() => {
+                      toggleForm();
+                      setCount(2000);
+                    }}
+                  />
+                </div>
                 <h2 className="text-h4 lg:text-h3 lg:text-sm font-display pt-6 mb-4 w-48 sm:w-auto">
                   {t("improveService")}
                 </h2>
@@ -291,7 +295,7 @@ export const FeedbackWidget = ({
                   />
                   <ActionButton
                     id="feedback-submit"
-                    ariaLabel="Submit feedback button"
+                    ariaLabel="Submit feedback"
                     custom="outline-none focus:outline-black-solid rounded block w-full lg:w-auto lg:px-12 text-xs lg:text-sm py-2 mt-2 font-bold bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light flex justify-center"
                     type="submit"
                     dataCy="feedback-submit"
