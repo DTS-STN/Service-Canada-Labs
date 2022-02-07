@@ -23,15 +23,33 @@ export function ReportAProblem(props) {
     const urlEncoded = new URLSearchParams(formData);
     let urlString = urlEncoded.toString();
     //Replace the values with yes for GCNotify
-    let values = [
-      "Incorrect+Information",
-      "Unclear+Information",
-      "You+didn%E2%80%99t+find+what+you+were+looking+for",
-      "Page+does+not+work+with+your+adaptive+technologies",
-      "You%E2%80%99re+worried+about+your+privacy",
-      "You+don%E2%80%99t+know+where+else+to+go+for+help",
-      "Other",
-    ];
+    console.log(urlString);
+    console.log(formData.get("language"));
+
+    let values;
+
+    if (formData.get("language").toString().localeCompare("fr") == 0) {
+      values = [
+        "Informations+incorrectes",
+        "Informations+impr%C3%A9cises",
+        "Vous+n%E2%80%99avez+pas+trouv%C3%A9+ce+que+vous+cherchiez",
+        "La+page+ne+fonctionne+pas+avec+vos+technologies+d%E2%80%99adaptation",
+        "Vous+%C3%AAtes+inquiet+pour+votre+vie+priv%C3%A9e",
+        "Vous+ne+savez+pas+o%C3%B9+trouver+de+l%E2%80%99aide",
+        "Autres",
+      ];
+    } else {
+      values = [
+        "Incorrect+Information",
+        "Unclear+Information",
+        "You+didn%E2%80%99t+find+what+you+were+looking+for",
+        "Page+does+not+work+with+your+adaptive+technologies",
+        "You%E2%80%99re+worried+about+your+privacy",
+        "You+don%E2%80%99t+know+where+else+to+go+for+help",
+        "Other",
+      ];
+    }
+
     for (const value of values) {
       urlString = urlString.replace(value, "yes");
     }
