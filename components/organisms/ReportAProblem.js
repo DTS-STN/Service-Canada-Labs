@@ -23,9 +23,6 @@ export function ReportAProblem(props) {
     const urlEncoded = new URLSearchParams(formData);
     let urlString = urlEncoded.toString();
     //Replace the values with yes for GCNotify
-    console.log(urlString);
-    console.log(formData.get("language"));
-
     let values;
 
     if (formData.get("language").toString().localeCompare("fr") == 0) {
