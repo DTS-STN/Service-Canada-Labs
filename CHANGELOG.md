@@ -28,6 +28,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added `imageSpanText` prop type to ActionButton component
 - Added `imageSpanClass` prop type to ActionButton component
 - Added remaining character counter to feedback widget
+- Added the `stripFeedback` helper function which strips PII from both the feedback and report a problem forms
 
 # Changed
 

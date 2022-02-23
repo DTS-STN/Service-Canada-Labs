@@ -5,6 +5,7 @@ import { useTranslation } from "next-i18next";
 import { OptionalTextField } from "../molecules/OptionalTextField";
 import { Details } from "../molecules/Details";
 import { ActionButton } from "../atoms/ActionButton";
+import { stripFeedback } from "../../lib/utils/stripFeedback";
 
 /**
  * Report a problem button to report technical issues on the page.
@@ -18,6 +19,12 @@ export function ReportAProblem(props) {
     e.preventDefault();
     // create FormData object from form
     const formData = new FormData(e.target);
+
+    // Iterate through key/value pairs and strip personal identifier information from each value
+    for (var pair of formData.entries()) {
+      let cleanedFeedback = stripFeedback(pair[1]);
+      formData.set(pair[0], cleanedFeedback);
+    }
     // create URLSearchParams object from FormData object
     // this will be used to create url encoded string of names and values of the form fields
     const urlEncoded = new URLSearchParams(formData);
@@ -50,6 +57,7 @@ export function ReportAProblem(props) {
     for (const value of values) {
       urlString = urlString.replace(value, "yes");
     }
+
     // call report a problem API route
     fetch("/api/report-a-problem", {
       method: "POST",
