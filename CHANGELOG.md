@@ -28,6 +28,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added `imageSpanText` prop type to ActionButton component
 - Added `imageSpanClass` prop type to ActionButton component
 - Added remaining character counter to feedback widget
+- Added error label in report a problem widget
 
 # Changed
 
