@@ -13,7 +13,22 @@ export function ReportAProblem(props) {
   const [submitted, setSubmitted] = useState(false);
   const { t, i18n } = useTranslation();
 
+  //Checking if at least one checkbox is selected
+  const [isCheckBoxSelected, setIsCheckBoxSelected] = useState(false);
+
   let onSubmitHandler = (e) => {
+    let checkBoxSelected = false;
+    //Check the checkboxes
+    let inputElements = document.getElementsByTagName("input");
+    for (let index = 0; index < inputElements.length; index++) {
+      if (inputElements[index].type == "checkbox") {
+        if (inputElements[index].checked) {
+          checkBoxSelected = true;
+          setIsCheckBoxSelected(true);
+        }
+      }
+    }
+
     // prevent default behaviour of form
     e.preventDefault();
     // create FormData object from form
@@ -64,7 +79,9 @@ export function ReportAProblem(props) {
       console.log(e);
     });
 
-    setSubmitted(true);
+    if (checkBoxSelected) {
+      setSubmitted(true);
+    }
   };
 
   return (
@@ -322,6 +339,9 @@ export function ReportAProblem(props) {
                 checkBoxStyle="mb-4"
                 controlValue={t("reportAProblemOther", { lng: props.language })}
               />
+              {isCheckBoxSelected ? (
+                <ErrorLabel message={"hghjg"} />
+              ) : undefined}
             </fieldset>
             <ActionButton
               id="submit"
