@@ -19,9 +19,16 @@ describe("Report A Problem", () => {
   afterEach(() => {
     fetchMock.restore();
   });
-  it("displays thank you message after submit button is pressed", () => {
+  it("displays error message after submit button is pressed and form is empty", () => {
     render(<Primary {...Primary.args} />);
     const submitButton = screen.getByTestId("report-a-problem-submit");
+    submitButton.click();
+    expect(screen.getByText("reportAProblemError")).toBeTruthy();
+  });
+  it("displays thank you message after submit button is pressed and form isn't empty", () => {
+    render(<Primary {...Primary.args} />);
+    const submitButton = screen.getByTestId("report-a-problem-submit");
+    screen.getByTestId("unclearInformation-checkbox").click();
     submitButton.click();
     expect(screen.getByText("reportAProblemThankYouForYourHelp")).toBeTruthy();
   });
