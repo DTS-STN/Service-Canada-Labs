@@ -72,6 +72,7 @@
   "reportAProblemPrivacyStatementLink": "https://alphasite.dts-stn.com/signup/privacy",
   "reportAProblemFeedbackConfidential": "Your feedback will be confidential.",
   "reportAProblemSubmit": "Submit",
+  "reportAProblemError": "Error: Please select an issue",
   "expanded": "expanded",
   "collapsed": "collapsed",
   "menuTitle": "MENU",

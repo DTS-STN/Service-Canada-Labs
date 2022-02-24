@@ -6,6 +6,7 @@ import { OptionalTextField } from "../molecules/OptionalTextField";
 import { Details } from "../molecules/Details";
 import { ActionButton } from "../atoms/ActionButton";
 import { stripFeedback } from "../../lib/utils/stripFeedback";
+import { ErrorLabel } from "../atoms/ErrorLabel";
 
 /**
  * Report a problem button to report technical issues on the page.
@@ -14,7 +15,22 @@ export function ReportAProblem(props) {
   const [submitted, setSubmitted] = useState(false);
   const { t, i18n } = useTranslation();
 
+  const [submittedOnce, setSubmittedOnce] = useState(false);
+
   let onSubmitHandler = (e) => {
+    //Checking if at least one checkbox is selected
+    let checkBoxSelected = false;
+
+    //Check the checkboxes
+    let inputElements = document.getElementsByTagName("input");
+    for (let index = 0; index < inputElements.length; index++) {
+      if (inputElements[index].type == "checkbox") {
+        if (inputElements[index].checked) {
+          checkBoxSelected = true;
+        }
+      }
+    }
+
     // prevent default behaviour of form
     e.preventDefault();
     // create FormData object from form
@@ -72,7 +88,11 @@ export function ReportAProblem(props) {
       console.log(e);
     });
 
-    setSubmitted(true);
+    if (checkBoxSelected) {
+      setSubmitted(true);
+    }
+    //Make sure the form was submitted at least once
+    setSubmittedOnce(true);
   };
 
   return (
@@ -147,6 +167,9 @@ export function ReportAProblem(props) {
             />
             <fieldset>
               <legend className="text-base sm:text-p font-body font-normal mb-6">
+                <b className="text-error-border-red mr-2" aria-hidden="true">
+                  *
+                </b>
                 {t("reportAProblemCheckAllThatApply", { lng: props.language })}
               </legend>
               <OptionalTextField
@@ -330,6 +353,11 @@ export function ReportAProblem(props) {
                 checkBoxStyle="mb-4"
                 controlValue={t("reportAProblemOther", { lng: props.language })}
               />
+              {submittedOnce ? (
+                <ErrorLabel
+                  message={t("reportAProblemError", { lng: props.language })}
+                />
+              ) : undefined}
             </fieldset>
             <ActionButton
               id="submit"
