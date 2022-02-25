@@ -1,8 +1,29 @@
 {
   "virtualAssistantTitleStatic": "Virtual Assistant",
-  "virtualAssistantBioStatic": "The Virtual Assistant is a chatbot. It can help you overcome obstacles you may face when applying for a benefit. For example, it can help you get documents that are missing in your file. Here is a sneak peek of what the Virtual Assistant could help with! ",
-  "virtualAssistantLogoAlt": "Virtual assistant logo",
-  "sectionTitle": "Scenario",
+  "virtualAssistantBioStatic": "The Virtual Assistant is a chatbot. When you apply for a new benefit, the Virtual Assistant will guide you to make your experience as easy as possible.",
+  "virtualAssistantInfoTitleStatic":"What can the Virtual Assistant do?",
+  "virtualAssistantInfo1":"Help you overcome obstacles you may face when applying for a benefit (for example, if you’re missing a document)",
+  "virtualAssistantInfo2":"Change your account details (for example, it can update your home address)",
+  "virtualAssistantInfo3":"Answer specific questions about your file (for example, check the status of your application)",
+  "virtualAssistantLogoAlt": "Virtual assistant asking Can I help you?",
+  "sectionTitle":"Let’s see it in action!",
+  "scenario1Title":"Scenario 1",
+  "scenario1MaryIntro":"Mary applies for Employment Insurance.",
+  "scenario1MaryButton":"Employment Insurance Demo",
+  "scenario1MaryAlt":"Mary looking at her mobile phone",
+  "scenario2Title":"Scenario 2",
+  "scenario2HafsaIntro":"Hafsa applies for Old Age Security.",
+  "scenario2HafsaButton":"Old Age Security Demo",
+  "scenario2HafsaAlt":"Hafsa sitting at a desk looking at her laptop",
+  "scenario3Title":"Scenario 3",
+  "scenario3RayIntro":"Ray applies for Lorem Ipsum Lorem.",
+  "scenario3RayButton":"Lorem Ipsum Loremlorem",
+  "scenario3RayAlt":"Ray sitting on a sofa looking at his tablet",
+  
+  
+  
+  
+  
   "scenarioPart1": "Mary loses her job. She applies for Employment Insurance. Two or three weeks go by, and she’s starting to wonder about the status of her application, and why she has not been paid. ",
   "scenarioPart1-1": "Looking for answers, she logs into the Service Canada Digital Centre finds a new message in her inbox.",
   "scenarioPart2": "Mary doesn’t normally use chatbots. However, since the chatbot says it might be able to help, she gives it a try. After a few exchanges, she learns that her previous employer never submitted her Record of Employment. ",
@@ -20,7 +41,7 @@
   "meetAssistant": "Meet the Virtual Assistant",
   "scenarioBody": "Imagine you are someone named Mary. You <b>recently lost your job</b> and apply for <b>Employment Insurance</b>. Two or three weeks later, you have not heard anything about your application, or received any money. \n\nLooking for answers, you log into the Service Canada Digital Centre, and find a <b>new message</b> in your Inbox…",
   "virtualAssistantBioTitle": "About the Service Canada Virtual Assistant",
-  "virtualAssistantBioBody": "The Virtual Assistant is a chatbot. It can help you overcome obstacles you may face when applying for a benefit. This demo shows what it might be like for someone who is applying for Employment Insurance, but is missing a document. ",
+  "virtualAssistantBioBody": "The Virtual Assistant is a chatbot. When you apply for a new benefit, the Virtual Assistant will guide you to make your experience as easy as possible.",
   "metaDescription": "The Service Canada Virtual Assistant demo presents a conversational chatbot that can help overcome obstacles when applying for a benefit.",
   "keywords": "Virtual Assistant, Benefits, Chatbot",
   "canonicalURL": "https://alpha.service.canada.ca/projects/virtual-assistant",
