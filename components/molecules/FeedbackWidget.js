@@ -6,6 +6,7 @@ import Joi from "joi";
 import { ErrorLabel } from "../atoms/ErrorLabel";
 import FocusTrap from "focus-trap-react";
 import lockScroll from "react-lock-scroll";
+import { stripFeedback } from "../../lib/utils/stripFeedback";
 
 /**
  * Displays the PhaseBanner on the page
@@ -74,12 +75,15 @@ export const FeedbackWidget = ({
     await setFeedbackError("");
     // compile feedback into object to be validated
     const formData = { feedback };
+    //Strip personal identifier information from feedback
+    var cleanedFeedback = stripFeedback(formData.feedback);
     // set values in feedback object
     feedbackObject.current.feedbackToSend = {
       project: projectName,
       pageUrl: path,
-      feedback: formData.feedback,
+      feedback: cleanedFeedback,
     };
+
     // validate data using Joi schema
     const { error } = formSchema.validate(formData, {
       abortEarly: false,
