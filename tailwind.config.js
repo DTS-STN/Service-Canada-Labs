@@ -18,6 +18,7 @@ module.exports = {
     "bg-custom-blue-darker",
     "bg-custom-red-lighter",
     "bg-custom-red-darker",
+    "bg-custom-green",
     "bg-custom-green-lighter",
     "bg-custom-green-darker",
     "border-custom-blue-lighter",

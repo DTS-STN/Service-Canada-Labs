@@ -4,7 +4,7 @@ import { useTranslation } from "next-i18next";
 import { Layout } from "../../../components/organisms/Layout";
 import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect } from "react";
-import styles from '/styles/index.module.css';
+import styles from "/styles/index.module.css";
 
 //  On hold for now
 //  import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge";
@@ -112,17 +112,19 @@ export default function Home(props) {
           <section className="layout-container my-6">
             <div className="w-auto h-auto">
               <div className="flex flex-col break-words lg:grid lg:grid-cols-2 gap-4 lg:gap-6">
-                <h1 className="text-h1 border-h1-red-bar">{t("vc:virtualAssistantTitleStatic")}</h1>
+                <h1 className="text-h1 border-h1-red-bar">
+                  {t("vc:virtualAssistantTitleStatic")}
+                </h1>
                 <div className="row-span-4 p-0 mx-4">
                   <div className="flex justify-center">
                     <img
                       className="object-fill h-auto w-auto max-w-450px"
-                      src={language === "en"
-                        ? "/1x_fr_canihelpyou.png"
-                        : "/1x_canihelpyou.png"
+                      src={
+                        language === "en"
+                          ? "/1x_fr_canihelpyou.png"
+                          : "/1x_canihelpyou.png"
                       }
                       scrset="/2x_canihelpyou.png 1000w"
-                      alt={t("vc:virtualAssistantLogoAlt")}
                       width={200}
                       height={200}
                     />
@@ -152,19 +154,20 @@ export default function Home(props) {
 
         <section className="layout-container my-6">
           <div className="w-auto mb-6">
-            <h2 className={`mb-8 mt-2  ${styles.h2}`}>{t("vc:sectionTitle")}</h2>
+            <h2 className={`mb-8 mt-2  ${styles.h2}`}>
+              {t("vc:sectionTitle")}
+            </h2>
             <div className="flex flex-col break-words lg:grid lg:grid-cols-3 gap-4 lg:gap-6">
               <div className="p-8 mr-4 rounded-24 border-2 focus:ring-1 focus:ring-black focus:ring-offset-2 active:border-custom-navy hover:border-custom-navy">
-                <h3 className={`mb-1 ${styles.h3}`}>{t("vc:scenario1Title")}</h3>
-                <p className="w-auto mb-8">
-                  {t("vc:scenario1MaryIntro")}
-                </p>
+                <h3 className={`mb-1 ${styles.h3}`}>
+                  {t("vc:scenario1Title")}
+                </h3>
+                <p className="w-auto mb-8">{t("vc:scenario1MaryIntro")}</p>
                 <div className="flex justify-center">
                   <img
-                    className="object-fill w-auto h-auto mx-auto mb-8"
+                    className="object-fill w-auto h-auto mx-auto mb-8 mt-9"
                     src="/1x_mary.png"
                     img-src="/2x_mary.png"
-                    alt={t("vc:scenario1MaryAlt")}
                     width={200}
                     height={200}
                   />
@@ -177,10 +180,7 @@ export default function Home(props) {
                       data-cy="va-scenario1-link"
                       role="button"
                       draggable="false"
-                      href={language === "en"
-                        ? "https://av-va.alpha.service.canada.ca/fr"
-                        : "https://av-va.alpha.service.canada.ca/en"
-                      }
+                      href={language === "en" ? "/fr/mary" : "en/mary"}
                     >
                       {t("vc:scenario1MaryButton")}
                     </a>
@@ -189,13 +189,14 @@ export default function Home(props) {
               </div>
 
               <div className="p-8 mr-4 inline-block rounded-24 border-2 focus:ring-1 focus:ring-black focus:ring-offset-2 active:border-custom-navy hover:border-custom-navy">
-                <h3 className={`mb-1 ${styles.h3}`}>{t("vc:scenario2Title")}</h3>
+                <h3 className={`mb-1 ${styles.h3}`}>
+                  {t("vc:scenario2Title")}
+                </h3>
                 <p className="w-auto mb-8">{t("vc:scenario2HafsaIntro")}</p>
                 <div className="flex justify-center">
                   <img
-                    className="object-fill w-auto h-auto mx-auto mb-8"
+                    className="object-fill w-auto h-auto mx-auto mb-8 mt-9"
                     src="/1x_hafsa.png"
-                    alt={t("vc:scenario2HafsaAlt")}
                     width={200}
                     height={200}
                   />
@@ -208,9 +209,7 @@ export default function Home(props) {
                       data-cy="va-scenario2-link"
                       role="button"
                       draggable="false"
-                      href={language === "en"
-                        ? "/fr/hafsa"
-                        : "en/hafsa"}
+                      href={language === "en" ? "/fr/hafsa" : "en/hafsa"}
                     >
                       {t("vc:scenario2HafsaButton")}
                     </a>
@@ -218,15 +217,15 @@ export default function Home(props) {
                 </div>
               </div>
 
-
-              <div className="p-8 mr-4 inline-block rounded-24 border-2 focus:ring-1 focus:ring-black focus:ring-offset-2 active:border-custom-navy hover:border-custom-navy">
-                <h3 className={`mb-1 ${styles.h3}`}>{t("vc:scenario3Title")}</h3>
+              <div className="p-8 mr-4 inline-block rounded-24 border-2 focus:ring-1 focus:ring-black focus:ring-offset-2 active:border-custom-navy-darker hover:border-custom-navy">
+                <h3 className={`mb-1 ${styles.h3}`}>
+                  {t("vc:scenario3Title")}
+                </h3>
                 <p className="w-auto mb-8">{t("vc:scenario3RayIntro")}</p>
                 <div className="flex justify-center">
                   <img
                     className="object-fill w-auto h-auto mx-auto mb-8"
                     src="/1x_ray.png"
-                    alt={t("vc:scenario3RayAlt")}
                     width={200}
                     height={200}
                   />
@@ -239,16 +238,13 @@ export default function Home(props) {
                       data-cy="va-scenario3-link"
                       role="button"
                       draggable="false"
-                      href={language === "en"
-                        ? "/fr/ray"
-                        : "en/ray"}
+                      href={language === "en" ? "/fr/ray" : "en/ray"}
                     >
-                      {t("vc:scenario3RayIntro")}
+                      {t("vc:scenario3RayButton")}
                     </a>
                   </p>
                 </div>
               </div>
-
             </div>
           </div>
         </section>
@@ -265,7 +261,7 @@ export default function Home(props) {
                     className="underline"
                   >
                     {t("vc:researchUnsubscribeButton")}
-                  </a>{' '}
+                  </a>{" "}
                   {t("vc:researchSessionEndSentence")}
                 </div>
                 <div className="pt-10">
