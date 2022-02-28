@@ -256,21 +256,17 @@ export default function Home(props) {
         <aside>
           <div className="bg-circle-color text-white">
             <div className="layout-container pb-10 pt-10 mb-3 text-sm md:text-base">
-              <h2>Sign up to get invited to research sessions</h2>
+              <h2>{t("vc:researchSessionTitle")}</h2>
               <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-24 gap-5">
                 <div className="whitespace-pre-line">
-                  You’re invited to test our experimental ideas and participate in
-                  research interviews to make Service Canada better for everyone.
-                  Every bit of feedback helps us make sure we’re making our
-                  services simple and easy to use. Your participation will not
-                  affect your access to government services. You can
+                  {t("vc:researchSessionInfo")}
                   <a
                     href="https://alpha.service.canada.ca/unsubscribe"
-                  // style="text-decoration: underline;"
+                    className="underline"
                   >
-                    unsubscribe
+                    {t("vc:researchUnsubscribeButton")}
                   </a>{' '}
-                  at any time.
+                  {t("vc:researchSessionEndSentence")}
                 </div>
                 <div className="pt-10">
                   <p className="flex mb-4 text-center">
@@ -282,7 +278,7 @@ export default function Home(props) {
                       draggable="false"
                       href="https://alpha.service.canada.ca/signup"
                     >
-                      Sign up to get invited to research sessions
+                      {t("vc:signUpButton")}
                     </a>
                   </p>
                   <p>
@@ -290,7 +286,7 @@ export default function Home(props) {
                       className="text-sm underline flex xl:inline lg:mr-10"
                       href="https://alpha.service.canada.ca/signup/privacy"
                     >
-                      Review the privacy policy
+                      {t("vc:reviewPolicyButton")}
                     </a>
                   </p>
                 </div>
@@ -298,58 +294,6 @@ export default function Home(props) {
             </div>
           </div>
         </aside>
-
-        <section className="layout-container mb-10">
-          <h1 className="mb-8 text-h1l" tabIndex="-1" id="pageMainTitle">
-            {t("vc:virtualAssistantTitle")}
-          </h1>
-          {/* the scenario section */}
-          <div className="whitespace-pre-line ">
-            <h2 className="mb-6 mt-8 text-h1" id="virtualAssistantScenario">
-              {t("vc:scenarioTitle")}
-            </h2>
-            <p
-              className="mb-6 lg:col-span-2 px-1 lg:px-0 xl:w-3/4"
-              dangerouslySetInnerHTML={{ __html: t("vc:scenarioBody") }}
-            >
-              {/* {t("vc:scenarioDemoBody")} */}
-            </p>
-            <p className="flex mb-16 text-center">
-              <ActionButton
-                href={
-                  language === "en"
-                    ? "https://av-va.alpha.service.canada.ca/fr"
-                    : "https://av-va.alpha.service.canada.ca/en"
-                }
-                id="meet-va-link"
-                dataCy="meet-va-link"
-                className="rounded px-6 py-4 font-bold text-center inline-block"
-              >
-                {t("vc:meetAssistant")}
-              </ActionButton>
-              {/* href="https://av-va.alpha.service.canada.ca" */}
-            </p>
-          </div>
-
-          <div className="w-auto mb-6 ">
-            <div className="flex flex-col break-words lg:grid lg:grid-cols-2 gap-4 lg:gap-6 ">
-              <h2 className="mb-0 text-h1" id="virtualAssistantTitle">
-                {t("vc:virtualAssistantBioTitle")}
-              </h2>
-
-              <div className="row-span-2 bg-gradient-to-tr from-custom-blue-blue to-vc-blue-lt  p-4 ">
-                <img
-                  className=" object-fill w-64 h-auto mx-auto"
-                  src="/virtualconcierge/VirtualConcierge.svg"
-                  alt={t("vc:virtualAssistantLogoAlt")}
-                />
-              </div>
-              <p className=" font-body text-lg px-1 lg:px-0 ">
-                {t("vc:virtualAssistantBioBody")}
-              </p>
-            </div>
-          </div>
-        </section>
         {/* END Virtual Assistant Demo section end for working prototype */}
 
         {/* <CallToAction
