@@ -158,14 +158,17 @@ export default function Home(props) {
               {t("vc:sectionTitle")}
             </h2>
             <div className="flex flex-col break-words lg:grid lg:grid-cols-3 gap-4 lg:gap-6">
-              <div className="p-8 mr-4 rounded-24 border-2 focus:ring-1 focus:ring-black focus:ring-offset-2 active:border-custom-navy hover:border-custom-navy">
+              <div className="p-8 mr-4 inline-block rounded-[24px] border-2 focus:ring-1 focus:ring-black focus:ring-offset-2 active:border-custom-blue-hover hover:border-custom-blue-hover">
                 <h3 className={`mb-1 ${styles.h3}`}>
                   {t("vc:scenario1Title")}
                 </h3>
-                <p className="w-auto mb-8">{t("vc:scenario1MaryIntro")}</p>
+                <p className="w-auto text-[16px]">
+                  {t("vc:scenario1MaryIntro")}
+                </p>
+
                 <div className="flex justify-center">
                   <img
-                    className="object-fill w-auto h-auto mx-auto mb-8 mt-9"
+                    className="object-fill w-auto h-auto mx-auto mb-8 my-8"
                     src="/1x_mary.png"
                     img-src="/2x_mary.png"
                     width={200}
@@ -175,7 +178,7 @@ export default function Home(props) {
                 <div className="w-auto flex justify-center">
                   <p className="text-center">
                     <a
-                      className="focus:ring-1 focus:ring-black focus:ring-offset-2 py-2 px-4 text-white bg-custom-green border border-custom-green active:bg-custom-navy hover:bg-custom-navy rounded font-bold text-center inline-block"
+                      className="text-[16px] focus:ring-1 focus:ring-black focus:ring-offset-2 py-2 px-4 text-white bg-custom-cyan border border-custom-green active:bg-custom-blue-hover hover:bg-custom-blue-hover rounded font-bold text-center inline-block"
                       id="va-scenario1-link"
                       data-cy="va-scenario1-link"
                       role="button"
@@ -188,14 +191,16 @@ export default function Home(props) {
                 </div>
               </div>
 
-              <div className="p-8 mr-4 inline-block rounded-24 border-2 focus:ring-1 focus:ring-black focus:ring-offset-2 active:border-custom-navy hover:border-custom-navy">
+              <div className="p-8 mr-4 inline-block rounded-[24px] border-2 focus:ring-1 focus:ring-black focus:ring-offset-2 active:border-custom-blue-hover hover:border-custom-blue-hover">
                 <h3 className={`mb-1 ${styles.h3}`}>
                   {t("vc:scenario2Title")}
                 </h3>
-                <p className="w-auto mb-8">{t("vc:scenario2HafsaIntro")}</p>
+                <p className="w-auto mb-8 text-[16px]">
+                  {t("vc:scenario2HafsaIntro")}
+                </p>
                 <div className="flex justify-center">
                   <img
-                    className="object-fill w-auto h-auto mx-auto mb-8 mt-9"
+                    className="object-fill w-auto h-auto mx-auto mb-8 my-8"
                     src="/1x_hafsa.png"
                     width={200}
                     height={200}
@@ -204,7 +209,7 @@ export default function Home(props) {
                 <div className="w-auto flex justify-center">
                   <p className="text-center">
                     <a
-                      className="focus:ring-1 focus:ring-black focus:ring-offset-2 py-2 px-4 text-white bg-custom-green border border-custom-green active:bg-custom-navy hover:bg-custom-navy rounded font-bold text-center inline-block"
+                      className="text-[16px] focus:ring-1 focus:ring-black focus:ring-offset-2 py-2 px-4 text-white bg-custom-cyan border border-custom-blue-hover active:bg-custom-blue-hover hover:bg-custom-blue-hover rounded font-bold text-center inline-block"
                       id="va-scenario2-link"
                       data-cy="va-scenario2-link"
                       role="button"
@@ -217,14 +222,16 @@ export default function Home(props) {
                 </div>
               </div>
 
-              <div className="p-8 mr-4 inline-block rounded-24 border-2 focus:ring-1 focus:ring-black focus:ring-offset-2 active:border-custom-navy-darker hover:border-custom-navy">
+              <div className="p-8 mr-4 inline-block rounded-[24px] border-2 focus:ring-1 focus:ring-black focus:ring-offset-2 active:border-custom-blue-hover hover:border-custom-blue-hover">
                 <h3 className={`mb-1 ${styles.h3}`}>
                   {t("vc:scenario3Title")}
                 </h3>
-                <p className="w-auto mb-8">{t("vc:scenario3RayIntro")}</p>
+                <p className="w-auto mb-8 text-[16px]">
+                  {t("vc:scenario3RayIntro")}
+                </p>
                 <div className="flex justify-center">
                   <img
-                    className="object-fill w-auto h-auto mx-auto mb-8"
+                    className="object-fill w-auto h-auto mx-auto mb-8 "
                     src="/1x_ray.png"
                     width={200}
                     height={200}
@@ -233,7 +240,7 @@ export default function Home(props) {
                 <div className="w-auto flex justify-center">
                   <p className="text-center">
                     <a
-                      className="focus:ring-1 focus:ring-black focus:ring-offset-2 py-2 px-4 text-white bg-custom-green border border-custom-green active:bg-custom-navy hover:bg-custom-navy rounded font-bold text-center inline-block"
+                      className="text-[16px] focus:ring-1 focus:ring-black focus:ring-offset-2 py-2 px-4 text-white bg-custom-cyan border border-custom-green active:bg-custom-blue-hover hover:bg-custom-blue-hover rounded font-bold text-center inline-block"
                       id="va-scenario3-link"
                       data-cy="va-scenario3-link"
                       role="button"
