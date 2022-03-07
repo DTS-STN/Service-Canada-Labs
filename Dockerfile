@@ -1,9 +1,8 @@
 FROM node:current-alpine3.15 AS base
+RUN apk add --no-cache python3 py3-pip make g++
 WORKDIR /base
 COPY package.json yarn.lock /
-RUN apk add --no-cache python3 py3-pip make g++
 RUN yarn install --frozen-lockfile
-COPY . .
 
 FROM base AS build
 # TC BUILD ENVIRONMENT VARIABLES
@@ -25,6 +24,7 @@ ENV NEXT_PUBLIC_THANK_YOU_EMAIL=$NEXT_PUBLIC_THANK_YOU_EMAIL
 ENV NODE_ENV=production
 WORKDIR /build
 COPY --from=base /base ./
+COPY . .
 RUN yarn install --frozen-lockfile
 RUN yarn build
 
