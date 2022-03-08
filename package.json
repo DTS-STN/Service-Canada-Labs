@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.4.1",
-    "@tailwindcss/typography": "^0.5.1",
+    "@tailwindcss/typography": "^0.5.2",
     "cors": "^2.8.5",
     "cuid": "^2.1.8",
     "focus-trap-react": "^8.9.1",
@@ -49,7 +49,7 @@
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/react": "^6.3.4",
     "@tailwindcss/postcss7-compat": "^2.2.4",
-    "@tailwindcss/typography": "^0.5.1",
+    "@tailwindcss/typography": "^0.5.2",
     "@testing-library/dom": "^8.1.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
