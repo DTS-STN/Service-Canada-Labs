@@ -26,13 +26,6 @@ export function MultiTextField(props) {
           </b>
         ) : undefined}{" "}
         {props.label}{" "}
-        {props.required ? (
-          ""
-        ) : (
-          <p className="inline text-form-input-gray text-sm lg:text-p">
-            {t("optional")}
-          </p>
-        )}
       </label>
       <p id={props.describedby} className="text-sm lg:text-g mb-5 leading-30px">
         {t("doNotInclude")}
