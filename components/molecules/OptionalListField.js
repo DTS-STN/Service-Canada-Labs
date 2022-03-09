@@ -2,7 +2,6 @@ import { useState } from "react";
 import { CheckBox } from "../atoms/CheckBox";
 import { RadioField } from "../atoms/RadioField";
 import PropTypes from "prop-types";
-import { useTranslation } from "next-i18next";
 
 /**
  * An optional list field (radio, checkbox) that is enabled by a checkbox

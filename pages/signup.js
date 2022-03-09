@@ -393,7 +393,12 @@ export default function Signup(props) {
     }
     // Checks if error exists
     const errorLabel = document.getElementsByClassName("error-label")[0];
-    if (errorLabel)
+    const globalError = document.getElementById("form-error");
+    if (globalError)
+      globalError.scrollIntoView({
+        behavior: "smooth",
+      });
+    else if (errorLabel)
       errorLabel.parentElement.scrollIntoView({
         behavior: "smooth",
       });
