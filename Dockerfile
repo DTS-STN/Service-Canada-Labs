@@ -24,6 +24,7 @@ ENV NEXT_PUBLIC_THANK_YOU_EMAIL=$NEXT_PUBLIC_THANK_YOU_EMAIL
 ENV NODE_ENV=production
 WORKDIR /build
 COPY --from=base /base ./
+RUN true
 COPY . .
 RUN yarn install --frozen-lockfile
 RUN yarn build
