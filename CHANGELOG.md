@@ -46,6 +46,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated feedback widget's color scheme to improve a11y
 - Move feedback error message in the feedbackinfo div which links to the textarea
 - Updated project and Dockerfile to use yarn instead of npm
+- Updated signup error labels and remove optional on labels
 
 ## Fixed
 
