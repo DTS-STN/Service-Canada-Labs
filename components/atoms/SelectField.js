@@ -36,13 +36,6 @@ export function SelectField(props) {
           </b>
         ) : undefined}{" "}
         {props.label}{" "}
-        {props.required ? (
-          ""
-        ) : (
-          <span className="inline text-form-input-gray text-sm lg:text-p">
-            {t("optional")}
-          </span>
-        )}
       </label>
       {props.error ? <ErrorLabel message={props.error} /> : undefined}
       <select

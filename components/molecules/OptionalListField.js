@@ -2,13 +2,11 @@ import { useState } from "react";
 import { CheckBox } from "../atoms/CheckBox";
 import { RadioField } from "../atoms/RadioField";
 import PropTypes from "prop-types";
-import { useTranslation } from "next-i18next";
 
 /**
  * An optional list field (radio, checkbox) that is enabled by a checkbox
  */
 export function OptionalListField(props) {
-  const { t } = useTranslation("common");
   let [showListField, setShowListField] = useState(props.checked || false);
   let handleCheckChange = (wasChecked, name, value) => {
     if (wasChecked) {
@@ -70,13 +68,6 @@ export function OptionalListField(props) {
               ""
             )}
             {props.listLabel}
-            {props.listFieldRequired ? (
-              ""
-            ) : (
-              <p className="inline text-form-input-gray text-sm">
-                {t("optional")}
-              </p>
-            )}
           </legend>
           <div className="gap-4">{sortedChildren}</div>
         </fieldset>
