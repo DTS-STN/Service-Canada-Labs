@@ -1,12 +1,27 @@
 /**
  * @jest-environment jsdom
  */
-import { render, screen } from "@testing-library/react";
-import Home from "../../pages/home";
+import { screen } from "@testing-library/react";
+import fetchMock from "fetch-mock";
 
-describe("Home", () => {
-  it("renders without crashing", () => {
-    render(<Home />);
-    expect(screen.getByText("projectsAndExplorationTitle")).toBeInTheDocument();
+describe("Homepage content", () => {
+  beforeEach(() => {
+    fetchMock.getOnce(
+      `${process.env.NEXT_PUBLIC_STRAPI_API_BACKEND_URL}/page-contents?populate=%2A&locale=all`,
+      {
+        status: 200,
+        body: "Homepage content",
+      }
+    );
+  });
+  afterEach(() => {
+    fetchMock.restore();
+  });
+  it.skip("renders without crashing", async () => {
+    const { render } = await getPage({
+      route: "/home",
+    });
+    render();
+    expect(screen.getAllByText("Service Cananda Labs")[0]).toBeInTheDocument();
   });
 });

@@ -183,8 +183,7 @@ export default function Home(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  const query =
-    "/page-contents?locale=all&populate[0]=banner&populate[1]=textField&populate[2]=actionButton&populate[3]=callToAction";
+  const query = "/page-contents?populate=%2A&locale=all";
   const res = await strapiServiceInstance.getFragment(query);
   const data = res.data.data;
   const homepage = data.filter((data) => data.attributes.title === "home");
