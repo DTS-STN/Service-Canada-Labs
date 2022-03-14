@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.4.1",
-    "@tailwindcss/typography": "^0.5.1",
+    "@tailwindcss/typography": "^0.5.2",
     "cors": "^2.8.5",
     "cuid": "^2.1.8",
     "focus-trap-react": "^8.9.1",
