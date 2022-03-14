@@ -217,8 +217,9 @@ export default function Projects(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
+  const query = "/experiments?locale=alll";
   // get projects data from stapi service instance
-  const experiments = await strapiServiceInstance.getFragment("/experiments");
+  const experiments = await strapiServiceInstance.getFragment(query);
   const data = experiments.data.data;
   const filters = Object.values(
     data.reduce(
