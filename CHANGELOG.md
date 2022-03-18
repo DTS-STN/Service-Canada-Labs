@@ -48,6 +48,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated project and Dockerfile to use yarn instead of npm
 - Updated signup error labels and remove optional on labels
 - Update project page to read content from cms
+- Update home page data model to read content from cms
 
 ## Fixed
 
