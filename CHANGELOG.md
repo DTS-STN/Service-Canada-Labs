@@ -47,6 +47,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Move feedback error message in the feedbackinfo div which links to the textarea
 - Updated project and Dockerfile to use yarn instead of npm
 - Updated signup error labels and remove optional on labels
+- Update project page to read content from cms
 
 ## Fixed
 
