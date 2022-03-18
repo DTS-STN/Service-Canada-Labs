@@ -23,13 +23,13 @@ export default function Home(props) {
 
   return (
     <>
-      {contents.map((content) => (
+      {contents.map((content, index) => (
         <Layout
           bannerTitle={content.attributes.banner.title}
           bannerText={content.attributes.banner.description}
           locale={props.locale}
           langUrl={content.attributes.url}
-          key={content}
+          key={index}
         >
           <Head>
             {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
