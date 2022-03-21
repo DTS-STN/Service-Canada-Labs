@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1647870772252" clover="3.2.0">
-  <project timestamp="1647870772252" name="All files">
+<coverage generated="1647870844418" clover="3.2.0">
+  <project timestamp="1647870844418" name="All files">
     <metrics statements="899" coveredstatements="660" conditionals="707" coveredconditionals="408" methods="222" coveredmethods="149" elements="1828" coveredelements="1217" complexity="0" loc="899" ncloc="899" packages="15" files="99" classes="99"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -803,12 +803,12 @@
         <line num="19" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
-        <line num="199" count="0" type="stmt"/>
         <line num="200" count="0" type="stmt"/>
         <line num="201" count="0" type="stmt"/>
         <line num="202" count="0" type="stmt"/>
         <line num="203" count="0" type="stmt"/>
-        <line num="205" count="0" type="stmt"/>
+        <line num="204" count="0" type="stmt"/>
+        <line num="206" count="0" type="stmt"/>
       </file>
       <file name="confirmation.js" path="/home/runner/work/Alpha-Site/Alpha-Site/pages/confirmation.js">
         <metrics statements="10" coveredstatements="7" conditionals="32" coveredconditionals="16" methods="3" coveredmethods="2"/>
