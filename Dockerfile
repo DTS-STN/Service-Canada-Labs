@@ -1,4 +1,4 @@
-FROM node:current-alpine3.15 AS base
+FROM node:17.8-alpine3.15 AS base
 RUN apk add --no-cache python3 py3-pip make g++
 WORKDIR /base
 COPY package.json yarn.lock /
@@ -29,7 +29,7 @@ COPY . .
 RUN yarn install --frozen-lockfile
 RUN yarn build
 
-FROM node:current-alpine3.15 AS production
+FROM node:17.8-alpine3.15 AS production
 ENV NODE_ENV=production
 ENV REPORT_A_PROBLEM_ENABLED=true
 ENV NOTIFY_BASE_API_URL=https://api.notification.canada.ca
