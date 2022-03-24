@@ -4,9 +4,9 @@ import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
 import { CallToAction } from "../components/molecules/CallToAction";
 import { ActionButton } from "../components/atoms/ActionButton";
-import { HTMList } from "../components/atoms/HTMList";
 import { useEffect } from "react";
 import strapiServiceInstance from "./api/StrapiServiceInstance";
+import ReactMarkdown from "react-markdown";
 
 export default function Home(props) {
   const { t } = useTranslation("common");
@@ -132,17 +132,12 @@ export default function Home(props) {
               <h2 className="my-8">
                 {content.attributes.textField[0].heading}
               </h2>
-              <p className="mb-6 whitespace-pre-line">
+              <ReactMarkdown
+                parserOptions={{ commonmark: true }}
+                className="mb-6 text-sm lg:text-p"
+              >
                 {content.attributes.textField[0].paragraph}
-              </p>
-              <p className="mb-6">{content.attributes.textField[1].heading}</p>
-              <HTMList
-                listClassName={"mb-6 pl-10 text-p list-disc"}
-                content={content.attributes.textField[1].paragraph}
-              />
-              <p className="mb-8 whitespace-pre-line">
-                {content.attributes.textField[2].paragraph}
-              </p>
+              </ReactMarkdown>
             </div>
             <div className="flex flex-col gap-6 lg:gap-10 lg:flex-row ">
               <ActionButton

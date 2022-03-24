@@ -6,7 +6,6 @@ import { Layout } from "../components/organisms/Layout";
 import { Experiment } from "../components/molecules/Experiment";
 import { Filter } from "../components/molecules/Filter";
 import { CallToAction } from "../components/molecules/CallToAction";
-import { HTMList } from "../components/atoms/HTMList";
 import strapiServiceInstance from "./api/StrapiServiceInstance";
 import ReactMarkdown from "react-markdown";
 
@@ -173,20 +172,18 @@ export default function Projects(props) {
               <h1 id="pageMainTitle" tabIndex="-1" className="flex-wrap mb-10">
                 {content.attributes.textField[0].heading}
               </h1>
-              <ReactMarkdown className="whitespace-pre-line">
+              <ReactMarkdown
+                parserOptions={{ commonmark: true }}
+                className="mb-6 text-sm lg:text-p"
+              >
                 {content.attributes.textField[0].paragraph}
               </ReactMarkdown>
-              <p className="my-6">{content.attributes.textField[1].heading}</p>
-              <HTMList
-                listClassName={"mb-4 pl-10 text-p list-disc"}
-                content={content.attributes.textField[1].paragraph}
-              />
               <p dangerouslySetInnerHTML={{ __html: t("projectSignup") }}></p>
               <p className="mt-4 mb-10">
-                <strong>{content.attributes.textField[2].paragraph}</strong>
+                <strong>{content.attributes.textField[1].paragraph}</strong>
               </p>
               <Filter
-                label={content.attributes.textField[3].heading}
+                label={content.attributes.textField[2].heading}
                 options={filters}
                 onChange={handleFilter}
                 dataCy={"filter-projects"}
