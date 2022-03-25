@@ -56,7 +56,7 @@ export function Menu(props) {
 
       <ul
         id="menuDropdown"
-        className={`menuDropdown ${showMenu ? "active" : ""}`}
+        className={`menuDropdown mt-2 ${showMenu ? "active" : ""}`}
         role="menu"
         aria-expanded={showMenu}
       >
@@ -67,7 +67,7 @@ export function Menu(props) {
           return (
             <li
               key={key}
-              className={`py-3 lg:py-0 cursor-pointer text-custom-blue-projects-link `}
+              className={`py-3 lg:py-0 cursor-pointer text-custom-blue-projects-link list-none -my-2 -ml-2`}
               role="menuitem"
               aria-current={exactURL ? "page" : null}
             >

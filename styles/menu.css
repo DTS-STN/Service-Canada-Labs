@@ -1,44 +1,44 @@
 @tailwind screens;
 
 .menuDropdown {
-    display: none;
-    background-color: white;
+  display: none;
+  background-color: white;
 }
 
 .menuLink:hover {
-    color: #0A75C6;
+  color: #0a75c6;
 }
 
 .activePage {
-    border-bottom: 4px solid #1d5b90;
+  border-bottom: 4px solid #1d5b90;
 }
 
-.activePage:hover{
-    color: #0A75C6;
-    border-bottom: 4px solid #0A75C6;
+.activePage:hover {
+  color: #0a75c6;
+  border-bottom: 4px solid #0a75c6;
 }
 
 .active {
-    display: block;
+  display: block;
 }
 
 @screen lg {
-    #menuButton, #closeMenu {
-        display: none;
-    }
+  #menuButton,
+  #closeMenu {
+    display: none;
+  }
 
-    .menuDropdown {
-        background: white;
-        display: inline-block;
-        position: static;
-        min-width: fit-content;
-        min-height: fit-content;
-        padding-bottom: 1rem;
-    }
+  .menuDropdown {
+    background: white;
+    display: inline-block;
+    position: static;
+    min-width: fit-content;
+    min-height: fit-content;
+    padding-bottom: 1rem;
+  }
 
-    .menuDropdown > li{
-        display: inline-block;
-        padding-left: 2rem;
-    }
+  .menuDropdown > li {
+    display: inline-block;
+    padding-left: 2rem;
+  }
 }
-  

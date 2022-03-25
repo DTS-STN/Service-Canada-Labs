@@ -131,7 +131,7 @@ export const Layout = ({
               },
             ]}
           />
-          <div className="layout-container mt-2 mb-8">
+          <div className="layout-container mt-2 mb-12">
             <Breadcrumb items={breadcrumbItems} />
           </div>
         </div>
