@@ -24,7 +24,7 @@ export default function SignupInfo(props) {
   return (
     <>
       {pageContent &&
-        pageContent.map((content) => (
+        pageContent.map((content, index) => (
           <Layout
             locale={props.locale}
             langUrl={content.attributes.url}
@@ -34,6 +34,7 @@ export default function SignupInfo(props) {
                 link: content.attributes.navigation.home,
               },
             ]}
+            key={index}
           >
             <Head>
               {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
