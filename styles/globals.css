@@ -208,10 +208,10 @@ html {
   }
 
   .ieButton {
-    background-color: #1D5B90;
+    background-color: #1d5b90;
     color: white;
     border-radius: 7px;
-    border-color: #1D5B90;
+    border-color: #1d5b90;
     border-width: 1px;
   }
 
@@ -219,7 +219,7 @@ html {
     box-shadow: 0 0 0 1pt black;
   }
   .ieButton:hover {
-    background-color: #1F809A;
+    background-color: #1f809a;
   }
   .ieButton:active {
     background-color: #26374a;
@@ -243,10 +243,10 @@ html {
 
   .ieTextField {
     border-width: 2px;
-    border-color: #D1D5DB;
+    border-color: #d1d5db;
     border-radius: 7px;
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
-    color: #555; 
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    color: #555;
   }
   .ieTextField:focus {
     border-color: black;
@@ -254,7 +254,7 @@ html {
   .ieLinksList {
     color: #284162;
   }
-  ul.ieLinksList > li >a:focus {
+  ul.ieLinksList > li > a:focus {
     color: #0535d2;
     border-width: 2px;
     border-color: black;
@@ -273,4 +273,9 @@ html {
 
 .svg {
   filter: brightness(0) invert(1);
+}
+
+ul,
+li {
+  @apply list-disc my-4 ml-4;
 }
