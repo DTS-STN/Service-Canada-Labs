@@ -52,6 +52,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Update about page to read content from cms
 - Changed number of steps for signup and unsubscribe from 3 to 2
 - Removed srSpeak function from feedback widget and instead put `aria-live="polite"` on the form 
+- Update signup-info page to read content from cms
 
 ## Fixed
 
