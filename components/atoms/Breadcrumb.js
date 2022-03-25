@@ -21,7 +21,7 @@ export function Breadcrumb(props) {
               return (
                 <li
                   key={key}
-                  className="inline-block min-w-0 max-w-full truncate -my-4"
+                  className="inline-block min-w-0 max-w-full truncate -my-4 px-1"
                 >
                   <span className="inline-block align-middle text-gray-breadcrumb icon-cheveron-right mr-4" />
                   <Link href={item.link}>
