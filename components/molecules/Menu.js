@@ -56,7 +56,7 @@ export function Menu(props) {
 
       <ul
         id="menuDropdown"
-        className={`menuDropdown ${showMenu ? "active" : ""}`}
+        className={`menuDropdown mt-2 ${showMenu ? "active" : ""}`}
         role="menu"
         aria-expanded={showMenu}
       >

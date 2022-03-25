@@ -7,7 +7,7 @@ import Link from "next/link";
 export function Breadcrumb(props) {
   return (
     <nav aria-label="breadcrumbs">
-      <ul className="block text-custom-blue-dark text-base font-body -ml-4 -my-4">
+      <ul className="block text-custom-blue-dark text-base font-body -ml-4 -my-4 ">
         <li className="inline-block min-w-0 max-w-full truncate px-1 -my-4">
           <Link href="https://www.canada.ca/">
             <a className="text-sm hover:text-custom-blue-link visited:text-purple-700 underline">
