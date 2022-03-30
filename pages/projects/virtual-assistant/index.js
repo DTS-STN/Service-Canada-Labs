@@ -40,7 +40,7 @@ export default function Home(props) {
           )}
 
           {/* Primary HTML Meta Tags */}
-          <title>{`${t("vc:virtualAssistantTitle")} — ${t(
+          <title>{`${t("vc:virtualAssistantTitleStatic")} — ${t(
             "siteTitle"
           )}`}</title>
           <meta name="description" content={`${t("vc:metaDescription")}`} />
@@ -53,7 +53,9 @@ export default function Home(props) {
           {/* DCMI Meta Tags */}
           <meta
             name="dcterms.title"
-            content={`${t("vc:virtualAssistantTitle")} — ${t("siteTitle")}`}
+            content={`${t("vc:virtualAssistantTitleStatic")} — ${t(
+              "siteTitle"
+            )}`}
           />
           <meta
             name="dcterms.language"
@@ -83,11 +85,13 @@ export default function Home(props) {
           <meta property="og:url" content={t("vc:canonicalURL")} />
           <meta
             property="og:title"
-            content={`${t("vc:virtualAssistantTitle")} — ${t("siteTitle")}`}
+            content={`${t("vc:virtualAssistantTitleStatic")} — ${t(
+              "siteTitle"
+            )}`}
           />
           <meta
             property="og:description"
-            content={t("vc:virtualAssistantBioBody")}
+            content={t("vc:virtualAssistantBioStatic")}
           />
           <meta property="og:image" content={t("metaImage")} />
           <meta property="og:image:alt" content={t("siteTitle")} />
@@ -97,12 +101,14 @@ export default function Home(props) {
           <meta property="twitter:url" content={t("vc:canonicalURL")} />
           <meta
             property="twitter:title"
-            content={`${t("vc:virtualAssistantTitle")} — ${t("siteTitle")}`}
+            content={`${t("vc:virtualAssistantTitleStatic")} — ${t(
+              "siteTitle"
+            )}`}
           />
           <meta name="twitter:creator" content="Service Canada" />
           <meta
             property="twitter:description"
-            content={t("vc:virtualAssistantBioBody")}
+            content={t("vc:virtualAssistantBioStatic")}
           />
           <meta property="twitter:image" content={t("metaImage")} />
           <meta property="twitter:image:alt" content={t("siteTitle")} />
