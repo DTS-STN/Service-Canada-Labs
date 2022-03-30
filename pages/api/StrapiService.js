@@ -20,7 +20,7 @@ export default class StrapiService {
 
     // otherwise, fetch from Strapi
     const res = await fetch(
-      `${this.baseUrl}/api${fragPath}?locale=all&dates=${this.cacheBustString}`
+      `${this.baseUrl}/api${fragPath}&dates=${this.cacheBustString}`
     );
     const error = res.ok ? false : res.status;
     const data = res.ok ? await res.json() : null;

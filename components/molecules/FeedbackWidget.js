@@ -6,6 +6,7 @@ import Joi from "joi";
 import { ErrorLabel } from "../atoms/ErrorLabel";
 import FocusTrap from "focus-trap-react";
 import lockScroll from "react-lock-scroll";
+import { stripFeedback } from "../../lib/utils/stripFeedback";
 
 /**
  * Displays the PhaseBanner on the page
@@ -74,12 +75,15 @@ export const FeedbackWidget = ({
     await setFeedbackError("");
     // compile feedback into object to be validated
     const formData = { feedback };
+    //Strip personal identifier information from feedback
+    var cleanedFeedback = stripFeedback(formData.feedback);
     // set values in feedback object
     feedbackObject.current.feedbackToSend = {
       project: projectName,
       pageUrl: path,
-      feedback: formData.feedback,
+      feedback: cleanedFeedback,
     };
+
     // validate data using Joi schema
     const { error } = formSchema.validate(formData, {
       abortEarly: false,
@@ -111,26 +115,8 @@ export const FeedbackWidget = ({
       setFocusAfterSubmit();
     } else {
       setFeedbackError(error.message);
-      srSpeak(error.message);
     }
   };
-
-  function srSpeak(text, priority) {
-    var el = document.createElement("div");
-    var id = "speak-" + Date.now();
-    el.setAttribute("id", id);
-    el.setAttribute("aria-live", priority || "polite");
-    el.classList.add("sr-only");
-    document.body.appendChild(el);
-
-    window.setTimeout(function () {
-      document.getElementById(id).innerHTML = text;
-    }, 100);
-
-    window.setTimeout(function () {
-      document.body.removeChild(document.getElementById(id));
-    }, 1000);
-  }
 
   return (
     <>
@@ -249,6 +235,7 @@ export const FeedbackWidget = ({
                   className="w-full"
                   action="#"
                   onSubmit={onSubmitHandler}
+                  aria-live="polite"
                 >
                   <label
                     htmlFor="feedbackTextArea"

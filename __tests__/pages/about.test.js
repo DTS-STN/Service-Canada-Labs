@@ -1,12 +1,27 @@
 /**
  * @jest-environment jsdom
  */
-import { render, screen } from "@testing-library/react";
-import About from "../../pages/about";
+import { screen } from "@testing-library/react";
+import fetchMock from "fetch-mock";
 
 describe("About", () => {
-  it("renders without crashing", () => {
-    render(<About />);
-    expect(screen.getByText("skipToMainContentBtn")).toBeInTheDocument();
+  beforeEach(() => {
+    fetchMock.getOnce(
+      `${process.env.NEXT_PUBLIC_STRAPI_API_BACKEND_URL}/page-contents?populate=%2A&locale=all`,
+      {
+        status: 200,
+        body: "page contents",
+      }
+    );
+  });
+  afterEach(() => {
+    fetchMock.restore();
+  });
+  it.skip("renders without crashing", async () => {
+    const { render } = await getPage({
+      route: "/about",
+    });
+    render();
+    expect(screen.getAllByText("About these labs")[0]).toBeInTheDocument();
   });
 });

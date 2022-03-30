@@ -30,11 +30,7 @@ Details.propTypes = {
   /**
    * the content for the details element
    */
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.arrayOf(PropTypes.element),
-  ]),
+  children: PropTypes.node,
 
   /**
    * unit test selector

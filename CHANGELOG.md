@@ -28,9 +28,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added `imageSpanText` prop type to ActionButton component
 - Added `imageSpanClass` prop type to ActionButton component
 - Added remaining character counter to feedback widget
+- Added the `stripFeedback` helper function which strips PII from both the feedback and report a problem forms
 - Added error label in report a problem widget
 
-# Changed
+## Changed
 
 - Add collape and expand state on the checkbox on the Report A Problem form
 - Add border to feedback popup, and give background a darker color
@@ -44,6 +45,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Removed red `required` from signup page fields to match Figma design
 - Updated feedback widget's color scheme to improve a11y
 - Move feedback error message in the feedbackinfo div which links to the textarea
+- Updated project and Dockerfile to use yarn instead of npm
+- Updated signup error labels and remove optional on labels
+- Update project page to read content from cms
+- Update home page data model to read content from cms
+- Update about page to read content from cms
+- Changed number of steps for signup and unsubscribe from 3 to 2
+- Removed srSpeak function from feedback widget and instead put `aria-live="polite"` on the form 
+- Update signup-info page to read content from cms
 
 ## Fixed
 
@@ -57,9 +66,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Fixed CallToAction redirect on `/projects` page so that it links to `/signup-info` instead of `/signup`
 - Fixed email and close button focus on the feedback widget
 
-## Changed
-
-- Changed number of steps for signup and unsubscribe from 3 to 2
 
 ## [v1.1.3] - 2021-10-27
 
