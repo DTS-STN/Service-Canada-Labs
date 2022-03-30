@@ -126,7 +126,6 @@ export default function Home(props) {
                             ? "/1x_canihelpyou.png"
                             : "/1x_fr_canihelpyou.png"
                         }
-                        scrset="/2x_canihelpyou.png 1000w"
                         width={468}
                         height={462}
                         alt=""
