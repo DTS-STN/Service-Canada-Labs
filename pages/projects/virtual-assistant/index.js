@@ -4,6 +4,8 @@ import { useTranslation } from "next-i18next";
 import { Layout } from "../../../components/organisms/Layout";
 import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect } from "react";
+import styles from "./index.module.css";
+import Image from "next/image";
 
 //  On hold for now
 //  import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge";
@@ -11,7 +13,7 @@ import { useEffect } from "react";
 
 export default function Home(props) {
   const { t } = useTranslation(["common", "vc"]);
-  const language = props.locale === "en" ? "fr" : "en";
+  const language = props.locale === "en" ? "en" : "fr";
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -107,54 +109,183 @@ export default function Home(props) {
         </Head>
 
         {/* Virtual Assitant Demo section start -  with link to working prototype */}
-        <section className="layout-container mb-10">
-          <h1 className="mb-8 text-h1l" tabIndex="-1" id="pageMainTitle">
-            {t("vc:virtualAssistantTitle")}
-          </h1>
-          {/* the scenario section */}
-          <div className="whitespace-pre-line ">
-            <h2 className="mb-6 mt-8 text-h1" id="virtualAssistantScenario">
-              {t("vc:scenarioTitle")}
-            </h2>
-            <p
-              className="mb-6 lg:col-span-2 px-1 lg:px-0 xl:w-3/4"
-              dangerouslySetInnerHTML={{ __html: t("vc:scenarioBody") }}
-            >
-              {/* {t("vc:scenarioDemoBody")} */}
-            </p>
-            <p className="flex mb-16 text-center">
-              <ActionButton
-                href={
-                  language === "en"
-                    ? "https://av-va.alpha.service.canada.ca/fr"
-                    : "https://av-va.alpha.service.canada.ca/en"
-                }
-                id="meet-va-link"
-                dataCy="meet-va-link"
-                className="rounded px-6 py-4 font-bold text-center inline-block"
-              >
-                {t("vc:meetAssistant")}
-              </ActionButton>
-              {/* href="https://av-va.alpha.service.canada.ca" */}
-            </p>
-          </div>
 
-          <div className="w-auto mb-6 ">
-            <div className="flex flex-col break-words lg:grid lg:grid-cols-2 gap-4 lg:gap-6 ">
-              <h2 className="mb-0 text-h1" id="virtualAssistantTitle">
-                {t("vc:virtualAssistantBioTitle")}
-              </h2>
-
-              <div className="row-span-2 bg-gradient-to-tr from-custom-blue-blue to-vc-blue-lt  p-4 ">
-                <img
-                  className=" object-fill w-64 h-auto mx-auto"
-                  src="/virtualconcierge/VirtualConcierge.svg"
-                  alt={t("vc:virtualAssistantLogoAlt")}
-                />
+        <div className="w-auto py-1 bg-custom-blue-lighter" id="pageMainTitle">
+          <section className="layout-container my-6">
+            <div className="w-auto h-auto">
+              <div className="flex flex-col break-words lg:grid lg:grid-cols-2 gap-4 lg:gap-6">
+                <h1 className="text-h1 border-h1-red-bar">
+                  {t("vc:virtualAssistantTitleStatic")}
+                </h1>
+                <div className="row-span-4 p-0 mx-4">
+                  <div className="flex justify-center">
+                    <div className="object-fill h-auto w-auto max-w-450px">
+                      <img
+                        src={
+                          language === "en"
+                            ? "/1x_canihelpyou.png"
+                            : "/1x_fr_canihelpyou.png"
+                        }
+                        scrset="/2x_canihelpyou.png 1000w"
+                        width={468}
+                        height={462}
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <p className="font-body text-lg pb-0 px-1 lg:px-0">
+                  {t("vc:virtualAssistantBioStatic")}
+                </p>
+                <h2 className="mt-0 mb-0 pt-0 pb-0 text-h2">
+                  {t("vc:virtualAssistantInfoTitleStatic")}
+                </h2>
+                <ul className="list-outside list-disc pl-4 pr-2">
+                  <li className="font-body text-lg mt-0 my-4 leading-tight">
+                    {t("vc:virtualAssistantInfo1")}
+                  </li>
+                  <li className="font-body text-lg my-4 leading-tight">
+                    {t("vc:virtualAssistantInfo2")}
+                  </li>
+                  <li className="font-body text-lg mt-4 mb-2 leading-tight">
+                    {t("vc:virtualAssistantInfo3")}
+                  </li>
+                </ul>
               </div>
-              <p className=" font-body text-lg px-1 lg:px-0 ">
-                {t("vc:virtualAssistantBioBody")}
-              </p>
+            </div>
+          </section>
+        </div>
+
+        <section className="layout-container my-6">
+          <div className="w-auto mb-6">
+            <h2 className={`mb-8 mt-2  ${styles.h2}`}>
+              {t("vc:sectionTitle")}
+            </h2>
+            <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 lg:gap-6">
+              <div className="p-8 mr-4 inline-block rounded-[24px] border-2 focus:ring-1 focus:ring-black focus:ring-offset-2 active:border-custom-blue-hover hover:border-custom-blue-hover">
+                <h3 className={`mb-1 ${styles.h3}`}>
+                  {t("vc:scenario2Title")}
+                </h3>
+                <p className="w-auto mb-8 text-[17px]">
+                  {t("vc:scenario2HafsaIntro")}
+                </p>
+                <div className="flex justify-center">
+                  <div className="object-fill w-auto h-auto mx-auto mb-8 mt-9">
+                    <img src="/1x_hafsa.png" alt="" width={284} height={203} />
+                  </div>
+                </div>
+                <div className="w-auto flex justify-center">
+                  <p className="text-center">
+                    <a
+                      className="font-bold underline text-sm text-page-navigation-link"
+                      data-testid="va-scenario2-link"
+                      id="va-scenario2-link"
+                      data-cy="va-scenario2-link"
+                      role="button"
+                      draggable="false"
+                      href={language === "en" ? "/en/hafsa" : "/fr/hafsa"}
+                    >
+                      {t("vc:scenario2HafsaButton")}
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-8 mr-4 inline-block rounded-[24px] border-2 focus:ring-1 focus:ring-black focus:ring-offset-2 active:border-custom-blue-hover hover:border-custom-blue-hover">
+                <h3 className={`mb-1 ${styles.h3}`}>
+                  {t("vc:scenario4Title")}
+                </h3>
+                <p className="w-auto mb-8 text-[17px]">
+                  {t("vc:scenario4AlwaysOnBotIntro")}
+                </p>
+                <div className="flex justify-center">
+                  <div className="object-fill w-auto h-auto mx-auto mb-8 mt-9">
+                    <img
+                      src="/1x_alwaysOnBot.jpg"
+                      alt=""
+                      width={284}
+                      height={203}
+                    />
+                  </div>
+                </div>
+                <div className="w-auto flex justify-center">
+                  <p className="text-center">
+                    <a
+                      className="font-bold underline text-sm text-page-navigation-link"
+                      data-testid="va-scenario4-link"
+                      id="va-scenario4-link"
+                      data-cy="va-scenario4-link"
+                      role="button"
+                      draggable="false"
+                      href={
+                        language === "en"
+                          ? "/en/alwaysonbot"
+                          : "/fr/alwaysonbot"
+                      }
+                    >
+                      {t("vc:scenario4AlwaysOnBotButton")}
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-8 mr-4 inline-block rounded-[24px] border-2 focus:ring-1 focus:ring-black focus:ring-offset-2 active:border-custom-blue-hover hover:border-custom-blue-hover">
+                <h3 className={`mb-1 ${styles.h3}`}>
+                  {t("vc:scenario3Title")}
+                </h3>
+                <p className="w-auto mb-8 text-[17px]">
+                  {t("vc:scenario3RayIntro")}
+                </p>
+                <div className="flex justify-center">
+                  <div className="object-fill w-auto h-auto mx-auto mb-8 mt-9">
+                    <img src="/1x_ray.png" alt="" width={284} height={203} />
+                  </div>
+                </div>
+                <div className="w-auto flex justify-center">
+                  <p className="text-center">
+                    <a
+                      className="font-bold underline text-sm text-page-navigation-link"
+                      data-testid="va-scenario3-link"
+                      id="va-scenario3-link"
+                      data-cy="va-scenario3-link"
+                      role="button"
+                      draggable="false"
+                      href={language === "en" ? "/en/ray" : "/fr/ray"}
+                    >
+                      {t("vc:scenario3RayButton")}
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-8 mr-4 inline-block rounded-[24px] border-2 focus:ring-1 focus:ring-black focus:ring-offset-2 active:border-custom-blue-hover hover:border-custom-blue-hover">
+                <h3 className={`mb-1 ${styles.h3}`}>
+                  {t("vc:scenario1Title")}
+                </h3>
+                <p className="w-auto mb-8 text-[17px]">
+                  {t("vc:scenario1MaryIntro")}
+                </p>
+                <div className="flex justify-center">
+                  <div className="object-fill w-auto h-auto mx-auto mb-8 mt-9">
+                    <img src="/1x_mary.png" alt="" width={284} height={203} />
+                  </div>
+                </div>
+                <div className="w-auto flex justify-center">
+                  <p className="text-center">
+                    <a
+                      className="font-bold underline text-sm text-page-navigation-link"
+                      data-testid="va-scenario1-link"
+                      id="va-scenario1-link"
+                      data-cy="va-scenario1-link"
+                      role="button"
+                      draggable="false"
+                      href={language === "en" ? "/en/mary" : "/fr/mary"}
+                    >
+                      {t("vc:scenario1MaryButton")}
+                    </a>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
