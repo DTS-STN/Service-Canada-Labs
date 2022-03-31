@@ -2,10 +2,8 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../../../components/organisms/Layout";
-import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect } from "react";
 import styles from "./index.module.css";
-import Image from "next/image";
 
 //  On hold for now
 //  import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge";
