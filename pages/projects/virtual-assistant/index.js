@@ -169,7 +169,7 @@ export default function Home(props) {
                 role="button"
                 draggable="false"
                 href={
-                  t.language === "en"
+                  language === "en"
                     ? "https://va-av-bot.alpha.service.canada.ca/en/hafsa"
                     : "https://va-av-bot.alpha.service.canada.ca/fr/hafsa"
                 }
