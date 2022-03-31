@@ -188,7 +188,11 @@ export default function Home(props) {
                       data-cy="va-scenario2-link"
                       role="button"
                       draggable="false"
-                      href={language === "en" ? "/en/hafsa" : "/fr/hafsa"}
+                      href={
+                        language === "en"
+                          ? "https://va-av-bot.alpha.service.canada.ca/en/hafsa"
+                          : "https://va-av-bot.alpha.service.canada.ca/fr/hafsa"
+                      }
                     >
                       {t("vc:scenario2HafsaButton")}
                     </a>
@@ -224,8 +228,8 @@ export default function Home(props) {
                       draggable="false"
                       href={
                         language === "en"
-                          ? "/en/alwaysonbot"
-                          : "/fr/alwaysonbot"
+                          ? "https://va-av-bot.alpha.service.canada.ca/en/alwaysonbot"
+                          : "https://va-av-bot.alpha.service.canada.ca/fr/alwaysonbot"
                       }
                     >
                       {t("vc:scenario4AlwaysOnBotButton")}
@@ -255,7 +259,11 @@ export default function Home(props) {
                       data-cy="va-scenario3-link"
                       role="button"
                       draggable="false"
-                      href={language === "en" ? "/en/ray" : "/fr/ray"}
+                      href={
+                        language === "en"
+                          ? "https://va-av-bot.alpha.service.canada.ca/en/ray"
+                          : "https://va-av-bot.alpha.service.canada.ca/fr/ray"
+                      }
                     >
                       {t("vc:scenario3RayButton")}
                     </a>
@@ -284,7 +292,11 @@ export default function Home(props) {
                       data-cy="va-scenario1-link"
                       role="button"
                       draggable="false"
-                      href={language === "en" ? "/en/mary" : "/fr/mary"}
+                      href={
+                        language === "en"
+                          ? "https://va-av-bot.alpha.service.canada.ca/en/mary"
+                          : "https://va-av-bot.alpha.service.canada.ca/fr/mary"
+                      }
                     >
                       {t("vc:scenario1MaryButton")}
                     </a>
