@@ -301,13 +301,6 @@ export default function Home(props) {
           </div>
         </section>
         {/* END Virtual Assistant Demo section end for working prototype */}
-
-        {/* <CallToAction
-          title={t("signupTitleCallToAction")}
-          html={t("becomeAParticipantDescription")}
-          href={"/signup"}
-          hrefText={t("signupBtn")}
-        /> */}
       </Layout>
       {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
