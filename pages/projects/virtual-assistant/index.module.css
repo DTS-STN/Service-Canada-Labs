@@ -1,0 +1,11 @@
+.h2 {
+	font-size: 36px;
+}
+
+.h3 {
+	font-size: 24px;
+}
+
+.card:hover div p {
+	text-decoration:underline;
+}
