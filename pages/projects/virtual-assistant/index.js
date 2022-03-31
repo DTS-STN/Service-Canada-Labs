@@ -5,10 +5,6 @@ import { Layout } from "../../../components/organisms/Layout";
 import { useEffect } from "react";
 import styles from "./index.module.css";
 
-//  On hold for now
-//  import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge";
-// import { CallToAction } from "../../../components/molecules/CallToAction";
-
 export default function Home(props) {
   const { t } = useTranslation(["common", "vc"]);
   const language = props.locale === "en" ? "en" : "fr";
