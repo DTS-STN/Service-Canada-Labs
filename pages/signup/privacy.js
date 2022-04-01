@@ -38,6 +38,8 @@ export default function Privacy(props) {
           <meta name="description" content={`${t("privacyMetaDescription")}`} />
           <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
+          <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+          <meta name="keywords" content={t("privacyKeywords")} />
 
           {/* DCMI Meta Tags */}
           <meta
@@ -47,14 +49,26 @@ export default function Privacy(props) {
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}
+            title="ISO639-2/T"
           />
-          <meta name="dcterms.creator" content={t("creator")} />
+          <meta
+            name="dcterms.description"
+            content={t("privacyMetaDescription")}
+          />
+          <meta
+            name="dcterms.subject"
+            title="gccore"
+            content={t("privacyMetaSubject")}
+          />
+          <meta name="dcterms.creator" content="Service Canada" />
           <meta name="dcterms.accessRights" content="2" />
           <meta
             name="dcterms.service"
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
-          <meta name="dcterms.issued" content="2021-06-30" />
+          <meta name="dcterms.issued" title="W3CDTF" content="2021-06-30" />
+          <meta name="dcterms.modified" title="W3CDTF" content="2021-12-10" />
+          <meta name="dcterms.spatial" content="Canada" />
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
@@ -92,7 +106,7 @@ export default function Privacy(props) {
             property="twitter:title"
             content={`${t("privacyTitle")} — ${t("siteTitle")}`}
           />
-          <meta name="twitter:creator" content={t("creator")} />
+          <meta name="twitter:creator" content="Service Canada" />
           <meta
             property="twitter:description"
             content={`${t("privacyMetaDescription")}`}

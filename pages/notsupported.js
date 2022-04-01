@@ -39,32 +39,66 @@ export default function error404(props) {
 
           {/* Primary HTML Meta Tags */}
           <title data-gc-analytics-error="notSupported">
-            {`Browser not supported — ${t("siteTitle")}`}
+            Sorry, this site will not work with Internet Explorer | Désolé, ce
+            site ne fonctionne pas avec Internet Explorer
           </title>
-          {/* Commented out until official descriptions are provided
           <meta
             name="description"
-            content={`${t("404errorMetaDescription")}`}
-          /> */}
+            content="Error message stating that the site will not work with Internet Explorer."
+          />
           <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
+          <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+          <meta content="width=device-width, initial-scale=1" name="viewport" />
 
           {/* DCMI Meta Tags */}
           <meta
-            name="dcterms.title"
-            content={`Browser not supported — ${t("siteTitle")}`}
+            property="dcterms:title"
+            lang="en"
+            content="Sorry, this site will not work with Internet Explorer"
+          />
+          <meta
+            property="dcterms:title"
+            lang="fr"
+            content="Désolé, ce site ne fonctionne pas avec Internet Explorer"
+          />
+          <meta
+            property="dcterms:description"
+            lang="en"
+            content="Error message stating that the site will not work with Internet Explorer."
+          />
+          <meta
+            property="dcterms:description"
+            lang="fr"
+            content="Message d’erreur indiquant que le site ne fonctionne pas avec Internet Explorer."
           />
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}
+            title="ISO639-2"
           />
-          <meta name="dcterms.creator" content={t("creator")} />
+          <meta name="dcterms.creator" content="Service Canada" />
           <meta name="dcterms.accessRights" content="2" />
           <meta
             name="dcterms.service"
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
-          <meta name="dcterms.issued" content="2021-06-01" />
+          <meta
+            property="dcterms:subject"
+            lang="fr"
+            title="gccore"
+            content="GV Gouvernement et vie politique;Services gouvernementaux"
+          />
+          <meta
+            property="dcterms:subject"
+            lang="en"
+            title="gccore"
+            content="GV Government and Politics;Government services"
+          />
+          <meta name="dcterms.issued" title="W3CDTF" content="2021-11-25" />
+          <meta name="dcterms.modified" title="W3CDTF" content="2021-12-16" />
+          <meta property="dcterms:issued" content="2021-11-25" />
+          <meta property="dcterms:modified" content="2021-12-16" />
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
@@ -81,11 +115,11 @@ export default function error404(props) {
             property="og:title"
             content={`Browser not supported — ${t("siteTitle")}`}
           />
-          {/* Commented out until official descriptions are provided
           <meta
             property="og:description"
-            content={`${t("404errorMetaDescription")}`}
-          /> */}
+            content="Sorry, this site will not work with Internet Explorer | Désolé, ce
+            site ne fonctionne pas avec Internet Explorer"
+          />
           <meta property="og:image" content={`${t("metaImage")}`} />
           <meta property="og:image:alt" content={`${t("siteTitle")}`} />
 
@@ -103,12 +137,12 @@ export default function error404(props) {
             property="twitter:title"
             content={`Browser not supported — ${t("siteTitle")}`}
           />
-          <meta name="twitter:creator" content={t("creator")} />
-          {/* Commented out until official descriptions are provided
+          <meta name="twitter:creator" content="Service Canada" />
           <meta
             property="twitter:description"
-            content={`${t("404errorMetaDescription")}`}
-          /> */}
+            content="Sorry, this site will not work with Internet Explorer | Désolé, ce
+            site ne fonctionne pas avec Internet Explorer"
+          />
           <meta property="twitter:image" content={`${t("metaImage")}`} />
           <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>

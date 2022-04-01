@@ -34,7 +34,7 @@ export function CallToAction(props) {
                     props.feedbackActive
                       ? "text-sm md:text-base px-24 lg:ml-8"
                       : "px-4"
-                  } rounded text-custom-blue-projects-link bg-details-button-gray hover:bg-gray-300 border border-custom-blue-blue active:bg-custom-blue-dark active:border-2 active:border-white hover:border-2 hover:border-white`}
+                  } rounded text-custom-blue-projects-link bg-details-button-gray hover:bg-gray-300 border border-custom-blue-blue active:bg-custom-blue-dark active:border-2 active:border-white hover:ring-2 hover:ring-white`}
                   className=""
                   href={props.href}
                   text={props.hrefText}

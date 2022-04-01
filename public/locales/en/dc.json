@@ -62,5 +62,9 @@
   "Concept4Img1": "/projects/en/dc-4.1.jpg",
   "Concept4Img1Alt": "Service Canada Digital Centre’s MyAccount page.",
   "Concept4Img1Caption": "This is what the Service Canada home page could look like after signing in. From top to bottom, left to right:",
-  "Concept4Img1CaptionList": "* A global navigation header with menu items such as a search bar, Benefits and services, Life journeys, Contact us and an area where users can access Preferences and a message centre * A listing of “Your benefits and services” * A sidebar containing “Did you know?” tips and tricks and “Recommended benefits for you” * Active benefits and services containing Canadian Pension Plan information with a button to View details * Pending benefits and services containing Old Age Security information with a button to View details * Inactive benefits and services containing Employment Insurance information with a button to View details"
+  "Concept4Img1CaptionList": "* A global navigation header with menu items such as a search bar, Benefits and services, Life journeys, Contact us and an area where users can access Preferences and a message centre * A listing of “Your benefits and services” * A sidebar containing “Did you know?” tips and tricks and “Recommended benefits for you” * Active benefits and services containing Canadian Pension Plan information with a button to View details * Pending benefits and services containing Old Age Security information with a button to View details * Inactive benefits and services containing Employment Insurance information with a button to View details",
+  "MetaDescription": "The proposed Service Canada Digital Centre will bring the experience of visiting a Service Canada location online. The website proposes 4 ideas to make it easier to receive benefits and services from the government and provides the opportunity to give feedback about the 4 proposed ideas.",
+  "Keywords": "Digital services, Sign In, Benefits",
+  "CanonicalURL": "https://alpha.service.canada.ca/projects/digital-centre",
+  "MetaSubject": "GV Government and Politics;Government services"
 }

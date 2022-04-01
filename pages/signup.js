@@ -4,7 +4,6 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import Joi from "joi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { ErrorBox } from "../components/molecules/ErrorBox";
 import { ErrorLabel } from "../components/atoms/ErrorLabel";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
@@ -63,6 +62,26 @@ export default function Signup(props) {
               break;
             case "string.email":
               error.message = t("errorEmail");
+            default:
+              break;
+          }
+        });
+        return errors;
+      }),
+    confirmEmail: Joi.string()
+      .email({ tlds: { allow: false } })
+      .required()
+      .equal(Joi.ref("email"))
+      .error((errors) => {
+        errors.forEach((error) => {
+          switch (error.code) {
+            case "any.required":
+              error.message = t("emailRequired");
+              break;
+            case "string.email":
+              error.message = t("errorEmail");
+            case "any.only":
+              error.message = t("emailError");
             default:
               break;
           }
@@ -169,6 +188,9 @@ export default function Signup(props) {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
 
+  const [confirmEmail, setConfirmEmail] = useState("");
+  const [confirmEmailError, setConfirmEmailError] = useState("");
+
   const [yearOfBirthRange, setYearOfBirthRange] = useState("");
   const [yearOfBirthRangeError, setYearOfBirthRangeError] = useState("");
 
@@ -192,13 +214,12 @@ export default function Signup(props) {
   const [minorityGroupOther, setMinorityGroupOther] = useState("");
 
   const [incomeLevel, setIncomeLevel] = useState("");
+  const [publicServant, setPublicServant] = useState("");
 
   const [agreeToConditions, setAgreeToConditions] = useState("");
   const [agreeToConditionsError, setAgreeToConditionsError] = useState("");
 
-  const [errorBoxErrors, setErrorBoxErrors] = useState([]);
-
-  const [errorBoxText, setErrorBoxText] = useState("");
+  const [globalErrorText, setGlobalErrorText] = useState("");
 
   const handlerMinorityGroupOnChange = (checked, name, value) => {
     // pop value from list
@@ -220,6 +241,7 @@ export default function Signup(props) {
   const handlerClearData = (e) => {
     e.preventDefault();
     setEmailError("");
+    setConfirmEmailError("");
     setLanguageError("");
     setYearOfBirthRangeError("");
     setProvinceError("");
@@ -227,6 +249,7 @@ export default function Signup(props) {
     setAgreeToConditionsError("");
 
     setEmail("");
+    setConfirmEmail("");
     setYearOfBirthRange("");
     setLanguage("");
     setGender("");
@@ -238,6 +261,7 @@ export default function Signup(props) {
     setMinorityGroup([]);
     setMinorityGroupOther("");
     setIncomeLevel("");
+    setPublicServant("");
     setAgreeToConditions("");
   };
 
@@ -245,17 +269,17 @@ export default function Signup(props) {
     e.preventDefault();
     // clear out error values
     await setEmailError("");
+    await setConfirmEmailError("");
     await setLanguageError("");
     await setYearOfBirthRangeError("");
     await setProvinceError("");
     await setDisabilityError("");
     await setAgreeToConditionsError("");
-    await setErrorBoxErrors([]);
-    await setErrorBoxText("");
 
     // compile data into one object
     const formData = {
       email,
+      confirmEmail,
       yearOfBirthRange,
       language,
       province,
@@ -268,6 +292,7 @@ export default function Signup(props) {
       minorityGroup,
       minorityGroupOther,
       incomeLevel,
+      publicServant,
       agreeToConditions,
     };
 
@@ -292,6 +317,7 @@ export default function Signup(props) {
       // map error message setters to field names so that they can be called dynamically
       const errorSetFunctions = {
         email: setEmailError,
+        confirmEmail: setConfirmEmailError,
         language: setLanguageError,
         yearOfBirthRange: setYearOfBirthRangeError,
         province: setProvinceError,
@@ -306,24 +332,17 @@ export default function Signup(props) {
       // then setting immediately
       const errors = details.reduce((prevErrors, { path, message, type }) => {
         const field = path[0];
-        const errorNumber = Object.keys(prevErrors).length + 1;
         if (!prevErrors[field]) {
           prevErrors[field] = {
             id: field,
-            number: errorNumber,
-            text:
-              `${t("error")} ${errorNumber}${fr ? "\u00A0:" : ":"} ` + message,
+            text: `${t("error")} ${fr ? "\u00A0:" : ":"} ` + message,
           };
         }
         // override the error message if the type of error is because the field is empty
         else if (type.includes("empty")) {
           prevErrors[field] = {
             id: field,
-            number: prevErrors[field].number,
-            text:
-              `${t("error")} ${prevErrors[field].number}${
-                fr ? "\u00A0:" : ":"
-              } ` + message,
+            text: `${t("error")} ${fr ? "\u00A0:" : ":"} ` + message,
           };
         }
         return prevErrors;
@@ -345,14 +364,6 @@ export default function Signup(props) {
         }
         errorsList.push(errors[error]);
       }
-
-      // set the errors to the error list
-      await setErrorBoxErrors(errorsList);
-      await setErrorBoxText(
-        `${t("errorSubmit1")} ${errorsList.length} ${
-          errorsList.length > 1 ? t("errorsSubmit2") : t("errorSubmit2")
-        }`
-      );
     } else {
       //submit data to the api and then redirect to the thank you page
       const response = await fetch("/api/sign-up", {
@@ -365,40 +376,32 @@ export default function Signup(props) {
 
       // if the response is good, redirect to the thankyou page
       if (response.status === 201 || response.status === 200) {
+        sessionStorage.setItem("email", formData.email);
+        // Remove confirm email since it's no longer needed
+        delete formData["confirmEmail"];
         let maskedEmail = maskEmail(formData.email);
+
         await push({
           pathname: "/thankyou",
           query: { e: maskedEmail, ref: "signup" },
         });
       } else if (response.status === 400) {
-        await setErrorBoxText(t("errorRegistered"));
+        await setGlobalErrorText(t("errorRegistered"));
       } else {
-        await setErrorBoxText(t("errorUnknown"));
+        await setGlobalErrorText(t("errorUnknown"));
       }
     }
-    // Checks if error box exists
-    const errorBoxEl = document.getElementById("error-box");
-    if (errorBoxEl)
-      errorBoxEl.scrollIntoView({
+    // Checks if error exists
+    const errorLabel = document.getElementsByClassName("error-label")[0];
+    const globalError = document.getElementById("form-error");
+    if (globalError)
+      globalError.scrollIntoView({
         behavior: "smooth",
       });
-    // Checks if there are list items in the error box
-    const firstErrorListEl = document.querySelector(
-      `#error-box-items > li > button`
-    );
-    if (firstErrorListEl) setTimeout(() => firstErrorListEl.focus(), 600);
-  };
-
-  const handleScrollToError = (id) => {
-    const input = document.getElementById(`${id}`);
-    setTimeout(() => input.focus(), 600);
-    const inputType = input.getAttribute("type");
-    let parentDiv = input.parentNode;
-    if (inputType === "radio") parentDiv = parentDiv.parentNode;
-    else if (inputType === "checkbox") parentDiv = parentDiv.previousSibling;
-    parentDiv.scrollIntoView({
-      behavior: "smooth",
-    });
+    else if (errorLabel)
+      errorLabel.parentElement.scrollIntoView({
+        behavior: "smooth",
+      });
   };
 
   useEffect(() => {
@@ -430,6 +433,7 @@ export default function Signup(props) {
           <meta name="description" content={`${t("signupMetaDescription")}`} />
           <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
+          <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
 
           {/* DCMI Meta Tags */}
           <meta
@@ -439,14 +443,26 @@ export default function Signup(props) {
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}
+            title="ISO639-2/T"
           />
-          <meta name="dcterms.creator" content={t("creator")} />
+          <meta
+            name="dcterms.description"
+            content={`${t("signupMetaDescription")}`}
+          />
+          <meta
+            name="dcterms.subject"
+            title="gccore"
+            content={t("metaSubject")}
+          />
+          <meta name="dcterms.creator" content="Service Canada" />
           <meta name="dcterms.accessRights" content="2" />
           <meta
             name="dcterms.service"
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
-          <meta name="dcterms.issued" content="2021-06-08" />
+          <meta name="dcterms.issued" title="W3CDTF" content="2021-06-08" />
+          <meta name="dcterms.modified" title="W3CDTF" content="2021-12-16" />
+          <meta name="dcterms.spatial" content="Canada" />
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
@@ -484,7 +500,7 @@ export default function Signup(props) {
             property="twitter:title"
             content={`${t("signupTitle")} — ${t("siteTitle")}`}
           />
-          <meta name="twitter:creator" content={t("creator")} />
+          <meta name="twitter:creator" content="Service Canada" />
           <meta
             property="twitter:description"
             content={`${t("signupMetaDescription")}`}
@@ -500,12 +516,19 @@ export default function Signup(props) {
           </div>
         </section>
         <section className="layout-container">
-          {errorBoxText ? (
-            <ErrorBox
-              text={errorBoxText}
-              errors={errorBoxErrors}
-              onClick={handleScrollToError}
-            />
+          {globalErrorText ? (
+            <div
+              id="form-error"
+              className="relative border-l-4 border-error-border-red min-h-40px my-10"
+              data-cy="form-error"
+              role="alert"
+              aria-atomic="true"
+            >
+              <span className="icon-error absolute top-1 -left-2.5 bg-white" />
+              <p className="font-bold ml-4 text-p mb-2 lg:text-h4">
+                {globalErrorText}
+              </p>
+            </div>
           ) : undefined}
           <form
             data-gc-analytics-formname="ESDC|EDSC:ServiceCanadaLabsSign-up"
@@ -514,6 +537,12 @@ export default function Signup(props) {
             noValidate
           >
             <div className="max-w-750px">
+              <p className="text-sm mb-8">
+                <b className="text-error-border-red mr-2" aria-hidden="true">
+                  *
+                </b>
+                {t("requiredInfo")}
+              </p>
               <TextField
                 className="mb-10"
                 label={t("email")}
@@ -526,6 +555,20 @@ export default function Signup(props) {
                 boldLabel={true}
                 describedby="emailDoNoInclude"
                 required
+                autoComplete="email"
+              />
+              <TextField
+                className="mb-10"
+                label={t("confirmEmail")}
+                type="email"
+                name="confirmEmail"
+                id="confirmEmail"
+                error={confirmEmailError}
+                value={confirmEmail}
+                onChange={setConfirmEmail}
+                boldLabel={true}
+                required
+                autoComplete="email"
               />
               <SelectField
                 label={t("formYear")}
@@ -548,8 +591,11 @@ export default function Signup(props) {
               />
               <fieldset className="mb-6">
                 <legend className="block leading-tight text-sm font-body mb-5 lg:text-p font-bold">
-                  <b className="text-error-border-red">*</b> {t("formLang")}{" "}
-                  <b className="text-error-border-red">{t("required")}</b>
+                  <b className="text-error-border-red" aria-hidden="true">
+                    *
+                  </b>{" "}
+                  {t("formLang")}
+                  <span className="sr-only">required</span>
                 </legend>
                 {languageError ? (
                   <ErrorLabel message={languageError} />
@@ -562,7 +608,6 @@ export default function Signup(props) {
                   error={languageError !== ""}
                   checked={fr ? language === "fr" : language === "en"}
                   onChange={(checked, name, value) => setLanguage(value)}
-                  required
                 />
                 <RadioField
                   label={fr ? t("en") : t("fr")}
@@ -572,7 +617,6 @@ export default function Signup(props) {
                   error={languageError !== ""}
                   checked={fr ? language === "en" : language === "fr"}
                   onChange={(checked, name, value) => setLanguage(value)}
-                  required
                 />
               </fieldset>
 
@@ -658,9 +702,6 @@ export default function Signup(props) {
               <fieldset className="mb-6">
                 <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
                   {t("formGender")}{" "}
-                  <span className="inline text-form-input-gray text-sm lg:text-p">
-                    {t("optional")}
-                  </span>
                 </legend>
                 <RadioField
                   label={t("woman")}
@@ -710,9 +751,6 @@ export default function Signup(props) {
               <fieldset className="mb-6">
                 <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
                   {t("formIndigenous")}{" "}
-                  <span className="inline text-form-input-gray text-sm lg:text-p">
-                    {t("optional")}
-                  </span>
                 </legend>
                 <RadioField
                   label={t("FN")}
@@ -769,9 +807,6 @@ export default function Signup(props) {
               <fieldset className="mb-6">
                 <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
                   {t("disability")}{" "}
-                  <span className="inline text-form-input-gray text-sm lg:text-p">
-                    {t("optional")}
-                  </span>
                 </legend>
                 <OptionalTextField
                   controlLabel={t("yes")}
@@ -827,9 +862,6 @@ export default function Signup(props) {
               <fieldset className="mb-6">
                 <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
                   {t("formMinority")}{" "}
-                  <span className="inline text-form-input-gray text-sm lg:text-p">
-                    {t("optional")}
-                  </span>
                 </legend>
                 <OptionalListField
                   controlName="minority"
@@ -974,9 +1006,6 @@ export default function Signup(props) {
               <fieldset className="mb-6">
                 <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
                   {t("formIncome")}{" "}
-                  <span className="inline text-form-input-gray text-sm lg:text-p not-italic">
-                    {t("optional")}
-                  </span>
                 </legend>
                 <RadioField
                   label={t("income1")}
@@ -1028,25 +1057,50 @@ export default function Signup(props) {
                 />
               </fieldset>
 
-              {agreeToConditionsError ? (
-                <ErrorLabel message={agreeToConditionsError} />
-              ) : undefined}
-              <CheckBox
-                className="h-187px sm:h-32 xxs:mb-6 xs:mb-0"
-                checked={agreeToConditions === "yes"}
-                onChange={(checked, name, value) => {
-                  if (checked) {
-                    setAgreeToConditions("");
-                  } else {
-                    setAgreeToConditions(value);
-                  }
-                }}
-                label={t("formCheckBox")}
-                id="agreeToConditions"
-                name="agreeToConditions"
-                value="yes"
-                showRequiredLabel
-              />
+              <fieldset className="mb-16">
+                <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
+                  {t("formPublicServant")}{" "}
+                </legend>
+                <RadioField
+                  label={t("yes")}
+                  id="publicServantYes"
+                  name="publicServant"
+                  checked={publicServant === "yes"}
+                  onChange={(checked, name, value) => setPublicServant(value)}
+                  value="yes"
+                />
+                <RadioField
+                  label={t("no")}
+                  id="publicServantNo"
+                  name="publicServant"
+                  checked={publicServant === "no"}
+                  onChange={(checked, name, value) => setPublicServant(value)}
+                  value="no"
+                />
+              </fieldset>
+
+              <div>
+                {agreeToConditionsError ? (
+                  <ErrorLabel message={agreeToConditionsError} />
+                ) : undefined}
+                <CheckBox
+                  className="h-187px sm:h-32 xxs:mb-6 xs:mb-0"
+                  checked={agreeToConditions === "yes"}
+                  onChange={(checked, name, value) => {
+                    if (checked) {
+                      setAgreeToConditions("");
+                    } else {
+                      setAgreeToConditions(value);
+                    }
+                  }}
+                  label={t("formCheckBox")}
+                  id="agreeToConditions"
+                  name="agreeToConditions"
+                  value="yes"
+                  showRequiredLabel
+                  required
+                />
+              </div>
             </div>
             <Link href={t("privacyRedirect")} locale={props.locale}>
               <a className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-10 text-sm lg:text-p">

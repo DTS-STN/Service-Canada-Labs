@@ -26,23 +26,23 @@ export function TextField(props) {
         htmlFor={props.id}
       >
         {props.required ? (
-          <b className="text-error-border-red">*</b>
+          <b className="text-error-border-red" aria-hidden="true">
+            *
+          </b>
         ) : undefined}{" "}
         {props.label}{" "}
-        {props.required ? (
-          <b className="text-error-border-red">{t("required")}</b>
-        ) : (
-          <p className="inline text-form-input-gray text-xs lg:text-sm">
-            {t("optional")}
-          </p>
-        )}
       </label>
-      <p
-        id={props.describedby}
-        className="text-xs lg:text-sm mb-5 leading-30px"
-      >
-        {t("doNotInclude")}
-      </p>
+      {props.describedby ? (
+        <p
+          id={props.describedby}
+          className="text-xs lg:text-sm mb-5 leading-30px"
+        >
+          {t("doNotInclude")}
+        </p>
+      ) : (
+        ""
+      )}
+
       {props.error ? <ErrorLabel message={props.error} /> : undefined}
       <input
         className={`text-input font-body w-full lg:w-3/4 min-h-40px shadow-sm text-form-input-gray border-2 py-6px px-12px ${
@@ -56,11 +56,13 @@ export function TextField(props) {
         min={props.min}
         max={props.max}
         step={props.step}
-        required={props.required}
+        aria-required={props.required}
+        aria-invalid={props.error ? "true" : undefined}
         onChange={(e) => props.onChange(e.currentTarget.value)}
         {...ifControlledProps}
         data-testid={props.dataTestId}
         data-cy={props.dataCy}
+        autoComplete={props.autoComplete}
       />
     </div>
   );
@@ -166,4 +168,9 @@ TextField.propTypes = {
    * aria-describedby label id
    */
   describedby: PropTypes.string,
+
+  /**
+   * Option to enable autocomplete on field
+   */
+  autocomplete: PropTypes.string,
 };

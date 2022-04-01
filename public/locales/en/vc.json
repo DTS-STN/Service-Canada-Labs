@@ -20,5 +20,9 @@
   "meetAssistant": "Meet the Virtual Assistant",
   "scenarioBody": "Imagine you are someone named Mary. You <b>recently lost your job</b> and apply for <b>Employment Insurance</b>. Two or three weeks later, you have not heard anything about your application, or received any money. \n\nLooking for answers, you log into the Service Canada Digital Centre, and find a <b>new message</b> in your Inbox…",
   "virtualAssistantBioTitle": "About the Service Canada Virtual Assistant",
-  "virtualAssistantBioBody": "The Virtual Assistant is a chatbot. It can help you overcome obstacles you may face when applying for a benefit. This demo shows what it might be like for someone who is applying for Employment Insurance, but is missing a document. "
+  "virtualAssistantBioBody": "The Virtual Assistant is a chatbot. It can help you overcome obstacles you may face when applying for a benefit. This demo shows what it might be like for someone who is applying for Employment Insurance, but is missing a document. ",
+  "metaDescription": "The Service Canada Virtual Assistant demo presents a conversational chatbot that can help overcome obstacles when applying for a benefit.",
+  "keywords": "Virtual Assistant, Benefits, Chatbot",
+  "canonicalURL": "https://alpha.service.canada.ca/projects/virtual-assistant",
+  "metaSubject": "GV Government and Politics;Government services"
 }

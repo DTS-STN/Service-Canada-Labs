@@ -5,6 +5,8 @@ import { useTranslation } from "next-i18next";
 import { OptionalTextField } from "../molecules/OptionalTextField";
 import { Details } from "../molecules/Details";
 import { ActionButton } from "../atoms/ActionButton";
+import { stripFeedback } from "../../lib/utils/stripFeedback";
+import { ErrorLabel } from "../atoms/ErrorLabel";
 
 /**
  * Report a problem button to report technical issues on the page.
@@ -13,28 +15,65 @@ export function ReportAProblem(props) {
   const [submitted, setSubmitted] = useState(false);
   const { t, i18n } = useTranslation();
 
+  const [submittedOnce, setSubmittedOnce] = useState(false);
+
   let onSubmitHandler = (e) => {
+    //Checking if at least one checkbox is selected
+    let checkBoxSelected = false;
+
+    //Check the checkboxes
+    let inputElements = document.getElementsByTagName("input");
+    for (let index = 0; index < inputElements.length; index++) {
+      if (inputElements[index].type == "checkbox") {
+        if (inputElements[index].checked) {
+          checkBoxSelected = true;
+        }
+      }
+    }
+
     // prevent default behaviour of form
     e.preventDefault();
     // create FormData object from form
     const formData = new FormData(e.target);
+
+    // Iterate through key/value pairs and strip personal identifier information from each value
+    for (var pair of formData.entries()) {
+      let cleanedFeedback = stripFeedback(pair[1]);
+      formData.set(pair[0], cleanedFeedback);
+    }
     // create URLSearchParams object from FormData object
     // this will be used to create url encoded string of names and values of the form fields
     const urlEncoded = new URLSearchParams(formData);
     let urlString = urlEncoded.toString();
     //Replace the values with yes for GCNotify
-    let values = [
-      "Incorrect+Information",
-      "Unclear+Information",
-      "You+didn%E2%80%99t+find+what+you+were+looking+for",
-      "Page+does+not+work+with+your+adaptive+technologies",
-      "You%E2%80%99re+worried+about+your+privacy",
-      "You+don%E2%80%99t+know+where+else+to+go+for+help",
-      "Other",
-    ];
+    let values;
+
+    if (formData.get("language").toString().localeCompare("fr") == 0) {
+      values = [
+        "Informations+incorrectes",
+        "Informations+impr%C3%A9cises",
+        "Vous+n%E2%80%99avez+pas+trouv%C3%A9+ce+que+vous+cherchiez",
+        "La+page+ne+fonctionne+pas+avec+vos+technologies+d%E2%80%99adaptation",
+        "Vous+%C3%AAtes+inquiet+pour+votre+vie+priv%C3%A9e",
+        "Vous+ne+savez+pas+o%C3%B9+trouver+de+l%E2%80%99aide",
+        "Autres",
+      ];
+    } else {
+      values = [
+        "Incorrect+Information",
+        "Unclear+Information",
+        "You+didn%E2%80%99t+find+what+you+were+looking+for",
+        "Page+does+not+work+with+your+adaptive+technologies",
+        "You%E2%80%99re+worried+about+your+privacy",
+        "You+don%E2%80%99t+know+where+else+to+go+for+help",
+        "Other",
+      ];
+    }
+
     for (const value of values) {
       urlString = urlString.replace(value, "yes");
     }
+
     // call report a problem API route
     fetch("/api/report-a-problem", {
       method: "POST",
@@ -49,7 +88,11 @@ export function ReportAProblem(props) {
       console.log(e);
     });
 
-    setSubmitted(true);
+    if (checkBoxSelected) {
+      setSubmitted(true);
+    }
+    //Make sure the form was submitted at least once
+    setSubmittedOnce(true);
   };
 
   return (
@@ -124,6 +167,9 @@ export function ReportAProblem(props) {
             />
             <fieldset>
               <legend className="text-base sm:text-p font-body font-normal mb-6">
+                <b className="text-error-border-red mr-2" aria-hidden="true">
+                  *
+                </b>
                 {t("reportAProblemCheckAllThatApply", { lng: props.language })}
               </legend>
               <OptionalTextField
@@ -149,7 +195,9 @@ export function ReportAProblem(props) {
                 describedby="incorrectInformation"
                 OptionalTextField
                 checkBoxStyle="mb-4 inline-block"
-                controlValue="Incorrect Information"
+                controlValue={t("reportAProblemIncorrectInformation", {
+                  lng: props.language,
+                })}
               />
               <OptionalTextField
                 controlId="unclearInformationCheckBox"
@@ -173,7 +221,9 @@ export function ReportAProblem(props) {
                 textFieldDataCy="unclearInformation-text"
                 describedby="unclearInformation"
                 checkBoxStyle="mb-4 inline-block"
-                controlValue="Unclear Information"
+                controlValue={t("reportAProblemUnclearInformation", {
+                  lng: props.language,
+                })}
               />
               <OptionalTextField
                 controlId="infoNotFoundCheckBox"
@@ -197,7 +247,9 @@ export function ReportAProblem(props) {
                 textFieldDataCy="infoNotFound-text"
                 describedby="infoNotFound"
                 checkBoxStyle="lg:mb-8 mb-4 inline-block"
-                controlValue="You didn’t find what you were looking for"
+                controlValue={t("reportAProblemDidNotFindWhatYoureLookingFor", {
+                  lng: props.language,
+                })}
               />
               <OptionalTextField
                 controlId="adaptiveTechnologyCheckBox"
@@ -222,7 +274,10 @@ export function ReportAProblem(props) {
                 textFieldDataCy="adaptiveTechnology-text"
                 describedby="adaptiveTechnology"
                 checkBoxStyle="mb-8 inline-block"
-                controlValue="Page does not work with your adaptive technologies"
+                controlValue={t(
+                  "reportAProblemPageDoesNotWorkWithAdaptiveTechnology",
+                  { lng: props.language }
+                )}
               />
               <OptionalTextField
                 controlId="privacyIssuesCheckBox"
@@ -246,7 +301,9 @@ export function ReportAProblem(props) {
                 textFieldDataCy="privacyIssues-text"
                 describedby="privacyIssues"
                 checkBoxStyle="mb-4 inline-block"
-                controlValue="You’re worried about your privacy"
+                controlValue={t("reportAProblemYoureWorriedAboutYourPrivacy", {
+                  lng: props.language,
+                })}
               />
               <OptionalTextField
                 controlId="noWhereElseToGoCheckBox"
@@ -270,7 +327,9 @@ export function ReportAProblem(props) {
                 textFieldDataCy="noWhereElseToGo-text"
                 describedby="noWhereElseToGo"
                 checkBoxStyle="lg:mb-8 mb-4 inline-block"
-                controlValue="You don’t know where else to go for help"
+                controlValue={t("reportAProblemNoWhereElseToGo", {
+                  lng: props.language,
+                })}
               />
               <OptionalTextField
                 controlId="otherCheckBox"
@@ -292,8 +351,13 @@ export function ReportAProblem(props) {
                 textFieldDataCy="other-text"
                 describedby="other"
                 checkBoxStyle="mb-4"
-                controlValue="Other"
+                controlValue={t("reportAProblemOther", { lng: props.language })}
               />
+              {submittedOnce ? (
+                <ErrorLabel
+                  message={t("reportAProblemError", { lng: props.language })}
+                />
+              ) : undefined}
             </fieldset>
             <ActionButton
               id="submit"

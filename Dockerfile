@@ -1,13 +1,10 @@
-FROM node:16-alpine3.13 AS base
-
+FROM node:current-alpine3.15 AS base
 RUN groupadd -r habetrot && useradd -r -s /bin/null -g habetrot habetrot
 USER habetrot
-
-WORKDIR /base
-COPY package*.json /
 RUN apk add --no-cache python3 py3-pip make g++
-RUN npm install --legacy-peer-deps
-COPY . .
+WORKDIR /base
+COPY package.json yarn.lock /
+RUN yarn install --frozen-lockfile
 
 FROM base AS build
 # TC BUILD ENVIRONMENT VARIABLES
@@ -29,9 +26,12 @@ ENV NEXT_PUBLIC_THANK_YOU_EMAIL=$NEXT_PUBLIC_THANK_YOU_EMAIL
 ENV NODE_ENV=production
 WORKDIR /build
 COPY --from=base /base ./
-RUN npm run build
+RUN true
+COPY . .
+RUN yarn install --frozen-lockfile
+RUN yarn build
 
-FROM node:16-alpine3.13 AS production
+FROM node:current-alpine3.15 AS production
 ENV NODE_ENV=production
 ENV REPORT_A_PROBLEM_ENABLED=true
 ENV NOTIFY_BASE_API_URL=https://api.notification.canada.ca
@@ -45,10 +45,10 @@ ENV NEXT_PUBLIC_ADOBE_ANALYTICS_URL=""
 WORKDIR /app
 COPY --from=build /build/next.config.js ./
 COPY --from=build /build/next-i18next.config.js ./
-COPY --from=build /build/package*.json ./
+COPY --from=build /build/package.json yarn.lock ./
 COPY --from=build /build/.next ./.next
 COPY --from=build /build/public ./public
-RUN npm install next --legacy-peer-deps
+RUN yarn add next
 
 EXPOSE 3000
-CMD npm run start
+CMD yarn start

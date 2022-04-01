@@ -28,7 +28,8 @@ export function RadioField(props) {
             props.value
           )
         }
-        required={props.required}
+        aria-required={props.required}
+        aria-invalid={props.error ? "true" : undefined}
         data-cy={props.dataCy}
         data-testid={props.dataTestId}
         {...ifControlledProps}

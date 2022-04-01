@@ -36,24 +36,60 @@ export default function Index(props) {
         <title>Service Canada Labs | Laboratoires de Service Canada</title>
         <meta
           name="description"
-          content={`${t("scLabsSplash")} — ${t("siteTitle")}`}
+          content="Explore the Service Canada Labs in English or French."
         />
         <meta name="author" content="Service Canada" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta name="robots" content="noindex, follow" />
 
         {/* DCMI Meta Tags */}
         <meta
-          name="dcterms.title"
-          content={`${t("scLabsSplash")} — ${t("siteTitle")}`}
+          property="dcterms:title"
+          lang="en"
+          content="Service Canada Labs"
+        />
+        <meta
+          property="dcterms:title"
+          lang="fr"
+          content="Laboratoires de Service Canada"
         />
         <meta
           name="dcterms.language"
           content={props.locale === "en" ? "eng" : "fra"}
+          title="ISO639-2"
         />
-        <meta name="dcterms.creator" content={t("creator")} />
+        <meta property="dcterms:creator" lang="en" content="Service Canada" />
+        <meta property="dcterms:creator" lang="fr" content="Service Canada" />
         <meta name="dcterms.accessRights" content="2" />
         <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
         <meta name="dcterms.issued" content="2021-05-06" />
+        <meta property="dcterms:modified" content="2021-12-16" />
+        <meta name="dcterms.issued" title="W3CDTF" content="2021-05-06" />
+        <meta name="dcterms.modified" title="W3CDTF" content="2021-12-16" />
+        <meta
+          property="dcterms:description"
+          lang="en"
+          content="Explore the Service Canada Labs in English or French."
+        />
+        <meta
+          property="dcterms:description"
+          lang="fr"
+          content="Explorez les laboratoires de Service Canda en français ou en anglais."
+        />
+        <meta
+          property="dcterms:subject"
+          lang="en"
+          title="gccore"
+          content="GV Government and Politics;Government services"
+        />
+        <meta
+          property="dcterms:subject"
+          lang="fr"
+          title="gccore"
+          content="GV Gouvernement et vie politique;Services gouvernementaux"
+        />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
@@ -61,11 +97,11 @@ export default function Index(props) {
         <meta property="og:url" content={"https://alpha.service.canada.ca/"} />
         <meta
           property="og:title"
-          content={`${t("scLabsSplash")} — ${t("siteTitle")}`}
+          content="Service Canada Labs | Laboratoires de Service Canada"
         />
         <meta
           property="og:description"
-          content={`${t("scLabsSplash")} — ${t("siteTitle")}`}
+          content="Explore the Service Canada Labs in English or French."
         />
         <meta property="og:image" content={`${t("metaImage")}`} />
         <meta property="og:image:alt" content={`${t("siteTitle")}`} />
@@ -78,12 +114,12 @@ export default function Index(props) {
         />
         <meta
           property="twitter:title"
-          content={`${t("scLabsSplash")} — ${t("siteTitle")}`}
+          content="Service Canada Labs | Laboratoires de Service Canada"
         />
-        <meta name="twitter:creator" content={t("creator")} />
+        <meta name="twitter:creator" content="Service Canada" />
         <meta
           property="twitter:description"
-          content={`${t("scLabsSplash")} — ${t("siteTitle")}`}
+          content="Explore the Service Canada Labs in English or French."
         />
         <meta property="twitter:image" content={`${t("metaImage")}`} />
         <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />

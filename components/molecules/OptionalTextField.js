@@ -3,6 +3,7 @@ import { CheckBox } from "../atoms/CheckBox";
 import { TextField } from "../atoms/TextField";
 import { MultiTextField } from "../atoms/MultiTextField";
 import { RadioField } from "../atoms/RadioField";
+import { useTranslation } from "next-i18next";
 import PropTypes from "prop-types";
 
 /**
@@ -10,11 +11,15 @@ import PropTypes from "prop-types";
  */
 export function OptionalTextField(props) {
   let [showTextField, setShowTextField] = useState(props.checked || false);
+  const [expandState, setExpandState] = useState("collapsed");
+  const { t } = useTranslation("common");
   let handleCheckChange = (wasChecked, name, value) => {
     if (wasChecked) {
       setShowTextField(false);
+      setExpandState(t("collapsed"));
     } else {
       setShowTextField(true);
+      setExpandState(t("expanded"));
     }
 
     if (props.onControlChange) {
@@ -36,6 +41,7 @@ export function OptionalTextField(props) {
           dataTestId={props.controlDataTestId}
           required={props.controlRequired}
           dataCy={props.controlDataCy}
+          expandState={expandState}
         />
       )}
       {props.controlType === "radiofield" && (

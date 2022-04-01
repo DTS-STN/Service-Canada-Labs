@@ -9,6 +9,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Added
 
+- Added a button to resend email after user signup
+- Added OWASP ZAP testing to github action
 - Added copied state for IE error
 - Added `/notsupported` which IE users are redirected to by making use of the next.js redirects function
 - Added the `CopyToClickboard` component as part of the `/notsupported` page
@@ -16,25 +18,54 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added IE detection to `/404` and `/500` pages as they don't auto redirect using the next.js redirects function
 - Added language detection to redirect user to the page in prefered language
 - Added a signup info page prior to the signup page
+- Added metadata for `/500`, `/error`, `/404`, `/notsupported`, `/projects/virtual-assistant`, `/projects/digital-centre`, `/signup-info`, and the splash page
+- Added an optional `Are you a public servant` question to sign-up form
+- Added an `Confirm email` field to sign-up form
+- Added a wrapper class that uses singleton pattern to manage Strapi data
+- Added `autoComplete` prop type to TextField component
+- Added `imageSource` prop type to ActionButton component
+- Added `imageAlt` prop type to ActionButton component
+- Added `imageSpanText` prop type to ActionButton component
+- Added `imageSpanClass` prop type to ActionButton component
+- Added remaining character counter to feedback widget
+- Added the `stripFeedback` helper function which strips PII from both the feedback and report a problem forms
+- Added error label in report a problem widget
 
-# Changed
+## Changed
 
+- Add collape and expand state on the checkbox on the Report A Problem form
 - Add border to feedback popup, and give background a darker color
 - Lock scroll when feedback popup is active
 - Deactivate auto focus when feedback popup is active
 - Updated introduction paragraph on the project page
 - Removed all the initial text on signup page
+- Updated metadata on every page according to the master content inventory
+- Updated project to use Tailwind V3
+- Updated the language question on the signup page by putting `aria-required` on the legend and removing `required` from each radio button so screen readers only announce required once for the grouping
+- Removed red `required` from signup page fields to match Figma design
+- Updated feedback widget's color scheme to improve a11y
+- Move feedback error message in the feedbackinfo div which links to the textarea
+- Updated project and Dockerfile to use yarn instead of npm
+- Updated signup error labels and remove optional on labels
+- Update project page to read content from cms
+- Update home page data model to read content from cms
+- Update about page to read content from cms
+- Changed number of steps for signup and unsubscribe from 3 to 2
+- Removed srSpeak function from feedback widget and instead put `aria-live="polite"` on the form 
+- Update signup-info page to read content from cms
 
 ## Fixed
 
+- Fixed feedback submit bug when submitting feedback for the second attempt
 - Fixed infinite redirect issue when switch language and refresh the page
 - Fixed tailwind configuration so font and some css are showing properly again
 - Fixed feedback widget so it sends the proper payload to the feedback API
 - Fixed issue where the continue button and submit button on the `signup-info` and `signup` pages would go offscreen at <280px
+- Fixed re-send to get correct unsubscribe email
+- Fixed how we handle data from Strapi
+- Fixed CallToAction redirect on `/projects` page so that it links to `/signup-info` instead of `/signup`
+- Fixed email and close button focus on the feedback widget
 
-## Changed
-
-- Changed number of steps for signup and unsubscribe from 3 to 2
 
 ## [v1.1.3] - 2021-10-27
 

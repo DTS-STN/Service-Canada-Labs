@@ -8,7 +8,7 @@ import { useEffect } from "react";
 export function ActionButton(props) {
   //Styling for buttons and links
   const basicStyle =
-    "rounded-sm focus:ring-1 focus:ring-black focus:ring-offset-2";
+    "rounded focus:ring-1 focus:ring-black focus:ring-offset-2";
   const defaultStyle =
     "py-2 px-4 bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light";
   const secondaryStyle =
@@ -34,6 +34,7 @@ export function ActionButton(props) {
   return props.href ? (
     <Link href={props.href}>
       <a
+        aria-label={`${props.ariaLabel ? props.ariaLabel : undefined}`}
         className={`${basicStyle}
         ${
           !props.secondary &&
@@ -70,6 +71,7 @@ export function ActionButton(props) {
   ) : (
     <button
       aria-expanded={`${props.ariaExpanded ? props.ariaExpanded : undefined}`}
+      aria-label={`${props.ariaLabel ? props.ariaLabel : undefined}`}
       className={`${basicStyle}
       ${
         !props.secondary && !props.tertiary && !props.disabled && !props.custom
@@ -92,6 +94,14 @@ export function ActionButton(props) {
       {props.icon && !props.iconEnd ? (
         <span className={props.icon} data-testid={props.dataTestId} />
       ) : undefined}
+      {props.imageSource && props.imageAlt ? (
+        <>
+          <img src={props.imageSource} alt={props.imageAlt} />
+          <span className={props.imageSpanClass} data-testid={props.dataTestId}>
+            {props.imageSpanText}
+          </span>
+        </>
+      ) : undefined}
       <span className="flex">
         {props.text}
         {props.expandIcon}
@@ -106,7 +116,7 @@ export function ActionButton(props) {
 
 ActionButton.propTypes = {
   /**
-   * This will add a img inside the button when needed
+   * This will add an icon inside the button when needed
    */
   icon: PropTypes.string,
 
@@ -200,4 +210,24 @@ ActionButton.propTypes = {
    * Aria expanded state
    */
   ariaExpanded: PropTypes.string,
+  /**
+   * Aria label
+   */
+  ariaLabel: PropTypes.string,
+  /**
+   * Image source
+   */
+  imageSource: PropTypes.string,
+  /**
+   * Image alt
+   */
+  imageAlt: PropTypes.string,
+  /**
+   * Image span text
+   */
+  imageSpanText: PropTypes.string,
+  /**
+   * Image span classname
+   */
+  imageSpanClass: PropTypes.string,
 };
