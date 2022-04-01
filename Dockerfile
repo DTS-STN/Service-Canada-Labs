@@ -1,4 +1,8 @@
 FROM node:16-alpine3.13 AS base
+
+RUN groupadd -r habetrot && useradd -r -s /bin/null -g habetrot habetrot
+USER habetrot
+
 WORKDIR /base
 COPY package*.json /
 RUN apk add --no-cache python3 py3-pip make g++
