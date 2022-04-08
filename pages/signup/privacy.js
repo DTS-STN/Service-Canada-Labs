@@ -151,16 +151,7 @@ export default function Privacy(props) {
               {t("privacyPolicyHeading2")}
             </h2>
             <p className="mb-4">{t("privacyPolicyContent7")}</p>
-            <p className="mb-4">
-              {t("privacyPolicyContent8")}
-              <a
-                href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
-                className="text-custom-blue-link underline"
-              >
-                experience@service.gc.ca
-              </a>
-              {props.locale === "en" ? " address." : "."}
-            </p>
+            <p className="mb-4">{t("privacyPolicyContent8")}</p>
             <p className="mb-8">{t("privacyPolicyContent9")}</p>
             <h2 className="mb-4 font-bold leading-10">{t("withdraw")}</h2>
             <p className="mb-8">

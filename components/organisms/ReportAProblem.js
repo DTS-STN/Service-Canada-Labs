@@ -104,20 +104,18 @@ export function ReportAProblem(props) {
       <div role="status">
         {submitted ? (
           <>
-            <h2 className="text-base font-body mb-4">
-              {t("reportAProblemThankYouForYourHelp", { lng: props.language })}
+            <h2 className="text-h3 font-display mb-4 font-bold">
+              <b>
+                {t("reportAProblemThankYouForYourHelp", {
+                  lng: props.language,
+                })}
+              </b>
             </h2>
-            <p className="text-sm font-body mb-4">
+            <p className="text-sm font-body">
               {t("reportAProblemYouWillNotBeContacted", {
                 lng: props.language,
               })}
             </p>
-            <a
-              className="underline text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-              href={`mailto: ${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
-            >
-              experience@servicecanada.gc.ca
-            </a>
           </>
         ) : (
           ""
@@ -130,14 +128,7 @@ export function ReportAProblem(props) {
           <h2 className="text-base font-body">{t("reportAProblemTitle")}</h2>
           <ul className="list-outside list-disc px-6 py-2">
             <li className="text-xs sm:text-sm font-body mb-4 leading-tight sm:leading-6">
-              <b>{t("reportAProblemNoReply", { lng: props.language })}</b>{" "}
-              {t("reportAProblemEnquiries", { lng: props.language })}{" "}
-              <a
-                className="underline text-xs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-                href="mailto:experience@servicecanada.gc.ca"
-              >
-                experience@servicecanada.gc.ca
-              </a>
+              <b>{t("reportAProblemNoReply", { lng: props.language })}</b>
             </li>
             <li className="text-xs sm:text-sm font-body my-4 leading-tight sm:leading-6">
               <b>
