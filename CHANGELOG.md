@@ -53,6 +53,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Changed number of steps for signup and unsubscribe from 3 to 2
 - Removed srSpeak function from feedback widget and instead put `aria-live="polite"` on the form 
 - Update signup-info page to read content from cms
+- Removed `experience` email from privacy page, Report a Problem and Feedback components
 
 ## Fixed
 
