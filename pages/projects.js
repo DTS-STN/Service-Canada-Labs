@@ -6,53 +6,24 @@ import { Layout } from "../components/organisms/Layout";
 import { Experiment } from "../components/molecules/Experiment";
 import { Filter } from "../components/molecules/Filter";
 import { CallToAction } from "../components/molecules/CallToAction";
-import strapiServiceInstance from "./api/StrapiServiceInstance";
+import queryGraphQL from "../graphql/client";
 
 export default function Projects(props) {
-  const data = fetch(
-    "https://www.canada.ca/content/_cq_graphql/decd-endc/endpoint.json",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        query: `{
-          scLabsExperimentList {
-            items {
-                  _path
-                title
-                  description
-                  href
-                  tag
-              }
-        }
-        }`,
-      }),
-    }
-  );
-  console.log(data);
   const { t } = useTranslation("common");
-  // const [filter, setFilter] = useState("all");
-  // const [experimentData] = useState(
-  //   props.experimentData.filter(
-  //     (experiment) => experiment.attributes.locale === props.locale
-  //   )
-  // );
-  // const [filteredExperiments, setFilteredExperiments] = useState(
-  //   props.experimentData.filter(
-  //     (experiment) => experiment.attributes.locale === props.locale
-  //   )
-  // );
+  const [filter, setFilter] = useState("all");
+  const [experimentData] = useState(props.experimentData.items);
+  const [filteredExperiments, setFilteredExperiments] = useState(
+    props.experimentData.items
+  );
 
-  // // get the filters from the data
-  // const filters = props.filters.map((value) => {
-  //   return {
-  //     ...value,
-  //     label: t(value.label),
-  //     checked: value["id"] === filter,
-  //   };
-  // });
+  // get the filters from the data
+  const filters = props.filters.map((value) => {
+    return {
+      ...value,
+      label: t(value.label),
+      checked: value["id"] === filter,
+    };
+  });
 
   const handleFilter = (value) => {
     if (value === "all") {
@@ -61,9 +32,7 @@ export default function Projects(props) {
     } else {
       setFilter(value);
       setFilteredExperiments(
-        experimentData.filter(
-          (experiment) => experiment.attributes.Status === value
-        )
+        experimentData.filter((experiment) => experiment.tag === value)
       );
     }
   };
@@ -176,7 +145,7 @@ export default function Projects(props) {
           <meta property="twitter:image" content={`${t("metaImage")}`} />
           <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
-        {/* <section className="layout-container mb-10">
+        <section className="layout-container mb-10">
           <h1 id="pageMainTitle" tabIndex="-1" className="flex-wrap mb-10">
             {t("projectsTitle")}
           </h1>
@@ -210,18 +179,18 @@ export default function Projects(props) {
               filteredExperiments.map((experiment) => (
                 <li key={experiment.id} className="flex items-stretch">
                   <Experiment
-                    title={experiment.attributes.Title}
-                    tag={experiment.attributes.Status}
-                    tagLabel={t(experiment.attributes.Status)}
-                    description={experiment.attributes.Description}
-                    href={experiment.attributes.Link}
+                    title={experiment.title}
+                    tag={experiment.tag}
+                    tagLabel={t(experiment.tag)}
+                    description={experiment.description}
+                    href={experiment.href}
                     dataTestId={`${experiment.id}`}
                     dataCy={`${experiment.id}`}
                   />
                 </li>
               ))}
           </ul>
-        </section> */}
+        </section>
         <CallToAction
           title={t("signupTitleCallToAction")}
           html={t("becomeAParticipantDescription")}
@@ -240,37 +209,42 @@ export default function Projects(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  // get projects data from stapi service instance
-  // const data = experiments.data.data;
-  // const filters = Object.values(
-  //   data.reduce(
-  //     (filters, { attributes }) => {
-  //       if (!filters[attributes.Status]) {
-  //         filters[attributes.Status] = {
-  //           id: attributes.Status,
-  //           label: attributes.Status,
-  //           checked: false,
-  //         };
-  //       }
-  //       return filters;
-  //     },
-  //     {
-  //       all: {
-  //         id: "all",
-  //         label: "All",
-  //         checked: true,
-  //       },
-  //     }
-  //   )
-  // );
+  // get projects data from AEM
+  const res = await queryGraphQL().then((result) => {
+    return result;
+  });
+
+  const data = res.data.scLabsExperimentList;
+
+  const filters = Object.values(
+    data.items.reduce(
+      (filters, { tag }) => {
+        if (!filters[tag]) {
+          filters[tag] = {
+            id: tag,
+            label: tag,
+            checked: false,
+          };
+        }
+        return filters;
+      },
+      {
+        all: {
+          id: "all",
+          label: "All",
+          checked: true,
+        },
+      }
+    )
+  );
 
   return process.env.NEXT_PUBLIC_ISR_ENABLED
     ? {
         props: {
           locale: locale,
           ...(await serverSideTranslations(locale, ["common"])),
-          // experimentData: data,
-          // filters,
+          experimentData: data,
+          filters,
         },
         revalidate: 60, // revalidate once an minute
       }
@@ -278,8 +252,8 @@ export const getStaticProps = async ({ locale }) => {
         props: {
           locale: locale,
           ...(await serverSideTranslations(locale, ["common"])),
-          // experimentData: data,
-          // filters,
+          experimentData: data,
+          filters,
         },
       };
 };
