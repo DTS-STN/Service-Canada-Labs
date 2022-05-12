@@ -6,13 +6,15 @@ import { Layout } from "../components/organisms/Layout";
 import { Experiment } from "../components/molecules/Experiment";
 import { Filter } from "../components/molecules/Filter";
 import { CallToAction } from "../components/molecules/CallToAction";
-import strapiServiceInstance from "./api/StrapiServiceInstance";
+import queryGraphQL from "../graphql/client";
+import getAllProjects from "../graphql/queries/projectQuery.graphql";
 
 export default function Projects(props) {
   const { t } = useTranslation("common");
   const [filter, setFilter] = useState("all");
+  const [experimentData] = useState(props.experimentData.items);
   const [filteredExperiments, setFilteredExperiments] = useState(
-    props.experimentData
+    props.experimentData.items
   );
 
   // get the filters from the data
@@ -24,30 +26,14 @@ export default function Projects(props) {
     };
   });
 
-  const displayExperiments = filteredExperiments.map((experiment) => (
-    <li key={experiment.id} className="flex items-stretch">
-      <Experiment
-        title={experiment.attributes.Title}
-        tag={experiment.attributes.Status}
-        tagLabel={t(experiment.attributes.Status)}
-        description={experiment.attributes.Description}
-        href={experiment.attributes.Link}
-        dataTestId={`${experiment.id}`}
-        dataCy={`${experiment.id}`}
-      />
-    </li>
-  ));
-
   const handleFilter = (value) => {
     if (value === "all") {
       setFilter("all");
-      setFilteredExperiments(props.experimentData);
+      setFilteredExperiments(experimentData);
     } else {
       setFilter(value);
       setFilteredExperiments(
-        props.experimentData.filter(
-          (experiment) => experiment.attributes.Status === value
-        )
+        experimentData.filter((experiment) => experiment.tag === value)
       );
     }
   };
@@ -57,17 +43,6 @@ export default function Projects(props) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
-    props.locale === "fr"
-      ? setFilteredExperiments(
-          filteredExperiments.filter(
-            (experiments) => experiments.attributes.locale === "fr"
-          )
-        )
-      : setFilteredExperiments(
-          filteredExperiments.filter(
-            (experiments) => experiments.attributes.locale === "en"
-          )
-        );
   }, []);
 
   return (
@@ -201,7 +176,21 @@ export default function Projects(props) {
             className="grid gap-y-5 lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12"
             data-cy="projects-list"
           >
-            {displayExperiments}
+            {filteredExperiments &&
+              filteredExperiments.map((experiment) => (
+                // Key should be experiment.id but that doesn't exist in the model yet, will need to be changed but this gets rid of console warning for now
+                <li key={experiment.title} className="flex items-stretch">
+                  <Experiment
+                    title={experiment.title}
+                    tag={experiment.tag}
+                    tagLabel={t(experiment.tag)}
+                    description={experiment.description}
+                    href={experiment.href}
+                    dataTestId={`${experiment.id}`}
+                    dataCy={`${experiment.id}`}
+                  />
+                </li>
+              ))}
           </ul>
         </section>
         <CallToAction
@@ -222,17 +211,20 @@ export default function Projects(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  // get experiments data from stapi service instance
-  const experiments = await strapiServiceInstance.getFragment("/experiments");
+  // get projects data from AEM
+  const res = await queryGraphQL(getAllProjects).then((result) => {
+    return result;
+  });
 
-  const data = experiments.data.data;
+  const data = res.data.scLabsExperimentList;
+
   const filters = Object.values(
-    data.reduce(
-      (filters, { attributes }) => {
-        if (!filters[attributes.Status]) {
-          filters[attributes.Status] = {
-            id: attributes.Status,
-            label: attributes.Status,
+    data.items.reduce(
+      (filters, { tag }) => {
+        if (!filters[tag]) {
+          filters[tag] = {
+            id: tag,
+            label: tag,
             checked: false,
           };
         }
