@@ -83,6 +83,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Removed signup confirmation/validation pages from search engine indexing
 - Added projects disclaimer to the main body text of each page
 - Updated `See the projects` button text on home and confirmation pages to be `Explore our projects` for consistency
+- Added Apollo GraphQL client function
+- Updated projects page to use data from AEM obtained via GraphQL query
 
 ## Fixed
 

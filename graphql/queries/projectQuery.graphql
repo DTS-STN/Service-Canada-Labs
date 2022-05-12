@@ -1,0 +1,11 @@
+query getAllProjects {
+  scLabsExperimentList {
+    items {
+      _path
+      title
+      description
+      href
+      tag
+    }
+  }
+}

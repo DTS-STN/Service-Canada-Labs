@@ -23,12 +23,23 @@ securityHeaders = [
   },
   {
     key: "Content-Security-Policy",
-    value: `frame-ancestors 'self'`,
+    value: `frame-ancestors 'self';`,
   },
 ];
 
 module.exports = {
   i18n,
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    
+    //GraphQL loader for .graphql files
+    config.module.rules.push({
+      test: /\.(graphql|gql)$/,
+      exclude: /node_modules/,
+      loader: 'graphql-tag/loader'
+    });
+  
+    return config
+  },
   env: {
     NEXT_PUBLIC_BUILD_DATE: process.env.NEXT_PUBLIC_BUILD_DATE,
     NEXT_PUBLIC_TC_BUILD: process.env.NEXT_PUBLIC_TC_BUILD,
