@@ -1,5 +1,4 @@
 import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
-import getAllProjects from "./queries/projectQuery.graphql";
 
 const link = new HttpLink({ uri: process.env.NEXT_PUBLIC_AEM_GRAPHQL_ENDPOINT,
 headers:{
@@ -11,10 +10,10 @@ const client = new ApolloClient({
     cache: new InMemoryCache(),
   });
 
-  export default async function(){
+  export default async function(AEMQuery){
     return client
     .query({
       query: 
-        getAllProjects
+        AEMQuery
     }).catch((error) => { console.log( error ) })
   }

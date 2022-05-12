@@ -7,6 +7,7 @@ import { Experiment } from "../components/molecules/Experiment";
 import { Filter } from "../components/molecules/Filter";
 import { CallToAction } from "../components/molecules/CallToAction";
 import queryGraphQL from "../graphql/client";
+import getAllProjects from "../graphql/queries/projectQuery.graphql";
 
 export default function Projects(props) {
   const { t } = useTranslation("common");
@@ -177,7 +178,8 @@ export default function Projects(props) {
           >
             {filteredExperiments &&
               filteredExperiments.map((experiment) => (
-                <li key={experiment.id} className="flex items-stretch">
+                // Key should be experiment.id but that doesn't exist in the model yet, will need to be changed but this gets rid of console warning for now
+                <li key={experiment.title} className="flex items-stretch">
                   <Experiment
                     title={experiment.title}
                     tag={experiment.tag}
@@ -210,7 +212,7 @@ export default function Projects(props) {
 
 export const getStaticProps = async ({ locale }) => {
   // get projects data from AEM
-  const res = await queryGraphQL().then((result) => {
+  const res = await queryGraphQL(getAllProjects).then((result) => {
     return result;
   });
 
