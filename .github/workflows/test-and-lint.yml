@@ -20,7 +20,7 @@ jobs:
         env:
           NEXT_PUBLIC_STRAPI_API_BACKEND_URL: https://alphasite-api.dts-stn.com
           NEXT_PUBLIC_API_MOCKING: enabled
-          NEXT_PUBLIC_AEM_GRAPHQL_ENDPOINT: https://www.canada.ca/content/_cq_graphql/decd-endc/endpoint.json
+          NEXT_PUBLIC_AEM_GRAPHQL_ENDPOINT: ${{ secrets.NEXT_PUBLIC_AEM_GRAPHQL_ENDPOINT }}
           CI: true
 
       - name: Linting Test 📝
