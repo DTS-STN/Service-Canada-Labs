@@ -121,7 +121,12 @@ export const FeedbackWidget = ({
   return (
     <>
       {showFeedback ? (
-        <FocusTrap focusTrapOptions={{ initialFocus: false }}>
+        <FocusTrap
+          focusTrapOptions={{
+            initialFocus: false,
+            fallbackFocus: "#feedbackClose",
+          }}
+        >
           <div
             className="fixed top-0 left-0 w-screen h-full flex justify-center items-center"
             style={{ background: "rgba(71, 71, 71, 0.8)" }}
@@ -169,6 +174,7 @@ export const FeedbackWidget = ({
                             imageSpanClass="text-xs text-white leading-4 lg:text-sm underline ml-1 lg:ml-2 lg:leading-10"
                             imageSpanText={t("close")}
                             onClick={() => setFeedbackClose(true)}
+                            tabindex="-1"
                           />
                         </div>
                       </div>
