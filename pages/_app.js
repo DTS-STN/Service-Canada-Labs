@@ -19,6 +19,7 @@ function MyApp({ Component, pageProps }) {
           content={process.env.NEXT_PUBLIC_BUILD_DATE}
         />
         <meta name="og:buildid" content={process.env.NEXT_PUBLIC_TC_BUILD} />
+        <meta name="VERSION" content={process.env.NEXT_PUBLIC_VERSION} />
       </Head>
       <Component {...pageProps} />
     </>
