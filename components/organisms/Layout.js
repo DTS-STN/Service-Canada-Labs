@@ -96,7 +96,6 @@ export const Layout = ({
               key={language}
               href={langUrl}
               locale={language}
-              onClick={() => setLanguage(language)}
               data-testid="languageLink2"
             >
               <a
