@@ -5,11 +5,15 @@ import { ActionButton } from "../components/atoms/ActionButton";
 import { useEffect } from "react";
 import { CopyToClipboard } from "../components/molecules/CopyToClipboard";
 import { useState } from "react";
+import queryGraphQL from "../graphql/client";
+import getNotSupported from "../graphql/queries/notsupportedQuery.graphql";
 
 export default function error404(props) {
   const { t } = useTranslation("common");
   const [enCopied, setEnCopied] = useState(false);
   const [frCopied, setFrCopied] = useState(false);
+  const [pageData] = useState(props.pageData.item);
+  console.log(`https://www.canada.ca${pageData.sclGcImages[0]._path}`);
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -149,7 +153,7 @@ export default function error404(props) {
         <section className="xs:px-0 lg:mx-auto lg:px-6 container">
           <img
             className="canadaLogo pt-6"
-            src={"/sig-blk-en.svg"}
+            src="https://www.canada.ca/content/dam/decd-endc/images/sclabs/sig-blk-en.svg"
             alt={"Symbol of the Government of Canada"}
           />
           <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start mt-8">
@@ -322,10 +326,32 @@ export default function error404(props) {
   );
 }
 
-export const getStaticProps = async ({ locale }) => ({
-  props: {
-    locale: locale,
-    ...(await serverSideTranslations("en", ["common"])),
-    ...(await serverSideTranslations("fr", ["common"])),
-  },
-});
+export const getStaticProps = async ({ locale }) => {
+  // get projects data from AEM
+  const res = await queryGraphQL(getNotSupported).then((result) => {
+    return result;
+  });
+
+  const data = res.data.scLabsErrorPageByPath;
+
+  console.log(data.item.sclContentEn.json[1]);
+
+  return process.env.NEXT_PUBLIC_ISR_ENABLED
+    ? {
+        props: {
+          locale: locale,
+          ...(await serverSideTranslations("en", ["common"])),
+          ...(await serverSideTranslations("fr", ["common"])),
+          pageData: data,
+        },
+        revalidate: 60, // revalidate once an minute
+      }
+    : {
+        props: {
+          locale: locale,
+          ...(await serverSideTranslations("en", ["common"])),
+          ...(await serverSideTranslations("fr", ["common"])),
+          pageData: data,
+        },
+      };
+};
