@@ -56,6 +56,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Update signup-info page to read content from cms
 - Removed `experience` email from privacy page, Report a Problem and Feedback components
 - Updated to Next.js `v12.1.6`
+- Updated `/notsupported` to use data from AEM
 
 ## Fixed
 
