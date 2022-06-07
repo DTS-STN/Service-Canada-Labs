@@ -5,11 +5,14 @@ import { ActionButton } from "../components/atoms/ActionButton";
 import { useEffect } from "react";
 import { CopyToClipboard } from "../components/molecules/CopyToClipboard";
 import { useState } from "react";
+import queryGraphQL from "../graphql/client";
+import getNotSupported from "../graphql/queries/notsupportedQuery.graphql";
 
 export default function error404(props) {
   const { t } = useTranslation("common");
   const [enCopied, setEnCopied] = useState(false);
   const [frCopied, setFrCopied] = useState(false);
+  const [pageData] = useState(props.pageData.item);
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -39,8 +42,8 @@ export default function error404(props) {
 
           {/* Primary HTML Meta Tags */}
           <title data-gc-analytics-error="notSupported">
-            Sorry, this site will not work with Internet Explorer | Désolé, ce
-            site ne fonctionne pas avec Internet Explorer
+            {pageData.sclContentEn.json[0].content[0].value} |{" "}
+            {pageData.sclContentFr.json[0].content[0].value}
           </title>
           <meta
             name="description"
@@ -149,25 +152,24 @@ export default function error404(props) {
         <section className="xs:px-0 lg:mx-auto lg:px-6 container">
           <img
             className="canadaLogo pt-6"
-            src={"/sig-blk-en.svg"}
+            src={`https://www.canada.ca${pageData.sclGcImages[0]._path}`}
             alt={"Symbol of the Government of Canada"}
           />
           <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start mt-8">
             <div>
               <div className="relative h-auto xl:w-96 xxl:w-400px lg:w-72 xl:h-400px lg:h-500px mb-8 lg:mb-0">
                 <h1 className="font-bold font-display mb-4">
-                  Sorry, this site will not work with Internet Explorer
+                  {pageData.sclContentEn.json[0].content[0].value}
                 </h1>
                 <p className="font-body text-sm mb-4 leading-normal">
-                  Please use one of the following Web browsers to visit Service
-                  Canada Labs:
+                  {pageData.sclContentEn.json[1].content[0].value}
                 </p>
               </div>
             </div>
             <div className="flex items-center justify-center circle-background my-8 lg:mt-0">
               <img
                 className="w-68px xl:w-24"
-                src="/crackedbulb.svg"
+                src={`https://www.canada.ca${pageData.sclImagelist[0]._path}`}
                 alt="Cracked lightbulb"
               />
             </div>
@@ -177,11 +179,10 @@ export default function error404(props) {
                 lang="fr"
               >
                 <h1 className="font-bold font-display mb-4">
-                  Désolé, ce site ne fonctionne pas avec Internet Explorer
+                  {pageData.sclContentFr.json[0].content[0].value}
                 </h1>
                 <p className="font-body text-sm mb-4 leading-normal">
-                  Veuillez utiliser l'un des navigateurs Web suivants pour
-                  accéder aux laboratoires de Service Canada:
+                  {pageData.sclContentFr.json[1].content[0].value}
                 </p>
               </div>
             </div>
@@ -190,25 +191,45 @@ export default function error404(props) {
         <section className="-mt-0 lg:-mt-36 sm:-mt-4 pb-5">
           <div className="flex items-center justify-center">
             <figure className="mx-4">
-              <img src="/chrome.png" alt="safari" width="98" height="98" />
+              <img
+                src={`https://www.canada.ca${pageData.sclImagelist[1]._path}`}
+                alt="chrome"
+                width="98"
+                height="98"
+              />
               <figcaption className="flex items-center justify-center">
                 Chrome
               </figcaption>
             </figure>
             <figure className="mx-4">
-              <img src="/safari.png" alt="safari" width="98" height="98" />
+              <img
+                src={`https://www.canada.ca${pageData.sclImagelist[2]._path}`}
+                alt="safari"
+                width="98"
+                height="98"
+              />
               <figcaption className="flex items-center justify-center">
                 Safari
               </figcaption>
             </figure>
             <figure className="mx-4">
-              <img src="/edge.png" alt="safari" width="94" height="94" />
+              <img
+                src={`https://www.canada.ca${pageData.sclImagelist[3]._path}`}
+                alt="edge"
+                width="94"
+                height="94"
+              />
               <figcaption className="pt-1.5 flex items-center justify-center">
                 Edge
               </figcaption>
             </figure>
             <figure className="mx-4">
-              <img src="/firefox.svg" alt="safari" width="98" height="98" />
+              <img
+                src={`https://www.canada.ca${pageData.sclImagelist[4]._path}`}
+                alt="firefox"
+                width="98"
+                height="98"
+              />
               <figcaption className="flex items-center justify-center">
                 Firefox
               </figcaption>
@@ -218,9 +239,8 @@ export default function error404(props) {
         <section className="xs:px-0 lg:mx-auto lg:px-6 container pb-44">
           <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start mt-8">
             <div className="relative h-auto xl:w-96 xxl:w-400px lg:w-72 mb-8 lg:mb-0">
-              <p className="font-body text-sm mb-4 leading-normal">
-                Copy the link below and paste in that <br />
-                browser.
+              <p className="font-body text-sm mb-4 pb-5 leading-normal">
+                {pageData.sclCopyToClipboardLabelEn}
               </p>
               <CopyToClipboard
                 buttonId="enClipboardButton"
@@ -234,21 +254,60 @@ export default function error404(props) {
                 aria_label="Copy the link below and paste in that browser."
               />
               <p className="font-body text-sm pt-6 leading-normal">
-                If you do not have any of these browsers installed, you can
-                download the one of your choice using the links below:
+                {pageData.sclBrowserDownloadLinksEn.json[0].content[0].value}
               </p>
               <ul className="underline pt-4 font-body text-sm ieLinksList">
                 <li className="browser-item">
-                  <a href={t("chromeLink")}>Download Chrome</a>
+                  <a
+                    href={
+                      pageData.sclBrowserDownloadLinksEn.json[1].content[0]
+                        .content[0].data.href
+                    }
+                  >
+                    {
+                      pageData.sclBrowserDownloadLinksEn.json[1].content[0]
+                        .content[0].value
+                    }
+                  </a>
                 </li>
                 <li className="browser-item">
-                  <a href={t("safariLink")}>Download Safari</a>
+                  <a
+                    href={
+                      pageData.sclBrowserDownloadLinksEn.json[1].content[1]
+                        .content[0].data.href
+                    }
+                  >
+                    {
+                      pageData.sclBrowserDownloadLinksEn.json[1].content[1]
+                        .content[0].value
+                    }
+                  </a>
                 </li>
                 <li className="browser-item">
-                  <a href={t("edgeLink")}>Download Edge</a>
+                  <a
+                    href={
+                      pageData.sclBrowserDownloadLinksEn.json[1].content[2]
+                        .content[0].data.href
+                    }
+                  >
+                    {
+                      pageData.sclBrowserDownloadLinksEn.json[1].content[2]
+                        .content[0].value
+                    }
+                  </a>
                 </li>
                 <li className="browser-item">
-                  <a href={t("firefoxLink")}>Download Firefox</a>
+                  <a
+                    href={
+                      pageData.sclBrowserDownloadLinksEn.json[1].content[3]
+                        .content[0].data.href
+                    }
+                  >
+                    {
+                      pageData.sclBrowserDownloadLinksEn.json[1].content[3]
+                        .content[0].value
+                    }
+                  </a>
                 </li>
               </ul>
             </div>
@@ -258,8 +317,7 @@ export default function error404(props) {
                 lang="fr"
               >
                 <p className="font-body text-sm mb-4 leading-normal">
-                  Vous n'avez qu'à copier le lien ci-dessous et le coller dans
-                  ce navigateur.
+                  {pageData.sclCopyToClipboardLabelFr}
                 </p>
                 <CopyToClipboard
                   buttonText={frCopied ? "Copié!" : "Copier lien"}
@@ -273,22 +331,60 @@ export default function error404(props) {
                   aria_label="Vous n'avez qu'à copier le lien ci-dessous et le coller dans ce navigateur."
                 />
                 <p className="font-body text-sm pt-6 leading-normal">
-                  Si aucun de ces navigateurs n'est installé, vous pouvez
-                  télécharger celui de votre choix à l'aide des liens
-                  ci-dessous:
+                  {pageData.sclBrowserDownloadLinksFr.json[0].content[0].value}
                 </p>
                 <ul className="underline pt-4 font-body text-sm ieLinksList">
                   <li className="browser-item">
-                    <a href={t("chromeLinkFR")}>Télécharger Chrome</a>
+                    <a
+                      href={
+                        pageData.sclBrowserDownloadLinksFr.json[1].content[0]
+                          .content[0].data.href
+                      }
+                    >
+                      {
+                        pageData.sclBrowserDownloadLinksFr.json[1].content[0]
+                          .content[0].value
+                      }
+                    </a>
                   </li>
                   <li className="browser-item">
-                    <a href={t("safariLinkFR")}>Télécharger Safari</a>
+                    <a
+                      href={
+                        pageData.sclBrowserDownloadLinksFr.json[1].content[1]
+                          .content[0].data.href
+                      }
+                    >
+                      {
+                        pageData.sclBrowserDownloadLinksFr.json[1].content[1]
+                          .content[0].value
+                      }
+                    </a>
                   </li>
                   <li className="browser-item">
-                    <a href={t("edgeLinkFR")}>Télécharger Edge</a>
+                    <a
+                      href={
+                        pageData.sclBrowserDownloadLinksFr.json[1].content[2]
+                          .content[0].data.href
+                      }
+                    >
+                      {
+                        pageData.sclBrowserDownloadLinksFr.json[1].content[2]
+                          .content[0].value
+                      }
+                    </a>
                   </li>
                   <li className="browser-item">
-                    <a href={t("firefoxLinkFR")}>Télécharger Firefox</a>
+                    <a
+                      href={
+                        pageData.sclBrowserDownloadLinksFr.json[1].content[3]
+                          .content[0].data.href
+                      }
+                    >
+                      {
+                        pageData.sclBrowserDownloadLinksFr.json[1].content[3]
+                          .content[0].value
+                      }
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -307,7 +403,7 @@ export default function error404(props) {
             />
             <img
               className="h-6 w-auto lg:h-auto lg:w-40"
-              src="/wmms-blk.svg"
+              src={`https://www.canada.ca${pageData.sclGcImages[1]._path}`}
               alt="Symbol of the Government of Canada"
             />
           </div>
@@ -322,10 +418,32 @@ export default function error404(props) {
   );
 }
 
-export const getStaticProps = async ({ locale }) => ({
-  props: {
-    locale: locale,
-    ...(await serverSideTranslations("en", ["common"])),
-    ...(await serverSideTranslations("fr", ["common"])),
-  },
-});
+export const getStaticProps = async ({ locale }) => {
+  // get page data from AEM
+  const res = await queryGraphQL(getNotSupported).then((result) => {
+    return result;
+  });
+
+  const data = res.data.scLabsErrorPageByPath;
+
+  console.log(res);
+
+  return process.env.NEXT_PUBLIC_ISR_ENABLED
+    ? {
+        props: {
+          locale: locale,
+          ...(await serverSideTranslations("en", ["common"])),
+          ...(await serverSideTranslations("fr", ["common"])),
+          pageData: data,
+        },
+        revalidate: 60, // revalidate once an minute
+      }
+    : {
+        props: {
+          locale: locale,
+          ...(await serverSideTranslations("en", ["common"])),
+          ...(await serverSideTranslations("fr", ["common"])),
+          pageData: data,
+        },
+      };
+};
