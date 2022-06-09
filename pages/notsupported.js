@@ -8,7 +8,7 @@ import { useState } from "react";
 import queryGraphQL from "../graphql/client";
 import getNotSupported from "../graphql/queries/notsupportedQuery.graphql";
 
-export default function error404(props) {
+export default function notSupported(props) {
   const { t } = useTranslation("common");
   const [enCopied, setEnCopied] = useState(false);
   const [frCopied, setFrCopied] = useState(false);
@@ -425,8 +425,6 @@ export const getStaticProps = async ({ locale }) => {
   });
 
   const data = res.data.scLabsErrorPageByPath;
-
-  console.log(res);
 
   return process.env.NEXT_PUBLIC_ISR_ENABLED
     ? {

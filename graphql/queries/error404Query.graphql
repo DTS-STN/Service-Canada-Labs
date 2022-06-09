@@ -1,0 +1,25 @@
+query get404Page {
+	scLabsErrorPageByPath(_path: "/content/dam/decd-endc/content-fragments/alpha/sclabs/pages/404-error-page") {
+	    item {
+            sclGcImages {
+                ... on DocumentRef {
+                    _path
+                }
+            }
+            sclImagelist {
+                ... on DocumentRef {
+                    _path
+                }
+                ... on ImageRef {
+                    _path
+                }
+            }
+            sclContentEn {
+                json
+            }
+            sclContentFr {
+                json
+            }
+        }
+	}
+}
