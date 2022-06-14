@@ -1,6 +1,21 @@
 const { i18n } = require("./next-i18next.config");
 
 securityHeaders = [
+  //Enables DNS prefetching, which reduces latency when a user clicks a link
+  {
+    key: 'X-DNS-Prefetch-Control',
+    value: 'on',
+  },
+  //Restrict our page from being rendered within a frame
+  {
+    key: 'X-Frame-Options',
+    value: 'DENY',
+  },
+  //Restrict browser features
+  {
+    key: 'Permissions-Policy',
+    value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  },
   // Only ever use HTTPS
   {
     key: "Strict-Transport-Security",
@@ -23,27 +38,32 @@ securityHeaders = [
   },
   {
     key: "Content-Security-Policy",
-    value: `frame-ancestors 'self';`,
+    value: `default-src 'self' dts-stn.com *.dts-stn.com *.adobe.com *.omniture.com *.2o7.net; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; connect-src 'self' *.demdex.net *.omtrdc.net cm.everesttech.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com data:; img-src 'self' *.omtrdc.net *.demdex.net cm.everesttech.net assets.adobedtm.com https://www.canada.ca; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; frame-src 'self' *.demdex.net; script-src 'self' 'unsafe-inline' ${
+      process.env.CI === "true"
+        ? "'unsafe-eval'"
+        : process.env.NODE_ENV === "development"
+        ? "'unsafe-eval'"
+        : ""
+    } https://ajax.googleapis.com https://assets.adobedtm.com;`,
   },
 ];
 
 module.exports = {
   i18n,
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    
     //GraphQL loader for .graphql files
     config.module.rules.push({
       test: /\.(graphql|gql)$/,
       exclude: /node_modules/,
-      loader: 'graphql-tag/loader'
+      loader: "graphql-tag/loader",
     });
-  
-    return config
+
+    return config;
   },
   env: {
     NEXT_PUBLIC_BUILD_DATE: process.env.NEXT_PUBLIC_BUILD_DATE,
     NEXT_PUBLIC_TC_BUILD: process.env.NEXT_PUBLIC_TC_BUILD,
-    NEXT_PUBLIC_VERSION: "1.1.3"
+    NEXT_PUBLIC_VERSION: "1.1.3",
   },
   poweredByHeader: false,
   async headers() {
@@ -109,7 +129,7 @@ module.exports = {
       // Note: pathmatch is removed because subpaths are in different languages, so subpath match doesn't work anymore.
       // Redirect to home page when user set prefered language
       {
-        source: '/',
+        source: "/",
         has: [
           {
             type: "header",
@@ -121,7 +141,7 @@ module.exports = {
         permanent: false,
       },
       {
-        source: '/home',
+        source: "/home",
         has: [
           {
             type: "header",
@@ -133,7 +153,7 @@ module.exports = {
         permanent: false,
       },
       {
-        source: '/404',
+        source: "/404",
         has: [
           {
             type: "header",
@@ -145,7 +165,7 @@ module.exports = {
         permanent: false,
       },
       {
-        source: '/500',
+        source: "/500",
         has: [
           {
             type: "header",
@@ -157,7 +177,7 @@ module.exports = {
         permanent: false,
       },
       {
-        source: '/about',
+        source: "/about",
         has: [
           {
             type: "header",
@@ -169,7 +189,7 @@ module.exports = {
         permanent: false,
       },
       {
-        source: '/confirmation',
+        source: "/confirmation",
         has: [
           {
             type: "header",
@@ -181,7 +201,7 @@ module.exports = {
         permanent: false,
       },
       {
-        source: '/error',
+        source: "/error",
         has: [
           {
             type: "header",
@@ -193,7 +213,7 @@ module.exports = {
         permanent: false,
       },
       {
-        source: '/projects',
+        source: "/projects",
         has: [
           {
             type: "header",
@@ -205,7 +225,7 @@ module.exports = {
         permanent: false,
       },
       {
-        source: '/signup',
+        source: "/signup",
         has: [
           {
             type: "header",
@@ -217,7 +237,7 @@ module.exports = {
         permanent: false,
       },
       {
-        source: '/signup-info',
+        source: "/signup-info",
         has: [
           {
             type: "header",
@@ -229,7 +249,7 @@ module.exports = {
         permanent: false,
       },
       {
-        source: '/thankyou',
+        source: "/thankyou",
         has: [
           {
             type: "header",
@@ -241,7 +261,7 @@ module.exports = {
         permanent: false,
       },
       {
-        source: '/unsubscribe',
+        source: "/unsubscribe",
         has: [
           {
             type: "header",
@@ -253,7 +273,7 @@ module.exports = {
         permanent: false,
       },
       {
-        source: '/signup/privacy',
+        source: "/signup/privacy",
         has: [
           {
             type: "header",
@@ -265,7 +285,7 @@ module.exports = {
         permanent: false,
       },
       {
-        source: '/projects/virtual-assistant',
+        source: "/projects/virtual-assistant",
         has: [
           {
             type: "header",
@@ -277,7 +297,7 @@ module.exports = {
         permanent: false,
       },
       {
-        source: '/projects/digital-centre',
+        source: "/projects/digital-centre",
         has: [
           {
             type: "header",
@@ -289,7 +309,7 @@ module.exports = {
         permanent: false,
       },
       {
-        source: '/projects/life-journeys',
+        source: "/projects/life-journeys",
         has: [
           {
             type: "header",
