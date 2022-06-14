@@ -6,10 +6,12 @@ import { CallToAction } from "../components/molecules/CallToAction";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { HTMList } from "../components/atoms/HTMList";
 import { useEffect } from "react";
-import Link from "next/link";
+import queryGraphQL from "../graphql/client";
+import getAllBlogEntries from "../graphql/queries/blogEntries.graphql";
 
-export default function Home(props) {
+export default function Blog(props) {
   const { t } = useTranslation("common");
+  const { posts } = props;
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -112,46 +114,13 @@ export default function Home(props) {
           <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <section className="layout-container my-12">
-          <div className="xl:w-2/3">
-            <ActionButton
-              href={t("signupInfoRedirect")}
-              id="signup-home-page"
-              dataCy="signup-home-page"
-              className="rounded !px-6 !py-4 font-bold text-center inline-block"
-            >
-              {t("signupHomeButton")}
-            </ActionButton>
-            <h2 className="my-10">{t("projectsAndExplorationTitle")}</h2>
-            <p className="mb-4 whitespace-pre-line">
-              {t("experimentsAndExploration-1/4")}
-            </p>
-            <p className="mb-4">{t("experimentsAndExploration-2/4")}</p>
-            <HTMList
-              listClassName={"mb-4 pl-10 text-p list-disc"}
-              content={t("experimentsAndExplorationList")}
-            />
-            <p className="mb-4">{t("experimentsAndExploration-3/4")}</p>
-            <p className="mb-10">{t("experimentsAndExploration-4/4")}</p>
-            <p className="mb-10">{t("projectsDisclaimerBody")}</p>
-          </div>
-          <div className="flex flex-col gap-6 lg:gap-10 lg:flex-row ">
-            <ActionButton
-              href={t("projectRedirect")}
-              text={t("menuLink1")}
-              id="ProjectsButton"
-              dataCy="ProjectsButton"
-              className="flex py-2 !px-6 justify-center font-bold rounded"
-              secondary
-            />
-            <ActionButton
-              href={t("aboutRedirect")}
-              text={t("learnMoreAboutSCL")}
-              id="AboutButton"
-              dataCy="AboutButton"
-              className="flex py-2 !px-6 justify-center font-bold rounded"
-              secondary
-            />
-          </div>
+          <h2>Blog</h2>
+          <ul>
+            {posts.map((post, i) => {
+              console.log(post);
+              return <li key={post._path}>{post._path}</li>;
+            })}
+          </ul>
         </section>
         <CallToAction
           title={t("signupTitleCallToAction")}
@@ -160,10 +129,6 @@ export default function Home(props) {
           href={t("signupInfoRedirect")}
           hrefText={t("signupBtn")}
         />
-
-        <Link href="/blog">
-          <a>Blog</a>
-        </Link>
       </Layout>
       {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
@@ -174,9 +139,32 @@ export default function Home(props) {
   );
 }
 
-export const getStaticProps = async ({ locale }) => ({
-  props: {
-    locale: locale,
-    ...(await serverSideTranslations(locale, ["common"])),
-  },
-});
+export const getStaticProps = async ({ locale }) => {
+  const { data: blogEntriesResponse } = await queryGraphQL(getAllBlogEntries);
+  const posts = blogEntriesResponse.sclabsBlogList.items;
+  return {
+    props: {
+      locale: locale,
+      posts,
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
+    revalidate: 3,
+  };
+};
+
+// export async function getStaticPaths() {
+//   const { data: blogEntriesResponse } = await queryGraphQL(getAllBlogEntries)
+//   const posts = blogEntriesResponse.sclabsBlogList.items
+
+//   // Get the paths we want to pre-render based on posts
+//   const paths = posts.map((post, i) => ({
+//     params: {
+//       id: i
+//     },
+//   }))
+
+//   // We'll pre-render only these paths at build time.
+//   // { fallback: blocking } will server-render pages
+//   // on-demand if the path doesn't exist.
+//   return { paths, fallback: 'blocking' }
+// }
