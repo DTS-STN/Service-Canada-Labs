@@ -31,10 +31,13 @@ export default function Signup(props) {
   const { push } = useRouter();
   const [pageData] = useState(props.pageData.items);
   const fr = props.locale === "fr";
-  const formField =
+
+  const [formField] = useState(
     props.locale === "en"
       ? pageData[0].form.formFields.en
-      : pageData[0].form.formFields.fr;
+      : pageData[0].form.formFields.fr
+  );
+  console.log(props.pageData);
 
   // get the options for the year of birth ranges
   const minYear = new Date().getFullYear() - 18;
