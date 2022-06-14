@@ -485,3 +485,243 @@ export const error404Page = {
     },
   },
 };
+
+export const signupPage = {
+  data: {
+    sclabsSignupList: {
+      items: [
+        {
+          _path:
+            "/content/dam/decd-endc/content-fragments/alpha/sclabs/pages/signup",
+          form: {
+            formFields: {
+              en: {
+                label: {
+                  email: "Email",
+                  confirmEmail: "Confirm email address",
+                  yearOfBirth: "What is your year of birth",
+                  language:
+                    "What language would you like us to contact you in?",
+                  province: "What province/territory do you live in?",
+                  gender: "Which term best describes your gender identity?",
+                  indigenous:
+                    "Do you identify as Indigenous; that is First Nations, Métis, or Inuit?",
+                  disability: "Do you identify as a person with a disability?",
+                  minority:
+                    "Do you identify as a member of a visible minority in Canada?",
+                  income:
+                    "What is your approximate annual household income (before taxes)?",
+                  publicServant:
+                    "Are you currently working as a public servant?",
+                },
+                option: {
+                  yes: "yes",
+                  no: "no",
+                  notSure: "I'm not sure",
+                  notApply: "Does not apply to me",
+                  preferNotAnswer: "I prefer not to answer",
+                  english: "English",
+                  french: "French",
+                  woman: "Woman",
+                  man: "Man",
+                  another: "Another",
+                  anotherDetail: "If 'Another' please specify",
+                  firstNations: "First Nations",
+                  metis: "Métis",
+                  inuk: "Inuk (Inuit)",
+                  income1: "Less than $30,000",
+                  income2: "$30,001 to $59,999",
+                  income3: "$60,000 to $99,999",
+                  income4: "$100,000 to $149,999",
+                  income5: "$150,000 or more",
+                  assistiveTech:
+                    "If 'Yes', what assistive technology will you need in order to participate in an online research session with us?",
+                  personalInfo:
+                    "Do not include any personal, medical or financial details, such as your name, social insurance number (SIN), home or business address, phone number or any case or file numbers.",
+                  province: {
+                    AB: "Alberta",
+                    BC: "British Columbia",
+                    MB: "Manitoba",
+                    NB: "New Brunswick",
+                    NL: "Newfoundland and Labrador",
+                    NT: "Northwest Territory",
+                    NS: "Nova Scotia",
+                    NU: "Nunavut",
+                    ON: "Ontario",
+                    PE: "Prince Edward Island",
+                    QC: "Quebec",
+                    SK: "Saskatchewan",
+                    YT: "Yukon",
+                    other: "Other",
+                  },
+                  minority: {
+                    detail:
+                      "If 'yes', select the options that you identify with.",
+                    black: "Black",
+                    chinese: "Chinese",
+                    filipino: "Filipino",
+                    japanese: "Japanese",
+                    korean: "Korean",
+                    latinAmerican:
+                      "Non-White Latin American (including: indigenous persons from Central and South America, etc.)",
+                    southAsian:
+                      "South Asian/East Indian (including: Indian from India; Bangladeshi; Pakistani; East Indian from Guyana, Trinidad, East Africa; etc.)",
+                    sea: "South-East Asian (including: Burmese; Cambodian; Laotian; Thai; Vietnamese; etc.)",
+                    nonWhite:
+                      "Non-White West Asian, North African or Arab (including: Egyptian; Libyan; Lebanese; Iranian; etc.)",
+                    mixedOrigin:
+                      "Person of Mixed Origin (with one parent in one of the visible minority groups)",
+                    another: "Another visible minority",
+                    anotherDetail:
+                      "If 'Another visible minority group', please specify",
+                  },
+                },
+                errorMsg: {
+                  error: "Error",
+                  invalidEmail: "Must be a valid email",
+                  emailMustMatch: "Emails must match",
+                  age: "Must be at least 18 years old",
+                  emailRequired: "Email - This field is required",
+                  yearOfBirthRequired: "Year of birth - This field is required",
+                  language:
+                    "What language would you like us to contact you in - This field is required",
+                  agreeToConditions:
+                    "You must agree to conditions before sign up",
+                  errorRegistered:
+                    "It looks like you have previously registered with us. Check your inbox for the validation email!",
+                  errorUnknown:
+                    "An unknown error has occurred during your registration. Please contact experience@servicecanada.gc.ca to continue your registration or try again later",
+                },
+                agreeToConditions:
+                  "I have read, understood and agree to the above. I affirm that I am 18 years old, or older. I understand that I can withdraw from this participant pool, or any research study at any time without consequence.",
+                privacy: "Read the full privacy policy",
+                privacyLink: "/signup/privacy",
+                submit: "Submit",
+                clearForm: "Clear my information from this form",
+              },
+              fr: {
+                label: {
+                  email: "Adresse de courrier électronique",
+                  confirmEmail: "Confirmer l'adresse courriel",
+                  yearOfBirth: "En quelle année êtes-vous né?",
+                  language:
+                    "Dans quelle langue souhaitez-vous que nous communiquions avec vous?",
+                  province: "Dans quelle province ou territoire résidez-vous?",
+                  gender:
+                    "Lequel de ces choix décrit le mieux votre identité de genre?",
+                  indigenous:
+                    "Vous identifiez-vous comme étant une personne autochtone, c’est-à-dire membre des peuples des Premières Nations, Métis ou Inuits?",
+                  disability:
+                    "Vous identifiez-vous comme une personne en situation de handicap?",
+                  minority:
+                    "Vous identifiez-vous comme étant membre d’une minorité visible au Canada?",
+                  income:
+                    "Quel est le revenu annuel approximatif de votre ménage (avant impôts)?",
+                  publicServant:
+                    "Travaillez-vous actuellement en tant que fonctionnaire?",
+                },
+                option: {
+                  yes: "Oui",
+                  no: "Non",
+                  notSure: "Je ne suis pas certain",
+                  notApply: "Ne s’applique pas à moi",
+                  preferNotAnswer: "Je préfère ne pas répondre",
+                  english: "Anglais",
+                  french: "Français",
+                  woman: "Femme",
+                  man: "Homme",
+                  another: "Un autre genre",
+                  anotherDetail:
+                    "Si vous indiquez « Un autre genre », veuillez préciser.",
+                  firstNations: "Premières nations",
+                  metis: "Métis",
+                  inuk: "Inuit",
+                  income1: "Moins de 30 000 $",
+                  income2: "De 30 001 $ à 59 999 $",
+                  income3: "De 60 000 $ à 99 999 $",
+                  income4: "De 100 000 $ à 149 999 $",
+                  income5: "150 000 $ ou plus",
+                  assistiveTech:
+                    "Si la réponse est « oui », de quelles technologie d’assistance aurez-vous besoin pour participer à une séance de recherche en ligne avec nous?",
+                  personalInfo:
+                    "Ne pas inclure de renseignements personnels, médicaux ou financiers, comme par exemple, un numéro d’assurance sociale (NAS), une adresse de domicile ou de lieu de travail, un numéro de téléphone ou numéro de dossier.",
+                  province: {
+                    AB: "Alberta",
+                    BC: "Colombie-Britannique",
+                    MB: "Manitoba",
+                    NB: "Nouveau-Brunswick",
+                    NL: "Terre-Neuve-et-Labrador",
+                    NT: "Territoires du Nord-Ouest",
+                    NS: "Nouvelle-Écosse",
+                    NU: "Nunavut",
+                    ON: "Ontario",
+                    PE: "île du Prince-Édouard",
+                    QC: "Québec",
+                    SK: "Saskatchewan",
+                    YT: "Yukon",
+                    other: "Autres",
+                  },
+                  minority: {
+                    detail:
+                      "Si vous avez répondu « Oui », sélectionnez les options auxquelles vous vous identifiez.",
+                    black: "Noirs",
+                    chinese: "Chinois",
+                    filipino: "Philippin",
+                    japanese: "Japonais",
+                    korean: "Coréen",
+                    latinAmerican:
+                      "Latino-Américain non blanc (incluant : Amérindiens de l’Amérique centrale et de l’Amérique du Sud, etc.)",
+                    southAsian:
+                      "Asiatique du Sud/Indien de l’Est (incluant : Indien de l’Inde, Bangladais, Pakistanais, Indien de l’Est originaire de la Guyane, de la Trinité, de l’Afrique orientale, etc.)",
+                    sea: "Asiatique du Sud-Est (incluant : Birman, Cambodgien, Laotien, Thaïlandais, Vietnamien, etc.)",
+                    nonWhite:
+                      "Asiatique de l’Ouest non blanc, Nord-Africain non blanc ou Arabe (incluant : Égyptien, Libyen, Libanais, Iranien, etc.)",
+                    mixedOrigin:
+                      "Personnes d’origine mixte (dont l’un des parents provient de l’un des groupes de minorité visible)",
+                    another: "Autre groupe de minorité visiblecollapsed",
+                    anotherDetail:
+                      "Si vous avez répondu « Autre groupe des minorités visibles », veuillez préciser.",
+                  },
+                },
+                errorMsg: {
+                  error: "Erreur",
+                  invalidEmail:
+                    "Doit être une adresse de courrier électronique valide",
+                  emailMustMatch: "les courriels doivent être identiques",
+                  age: "Vous devez être âgé de 18 ans ou plus",
+                  emailRequired:
+                    "Adresse de courrier électronique - Ce champ est obligatoire",
+                  yearOfBirthRequired:
+                    "Année de naissance - Ce champ est obligatoire",
+                  language:
+                    "Langue pour communiquer avec vous - Ce champ est obligatoire",
+                  agreeToConditions:
+                    "Vous devez accepter les conditions avant de vous inscrire",
+                  errorRegistered:
+                    "Il semble que vous vous soyez déjà enregistré auprès de nous. Vérifiez votre boîte de réception pour l’email de validation !",
+                  errorUnknown:
+                    "Une erreur inconnue s’est produite lors de votre inscription. Veuillez contacter experience@servicecanada.gc.ca pour poursuivre votre inscription ou réessayer plus tard",
+                },
+                agreeToConditions:
+                  "J’ai lu, compris et accepté ce qui précède. J’affirme que j’ai 18 ans ou plus. Je comprends que je peux me retirer de ce groupe de participants ou de toute étude de recherche à tout moment, sans conséquence.",
+                privacy:
+                  "Lire la politique en matière de protection des renseignements personnels dans son intégralité",
+                privacyLink:
+                  "/fr/inscription/protection-renseignements-personnels",
+                submit: "Soumettre",
+                clearForm: "Effacer mes renseignements du formulaire",
+              },
+            },
+          },
+          title: "Sign up to get invited to research sessions (Step 1 of 2)",
+          titleFr:
+            "S’inscrire pour être invité aux séances de recherche (étape 1 sur 2)",
+          requiredInformation: "Indicates required information",
+          requiredInformationFr: "Indique que les renseignements sont requis",
+          url: "/signup",
+          urlFr: "/fr/inscription",
+        },
+      ],
+    },
+  },
+};

@@ -1,0 +1,16 @@
+query getSignupPage {
+  sclabsSignupList {
+    items {
+      _path
+      form {
+        formFields
+      }
+      title
+      titleFr
+      requiredInformation
+      requiredInformationFr
+      url
+      urlFr
+    }
+  }
+}
