@@ -37,7 +37,6 @@ export default function Signup(props) {
       ? pageData[0].form.formFields.en
       : pageData[0].form.formFields.fr
   );
-  console.log(props.pageData);
 
   // get the options for the year of birth ranges
   const minYear = new Date().getFullYear() - 18;
