@@ -3,7 +3,7 @@
  */
 import { render, screen } from "@testing-library/react";
 import NotSupported from "../../pages/notsupported";
-import { notSupportedData, test } from "../../__mocks__/mockStore";
+import { notSupportedData } from "../../__mocks__/mockStore";
 
 jest.mock("@apollo/client");
 

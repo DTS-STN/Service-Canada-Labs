@@ -52,11 +52,13 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Update home page data model to read content from cms
 - Update about page to read content from cms
 - Changed number of steps for signup and unsubscribe from 3 to 2
-- Removed srSpeak function from feedback widget and instead put `aria-live="polite"` on the form 
+- Removed srSpeak function from feedback widget and instead put `aria-live="polite"` on the form
 - Update signup-info page to read content from cms
 - Removed `experience` email from privacy page, Report a Problem and Feedback components
 - Updated to Next.js `v12.1.6`
-- Updated `/notsupported` to use data from AEM
+- Updated `/notsupported`, `/404` and `/500` to use data from AEM
+- Updated `/signup` page to use get data from AEM
+- Updated `/notsupported`, `/404`, `/500`, and `/error` to use data from AEM
 
 ## Fixed
 
@@ -69,7 +71,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Fixed how we handle data from Strapi
 - Fixed CallToAction redirect on `/projects` page so that it links to `/signup-info` instead of `/signup`
 - Fixed email and close button focus on the feedback widget
-
+- Moved content security policy entries from `_document` to `next.config.js` so there is a single source of truth (and also added a few other security headers)
 
 ## [v1.1.3] - 2021-10-27
 
