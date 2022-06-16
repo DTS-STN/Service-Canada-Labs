@@ -117,7 +117,6 @@ export default function Blog(props) {
           <h2>Blog</h2>
           <ul>
             {posts.map((post, i) => {
-              console.log(post);
               return <li key={post._path}>{post._path}</li>;
             })}
           </ul>
@@ -142,29 +141,13 @@ export default function Blog(props) {
 export const getStaticProps = async ({ locale }) => {
   const { data: blogEntriesResponse } = await queryGraphQL(getAllBlogEntries);
   const posts = blogEntriesResponse.sclabsBlogList.items;
+  console.log("STATIC PROPS GET");
+  console.log(posts);
   return {
     props: {
       locale: locale,
       posts,
       ...(await serverSideTranslations(locale, ["common"])),
     },
-    revalidate: 3,
   };
 };
-
-// export async function getStaticPaths() {
-//   const { data: blogEntriesResponse } = await queryGraphQL(getAllBlogEntries)
-//   const posts = blogEntriesResponse.sclabsBlogList.items
-
-//   // Get the paths we want to pre-render based on posts
-//   const paths = posts.map((post, i) => ({
-//     params: {
-//       id: i
-//     },
-//   }))
-
-//   // We'll pre-render only these paths at build time.
-//   // { fallback: blocking } will server-render pages
-//   // on-demand if the path doesn't exist.
-//   return { paths, fallback: 'blocking' }
-// }
