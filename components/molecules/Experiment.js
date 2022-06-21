@@ -22,6 +22,9 @@ export const Experiment = (props) => {
       data-testid={props.dataTestId}
       data-cy={props.dataCy}
     >
+      <div className="bg-gray-300 -mx-6 -mt-6 mb-2" style={{ height: "290px" }}>
+        <img src={props.prototypeImgSrc} alt="" />
+      </div>
       <h2>
         <Link href={props.href}>
           <a
