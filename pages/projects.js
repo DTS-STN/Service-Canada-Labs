@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
-import { Experiment } from "../components/molecules/Experiment";
+import { Card } from "../components/molecules/Card";
 import { Filter } from "../components/molecules/Filter";
 import { CallToAction } from "../components/molecules/CallToAction";
 import queryGraphQL from "../graphql/client";
@@ -180,7 +180,7 @@ export default function Projects(props) {
               filteredExperiments.map((experiment) => (
                 // Key should be experiment.id but that doesn't exist in the model yet, will need to be changed but this gets rid of console warning for now
                 <li key={experiment.title} className="flex items-stretch">
-                  <Experiment
+                  <Card
                     title={experiment.title}
                     tag={experiment.tag}
                     tagLabel={t(experiment.tag)}
@@ -188,6 +188,9 @@ export default function Projects(props) {
                     href={experiment.href}
                     dataTestId={`${experiment.id}`}
                     dataCy={`${experiment.id}`}
+                    isExperiment
+                    imgSrc="/placeholder.png"
+                    imgAlt="placeholder"
                   />
                 </li>
               ))}
