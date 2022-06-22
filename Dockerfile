@@ -52,7 +52,7 @@ COPY --from=build /build/next-i18next.config.js ./
 COPY --from=build /build/package.json yarn.lock ./
 COPY --from=build /build/.next ./.next
 COPY --from=build /build/public ./public
-COPY --from=build /build/node_modules ./node_modules/
+RUN yarn add next
 
 EXPOSE 3000
 CMD yarn start
