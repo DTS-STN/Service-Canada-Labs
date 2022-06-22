@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { ActionButton } from "../atoms/ActionButton";
+import Image from "next/image";
 
 /**
  * Displays an experiment card on the page
@@ -30,9 +31,17 @@ export const Card = (props) => {
         className={`${
           props.isExperiment ? "-mx-6 -mt-6" : ""
         } bg-gray-300 mb-4`}
-        style={{ height: `${props.isExperiment ? "290px" : "326px"}` }}
+        style={{
+          height: `${props.isExperiment ? "290px" : "326px"}`,
+          position: "relative",
+        }}
       >
-        <img src={props.prototypeImgSrc} alt="" />
+        <Image
+          src={props.imgSrc}
+          alt={props.imgAlt}
+          layout="fill"
+          objectFit="cover"
+        />
       </div>
       <h2>
         {props.isExperiment ? (

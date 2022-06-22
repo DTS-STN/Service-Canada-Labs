@@ -14,6 +14,8 @@ export const Experiment = Template.bind({});
 Primary.args = {
   title: "Title",
   description: "Description",
+  imgSrc: "/placeholderImg",
+  imgAlt: "placeholderAlt",
 };
 
 Experiment.args = {
@@ -23,4 +25,6 @@ Experiment.args = {
   tagLabel: "Experiment tag",
   description: "Description",
   href: "/some/link",
+  imgSrc: "/placeholderImg",
+  imgAlt: "placeholderAlt",
 };

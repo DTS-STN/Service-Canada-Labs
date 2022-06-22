@@ -189,6 +189,8 @@ export default function Projects(props) {
                     dataTestId={`${experiment.id}`}
                     dataCy={`${experiment.id}`}
                     isExperiment
+                    imgSrc="/placeholder.png"
+                    imgAlt="placeholder"
                   />
                 </li>
               ))}
