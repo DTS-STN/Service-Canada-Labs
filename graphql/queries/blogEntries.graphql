@@ -1,0 +1,7 @@
+query getAllBlogEntries {
+  sclabsBlogList {
+    items {
+      _path
+    }
+  }
+}
