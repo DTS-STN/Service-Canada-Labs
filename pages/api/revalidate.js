@@ -7,9 +7,9 @@ export default async function handler(req, res) {
   }
 
   try {
-    for (let i = 0; i < REVALIDATION_ROUTES.length; i++) {
-      await res.unstable_revalidate(REVALIDATION_ROUTES[i]);
-    }
+    await Promise.all(
+      REVALIDATION_ROUTES.map((route) => res.unstable_revalidate(route))
+    );
     return res.json({ revalidated: true });
   } catch (err) {
     // If there was an error, Next.js will continue

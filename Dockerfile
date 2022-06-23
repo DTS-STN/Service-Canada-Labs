@@ -31,8 +31,7 @@ WORKDIR /build
 COPY --from=base /base ./
 RUN true
 COPY . .
-RUN yarn install --frozen-lockfile
-RUN yarn build
+RUN yarn install --frozen-lockfile && yarn build
 
 FROM node:current-alpine3.15 AS production
 ARG REVALIDATION_TOKEN
@@ -53,7 +52,7 @@ COPY --from=build /build/next-i18next.config.js ./
 COPY --from=build /build/package.json yarn.lock ./
 COPY --from=build /build/.next ./.next
 COPY --from=build /build/public ./public
-RUN yarn add next
+COPY --from=build /build/node_modules ./node_modules/
 
 EXPOSE 3000
 CMD yarn start
