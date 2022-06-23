@@ -6,7 +6,6 @@ import { CallToAction } from "../components/molecules/CallToAction";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { HTMList } from "../components/atoms/HTMList";
 import { useEffect } from "react";
-import Link from "next/link";
 
 export default function Home(props) {
   const { t } = useTranslation("common");
@@ -160,10 +159,6 @@ export default function Home(props) {
           href={t("signupInfoRedirect")}
           hrefText={t("signupBtn")}
         />
-
-        <Link href="/blog">
-          <a>Blog</a>
-        </Link>
       </Layout>
       {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
