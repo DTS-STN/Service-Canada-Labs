@@ -19,6 +19,8 @@ export default function Projects(props) {
     props.experimentData.items
   );
 
+  console.log();
+
   // get the filters from the data
   const filters = props.filters.map((value) => {
     return {
@@ -169,7 +171,7 @@ export default function Projects(props) {
             >
               <Image
                 src={`https://www.canada.ca${pageData.scFragments[2].scImageEn._path}`}
-                alt={props.imgAlt}
+                alt={pageData.scFragments[2].scImageAltTextEn}
                 layout="fill"
                 objectFit="cover"
               />
