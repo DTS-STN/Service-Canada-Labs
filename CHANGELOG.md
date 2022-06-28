@@ -61,6 +61,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated `/signup` page to use get data from AEM
 - Updated `/notsupported`, `/404`, `/500`, and `/error` to use data from AEM
 - Updated Experiment component to a generic card component
+- Updated home page to match new Figma designs
 
 ## Fixed
 

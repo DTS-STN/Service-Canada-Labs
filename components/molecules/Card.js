@@ -20,8 +20,8 @@ export const Card = (props) => {
   return (
     <div
       className={`${
-        props.isExperiment ? "shadow-experiment-shadow" : ""
-      } p-6 xl:min-h-250px ${
+        props.isExperiment ? "shadow-experiment-shadow p-6" : ""
+      } xl:min-h-250px ${
         "border-" + (tagColours[props.tag] || "gray-experiment")
       }`}
       data-testid={props.dataTestId}
@@ -100,7 +100,7 @@ Card.propTypes = {
   /**
    * tag of the experiment card
    */
-  tag: PropTypes.string.isRequired,
+  tag: PropTypes.string,
 
   /**
    * Link of the card
@@ -110,7 +110,7 @@ Card.propTypes = {
   /**
    * the label of the tag card
    */
-  tagLabel: PropTypes.string.isRequired,
+  tagLabel: PropTypes.string,
 
   /**
    * Description of the experiment card.

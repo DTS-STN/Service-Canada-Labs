@@ -2,13 +2,15 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
-import { CallToAction } from "../components/molecules/CallToAction";
 import { ActionButton } from "../components/atoms/ActionButton";
-import { HTMList } from "../components/atoms/HTMList";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Card from "../components/molecules/Card";
+import queryGraphQL from "../graphql/client";
+import getHomePage from "../graphql/queries/homePageQuery.graphql";
 
 export default function Home(props) {
   const { t } = useTranslation("common");
+  const [pageData] = useState(props.pageData.item);
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -19,12 +21,7 @@ export default function Home(props) {
 
   return (
     <>
-      <Layout
-        bannerTitle={t("siteTitle")}
-        bannerText={t("bannerText")}
-        locale={props.locale}
-        langUrl={t("homePath")}
-      >
+      <Layout locale={props.locale} langUrl={t("homePath")}>
         <Head>
           {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
             <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
@@ -110,55 +107,114 @@ export default function Home(props) {
           <meta property="twitter:image" content={`${t("metaImage")}`} />
           <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
-        <section className="layout-container my-12">
-          <div className="xl:w-2/3">
-            <ActionButton
-              href={t("signupInfoRedirect")}
-              id="signup-home-page"
-              dataCy="signup-home-page"
-              className="rounded !px-6 !py-4 font-bold text-center inline-block"
-            >
-              {t("signupHomeButton")}
-            </ActionButton>
-            <h2 className="my-10">{t("projectsAndExplorationTitle")}</h2>
-            <p className="mb-4 whitespace-pre-line">
-              {t("experimentsAndExploration-1/4")}
+        <section className="layout-container mb-12 mt-8">
+          <h1 className="font-display pb-4 text-h1xl font-bold">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[0].content[0].value
+              : pageData.scFragments[0].scContentFr.json[0].content[0].value}
+          </h1>
+          <p className="font-body">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[1].content[0].value
+              : pageData.scFragments[0].scContentFr.json[1].content[0].value}
+          </p>
+          <h2 className="mt-12 mb-6 text-h1l">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[2].content[0].value
+              : pageData.scFragments[0].scContentFr.json[2].content[0].value}
+          </h2>
+          <div className="mb-20 flex gap-12">
+            <p className="mt-6">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[3].content[0].value
+                : pageData.scFragments[0].scContentFr.json[3].content[0]
+                    .value}{" "}
+              <br />
+              <span className="flex pt-12">
+                <ActionButton
+                  href={
+                    props.locale === "en"
+                      ? pageData.scFragments[2].scDestinationURLEn
+                      : pageData.scFragments[2].scDestinationURLFr
+                  }
+                  text={
+                    props.locale === "en"
+                      ? pageData.scFragments[2].scTitleEn
+                      : pageData.scFragments[2].scTitleFr
+                  }
+                  id={pageData.scFragments[2].scId}
+                />
+              </span>
             </p>
-            <p className="mb-4">{t("experimentsAndExploration-2/4")}</p>
-            <HTMList
-              listClassName={"mb-4 pl-10 text-p list-disc"}
-              content={t("experimentsAndExplorationList")}
+            <img
+              src={`https://www.canada.ca${
+                props.locale === "en"
+                  ? pageData.scFragments[1].scImageEn._path
+                  : pageData.scFragments[1].scImageFr._path
+              }`}
+              className="xl:mr-24 hidden xl:flex"
             />
-            <p className="mb-4">{t("experimentsAndExploration-3/4")}</p>
-            <p className="mb-10">{t("experimentsAndExploration-4/4")}</p>
-            <p className="mb-10">{t("projectsDisclaimerBody")}</p>
           </div>
-          <div className="flex flex-col gap-6 lg:gap-10 lg:flex-row ">
-            <ActionButton
-              href={t("projectRedirect")}
-              text={t("menuLink1")}
-              id="ProjectsButton"
-              dataCy="ProjectsButton"
-              className="flex py-2 !px-6 justify-center font-bold rounded"
-              secondary
+          <div className="xl:w-2/3"></div>
+          <div className="grid lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12">
+            <Card
+              imgSrc={`https://www.canada.ca${
+                props.locale === "en"
+                  ? pageData.scFragments[3].scImageEn._path
+                  : pageData.scFragments[3].scImageFr._path
+              }`}
+              title={
+                props.locale === "en"
+                  ? pageData.scFragments[3].scTitleEn
+                  : pageData.scFragments[3].scTitleFr
+              }
+              description={
+                props.locale === "en"
+                  ? pageData.scFragments[3].scContentEn.json[0].content[0].value
+                  : pageData.scFragments[3].scContentFr.json[0].content[0].value
+              }
+              btnText={
+                props.locale === "en"
+                  ? pageData.scFragments[3].scLabsButton[0].scTitleEn
+                  : pageData.scFragments[3].scLabsButton[0].scTitleFr
+              }
+              btnHref={
+                props.locale === "en"
+                  ? pageData.scFragments[3].scLabsButton[0].scDestinationURLEn
+                  : pageData.scFragments[3].scLabsButton[0].scDestinationURLFr
+              }
+              btnId={pageData.scFragments[3].scLabsButton[0].scId}
             />
-            <ActionButton
-              href={t("aboutRedirect")}
-              text={t("learnMoreAboutSCL")}
-              id="AboutButton"
-              dataCy="AboutButton"
-              className="flex py-2 !px-6 justify-center font-bold rounded"
-              secondary
+            <Card
+              imgSrc={`https://www.canada.ca${
+                props.locale === "en"
+                  ? pageData.scFragments[4].scImageEn._path
+                  : pageData.scFragments[4].scImageFr._path
+              }`}
+              title={
+                props.locale === "en"
+                  ? pageData.scFragments[4].scTitleEn
+                  : pageData.scFragments[4].scTitleFr
+              }
+              description={
+                props.locale === "en"
+                  ? pageData.scFragments[4].scContentEn.json[0].content[0].value
+                  : pageData.scFragments[4].scContentFr.json[0].content[0].value
+              }
+              btnText={
+                props.locale === "en"
+                  ? pageData.scFragments[4].scLabsButton[0].scTitleEn
+                  : pageData.scFragments[4].scLabsButton[0].scTitleFr
+              }
+              btnHref={
+                props.locale === "en"
+                  ? pageData.scFragments[4].scLabsButton[0].scDestinationURLEn
+                  : pageData.scFragments[4].scLabsButton[0].scDestinationURLFr
+              }
+              btnId={pageData.scFragments[4].scLabsButton[0].scId}
             />
           </div>
         </section>
-        <CallToAction
-          title={t("signupTitleCallToAction")}
-          html={t("becomeAParticipantDescription")}
-          lang={props.locale}
-          href={t("signupInfoRedirect")}
-          hrefText={t("signupBtn")}
-        />
       </Layout>
       {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
@@ -169,9 +225,18 @@ export default function Home(props) {
   );
 }
 
-export const getStaticProps = async ({ locale }) => ({
-  props: {
-    locale: locale,
-    ...(await serverSideTranslations(locale, ["common"])),
-  },
-});
+export const getStaticProps = async ({ locale }) => {
+  // get page data from AEM
+  const res = await queryGraphQL(getHomePage).then((result) => {
+    return result;
+  });
+
+  const data = res.data.sCLabsPageByPath;
+  return {
+    props: {
+      locale: locale,
+      pageData: data,
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
+  };
+};
