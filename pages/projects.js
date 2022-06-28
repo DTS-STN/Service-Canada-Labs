@@ -219,7 +219,7 @@ export default function Projects(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  // get projects data from AEM
+  // get page data and experiments data from AEM
   const res1 = await queryGraphQL(getAllProjects).then((result) => {
     return result;
   });
