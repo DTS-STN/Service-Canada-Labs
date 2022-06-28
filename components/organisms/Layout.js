@@ -29,6 +29,7 @@ export const Layout = ({
   feedbackActive,
   projectName,
   path,
+  dateModifiedOverride,
 }) => {
   const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
@@ -131,7 +132,7 @@ export const Layout = ({
           <ReportAProblem />
         </div>
         <div className="layout-container mb-2">
-          <DateModified date={process.env.NEXT_PUBLIC_BUILD_DATE} />
+          <DateModified date={dateModifiedOverride} />
         </div>
         <Footer
           footerLogoAltText={t("symbol2")}
@@ -260,4 +261,8 @@ Layout.propTypes = {
    * Path that the feedback is coming from
    */
   path: PropTypes.string,
+  /**
+   * Manual override for date modified component
+   */
+  dateModifiedOverride: PropTypes.string,
 };

@@ -4,9 +4,13 @@ import { useTranslation } from "next-i18next";
 export function DateModified(props) {
   const { t } = useTranslation("common");
   // TeamCity build dates are received in the format yyyyMMdd
-  const dateFormatted = props.date
-    ? props.date.replace(/^(.{4})(.{2})/gm, "$1-$2-")
-    : "NA";
+  let dateFormatted = "NA";
+  if (props.date) {
+    if (!props.date.match(/(?=\S*['-])([a-zA-Z'-]+)/gim)) {
+      dateFormatted = props.date.replace(/^(.{4})(.{2})/gm, "$1-$2-");
+    } else dateFormatted = props.date;
+  }
+
   return (
     <dl className="mt-8 py-2 font-body font-normal text-sm">
       <dt className="inline">{t("dateModified")}</dt>
@@ -20,6 +24,10 @@ export function DateModified(props) {
     </dl>
   );
 }
+
+DateModified.defaultProps = {
+  date: process.env.NEXT_PUBLIC_BUILD_DATE,
+};
 
 DateModified.propTypes = {
   // Date string in format yyyyMMdd
