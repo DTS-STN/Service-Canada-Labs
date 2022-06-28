@@ -22,10 +22,6 @@ describe("signup page", () => {
     cy.url().should("eq", "http://localhost:3000/fr/inscription");
   });
 
-  it("Menu appears on the page", () => {
-    cy.get('[data-cy="menu"]').should("be.visible");
-  });
-
   it("Fails to submit with no input", () => {
     cy.get('[data-cy="signup-submit"]').click();
     cy.url().should("contains", "/signup");
