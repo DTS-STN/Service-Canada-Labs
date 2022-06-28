@@ -26,11 +26,14 @@ export const Card = (props) => {
       }`}
       data-testid={props.dataTestId}
       data-cy={props.dataCy}
+      style={{
+        width: "560px",
+        minWidth: "min-content",
+      }}
     >
       <div
         className="bg-gray-300"
         style={{
-          maxWidth: "560px",
           height: `${props.isExperiment ? "290px" : "326px"}`,
           position: "relative",
         }}
@@ -77,9 +80,7 @@ export const Card = (props) => {
             {props.tagLabel}
           </span>
         ) : undefined}
-        <p className="mt-2 leading-30px text-lg" style={{ maxWidth: "500px" }}>
-          {props.description}
-        </p>
+        <p className="mt-2 leading-30px text-lg">{props.description}</p>
         {!props.isExperiment ? (
           <span className="flex">
             <ActionButton
