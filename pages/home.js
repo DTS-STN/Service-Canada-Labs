@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Card from "../components/molecules/Card";
 import queryGraphQL from "../graphql/client";
 import getHomePage from "../graphql/queries/homePageQuery.graphql";
+import Image from "next/image";
 
 export default function Home(props) {
   const { t } = useTranslation("common");
@@ -110,6 +111,7 @@ export default function Home(props) {
         <section className="layout-container mb-12 mt-8">
           <h1
             className="font-display pb-4 text-h1xl font-bold"
+            tabIndex="-1"
             id="pageMainTitle"
           >
             {props.locale === "en"
@@ -126,12 +128,14 @@ export default function Home(props) {
               ? pageData.scFragments[0].scContentEn.json[2].content[0].value
               : pageData.scFragments[0].scContentFr.json[2].content[0].value}
           </h2>
-          <div className="mb-20 flex gap-12">
-            <p className="mt-6">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[3].content[0].value
-                : pageData.scFragments[0].scContentFr.json[3].content[0]
-                    .value}{" "}
+          <div className="mb-20 lg:flex">
+            <span className="w-full py-4">
+              <p className="mt-6">
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[3].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[3].content[0]
+                      .value}{" "}
+              </p>
               <br />
               <span className="flex pt-12">
                 <ActionButton
@@ -149,20 +153,26 @@ export default function Home(props) {
                   dataCy="AboutButton"
                 />
               </span>
-            </p>
-            <img
-              src={`https://www.canada.ca${
-                props.locale === "en"
-                  ? pageData.scFragments[1].scImageEn._path
-                  : pageData.scFragments[1].scImageFr._path
-              }`}
-              alt={
-                props.locale === "en"
-                  ? pageData.scFragments[1].scImageAltTextEn
-                  : pageData.scFragments[1].scImageAltTextFr
-              }
-              className="xl:mr-24 hidden xl:flex"
-            />
+            </span>
+            <span
+              className="relative hidden lg:flex w-full mt-4 lg:ml-8"
+              style={{ height: "316px", width: "452px", minWidth: "452px" }}
+            >
+              <Image
+                src={`https://www.canada.ca${
+                  props.locale === "en"
+                    ? pageData.scFragments[1].scImageEn._path
+                    : pageData.scFragments[1].scImageFr._path
+                }`}
+                alt={
+                  props.locale === "en"
+                    ? pageData.scFragments[1].scImageAltTextEn
+                    : pageData.scFragments[1].scImageAltTextFr
+                }
+                layout="fill"
+                objectFit="cover"
+              />
+            </span>
           </div>
           <div className="xl:w-2/3"></div>
           <div className="grid lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12">
