@@ -6,7 +6,7 @@ export function DateModified(props) {
   // TeamCity build dates are received in the format yyyyMMdd
   let dateFormatted = "NA";
   if (props.date) {
-    if (!props.date.match(/(?=\S*['-])([a-zA-Z'-]+)/gim)) {
+    if (!props.date.match(/(?=\S*['-])([a-zA-Z'-]+)/gm)) {
       dateFormatted = props.date.replace(/^(.{4})(.{2})/gm, "$1-$2-");
     } else dateFormatted = props.date;
   }
