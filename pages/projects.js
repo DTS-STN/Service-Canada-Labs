@@ -164,7 +164,7 @@ export default function Projects(props) {
               </p>
             </span>
             <span
-              className="relative flex w-full lg:ml-8"
+              className="relative flex w-full mt-4 lg:ml-8"
               style={{ height: "274px", width: "453px", minWidth: "453px" }}
             >
               <Image
