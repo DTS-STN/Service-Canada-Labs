@@ -186,7 +186,7 @@ export default function Projects(props) {
             dataCy={"filter-projects"}
           />
           <ul
-            className="grid lg:grid-cols-2 lg:gap-x-11"
+            className="grid gap-y-0 lg:grid-cols-2 lg:gap-x-11 lg:gap-y-4"
             data-cy="projects-list"
           >
             {filteredExperiments.map((experiment) => (
