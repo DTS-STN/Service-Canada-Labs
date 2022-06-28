@@ -33,17 +33,17 @@ describe("home page", () => {
   });
 
   it("See projects button goes to projects page (button at the bottom of the content)", () => {
-    cy.get('[data-cy="HOMEPAGE-VIEW-PROJECTS"]').click();
+    cy.get('[dataCy="HOMEPAGE-VIEW-PROJECTS"]').click();
     cy.url().should("include", "/projects");
   });
 
   it("See about button goes to about page (button at the bottom of the content)", () => {
-    cy.get('[data-cy="AboutButton"]').click();
+    cy.get('[dataCy="AboutButton"]').click();
     cy.url().should("include", "/about");
   });
 
   it("See signup button (not in the nav menu) goes to signup page", () => {
-    cy.get('[data-cy="SIGN-UP-TO-GET-INVITED-TO-RESEARCH-SESSIONS"]').click();
+    cy.get('[dataCy="SIGN-UP-TO-GET-INVITED-TO-RESEARCH-SESSIONS"]').click();
     cy.url().should("include", "/signup");
   });
 });

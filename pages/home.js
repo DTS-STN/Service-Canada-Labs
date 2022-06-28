@@ -108,7 +108,10 @@ export default function Home(props) {
           <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <section className="layout-container mb-12 mt-8">
-          <h1 className="font-display pb-4 text-h1xl font-bold">
+          <h1
+            className="font-display pb-4 text-h1xl font-bold"
+            id="pageMainTitle"
+          >
             {props.locale === "en"
               ? pageData.scFragments[0].scContentEn.json[0].content[0].value
               : pageData.scFragments[0].scContentFr.json[0].content[0].value}
@@ -143,7 +146,7 @@ export default function Home(props) {
                       : pageData.scFragments[2].scTitleFr
                   }
                   id={pageData.scFragments[2].scId}
-                  data-cy="AboutButton"
+                  dataCy="AboutButton"
                 />
               </span>
             </p>
