@@ -143,6 +143,7 @@ export default function Home(props) {
                       : pageData.scFragments[2].scTitleFr
                   }
                   id={pageData.scFragments[2].scId}
+                  data-cy="AboutButton"
                 />
               </span>
             </p>
@@ -152,6 +153,11 @@ export default function Home(props) {
                   ? pageData.scFragments[1].scImageEn._path
                   : pageData.scFragments[1].scImageFr._path
               }`}
+              alt={
+                props.locale === "en"
+                  ? pageData.scFragments[1].scImageAltTextEn
+                  : pageData.scFragments[1].scImageAltTextFr
+              }
               className="xl:mr-24 hidden xl:flex"
             />
           </div>
@@ -163,6 +169,11 @@ export default function Home(props) {
                   ? pageData.scFragments[3].scImageEn._path
                   : pageData.scFragments[3].scImageFr._path
               }`}
+              imgAlt={
+                props.locale === "en"
+                  ? pageData.scFragments[3].scImageAltTextEn
+                  : pageData.scFragments[3].scImageAltTextFr
+              }
               title={
                 props.locale === "en"
                   ? pageData.scFragments[3].scTitleEn
@@ -191,6 +202,11 @@ export default function Home(props) {
                   ? pageData.scFragments[4].scImageEn._path
                   : pageData.scFragments[4].scImageFr._path
               }`}
+              imgAlt={
+                props.locale === "en"
+                  ? pageData.scFragments[4].scImageAltTextEn
+                  : pageData.scFragments[4].scImageAltTextFr
+              }
               title={
                 props.locale === "en"
                   ? pageData.scFragments[4].scTitleEn

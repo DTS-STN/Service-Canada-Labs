@@ -26,9 +26,6 @@ describe("project page", () => {
     cy.url().should("eq", "http://localhost:3000/fr/projets");
   });
 
-  it("Menu appears on the projects page", () => {
-    cy.get('[data-cy="menu"]').should("be.visible");
-  });
 
   it("Filter projects: All", () => {
     cy.get('[data-cy="all"]').click();

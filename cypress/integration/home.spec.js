@@ -33,7 +33,7 @@ describe("home page", () => {
   });
 
   it("See projects button goes to projects page (button at the bottom of the content)", () => {
-    cy.get('[data-cy="ProjectsButton"]').click();
+    cy.get('[data-cy="HOMEPAGE-VIEW-PROJECTS"]').click();
     cy.url().should("include", "/projects");
   });
 
@@ -43,21 +43,7 @@ describe("home page", () => {
   });
 
   it("See signup button (not in the nav menu) goes to signup page", () => {
-    cy.get('[data-cy="signup-home-page"]').click();
+    cy.get('[data-cy="SIGN-UP-TO-GET-INVITED-TO-RESEARCH-SESSIONS"]').click();
     cy.url().should("include", "/signup");
-  });
-
-  it("Menu appears on the homepage", () => {
-    cy.get('[data-cy="menu"]').should("be.visible");
-  });
-
-  it("Menu Projects links to project page", () => {
-    cy.get('[data-cy="menu"]').contains("Explore our projects").click();
-    cy.url().should("include", "/projects");
-  });
-
-  it("Menu About links to about page", () => {
-    cy.get('[data-cy="menu"]').contains("About these labs").click();
-    cy.url().should("include", "/about");
   });
 });
