@@ -21,17 +21,16 @@ export const Card = (props) => {
     <div
       className={`${
         props.isExperiment ? "shadow-experiment-shadow" : ""
-      } p-6 xl:min-h-250px ${
+      } xl:min-h-250px -ml-8 w-fit ${
         "border-" + (tagColours[props.tag] || "gray-experiment")
       }`}
       data-testid={props.dataTestId}
       data-cy={props.dataCy}
     >
       <div
-        className={`${
-          props.isExperiment ? "-mx-6 -mt-6" : ""
-        } bg-gray-300 mb-4`}
+        className="bg-gray-300"
         style={{
+          maxWidth: "560px",
           height: `${props.isExperiment ? "290px" : "326px"}`,
           position: "relative",
         }}
@@ -43,50 +42,56 @@ export const Card = (props) => {
           objectFit="cover"
         />
       </div>
-      <h2>
+      <div className={`${props.isExperiment ? "p-4" : "py-4 -px-4"}`}>
+        <h2>
+          {props.isExperiment ? (
+            <Link href={props.href}>
+              <a
+                className="flex block text-p text-custom-blue-projects-link underline hover:opacity-70"
+                tabIndex="0"
+              >
+                {props.title}
+                {props.href.substring(0, 8) === "https://" ? (
+                  <img
+                    src="/external-link.svg"
+                    className="px-1 py-2"
+                    alt={t("externalLink")}
+                  />
+                ) : undefined}
+              </a>
+            </Link>
+          ) : (
+            props.title
+          )}
+        </h2>
         {props.isExperiment ? (
-          <Link href={props.href}>
-            <a
-              className="flex block text-p text-custom-blue-projects-link underline hover:opacity-70"
-              tabIndex="0"
-            >
-              {props.title}
-              {props.href.substring(0, 8) === "https://" ? (
-                <img
-                  src="/external-link.svg"
-                  className="px-1 py-2"
-                  alt={t("externalLink")}
-                />
-              ) : undefined}
-            </a>
-          </Link>
-        ) : (
-          props.title
-        )}
-      </h2>
-      {props.isExperiment ? (
-        <span
-          className={`block w-max py-2 px-2 my-4 font-body font-bold border-l-4 ${
-            "border-" + (tagColours[props.tag] || "gray-experiment") + "-darker"
-          } ${
-            "bg-" + (tagColours[props.tag] || "gray-experiment") + "-lighter"
-          }`}
-        >
-          {props.tagLabel}
-        </span>
-      ) : undefined}
-      <p className="mt-2 leading-30px text-lg">{props.description}</p>
-      {!props.isExperiment ? (
-        <span className="flex">
-          <ActionButton
-            href={props.btnHref}
-            text={props.btnText}
-            id={props.btnId}
-            dataCy={props.btnId}
-            className="rounded xxs:w-full xs:w-fit my-4 py-2 bg-custom-gray-lighter text-custom-blue-text focus:ring-inset focus:ring-2 focus:ring-black hover:bg-details-button-hover-gray text-center border border-details-button-gray"
-          />
-        </span>
-      ) : undefined}
+          <span
+            className={`block w-max py-2 px-2 my-4 font-body font-bold border-l-4 ${
+              "border-" +
+              (tagColours[props.tag] || "gray-experiment") +
+              "-darker"
+            } ${
+              "bg-" + (tagColours[props.tag] || "gray-experiment") + "-lighter"
+            }`}
+          >
+            {props.tagLabel}
+          </span>
+        ) : undefined}
+        <p className="mt-2 leading-30px text-lg" style={{ maxWidth: "500px" }}>
+          {props.description}
+        </p>
+        {!props.isExperiment ? (
+          <span className="flex">
+            <ActionButton
+              href={props.btnHref}
+              text={props.btnText}
+              id={props.btnId}
+              dataCy={props.btnId}
+              className="rounded xxs:w-full xs:w-fit my-4 py-2 bg-custom-gray-lighter text-custom-blue-text focus:ring-inset focus:ring-2 focus:ring-black hover:bg-details-button-hover-gray text-center border border-details-button-gray"
+            />
+          </span>
+        ) : undefined}
+      </div>
     </div>
   );
 };

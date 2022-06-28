@@ -3,18 +3,18 @@ const { i18n } = require("./next-i18next.config");
 securityHeaders = [
   //Enables DNS prefetching, which reduces latency when a user clicks a link
   {
-    key: 'X-DNS-Prefetch-Control',
-    value: 'on',
+    key: "X-DNS-Prefetch-Control",
+    value: "on",
   },
   //Restrict our page from being rendered within a frame
   {
-    key: 'X-Frame-Options',
-    value: 'DENY',
+    key: "X-Frame-Options",
+    value: "DENY",
   },
   //Restrict browser features
   {
-    key: 'Permissions-Policy',
-    value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+    key: "Permissions-Policy",
+    value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
   },
   // Only ever use HTTPS
   {
@@ -64,6 +64,9 @@ module.exports = {
     NEXT_PUBLIC_BUILD_DATE: process.env.NEXT_PUBLIC_BUILD_DATE,
     NEXT_PUBLIC_TC_BUILD: process.env.NEXT_PUBLIC_TC_BUILD,
     NEXT_PUBLIC_VERSION: "1.1.3",
+  },
+  images: {
+    domains: ["www.canada.ca"],
   },
   poweredByHeader: false,
   async headers() {
