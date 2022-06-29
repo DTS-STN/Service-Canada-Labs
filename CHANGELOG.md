@@ -64,6 +64,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated Experiment component to a generic card component
 - Updated `/projects` page to use data from AEM
 - Updated home page to match new Figma designs
+- Updated DateModified component to accept a manual date (for use with AEM)
 
 ## Fixed
 

@@ -22,7 +22,11 @@ export default function Home(props) {
 
   return (
     <>
-      <Layout locale={props.locale} langUrl={t("homePath")}>
+      <Layout
+        locale={props.locale}
+        langUrl={t("homePath")}
+        dateModifiedOverride={pageData.scDateModifiedOverwrite}
+      >
         <Head>
           {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
             <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
