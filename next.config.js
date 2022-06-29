@@ -49,6 +49,9 @@ securityHeaders = [
 ];
 
 module.exports = {
+  images: {
+    domains: ['www.canada.ca']
+  },
   i18n,
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     //GraphQL loader for .graphql files

@@ -154,15 +154,21 @@ export default function Projects(props) {
         </Head>
         <section className="layout-container mb-10">
           <h1 id="pageMainTitle" tabIndex="-1" className="flex-wrap mb-2">
-            {pageData.scTitleEn}
+            {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
           </h1>
           <div className="lg:flex">
             <span className="w-full py-4">
               <p>
-                {pageData.scFragments[0].scContentEn.json[0].content[0].value}
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[0].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[0].content[0]
+                      .value}
               </p>
               <p className="my-4">
-                {pageData.scFragments[0].scContentEn.json[1].content[0].value}
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[1].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[1].content[0]
+                      .value}
               </p>
             </span>
             <span
@@ -171,16 +177,26 @@ export default function Projects(props) {
             >
               <Image
                 src={`https://www.canada.ca${pageData.scFragments[2].scImageEn._path}`}
-                alt={pageData.scFragments[2].scImageAltTextEn}
+                alt={
+                  props.locale === "en"
+                    ? pageData.scFragments[2].scImageAltTextEn
+                    : pageData.scFragments[2].scImageAltTextFr
+                }
                 layout="fill"
                 objectFit="cover"
               />
             </span>
           </div>
           <h2 className="mt-8">
-            {pageData.scFragments[1].scContentEn.json[0].content[0].value}
+            {props.locale === "en"
+              ? pageData.scFragments[1].scContentEn.json[0].content[0].value
+              : pageData.scFragments[1].scContentFr.json[0].content[0].value}
           </h2>
-          <p>{pageData.scFragments[1].scContentEn.json[1].content[0].value}</p>
+          <p>
+            {props.locale === "en"
+              ? pageData.scFragments[1].scContentEn.json[1].content[0].value
+              : pageData.scFragments[1].scContentFr.json[1].content[0].value}
+          </p>
           <Filter
             label={t("filterBy")}
             options={filters}

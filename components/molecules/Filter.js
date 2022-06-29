@@ -7,7 +7,7 @@ import { RadioButton } from "../atoms/RadioButton";
 export function Filter(props) {
   return (
     <form
-      className="my-10"
+      className="my-12"
       data-testid={props.dataTestId}
       data-cy={props.dataCy}
     >

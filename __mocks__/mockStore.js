@@ -725,3 +725,324 @@ export const signupPage = {
     },
   },
 };
+
+export const homePageData = {
+  data: {
+    sCLabsPageByPath: {
+      item: {
+        scId: "sclabs-homepage",
+        scPublishProd: false,
+        scPageNameEn: "/home",
+        scPageNameFr: "/fr/accueil",
+        scTitleEn: "Your feedback can shape tomorrow’s services",
+        scTitleFr: null,
+        scShortTitleEn: "Home - Service Canada Labs",
+        scShortTitleFr: "Accueil - Laboratoires de Service Canada",
+        scDescriptionEn: {
+          json: [
+            {
+              nodeType: "paragraph",
+              content: [
+                {
+                  nodeType: "text",
+                  value:
+                    "An early look at what Service Canada is up to. Explore our projects. Share your feedback. Sign-up to get notified of ways to support the future of digital government.",
+                },
+              ],
+            },
+          ],
+        },
+        scDescriptionFr: {
+          json: [
+            {
+              nodeType: "paragraph",
+              content: [
+                {
+                  nodeType: "text",
+                  value:
+                    "Un aperçu des activités de Service Canada. Explorez nos projets. Faites-nous part de vos commentaires. Inscrivez-vous pour être informé des façons de soutenir l'avenir du gouvernement numérique.",
+                },
+              ],
+            },
+          ],
+        },
+        scSubject: null,
+        scKeywordsEn: "digital services",
+        scKeywordsFr: "services numériques",
+        scContentType: null,
+        scOwner: null,
+        scDateModifiedOverwrite: null,
+        scAudience: null,
+        scRegion: null,
+        scSocialMediaImageEn: null,
+        scSocialMediaImageFr: null,
+        scSocialMediaImageAltTextEn: null,
+        scSocialMediaImageAltTextFr: null,
+        scNoIndex: false,
+        scNoFollow: false,
+        scFragments: [
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/home---main-content",
+            scId: "HOME-MAIN-CONTENT",
+            scPublishProd: false,
+            scTitleEn: null,
+            scTitleFr: null,
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h1",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Service Canada Labs",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Help us make government digital services simple and easy to use.",
+                    },
+                    {
+                      nodeType: "line-break",
+                      content: [],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Your feedback can shape tomorrow’s services.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Service Canada Labs is an experimental corner of Canada.ca. Here, you can explore projects in their early stages and help us improve them. We might even stop working on some ideas if we learn they are not adding value and not meeting people’s needs.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h1",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Service Canada Labs(FR)",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Help us make government digital services simple and easy to use. (FR)",
+                    },
+                    {
+                      nodeType: "line-break",
+                      content: [],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Your feedback can shape tomorrow’s services. (FR)",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Service Canada Labs is an experimental corner of Canada.ca. Here, you can explore projects in their early stages and help us improve them. We might even stop working on some ideas if we learn they are not adding value and not meeting people’s needs. (FR)",
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            scId: "HOMEPAGE-MAIN-IMAGE",
+            scPublishProd: false,
+            scTitleEn: null,
+            scTitleFr: null,
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/homePage_image1.png",
+            },
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/homePage_image1.png",
+            },
+            scImageMobileEn: null,
+            scImageMobileFr: null,
+            scImageAltTextEn: null,
+            scImageAltTextFr: null,
+            scImageCaptionEn: null,
+            scImageCaptionFr: null,
+          },
+          {
+            scId: "sclabs-homepage-button-about",
+            scPublishProd: false,
+            scTitleEn: "About Service Canada Labs",
+            scTitleFr: null,
+            scDestinationURLEn: "/about",
+            scDestinationURLFr: "/fr/a-propos",
+            scButtonType: null,
+          },
+          {
+            scId: "HOMEPAGE-VIEW-PROJECTS",
+            scPublishProd: false,
+            scTitleEn: "Try out current projects",
+            scTitleFr: null,
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Explore projects that are works in progress and let us know what you think by sharing anonymous feedback.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Explore projects that are works in progress and let us know what you think by sharing anonymous feedback. (FR)",
+                    },
+                  ],
+                },
+              ],
+            },
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/homePage_image2.png",
+            },
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/homePage_image2.png",
+            },
+            scImageAltTextEn: null,
+            scImageAltTextFr: null,
+            scLabsButton: [
+              {
+                scId: "sclabs-homepage-button-projects",
+                scPublishProd: false,
+                scTitleEn: "View projects",
+                scTitleFr: null,
+                scDestinationURLEn: "/projects",
+                scDestinationURLFr: "/fr/projets",
+                scButtonType: null,
+              },
+            ],
+          },
+          {
+            scId: "SIGN-UP-TO-GET-INVITED-TO-RESEARCH-SESSIONS",
+            scPublishProd: false,
+            scTitleEn: "Sign up to participate in user research",
+            scTitleFr:
+              "Inscrivez-vous pour être invité aux séances de recherche",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Receive invitations to fill out quick surveys or take part in user research sessions. Participation is always voluntary and you can opt out at any time.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Nous vous invitons à analyser nos idées expérimentales et à participer à des entretiens de recherche afin d’améliorer Service Canada au bénéfice de tous. Chaque commentaire nous aide à nous assurer que nos services sont simples et faciles à utiliser.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Votre participation n’aura aucune conséquence sur votre accès aux services gouvernementaux. Vous pouvez vous ",
+                    },
+                    {
+                      nodeType: "link",
+                      data: {
+                        href: "https://alpha.service.canada.ca/fr/desabonnement",
+                      },
+                      value: "désabonner",
+                    },
+                    {
+                      nodeType: "text",
+                      value: " à tout moment.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/homePage_image3.png",
+            },
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/homePage_image3.png",
+            },
+            scImageAltTextEn: null,
+            scImageAltTextFr: null,
+            scLabsButton: [
+              {
+                scId: "sclabs-homepage-button-signup",
+                scPublishProd: false,
+                scTitleEn: "Sign up to participate in user research",
+                scTitleFr: null,
+                scDestinationURLEn: "/signup-info",
+                scDestinationURLFr: "/fr/inscription-info",
+                scButtonType: null,
+              },
+            ],
+          },
+        ],
+      },
+    },
+  },
+};

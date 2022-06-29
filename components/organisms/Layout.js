@@ -112,25 +112,7 @@ export const Layout = ({
         </div>
 
         <div className="mb-2 border-t pb-2 mt-4">
-          <Menu
-            menuButtonTitle={t("menuTitle")}
-            signUpText={t("signupBtn")}
-            items={[
-              {
-                link: t("projectRedirect"),
-                text: t("menuLink1"),
-              },
-              {
-                link: t("aboutRedirect"),
-                text: t("menuLink2"),
-              },
-              {
-                link: t("signupInfoRedirect"),
-                text: t("signupLink"),
-              },
-            ]}
-          />
-          <div className="layout-container mt-2 mb-12">
+          <div className="layout-container mt-10 mb-12">
             <Breadcrumb items={breadcrumbItems} />
           </div>
         </div>
