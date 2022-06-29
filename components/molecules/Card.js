@@ -43,6 +43,7 @@ export const Card = (props) => {
           alt={props.imgAlt}
           layout="fill"
           objectFit="cover"
+          priority={props.priority}
         />
       </div>
       <h2>

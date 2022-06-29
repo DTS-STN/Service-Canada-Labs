@@ -221,6 +221,7 @@ export default function Projects(props) {
                   isExperiment
                   imgSrc="/placeholder.png"
                   imgAlt="placeholder"
+                  priority
                 />
               </li>
             ))}
