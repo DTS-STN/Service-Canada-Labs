@@ -5,17 +5,21 @@ import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
 import { Card } from "../components/molecules/Card";
 import { Filter } from "../components/molecules/Filter";
-import { CallToAction } from "../components/molecules/CallToAction";
 import queryGraphQL from "../graphql/client";
 import getAllProjects from "../graphql/queries/projectQuery.graphql";
+import getProjectsPage from "../graphql/queries/projectsPageQuery.graphql";
+import Image from "next/image";
 
 export default function Projects(props) {
   const { t } = useTranslation("common");
   const [filter, setFilter] = useState("all");
+  const [pageData] = useState(props.pageData.item);
   const [experimentData] = useState(props.experimentData.items);
   const [filteredExperiments, setFilteredExperiments] = useState(
     props.experimentData.items
   );
+
+  console.log();
 
   // get the filters from the data
   const filters = props.filters.map((value) => {
@@ -49,7 +53,9 @@ export default function Projects(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={t("projectPath")}
+        langUrl={
+          props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
+        }
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}
@@ -147,24 +153,49 @@ export default function Projects(props) {
           <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <section className="layout-container mb-10">
-          <h1 id="pageMainTitle" tabIndex="-1" className="flex-wrap mb-10">
-            {t("projectsTitle")}
+          <h1 id="pageMainTitle" tabIndex="-1" className="flex-wrap mb-2">
+            {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
           </h1>
-          <p className="mb-8">{t("projectsIntro")}</p>
-          <p
-            className="whitespace-pre-line mb-8"
-            dangerouslySetInnerHTML={{ __html: t("projectsText") }}
-          ></p>
-          <p>{t("projectQuestions")}</p>
-          <ul className="text-lg list-disc ml-8 my-8">
-            <li>{t("projectQuestion1")}</li>
-            <li>{t("projectQuestion2")}</li>
-            <li>{t("projectQuestion3")}</li>
-            <li>{t("projectQuestion4")}</li>
-          </ul>
-          <p dangerouslySetInnerHTML={{ __html: t("projectSignup") }}></p>
-          <p className="mt-4 mb-10">
-            <strong>{t("projectsDisclaimerBody")}</strong>
+          <div className="lg:flex">
+            <span className="w-full py-4">
+              <p>
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[0].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[0].content[0]
+                      .value}
+              </p>
+              <p className="my-4">
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[1].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[1].content[0]
+                      .value}
+              </p>
+            </span>
+            <span
+              className="relative flex w-full mt-4 lg:ml-8"
+              style={{ height: "274px", width: "453px", minWidth: "453px" }}
+            >
+              <Image
+                src={`https://www.canada.ca${pageData.scFragments[2].scImageEn._path}`}
+                alt={
+                  props.locale === "en"
+                    ? pageData.scFragments[2].scImageAltTextEn
+                    : pageData.scFragments[2].scImageAltTextFr
+                }
+                layout="fill"
+                objectFit="cover"
+              />
+            </span>
+          </div>
+          <h2 className="mt-8">
+            {props.locale === "en"
+              ? pageData.scFragments[1].scContentEn.json[0].content[0].value
+              : pageData.scFragments[1].scContentFr.json[0].content[0].value}
+          </h2>
+          <p>
+            {props.locale === "en"
+              ? pageData.scFragments[1].scContentEn.json[1].content[0].value
+              : pageData.scFragments[1].scContentFr.json[1].content[0].value}
           </p>
           <Filter
             label={t("filterBy")}
@@ -173,36 +204,29 @@ export default function Projects(props) {
             dataCy={"filter-projects"}
           />
           <ul
-            className="grid gap-y-5 lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12"
+            className="grid gap-y-0 lg:grid-cols-2 lg:gap-x-11 lg:gap-y-4"
             data-cy="projects-list"
           >
-            {filteredExperiments &&
-              filteredExperiments.map((experiment) => (
-                // Key should be experiment.id but that doesn't exist in the model yet, will need to be changed but this gets rid of console warning for now
-                <li key={experiment.title} className="flex items-stretch">
-                  <Card
-                    title={experiment.title}
-                    tag={experiment.tag}
-                    tagLabel={t(experiment.tag)}
-                    description={experiment.description}
-                    href={experiment.href}
-                    dataTestId={`${experiment.id}`}
-                    dataCy={`${experiment.id}`}
-                    isExperiment
-                    imgSrc="/placeholder.png"
-                    imgAlt="placeholder"
-                  />
-                </li>
-              ))}
+            {filteredExperiments.map((experiment) => (
+              // Key should be experiment.id but that doesn't exist in the model yet, will need to be changed but this gets rid of console warning for now
+              <li key={experiment.title} className="flex items-stretch">
+                <Card
+                  title={experiment.title}
+                  tag={experiment.tag}
+                  tagLabel={t(experiment.tag)}
+                  description={experiment.description}
+                  href={experiment.href}
+                  dataTestId={`${experiment.id}`}
+                  dataCy={`${experiment.id}`}
+                  isExperiment
+                  imgSrc="/placeholder.png"
+                  imgAlt="placeholder"
+                  priority
+                />
+              </li>
+            ))}
           </ul>
         </section>
-        <CallToAction
-          title={t("signupTitleCallToAction")}
-          html={t("becomeAParticipantDescription")}
-          lang={props.locale}
-          href={t("signupInfoRedirect")}
-          hrefText={t("signupBtn")}
-        />
       </Layout>
       {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
@@ -214,15 +238,19 @@ export default function Projects(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  // get projects data from AEM
-  const res = await queryGraphQL(getAllProjects).then((result) => {
+  // get page data and experiments data from AEM
+  const res1 = await queryGraphQL(getAllProjects).then((result) => {
+    return result;
+  });
+  const res2 = await queryGraphQL(getProjectsPage).then((result) => {
     return result;
   });
 
-  const data = res.data.scLabsExperimentList;
+  const experimentsData = res1.data.scLabsExperimentList;
+  const pageData = res2.data.sCLabsPageByPath;
 
   const filters = Object.values(
-    data.items.reduce(
+    experimentsData.items.reduce(
       (filters, { tag }) => {
         if (!filters[tag]) {
           filters[tag] = {
@@ -248,7 +276,8 @@ export const getStaticProps = async ({ locale }) => {
         props: {
           locale: locale,
           ...(await serverSideTranslations(locale, ["common"])),
-          experimentData: data,
+          experimentData: experimentsData,
+          pageData: pageData,
           filters,
         },
         revalidate: 60, // revalidate once an minute
@@ -257,7 +286,8 @@ export const getStaticProps = async ({ locale }) => {
         props: {
           locale: locale,
           ...(await serverSideTranslations(locale, ["common"])),
-          experimentData: data,
+          experimentData: experimentsData,
+          pageData: pageData,
           filters,
         },
       };

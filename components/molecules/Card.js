@@ -20,17 +20,19 @@ export const Card = (props) => {
   return (
     <div
       className={`${
-        props.isExperiment ? "shadow-experiment-shadow p-6" : ""
+        props.isExperiment ? "shadow-experiment-shadow -ml-8" : ""
       } xl:min-h-250px ${
         "border-" + (tagColours[props.tag] || "gray-experiment")
       }`}
       data-testid={props.dataTestId}
       data-cy={props.dataCy}
+      style={{
+        width: "560px",
+        minWidth: "min-content",
+      }}
     >
       <div
-        className={`${
-          props.isExperiment ? "-mx-6 -mt-6" : ""
-        } bg-gray-300 mb-4`}
+        className="bg-gray-300 mb-4"
         style={{
           height: `${props.isExperiment ? "290px" : "326px"}`,
           position: "relative",
@@ -41,13 +43,14 @@ export const Card = (props) => {
           alt={props.imgAlt}
           layout="fill"
           objectFit="cover"
+          priority={props.priority}
         />
       </div>
       <h2>
         {props.isExperiment ? (
           <Link href={props.href}>
             <a
-              className="flex block text-p text-custom-blue-projects-link underline hover:opacity-70"
+              className="flex block text-p text-custom-blue-projects-link underline hover:opacity-70 px-4"
               tabIndex="0"
             >
               {props.title}
@@ -66,7 +69,7 @@ export const Card = (props) => {
       </h2>
       {props.isExperiment ? (
         <span
-          className={`block w-max py-2 px-2 my-4 font-body font-bold border-l-4 ${
+          className={`block w-max py-2 px-2 my-4 font-body font-bold border-l-4 ml-4 ${
             "border-" + (tagColours[props.tag] || "gray-experiment") + "-darker"
           } ${
             "bg-" + (tagColours[props.tag] || "gray-experiment") + "-lighter"
@@ -75,7 +78,13 @@ export const Card = (props) => {
           {props.tagLabel}
         </span>
       ) : undefined}
-      <p className="mt-2 leading-30px text-lg">{props.description}</p>
+      <p
+        className={`${
+          props.isExperiment ? "ml-4 mb-4" : ""
+        } mt-2 leading-30px text-lg`}
+      >
+        {props.description}
+      </p>
       {!props.isExperiment ? (
         <span className="flex">
           <ActionButton

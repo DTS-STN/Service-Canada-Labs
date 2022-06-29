@@ -3,18 +3,18 @@ const { i18n } = require("./next-i18next.config");
 securityHeaders = [
   //Enables DNS prefetching, which reduces latency when a user clicks a link
   {
-    key: 'X-DNS-Prefetch-Control',
-    value: 'on',
+    key: "X-DNS-Prefetch-Control",
+    value: "on",
   },
   //Restrict our page from being rendered within a frame
   {
-    key: 'X-Frame-Options',
-    value: 'DENY',
+    key: "X-Frame-Options",
+    value: "DENY",
   },
   //Restrict browser features
   {
-    key: 'Permissions-Policy',
-    value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+    key: "Permissions-Policy",
+    value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
   },
   // Only ever use HTTPS
   {
@@ -38,7 +38,7 @@ securityHeaders = [
   },
   {
     key: "Content-Security-Policy",
-    value: `default-src 'self' dts-stn.com *.dts-stn.com *.adobe.com *.omniture.com *.2o7.net; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; connect-src 'self' *.demdex.net *.omtrdc.net cm.everesttech.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com data:; img-src 'self' *.omtrdc.net *.demdex.net cm.everesttech.net assets.adobedtm.com https://www.canada.ca; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; frame-src 'self' *.demdex.net; script-src 'self' 'unsafe-inline' ${
+    value: `default-src 'self' dts-stn.com *.dts-stn.com *.adobe.com *.omniture.com *.2o7.net; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; connect-src 'self' *.demdex.net *.omtrdc.net cm.everesttech.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com data:; img-src 'self' data: *.omtrdc.net *.demdex.net cm.everesttech.net assets.adobedtm.com https://www.canada.ca; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; frame-src 'self' *.demdex.net; script-src 'self' 'unsafe-inline' ${
       process.env.CI === "true"
         ? "'unsafe-eval'"
         : process.env.NODE_ENV === "development"
@@ -49,9 +49,6 @@ securityHeaders = [
 ];
 
 module.exports = {
-  images: {
-    domains: ['www.canada.ca']
-  },
   i18n,
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     //GraphQL loader for .graphql files
@@ -67,6 +64,9 @@ module.exports = {
     NEXT_PUBLIC_BUILD_DATE: process.env.NEXT_PUBLIC_BUILD_DATE,
     NEXT_PUBLIC_TC_BUILD: process.env.NEXT_PUBLIC_TC_BUILD,
     NEXT_PUBLIC_VERSION: "1.1.3",
+  },
+  images: {
+    domains: ["www.canada.ca"],
   },
   poweredByHeader: false,
   async headers() {
