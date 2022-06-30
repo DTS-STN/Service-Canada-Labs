@@ -141,8 +141,6 @@ export default function Blog(props) {
 export const getStaticProps = async ({ locale }) => {
   const { data: blogEntriesResponse } = await queryGraphQL(getAllBlogEntries);
   const posts = blogEntriesResponse.sclabsBlogList.items;
-  console.log("STATIC PROPS GET");
-  console.log(posts);
   return {
     props: {
       locale: locale,
