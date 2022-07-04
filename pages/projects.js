@@ -19,8 +19,6 @@ export default function Projects(props) {
     props.experimentData.items
   );
 
-  console.log();
-
   // get the filters from the data
   const filters = props.filters.map((value) => {
     return {
@@ -37,7 +35,9 @@ export default function Projects(props) {
     } else {
       setFilter(value);
       setFilteredExperiments(
-        experimentData.filter((experiment) => experiment.tag === value)
+        experimentData.filter(
+          (experiment) => experiment.scLabProjectStatus[0] === value
+        )
       );
     }
   };
@@ -209,15 +209,43 @@ export default function Projects(props) {
           >
             {filteredExperiments.map((experiment) => (
               // Key should be experiment.id but that doesn't exist in the model yet, will need to be changed but this gets rid of console warning for now
-              <li key={experiment.title} className="flex items-stretch">
+              <li key={experiment.scTitleEn} className="flex items-stretch">
                 <Card
-                  title={experiment.title}
-                  tag={experiment.tag}
-                  tagLabel={t(experiment.tag)}
-                  description={experiment.description}
-                  href={experiment.href}
-                  dataTestId={`${experiment.id}`}
-                  dataCy={`${experiment.id}`}
+                  title={
+                    props.locale === "en"
+                      ? experiment.scTitleEn
+                      : experiment.scTitleFr
+                  }
+                  tag={
+                    experiment.scLabProjectStatus[0] ===
+                    "gc:custom/decd-endc/project-status/current"
+                      ? "current_projects"
+                      : experiment.scLabProjectStatus[0] ===
+                        "gc:custom/decd-endc/project-status/upcoming"
+                      ? "upcoming_projects"
+                      : "past_projects"
+                  }
+                  tagLabel={t(
+                    experiment.scLabProjectStatus[0] ===
+                      "gc:custom/decd-endc/project-status/current"
+                      ? "current_projects"
+                      : experiment.scLabProjectStatus[0] ===
+                        "gc:custom/decd-endc/project-status/upcoming"
+                      ? "upcoming_projects"
+                      : "past_projects"
+                  )}
+                  description={
+                    props.locale === "en"
+                      ? experiment.scContentEn.json[0].content[0].value
+                      : experiment.scContentFr.json[0].content[0].value
+                  }
+                  href={
+                    props.locale === "en"
+                      ? experiment.scDestinationURLEn
+                      : experiment.scDestinationURLFr
+                  }
+                  dataTestId={`${experiment.scId}`}
+                  dataCy={`${experiment.scId}`}
                   isExperiment
                   imgSrc="/placeholder.png"
                   imgAlt="placeholder"
@@ -246,16 +274,24 @@ export const getStaticProps = async ({ locale }) => {
     return result;
   });
 
-  const experimentsData = res1.data.scLabsExperimentList;
+  const experimentsData = res1.data.sCLabsProjectList;
+
   const pageData = res2.data.sCLabsPageByPath;
 
   const filters = Object.values(
     experimentsData.items.reduce(
-      (filters, { tag }) => {
-        if (!filters[tag]) {
-          filters[tag] = {
-            id: tag,
-            label: tag,
+      (filters, { scLabProjectStatus }) => {
+        if (!filters[scLabProjectStatus]) {
+          filters[scLabProjectStatus] = {
+            id: scLabProjectStatus[0],
+            label:
+              scLabProjectStatus[0] ===
+              "gc:custom/decd-endc/project-status/current"
+                ? "current_projects"
+                : scLabProjectStatus[0] ===
+                  "gc:custom/decd-endc/project-status/upcoming"
+                ? "upcoming_projects"
+                : "past_projects",
             checked: false,
           };
         }

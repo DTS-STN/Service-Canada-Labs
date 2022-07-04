@@ -1,11 +1,19 @@
 query getAllProjects {
-  scLabsExperimentList {
+  sCLabsProjectList {
     items {
       _path
-      title
-      description
-      href
-      tag
+      scId
+      scTitleEn
+      scTitleFr
+      scDestinationURLEn
+      scDestinationURLFr
+      scContentEn {
+          json
+      }
+      scContentFr {
+          json
+      }
+      scLabProjectStatus
     }
   }
 }
