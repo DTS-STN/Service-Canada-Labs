@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { Banner } from "../atoms/Banner";
-import { Menu } from "../molecules/Menu";
 import { Footer } from "./Footer";
 import { PhaseBanner } from "./PhaseBanner";
 import { ReportAProblem } from "./ReportAProblem";

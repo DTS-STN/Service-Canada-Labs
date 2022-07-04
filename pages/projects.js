@@ -221,6 +221,12 @@ export default function Projects(props) {
                   isExperiment
                   imgSrc="/placeholder.png"
                   imgAlt="placeholder"
+                  icon={`https://www.canada.ca${pageData.scFragments[3].scImageEn._path}`}
+                  iconAlt={
+                    props.locale === "en"
+                      ? pageData.scFragments[3].scImageAltTextEn
+                      : pageData.scFragments[3].scImageAltTextFr
+                  }
                   priority
                 />
               </li>

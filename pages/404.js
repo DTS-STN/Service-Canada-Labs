@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import queryGraphQL from "../graphql/client";
 import get404Page from "../graphql/queries/error404Query.graphql";
+import Image from "next/image";
 
 export default function error404(props) {
   const { t } = useTranslation("common");
@@ -118,11 +119,20 @@ export default function error404(props) {
           <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <section className="layout-container pb-44">
-          <img
-            className="h-auto w-60 pt-6 xl:w-96 xxl:w-1/2"
-            src={`https://www.canada.ca${pageData.sclGcImages[0]._path}`}
-            alt={"Symbol of the Government of Canada"}
-          />
+          <div
+            className="relative mt-6"
+            style={{
+              width: "375px",
+              height: "35px",
+            }}
+          >
+            <Image
+              src={`https://www.canada.ca${pageData.sclGcImages[0]._path}`}
+              alt={"Symbol of the Government of Canada"}
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
           <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start mt-8">
             <div>
               <div className="relative h-auto xl:w-96 xxl:w-400px lg:w-72 xl:h-400px lg:h-500px mb-8 lg:mb-0">

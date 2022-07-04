@@ -50,16 +50,19 @@ export const Card = (props) => {
         {props.isExperiment ? (
           <Link href={props.href}>
             <a
-              className="flex block text-p text-custom-blue-projects-link underline hover:opacity-70 px-4"
+              className="flex block text-p text-custom-blue-projects-link underline hover:opacity-70 px-4 items-center"
               tabIndex="0"
             >
               {props.title}
               {props.href.substring(0, 8) === "https://" ? (
-                <img
-                  src="/external-link.svg"
-                  className="px-1 py-2"
-                  alt={t("externalLink")}
-                />
+                <div className="h-4 w-4 ml-1 mt-1 relative">
+                  <Image
+                    src={props.icon}
+                    alt={props.iconAlt}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
               ) : undefined}
             </a>
           </Link>
