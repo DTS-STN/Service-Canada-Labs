@@ -22,7 +22,7 @@ export function Footer(props) {
               return (
                 <li
                   key={index}
-                  className="text-white w-64 md:w-56 lg:w-80 my-2.5 hover:underline"
+                  className="text-white w-64 md:w-56 lg:w-80 my-2.5 hover:underline list-none"
                 >
                   <a className="font-body" href={value.footerBoxlink}>
                     {value.footerBoxLinkText}
@@ -50,8 +50,8 @@ export function Footer(props) {
                     key={index}
                     className={
                       index === 0
-                        ? "lg:mb-4 mb-5 mr-2.5 list-inside list-disc xl:list-none text-xxs"
-                        : "lg:mb-4 mb-5 mr-2.5 list-inside list-disc text-xxs"
+                        ? "lg:mb-4 mb-5 lg:list-inside list-disc xl:list-none text-xxs"
+                        : "lg:mb-4 mb-5 lg:list-inside list-disc text-xxs"
                     }
                   >
                     <a
