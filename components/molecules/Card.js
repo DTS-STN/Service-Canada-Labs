@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
-import { useTranslation } from "next-i18next";
 import { ActionButton } from "../atoms/ActionButton";
 import Image from "next/image";
 
@@ -10,7 +9,6 @@ import Image from "next/image";
  */
 
 export const Card = (props) => {
-  const { t } = useTranslation("common");
   const tagColours = {
     current_projects: "custom-green",
     past_projects: "custom-red",
