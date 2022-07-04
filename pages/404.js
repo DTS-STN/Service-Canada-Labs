@@ -167,12 +167,21 @@ export default function error404(props) {
               </div>
               <ReportAProblem language={"en"} />
             </div>
-            <div className="flex items-center justify-center circle-background my-8 lg:mt-0">
-              <img
-                className="w-68px xl:w-24"
-                src={`https://www.canada.ca${pageData.sclImagelist[0]._path}`}
-                alt="Cracked lightbulb"
-              />
+            <div
+              className="flex items-center justify-center circle-background my-8 lg:mt-0"
+              style={{ width: "218px", height: "218px" }}
+            >
+              <span
+                className="relative"
+                style={{ width: "96.25px", height: "140px" }}
+              >
+                <Image
+                  src={`https://www.canada.ca${pageData.sclImagelist[0]._path}`}
+                  alt="Cracked lightbulb"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </span>
             </div>
             <div>
               <div
@@ -222,11 +231,17 @@ export default function error404(props) {
               icon="icon-up-caret"
               iconEnd
             />
-            <img
-              className="h-6 w-auto lg:h-auto lg:w-40"
-              src={`https://www.canada.ca${pageData.sclGcImages[1]._path}`}
-              alt="Symbol of the Government of Canada"
-            />
+            <span
+              className="relative"
+              style={{ width: "104px", height: "25px" }}
+            >
+              <Image
+                src={`https://www.canada.ca${pageData.sclGcImages[1]._path}`}
+                alt="Symbol of the Government of Canada"
+                layout="fill"
+                objectFit="cover"
+              />
+            </span>
           </div>
         </footer>
       </div>

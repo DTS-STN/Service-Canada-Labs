@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import Image from "next/image";
 
 /**
  * footer element for all pages
@@ -66,13 +67,12 @@ export function Footer(props) {
               })}
             </ul>
           </div>
-          <div>
-            <img
-              className="mb-2.5 mt-8 xl:mt-0 h-6 md:h-10 w-auto float-right"
-              src={props.footerLogoImage}
-              alt={props.footerLogoAltText}
-            />
-          </div>
+          <Image
+            src={props.footerLogoImage}
+            alt={props.footerLogoAltText}
+            width="174"
+            height="51"
+          />
         </div>
       </div>
     </div>

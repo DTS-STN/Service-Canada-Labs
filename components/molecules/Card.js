@@ -23,12 +23,11 @@ export const Card = (props) => {
         props.isExperiment ? "shadow-experiment-shadow -ml-8" : ""
       } xl:min-h-250px ${
         "border-" + (tagColours[props.tag] || "gray-experiment")
-      }`}
+      } min-w-full`}
       data-testid={props.dataTestId}
       data-cy={props.dataCy}
       style={{
-        width: "560px",
-        minWidth: "min-content",
+        maxWidth: "560px",
       }}
     >
       <div

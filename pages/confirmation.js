@@ -5,6 +5,7 @@ import { Layout } from "../components/organisms/Layout";
 import Head from "next/head";
 import { TextButtonField } from "../components/molecules/TextButtonField";
 import { useEffect } from "react";
+import Image from "next/image";
 
 export default function Confirmation(props) {
   const { t } = useTranslation("common");
@@ -160,10 +161,11 @@ export default function Confirmation(props) {
           </h1>
           <div className="lg:flex lg:flex-row-reverse">
             <span className="w-full flex justify-center lg:w-1/3">
-              <img
-                className="w-80px mb-10 lg:mb-0 lg:ml-24 lg:w-160px"
+              <Image
                 src="/circle-check.svg"
-                alt=""
+                alt="checkmark"
+                width="160"
+                height="160"
               />
             </span>
             {referrer === "unsubscribe" ? (
