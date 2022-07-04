@@ -208,8 +208,7 @@ export default function Projects(props) {
             data-cy="projects-list"
           >
             {filteredExperiments.map((experiment) => (
-              // Key should be experiment.id but that doesn't exist in the model yet, will need to be changed but this gets rid of console warning for now
-              <li key={experiment.scTitleEn} className="flex items-stretch">
+              <li key={experiment.scId} className="flex items-stretch">
                 <Card
                   title={
                     props.locale === "en"
