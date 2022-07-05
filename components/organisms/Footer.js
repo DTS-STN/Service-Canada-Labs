@@ -67,12 +67,15 @@ export function Footer(props) {
               })}
             </ul>
           </div>
-          <Image
-            src={props.footerLogoImage}
-            alt={props.footerLogoAltText}
-            width="174"
-            height="51"
-          />
+          <div>
+            <span className="flex relative justify-end float-right footer-logo">
+              <Image
+                src={props.footerLogoImage}
+                alt={props.footerLogoAltText}
+                layout="fill"
+              />
+            </span>
+          </div>
         </div>
       </div>
     </div>

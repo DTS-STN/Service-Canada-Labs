@@ -176,14 +176,8 @@ export default function notSupported(props) {
                 </p>
               </div>
             </div>
-            <div
-              className="flex items-center justify-center circle-background my-8 lg:mt-0"
-              style={{ width: "218px", height: "218px" }}
-            >
-              <span
-                className="relative"
-                style={{ width: "96.25px", height: "140px" }}
-              >
+            <div className="flex items-center justify-center circle-background my-8 lg:mt-0 lightbulb-bg">
+              <span className="relative lightbulb">
                 <Image
                   src={`https://www.canada.ca${pageData.sclImagelist[0]._path}`}
                   alt="Cracked lightbulb"
@@ -420,15 +414,11 @@ export default function notSupported(props) {
               icon="icon-up-caret"
               iconEnd
             />
-            <span
-              className="relative"
-              style={{ width: "104px", height: "25px" }}
-            >
+            <span className="relative footer-logo">
               <Image
                 src={`https://www.canada.ca${pageData.sclGcImages[1]._path}`}
                 alt="Symbol of the Government of Canada"
                 layout="fill"
-                objectFit="cover"
               />
             </span>
           </div>

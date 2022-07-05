@@ -279,3 +279,36 @@ ul,
 li {
   @apply list-disc my-4 ml-4;
 }
+
+.footer-logo {
+  width: 174px;
+  height: 51px;
+}
+
+.lightbulb {
+  width: 96px;
+  height: 140px;
+}
+
+.lightbulb-bg {
+  width: 218px;
+  height: 218px;
+}
+
+@media (max-width: 762px) {
+  .footer-logo {
+    width: 87px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .lightbulb {
+    width: 48px;
+    height: 70px
+  }
+  .lightbulb-bg {
+    width: 109px;
+    height: 109px;
+  }
+}
