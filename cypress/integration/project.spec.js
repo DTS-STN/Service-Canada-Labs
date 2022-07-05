@@ -35,16 +35,16 @@ describe("project page", () => {
   });
 
   it("Filter projects: Upcoming projects", () => {
-    cy.get('[data-cy="upcoming_projects"]').click();
+    cy.get('[data-cy="gc:custom/decd-endc/project-status/upcoming"]').click();
     cy.get('[data-cy="projects-list"]>li>div>span').each(($el) => {
       expect($el.text()).to.eq("Upcoming projects");
     });
   });
 
-  it("Filter projects: Current projects", () => {
-    cy.get('[data-cy="current_projects"]').click();
+  it("Filter projects: Past projects", () => {
+    cy.get('[data-cy="gc:custom/decd-endc/project-status/past"]').click();
     cy.get('[data-cy="projects-list"]>li>div>span').each(($el) => {
-      expect($el.text()).to.eq("Current projects");
+      expect($el.text()).to.eq("Past projects");
     });
   });
 });
