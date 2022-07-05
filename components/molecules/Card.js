@@ -11,7 +11,7 @@ import Image from "next/image";
 export const Card = (props) => {
   const tagColours = {
     current_projects: "custom-green",
-    past_projects: "custom-red",
+    past_projects: "custom-gray",
     upcoming_projects: "custom-blue",
   };
 
@@ -29,7 +29,7 @@ export const Card = (props) => {
       }}
     >
       <div
-        className="bg-gray-300 mb-4"
+        className="mb-4"
         style={{
           height: `${props.isExperiment ? "290px" : "326px"}`,
           position: "relative",
@@ -92,7 +92,7 @@ export const Card = (props) => {
             text={props.btnText}
             id={props.btnId}
             dataCy={props.btnId}
-            className="rounded xxs:w-full xs:w-fit my-4 py-2 bg-custom-gray-lighter text-custom-blue-text focus:ring-inset focus:ring-2 focus:ring-black hover:bg-details-button-hover-gray text-center border border-details-button-gray"
+            className="rounded xxs:w-full xs:w-fit my-4 py-2 bg-[#EAEBED] text-custom-blue-text focus:ring-inset focus:ring-2 focus:ring-black hover:bg-details-button-hover-gray text-center border border-details-button-gray"
           />
         </span>
       ) : undefined}

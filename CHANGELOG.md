@@ -66,6 +66,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated home page to match new Figma designs
 - Updated DateModified component to accept a manual date (for use with AEM)
 - Updated images to use next/image instead of html img tag
+- Updated past project label to be gray instead of red, and also updated projects page to use new AEM data
 
 ## Fixed
 

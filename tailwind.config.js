@@ -20,12 +20,16 @@ module.exports = {
     "bg-custom-red-darker",
     "bg-custom-green-lighter",
     "bg-custom-green-darker",
+    "bg-custom-gray-lighter",
+    "bg-custom-gray-darker",
     "border-custom-blue-lighter",
     "border-custom-blue-darker",
     "border-custom-red-lighter",
     "border-custom-red-darker",
     "border-custom-green-lighter",
     "border-custom-green-darker",
+    "border-custom-gray-lighter",
+    "border-custom-gray-darker",
   ],
   theme: {
     fontFamily: {
@@ -88,7 +92,8 @@ module.exports = {
           darker: "#D3080C",
         },
         "custom-gray": {
-          lighter: "#EAEBED",
+          lighter: "#EEEEEE",
+          darker: "#ACACAC",
         },
         "error-border-red": "#D3080C",
         "error-background-red": "#F3E9E8",
