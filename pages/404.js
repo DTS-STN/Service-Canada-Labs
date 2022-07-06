@@ -122,15 +122,14 @@ export default function error404(props) {
           <div
             className="relative mt-6"
             style={{
-              width: "375px",
-              height: "35px",
+              width: "575px",
+              height: "59px",
             }}
           >
             <Image
               src={`https://www.canada.ca${pageData.sclGcImages[0]._path}`}
               alt={"Symbol of the Government of Canada"}
               layout="fill"
-              objectFit="cover"
             />
           </div>
           <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start mt-8">
