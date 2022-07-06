@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { Banner } from "../atoms/Banner";
-import { Menu } from "../molecules/Menu";
 import { Footer } from "./Footer";
 import { PhaseBanner } from "./PhaseBanner";
 import { ReportAProblem } from "./ReportAProblem";
@@ -9,6 +8,7 @@ import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
 import { Breadcrumb } from "../atoms/Breadcrumb";
 import Cookies from "js-cookie";
+import Image from "next/image";
 
 const setLanguage = (language) => {
   language === "fr"
@@ -71,10 +71,11 @@ export const Layout = ({
               {t("officialSiteNavigation")}
             </h3>
             <a href="https://www.canada.ca">
-              <img
-                className="h-5 w-auto xs:h-6 sm:h-8 md:h-8 lg:h-7 xl:h-8"
+              <Image
                 src={language === "en" ? "/sig-blk-fr.svg" : "/sig-blk-en.svg"}
                 alt={t("symbol")}
+                width="375"
+                height="35"
               />
             </a>
             <h3 className="sr-only">{t("languageSelection")}</h3>

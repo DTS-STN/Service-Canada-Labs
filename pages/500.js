@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import queryGraphQL from "../graphql/client";
 import get500Page from "../graphql/queries/error500Query.graphql";
+import Image from "next/image";
 
 export default function error500(props) {
   const { t } = useTranslation("common");
@@ -151,11 +152,14 @@ export default function error500(props) {
           <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <section className="layout-container pb-44">
-          <img
-            className="h-auto w-60 pt-6 xl:w-96 xxl:w-1/2"
-            src={`https://www.canada.ca${pageData.sclGcImages[0]._path}`}
-            alt={"Symbol of the Government of Canada"}
-          />
+          <div className="pt-6">
+            <Image
+              src={`https://www.canada.ca${pageData.sclGcImages[0]._path}`}
+              alt={"Symbol of the Government of Canada"}
+              width={575}
+              height={59}
+            />
+          </div>
           <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start mt-8">
             <div>
               <div className="relative h-auto xl:w-96 xxl:w-400px lg:w-72 xl:h-400px lg:h-500px mb-8 lg:mb-0">
@@ -190,12 +194,15 @@ export default function error500(props) {
               </div>
               <ReportAProblem language={"en"} />
             </div>
-            <div className="flex items-center justify-center circle-background my-8 lg:mt-0">
-              <img
-                className="w-68px xl:w-24"
-                src={`https://www.canada.ca${pageData.sclImagelist[0]._path}`}
-                alt="Cracked lightbulb"
-              />
+            <div className="flex items-center justify-center circle-background my-8 lg:mt-0 lightbulb-bg">
+              <span className="relative lightbulb">
+                <Image
+                  src={`https://www.canada.ca${pageData.sclImagelist[0]._path}`}
+                  alt="Cracked lightbulb"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </span>
             </div>
             <div>
               <div
@@ -245,11 +252,13 @@ export default function error500(props) {
               icon="icon-up-caret"
               iconEnd
             />
-            <img
-              className="h-6 w-auto lg:h-auto lg:w-40"
-              src={`https://www.canada.ca${pageData.sclGcImages[1]._path}`}
-              alt="Symbol of the Government of Canada"
-            />
+            <span className="relative footer-logo">
+              <Image
+                src={`https://www.canada.ca${pageData.sclGcImages[1]._path}`}
+                alt="Symbol of the Government of Canada"
+                layout="fill"
+              />
+            </span>
           </div>
         </footer>
       </div>

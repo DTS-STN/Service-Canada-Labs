@@ -5,6 +5,7 @@ import { ActionButton } from "../components/atoms/ActionButton";
 import Link from "next/link";
 import { useEffect } from "react";
 import Cookies from "js-cookie";
+import Image from "next/image";
 
 export default function Index(props) {
   const { t } = useTranslation("common");
@@ -128,11 +129,14 @@ export default function Index(props) {
         <div className="flex flex-col justify-center items-center m-auto v-xxs:h-screen">
           <div className="z-10 bg-white h-auto min-w-300px w-300px xl:w-500px">
             <h1 className="sr-only">alpha.service.canada.ca</h1>
-            <img
-              className="h-auto w-64 container mx-auto pt-6 xl:w-2/3 xl:mx-0 xl:px-6"
-              src={"/sig-blk-en.svg"}
-              alt={"Government of Canada / Gouvernement du Canada"}
-            />
+            <div className="p-4">
+              <Image
+                src={"/sig-blk-en.svg"}
+                alt={"Government of Canada / Gouvernement du Canada"}
+                width="300"
+                height="35"
+              />
+            </div>
             <div className="flex w-max container mx-auto py-6 font-display">
               <h2
                 className="text-p text-right xl:text-h4 mr-6 w-32 xl:w-40"
@@ -179,10 +183,11 @@ export default function Index(props) {
                 </a>
               </Link>
             </div>
-            <img
-              className="h-auto w-24 xl:w-28"
+            <Image
               src="/wmms-blk.svg"
               alt="Symbol of the Government of Canada / Symbole du gouvernement du Canada"
+              width="150"
+              height="25"
             />
           </div>
         </div>

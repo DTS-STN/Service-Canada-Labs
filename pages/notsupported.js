@@ -7,6 +7,7 @@ import { CopyToClipboard } from "../components/molecules/CopyToClipboard";
 import { useState } from "react";
 import queryGraphQL from "../graphql/client";
 import getNotSupported from "../graphql/queries/notsupportedQuery.graphql";
+import Image from "next/image";
 
 export default function notSupported(props) {
   const { t } = useTranslation("common");
@@ -150,11 +151,14 @@ export default function notSupported(props) {
           <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <section className="xs:px-0 lg:mx-auto lg:px-6 container">
-          <img
-            className="canadaLogo pt-6"
-            src={`https://www.canada.ca${pageData.sclGcImages[0]._path}`}
-            alt={"Symbol of the Government of Canada"}
-          />
+          <div className="pt-6">
+            <Image
+              src={`https://www.canada.ca${pageData.sclGcImages[0]._path}`}
+              alt={"Symbol of the Government of Canada"}
+              width={575}
+              height={59}
+            />
+          </div>
           <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start mt-8">
             <div>
               <div className="relative h-auto xl:w-96 xxl:w-400px lg:w-72 xl:h-400px lg:h-500px mb-8 lg:mb-0">
@@ -166,12 +170,15 @@ export default function notSupported(props) {
                 </p>
               </div>
             </div>
-            <div className="flex items-center justify-center circle-background my-8 lg:mt-0">
-              <img
-                className="w-68px xl:w-24"
-                src={`https://www.canada.ca${pageData.sclImagelist[0]._path}`}
-                alt="Cracked lightbulb"
-              />
+            <div className="flex items-center justify-center circle-background my-8 lg:mt-0 lightbulb-bg">
+              <span className="relative lightbulb">
+                <Image
+                  src={`https://www.canada.ca${pageData.sclImagelist[0]._path}`}
+                  alt="Cracked lightbulb"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </span>
             </div>
             <div>
               <div
@@ -191,7 +198,7 @@ export default function notSupported(props) {
         <section className="-mt-0 lg:-mt-36 sm:-mt-4 pb-5">
           <div className="flex items-center justify-center">
             <figure className="mx-4">
-              <img
+              <Image
                 src={`https://www.canada.ca${pageData.sclImagelist[1]._path}`}
                 alt="chrome"
                 width="98"
@@ -202,7 +209,7 @@ export default function notSupported(props) {
               </figcaption>
             </figure>
             <figure className="mx-4">
-              <img
+              <Image
                 src={`https://www.canada.ca${pageData.sclImagelist[2]._path}`}
                 alt="safari"
                 width="98"
@@ -213,7 +220,7 @@ export default function notSupported(props) {
               </figcaption>
             </figure>
             <figure className="mx-4">
-              <img
+              <Image
                 src={`https://www.canada.ca${pageData.sclImagelist[3]._path}`}
                 alt="edge"
                 width="94"
@@ -224,7 +231,7 @@ export default function notSupported(props) {
               </figcaption>
             </figure>
             <figure className="mx-4">
-              <img
+              <Image
                 src={`https://www.canada.ca${pageData.sclImagelist[4]._path}`}
                 alt="firefox"
                 width="98"
@@ -401,11 +408,13 @@ export default function notSupported(props) {
               icon="icon-up-caret"
               iconEnd
             />
-            <img
-              className="h-6 w-auto lg:h-auto lg:w-40"
-              src={`https://www.canada.ca${pageData.sclGcImages[1]._path}`}
-              alt="Symbol of the Government of Canada"
-            />
+            <span className="relative footer-logo">
+              <Image
+                src={`https://www.canada.ca${pageData.sclGcImages[1]._path}`}
+                alt="Symbol of the Government of Canada"
+                layout="fill"
+              />
+            </span>
           </div>
         </footer>
       </div>

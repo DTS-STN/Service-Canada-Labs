@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
-import { useTranslation } from "next-i18next";
 import { ActionButton } from "../atoms/ActionButton";
 import Image from "next/image";
 
@@ -10,7 +9,6 @@ import Image from "next/image";
  */
 
 export const Card = (props) => {
-  const { t } = useTranslation("common");
   const tagColours = {
     current_projects: "custom-green",
     past_projects: "custom-gray",
@@ -23,12 +21,11 @@ export const Card = (props) => {
         props.isExperiment ? "shadow-experiment-shadow -ml-8" : ""
       } xl:min-h-250px ${
         "border-" + (tagColours[props.tag] || "gray-experiment")
-      }`}
+      } min-w-full`}
       data-testid={props.dataTestId}
       data-cy={props.dataCy}
       style={{
-        width: "560px",
-        minWidth: "min-content",
+        maxWidth: "560px",
       }}
     >
       <div
@@ -50,16 +47,19 @@ export const Card = (props) => {
         {props.isExperiment ? (
           <Link href={props.href}>
             <a
-              className="flex block text-p text-custom-blue-projects-link underline hover:opacity-70 px-4"
+              className="flex block text-p text-custom-blue-projects-link underline hover:opacity-70 px-4 items-center"
               tabIndex="0"
             >
               {props.title}
               {props.href.substring(0, 8) === "https://" ? (
-                <img
-                  src="/external-link.svg"
-                  className="px-1 py-2"
-                  alt={t("externalLink")}
-                />
+                <div className="h-4 w-4 ml-1 mt-1 relative">
+                  <Image
+                    src={props.icon}
+                    alt={props.iconAlt}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
               ) : undefined}
             </a>
           </Link>

@@ -172,8 +172,8 @@ export default function Projects(props) {
               </p>
             </span>
             <span
-              className="relative flex w-full mt-4 lg:ml-8"
-              style={{ height: "274px", width: "453px", minWidth: "453px" }}
+              className="relative flex mt-4 lg:ml-8 lg:w-3/4"
+              style={{ height: "274px", maxWidth: "453px" }}
             >
               <Image
                 src={`https://www.canada.ca${pageData.scFragments[2].scImageEn._path}`}
@@ -248,6 +248,12 @@ export default function Projects(props) {
                   isExperiment
                   imgSrc="/placeholder.png"
                   imgAlt="placeholder"
+                  icon={`https://www.canada.ca${pageData.scFragments[3].scImageEn._path}`}
+                  iconAlt={
+                    props.locale === "en"
+                      ? pageData.scFragments[3].scImageAltTextEn
+                      : pageData.scFragments[3].scImageAltTextFr
+                  }
                   priority
                 />
               </li>
