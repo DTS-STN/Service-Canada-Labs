@@ -119,17 +119,12 @@ export default function error404(props) {
           <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <section className="layout-container pb-44">
-          <div
-            className="relative mt-6"
-            style={{
-              width: "575px",
-              height: "59px",
-            }}
-          >
+          <div className="mt-6">
             <Image
               src={`https://www.canada.ca${pageData.sclGcImages[0]._path}`}
               alt={"Symbol of the Government of Canada"}
-              layout="fill"
+              width={575}
+              height={59}
             />
           </div>
           <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start mt-8">
