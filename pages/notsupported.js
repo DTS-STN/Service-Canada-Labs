@@ -151,7 +151,7 @@ export default function notSupported(props) {
           <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <section className="xs:px-0 lg:mx-auto lg:px-6 container">
-          <div className="mt-6">
+          <div className="pt-6">
             <Image
               src={`https://www.canada.ca${pageData.sclGcImages[0]._path}`}
               alt={"Symbol of the Government of Canada"}

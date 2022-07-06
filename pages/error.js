@@ -169,7 +169,7 @@ export default function ErrorPage(props) {
         </Head>
         <main>
           <section className="layout-container pb-44">
-            <div className="mt-6">
+            <div className="pt-6">
               <Image
                 src={`https://www.canada.ca${pageData.sclGcImages[0]._path}`}
                 alt={"Symbol of the Government of Canada"}
