@@ -4,7 +4,6 @@ query getProjectsPage {
   ) {
     item {
       scId
-      scPublishProd
       scPageNameEn
       scPageNameFr
       scTitleEn
@@ -49,9 +48,6 @@ query getProjectsPage {
         ... on SCLabsContentModel {
           _path
           scId
-          scPublishProd
-          scTitleEn
-          scTitleFr
           scContentEn {
             json
           }
@@ -61,7 +57,6 @@ query getProjectsPage {
         }
         ... on SCLabsImageModel {
           scId
-          scPublishProd
           scTitleEn
           scTitleFr
           scImageEn {
@@ -103,7 +98,6 @@ query getProjectsPage {
         }
         ... on SCLabsButtonModel {
           scId
-          scPublishProd
           scTitleEn
           scTitleFr
           scDestinationURLEn
@@ -112,7 +106,6 @@ query getProjectsPage {
         }
         ... on SCLabsFeatureModel {
           scId
-          scPublishProd
           scTitleEn
           scTitleFr
           scContentEn {
@@ -141,7 +134,6 @@ query getProjectsPage {
           scImageAltTextFr
           scLabsButton {
             scId
-            scPublishProd
             scTitleEn
             scTitleFr
             scDestinationURLEn

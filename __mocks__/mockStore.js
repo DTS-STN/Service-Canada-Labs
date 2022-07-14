@@ -488,12 +488,38 @@ export const error404Page = {
 
 export const signupPage = {
   data: {
-    sclabsSignupList: {
-      items: [
-        {
-          _path:
-            "/content/dam/decd-endc/content-fragments/alpha/sclabs/pages/signup",
-          form: {
+    sCLabsPageByPath: {
+      item: {
+        scId: "sclabs-signup-page",
+        scPageNameEn: "/signup",
+        scPageNameFr: "/fr/inscription",
+        scTitleEn: "Sign up to get invited to research sessions (Step 1 of 2)",
+        scTitleFr:
+          "S’inscrire pour être invité aux séances de recherche (étape 1 sur 2)",
+        scShortTitleEn: null,
+        scShortTitleFr: null,
+        scDescriptionEn: {
+          json: null,
+        },
+        scDescriptionFr: {
+          json: null,
+        },
+        scSubject: null,
+        scKeywordsEn: null,
+        scKeywordsFr: null,
+        scContentType: null,
+        scOwner: null,
+        scDateModifiedOverwrite: null,
+        scAudience: null,
+        scRegion: null,
+        scSocialMediaImageEn: null,
+        scSocialMediaImageFr: null,
+        scSocialMediaImageAltTextEn: null,
+        scSocialMediaImageAltTextFr: null,
+        scNoIndex: false,
+        scNoFollow: false,
+        scFragments: [
+          {
             formFields: {
               en: {
                 label: {
@@ -592,6 +618,7 @@ export const signupPage = {
                   errorUnknown:
                     "An unknown error has occurred during your registration. Please contact experience@servicecanada.gc.ca to continue your registration or try again later",
                 },
+                requiredInfo: "Indicates required information",
                 agreeToConditions:
                   "I have read, understood and agree to the above. I affirm that I am 18 years old, or older. I understand that I can withdraw from this participant pool, or any research study at any time without consequence.",
                 privacy: "Read the full privacy policy",
@@ -702,6 +729,7 @@ export const signupPage = {
                   errorUnknown:
                     "Une erreur inconnue s’est produite lors de votre inscription. Veuillez contacter experience@servicecanada.gc.ca pour poursuivre votre inscription ou réessayer plus tard",
                 },
+                requiredInfo: "Indique que les renseignements sont requis",
                 agreeToConditions:
                   "J’ai lu, compris et accepté ce qui précède. J’affirme que j’ai 18 ans ou plus. Je comprends que je peux me retirer de ce groupe de participants ou de toute étude de recherche à tout moment, sans conséquence.",
                 privacy:
@@ -713,15 +741,8 @@ export const signupPage = {
               },
             },
           },
-          title: "Sign up to get invited to research sessions (Step 1 of 2)",
-          titleFr:
-            "S’inscrire pour être invité aux séances de recherche (étape 1 sur 2)",
-          requiredInformation: "Indicates required information",
-          requiredInformationFr: "Indique que les renseignements sont requis",
-          url: "/signup",
-          urlFr: "/fr/inscription",
-        },
-      ],
+        ],
+      },
     },
   },
 };
@@ -731,7 +752,6 @@ export const homePageData = {
     sCLabsPageByPath: {
       item: {
         scId: "sclabs-homepage",
-        scPublishProd: false,
         scPageNameEn: "/home",
         scPageNameFr: "/fr/accueil",
         scTitleEn: "Your feedback can shape tomorrow’s services",
@@ -785,7 +805,6 @@ export const homePageData = {
             _path:
               "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/home---main-content",
             scId: "HOME-MAIN-CONTENT",
-            scPublishProd: false,
             scTitleEn: null,
             scTitleFr: null,
             scContentEn: {
@@ -888,7 +907,6 @@ export const homePageData = {
           },
           {
             scId: "HOMEPAGE-MAIN-IMAGE",
-            scPublishProd: false,
             scTitleEn: null,
             scTitleFr: null,
             scImageEn: {
@@ -906,7 +924,6 @@ export const homePageData = {
           },
           {
             scId: "sclabs-homepage-button-about",
-            scPublishProd: false,
             scTitleEn: "About Service Canada Labs",
             scTitleFr: null,
             scDestinationURLEn: "/about",
@@ -915,7 +932,6 @@ export const homePageData = {
           },
           {
             scId: "HOMEPAGE-VIEW-PROJECTS",
-            scPublishProd: false,
             scTitleEn: "Try out current projects",
             scTitleFr: null,
             scContentEn: {
@@ -957,7 +973,6 @@ export const homePageData = {
             scLabsButton: [
               {
                 scId: "sclabs-homepage-button-projects",
-                scPublishProd: false,
                 scTitleEn: "View projects",
                 scTitleFr: null,
                 scDestinationURLEn: "/projects",
@@ -968,7 +983,6 @@ export const homePageData = {
           },
           {
             scId: "SIGN-UP-TO-GET-INVITED-TO-RESEARCH-SESSIONS",
-            scPublishProd: false,
             scTitleEn: "Sign up to participate in user research",
             scTitleFr:
               "Inscrivez-vous pour être invité aux séances de recherche",
@@ -1032,7 +1046,6 @@ export const homePageData = {
             scLabsButton: [
               {
                 scId: "sclabs-homepage-button-signup",
-                scPublishProd: false,
                 scTitleEn: "Sign up to participate in user research",
                 scTitleFr: null,
                 scDestinationURLEn: "/signup-info",

@@ -29,13 +29,13 @@ import getSignupPage from "../graphql/queries/signupQuery.graphql";
 export default function Signup(props) {
   const { t } = useTranslation("common");
   const { push } = useRouter();
-  const [pageData] = useState(props.pageData.items);
+  const [pageData] = useState(props.pageData.item);
   const fr = props.locale === "fr";
 
   const [formField] = useState(
     props.locale === "en"
-      ? pageData[0].form.formFields.en
-      : pageData[0].form.formFields.fr
+      ? pageData.scFragments[0].formFields.en
+      : pageData.scFragments[0].formFields.fr
   );
 
   // get the options for the year of birth ranges
@@ -426,7 +426,9 @@ export default function Signup(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={fr ? pageData[0].url : pageData[0].urlFr}
+        langUrl={
+          props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
+        }
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("signupInfoTitle"), link: t("breadCrumbsHref4") },
@@ -522,7 +524,7 @@ export default function Signup(props) {
         <section className="layout-container mb-2 mt-12">
           <div className="xl:w-2/3">
             <h1 className="mb-12" id="pageMainTitle" tabIndex="-1">
-              {fr ? pageData[0].titleFr : pageData[0].title}
+              {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
             </h1>
           </div>
         </section>
@@ -552,9 +554,7 @@ export default function Signup(props) {
                 <b className="text-error-border-red mr-2" aria-hidden="true">
                   *
                 </b>
-                {fr
-                  ? pageData[0].requiredInformationFr
-                  : pageData[0].requiredInformation}
+                {formField.requiredInfo}
               </p>
               <TextField
                 className="mb-10"
@@ -1163,7 +1163,7 @@ export const getStaticProps = async ({ locale }) => {
     return result;
   });
 
-  const data = res.data.sclabsSignupList;
+  const data = res.data.sCLabsPageByPath;
 
   return process.env.NEXT_PUBLIC_ISR_ENABLED
     ? {
