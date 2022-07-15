@@ -27,6 +27,7 @@ export const Layout = ({
   langUrl,
   breadcrumbItems,
   feedbackActive,
+  showDisclaimer,
   projectName,
   path,
   dateModifiedOverride,
@@ -54,13 +55,17 @@ export const Layout = ({
       <header>
         <h2 className="sr-only">{t("globalHeader")}</h2>
         <h3 className="sr-only">{t("testSiteNotice")}</h3>
-        <PhaseBanner
-          phase={t("phaseBannerTag")}
-          feedbackActive={feedbackActive}
-          text={t("phaseBannerText")}
-          projectName={projectName}
-          path={path}
-        />
+        {showDisclaimer ? (
+          <PhaseBanner
+            phase={t("phaseBannerTag")}
+            feedbackActive={feedbackActive}
+            text={t("phaseBannerText")}
+            projectName={projectName}
+            path={path}
+          />
+        ) : (
+          ""
+        )}
         <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">
           <div
             className="flex flex-row justify-between items-center lg:mt-7 mt-1.5"
@@ -254,6 +259,10 @@ Layout.propTypes = {
    * For activating feedback on active projects pages
    */
   feedbackActive: PropTypes.bool,
+  /**
+   * Boolean that determines whether the disclaimer at the top of the screen is shown or not
+   */
+  showDisclaimer: PropTypes.bool,
   /**
    * Project/page name that feedback is coming from
    */
