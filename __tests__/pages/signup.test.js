@@ -9,10 +9,10 @@ jest.mock("@apollo/client");
 
 describe("Signup", () => {
   it("renders without crashing", () => {
-    render(<Signup pageData={signupPage.data.sclabsSignupList} />);
+    render(<Signup pageData={signupPage.data.sCLabsPageByPath} />);
     expect(
       screen.getByRole("heading", {
-        name: "Sign up to get invited to research sessions (Step 1 of 2)",
+        name: "S’inscrire pour être invité aux séances de recherche (étape 1 sur 2)",
       })
     ).toBeInTheDocument();
   });
