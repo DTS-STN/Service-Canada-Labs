@@ -43,7 +43,7 @@ export default function Projects(props) {
   };
 
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
+    if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
@@ -62,8 +62,8 @@ export default function Projects(props) {
         showDisclaimer
       >
         <Head>
-          {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
-            <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+          {props.adobeAnalyticsUrl ? (
+            <script src={props.adobeAnalyticsUrl} />
           ) : (
             ""
           )}
@@ -262,7 +262,7 @@ export default function Projects(props) {
           </ul>
         </section>
       </Layout>
-      {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+      {props.adobeAnalyticsUrl ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
       ) : (
         ""
@@ -317,6 +317,7 @@ export const getStaticProps = async ({ locale }) => {
     ? {
         props: {
           locale: locale,
+          adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
           ...(await serverSideTranslations(locale, ["common"])),
           experimentData: experimentsData,
           pageData: pageData,
@@ -327,6 +328,7 @@ export const getStaticProps = async ({ locale }) => {
     : {
         props: {
           locale: locale,
+          adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
           ...(await serverSideTranslations(locale, ["common"])),
           experimentData: experimentsData,
           pageData: pageData,
