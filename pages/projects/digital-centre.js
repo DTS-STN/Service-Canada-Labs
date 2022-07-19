@@ -7,6 +7,8 @@ import { Layout } from "../../components/organisms/Layout";
 import { CallToAction } from "../../components/molecules/CallToAction";
 import { useEffect, useState } from "react";
 import FeedbackWidget from "../../components/molecules/FeedbackWidget";
+import queryGraphQL from "../../graphql/client";
+import getDigitalCentrePage from "../../graphql/queries/digitalCentreQuery.graphql";
 
 function ThumbnailWithCaption({
   title = "Image 1",
@@ -34,6 +36,8 @@ ThumbnailWithCaption.propTypes = {
 export default function DigitalCenter(props) {
   const { t } = useTranslation(["common", "dc"]);
   const [showFeedback, setShowFeedback] = useState(false);
+  const [pageData] = useState(props.pageData.item);
+
   let path =
     typeof window !== "undefined" && window.location.origin
       ? window.location.href
@@ -50,6 +54,8 @@ export default function DigitalCenter(props) {
     }
   }, []);
 
+  console.log(pageData);
+
   return (
     <>
       <FeedbackWidget
@@ -60,7 +66,9 @@ export default function DigitalCenter(props) {
       />
       <Layout
         locale={props.locale}
-        langUrl={t("digitalCentrePath")}
+        langUrl={
+          props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
+        }
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },
@@ -146,23 +154,58 @@ export default function DigitalCenter(props) {
 
         <section className="layout-container mb-10 text-lg">
           <h1 id="pageMainTitle" className="mb-10 text-h1l" tabIndex="-1">
-            {t("dc:OverviewTitle")}
+            {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
           </h1>
-          <p className="mt-3">{t("dc:ProductGoal1")}</p>
-          <p className="mt-3">{t("dc:ProductGoal2")}</p>
-          <p className="mt-3">{t("dc:ProductGoal3")}</p>
-
-          <h2 className="mt-10">{t("dc:Concept1Heading")}</h2>
-          <p className="mt-6">{t("dc:Concept1P1")}</p>
-          <p className="mt-6">{t("dc:Concept1P2")}</p>
+          <p className="mt-3">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[0].content[0].value
+              : pageData.scFragments[0].scContentFr.json[0].content[0].value}
+          </p>
+          <p className="mt-3">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[1].content[0].value
+              : pageData.scFragments[0].scContentFr.json[1].content[0].value}
+          </p>
+          <p className="mt-3">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[2].content[0].value
+              : pageData.scFragments[0].scContentFr.json[2].content[0].value}
+          </p>
+          <h2 className="mt-10">
+            {props.locale === "en"
+              ? pageData.scFragments[1].scContentEn.json[0].content[0].value
+              : pageData.scFragments[1].scContentFr.json[0].content[0].value}
+          </h2>
+          <p className="mt-6">
+            {props.locale === "en"
+              ? pageData.scFragments[1].scContentEn.json[1].content[0].value
+              : pageData.scFragments[1].scContentFr.json[1].content[0].value}
+          </p>
+          <p className="mt-6">
+            {props.locale === "en"
+              ? pageData.scFragments[1].scContentEn.json[2].content[0].value
+              : pageData.scFragments[1].scContentFr.json[2].content[0].value}
+          </p>
           <div className="mx-auto">
             <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 items-start gap-6">
               <ThumbnailWithCaption
-                title={t("dc:Concept1Img1Title")}
+                title={
+                  props.locale === "en"
+                    ? pageData.scFragments[5].scContentEn.json[0].content[0]
+                        .value
+                    : pageData.scFragments[5].scContentFr.json[0].content[0]
+                        .value
+                }
                 alt={t("dc:Concept1Img1Alt")}
                 src={t("dc:Concept1Img1")}
               >
-                <p className="text-base">{t("dc:Concept1Img1Caption")}</p>
+                <p className="text-base">
+                  {props.locale === "en"
+                    ? pageData.scFragments[5].scContentEn.json[1].content[0]
+                        .value
+                    : pageData.scFragments[5].scContentFr.json[1].content[0]
+                        .value}
+                </p>
                 <HTMList
                   tag="ol"
                   listClassName={
@@ -205,43 +248,99 @@ export default function DigitalCenter(props) {
             </div>
           </div>
 
-          <h2 className="mt-10">{t("dc:Concept2Heading")}</h2>
-          <p className="mt-6">{t("dc:Concept2P1")}</p>
-          <ol className="mt-4 ml-8  list-decimal list-outside">
+          <h2 className="mt-10">
+            {props.locale === "en"
+              ? pageData.scFragments[2].scContentEn.json[0].content[0].value
+              : pageData.scFragments[2].scContentFr.json[0].content[0].value}
+          </h2>
+          <p className="mt-6">
+            {props.locale === "en"
+              ? pageData.scFragments[2].scContentEn.json[1].content[0].value
+              : pageData.scFragments[2].scContentFr.json[1].content[0].value}
+          </p>
+          <ol className="mt-4 ml-8 list-decimal list-outside">
             <li className="mt-1">
               <a
-                href={t("dc:Concept2P2Href1")}
+                href={
+                  props.locale === "en"
+                    ? pageData.scFragments[2].scContentEn.json[2].content[0]
+                        .content[0].data.href
+                    : pageData.scFragments[2].scContentFr.json[2].content[0]
+                        .content[0].data.href
+                }
                 target="_blank"
                 rel="noopener"
                 className="font-body hover:text-canada-footer-hover-font-blue text-custom-blue-projects-link visited:text-purple-700 underline "
               >
-                {t("dc:Concept2P2Link1")}
+                {props.locale === "en"
+                  ? pageData.scFragments[2].scContentEn.json[2].content[0]
+                      .content[0].value
+                  : pageData.scFragments[2].scContentFr.json[2].content[0]
+                      .content[0].value}
               </a>{" "}
-              {t("dc:Concept2P2Li1")}
+              {props.locale === "en"
+                ? pageData.scFragments[2].scContentEn.json[2].content[0]
+                    .content[1].value
+                : pageData.scFragments[2].scContentFr.json[2].content[0]
+                    .content[1].value}
             </li>
             <li className="mt-1">
               <a
-                href={t("dc:Concept2P2Href2")}
+                href={
+                  props.locale === "en"
+                    ? pageData.scFragments[2].scContentEn.json[2].content[1]
+                        .content[0].data.href
+                    : pageData.scFragments[2].scContentFr.json[2].content[1]
+                        .content[0].data.href
+                }
                 target="_blank"
                 rel="noopener"
                 className="font-body hover:text-canada-footer-hover-font-blue text-custom-blue-projects-link visited:text-purple-700 underline "
               >
-                {t("dc:Concept2P2Link2")}
+                {props.locale === "en"
+                  ? pageData.scFragments[2].scContentEn.json[2].content[1]
+                      .content[0].value
+                  : pageData.scFragments[2].scContentFr.json[2].content[1]
+                      .content[0].value}
               </a>
-              {t("dc:Concept2P2Li2")}
+              {props.locale === "en"
+                ? pageData.scFragments[2].scContentEn.json[2].content[1]
+                    .content[1].value
+                : pageData.scFragments[2].scContentFr.json[2].content[1]
+                    .content[1].value}
             </li>
             <li className="mt-1">
               <a
-                href={t("dc:Concept2P2Href3")}
+                href={
+                  props.locale === "en"
+                    ? pageData.scFragments[2].scContentEn.json[2].content[2]
+                        .content[0].data.href
+                    : pageData.scFragments[2].scContentFr.json[2].content[2]
+                        .content[0].data.href
+                }
                 target="_blank"
                 rel="noopener"
                 className="font-body hover:text-canada-footer-hover-font-blue text-custom-blue-projects-link visited:text-purple-700 underline "
               >
-                {t("dc:Concept2P2Link3")}
+                {props.locale === "en"
+                  ? pageData.scFragments[2].scContentEn.json[2].content[2]
+                      .content[0].value
+                  : pageData.scFragments[2].scContentFr.json[2].content[2]
+                      .content[0].value}
               </a>
-              {t("dc:Concept2P2Li3")}
+              {props.locale === "en"
+                ? pageData.scFragments[2].scContentEn.json[2].content[2]
+                    .content[1].value
+                : pageData.scFragments[2].scContentFr.json[2].content[2]
+                    .content[1].value}
             </li>
-            <li className="mt-1">{t("dc:Concept2P2Li4")}</li>
+            <li className="mt-1">
+              {props.locale === "en"
+                ? pageData.scFragments[2].scContentEn.json[2].content[3]
+                    .content[0].value
+                : pageData.scFragments[2].scContentFr.json[2].content[3]
+                    .content[0].value}
+            </li>
           </ol>
 
           <div className="mx-auto">
@@ -294,14 +393,46 @@ export default function DigitalCenter(props) {
             </div>
           </div>
 
-          <h2 className=" mt-10">{t("dc:Concept3Heading")}</h2>
-          <p className=" mt-6">{t("dc:Concept3P1")}</p>
-          <HTMList
-            tag="ol"
-            listClassName={" mt-4 ml-8 list-decimal list-outside"}
-            liClassName={"mt-1"}
-            content={t("dc:Concept3P1List")}
-          />
+          <h2 className="mt-10">
+            {props.locale === "en"
+              ? pageData.scFragments[3].scContentEn.json[0].content[0].value
+              : pageData.scFragments[3].scContentFr.json[0].content[0].value}
+          </h2>
+          <p className="mt-6">
+            {props.locale === "en"
+              ? pageData.scFragments[3].scContentEn.json[1].content[0].value
+              : pageData.scFragments[3].scContentFr.json[1].content[0].value}
+          </p>
+          <ol className="mt-4 ml-8">
+            <li>
+              {props.locale === "en"
+                ? pageData.scFragments[3].scContentEn.json[2].content[0]
+                    .content[0].value
+                : pageData.scFragments[3].scContentFr.json[2].content[0]
+                    .content[0].value}
+            </li>
+            <li>
+              {props.locale === "en"
+                ? pageData.scFragments[3].scContentEn.json[2].content[1]
+                    .content[0].value
+                : pageData.scFragments[3].scContentFr.json[2].content[1]
+                    .content[0].value}
+            </li>
+            <li>
+              {props.locale === "en"
+                ? pageData.scFragments[3].scContentEn.json[2].content[2]
+                    .content[0].value
+                : pageData.scFragments[3].scContentFr.json[2].content[2]
+                    .content[0].value}
+            </li>
+            <li>
+              {props.locale === "en"
+                ? pageData.scFragments[3].scContentEn.json[2].content[3]
+                    .content[0].value
+                : pageData.scFragments[3].scContentFr.json[2].content[3]
+                    .content[0].value}
+            </li>
+          </ol>
 
           <div className="mx-auto">
             <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 items-start gap-6">
@@ -323,8 +454,16 @@ export default function DigitalCenter(props) {
             </div>
           </div>
 
-          <h2 className=" mt-10">{t("dc:Concept4Heading")}</h2>
-          <p className=" mt-6">{t("dc:Concept4P1")}</p>
+          <h2 className=" mt-10">
+            {props.locale === "en"
+              ? pageData.scFragments[4].scContentEn.json[0].content[0].value
+              : pageData.scFragments[4].scContentFr.json[0].content[0].value}
+          </h2>
+          <p className=" mt-6">
+            {props.locale === "en"
+              ? pageData.scFragments[4].scContentEn.json[1].content[0].value
+              : pageData.scFragments[4].scContentFr.json[1].content[0].value}
+          </p>
 
           <div className="mx-auto">
             <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 items-start gap-6">
@@ -371,9 +510,18 @@ export default function DigitalCenter(props) {
   );
 }
 
-export const getStaticProps = async ({ locale }) => ({
-  props: {
-    locale: locale,
-    ...(await serverSideTranslations(locale, ["common", "dc"])),
-  },
-});
+export const getStaticProps = async ({ locale }) => {
+  // get page data from AEM
+  const res = await queryGraphQL(getDigitalCentrePage).then((result) => {
+    return result;
+  });
+
+  const data = res.data.sCLabsPageByPath;
+  return {
+    props: {
+      locale: locale,
+      pageData: data,
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
+  };
+};

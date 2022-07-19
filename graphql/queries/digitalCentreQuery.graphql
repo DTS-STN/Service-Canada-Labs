@@ -1,0 +1,102 @@
+query getDigitalCentrePage {
+  sCLabsPageByPath(
+    _path: "/content/dam/decd-endc/content-fragments/alpha/sclabs/pages/projects/digital-centre"
+  ) {
+    item {
+      scId
+      scPageNameEn
+      scPageNameFr
+      scTitleEn
+      scTitleFr
+      scShortTitleEn
+      scShortTitleFr
+      scDescriptionEn {
+        json
+      }
+      scDescriptionFr {
+        json
+      }
+      scSubject
+      scKeywordsEn
+      scKeywordsFr
+      scContentType
+      scOwner
+      scDateModifiedOverwrite
+      scAudience
+      scRegion
+      scSocialMediaImageEn {
+        ... on ImageRef {
+          _path
+        }
+        ... on DocumentRef {
+          _path
+        }
+      }
+      scSocialMediaImageFr {
+        ... on ImageRef {
+          _path
+        }
+        ... on DocumentRef {
+          _path
+        }
+      }
+      scSocialMediaImageAltTextEn
+      scSocialMediaImageAltTextFr
+      scNoIndex
+      scNoFollow
+      scFragments {
+        ... on SCLabsContentModel {
+          _path
+          scId
+          scContentEn {
+            json
+          }
+          scContentFr {
+            json
+          }
+        }
+        ... on SCLabsImageModel {
+          scId
+          scTitleEn
+          scTitleFr
+          scImageEn {
+            ... on ImageRef {
+              _path
+            }
+            ... on DocumentRef {
+              _path
+            }
+          }
+          scImageFr {
+            ... on ImageRef {
+              _path
+            }
+            ... on DocumentRef {
+              _path
+            }
+          }
+          scImageMobileEn {
+            ... on ImageRef {
+              _path
+            }
+            ... on DocumentRef {
+              _path
+            }
+          }
+          scImageMobileFr {
+            ... on ImageRef {
+              _path
+            }
+            ... on DocumentRef {
+              _path
+            }
+          }
+          scImageAltTextEn
+          scImageAltTextFr
+          scImageCaptionEn
+          scImageCaptionFr
+        }
+      }
+    }
+  }
+}
