@@ -148,6 +148,12 @@ application.
 `NEXT_PUBLIC_ADOBE_ANALYTICS_URL`: URL for adobe analytics. It is found in the documentation for Adobe Analytics
 installation.
 
+## Checking Deployed Version
+Run the following bash script to check whether the latest (on `main`) has been deployed to various environments:
+```bash
+$ sh ./check-version.sh
+```
+
 ## Learn More About the Framework We're Using
 
 To learn more about Next.js, take a look at the following resources:
