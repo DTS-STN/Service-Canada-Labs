@@ -246,7 +246,7 @@ export const getStaticProps = async ({ locale }) => {
 
   const data = res.data.scLabsErrorPageByPath;
 
-  return process.env.NEXT_PUBLIC_ISR_ENABLED
+  return process.env.ISR_ENABLED
     ? {
         props: {
           locale: locale,
