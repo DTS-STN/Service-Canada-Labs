@@ -313,7 +313,7 @@ export const getStaticProps = async ({ locale }) => {
     )
   );
 
-  return process.env.NEXT_PUBLIC_ISR_ENABLED
+  return process.env.ISR_ENABLED
     ? {
         props: {
           locale: locale,

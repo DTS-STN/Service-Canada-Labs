@@ -81,7 +81,7 @@ Required environment variables:
 ```code
 REPORT_A_PROBLEM_ENABLED=true
 NOTIFY_BASE_API_URL=https://api.notification.canada.ca
-NOTIFY_REPORT_A_PROBLEM_EMAIL=email which will receive the feedback from the form
+NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL=email which will receive the feedback from the form
 NOTIFY_API_KEY=ask for this
 NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID=ask for this
 ```
