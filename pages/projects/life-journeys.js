@@ -188,6 +188,6 @@ export default function LifeJourneys(props) {
 export const getStaticProps = async ({ locale }) => ({
   props: {
     locale: locale,
-    ...(await serverSideTranslations(locale, ["common", "vc"])),
+    ...(await serverSideTranslations(locale, ["common", "lj"])),
   },
 });
