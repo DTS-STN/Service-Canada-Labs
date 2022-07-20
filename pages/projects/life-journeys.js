@@ -5,16 +5,11 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { HTMList } from "../../components/atoms/HTMList";
 import { CallToAction } from "../../components/molecules/CallToAction";
-import { useEffect, useState } from "react";
-import queryGraphQL from "../../graphql/client";
-import getHavingAChildPage from "../../graphql/queries/havingAChildQuery.graphql";
+import { useEffect } from "react";
 
 export default function LifeJourneys(props) {
   const { t } = useTranslation("common", "lj");
   const { asPath } = useRouter();
-  const [pageData] = useState(props.pageData.item);
-
-  console.log(pageData);
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -190,18 +185,9 @@ export default function LifeJourneys(props) {
   );
 }
 
-export const getStaticProps = async ({ locale }) => {
-  // get page data from AEM
-  const res = await queryGraphQL(getHavingAChildPage).then((result) => {
-    return result;
-  });
-
-  const data = res.data.sCLabsPageByPath;
-  return {
-    props: {
-      locale: locale,
-      pageData: data,
-      ...(await serverSideTranslations(locale, ["common"])),
-    },
-  };
-};
+export const getStaticProps = async ({ locale }) => ({
+  props: {
+    locale: locale,
+    ...(await serverSideTranslations(locale, ["common", "vc"])),
+  },
+});
