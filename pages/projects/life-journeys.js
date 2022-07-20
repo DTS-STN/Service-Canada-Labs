@@ -185,9 +185,11 @@ export default function LifeJourneys(props) {
   );
 }
 
-export const getStaticProps = async ({ locale }) => ({
-  props: {
-    locale: locale,
-    ...(await serverSideTranslations(locale, ["common", "lj"])),
-  },
-});
+export const getStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      locale: locale,
+      ...(await serverSideTranslations(locale, ["common", "lj"])),
+    },
+  };
+};
