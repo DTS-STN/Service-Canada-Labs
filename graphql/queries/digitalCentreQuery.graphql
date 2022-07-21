@@ -1,6 +1,6 @@
-query getProjectsPage {
+query getDigitalCentrePage {
   sCLabsPageByPath(
-    _path: "/content/dam/decd-endc/content-fragments/alpha/sclabs/pages/projects-page"
+    _path: "/content/dam/decd-endc/content-fragments/alpha/sclabs/pages/projects/digital-centre"
   ) {
     item {
       scId
@@ -93,51 +93,6 @@ query getProjectsPage {
           scImageAltTextFr
           scImageCaptionEn
           scImageCaptionFr
-        }
-        ... on SCLabsButtonModel {
-          scId
-          scTitleEn
-          scTitleFr
-          scDestinationURLEn
-          scDestinationURLFr
-          scButtonType
-        }
-        ... on SCLabsFeatureModel {
-          scId
-          scTitleEn
-          scTitleFr
-          scContentEn {
-            json
-          }
-          scContentFr {
-            json
-          }
-          scImageEn {
-            ... on ImageRef {
-              _path
-            }
-            ... on DocumentRef {
-              _path
-            }
-          }
-          scImageFr {
-            ... on ImageRef {
-              _path
-            }
-            ... on DocumentRef {
-              _path
-            }
-          }
-          scImageAltTextEn
-          scImageAltTextFr
-          scLabsButton {
-            scId
-            scTitleEn
-            scTitleFr
-            scDestinationURLEn
-            scDestinationURLFr
-            scButtonType
-          }
         }
       }
     }
