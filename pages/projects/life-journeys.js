@@ -3,13 +3,16 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import { HTMList } from "../../components/atoms/HTMList";
 import { CallToAction } from "../../components/molecules/CallToAction";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import queryGraphQL from "../../graphql/client";
+import getHavingAChildPage from "../../graphql/queries/havingAChildQuery.graphql";
+import Image from "next/image";
 
 export default function LifeJourneys(props) {
   const { t } = useTranslation("common", "lj");
   const { asPath } = useRouter();
+  const [pageData] = useState(props.pageData.item);
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -118,54 +121,213 @@ export default function LifeJourneys(props) {
             className="mb-8 text-h1l flex-wrap"
             tabIndex="-1"
           >
-            {t("lj:lifeJourneysTitle")}
+            {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
           </h1>
-          <h2 className="mb-6 leading-10">{t("lj:lifeJourneysHeading1")}</h2>
-          <p className="mb-6">{t("lj:lifeJourneysContent1")}</p>
-          <p className="mb-6">{t("lj:lifeJourneysContent2")}</p>
-          <p className="mb-6">{t("lj:lifeJourneysContent3")}</p>
-          <p className="mb-6">{t("lj:lifeJourneysContent4")}</p>
-          <h2 className="mb-6 leading-10">{t("lj:lifeJourneysHeading2")}</h2>
+          <h2 className="mb-6 leading-10">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[0].content[0].value
+              : pageData.scFragments[0].scContentFr.json[0].content[0].value}
+          </h2>
+          <p className="mb-6">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[1].content[0].value
+              : pageData.scFragments[0].scContentFr.json[1].content[0].value}
+          </p>
+          <p className="mb-6">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[2].content[0].value
+              : pageData.scFragments[0].scContentFr.json[2].content[0].value}
+          </p>
+          <p className="mb-6">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[3].content[0].value
+              : pageData.scFragments[0].scContentFr.json[3].content[0].value}
+          </p>
+          <p className="mb-6">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[4].content[0].value
+              : pageData.scFragments[0].scContentFr.json[4].content[0].value}
+          </p>
+          <h2 className="mb-6 leading-10">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[5].content[0].value
+              : pageData.scFragments[0].scContentFr.json[5].content[0].value}
+          </h2>
           <figure className="mb-6 lg:w-2/3 border shadow-experiment-shadow">
-            <img
-              src={t("lj:lifeJourneysImg1")}
-              alt={t("lj:lifeJourneysImgAltText1")}
-            ></img>
+            <Image
+              src={`https://www.canada.ca${
+                props.locale === "en"
+                  ? pageData.scFragments[1].scImageEn._path
+                  : pageData.scFragments[1].scImageFr._path
+              }`}
+              alt={
+                props.locale === "en"
+                  ? pageData.scFragments[1].scImageAltTextEn
+                  : pageData.scFragments[1].scImageAltTextFr
+              }
+              width={800}
+              height={375}
+            />
             <figcaption className="p-6 text-sm font-display border-t">
-              {t("lj:lifeJourneysImgCaption1")}
+              {props.locale === "en"
+                ? pageData.scFragments[1].scImageCaptionEn
+                : pageData.scFragments[1].scImageCaptionFr}
             </figcaption>
           </figure>
-          <p className="mb-6">{t("lj:lifeJourneysContent5")}</p>
-          <p className="mb-6">{t("lj:lifeJourneysContent6")}</p>
-          <p>{t("lj:lifeJourneysContent7")}</p>
-          <HTMList
-            tag="ol"
-            listClassName={"ml-9 mb-6 text-p list-disc"}
-            content={t("lj:lifeJourneysListItems1")}
-          />
-          <h2 className="mb-6 leading-10">{t("lj:lifeJourneysHeading3")}</h2>
+          <p className="mb-6">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[6].content[0].value
+              : pageData.scFragments[0].scContentFr.json[6].content[0].value}
+          </p>
+          <p className="mb-6">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[7].content[0].value
+              : pageData.scFragments[0].scContentFr.json[7].content[0].value}
+          </p>
+          <p className="mb-6">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[8].content[0].value
+              : pageData.scFragments[0].scContentFr.json[8].content[0].value}
+          </p>
+          <p>
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[9].content[0].value
+              : pageData.scFragments[0].scContentFr.json[9].content[0].value}
+          </p>
+          <ol className="ml-8 text-lg">
+            <li>
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[10].content[0]
+                    .content[0].value
+                : pageData.scFragments[0].scContentFr.json[10].content[0]
+                    .content[0].value}
+            </li>
+            <li>
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[10].content[1]
+                    .content[0].value
+                : pageData.scFragments[0].scContentFr.json[10].content[1]
+                    .content[0].value}
+            </li>
+            <li>
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[10].content[2]
+                    .content[0].value
+                : pageData.scFragments[0].scContentFr.json[10].content[2]
+                    .content[0].value}
+            </li>
+            <li>
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[10].content[3]
+                    .content[0].value
+                : pageData.scFragments[0].scContentFr.json[10].content[3]
+                    .content[0].value}
+            </li>
+          </ol>
+          <h2 className="mb-6 leading-10">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[11].content[0].value
+              : pageData.scFragments[0].scContentFr.json[11].content[0].value}
+          </h2>
           <figure className="mb-6 lg:w-2/3 border shadow-experiment-shadow">
-            <img
-              src="/life-journey-map.png"
-              alt={t("lj:lifeJourneysImgAltText2")}
-            ></img>
+            <Image
+              src={`https://www.canada.ca${
+                props.locale === "en"
+                  ? pageData.scFragments[2].scImageEn._path
+                  : pageData.scFragments[2].scImageFr._path
+              }`}
+              alt={
+                props.locale === "en"
+                  ? pageData.scFragments[2].scImageAltTextEn
+                  : pageData.scFragments[2].scImageAltTextFr
+              }
+              width={800}
+              height={450}
+            />
             <figcaption className="p-6 text-sm font-display border-t">
-              {t("lj:lifeJourneysImgCaption2")}
+              {props.locale === "en"
+                ? pageData.scFragments[2].scImageCaptionEn
+                : pageData.scFragments[2].scImageCaptionFr}
             </figcaption>
           </figure>
-          <p className="mb-6">{t("lj:lifeJourneysContent8")}</p>
-          <p className="mb-6">{t("lj:lifeJourneysContent9")}</p>
-          <p>{t("lj:lifeJourneysContent10")}</p>
-          <HTMList
-            tag="ol"
-            listClassName={"ml-9 mb-6 text-p list-disc"}
-            content={t("lj:lifeJourneysListItems2")}
-          />
-          <p className="mb-6">{t("lj:lifeJourneysContent11")}</p>
-          <h2 className="mb-6 leading-10">{t("lj:lifeJourneysHeading4")}</h2>
-          <p className="mb-6">{t("lj:lifeJourneysContent12")}</p>
+          <p className="mb-6">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[12].content[0].value
+              : pageData.scFragments[0].scContentFr.json[12].content[0].value}
+          </p>
+          <p className="mb-6">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[13].content[0].value
+              : pageData.scFragments[0].scContentFr.json[13].content[0].value}
+          </p>
+          <p className="mb-6">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[14].content[0].value
+              : pageData.scFragments[0].scContentFr.json[14].content[0].value}
+          </p>
+          <p>
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[15].content[0].value
+              : pageData.scFragments[0].scContentFr.json[15].content[0].value}
+          </p>
+          <ol className="ml-8 text-lg">
+            <li>
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[16].content[0]
+                    .content[0].value
+                : pageData.scFragments[0].scContentFr.json[16].content[0]
+                    .content[0].value}
+            </li>
+            <li>
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[16].content[1]
+                    .content[0].value
+                : pageData.scFragments[0].scContentFr.json[16].content[1]
+                    .content[0].value}
+            </li>
+            <li>
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[16].content[2]
+                    .content[0].value
+                : pageData.scFragments[0].scContentFr.json[16].content[2]
+                    .content[0].value}
+            </li>
+            <li>
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[16].content[3]
+                    .content[0].value
+                : pageData.scFragments[0].scContentFr.json[16].content[3]
+                    .content[0].value}
+            </li>
+            <li>
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[16].content[4]
+                    .content[0].value
+                : pageData.scFragments[0].scContentFr.json[16].content[4]
+                    .content[0].value}
+            </li>
+          </ol>
+          <p className="mb-6">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[17].content[0].value
+              : pageData.scFragments[0].scContentFr.json[17].content[0].value}
+          </p>
+          <h2 className="mb-6 leading-10">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[18].content[0].value
+              : pageData.scFragments[0].scContentFr.json[18].content[0].value}
+          </h2>
+          <p className="mb-6">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[19].content[0].value
+              : pageData.scFragments[0].scContentFr.json[19].content[0].value}
+          </p>
           <p className="my-6">
-            <strong>{t("projectsDisclaimer")}</strong>
+            <strong>
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[20].content[0].value
+                : pageData.scFragments[0].scContentFr.json[20].content[0].value}
+            </strong>
           </p>
         </section>
 
@@ -186,10 +348,17 @@ export default function LifeJourneys(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
+  // get page data from AEM
+  const res = await queryGraphQL(getHavingAChildPage).then((result) => {
+    return result;
+  });
+
+  const data = res.data.sCLabsPageByPath;
   return {
     props: {
       locale: locale,
-      ...(await serverSideTranslations(locale, ["common", "lj"])),
+      pageData: data,
+      ...(await serverSideTranslations(locale, ["common"])),
     },
   };
 };
