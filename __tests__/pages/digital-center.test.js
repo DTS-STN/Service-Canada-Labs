@@ -2,11 +2,20 @@
  * @jest-environment jsdom
  */
 import { render, screen } from "@testing-library/react";
-import DigitalCenter from "../../pages/projects/digital-centre";
+import DigitalCentre from "../../pages/projects/digital-centre";
+import { digitalCentrePageData } from "../../__mocks__/mockStore";
 
-describe("Digital Center page", () => {
+jest.mock("@apollo/client");
+
+describe("Digital Centre", () => {
   it("renders without crashing", () => {
-    render(<DigitalCenter />);
-    expect(screen.getByText("OverviewTitle")).toBeInTheDocument();
+    render(
+      <DigitalCentre pageData={digitalCentrePageData.data.sCLabsPageByPath} />
+    );
+    expect(
+      screen.getByRole("heading", {
+        name: "Aperçu du Centre numérique de Service Canada",
+      })
+    ).toBeInTheDocument();
   });
 });
