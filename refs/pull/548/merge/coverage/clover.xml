@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1658275475795" clover="3.2.0">
-  <project timestamp="1658275475795" name="All files">
-    <metrics statements="919" coveredstatements="670" conditionals="809" coveredconditionals="448" methods="221" coveredmethods="152" elements="1949" coveredelements="1270" complexity="0" loc="919" ncloc="919" packages="15" files="102" classes="102"/>
+<coverage generated="1658433913240" clover="3.2.0">
+  <project timestamp="1658433913240" name="All files">
+    <metrics statements="924" coveredstatements="671" conditionals="997" coveredconditionals="542" methods="222" coveredmethods="152" elements="2143" coveredelements="1365" complexity="0" loc="924" ncloc="924" packages="15" files="102" classes="102"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/index.js">
@@ -118,12 +118,12 @@
       </file>
       <file name="HTMList.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/atoms/HTMList.js">
         <metrics statements="6" coveredstatements="6" conditionals="3" coveredconditionals="3" methods="4" coveredmethods="4"/>
-        <line num="4" count="24" type="stmt"/>
-        <line num="5" count="24" type="stmt"/>
-        <line num="7" count="35" type="stmt"/>
-        <line num="9" count="30" type="stmt"/>
-        <line num="14" count="24" type="cond" truecount="2" falsecount="0"/>
-        <line num="21" count="5" type="stmt"/>
+        <line num="4" count="15" type="stmt"/>
+        <line num="5" count="15" type="stmt"/>
+        <line num="7" count="26" type="stmt"/>
+        <line num="9" count="21" type="stmt"/>
+        <line num="14" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="4" type="stmt"/>
       </file>
       <file name="MultiTextField.js" path="/home/runner/work/Alpha-Site/Alpha-Site/components/atoms/MultiTextField.js">
         <metrics statements="5" coveredstatements="5" conditionals="10" coveredconditionals="6" methods="2" coveredmethods="2"/>
@@ -1213,23 +1213,28 @@
       </file>
     </package>
     <package name="pages.projects">
-      <metrics statements="23" coveredstatements="16" conditionals="27" coveredconditionals="11" methods="9" coveredmethods="5"/>
+      <metrics statements="28" coveredstatements="17" conditionals="215" coveredconditionals="105" methods="10" coveredmethods="5"/>
       <file name="digital-centre.js" path="/home/runner/work/Alpha-Site/Alpha-Site/pages/projects/digital-centre.js">
-        <metrics statements="14" coveredstatements="10" conditionals="17" coveredconditionals="7" methods="6" coveredmethods="3"/>
-        <line num="17" count="8" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="38" count="1" type="cond" truecount="3" falsecount="1"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
+        <metrics statements="19" coveredstatements="11" conditionals="205" coveredconditionals="101" methods="7" coveredmethods="3"/>
+        <line num="19" count="8" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="42" count="1" type="cond" truecount="3" falsecount="1"/>
         <line num="46" count="1" type="stmt"/>
-        <line num="47" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="48" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="53" count="1" type="stmt"/>
-        <line num="361" count="0" type="stmt"/>
-        <line num="374" count="1" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="51" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="52" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="836" count="0" type="stmt"/>
+        <line num="849" count="1" type="stmt"/>
+        <line num="851" count="0" type="stmt"/>
+        <line num="852" count="0" type="stmt"/>
+        <line num="855" count="0" type="stmt"/>
+        <line num="856" count="0" type="stmt"/>
       </file>
       <file name="life-journeys.js" path="/home/runner/work/Alpha-Site/Alpha-Site/pages/projects/life-journeys.js">
         <metrics statements="9" coveredstatements="6" conditionals="10" coveredconditionals="4" methods="3" coveredmethods="2"/>
