@@ -57,8 +57,6 @@ query getHomePage {
         }
         ... on SCLabsImageModel {
           scId
-          scTitleEn
-          scTitleFr
           scImageEn {
             ... on ImageRef {
               _path
