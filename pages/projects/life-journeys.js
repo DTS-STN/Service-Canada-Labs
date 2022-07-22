@@ -39,7 +39,9 @@ export default function LifeJourneys(props) {
           )}
 
           {/* Primary HTML Meta Tags */}
-          <title>{`${t("lj:lifeJourneysTitle")} — ${t("siteTitle")}`}</title>
+          <title>{`${
+            props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+          } — ${t("siteTitle")}`}</title>
           <meta
             name="description"
             content={`${t("lj:lifeJourneysContent2")} ${t(
