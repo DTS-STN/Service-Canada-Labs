@@ -3,7 +3,9 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../../../components/organisms/Layout";
 import { ActionButton } from "../../../components//atoms/ActionButton";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import queryGraphQL from "../../../graphql/client";
+import getVirtualAssistantPage from "../../../graphql/queries/virtualAssistantQuery.graphql";
 
 //  On hold for now
 //  import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge";
@@ -12,6 +14,9 @@ import { useEffect } from "react";
 export default function Home(props) {
   const { t } = useTranslation(["common", "vc"]);
   const language = props.locale === "en" ? "fr" : "en";
+  const [pageData] = useState(props.pageData.item);
+
+  console.log(pageData);
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -109,19 +114,29 @@ export default function Home(props) {
         {/* Virtual Assitant Demo section start -  with link to working prototype */}
         <section className="layout-container mb-10">
           <h1 className="mb-8 text-h1l" tabIndex="-1" id="pageMainTitle">
-            {t("vc:virtualAssistantTitle")}
+            {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
           </h1>
           {/* the scenario section */}
           <div className="whitespace-pre-line ">
             <h2 className="mb-6 mt-8 text-h1" id="virtualAssistantScenario">
-              {t("vc:scenarioTitle")}
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[0].content[0].value
+                : pageData.scFragments[0].scContentFr.json[0].content[0].value}
             </h2>
-            <p
-              className="mb-6 lg:col-span-2 px-1 lg:px-0 xl:w-3/4"
-              dangerouslySetInnerHTML={{ __html: t("vc:scenarioBody") }}
-            >
-              {/* {t("vc:scenarioDemoBody")} */}
+            <p className="mb-6 lg:col-span-2 px-1 lg:px-0 xl:w-3/4">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[1].content[0].value +
+                  (
+                    <p>
+                      {
+                        pageData.scFragments[0].scContentEn.json[1].content[1]
+                          .value
+                      }
+                    </p>
+                  )
+                : pageData.scFragments[0].scContentFr.json[1].content[0].value}
             </p>
+
             <p className="flex mb-16 text-center">
               <ActionButton
                 href={
@@ -176,9 +191,18 @@ export default function Home(props) {
   );
 }
 
-export const getStaticProps = async ({ locale }) => ({
-  props: {
-    locale: locale,
-    ...(await serverSideTranslations(locale, ["common", "vc"])),
-  },
-});
+export const getStaticProps = async ({ locale }) => {
+  // get page data from AEM
+  const res = await queryGraphQL(getVirtualAssistantPage).then((result) => {
+    return result;
+  });
+
+  const data = res.data.sCLabsPageByPath;
+  return {
+    props: {
+      locale: locale,
+      pageData: data,
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
+  };
+};
