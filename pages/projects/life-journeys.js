@@ -2,7 +2,6 @@ import { Layout } from "../../components/organisms/Layout";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
 import { CallToAction } from "../../components/molecules/CallToAction";
 import { useEffect, useState } from "react";
 import queryGraphQL from "../../graphql/client";
