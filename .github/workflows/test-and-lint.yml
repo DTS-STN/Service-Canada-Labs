@@ -19,7 +19,7 @@ jobs:
         run: yarn build
         env:
           NEXT_PUBLIC_API_MOCKING: enabled
-          NEXT_PUBLIC_AEM_GRAPHQL_ENDPOINT: ${{ secrets.NEXT_PUBLIC_AEM_GRAPHQL_ENDPOINT }}
+          AEM_GRAPHQL_ENDPOINT: ${{ secrets.AEM_GRAPHQL_ENDPOINT }}
           CI: true
 
       - name: Linting Test 📝
