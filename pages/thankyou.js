@@ -183,9 +183,9 @@ export default function Confirmation(props) {
                 {t("sentEmailTo")} {maskedEmail} {t("from")}{" "}
                 <a
                   className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-                  href={`mailto: ${process.env.NEXT_PUBLIC_THANK_YOU_EMAIL}`}
+                  href={`mailto: ${props.thankYouEmailAddress}`}
                 >
-                  {process.env.NEXT_PUBLIC_THANK_YOU_EMAIL}
+                  {props.thankYouEmailAddress}
                 </a>{" "}
                 {t("toCheckEmail")}
               </p>
@@ -258,6 +258,7 @@ export const getStaticProps = async ({ locale }) => {
     props: {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+      thankYouEmailAddress: process.env.THANK_YOU_EMAIL,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };
