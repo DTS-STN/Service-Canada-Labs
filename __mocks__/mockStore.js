@@ -1059,3 +1059,2543 @@ export const homePageData = {
     },
   },
 };
+
+export const digitalCentrePageData = {
+  data: {
+    sCLabsPageByPath: {
+      item: {
+        scId: "sclabs-digital-centre",
+        scPageNameEn: "/projects/digital-centre",
+        scPageNameFr: "/fr/projets/centre-numerique",
+        scTitleEn: "Service Canada Digital Centre Overview",
+        scTitleFr: "Aperçu du Centre numérique de Service Canada",
+        scShortTitleEn: null,
+        scShortTitleFr: null,
+        scDescriptionEn: {
+          json: null,
+        },
+        scDescriptionFr: {
+          json: null,
+        },
+        scSubject: null,
+        scKeywordsEn: null,
+        scKeywordsFr: null,
+        scContentType: null,
+        scOwner: null,
+        scDateModifiedOverwrite: "2022-07-12",
+        scAudience: null,
+        scRegion: null,
+        scSocialMediaImageEn: null,
+        scSocialMediaImageFr: null,
+        scSocialMediaImageAltTextEn: null,
+        scSocialMediaImageAltTextFr: null,
+        scNoIndex: false,
+        scNoFollow: false,
+        scFragments: [
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/didigal-centre---main-content",
+            scId: "sclabs-digital-centre-main-content",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "The goal of the Digital Centre is to bring the experience of visiting a Service Canada location online. Think of it as the “home base” where your new Service Canada experience will happen. Our goal is to empower you to learn about benefits and services specific to your situation, and then apply for and manage your benefits.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "This is also the place where you will create an account, have your identity verified, and later, log in with Service Canada through the Digital Centre. The Digital Centre will collect your benefit choices and profile and share this with frontline Service Canada staff. If you decide to call or visit a location, staff will already have your account information to serve you faster.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "We are still thinking about how this will all work, but below are 4 ideas that we think might make it easier for you to receive benefits and services from the government. Keep in mind these are not final designs and we are looking forward to getting feedback from you on these ideas.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "L’objectif du Centre numérique est de vous faire vivre en ligne l’expérience d’une visite d’un point de service de Service Canada. Considérez-le comme le « port d’attache » d’où vous vivrez votre nouvelle expérience avec Service Canada. Notre objectif est de vous donner les moyens de vous renseigner sur les prestations et les services propres à votre situation, puis de présenter vos demandes et de gérer vos prestations.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "C’est aussi l’endroit où vous pourrez créer un compte, où votre identité sera vérifiée et où vous vous connecterez à Service Canada par l’intermédiaire du Centre numérique. Le Centre numérique recueillera vos choix de prestations et votre profil et les communiquera au personnel de première ligne de Service Canada. Si vous décidez d’appeler ou de vous rendre dans un point de service, le personnel disposera déjà des renseignements sur votre compte pour vous servir le plus rapidement possible.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Nous réfléchissons toujours à la façon dont tout cela fonctionnera, mais vous trouverez ci-dessous 4 idées qui, selon nous, pourraient vous permettre de recevoir plus facilement des prestations et des services du gouvernement. Gardez à l’esprit qu’il ne s’agit pas de concepts définitifs et que nous sommes impatients d’obtenir vos commentaires sur ces idées.",
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/digital-centre---idea-1",
+            scId: "sclabs-digital-centre-idea1",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Idea 1: Finding Information on Benefits and Services",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Miskomin is preparing to have her first child. She’s not sure which benefits apply to her. She lands on the Digital Centre home page and notices a “life journey” for having a child. She clicks on the link and discovers new information on applicable benefits and services for expectant First Nations mothers.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "A few months later, Miskomin realizes that she needs to apply for maternity employment insurance. She lands on the Service Canada home page again and notices a search bar. She types in the keywords and presses the search button. A list of benefits come up along with a panel with search filters. She adjusts her filters to find the maternity employment insurance that she can apply for.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Idée 1 : Trouver des renseignements sur les prestations et les services",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Miskomin se prépare à avoir son premier enfant. Elle n’est pas certaine des prestations qui s’appliquent à sa situation.. Elle atterrit sur la page d’accueil du Centre numérique et remarque un « parcours de vie » pour avoir un enfant. Elle clique sur le lien et découvre de nouveaux renseignements sur les prestations et services disponibles aux futures mamans des Premières nations.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Quelques mois plus tard, Miskomin se rend compte qu’elle doit faire une demande de prestations de maternité relevant de l’assurance-emploi. Elle atterrit de nouveau sur la page d’accueil du Centre numérique et remarque une barre de recherche. Elle entre des mots-clés et appuie sur le bouton de recherche. Une liste de prestations s’affiche ainsi que des filtres de recherche. Elle ajuste ses filtres pour trouver les prestations de maternité de l’assurance-emploi qu’elle peut demander.",
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/digital-centre---idea-2",
+            scId: "sclabs-digital-centre-idea2",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Idea 2: Choosing a sign in method",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Atul lives in Alberta and has never created an account with Service Canada before. He’s presented with a couple of options to create an account with Service Canada through the Digital Centre:",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "ordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "link",
+                          data: {
+                            href: "https://www.canada.ca/en/employment-social-development/services/my-account/gckey.html",
+                          },
+                          value: "GCKey",
+                        },
+                        {
+                          nodeType: "text",
+                          value:
+                            " is a Government of Canada sign-in and it allows Atul to sign in across multiple federal government websites using a single ID.",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "link",
+                          data: {
+                            href: "https://www.canada.ca/en/employment-social-development/services/my-account/partners.html",
+                          },
+                          value: "Sign in with your bank",
+                        },
+                        {
+                          nodeType: "text",
+                          value:
+                            ": Atul can sign in using his online banking sign-in credentials, the same way he would with the Canada Revenue Agency. No banking information is shared with Service Canada.",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "link",
+                          data: {
+                            href: "https://www.canada.ca/en/employment-social-development/services/my-account/province.html",
+                          },
+                          value: "Provincial ID",
+                        },
+                        {
+                          nodeType: "text",
+                          value:
+                            ": Atul can use his MyAlberta Digital ID credentials to sign in. This is only available in Alberta and British Columbia.",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Email: Atul also has the option to create an account using his email.",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Idée 2 : Choisir une méthode pour ouvrir une session",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Atul vit en Alberta et n’a jamais créé de compte avec le Centre numérique de Service Canada auparavant. Des options lui sont proposées pour créer un compte avec Service Canada par l’intermédiaire du Centre numérique :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "ordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "link",
+                          data: {
+                            href: "https://www.canada.ca/fr/emploi-developpement-social/services/mon-dossier/clegc.html",
+                          },
+                          value: "CléGC",
+                        },
+                        {
+                          nodeType: "text",
+                          value:
+                            " est une connexion au gouvernement du Canada. Il permet à Atul d’ouvrir des sessions sur plusieurs sites Web du gouvernement fédéral en utilisant un seul identifiant.",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "link",
+                          data: {
+                            href: "https://www.canada.ca/fr/emploi-developpement-social/services/mon-dossier/partenaires.html",
+                          },
+                          value: "Ouvrir une session avec sa banque",
+                        },
+                        {
+                          nodeType: "text",
+                          value:
+                            " : Atul peut ouvrir une session à l’aide de ses identifiants bancaires en ligne, de la même façon qu’il le ferait avec l’Agence du revenu du Canada Aucune information bancaire n’est communiquée à Service Canada.",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "link",
+                          data: {
+                            href: "https://www.canada.ca/fr/emploi-developpement-social/services/mon-dossier/province.html",
+                          },
+                          value: "Identifiant provincial",
+                        },
+                        {
+                          nodeType: "text",
+                          value:
+                            " : Atul peut utiliser son identifiant numérique MyAlberta pour ouvrir une session. Disponible uniquement en Alberta et en Colombie-Britannique.",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Ouvrir une session avec son adresse de courrier électronique : Atul a également la possibilité de créer un compte en utilisant son adresse de courrier électronique.",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/digital-centre---idea-3",
+            scId: "sclabs-digital-centre-idea3",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Idea 3: Validating your identity",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Suming just created an account with Service Canada through the Digital Centre, but before they can access their account, they need to verify their identity with the government. This only needs to be done once. Suming is presented with 4 options:",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "ordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Online banking: Suming can provide consent to the government to verify their identity with their bank. No bank account information is shared. This is done instantly online.",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Upload ID: Suming can upload a photo of an official ID (for example, a driver’s license). The verification process may take up to 72 hours.",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Access code in the mail: Suming can request an access code mailed to them through Canada Post. This could take up to 2 weeks.",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Service Canada Location: Suming can visit a Service Canada location closest to them where a staff member reviews Suming’s official federal or provincial photo ID. Suming can get instant access once verified.",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Idée 3 : Confirmer votre identité",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Suming vient de créer un compte avec Service Canada par l’intermédiaire du Centre numérique, mais avant de pouvoir accéder à son compte, Suming doit confirmer son identité auprès du gouvernement. Cette opération n’a besoin d’être effectuée qu’une seule fois. Les 4 options suivantes s’offrent à Suming :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "ordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Banque en ligne : Suming peut consentir à ce que le gouvernement confirme son identité auprès de sa banque. Aucune information sur le compte bancaire n’est partagée. Cette opération se fait instantanément en ligne.",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Télécharger une pièce d’identité : Suming peut télécharger une photo d’une pièce d’identité officielle (par exemple, un permis de conduire). Le processus de vérification peut prendre jusqu’à 72 heures.",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Code d’accès par la poste : Suming peut demander qu’un code d’accès lui soit envoyé par courrier par Postes Canada. Cela peut prendre jusqu’à 2 semaines.",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Point de service de Service Canada : Suming peut se rendre dans un point de service de Service Canada près de son domicile où un membre du personnel examinera sa pièce d’identité officielle, qu’elle soit fédérale ou provinciale. Suming aura accès dès que son identité aura été confirmée.",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/digital-centre---idea-4",
+            scId: "sclabs-digital-centre-idea4",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Idea 4: My Account Dashboard",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Jasmine just turned 65 years old and collects Canada Pension Plan payments. She is also now eligible for the Old Age Security program where she is automatically enrolled but it is still being processed. She wants to know the status of her application, so she logs into her Service Canada Account with the Digital Centre. At the top of the page, she sees her Canada Pension Plan payment date and amount. Below that, she sees her Old Age Security application is in process and there are no major updates. Finally, she sees inactive and previous benefits such as employment insurance payments she received when she was laid off 5 years ago.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Idée 4 : Tableau de bord de mon compte",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Jasmine vient d’avoir 65 ans et reçoit des paiements du Régime de pensions du Canada. Elle est maintenant admissible au programme de la Sécurité de la vieillesse auquel elle est automatiquement inscrite, mais sa demande est toujours en cours de traitement. Elle veut connaître l’état de sa demande, alors elle se connecte à son compte avec Service Canada par l’intermédiaire du Centre numérique. En haut de la page, elle voit la date et le montant de son paiement du Régime de pensions du Canada. En dessous, elle voit que sa demande de Sécurité de la vieillesse est en cours de traitement et qu’il n’y a pas de mise à jour importante. Enfin, elle voit les prestations inactives et antérieures, comme les paiements d’assurance-emploi qu’elle a reçus lorsqu’elle a été mise à pied il y a 5 ans.",
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/digital-centre---homepage",
+            scId: "sclabs-digital-centre-homepage",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h3",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Image 1: Homepage",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "This is what the Digital Centre home page could look like. We want to make it easier for you to find information about benefits and services. To help you, you can use a guided journey or the search engine. From top to bottom, left to right:",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "A global navigation header with menu items such as a search bar, Benefits and services, Life journeys, Contact us and a Sign in button",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "A search bar to find benefits and services",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "A section to login and create an account with Service Canada through the Digital Channel",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "A section for Popular Service Canada pages for Ontario",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "A section to introduce life journeys",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "A section on “How can we help you?” where a user can “Give us a call”, use a “Callback service” or “Visit in person",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h3",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Image 1 : Page d’accueil",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Voici à quoi pourrait ressembler la page d’accueil du Centre numérique. Nous voulons que vous puissiez trouver plus facilement des renseignements sur les prestations et les services. Pour vous aider, vous pouvez utiliser un parcours guidé ou encore le moteur de recherche. De haut en bas, de gauche à droite :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Un en-tête général de navigation avec les éléments du menu tels qu’une barre de recherche, Prestations et services, Parcours de vie, Contactez-nous et un bouton « Se connecter »",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Une barre de recherche pour trouver des prestations et des services.",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Une section pour se connecter et créer un compte avec Service Canada par l’intermédiaire du Centre numérique",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Une section pour les pages de Service Canada les plus consultées en Ontario",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Une section pour présenter les parcours de vie.",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Une section « Comment pouvons-nous vous aider? » où un utilisateur peut utiliser les options « Appelez-nous », « Service de rappel » ou « Visitez-nous en personne »",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/digital-centre---search-results",
+            scId: "sclabs-digital-centre-search-results",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h3",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Image 2: Search Results",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Search results of benefits and services where the user can filter by different categories including region, income level, and employment status. From top to bottom, left to right:",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "A global navigation header with menu items such as a search bar, Benefits and services, Life journeys, Contact us and a Sign in button",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "A search bar with filters which include Region, Age range, Income, Employment status",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Four search results for the term “baby” and under each search result is a button where users can “Learn more” for each search result",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h3",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Image 2 : Résultats de recherche",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Résultats de recherche de prestations et de services où l’utilisateur peut filtrer par différentes catégories, dont la région, le niveau de revenu et la situation d’emploi. De haut en bas, de gauche à droite :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Un en-tête général de navigation avec les éléments du menu tels qu’une barre de recherche, Prestations et services, Parcours de vie, Contactez-nous et un bouton « Se connecter »",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Une barre de recherche avec des filtres qui comprennent la région, la tranche d’âge, le revenu, la situation d’emploi",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Quatre résultats de recherche pour le terme « bébé » et, sous chaque résultat de recherche, un bouton permettant aux utilisateurs d’« En savoir plus » pour chaque résultat de recherche",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/digital-centre---single-benefit",
+            scId: "sclabs-digital-centre-single-benefit",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h3",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Image 3: Single Benefit",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Detailed information of a single benefit where users can also apply online by clicking on “Apply for this benefit”. From top to bottom, left to right:",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "A global navigation header with menu items such as a search bar, Benefits and services, Life journeys, Contact us and a Sign in button",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "A side bar with secondary information",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "The program title: “EI maternity and parental benefits: What these benefits offer”.",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Detailed information of the benefit and a button below it labelled “Apply for this benefit”",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h3",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Image 3 : Page de prestations",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Informations détaillées sur une prestation pour laquelle les utilisateurs peuvent faire une demande en ligne en cliquant sur « Demander cette prestation ». De haut en bas, de gauche à droite :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Un en-tête général de navigation avec les éléments du menu tels qu’une barre de recherche, Prestations et services, Parcours de vie, Contactez-nous et un bouton « Se connecter »",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Une barre latérale avec des informations secondaires",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Le titre du programme : « Prestations de maternité et prestations parentales de l’assurance-emploi : Ce qu’offrent ces prestations »",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Des informations détaillées sur la prestation et un bouton en dessous intitulé « Demander cette prestation »",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/digital-centre---sign-in-method",
+            scId: "sclabs-digital-centre-sign-in-method",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h3",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Image 1: Sign In Method",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Create an account screenshot with options to continue with GCKey, your bank, your province, or your email. A new browser tab will open if you click on one of the options. From top to bottom, left to right:",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "A global header with just Service Canada and no menu items; we want users to focus on this specific task",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Continue with GCKey",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Continue with your bank",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Continue with your province (Alberta and British Columbia only)",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Continue with your email",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h3",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Image 1 : Une méthode pour ouvrir une session",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Capture d’écran de la création d’un compte avec des options pour continuer avec CléGC, votre banque, votre province, ou votre adresse de courrier électronique. Un nouvel onglet s’ouvrira dans votre navigateur si vous cliquez sur l’une de ces options. De haut en bas, de gauche à droite :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Un en-tête général avec seulement Service Canada et aucun menu; nous voulons que les utilisateurs se concentrent sur cette tâche spécifique",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Continuer avec CléGC",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Continuer avec votre banque",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Continuer avec votre province (Alberta et Colombie-Britannique seulement)",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Continuer avec votre adresse de courrier électronique",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/digital---choose-your-bank",
+            scId: "sclabs-digital-centre-choose-your-bank",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h3",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Image 2: Choose your bank",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Choose your bank to sign in and create an account with Service Canada through the Digital Centre. No personal information is shared. From top to bottom, left to right:",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "A global header with just Service Canada and no menu items; we want users to focus on this specific task",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "A series of clickable logos for the different banks that the user can choose to sign in with",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h3",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Image 2 : Choisir votre banque",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Choisissez votre banque pour ouvrir une session et créer un compte avec Service Canada par l’intermédiaire du Centre numérique. Aucun renseignement personnel n’est partagé. De haut en bas, de gauche à droite :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Un en-tête général avec seulement Service Canada et aucun menu; nous voulons que les utilisateurs se concentrent sur cette tâche spécifique",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Une liste de logos cliquables des différentes banques avec laquelle l’utilisateur peut choisir d’ouvrir une session",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/digital-centre---choose-your-province",
+            scId: "sclabs-digital-centre-choose-your-province",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h3",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Image 3: Choose your province",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Choose your province to sign in with Service Canada through the Digital Centre. This option is only available for Alberta and BC residents. From top to bottom, left to right:",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "A global header with just Service Canada and no menu items; we want users to focus on this specific task",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "A clickable tile with the MyAlberta ID logo which will take you to the MyAlberta ID sign in page",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "A Clickable tile with the British Columbia logo which will take you to the BC government sign in page",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h3",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Image 3 : Choisir votre province",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Choisissez votre province pour ouvrir une session avec Service Canada par l’intermédiaire du Centre numérique. Cette option n’est disponible que pour les résidents de l’Alberta et de la Colombie-Britannique. De haut en bas, de gauche à droite :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Un en-tête général avec seulement Service Canada et aucun menu; nous voulons que les utilisateurs se concentrent sur cette tâche spécifique",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Une boîte arborant le logo de MyAlberta ID sur laquelle on peut cliquer pour aller à la page d’ouverture de session avec MyAlberta ID",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Une boîte arborant le logo de la Colombie-Britannique sur laquelle on peut cliquer pour aller à la page d’ouverture de session avec le gouvernement de la Colombie-Britannique",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/digital-centre---verifying-your-identity",
+            scId: "sclabs-digital-centre-verifying-your-identity",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h3",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Image: Verifying your identity",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Choose between 4 options of verifying your identity. From top to bottom, left to right:",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "A global header with just Service Canada and no menu items; we want users to focus on this specific task",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Verify your identity by signing into your online banking account",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Verify your identity by uploading a copy of your photo ID",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Verify your identity by visiting a Service Canada location",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Verify your identity with a personal access code that is mailed to your home",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h3",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Image : Confirmer votre identité",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Choisissez parmi 4 options de confirmation de votre identité. De haut en bas, de gauche à droite :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Un en-tête général avec seulement Service Canada et aucun menu; nous voulons que les utilisateurs se concentrent sur cette tâche spécifique",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Confirmez votre identité en accédant à votre compte bancaire en ligne",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Confirmez votre identité en téléchargeant une copie de votre carte d’identité avec photo",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Confirmez votre identité en vous rendant dans un point de service de Service Canada",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Confirmez votre identité à l’aide d’un code d’accès personnel envoyé par la poste à votre domicile",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/digital-centre---myaccount-page",
+            scId: "sclabs-digital-centre-myaccount-page",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h3",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Image: Service Canada Digital Centre’s MyAccount page",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "This is what the Service Canada home page could look like after signing in. From top to bottom, left to right:",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "A global navigation header with menu items such as a search bar, Benefits and services, Life journeys, Contact us and an area where users can access Preferences and a message centre",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "A listing of “Your benefits and services”",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "A sidebar containing “Did you know?” tips and tricks and “Recommended benefits for you”",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Active benefits and services containing Canadian Pension Plan information with a button to View details",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Pending benefits and services containing Old Age Security information with a button to View details",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Inactive benefits and services containing Employment Insurance information with a button to View details",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h3",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Image : Page MonDossier du Centre numérique de Service Canada",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Voici à quoi pourrait ressembler la page d’accueil de Service Canada après s’être connecté. De haut en bas, de gauche à droite :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Un en-tête général de navigation avec les éléments du menu tels qu’une barre de recherche, Prestations et services, Parcours de vie, Contactez-nous et un endroit où les utilisateurs peuvent accéder à leurs préférences et à un centre de messages",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Une liste « Vos prestations et services »",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Une barre latérale contenant des conseils et astuces « Le saviez-vous? » et des « Prestations recommandées pour vous »",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Des prestations et des services actuels contenant des renseignements sur le Régime de pensions du Canada et un bouton pour voir les détails",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Des prestations et des services en attente contenant des renseignements sur la Sécurité de la vieillesse et un bouton pour voir les détails",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Des prestations et des services inactifs contenant des renseignements sur l’assurance-emploi et un bouton pour voir les détails",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            scId: "sclabs-digital-centre-image-homepage",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/dc-1.1.jpg",
+            },
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/dc-1.1.jpg",
+            },
+            scImageMobileEn: null,
+            scImageMobileFr: null,
+            scImageAltTextEn: "The Service Canada Digital Centre home page.",
+            scImageAltTextFr:
+              "Page d’accueil du Centre numérique de Service Canada.",
+            scImageCaptionEn: null,
+            scImageCaptionFr: null,
+          },
+          {
+            scId: "sclabs-digital-centre-image-search-result",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/dc-1.2.jpg",
+            },
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/dc-1.2.jpg",
+            },
+            scImageMobileEn: null,
+            scImageMobileFr: null,
+            scImageAltTextEn: "A search result page.",
+            scImageAltTextFr: "Une page de résultats de recherche.",
+            scImageCaptionEn: null,
+            scImageCaptionFr: null,
+          },
+          {
+            scId: "sclabs-digital-centre-image-single benefit",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/dc-1.3.jpg",
+            },
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/dc-1.3.jpg",
+            },
+            scImageMobileEn: null,
+            scImageMobileFr: null,
+            scImageAltTextEn: "A benefit page with details.",
+            scImageAltTextFr:
+              "Une page de prestations avec les détails du programme.",
+            scImageCaptionEn: null,
+            scImageCaptionFr: null,
+          },
+          {
+            scId: "sclabs-digital-centre-image-sign-in-method",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/dc-2.1.jpg",
+            },
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/dc-2.1.jpg",
+            },
+            scImageMobileEn: null,
+            scImageMobileFr: null,
+            scImageAltTextEn:
+              "Page where you can select the method you would like to use to create an account.",
+            scImageAltTextFr:
+              "Page vous permettant de sélectionner la méthode que vous souhaitez utiliser pour créer un compte.",
+            scImageCaptionEn: null,
+            scImageCaptionFr: null,
+          },
+          {
+            scId: "sclabs-digital-centre-image-choose-your-bank",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/dc-2.2.jpg",
+            },
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/dc-2.2.jpg",
+            },
+            scImageMobileEn: null,
+            scImageMobileFr: null,
+            scImageAltTextEn:
+              "Page where you can choose your bank to sign in with.",
+            scImageAltTextFr:
+              "Page permettant de choisir votre banque pour ouvrir une session.",
+            scImageCaptionEn: null,
+            scImageCaptionFr: null,
+          },
+          {
+            scId: "sclabs-digital-centre-image-choose-your-province",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/dc-2.3.jpg",
+            },
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/dc-2.3.jpg",
+            },
+            scImageMobileEn: null,
+            scImageMobileFr: null,
+            scImageAltTextEn:
+              "Page where you can choose your province to sign in with.",
+            scImageAltTextFr:
+              "Page permettant de choisir votre province pour ouvrir une session.",
+            scImageCaptionEn: null,
+            scImageCaptionFr: null,
+          },
+          {
+            scId: "sclabs-digital-centre-image-verifying-your-identity",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/dc-3.1.jpg",
+            },
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/dc-3.1.jpg",
+            },
+            scImageMobileEn: null,
+            scImageMobileFr: null,
+            scImageAltTextEn:
+              "Page where you can choose your method of verifying your identity.",
+            scImageAltTextFr:
+              "Page vous permettant de choisir une méthode pour confirmer votre identité.",
+            scImageCaptionEn: null,
+            scImageCaptionFr: null,
+          },
+          {
+            scId: "sclabs-digital-centre-image-myaccount-page",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/dc-4.1.jpg",
+            },
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/dc-4.1.jpg",
+            },
+            scImageMobileEn: null,
+            scImageMobileFr: null,
+            scImageAltTextEn: "Service Canada Digital Centre’s MyAccount page.",
+            scImageAltTextFr:
+              "Page MonDossier du Centre numérique de Service Canada.",
+            scImageCaptionEn: null,
+            scImageCaptionFr: null,
+          },
+        ],
+      },
+    },
+  },
+};
+
+export const havingAChildPageData = {
+  data: {
+    sCLabsPageByPath: {
+      item: {
+        scId: "sclabs-having-a-child",
+        scPageNameEn: "/projects/life-journeys",
+        scPageNameFr: "/fr/projects/life-journeys",
+        scTitleEn: "Having a child",
+        scTitleFr: "Avoir un enfant",
+        scShortTitleEn: null,
+        scShortTitleFr: null,
+        scDescriptionEn: {
+          json: null,
+        },
+        scDescriptionFr: {
+          json: null,
+        },
+        scSubject: null,
+        scKeywordsEn: null,
+        scKeywordsFr: null,
+        scContentType: null,
+        scOwner: null,
+        scDateModifiedOverwrite: "2022-07-11",
+        scAudience: null,
+        scRegion: null,
+        scSocialMediaImageEn: null,
+        scSocialMediaImageFr: null,
+        scSocialMediaImageAltTextEn: null,
+        scSocialMediaImageAltTextFr: null,
+        scNoIndex: false,
+        scNoFollow: false,
+        scFragments: [
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/having-a-child---main-content",
+            scId: "sclabs-having-a-child-main-content",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Introducing Life Journeys",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "How may we help you?",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Major life events like having a baby or preparing for retirement can be complicated because there are so many things to know and do.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Our Life Journeys service supports your journey through these life events. It connects you to guidance and support to help you make the right decision for you. Let us help you focus on what’s important.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "On this page, we invite you to explore concepts from our early version of the “having a child” journey.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Resources to answer your questions",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "When you arrive on the page, you will be able to select your province or territory. This will allow us to recommend content based on your location. If you do not select a province or territory, you will see content that applies to all of Canada.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Where you live in Canada can influence what information is most helpful to you. Thats why we will give you the option to select your province or territory so that you can browse resources that apply to where you live.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Our recommendations are based on common topics we heard during our early research.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "To start, we will explore providing resources on:",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "maternity and parental benefits (or the Quebec Parental Insurance Plan)",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "government benefits finder",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "how mothers can take care of their mental and physical health",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "the “need to know” about caring for a newborn",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Discover the entire possible journey at a glance",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "The having a child journey is complex with many possible paths. There are 4 possible stages. Each stage has 3 to 6 possible actions.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Many future parents learn about having a child through their family and friends network. But what if your journey is different from theirs? Where do you learn the things you don’t know?",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "To help parents discover what they don’t know, we mapped all the different things that could happen during the journey and made it into a tool that you can explore.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "In the tool, you will find information about the common steps and service providers at each stage in your journey. For example, you can explore:",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "common steps in fertility treatment and the adoption process",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "preparing for the birth of a child",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "what to do once the child is home",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "where to start if your child has special needs",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "what if you experience loss during the journey",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "If you would like to help us test out this tool, sign up to get invited to research sessions and we may contact you to try out our tool.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Find local support",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "It helps to have support in your area. We researched frequently requested support networks and will provide you with links that will help you find those networks in your area. If you select your province or territory then you will also be presented with government sites for your province or territory.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "You cannot apply for services or benefits through this test site. Parts of this site may not work and will change.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Introduction aux parcours de vie",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Comment pouvons-nous vous aider?",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Les événements majeurs de la vie, comme avoir un bébé ou préparer sa retraite, peuvent être compliqués car il y a tellement de choses à savoir et à faire.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Notre service soutient votre parcours à travers ces événements de la vie. Il met à votre disposition des conseils et des outils pour vous aider à prendre les bonnes décisions pour vous. Laissez-nous vous aider à vous concentrer sur ce qui est important.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Sur cette page, nous vous invitons à explorer les concepts de notre première version du parcours « avoir un enfant ».",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Ressources pour répondre à vos questions",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Dès votre arrivée sur la page, vous aurez la possibilité de sélectionner votre province ou territoire. Cela nous permettra de vous recommander du contenu en fonction de votre emplacement. Si vous ne sélectionnez pas de province ou territoire, vous verrez du contenu qui s’applique à l’ensemble du Canada.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "L’endroit où vous vivez au Canada peut avoir une influence sur l’information qui vous sera le plus utile. C’est pourquoi nous vous donnerons la possibilité de sélectionner votre province ou territoire, afin que vous puissiez parcourir les ressources qui s’appliquent à votre lieu de résidence.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Les ressources que nous recommandons sont basées sur des sujets fréquemment abordés lors de nos premières recherches.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Pour commencer, nous explorerons les façons de fournir des ressources concernant :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "les prestations de maternité et parentales (ou le Régime québécois d’assurance parentale)",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "la recherche de prestations gouvernementales",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "comment les mamans peuvent prendre soin de leur santé mentale et physique",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "ce qu’il faut savoir pour prendre soin d’un nouveau-né",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Découvrez l’ensemble du parcours possible d’un seul coup d’œil",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Le parcours pour avoir un enfant est complexe et comporte de nombreux chemins possibles. Il y a 4 étapes possibles. Chaque étape comporte de 3 à 6 actions possibles.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "De nombreux futurs parents apprennent ce qu’implique avoir un enfant grâce à leur réseau familial et à leurs amis. Mais qu’en est-il si votre parcours est différent du leur? Où pouvez-vous apprendre les choses que vous ne savez pas?",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Pour aider les parents à découvrir ce qu’ils ne savent pas, nous avons cartographié tous les différents événements qui pourraient se produire au cours du parcours. Nous en avons fait un outil que vous pouvez explorer.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Notre outil vous permettra de naviguer à travers les différentes étapes, d’obtenir des informations sur chacune d’entre elles et de connaître qui peut vous fournir des services. Par exemple, vous pourrez explorer :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "les étapes habituelles des traitements de fertilité et du processus d’adoption",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "comment se préparer à la naissance d’un enfant",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "ce qu’il faut faire une fois que l’enfant est à la maison",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "par où commencer si votre enfant a des besoins particuliers",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "que faire si vous perdez l’enfant durant le parcours",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Si vous souhaitez nous aider à tester cet outil, inscrivez-vous pour être invité aux séances de recherche. Nous pourrions vous contacter pour en faire l’essai.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Trouver de l’aide dans votre région",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Il est utile d’avoir un soutien dans votre région. Nous avons recherché les réseaux de soutien les plus fréquemment demandés et nous vous fournirons des liens qui vous aideront à trouver ces réseaux dans votre région. Si vous sélectionnez votre province ou territoire, les sites gouvernementaux de votre province ou territoire vous seront également présentés.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Vous ne pouvez pas demander de services ou de prestations par l’intermédiaire de ce site d’essai. Certaines parties du site pourraient ne pas fonctionner et seront modifiées.",
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            scId: "sclabs-having-a-child-image-resource-to-answer-your-questions",
+            scImageEn: {
+              _path:
+                "/content/dam/decd-endc/images/sclabs/having-a-childEN.png",
+            },
+            scImageFr: {
+              _path:
+                "/content/dam/decd-endc/images/sclabs/having-a-childFR.png",
+            },
+            scImageMobileEn: null,
+            scImageMobileFr: null,
+            scImageAltTextEn: "Having a child journey main page.",
+            scImageAltTextFr: "Having a child journey main page.",
+            scImageCaptionEn:
+              "When you arrive on the page, you will be able to select your province or territory. This will allow us to recommend content based on your location. If you do not select a province or territory, you will see content that applies to all of Canada.",
+            scImageCaptionFr:
+              "Dès votre arrivée sur la page, vous aurez la possibilité de sélectionner votre province ou territoire. Cela nous permettra de vous recommander du contenu en fonction de votre emplacement. Si vous ne sélectionnez pas de province ou territoire, vous verrez ",
+          },
+          {
+            scId: "sclabs-having-a-child-image-discover",
+            scImageEn: {
+              _path:
+                "/content/dam/decd-endc/images/sclabs/life-journey-map.png",
+            },
+            scImageFr: {
+              _path:
+                "/content/dam/decd-endc/images/sclabs/life-journey-map.png",
+            },
+            scImageMobileEn: null,
+            scImageMobileFr: null,
+            scImageAltTextEn: "Having a child journey main page.",
+            scImageAltTextFr:
+              "Carte réseau agrandie montrant les différentes étapes, les chemins et les actions possibles pour avoir un enfant.",
+            scImageCaptionEn:
+              "The having a child journey is complex with many possible paths. There are 4 possible stages. Each stage has 3 to 6 possible actions.",
+            scImageCaptionFr:
+              "Le parcours pour avoir un enfant est complexe et comporte de nombreux chemins possibles. Il y a 4 étapes possibles. Chaque étape comporte de 3 à 6 actions possibles.",
+          },
+        ],
+      },
+    },
+  },
+};

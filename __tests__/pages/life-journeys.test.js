@@ -2,11 +2,20 @@
  * @jest-environment jsdom
  */
 import { render, screen } from "@testing-library/react";
-import LifeJourneys from "../../pages/projects/life-journeys";
+import HavingAChild from "../../pages/projects/life-journeys";
+import { havingAChildPageData } from "../../__mocks__/mockStore";
 
-describe("Life Journeys Prototype", () => {
+jest.mock("@apollo/client");
+
+describe("Having A Child", () => {
   it("renders without crashing", () => {
-    render(<LifeJourneys />);
-    expect(screen.getByText("lifeJourneysTitle")).toBeInTheDocument();
+    render(
+      <HavingAChild pageData={havingAChildPageData.data.sCLabsPageByPath} />
+    );
+    expect(
+      screen.getByRole("heading", {
+        name: "Avoir un enfant",
+      })
+    ).toBeInTheDocument();
   });
 });
