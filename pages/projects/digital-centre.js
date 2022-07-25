@@ -82,7 +82,9 @@ export default function DigitalCenter(props) {
           )}
 
           {/* Primary HTML Meta Tags */}
-          <title>{`${t("dc:OverviewTitle")} — ${t("siteTitle")}`}</title>
+          <title>{`${
+            props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+          } — ${t("siteTitle")}`}</title>
           <meta name="description" content={`${t("dc:MetaDescription")}`} />
           <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />

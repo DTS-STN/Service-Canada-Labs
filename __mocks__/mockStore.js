@@ -2935,6 +2935,7 @@ export const digitalCentrePageData = {
   },
 };
 
+<<<<<<< HEAD
 export const virtualAssistantPageData = {
   data: {
     sCLabsPageByPath: {
@@ -2944,6 +2945,17 @@ export const virtualAssistantPageData = {
         scPageNameFr: "/fr/projets/assistant-virtuel",
         scTitleEn: "Virtual Assistant",
         scTitleFr: "L’assistant virtuel",
+=======
+export const havingAChildPageData = {
+  data: {
+    sCLabsPageByPath: {
+      item: {
+        scId: "sclabs-having-a-child",
+        scPageNameEn: "/projects/life-journeys",
+        scPageNameFr: "/fr/projects/life-journeys",
+        scTitleEn: "Having a child",
+        scTitleFr: "Avoir un enfant",
+>>>>>>> main
         scShortTitleEn: null,
         scShortTitleFr: null,
         scDescriptionEn: {
@@ -2969,8 +2981,13 @@ export const virtualAssistantPageData = {
         scFragments: [
           {
             _path:
+<<<<<<< HEAD
               "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/virtual-assistant---the-scenario",
             scId: "sclabs-virtual-assistant-scenario",
+=======
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/having-a-child---main-content",
+            scId: "sclabs-having-a-child-main-content",
+>>>>>>> main
             scContentEn: {
               json: [
                 {
@@ -2979,7 +2996,11 @@ export const virtualAssistantPageData = {
                   content: [
                     {
                       nodeType: "text",
+<<<<<<< HEAD
                       value: "The Scenario",
+=======
+                      value: "Introducing Life Journeys",
+>>>>>>> main
                     },
                   ],
                 },
@@ -2988,6 +3009,7 @@ export const virtualAssistantPageData = {
                   content: [
                     {
                       nodeType: "text",
+<<<<<<< HEAD
                       value: "Imagine you are someone named Mary. You ",
                     },
                     {
@@ -3012,6 +3034,8 @@ export const virtualAssistantPageData = {
                       nodeType: "text",
                       value:
                         ". Two or three weeks later, you have not heard anything about your application, or received any money. ",
+=======
+                      value: "How may we help you?",
                     },
                   ],
                 },
@@ -3021,6 +3045,68 @@ export const virtualAssistantPageData = {
                     {
                       nodeType: "text",
                       value:
+                        "Major life events like having a baby or preparing for retirement can be complicated because there are so many things to know and do.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Our Life Journeys service supports your journey through these life events. It connects you to guidance and support to help you make the right decision for you. Let us help you focus on what’s important.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "On this page, we invite you to explore concepts from our early version of the “having a child” journey.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Resources to answer your questions",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "When you arrive on the page, you will be able to select your province or territory. This will allow us to recommend content based on your location. If you do not select a province or territory, you will see content that applies to all of Canada.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Where you live in Canada can influence what information is most helpful to you. Thats why we will give you the option to select your province or territory so that you can browse resources that apply to where you live.",
+>>>>>>> main
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+<<<<<<< HEAD
                         "Looking for answers, you log into the Service Canada Digital Centre, and find a ",
                     },
                     {
@@ -3033,6 +3119,206 @@ export const virtualAssistantPageData = {
                     {
                       nodeType: "text",
                       value: " in your Inbox…",
+=======
+                        "Our recommendations are based on common topics we heard during our early research.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "To start, we will explore providing resources on:",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "maternity and parental benefits (or the Quebec Parental Insurance Plan)",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "government benefits finder",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "how mothers can take care of their mental and physical health",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "the “need to know” about caring for a newborn",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Discover the entire possible journey at a glance",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "The having a child journey is complex with many possible paths. There are 4 possible stages. Each stage has 3 to 6 possible actions.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Many future parents learn about having a child through their family and friends network. But what if your journey is different from theirs? Where do you learn the things you don’t know?",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "To help parents discover what they don’t know, we mapped all the different things that could happen during the journey and made it into a tool that you can explore.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "In the tool, you will find information about the common steps and service providers at each stage in your journey. For example, you can explore:",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "common steps in fertility treatment and the adoption process",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "preparing for the birth of a child",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "what to do once the child is home",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "where to start if your child has special needs",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "what if you experience loss during the journey",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "If you would like to help us test out this tool, sign up to get invited to research sessions and we may contact you to try out our tool.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Find local support",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "It helps to have support in your area. We researched frequently requested support networks and will provide you with links that will help you find those networks in your area. If you select your province or territory then you will also be presented with government sites for your province or territory.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "You cannot apply for services or benefits through this test site. Parts of this site may not work and will change.",
+>>>>>>> main
                     },
                   ],
                 },
@@ -3046,7 +3332,11 @@ export const virtualAssistantPageData = {
                   content: [
                     {
                       nodeType: "text",
+<<<<<<< HEAD
                       value: "Le Scénario",
+=======
+                      value: "Introduction aux parcours de vie",
+>>>>>>> main
                     },
                   ],
                 },
@@ -3055,6 +3345,7 @@ export const virtualAssistantPageData = {
                   content: [
                     {
                       nodeType: "text",
+<<<<<<< HEAD
                       value: "Imaginez que vous vous appelez Mary. Vous ",
                     },
                     {
@@ -3082,6 +3373,8 @@ export const virtualAssistantPageData = {
                       nodeType: "text",
                       value:
                         ". Deux ou trois semaines plus tard, vous n'avez toujours pas reçu de réponse à votre demande, ni d'argent. ",
+=======
+                      value: "Comment pouvons-nous vous aider?",
                     },
                   ],
                 },
@@ -3091,6 +3384,58 @@ export const virtualAssistantPageData = {
                     {
                       nodeType: "text",
                       value:
+                        "Les événements majeurs de la vie, comme avoir un bébé ou préparer sa retraite, peuvent être compliqués car il y a tellement de choses à savoir et à faire.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Notre service soutient votre parcours à travers ces événements de la vie. Il met à votre disposition des conseils et des outils pour vous aider à prendre les bonnes décisions pour vous. Laissez-nous vous aider à vous concentrer sur ce qui est important.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Sur cette page, nous vous invitons à explorer les concepts de notre première version du parcours « avoir un enfant ».",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Ressources pour répondre à vos questions",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Dès votre arrivée sur la page, vous aurez la possibilité de sélectionner votre province ou territoire. Cela nous permettra de vous recommander du contenu en fonction de votre emplacement. Si vous ne sélectionnez pas de province ou territoire, vous verrez du contenu qui s’applique à l’ensemble du Canada.",
+>>>>>>> main
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+<<<<<<< HEAD
                         "À la recherche de réponses, vous ouvrez une session au Centre numérique de Service Canada et vous voyez qu’il y a un ",
                     },
                     {
@@ -3115,13 +3460,8 @@ export const virtualAssistantPageData = {
             scId: "sclabs-virtual-assistant-about",
             scContentEn: {
               json: [
-                {
-                  nodeType: "header",
-                  style: "h2",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value: "About the Service Canada Virtual Assistant",
+=======
+                        "L’endroit où vous vivez au Canada peut avoir une influence sur l’information qui vous sera le plus utile. C’est pourquoi nous vous donnerons la possibilité de sélectionner votre province ou territoire, afin que vous puissiez parcourir les ressources qui s’appliquent à votre lieu de résidence.",
                     },
                   ],
                 },
@@ -3131,6 +3471,87 @@ export const virtualAssistantPageData = {
                     {
                       nodeType: "text",
                       value:
+                        "Les ressources que nous recommandons sont basées sur des sujets fréquemment abordés lors de nos premières recherches.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Pour commencer, nous explorerons les façons de fournir des ressources concernant :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "les prestations de maternité et parentales (ou le Régime québécois d’assurance parentale)",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "la recherche de prestations gouvernementales",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "comment les mamans peuvent prendre soin de leur santé mentale et physique",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "ce qu’il faut savoir pour prendre soin d’un nouveau-né",
+                        },
+                      ],
+                    },
+                  ],
+                },
+>>>>>>> main
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+<<<<<<< HEAD
+                      value: "About the Service Canada Virtual Assistant",
+=======
+                      value:
+                        "Découvrez l’ensemble du parcours possible d’un seul coup d’œil",
+>>>>>>> main
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+<<<<<<< HEAD
                         "The Virtual Assistant is a chatbot. It can help you overcome obstacles you may face when applying for a benefit. This demo shows what it might be like for someone who is applying for Employment Insurance, but is missing a document.",
                     },
                   ],
@@ -3139,14 +3560,8 @@ export const virtualAssistantPageData = {
             },
             scContentFr: {
               json: [
-                {
-                  nodeType: "header",
-                  style: "h2",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "À propos de l’assistant virtuel de Service Canada",
+=======
+                        "Le parcours pour avoir un enfant est complexe et comporte de nombreux chemins possibles. Il y a 4 étapes possibles. Chaque étape comporte de 3 à 6 actions possibles.",
                     },
                   ],
                 },
@@ -3156,7 +3571,132 @@ export const virtualAssistantPageData = {
                     {
                       nodeType: "text",
                       value:
+                        "De nombreux futurs parents apprennent ce qu’implique avoir un enfant grâce à leur réseau familial et à leurs amis. Mais qu’en est-il si votre parcours est différent du leur? Où pouvez-vous apprendre les choses que vous ne savez pas?",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Pour aider les parents à découvrir ce qu’ils ne savent pas, nous avons cartographié tous les différents événements qui pourraient se produire au cours du parcours. Nous en avons fait un outil que vous pouvez explorer.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Notre outil vous permettra de naviguer à travers les différentes étapes, d’obtenir des informations sur chacune d’entre elles et de connaître qui peut vous fournir des services. Par exemple, vous pourrez explorer :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "les étapes habituelles des traitements de fertilité et du processus d’adoption",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "comment se préparer à la naissance d’un enfant",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "ce qu’il faut faire une fois que l’enfant est à la maison",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "par où commencer si votre enfant a des besoins particuliers",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "que faire si vous perdez l’enfant durant le parcours",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Si vous souhaitez nous aider à tester cet outil, inscrivez-vous pour être invité aux séances de recherche. Nous pourrions vous contacter pour en faire l’essai.",
+                    },
+                  ],
+                },
+>>>>>>> main
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+<<<<<<< HEAD
+                      value:
+                        "À propos de l’assistant virtuel de Service Canada",
+=======
+                      value: "Trouver de l’aide dans votre région",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Il est utile d’avoir un soutien dans votre région. Nous avons recherché les réseaux de soutien les plus fréquemment demandés et nous vous fournirons des liens qui vous aideront à trouver ces réseaux dans votre région. Si vous sélectionnez votre province ou territoire, les sites gouvernementaux de votre province ou territoire vous seront également présentés.",
+>>>>>>> main
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+<<<<<<< HEAD
                         "L'assistant virtuel est un robot conversationnel. Il peut vous aider à surmonter les obstacles que vous pourriez rencontrer lorsque vous faites une demande de prestation. Cette démonstration donne une idée de ce qui se passe lorsqu’une personne fait une demande d’assurance-emploi quand il lui manque un document.",
+=======
+                        "Vous ne pouvez pas demander de services ou de prestations par l’intermédiaire de ce site d’essai. Certaines parties du site pourraient ne pas fonctionner et seront modifiées.",
+>>>>>>> main
                     },
                   ],
                 },
@@ -3164,6 +3704,7 @@ export const virtualAssistantPageData = {
             },
           },
           {
+<<<<<<< HEAD
             scId: "sclabs-virtual-assistant-image-virtual-concierge",
             scImageEn: {
               _path:
@@ -3187,6 +3728,45 @@ export const virtualAssistantPageData = {
             scDestinationURLEn: "https://av-va.alpha.service.canada.ca/en",
             scDestinationURLFr: "https://av-va.alpha.service.canada.ca/fr",
             scButtonType: null,
+=======
+            scId: "sclabs-having-a-child-image-resource-to-answer-your-questions",
+            scImageEn: {
+              _path:
+                "/content/dam/decd-endc/images/sclabs/having-a-childEN.png",
+            },
+            scImageFr: {
+              _path:
+                "/content/dam/decd-endc/images/sclabs/having-a-childFR.png",
+            },
+            scImageMobileEn: null,
+            scImageMobileFr: null,
+            scImageAltTextEn: "Having a child journey main page.",
+            scImageAltTextFr: "Having a child journey main page.",
+            scImageCaptionEn:
+              "When you arrive on the page, you will be able to select your province or territory. This will allow us to recommend content based on your location. If you do not select a province or territory, you will see content that applies to all of Canada.",
+            scImageCaptionFr:
+              "Dès votre arrivée sur la page, vous aurez la possibilité de sélectionner votre province ou territoire. Cela nous permettra de vous recommander du contenu en fonction de votre emplacement. Si vous ne sélectionnez pas de province ou territoire, vous verrez ",
+          },
+          {
+            scId: "sclabs-having-a-child-image-discover",
+            scImageEn: {
+              _path:
+                "/content/dam/decd-endc/images/sclabs/life-journey-map.png",
+            },
+            scImageFr: {
+              _path:
+                "/content/dam/decd-endc/images/sclabs/life-journey-map.png",
+            },
+            scImageMobileEn: null,
+            scImageMobileFr: null,
+            scImageAltTextEn: "Having a child journey main page.",
+            scImageAltTextFr:
+              "Carte réseau agrandie montrant les différentes étapes, les chemins et les actions possibles pour avoir un enfant.",
+            scImageCaptionEn:
+              "The having a child journey is complex with many possible paths. There are 4 possible stages. Each stage has 3 to 6 possible actions.",
+            scImageCaptionFr:
+              "Le parcours pour avoir un enfant est complexe et comporte de nombreux chemins possibles. Il y a 4 étapes possibles. Chaque étape comporte de 3 à 6 actions possibles.",
+>>>>>>> main
           },
         ],
       },
