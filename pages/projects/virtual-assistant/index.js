@@ -27,7 +27,9 @@ export default function Home(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={t("virtualAssistantPath")}
+        langUrl={
+          props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
+        }
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },
