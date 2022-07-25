@@ -18,7 +18,6 @@ jobs:
       - name: Build 🔧
         run: yarn build
         env:
-          NEXT_PUBLIC_STRAPI_API_BACKEND_URL: https://alphasite-api.dts-stn.com
           NEXT_PUBLIC_API_MOCKING: enabled
           NEXT_PUBLIC_AEM_GRAPHQL_ENDPOINT: ${{ secrets.NEXT_PUBLIC_AEM_GRAPHQL_ENDPOINT }}
           CI: true
