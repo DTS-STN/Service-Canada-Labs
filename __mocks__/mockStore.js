@@ -2934,3 +2934,262 @@ export const digitalCentrePageData = {
     },
   },
 };
+
+export const virtualAssistantPageData = {
+  data: {
+    sCLabsPageByPath: {
+      item: {
+        scId: "sclabs-virtual-assistant",
+        scPageNameEn: "/projects/virtual-assistant",
+        scPageNameFr: "/fr/projets/assistant-virtuel",
+        scTitleEn: "Virtual Assistant",
+        scTitleFr: "L’assistant virtuel",
+        scShortTitleEn: null,
+        scShortTitleFr: null,
+        scDescriptionEn: {
+          json: null,
+        },
+        scDescriptionFr: {
+          json: null,
+        },
+        scSubject: null,
+        scKeywordsEn: null,
+        scKeywordsFr: null,
+        scContentType: null,
+        scOwner: null,
+        scDateModifiedOverwrite: "2022-07-11",
+        scAudience: null,
+        scRegion: null,
+        scSocialMediaImageEn: null,
+        scSocialMediaImageFr: null,
+        scSocialMediaImageAltTextEn: null,
+        scSocialMediaImageAltTextFr: null,
+        scNoIndex: false,
+        scNoFollow: false,
+        scFragments: [
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/virtual-assistant---the-scenario",
+            scId: "sclabs-virtual-assistant-scenario",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "The Scenario",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Imagine you are someone named Mary. You ",
+                    },
+                    {
+                      nodeType: "text",
+                      value: "recently lost your job",
+                      format: {
+                        variants: ["strong"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value: " and apply for ",
+                    },
+                    {
+                      nodeType: "text",
+                      value: "Employment Insurance",
+                      format: {
+                        variants: ["strong"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        ". Two or three weeks later, you have not heard anything about your application, or received any money. ",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Looking for answers, you log into the Service Canada Digital Centre, and find a ",
+                    },
+                    {
+                      nodeType: "text",
+                      value: "new message",
+                      format: {
+                        variants: ["strong"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value: " in your Inbox…",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Le Scénario",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Imaginez que vous vous appelez Mary. Vous ",
+                    },
+                    {
+                      nodeType: "text",
+                      value: "venez de perdre votre emploi ",
+                      format: {
+                        variants: ["strong"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value: "*et vous faites une demande *",
+                      format: {
+                        variants: ["strong", "emphasis"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value: "d'assurance-emploi",
+                      format: {
+                        variants: ["strong"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        ". Deux ou trois semaines plus tard, vous n'avez toujours pas reçu de réponse à votre demande, ni d'argent. ",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "À la recherche de réponses, vous ouvrez une session au Centre numérique de Service Canada et vous voyez qu’il y a un ",
+                    },
+                    {
+                      nodeType: "text",
+                      value: "nouveau message",
+                      format: {
+                        variants: ["strong"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value: " dans votre boîte de réception... ",
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/virtual-assistant---about",
+            scId: "sclabs-virtual-assistant-about",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "About the Service Canada Virtual Assistant",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "The Virtual Assistant is a chatbot. It can help you overcome obstacles you may face when applying for a benefit. This demo shows what it might be like for someone who is applying for Employment Insurance, but is missing a document.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "À propos de l’assistant virtuel de Service Canada",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "L'assistant virtuel est un robot conversationnel. Il peut vous aider à surmonter les obstacles que vous pourriez rencontrer lorsque vous faites une demande de prestation. Cette démonstration donne une idée de ce qui se passe lorsqu’une personne fait une demande d’assurance-emploi quand il lui manque un document.",
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            scId: "sclabs-virtual-assistant-image-virtual-concierge",
+            scImageEn: {
+              _path:
+                "/content/dam/decd-endc/images/sclabs/VirtualConcierge.svg",
+            },
+            scImageFr: {
+              _path:
+                "/content/dam/decd-endc/images/sclabs/VirtualConcierge.svg",
+            },
+            scImageMobileEn: null,
+            scImageMobileFr: null,
+            scImageAltTextEn: "Virtual assistant logo",
+            scImageAltTextFr: "Logo assistant virtuel",
+            scImageCaptionEn: null,
+            scImageCaptionFr: null,
+          },
+          {
+            scId: "sclabs-button-meet-the-virtual-assistant",
+            scTitleEn: "Meet the Virtual Assistant",
+            scTitleFr: "Rencontrer l'assistant virtuel",
+            scDestinationURLEn: "https://av-va.alpha.service.canada.ca/en",
+            scDestinationURLFr: "https://av-va.alpha.service.canada.ca/fr",
+            scButtonType: null,
+          },
+        ],
+      },
+    },
+  },
+};

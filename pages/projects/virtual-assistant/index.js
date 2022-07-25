@@ -6,6 +6,7 @@ import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect, useState } from "react";
 import queryGraphQL from "../../../graphql/client";
 import getVirtualAssistantPage from "../../../graphql/queries/virtualAssistantQuery.graphql";
+import Image from "next/image";
 
 //  On hold for now
 //  import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge";
@@ -13,10 +14,7 @@ import getVirtualAssistantPage from "../../../graphql/queries/virtualAssistantQu
 
 export default function Home(props) {
   const { t } = useTranslation(["common", "vc"]);
-  const language = props.locale === "en" ? "fr" : "en";
   const [pageData] = useState(props.pageData.item);
-
-  console.log(pageData);
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -43,9 +41,9 @@ export default function Home(props) {
           )}
 
           {/* Primary HTML Meta Tags */}
-          <title>{`${t("vc:virtualAssistantTitle")} — ${t(
-            "siteTitle"
-          )}`}</title>
+          <title>{`${
+            props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+          } — ${t("siteTitle")}`}</title>
           <meta name="description" content={`${t("vc:metaDescription")}`} />
           <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
@@ -117,7 +115,7 @@ export default function Home(props) {
             {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
           </h1>
           {/* the scenario section */}
-          <div className="whitespace-pre-line ">
+          <div>
             <h2 className="mb-6 mt-8 text-h1" id="virtualAssistantScenario">
               {props.locale === "en"
                 ? pageData.scFragments[0].scContentEn.json[0].content[0].value
@@ -125,30 +123,56 @@ export default function Home(props) {
             </h2>
             <p className="mb-6 lg:col-span-2 px-1 lg:px-0 xl:w-3/4">
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[1].content[0].value +
-                  (
-                    <p>
-                      {
-                        pageData.scFragments[0].scContentEn.json[1].content[1]
-                          .value
-                      }
-                    </p>
-                  )
+                ? pageData.scFragments[0].scContentEn.json[1].content[0].value
                 : pageData.scFragments[0].scContentFr.json[1].content[0].value}
+              <strong>
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[1].content[1].value
+                  : pageData.scFragments[0].scContentFr.json[1].content[1]
+                      .value}
+              </strong>
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[1].content[2].value
+                : pageData.scFragments[0].scContentFr.json[1].content[2].value}
+              <strong>
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[1].content[3].value
+                  : pageData.scFragments[0].scContentFr.json[1].content[3]
+                      .value}
+              </strong>
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[1].content[4].value
+                : pageData.scFragments[0].scContentFr.json[1].content[4].value}
+            </p>
+            <p className="mb-6 lg:col-span-2 px-1 lg:px-0 xl:w-3/4">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[2].content[0].value
+                : pageData.scFragments[0].scContentFr.json[2].content[0].value}
+              <strong>
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[2].content[1].value
+                  : pageData.scFragments[0].scContentFr.json[2].content[1]
+                      .value}
+              </strong>
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[2].content[2].value
+                : pageData.scFragments[0].scContentFr.json[2].content[2].value}
             </p>
 
             <p className="flex mb-16 text-center">
               <ActionButton
                 href={
-                  language === "en"
-                    ? "https://av-va.alpha.service.canada.ca/fr"
-                    : "https://av-va.alpha.service.canada.ca/en"
+                  props.locale === "en"
+                    ? pageData.scFragments[3].scDestinationURLEn
+                    : pageData.scFragments[3].scDestinationURLFr
                 }
                 id="meet-va-link"
                 dataCy="meet-va-link"
                 className="rounded px-6 py-4 font-bold text-center inline-block"
               >
-                {t("vc:meetAssistant")}
+                {props.locale === "en"
+                  ? pageData.scFragments[3].scTitleEn
+                  : pageData.scFragments[3].scTitleFr}
               </ActionButton>
               {/* href="https://av-va.alpha.service.canada.ca" */}
             </p>
@@ -157,18 +181,33 @@ export default function Home(props) {
           <div className="w-auto mb-6 ">
             <div className="flex flex-col break-words lg:grid lg:grid-cols-2 gap-4 lg:gap-6 ">
               <h2 className="mb-0 text-h1" id="virtualAssistantTitle">
-                {t("vc:virtualAssistantBioTitle")}
+                {props.locale === "en"
+                  ? pageData.scFragments[1].scContentEn.json[0].content[0].value
+                  : pageData.scFragments[1].scContentFr.json[0].content[0]
+                      .value}
               </h2>
 
-              <div className="row-span-2 bg-gradient-to-tr from-custom-blue-blue to-vc-blue-lt  p-4 ">
-                <img
-                  className=" object-fill w-64 h-auto mx-auto"
-                  src="/virtualconcierge/VirtualConcierge.svg"
-                  alt={t("vc:virtualAssistantLogoAlt")}
+              <div className="row-span-2 bg-gradient-to-tr from-custom-blue-blue to-vc-blue-lt p-4 flex justify-center">
+                <Image
+                  src={`https://www.canada.ca${
+                    props.locale === "en"
+                      ? pageData.scFragments[2].scImageEn._path
+                      : pageData.scFragments[2].scImageFr._path
+                  }`}
+                  alt={
+                    props.locale === "en"
+                      ? pageData.scFragments[2].scImageAltTextEn
+                      : pageData.scFragments[2].scImageAltTextFr
+                  }
+                  width={260}
+                  height={260}
                 />
               </div>
               <p className=" font-body text-lg px-1 lg:px-0 ">
-                {t("vc:virtualAssistantBioBody")}
+                {props.locale === "en"
+                  ? pageData.scFragments[1].scContentEn.json[1].content[0].value
+                  : pageData.scFragments[1].scContentFr.json[1].content[0]
+                      .value}
               </p>
             </div>
           </div>
