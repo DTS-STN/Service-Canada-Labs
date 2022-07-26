@@ -43,6 +43,7 @@ export default function Projects(props) {
   };
 
   useEffect(() => {
+    console.log(props.adobeAnalyticsUrl);
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
