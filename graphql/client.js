@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
 
-const link = new HttpLink({ uri: process.env.NEXT_PUBLIC_AEM_GRAPHQL_ENDPOINT,
+const link = new HttpLink({ uri: process.env.AEM_GRAPHQL_ENDPOINT,
 headers:{
   'User-Agent': 'sc-labs/1.1.3',
 } });

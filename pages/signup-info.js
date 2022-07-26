@@ -13,7 +13,7 @@ export default function SignupInfo(props) {
   const [pageData] = useState(props.pageData.item);
 
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
+    if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
@@ -31,8 +31,8 @@ export default function SignupInfo(props) {
         ]}
       >
         <Head>
-          {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
-            <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+          {props.adobeAnalyticsUrl ? (
+            <script src={props.adobeAnalyticsUrl} />
           ) : (
             ""
           )}
@@ -392,8 +392,9 @@ export const getStaticProps = async ({ locale }) => {
   const data = res.data.sCLabsPageByPath;
   return {
     props: {
-      locale: locale,
       pageData: data,
+      locale,
+      adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };
