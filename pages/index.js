@@ -17,7 +17,7 @@ export default function Index(props) {
   };
 
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
+    if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
@@ -27,8 +27,8 @@ export default function Index(props) {
     <>
       <div className="z-0 fixed inset-0 bg-splash-img-mobile xs:bg-splash-img bg-cover bg-center h-screen min-w-300px min-h-screen" />
       <Head>
-        {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
-          <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+        {props.adobeAnalyticsUrl ? (
+          <script src={props.adobeAnalyticsUrl} />
         ) : (
           ""
         )}
@@ -192,7 +192,7 @@ export default function Index(props) {
           </div>
         </div>
       </main>
-      {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+      {props.adobeAnalyticsUrl ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
       ) : (
         ""
@@ -204,6 +204,7 @@ export default function Index(props) {
 export const getStaticProps = async ({ locale }) => ({
   props: {
     locale: locale,
+    adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
     ...(await serverSideTranslations(locale, ["common"])),
   },
 });
