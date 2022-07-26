@@ -2,11 +2,22 @@
  * @jest-environment jsdom
  */
 import { render, screen } from "@testing-library/react";
-import VirtualAssitant from "../../pages/projects/virtual-assistant";
+import VirtualAssistant from "../../pages/projects/virtual-assistant/index";
+import { virtualAssistantPageData } from "../../__mocks__/mockStore";
 
-describe("Virtual Assitant Prototype page", () => {
+jest.mock("@apollo/client");
+
+describe("Virtual Assistant", () => {
   it("renders without crashing", () => {
-    render(<VirtualAssitant />);
-    expect(screen.getByText("virtualAssistantTitle")).toBeInTheDocument();
+    render(
+      <VirtualAssistant
+        pageData={virtualAssistantPageData.data.sCLabsPageByPath}
+      />
+    );
+    expect(
+      screen.getByRole("heading", {
+        name: "L’assistant virtuel",
+      })
+    ).toBeInTheDocument();
   });
 });
