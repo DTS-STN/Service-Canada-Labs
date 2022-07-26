@@ -2,7 +2,6 @@ import { Layout } from "../../components/organisms/Layout";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
 import { CallToAction } from "../../components/molecules/CallToAction";
 import { useEffect, useState } from "react";
 import queryGraphQL from "../../graphql/client";
@@ -11,7 +10,6 @@ import Image from "next/image";
 
 export default function LifeJourneys(props) {
   const { t } = useTranslation("common", "lj");
-  const { asPath } = useRouter();
   const [pageData] = useState(props.pageData.item);
 
   useEffect(() => {
@@ -25,7 +23,9 @@ export default function LifeJourneys(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={asPath}
+        langUrl={
+          props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
+        }
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },

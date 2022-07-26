@@ -70,6 +70,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added the `showDisclaimer` prop to the `Layout` component so control which pages have the disclaimer
 - Updated digital centre page to use data from AEM
 - Updated having a child page to use data form AEM
+- Updated virtual assistant page to use data from AEM
 
 ## Fixed
 
