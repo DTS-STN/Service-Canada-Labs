@@ -3858,3 +3858,733 @@ export const virtualAssistantPageData = {
     },
   },
 };
+export const signupInfoPageData = {
+  data: {
+    sCLabsPageByPath: {
+      item: {
+        scId: "signup-info-page",
+        scPageNameEn: "/signup-info",
+        scPageNameFr: "/fr/inscription-info",
+        scTitleEn: "Sign up to be a voice in tomorrow's services",
+        scTitleFr:
+          "S’inscrire pour participer à l’élaboration des services de demain",
+        scShortTitleEn: null,
+        scShortTitleFr: null,
+        scDescriptionEn: {
+          json: null,
+        },
+        scDescriptionFr: {
+          json: null,
+        },
+        scSubject: null,
+        scKeywordsEn: null,
+        scKeywordsFr: null,
+        scContentType: null,
+        scOwner: null,
+        scDateModifiedOverwrite: "2022-07-11",
+        scAudience: null,
+        scRegion: null,
+        scSocialMediaImageEn: null,
+        scSocialMediaImageFr: null,
+        scSocialMediaImageAltTextEn: null,
+        scSocialMediaImageAltTextFr: null,
+        scNoIndex: false,
+        scNoFollow: false,
+        scFragments: [
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/signup-info---main-content",
+            scId: "signup-info-main-content",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Get invited to test our experimental ideas and participate in research interviews to make government services better for everyone. Every bit of feedback helps us make sure we’re making our services simple and easy to use.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Meet virtually with a member of our team to test an early version of a service",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Meet virtually with a member of our team to answer questions about your experience with government services",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "You can try out the projects and give anonymous feedback without signing up to be a participant. If you want to be more involved, you can fill out our participant form below to be invited to research sessions. You must be at least 18 years old to sign up.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "What to expect",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Once you sign up to participate in our research activities, we will contact you through email to ask for your help.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Examples of the types of research projects you may be asked to participate in are:",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Usability Tests",
+                        },
+                        {
+                          nodeType: "paragraph",
+                          content: [
+                            {
+                              nodeType: "text",
+                              value:
+                                "Through an online video or call, we will ask you to complete a number of tasks through one of our digital websites or apps. The goal of the session is to understand areas of confusion or to to find oppurtunities for us to improve how the product can be designed.",
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "User Interviews",
+                        },
+                        {
+                          nodeType: "paragraph",
+                          content: [
+                            {
+                              nodeType: "text",
+                              value:
+                                "Through an online video or call, we will ask you a series of questions related to a topic of interest. This conversation will let us know what you think about a site, application, or process.",
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Surveys",
+                        },
+                        {
+                          nodeType: "paragraph",
+                          content: [
+                            {
+                              nodeType: "text",
+                              value:
+                                "Through an online link we send, you will be asked to answer a series of questions related to one of our digital websites or apps.",
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "We respect your privacy",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Your information will not be used for any decision-making process that affects your access to Government of Canada services. Your personal information will not be used for any administrative purposes",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Your participation is completely voluntary. You can withdraw your participation and personal information from our list at any time with no impact on your access to government services or benefits",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Your personal information and feedback is confidential",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Your information will be used by Employment and Social Development Canada for policy analysis, research, and evaluation purposes",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "link",
+                      data: {
+                        href: "https://alphasite.dts-stn.com/signup/privacy",
+                      },
+                      value: "Read the full privacy policy",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "What we will collect",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "We need the following information so we can contact you:",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Email address",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Year of birth",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Language preference",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "You can also choose to share more information with us so we can invite you to research and testing opportunities based on your life experiences",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Province or territory",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Gender identity",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Indigenous identity",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Disabilities",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Visible Minority group",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Income range",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "We collect this information to ensure our research groups are diverse, and to identify trends in feedback for specific groups.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Recevez nos invitations à analyser minutieusement des idées expérimentales et à participer à des entretiens de recherche afin d’améliorer les services gouvernementaux au bénéfice de tous. Chaque commentaire nous aide à nous assurer que nos services sont simples et faciles à utiliser.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Rencontrez virtuellement un membre de notre équipe pour analyser une première version d’un service",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Rencontrez virtuellement un membre de notre équipe pour répondre à des questions sur votre expérience des services publics",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Vous pouvez analyser les projets et donner vos commentaires de façon anonyme sans vous inscrire pour être invité à participer aux séances avec notre équipe. Si vous souhaitez vous impliquer davantage, vous pouvez vous inscrire pour être invité aux séances de recherche en remplissant notre formulaire ci-dessous. Vous devez être âgé de 18 ans ou plus pour vous inscrire.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Ce qui vous attend pour la suite",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Une fois que vous vous serez inscrit pour participer à nos activités de recherche, nous vous contacterons par courriel afin de solliciter votre aide.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Voici quelques exemples des types de projets de recherche auxquels vous pourriez être invité à participer :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Tests de convivialité",
+                        },
+                        {
+                          nodeType: "paragraph",
+                          content: [
+                            {
+                              nodeType: "text",
+                              value:
+                                "Lors d’un appel vidéo, nous vous demanderons d'accomplir un certain nombre de tâches sur un site ou une application numérique. L'objectif de cette séance est de comprendre les endroits portant à confusion ou de trouver des opportunités pour nous d'améliorer le service.",
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Entretiens avec les utilisateurs",
+                        },
+                        {
+                          nodeType: "paragraph",
+                          content: [
+                            {
+                              nodeType: "text",
+                              value:
+                                "Lors d’un appel vidéo, nous vous poserons une série de questions liées à un sujet d'intérêt. Cette conversation nous permettra de savoir ce que vous pensez d'un service.",
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Questionnaires",
+                        },
+                        {
+                          nodeType: "paragraph",
+                          content: [
+                            {
+                              nodeType: "text",
+                              value:
+                                "Nous vous enverrons un lien vers un questionnaire et vous demanderons de répondre à une série de questions relatives à l'un de nos services.",
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Nous respectons votre confidentialité",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Vos renseignements personnels ne seront pas utilisés dans le cadre d’un processus décisionnel qui vous touche directement ou qui vous donne accès aux services du gouvernement du Canada. Vos renseignements ne seront pas utilisés à des fins administratives",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Votre participation est volontaire. Vous pouvez retirer votre participation et vos renseignements personnels de notre liste à tout moment, sans aucune conséquence sur votre accès aux services ou prestations du gouvernement",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Vos renseignements personnels et vos commentaires sont confidentiels",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Vos renseignements seront utilisés par Emploi et Développement social Canada à des fins d’analyse des politiques, de recherche et d’évaluation",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "link",
+                      data: {
+                        href: "https://alphasite.dts-stn.com/fr/inscription/protection-renseignements-personnels",
+                      },
+                      value:
+                        "Lire la politique en matière de protection des renseignements personnels dans son intégralité",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Ce que nous allons recueillir",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Nous avons besoin des renseignements suivants pour pouvoir communiquer avec vous :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Adresse de courrier électronique",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Année de naissance",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Langue de votre choix",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Vous pouvez également choisir d’échanger plus de renseignements avec nous afin que nous puissions vous inviter à participer à des recherches en fonction de vos expériences de vie :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Province ou territoire",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Identité de genre",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Identité autochtone",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Situation de handicap",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Groupe de minorité visible",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Niveau de revenus",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Nous recueillons ces informations pour nous assurer que nos groupes de recherche sont diversifiés et pour identifier les tendances dans les commentaires de groupes spécifiques.",
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            scId: "signup-info-continue",
+            scTitleEn: "Continue",
+            scTitleFr: "Continuer",
+            scDestinationURLEn: "/signup",
+            scDestinationURLFr: "/fr/inscription",
+            scButtonType: null,
+          },
+        ],
+      },
+    },
+  },
+};
