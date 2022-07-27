@@ -72,6 +72,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated having a child page to use data form AEM
 - Updated virtual assistant page to use data from AEM
 - Updated signup-info page to use data from AEM
+- Remove Test Site banner on the projects page
 
 ## Fixed
 
