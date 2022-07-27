@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1658864337980" clover="3.2.0">
-  <project timestamp="1658864337980" name="All files">
+<coverage generated="1658927228380" clover="3.2.0">
+  <project timestamp="1658927228380" name="All files">
     <metrics statements="931" coveredstatements="671" conditionals="1105" coveredconditionals="596" methods="224" coveredmethods="152" elements="2260" coveredelements="1419" complexity="0" loc="931" ncloc="931" packages="15" files="102" classes="102"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -925,19 +925,19 @@
         <line num="47" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="48" count="0" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
-        <line num="212" count="0" type="stmt"/>
-        <line num="274" count="0" type="stmt"/>
+        <line num="211" count="0" type="stmt"/>
+        <line num="273" count="0" type="stmt"/>
+        <line num="275" count="0" type="stmt"/>
         <line num="276" count="0" type="stmt"/>
-        <line num="277" count="0" type="stmt"/>
+        <line num="278" count="0" type="stmt"/>
         <line num="279" count="0" type="stmt"/>
-        <line num="280" count="0" type="stmt"/>
-        <line num="283" count="0" type="stmt"/>
-        <line num="285" count="0" type="stmt"/>
-        <line num="287" count="0" type="stmt"/>
-        <line num="290" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="291" count="0" type="stmt"/>
-        <line num="304" count="0" type="stmt"/>
-        <line num="316" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="282" count="0" type="stmt"/>
+        <line num="284" count="0" type="stmt"/>
+        <line num="286" count="0" type="stmt"/>
+        <line num="289" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="290" count="0" type="stmt"/>
+        <line num="303" count="0" type="stmt"/>
+        <line num="315" count="0" type="cond" truecount="0" falsecount="2"/>
       </file>
       <file name="signup-info.js" path="/home/runner/work/Alpha-Site/Alpha-Site/pages/signup-info.js">
         <metrics statements="8" coveredstatements="5" conditionals="8" coveredconditionals="3" methods="3" coveredmethods="2"/>
