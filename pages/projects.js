@@ -59,7 +59,6 @@ export default function Projects(props) {
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
         ]}
-        showDisclaimer
       >
         <Head>
           {props.adobeAnalyticsUrl ? (
