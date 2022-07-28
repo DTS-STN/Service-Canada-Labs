@@ -73,6 +73,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated virtual assistant page to use data from AEM
 - Updated signup-info page to use data from AEM
 - Remove Test Site banner on the projects page
+- Updated alt text across site based on best practices
+- Updated `/thankyou` page to use animated checkmark for consistency
 
 ## Fixed
 
