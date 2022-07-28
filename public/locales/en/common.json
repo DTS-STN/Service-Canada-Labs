@@ -347,5 +347,7 @@
   "confirmEmail": "Confirm Email address",
   "emailError": "Emails must match",
   "requiredInfo": "Indicates required information",
-  "externalLink": "external link"
+  "externalLink": "external link",
+  "animatedCheckmarkAltText": "An animated checkmark indicating a successful submission",
+  "informationIconAltText": "An icon indicating important information or instructions"
 }

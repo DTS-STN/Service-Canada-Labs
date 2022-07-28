@@ -161,6 +161,7 @@ export default function Home(props) {
             <span
               className="relative hidden lg:flex w-full mt-4 lg:ml-8"
               style={{ height: "316px", width: "452px", minWidth: "452px" }}
+              role="presentation"
             >
               <Image
                 src={`https://www.canada.ca${
@@ -168,29 +169,24 @@ export default function Home(props) {
                     ? pageData.scFragments[1].scImageEn._path
                     : pageData.scFragments[1].scImageFr._path
                 }`}
-                alt={
-                  props.locale === "en"
-                    ? pageData.scFragments[1].scImageAltTextEn
-                    : pageData.scFragments[1].scImageAltTextFr
-                }
+                alt=""
                 layout="fill"
                 objectFit="cover"
               />
             </span>
           </div>
           <div className="xl:w-2/3"></div>
-          <div className="grid lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12">
+          <div
+            role="presentation"
+            className="grid lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12"
+          >
             <Card
               imgSrc={`https://www.canada.ca${
                 props.locale === "en"
                   ? pageData.scFragments[3].scImageEn._path
                   : pageData.scFragments[3].scImageFr._path
               }`}
-              imgAlt={
-                props.locale === "en"
-                  ? pageData.scFragments[3].scImageAltTextEn
-                  : pageData.scFragments[3].scImageAltTextFr
-              }
+              imgAlt=""
               title={
                 props.locale === "en"
                   ? pageData.scFragments[3].scTitleEn
@@ -219,11 +215,7 @@ export default function Home(props) {
                   ? pageData.scFragments[4].scImageEn._path
                   : pageData.scFragments[4].scImageFr._path
               }`}
-              imgAlt={
-                props.locale === "en"
-                  ? pageData.scFragments[4].scImageAltTextEn
-                  : pageData.scFragments[4].scImageAltTextFr
-              }
+              imgAlt=""
               title={
                 props.locale === "en"
                   ? pageData.scFragments[4].scTitleEn

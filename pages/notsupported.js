@@ -43,8 +43,8 @@ export default function notSupported(props) {
 
           {/* Primary HTML Meta Tags */}
           <title data-gc-analytics-error="notSupported">
-            {pageData.sclContentEn.json[0].content[0].value} |{" "}
-            {pageData.sclContentFr.json[0].content[0].value}
+            {pageData.scContentEn.json[0].content[0].value} |{" "}
+            {pageData.scContentFr.json[0].content[0].value}
           </title>
           <meta
             name="description"
@@ -153,8 +153,16 @@ export default function notSupported(props) {
         <section className="xs:px-0 lg:mx-auto lg:px-6 container">
           <div className="pt-6">
             <Image
-              src={`https://www.canada.ca${pageData.sclGcImages[0]._path}`}
-              alt={"Symbol of the Government of Canada"}
+              src={`https://www.canada.ca${
+                props.locale === "en"
+                  ? pageData.scGcImages[0].scImageEn._path
+                  : pageData.scGcImages[0].scImageFr._path
+              }`}
+              alt={
+                props.locale === "en"
+                  ? pageData.scGcImages[0].scImageAltTextEn
+                  : pageData.scGcImages[0].scImageAltTextFr
+              }
               width={575}
               height={59}
             />
@@ -163,18 +171,22 @@ export default function notSupported(props) {
             <div>
               <div className="relative h-auto xl:w-96 xxl:w-400px lg:w-72 xl:h-400px lg:h-500px mb-8 lg:mb-0">
                 <h1 className="font-bold font-display mb-4">
-                  {pageData.sclContentEn.json[0].content[0].value}
+                  {pageData.scContentEn.json[0].content[0].value}
                 </h1>
                 <p className="font-body text-sm mb-4 leading-normal">
-                  {pageData.sclContentEn.json[1].content[0].value}
+                  {pageData.scContentEn.json[1].content[0].value}
                 </p>
               </div>
             </div>
             <div className="flex items-center justify-center circle-background my-8 lg:mt-0 lightbulb-bg">
               <span className="relative lightbulb">
                 <Image
-                  src={`https://www.canada.ca${pageData.sclImagelist[0]._path}`}
-                  alt="Cracked lightbulb"
+                  src={`https://www.canada.ca${
+                    props.locale === "en"
+                      ? pageData.scImageList[0].scImageEn._path
+                      : pageData.scImageList[0].scImageFr._path
+                  }`}
+                  alt=""
                   layout="fill"
                   objectFit="cover"
                 />
@@ -186,10 +198,10 @@ export default function notSupported(props) {
                 lang="fr"
               >
                 <h1 className="font-bold font-display mb-4">
-                  {pageData.sclContentFr.json[0].content[0].value}
+                  {pageData.scContentFr.json[0].content[0].value}
                 </h1>
                 <p className="font-body text-sm mb-4 leading-normal">
-                  {pageData.sclContentFr.json[1].content[0].value}
+                  {pageData.scContentFr.json[1].content[0].value}
                 </p>
               </div>
             </div>
@@ -199,8 +211,16 @@ export default function notSupported(props) {
           <div className="flex items-center justify-center">
             <figure className="mx-4">
               <Image
-                src={`https://www.canada.ca${pageData.sclImagelist[1]._path}`}
-                alt="chrome"
+                src={`https://www.canada.ca${
+                  props.locale === "en"
+                    ? pageData.scImageList[1].scImageEn._path
+                    : pageData.scImageList[1].scImageFr._path
+                }`}
+                alt={
+                  props.locale === "en"
+                    ? pageData.scImageList[1].scImageAltTextEn
+                    : pageData.scImageList[1].scImageAltTextFr
+                }
                 width="98"
                 height="98"
               />
@@ -210,8 +230,16 @@ export default function notSupported(props) {
             </figure>
             <figure className="mx-4">
               <Image
-                src={`https://www.canada.ca${pageData.sclImagelist[2]._path}`}
-                alt="safari"
+                src={`https://www.canada.ca${
+                  props.locale === "en"
+                    ? pageData.scImageList[2].scImageEn._path
+                    : pageData.scImageList[2].scImageFr._path
+                }`}
+                alt={
+                  props.locale === "en"
+                    ? pageData.scImageList[2].scImageAltTextEn
+                    : pageData.scImageList[2].scImageAltTextFr
+                }
                 width="98"
                 height="98"
               />
@@ -221,8 +249,16 @@ export default function notSupported(props) {
             </figure>
             <figure className="mx-4">
               <Image
-                src={`https://www.canada.ca${pageData.sclImagelist[3]._path}`}
-                alt="edge"
+                src={`https://www.canada.ca${
+                  props.locale === "en"
+                    ? pageData.scImageList[3].scImageEn._path
+                    : pageData.scImageList[3].scImageFr._path
+                }`}
+                alt={
+                  props.locale === "en"
+                    ? pageData.scImageList[3].scImageAltTextEn
+                    : pageData.scImageList[3].scImageAltTextFr
+                }
                 width="94"
                 height="94"
               />
@@ -232,8 +268,16 @@ export default function notSupported(props) {
             </figure>
             <figure className="mx-4">
               <Image
-                src={`https://www.canada.ca${pageData.sclImagelist[4]._path}`}
-                alt="firefox"
+                src={`https://www.canada.ca${
+                  props.locale === "en"
+                    ? pageData.scImageList[4].scImageEn._path
+                    : pageData.scImageList[4].scImageFr._path
+                }`}
+                alt={
+                  props.locale === "en"
+                    ? pageData.scImageList[4].scImageAltTextEn
+                    : pageData.scImageList[4].scImageAltTextFr
+                }
                 width="98"
                 height="98"
               />
@@ -247,7 +291,7 @@ export default function notSupported(props) {
           <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start mt-8">
             <div className="relative h-auto xl:w-96 xxl:w-400px lg:w-72 mb-8 lg:mb-0">
               <p className="font-body text-sm mb-4 pb-5 leading-normal">
-                {pageData.sclCopyToClipboardLabelEn}
+                {pageData.scCopyToClipboardLabelEn}
               </p>
               <CopyToClipboard
                 buttonId="enClipboardButton"
@@ -261,18 +305,18 @@ export default function notSupported(props) {
                 aria_label="Copy the link below and paste in that browser."
               />
               <p className="font-body text-sm pt-6 leading-normal">
-                {pageData.sclBrowserDownloadLinksEn.json[0].content[0].value}
+                {pageData.scBrowserDownloadLinksEn.json[0].content[0].value}
               </p>
               <ul className="underline pt-4 font-body text-sm ieLinksList">
                 <li className="browser-item">
                   <a
                     href={
-                      pageData.sclBrowserDownloadLinksEn.json[1].content[0]
+                      pageData.scBrowserDownloadLinksEn.json[1].content[0]
                         .content[0].data.href
                     }
                   >
                     {
-                      pageData.sclBrowserDownloadLinksEn.json[1].content[0]
+                      pageData.scBrowserDownloadLinksEn.json[1].content[0]
                         .content[0].value
                     }
                   </a>
@@ -280,12 +324,12 @@ export default function notSupported(props) {
                 <li className="browser-item">
                   <a
                     href={
-                      pageData.sclBrowserDownloadLinksEn.json[1].content[1]
+                      pageData.scBrowserDownloadLinksEn.json[1].content[1]
                         .content[0].data.href
                     }
                   >
                     {
-                      pageData.sclBrowserDownloadLinksEn.json[1].content[1]
+                      pageData.scBrowserDownloadLinksEn.json[1].content[1]
                         .content[0].value
                     }
                   </a>
@@ -293,12 +337,12 @@ export default function notSupported(props) {
                 <li className="browser-item">
                   <a
                     href={
-                      pageData.sclBrowserDownloadLinksEn.json[1].content[2]
+                      pageData.scBrowserDownloadLinksEn.json[1].content[2]
                         .content[0].data.href
                     }
                   >
                     {
-                      pageData.sclBrowserDownloadLinksEn.json[1].content[2]
+                      pageData.scBrowserDownloadLinksEn.json[1].content[2]
                         .content[0].value
                     }
                   </a>
@@ -306,12 +350,12 @@ export default function notSupported(props) {
                 <li className="browser-item">
                   <a
                     href={
-                      pageData.sclBrowserDownloadLinksEn.json[1].content[3]
+                      pageData.scBrowserDownloadLinksEn.json[1].content[3]
                         .content[0].data.href
                     }
                   >
                     {
-                      pageData.sclBrowserDownloadLinksEn.json[1].content[3]
+                      pageData.scBrowserDownloadLinksEn.json[1].content[3]
                         .content[0].value
                     }
                   </a>
@@ -324,7 +368,7 @@ export default function notSupported(props) {
                 lang="fr"
               >
                 <p className="font-body text-sm mb-4 leading-normal">
-                  {pageData.sclCopyToClipboardLabelFr}
+                  {pageData.scCopyToClipboardLabelFr}
                 </p>
                 <CopyToClipboard
                   buttonText={frCopied ? "Copié!" : "Copier lien"}
@@ -338,18 +382,18 @@ export default function notSupported(props) {
                   aria_label="Vous n'avez qu'à copier le lien ci-dessous et le coller dans ce navigateur."
                 />
                 <p className="font-body text-sm pt-6 leading-normal">
-                  {pageData.sclBrowserDownloadLinksFr.json[0].content[0].value}
+                  {pageData.scBrowserDownloadLinksFr.json[0].content[0].value}
                 </p>
                 <ul className="underline pt-4 font-body text-sm ieLinksList">
                   <li className="browser-item">
                     <a
                       href={
-                        pageData.sclBrowserDownloadLinksFr.json[1].content[0]
+                        pageData.scBrowserDownloadLinksFr.json[1].content[0]
                           .content[0].data.href
                       }
                     >
                       {
-                        pageData.sclBrowserDownloadLinksFr.json[1].content[0]
+                        pageData.scBrowserDownloadLinksFr.json[1].content[0]
                           .content[0].value
                       }
                     </a>
@@ -357,12 +401,12 @@ export default function notSupported(props) {
                   <li className="browser-item">
                     <a
                       href={
-                        pageData.sclBrowserDownloadLinksFr.json[1].content[1]
+                        pageData.scBrowserDownloadLinksFr.json[1].content[1]
                           .content[0].data.href
                       }
                     >
                       {
-                        pageData.sclBrowserDownloadLinksFr.json[1].content[1]
+                        pageData.scBrowserDownloadLinksFr.json[1].content[1]
                           .content[0].value
                       }
                     </a>
@@ -370,12 +414,12 @@ export default function notSupported(props) {
                   <li className="browser-item">
                     <a
                       href={
-                        pageData.sclBrowserDownloadLinksFr.json[1].content[2]
+                        pageData.scBrowserDownloadLinksFr.json[1].content[2]
                           .content[0].data.href
                       }
                     >
                       {
-                        pageData.sclBrowserDownloadLinksFr.json[1].content[2]
+                        pageData.scBrowserDownloadLinksFr.json[1].content[2]
                           .content[0].value
                       }
                     </a>
@@ -383,12 +427,12 @@ export default function notSupported(props) {
                   <li className="browser-item">
                     <a
                       href={
-                        pageData.sclBrowserDownloadLinksFr.json[1].content[3]
+                        pageData.scBrowserDownloadLinksFr.json[1].content[3]
                           .content[0].data.href
                       }
                     >
                       {
-                        pageData.sclBrowserDownloadLinksFr.json[1].content[3]
+                        pageData.scBrowserDownloadLinksFr.json[1].content[3]
                           .content[0].value
                       }
                     </a>
@@ -410,8 +454,16 @@ export default function notSupported(props) {
             />
             <span className="relative footer-logo">
               <Image
-                src={`https://www.canada.ca${pageData.sclGcImages[1]._path}`}
-                alt="Symbol of the Government of Canada"
+                src={`https://www.canada.ca${
+                  props.locale === "en"
+                    ? pageData.scGcImages[1].scImageEn._path
+                    : pageData.scGcImages[1].scImageFr._path
+                }`}
+                alt={
+                  props.locale === "en"
+                    ? pageData.scGcImages[1].scImageAltTextEn
+                    : pageData.scGcImages[1].scImageAltTextFr
+                }
                 layout="fill"
               />
             </span>

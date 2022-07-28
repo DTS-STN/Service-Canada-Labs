@@ -174,14 +174,11 @@ export default function Projects(props) {
             <span
               className="relative flex mt-4 lg:ml-8 lg:w-3/4"
               style={{ height: "274px", maxWidth: "453px" }}
+              role="presentation"
             >
               <Image
                 src={`https://www.canada.ca${pageData.scFragments[2].scImageEn._path}`}
-                alt={
-                  props.locale === "en"
-                    ? pageData.scFragments[2].scImageAltTextEn
-                    : pageData.scFragments[2].scImageAltTextFr
-                }
+                alt=""
                 layout="fill"
                 objectFit="cover"
               />
@@ -247,6 +244,7 @@ export default function Projects(props) {
                   dataCy={`${experiment.scId}`}
                   isExperiment
                   imgSrc="/placeholder.png"
+                  //Eventually this alt text will change as we provide unique images for each project
                   imgAlt="placeholder"
                   icon={`https://www.canada.ca${pageData.scFragments[3].scImageEn._path}`}
                   iconAlt={
