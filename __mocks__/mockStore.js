@@ -310,6 +310,9 @@ export const error500Page = {
             scImageEn: {
               _path: "/content/dam/decd-endc/images/sclabs/crackedbulb.svg",
             },
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/crackedbulb.svg",
+            },
           },
         ],
         scContentEn: {
@@ -449,6 +452,9 @@ export const error404Page = {
           {
             scId: "SCLABS-CRACKED-LIGHTBULB",
             scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/crackedbulb.svg",
+            },
+            scImageFr: {
               _path: "/content/dam/decd-endc/images/sclabs/crackedbulb.svg",
             },
           },
