@@ -31,6 +31,14 @@ query get404Page {
               _path
             }
           }
+          scImageFr {
+            ... on DocumentRef {
+              _path
+            }
+            ... on ImageRef {
+              _path
+            }
+          }
         }
       }
       scContentEn {
