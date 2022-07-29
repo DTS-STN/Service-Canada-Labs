@@ -1,33 +1,62 @@
 query getNotSupported {
-	scLabsErrorPageByPath(_path: "/content/dam/decd-endc/content-fragments/alpha/sclabs/pages/browser-not-supported-page") {
-	    item {
-            sclGcImages {
-                ... on DocumentRef {
-                    _path
-                }
+  scLabsErrorPageByPath(
+    _path: "/content/dam/decd-endc/content-fragments/alpha/sclabs/pages/browser-not-supported-page"
+  ) {
+    item {
+      scGcImages {
+        ... on SCLabsImageModel {
+          scId
+          scImageEn {
+            ... on DocumentRef {
+              _path
             }
-            sclImagelist {
-                ... on DocumentRef {
-                    _path
-                }
-                ... on ImageRef {
-                    _path
-                }
+          }
+          scImageAltTextEn
+          scImageFr {
+            ... on DocumentRef {
+              _path
             }
-            sclContentEn {
-                json
-            }
-            sclCopyToClipboardLabelEn
-            sclBrowserDownloadLinksEn {
-                json
-            }
-            sclContentFr {
-                json
-            }
-            sclCopyToClipboardLabelFr
-            sclBrowserDownloadLinksFr {
-                json
-            }
+          }
+          scImageAltTextFr
         }
-	}
+      }
+      scImageList {
+        ... on SCLabsImageModel {
+          scId
+          scImageEn {
+            ... on ImageRef {
+              _path
+            }
+            ... on DocumentRef {
+              _path
+            }
+          }
+          scImageAltTextEn
+          scImageFr {
+            ... on ImageRef {
+              _path
+            }
+            ... on DocumentRef {
+              _path
+            }
+          }
+          scImageAltTextFr
+        }
+      }
+      scContentEn {
+        json
+      }
+      scCopyToClipboardLabelEn
+      scBrowserDownloadLinksEn {
+        json
+      }
+      scContentFr {
+        json
+      }
+      scCopyToClipboardLabelFr
+      scBrowserDownloadLinksFr {
+        json
+      }
+    }
+  }
 }

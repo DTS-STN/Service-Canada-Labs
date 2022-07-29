@@ -47,8 +47,8 @@ export default function error404(props) {
 
           {/* Primary HTML Meta Tags */}
           <title data-gc-analytics-error="404">
-            {pageData.sclContentEn.json[0].content[0].value} (404) |{" "}
-            {pageData.sclContentFr.json[0].content[0].value} (404)
+            {pageData.scContentEn.json[0].content[0].value} (404) |{" "}
+            {pageData.scContentFr.json[0].content[0].value} (404)
           </title>
           <meta
             name="description"
@@ -121,8 +121,16 @@ export default function error404(props) {
         <section className="layout-container pb-44">
           <div className="pt-6">
             <Image
-              src={`https://www.canada.ca${pageData.sclGcImages[0]._path}`}
-              alt={"Symbol of the Government of Canada"}
+              src={`https://www.canada.ca${
+                props.locale === "en"
+                  ? pageData.scGcImages[0].scImageEn._path
+                  : pageData.scGcImages[0].scImageFr._path
+              }`}
+              alt={
+                props.locale === "en"
+                  ? pageData.scGcImages[0].scImageAltTextEn
+                  : pageData.scGcImages[0].scImageAltTextFr
+              }
               width={575}
               height={59}
             />
@@ -131,29 +139,23 @@ export default function error404(props) {
             <div>
               <div className="relative h-auto xl:w-96 xxl:w-400px lg:w-72 xl:h-400px lg:h-500px mb-8 lg:mb-0">
                 <h1 className="font-bold font-display mb-4">
-                  {pageData.sclContentEn.json[0].content[0].value}
+                  {pageData.scContentEn.json[0].content[0].value}
                 </h1>
                 <p className="font-bold font-body mb-8">
-                  {pageData.sclContentEn.json[1].content[0].value}
+                  {pageData.scContentEn.json[1].content[0].value}
                 </p>
                 <p className="font-body text-sm mb-4 leading-30px">
-                  {pageData.sclContentEn.json[2].content[0].value}
+                  {pageData.scContentEn.json[2].content[0].value}
                 </p>
                 <div className="flex">
                   <span className="error404-link" />
                   <p className="font-body text-sm leading-30px">
-                    {pageData.sclContentEn.json[3].content[0].content[0].value}
+                    {pageData.scContentEn.json[3].content[0].value}
                     <Link
-                      href={
-                        pageData.sclContentEn.json[3].content[0].content[1].data
-                          .href
-                      }
+                      href={pageData.scContentEn.json[3].content[1].data.href}
                     >
                       <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                        {
-                          pageData.sclContentEn.json[3].content[0].content[1]
-                            .value
-                        }
+                        {pageData.scContentEn.json[3].content[1].value}
                       </a>
                     </Link>
                   </p>
@@ -164,8 +166,12 @@ export default function error404(props) {
             <div className="flex items-center justify-center circle-background my-8 mx-4 lg:mt-0 lightbulb-bg shrink-0">
               <span className="relative lightbulb">
                 <Image
-                  src={`https://www.canada.ca${pageData.sclImagelist[0]._path}`}
-                  alt="Cracked lightbulb"
+                  src={`https://www.canada.ca${
+                    props.locale === "en"
+                      ? pageData.scImageList[0].scImageEn._path
+                      : pageData.scImageList[0].scImageFr._path
+                  }`}
+                  alt=""
                   layout="fill"
                   objectFit="cover"
                 />
@@ -177,29 +183,23 @@ export default function error404(props) {
                 lang="fr"
               >
                 <h1 className="font-bold font-display mb-4">
-                  {pageData.sclContentFr.json[0].content[0].value}
+                  {pageData.scContentFr.json[0].content[0].value}
                 </h1>
                 <p className="font-bold font-body mb-8">
-                  {pageData.sclContentFr.json[1].content[0].value}
+                  {pageData.scContentFr.json[1].content[0].value}
                 </p>
                 <p className="font-body text-sm mb-4 leading-30px">
-                  {pageData.sclContentFr.json[2].content[0].value}
+                  {pageData.scContentFr.json[2].content[0].value}
                 </p>
                 <div className="flex">
                   <span className="error404-link" />
                   <p className="font-body text-sm leading-30px">
-                    {pageData.sclContentFr.json[3].content[0].content[0].value}
+                    {pageData.scContentFr.json[3].content[0].value}
                     <Link
-                      href={
-                        pageData.sclContentFr.json[3].content[0].content[1].data
-                          .href
-                      }
+                      href={pageData.scContentFr.json[3].content[1].data.href}
                     >
                       <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                        {
-                          pageData.sclContentFr.json[3].content[0].content[1]
-                            .value
-                        }
+                        {pageData.scContentFr.json[3].content[1].value}
                       </a>
                     </Link>
                   </p>
@@ -221,8 +221,16 @@ export default function error404(props) {
             />
             <span className="relative footer-logo">
               <Image
-                src={`https://www.canada.ca${pageData.sclGcImages[1]._path}`}
-                alt="Symbol of the Government of Canada"
+                src={`https://www.canada.ca${
+                  props.locale === "en"
+                    ? pageData.scGcImages[1].scImageEn._path
+                    : pageData.scGcImages[1].scImageFr._path
+                }`}
+                alt={
+                  props.locale === "en"
+                    ? pageData.scGcImages[1].scImageAltTextEn
+                    : pageData.scGcImages[1].scImageAltTextFr
+                }
                 layout="fill"
               />
             </span>

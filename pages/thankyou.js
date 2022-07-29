@@ -173,7 +173,7 @@ export default function Confirmation(props) {
             <span className="w-full flex justify-center lg:w-1/3">
               <Image
                 src="/circle-info.svg"
-                alt="info"
+                alt={t("informationIconAltText")}
                 width="160"
                 height="160"
               />
@@ -224,11 +224,16 @@ export default function Confirmation(props) {
               {resent ? t("emailResent") : t("resendEmail")}
             </ActionButton>
             {resent ? (
-              <div className="flex justify-start my-6">
+              <div
+                role="img"
+                aria-label={t("animatedCheckmarkAltText")}
+                className="flex justify-start my-6"
+              >
                 <Player
                   autoplay
                   keepLastFrame
                   src={animatedCheckmark}
+                  alt={t("animatedCheckmarkAltText")}
                   style={{
                     height: "248px",
                     width: "248px",

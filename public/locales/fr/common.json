@@ -337,5 +337,7 @@
   "confirmEmail": "Confirmer l'adresse courriel",
   "emailError": "les courriels doivent être identiques",
   "requiredInfo": "Indique que les renseignements sont requis",
-  "externalLink": "lien externe"
+  "externalLink": "lien externe",
+  "animatedCheckmarkAltText": "Une coche animée indiquant une soumission réussie",
+  "informationIconAltText": "Une icône indiquant des informations ou des instructions importantes"
 }

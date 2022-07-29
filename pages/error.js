@@ -17,13 +17,13 @@ export default function ErrorPage(props) {
 
   const statusCode = query.statusCode || "";
   const errorTitle =
-    query.errorTitle || pageData.sclContentEn.json[0].content[0].value;
+    query.errorTitle || pageData.scContentEn.json[0].content[0].value;
   const errorTitleFr =
-    query.errorTitleFr || pageData.sclContentFr.json[0].content[0].value;
+    query.errorTitleFr || pageData.scContentFr.json[0].content[0].value;
   const errorMessage =
-    query.errorMessage || pageData.sclContentEn.json[1].content[0].value;
+    query.errorMessage || pageData.scContentEn.json[1].content[0].value;
   const errorMessageFr =
-    query.errorMessageFr || pageData.sclContentFr.json[1].content[0].value;
+    query.errorMessageFr || pageData.scContentFr.json[1].content[0].value;
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
@@ -44,8 +44,8 @@ export default function ErrorPage(props) {
 
           {/* Primary HTML Meta Tags */}
           <title data-gc-analytics-error={props.statusCode}>
-            {pageData.sclContentEn.json[0].content[0].value} |{" "}
-            {pageData.sclContentFr.json[0].content[0].value}
+            {pageData.scContentEn.json[0].content[0].value} |{" "}
+            {pageData.scContentFr.json[0].content[0].value}
           </title>
           <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
           <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -171,8 +171,16 @@ export default function ErrorPage(props) {
           <section className="layout-container pb-44">
             <div className="pt-6">
               <Image
-                src={`https://www.canada.ca${pageData.sclGcImages[0]._path}`}
-                alt={"Symbol of the Government of Canada"}
+                src={`https://www.canada.ca${
+                  props.locale === "en"
+                    ? pageData.scGcImages[0].scImageEn._path
+                    : pageData.scGcImages[0].scImageFr._path
+                }`}
+                alt={
+                  props.locale === "en"
+                    ? pageData.scGcImages[0].scImageAltTextEn
+                    : pageData.scGcImages[0].scImageAltTextFr
+                }
                 width={575}
                 height={59}
               />
@@ -192,7 +200,7 @@ export default function ErrorPage(props) {
                       className="font-bold font-body mb-8"
                       data-testid="statuscode-en"
                     >
-                      {pageData.sclContentEn.json[2].content[0].value}{" "}
+                      {pageData.scContentEn.json[2].content[0].value}{" "}
                       {statusCode}
                     </p>
                   ) : (
@@ -208,19 +216,19 @@ export default function ErrorPage(props) {
                     <>
                       {/* Wrong URL English Section */}
                       <p className="font-body text-sm leading-30px mb-5">
-                        {pageData.sclContentEn.json[3].content[0].value}
+                        {pageData.scContentEn.json[3].content[0].value}
                       </p>
                       <ul>
                         <li className="flex">
                           <span className="error404-link" />
                           <p className="font-body text-sm leading-30px">
-                            {pageData.sclContentEn.json[4].content[0].value}
+                            {pageData.scContentEn.json[4].content[0].value}
                           </p>
                         </li>
                         <li className="flex">
                           <span className="error404-link" />
                           <p className="font-body text-sm leading-30px">
-                            {pageData.sclContentEn.json[5].content[0].value}
+                            {pageData.scContentEn.json[5].content[0].value}
                             <a
                               href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
                               className="text-custom-blue-link underline"
@@ -230,19 +238,19 @@ export default function ErrorPage(props) {
                                   .NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL
                               }
                             </a>{" "}
-                            {pageData.sclContentEn.json[6].content[0].value}
+                            {pageData.scContentEn.json[6].content[0].value}
                           </p>
                         </li>
                       </ul>
                       <p className="font-body text-sm leading-30px mt-5">
-                        {pageData.sclContentEn.json[7].content[0].value}
+                        {pageData.scContentEn.json[7].content[0].value}
                       </p>
                     </>
                   ) : errorMessage === "Expired URL" ? (
                     <>
                       {/* Expired URL English Section */}
                       <p className="font-body text-sm leading-30px mb-5">
-                        {pageData.sclContentEn.json[8].content[0].value}
+                        {pageData.scContentEn.json[8].content[0].value}
                       </p>
                       <ul>
                         <li className="flex">
@@ -250,20 +258,20 @@ export default function ErrorPage(props) {
                           <p className="font-body text-sm leading-30px">
                             <Link
                               href={
-                                pageData.sclContentEn.json[9].content[0].data
+                                pageData.scContentEn.json[9].content[0].data
                                   .href
                               }
                             >
                               <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                                {pageData.sclContentEn.json[9].content[0].value}
+                                {pageData.scContentEn.json[9].content[0].value}
                               </a>
                             </Link>{" "}
-                            {pageData.sclContentEn.json[9].content[1].value}
+                            {pageData.scContentEn.json[9].content[1].value}
                           </p>
                         </li>
                       </ul>
                       <p className="font-body text-sm leading-30px mt-5">
-                        {pageData.sclContentEn.json[7].content[0].value}
+                        {pageData.scContentEn.json[7].content[0].value}
                       </p>
                     </>
                   ) : (
@@ -271,14 +279,14 @@ export default function ErrorPage(props) {
                     <div className="flex">
                       <span className="error404-link" />
                       <p className="font-body text-sm leading-30px">
-                        {pageData.sclContentEn.json[10].content[0].value}
+                        {pageData.scContentEn.json[10].content[0].value}
                         <Link
                           href={
-                            pageData.sclContentEn.json[10].content[1].data.href
+                            pageData.scContentEn.json[10].content[1].data.href
                           }
                         >
                           <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                            {pageData.sclContentEn.json[10].content[1].value}
+                            {pageData.scContentEn.json[10].content[1].value}
                           </a>
                         </Link>
                       </p>
@@ -290,8 +298,12 @@ export default function ErrorPage(props) {
               <div className="flex items-center justify-center circle-background my-8 lg:mt-0 lightbulb-bg">
                 <span className="relative lightbulb">
                   <Image
-                    src={`https://www.canada.ca${pageData.sclImagelist[0]._path}`}
-                    alt="Cracked lightbulb"
+                    src={`https://www.canada.ca${
+                      props.locale === "en"
+                        ? pageData.scImageList[0].scImageEn._path
+                        : pageData.scImageList[0].scImageFr._path
+                    }`}
+                    alt=""
                     layout="fill"
                     objectFit="cover"
                   />
@@ -314,7 +326,7 @@ export default function ErrorPage(props) {
                       className="font-bold font-body mb-8"
                       data-testid="statuscode-fr"
                     >
-                      {pageData.sclContentFr.json[2].content[0].value}{" "}
+                      {pageData.scContentFr.json[2].content[0].value}{" "}
                       {statusCode}
                     </p>
                   ) : (
@@ -330,19 +342,19 @@ export default function ErrorPage(props) {
                     <>
                       {/* Wrong URL French Section */}
                       <p className="font-body text-sm leading-30px mb-5">
-                        {pageData.sclContentFr.json[3].content[0].value}
+                        {pageData.scContentFr.json[3].content[0].value}
                       </p>
                       <ul>
                         <li className="flex">
                           <span className="error404-link" />
                           <p className="font-body text-sm leading-30px">
-                            {pageData.sclContentFr.json[4].content[0].value}
+                            {pageData.scContentFr.json[4].content[0].value}
                           </p>
                         </li>
                         <li className="flex">
                           <span className="error404-link" />
                           <p className="font-body text-sm leading-30px">
-                            {pageData.sclContentFr.json[5].content[0].value}
+                            {pageData.scContentFr.json[5].content[0].value}
                             <a
                               href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
                               className="text-custom-blue-link underline"
@@ -351,20 +363,20 @@ export default function ErrorPage(props) {
                                 process.env
                                   .NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL
                               }
-                            </a>
-                            {pageData.sclContentFr.json[6].content[0].value}
+                            </a>{" "}
+                            {pageData.scContentFr.json[6].content[0].value}
                           </p>
                         </li>
                       </ul>
                       <p className="font-body text-sm leading-30px mt-5">
-                        {pageData.sclContentFr.json[7].content[0].value}
+                        {pageData.scContentFr.json[7].content[0].value}
                       </p>
                     </>
                   ) : errorMessageFr === "URL expirée" ? (
                     <>
                       {/* Expired URL French Section */}
                       <p className="font-body text-sm leading-30px mb-5">
-                        {pageData.sclContentFr.json[8].content[0].value}
+                        {pageData.scContentFr.json[8].content[0].value}
                       </p>
                       <ul>
                         <li className="flex">
@@ -372,20 +384,20 @@ export default function ErrorPage(props) {
                           <p className="font-body text-sm leading-30px">
                             <Link
                               href={
-                                pageData.sclContentFr.json[9].content[0].data
+                                pageData.scContentFr.json[9].content[0].data
                                   .href
                               }
                             >
                               <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                                {pageData.sclContentFr.json[9].content[0].value}
+                                {pageData.scContentFr.json[9].content[0].value}
                               </a>
                             </Link>{" "}
-                            {pageData.sclContentFr.json[9].content[1].value}
+                            {pageData.scContentFr.json[9].content[1].value}
                           </p>
                         </li>
                       </ul>
                       <p className="font-body text-sm leading-30px mt-5">
-                        {pageData.sclContentFr.json[7].content[0].value}
+                        {pageData.scContentFr.json[7].content[0].value}
                       </p>
                     </>
                   ) : (
@@ -393,14 +405,14 @@ export default function ErrorPage(props) {
                     <div className="flex">
                       <span className="error404-link" />
                       <p className="font-body text-sm leading-30px">
-                        {pageData.sclContentFr.json[10].content[0].value}
+                        {pageData.scContentFr.json[10].content[0].value}
                         <Link
                           href={
-                            pageData.sclContentFr.json[10].content[1].data.href
+                            pageData.scContentFr.json[10].content[1].data.href
                           }
                         >
                           <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                            {pageData.sclContentFr.json[10].content[1].value}
+                            {pageData.scContentFr.json[10].content[1].value}
                           </a>
                         </Link>
                       </p>
@@ -424,8 +436,16 @@ export default function ErrorPage(props) {
             />
             <span className="relative footer-logo">
               <Image
-                src={`https://www.canada.ca${pageData.sclGcImages[1]._path}`}
-                alt="Symbol of the Government of Canada"
+                src={`https://www.canada.ca${
+                  props.locale === "en"
+                    ? pageData.scGcImages[1].scImageEn._path
+                    : pageData.scGcImages[1].scImageFr._path
+                }`}
+                alt={
+                  props.locale === "en"
+                    ? pageData.scGcImages[1].scImageAltTextEn
+                    : pageData.scGcImages[1].scImageAltTextFr
+                }
                 layout="fill"
               />
             </span>

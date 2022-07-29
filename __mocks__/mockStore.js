@@ -4,32 +4,88 @@ export const notSupportedData = {
   data: {
     scLabsErrorPageByPath: {
       item: {
-        sclGcImages: [
+        scGcImages: [
           {
-            _path: "/content/dam/decd-endc/images/sclabs/sig-blk-en.svg",
+            scId: "SCLABS-GOC-HEADER-IMAGE",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/sig-blk-en.svg",
+            },
+            scImageAltTextEn: "Government of Canada",
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/sig-blk-fr.svg",
+            },
+            scImageAltTextFr: "Gouvernement du Canada",
           },
           {
-            _path: "/content/dam/decd-endc/images/sclabs/wmms-blk.svg",
+            scId: "SCLABS-GOC-FOOTER-IMAGE",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/wmms-blk.svg",
+            },
+            scImageAltTextEn: "Symbol of the Government of Canada",
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/wmms-blk.svg",
+            },
+            scImageAltTextFr: "Symbole du gouvernement du Canada",
           },
         ],
-        sclImagelist: [
+        scImageList: [
           {
-            _path: "/content/dam/decd-endc/images/sclabs/crackedbulb.svg",
+            scId: "SCLABS-CRACKED-LIGHTBULB",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/crackedbulb.svg",
+            },
+            scImageAltTextEn: null,
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/crackedbulb.svg",
+            },
+            scImageAltTextFr: null,
           },
           {
-            _path: "/content/dam/decd-endc/images/sclabs/chrome.png",
+            scId: "SCLABS-CHROME-LOGO",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/chrome.png",
+            },
+            scImageAltTextEn: "The Google Chrome browser logo",
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/chrome.png",
+            },
+            scImageAltTextFr: "Le logo du navigateur Google Chrome",
           },
           {
-            _path: "/content/dam/decd-endc/images/sclabs/safari.png",
+            scId: "SCLABS-SAFARI-LOGO",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/safari.png",
+            },
+            scImageAltTextEn: "The Safari browser logo",
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/safari.png",
+            },
+            scImageAltTextFr: "Le logo du navigateur Safari",
           },
           {
-            _path: "/content/dam/decd-endc/images/sclabs/edge.png",
+            scId: "SCLABS-EDGE-LOGO",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/edge.png",
+            },
+            scImageAltTextEn: "The Microsoft Edge browser logo",
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/edge.png",
+            },
+            scImageAltTextFr: "Le logo du navigateur Microsoft Edge",
           },
           {
-            _path: "/content/dam/decd-endc/images/sclabs/firefox.svg",
+            scId: "SCLABS-FIREFOX-LOGO",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/firefox.svg",
+            },
+            scImageAltTextEn: "The Mozilla Firefox browser logo",
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/firefox.svg",
+            },
+            scImageAltTextFr: "Le logo du navigateur Mozilla Firefox",
           },
         ],
-        sclContentEn: {
+        scContentEn: {
           json: [
             {
               nodeType: "header",
@@ -54,9 +110,8 @@ export const notSupportedData = {
             },
           ],
         },
-        sclCopyToClipboardLabelEn:
-          "Copy the link below and paste in that browser.",
-        sclBrowserDownloadLinksEn: {
+        scCopyToClipboardLabelEn: "Copy link",
+        scBrowserDownloadLinksEn: {
           json: [
             {
               nodeType: "paragraph",
@@ -123,7 +178,7 @@ export const notSupportedData = {
             },
           ],
         },
-        sclContentFr: {
+        scContentFr: {
           json: [
             {
               nodeType: "header",
@@ -148,9 +203,8 @@ export const notSupportedData = {
             },
           ],
         },
-        sclCopyToClipboardLabelFr:
-          "Vous n'avez qu'à copier le lien ci-dessous et le coller dans ce navigateur.",
-        sclBrowserDownloadLinksFr: {
+        scCopyToClipboardLabelFr: "Copier lien",
+        scBrowserDownloadLinksFr: {
           json: [
             {
               nodeType: "paragraph",
@@ -226,20 +280,42 @@ export const error500Page = {
   data: {
     scLabsErrorPageByPath: {
       item: {
-        sclGcImages: [
+        scGcImages: [
           {
-            _path: "/content/dam/decd-endc/images/sclabs/sig-blk-en.svg",
+            scId: "SCLABS-GOC-HEADER-IMAGE",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/sig-blk-en.svg",
+            },
+            scImageAltTextEn: "Government of Canada",
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/sig-blk-fr.svg",
+            },
+            scImageAltTextFr: "Gouvernement du Canada",
           },
           {
-            _path: "/content/dam/decd-endc/images/sclabs/wmms-blk.svg",
+            scId: "SCLABS-GOC-FOOTER-IMAGE",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/wmms-blk.svg",
+            },
+            scImageAltTextEn: "Symbol of the Government of Canada",
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/wmms-blk.svg",
+            },
+            scImageAltTextFr: "Symbole du gouvernement du Canada",
           },
         ],
-        sclImagelist: [
+        scImageList: [
           {
-            _path: "/content/dam/decd-endc/images/sclabs/crackedbulb.svg",
+            scId: "SCLABS-CRACKED-LIGHTBULB",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/crackedbulb.svg",
+            },
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/crackedbulb.svg",
+            },
           },
         ],
-        sclContentEn: {
+        scContentEn: {
           json: [
             {
               nodeType: "header",
@@ -272,29 +348,24 @@ export const error500Page = {
               ],
             },
             {
-              nodeType: "unordered-list",
+              nodeType: "paragraph",
               content: [
                 {
-                  nodeType: "list-item",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value: "Return to the ",
-                    },
-                    {
-                      nodeType: "link",
-                      data: {
-                        href: "/",
-                      },
-                      value: "Service Canada Labs home page",
-                    },
-                  ],
+                  nodeType: "text",
+                  value: "Return to the ",
+                },
+                {
+                  nodeType: "link",
+                  data: {
+                    href: "/",
+                  },
+                  value: "Service Canada Labs home page",
                 },
               ],
             },
           ],
         },
-        sclContentFr: {
+        scContentFr: {
           json: [
             {
               nodeType: "header",
@@ -327,24 +398,18 @@ export const error500Page = {
               ],
             },
             {
-              nodeType: "unordered-list",
+              nodeType: "paragraph",
               content: [
                 {
-                  nodeType: "list-item",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value: "Retournez à la ",
-                    },
-                    {
-                      nodeType: "link",
-                      data: {
-                        href: "/fr/",
-                      },
-                      value:
-                        "page d'accueil des laboratoires de Service Canada",
-                    },
-                  ],
+                  nodeType: "text",
+                  value: "Retournez à la ",
+                },
+                {
+                  nodeType: "link",
+                  data: {
+                    href: "/fr/",
+                  },
+                  value: "page d'accueil des laboratoires de Service Canada",
                 },
               ],
             },
@@ -359,20 +424,42 @@ export const error404Page = {
   data: {
     scLabsErrorPageByPath: {
       item: {
-        sclGcImages: [
+        scGcImages: [
           {
-            _path: "/content/dam/decd-endc/images/sclabs/sig-blk-en.svg",
+            scId: "SCLABS-GOC-HEADER-IMAGE",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/sig-blk-en.svg",
+            },
+            scImageAltTextEn: "Government of Canada",
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/sig-blk-fr.svg",
+            },
+            scImageAltTextFr: "Gouvernement du Canada",
           },
           {
-            _path: "/content/dam/decd-endc/images/sclabs/wmms-blk.svg",
+            scId: "SCLABS-GOC-FOOTER-IMAGE",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/wmms-blk.svg",
+            },
+            scImageAltTextEn: "Symbol of the Government of Canada",
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/wmms-blk.svg",
+            },
+            scImageAltTextFr: "Symbole du gouvernement du Canada",
           },
         ],
-        sclImagelist: [
+        scImageList: [
           {
-            _path: "/content/dam/decd-endc/images/sclabs/crackedbulb.svg",
+            scId: "SCLABS-CRACKED-LIGHTBULB",
+            scImageEn: {
+              _path: "/content/dam/decd-endc/images/sclabs/crackedbulb.svg",
+            },
+            scImageFr: {
+              _path: "/content/dam/decd-endc/images/sclabs/crackedbulb.svg",
+            },
           },
         ],
-        sclContentEn: {
+        scContentEn: {
           json: [
             {
               nodeType: "header",
@@ -404,29 +491,24 @@ export const error404Page = {
               ],
             },
             {
-              nodeType: "unordered-list",
+              nodeType: "paragraph",
               content: [
                 {
-                  nodeType: "list-item",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value: "Return to the ",
-                    },
-                    {
-                      nodeType: "link",
-                      data: {
-                        href: "/",
-                      },
-                      value: "Service Canada Labs home page",
-                    },
-                  ],
+                  nodeType: "text",
+                  value: "Return to the ",
+                },
+                {
+                  nodeType: "link",
+                  data: {
+                    href: "/",
+                  },
+                  value: "Service Canada Labs home page",
                 },
               ],
             },
           ],
         },
-        sclContentFr: {
+        scContentFr: {
           json: [
             {
               nodeType: "header",
@@ -458,24 +540,18 @@ export const error404Page = {
               ],
             },
             {
-              nodeType: "unordered-list",
+              nodeType: "paragraph",
               content: [
                 {
-                  nodeType: "list-item",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value: "Retournez à la ",
-                    },
-                    {
-                      nodeType: "link",
-                      data: {
-                        href: "/fr/",
-                      },
-                      value:
-                        "page d'accueil des laboratoires de Service Canada",
-                    },
-                  ],
+                  nodeType: "text",
+                  value: "Retournez à la ",
+                },
+                {
+                  nodeType: "link",
+                  data: {
+                    href: "/fr/",
+                  },
+                  value: "page d'accueil des laboratoires de Service Canada",
                 },
               ],
             },
