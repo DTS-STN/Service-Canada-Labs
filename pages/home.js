@@ -176,10 +176,7 @@ export default function Home(props) {
             </span>
           </div>
           <div className="xl:w-2/3"></div>
-          <div
-            role="presentation"
-            className="grid lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12"
-          >
+          <div className="grid lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12">
             <Card
               imgSrc={`https://www.canada.ca${
                 props.locale === "en"
