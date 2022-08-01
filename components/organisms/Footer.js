@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import Image from "next/image";
+import { ActionButton } from "../atoms/ActionButton";
 
 /**
  * footer element for all pages
@@ -67,8 +68,16 @@ export function Footer(props) {
               })}
             </ul>
           </div>
-          <div>
-            <span className="flex relative justify-end float-right footer-logo">
+          <div className="flex items-center justify-between">
+            <ActionButton
+              id="TopOfPageButton"
+              href="#"
+              custom="text-left w-32 flex flex-col lg:hidden"
+              text={props.topOfPage}
+              icon="icon-up-caret"
+              iconEnd
+            />
+            <span className="flex relative footer-logo">
               <Image
                 src={props.footerLogoImage}
                 alt={props.footerLogoAltText}
