@@ -75,6 +75,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Remove Test Site banner on the projects page
 - Updated alt text across site based on best practices
 - Updated `/thankyou` page to use animated checkmark for consistency
+- Updated Footer component to add To top of page button in mobile view
 
 ## Fixed
 

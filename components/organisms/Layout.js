@@ -202,6 +202,7 @@ export const Layout = ({
               footerBoxLinkText: t("footerOpenGov"),
             },
           ]}
+          topOfPage={t("topOfPage")}
         />
       </footer>
     </div>
