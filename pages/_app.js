@@ -4,6 +4,10 @@ import "../styles/globals.css";
 import "../styles/forms.css";
 import "../styles/menu.css";
 import Head from "next/head";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+
+config.autoAddCss = false;
 
 if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
   require("../mocks");

@@ -340,5 +340,8 @@
   "externalLink": "lien externe",
   "animatedCheckmarkAltText": "Une coche animée indiquant une soumission réussie",
   "informationIconAltText": "Une icône indiquant des informations ou des instructions importantes",
-  "topOfPage": "Haut de la page"
+  "topOfPage": "Haut de la page",
+  "signupBannerBtnText": "Inscrivez-vous pour recevoir les invitations aux sessions de recherche",
+  "signupBannerDescription": "Nous vous invitons à remplir des enquêtes rapides ou à participer à des séances de recherche afin d'améliorer Service Canada pour tous. Vos commentaires nous aident à rendre nos services simples et faciles à utiliser.",
+  "signupBannerDisclaimer": "Votre participation n'affectera pas votre accès aux services gouvernementaux. La participation est volontaire et vous pouvez vous retirer à tout moment."
 }
