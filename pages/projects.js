@@ -18,7 +18,6 @@ export default function Projects(props) {
   const [filteredExperiments, setFilteredExperiments] = useState(
     props.experimentData.items
   );
-  console.log(pageData.scFragments[3].scImageEn._publishUrl);
 
   // get the filters from the data
   const filters = props.filters.map((value) => {
