@@ -89,6 +89,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Fixed CallToAction redirect on `/projects` page so that it links to `/signup-info` instead of `/signup`
 - Fixed email and close button focus on the feedback widget
 - Moved content security policy entries from `_document` to `next.config.js` so there is a single source of truth (and also added a few other security headers)
+- Fixed issue with our `Next/Image` implementation within our `Card` component and with the image on the `/projects` page
 
 ## [v1.1.3] - 2021-10-27
 
