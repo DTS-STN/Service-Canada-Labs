@@ -28,18 +28,13 @@ export const Card = (props) => {
         maxWidth: "560px",
       }}
     >
-      <div
-        className="mb-4"
-        style={{
-          height: `${props.isExperiment ? "290px" : "326px"}`,
-          position: "relative",
-        }}
-      >
+      <div className="mb-4">
         <Image
           src={props.imgSrc}
           alt={props.imgAlt}
-          layout="fill"
-          objectFit="cover"
+          height={props.imgHeight}
+          width={props.imgWidth}
+          layout="responsive"
           priority={props.priority}
         />
       </div>

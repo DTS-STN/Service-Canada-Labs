@@ -26,18 +26,22 @@ query getHomePage {
       scRegion
       scSocialMediaImageEn {
         ... on ImageRef {
-          _path
+          _publishUrl
+          width
+          height
         }
         ... on DocumentRef {
-          _path
+          _publishUrl
         }
       }
       scSocialMediaImageFr {
         ... on ImageRef {
-          _path
+          _publishUrl
+          width
+          height
         }
         ... on DocumentRef {
-          _path
+          _publishUrl
         }
       }
       scSocialMediaImageAltTextEn
@@ -59,34 +63,42 @@ query getHomePage {
           scId
           scImageEn {
             ... on ImageRef {
-              _path
+              _publishUrl
+              width
+              height
             }
             ... on DocumentRef {
-              _path
+              _publishUrl
             }
           }
           scImageFr {
             ... on ImageRef {
-              _path
+              _publishUrl
+              width
+              height
             }
             ... on DocumentRef {
-              _path
+              _publishUrl
             }
           }
           scImageMobileEn {
             ... on ImageRef {
-              _path
+              _publishUrl
+              width
+              height
             }
             ... on DocumentRef {
-              _path
+              _publishUrl
             }
           }
           scImageMobileFr {
             ... on ImageRef {
-              _path
+              _publishUrl
+              width
+              height
             }
             ... on DocumentRef {
-              _path
+              _publishUrl
             }
           }
           scImageAltTextEn
@@ -114,18 +126,22 @@ query getHomePage {
           }
           scImageEn {
             ... on ImageRef {
-              _path
+              _publishUrl
+              width
+              height
             }
             ... on DocumentRef {
-              _path
+              _publishUrl
             }
           }
           scImageFr {
             ... on ImageRef {
-              _path
+              _publishUrl
+              width
+              height
             }
             ... on DocumentRef {
-              _path
+              _publishUrl
             }
           }
           scImageAltTextEn

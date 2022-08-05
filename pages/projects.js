@@ -173,15 +173,24 @@ export default function Projects(props) {
               </p>
             </span>
             <span
-              className="relative flex mt-4 lg:ml-8 lg:w-3/4"
-              style={{ height: "274px", maxWidth: "453px" }}
+              className="block mt-4 lg:ml-8 lg:w-3/4"
+              style={{ maxWidth: "453px" }}
               role="presentation"
             >
               <Image
-                src={`https://www.canada.ca${pageData.scFragments[2].scImageEn._path}`}
+                src={pageData.scFragments[2].scImageEn._publishUrl}
                 alt=""
-                layout="fill"
-                objectFit="cover"
+                height={
+                  props.locale === "en"
+                    ? pageData.scFragments[2].scImageEn.height
+                    : pageData.scFragments[2].scImageFr.height
+                }
+                width={
+                  props.locale === "en"
+                    ? pageData.scFragments[2].scImageEn.width
+                    : pageData.scFragments[2].scImageFr.width
+                }
+                layout="responsive"
               />
             </span>
           </div>
@@ -247,7 +256,10 @@ export default function Projects(props) {
                   imgSrc="/placeholder.png"
                   //Eventually this alt text will change as we provide unique images for each project
                   imgAlt="placeholder"
-                  icon={`https://www.canada.ca${pageData.scFragments[3].scImageEn._path}`}
+                  //Manually entered width and height for now, will eventually take these values from AEM image data
+                  imgHeight={290}
+                  imgWidth={547}
+                  icon={pageData.scFragments[3].scImageEn._publishUrl}
                   iconAlt={
                     props.locale === "en"
                       ? pageData.scFragments[3].scImageAltTextEn

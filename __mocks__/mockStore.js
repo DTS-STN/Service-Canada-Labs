@@ -867,7 +867,7 @@ export const homePageData = {
         scKeywordsFr: "services numériques",
         scContentType: null,
         scOwner: null,
-        scDateModifiedOverwrite: null,
+        scDateModifiedOverwrite: "2022-06-27",
         scAudience: null,
         scRegion: null,
         scSocialMediaImageEn: null,
@@ -881,8 +881,6 @@ export const homePageData = {
             _path:
               "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/home---main-content",
             scId: "HOME-MAIN-CONTENT",
-            scTitleEn: null,
-            scTitleFr: null,
             scContentEn: {
               json: [
                 {
@@ -983,18 +981,22 @@ export const homePageData = {
           },
           {
             scId: "HOMEPAGE-MAIN-IMAGE",
-            scTitleEn: null,
-            scTitleFr: null,
             scImageEn: {
-              _path: "/content/dam/decd-endc/images/sclabs/homePage_image1.png",
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/homePage_image1.png",
+              width: 452,
+              height: 316,
             },
             scImageFr: {
-              _path: "/content/dam/decd-endc/images/sclabs/homePage_image1.png",
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/homePage_image1.png",
+              width: 452,
+              height: 316,
             },
             scImageMobileEn: null,
             scImageMobileFr: null,
-            scImageAltTextEn: null,
-            scImageAltTextFr: null,
+            scImageAltTextEn: "Placeholder",
+            scImageAltTextFr: "Placeholder(FR)",
             scImageCaptionEn: null,
             scImageCaptionFr: null,
           },
@@ -1039,13 +1041,19 @@ export const homePageData = {
               ],
             },
             scImageEn: {
-              _path: "/content/dam/decd-endc/images/sclabs/homePage_image2.png",
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/homePage_image2.png",
+              width: 547,
+              height: 326,
             },
             scImageFr: {
-              _path: "/content/dam/decd-endc/images/sclabs/homePage_image2.png",
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/homePage_image2.png",
+              width: 547,
+              height: 326,
             },
-            scImageAltTextEn: null,
-            scImageAltTextFr: null,
+            scImageAltTextEn: "Placeholder",
+            scImageAltTextFr: "Placeholder(FR)",
             scLabsButton: [
               {
                 scId: "sclabs-homepage-button-projects",
@@ -1112,13 +1120,19 @@ export const homePageData = {
               ],
             },
             scImageEn: {
-              _path: "/content/dam/decd-endc/images/sclabs/homePage_image3.png",
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/homePage_image3.png",
+              width: 549,
+              height: 326,
             },
             scImageFr: {
-              _path: "/content/dam/decd-endc/images/sclabs/homePage_image3.png",
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/homePage_image3.png",
+              width: 549,
+              height: 326,
             },
-            scImageAltTextEn: null,
-            scImageAltTextFr: null,
+            scImageAltTextEn: "Placeholder",
+            scImageAltTextFr: "Placeholder(FR)",
             scLabsButton: [
               {
                 scId: "sclabs-homepage-button-signup",

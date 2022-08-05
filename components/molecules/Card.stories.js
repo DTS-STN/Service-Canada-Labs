@@ -16,6 +16,8 @@ Primary.args = {
   description: "Description",
   imgSrc: "/placeholderImg",
   imgAlt: "placeholderAlt",
+  imgHeight: 500,
+  imgWidth: 500,
 };
 
 Experiment.args = {
@@ -27,4 +29,6 @@ Experiment.args = {
   href: "/some/link",
   imgSrc: "/placeholderImg",
   imgAlt: "placeholderAlt",
+  imgHeight: 500,
+  imgWidth: 500,
 };
