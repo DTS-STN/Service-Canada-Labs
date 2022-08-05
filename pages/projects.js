@@ -5,6 +5,7 @@ import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
 import { Card } from "../components/molecules/Card";
 import { Filter } from "../components/molecules/Filter";
+import { CallToAction } from "../components/molecules/CallToAction";
 import queryGraphQL from "../graphql/client";
 import getAllProjects from "../graphql/queries/projectQuery.graphql";
 import getProjectsPage from "../graphql/queries/projectsPageQuery.graphql";
@@ -258,6 +259,14 @@ export default function Projects(props) {
             ))}
           </ul>
         </section>
+        <CallToAction
+          title={t("signupHomeButton")}
+          description={t("signupBannerDescription")}
+          disclaimer={t("signupBannerDisclaimer")}
+          lang={props.locale}
+          href="/signup-info"
+          hrefText={t("signupBannerBtnText")}
+        />
       </Layout>
       {props.adobeAnalyticsUrl ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
