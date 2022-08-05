@@ -164,11 +164,11 @@ export default function Home(props) {
               role="presentation"
             >
               <Image
-                src={`https://www.canada.ca${
+                src={
                   props.locale === "en"
-                    ? pageData.scFragments[1].scImageEn._path
-                    : pageData.scFragments[1].scImageFr._path
-                }`}
+                    ? pageData.scFragments[1].scImageEn._publishUrl
+                    : pageData.scFragments[1].scImageFr._publishUrl
+                }
                 alt=""
                 layout="fill"
                 objectFit="cover"
@@ -178,11 +178,21 @@ export default function Home(props) {
           <div className="xl:w-2/3"></div>
           <div className="grid lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12">
             <Card
-              imgSrc={`https://www.canada.ca${
+              imgSrc={
                 props.locale === "en"
-                  ? pageData.scFragments[3].scImageEn._path
-                  : pageData.scFragments[3].scImageFr._path
-              }`}
+                  ? pageData.scFragments[3].scImageEn._publishUrl
+                  : pageData.scFragments[3].scImageFr._publishUrl
+              }
+              imgHeight={
+                props.locale === "en"
+                  ? pageData.scFragments[3].scImageEn.height
+                  : pageData.scFragments[3].scImageFr.height
+              }
+              imgWidth={
+                props.locale === "en"
+                  ? pageData.scFragments[3].scImageEn.width
+                  : pageData.scFragments[3].scImageFr.width
+              }
               imgAlt=""
               title={
                 props.locale === "en"
@@ -207,12 +217,22 @@ export default function Home(props) {
               btnId={pageData.scFragments[3].scLabsButton[0].scId}
             />
             <Card
-              imgSrc={`https://www.canada.ca${
+              imgSrc={
                 props.locale === "en"
-                  ? pageData.scFragments[4].scImageEn._path
-                  : pageData.scFragments[4].scImageFr._path
-              }`}
+                  ? pageData.scFragments[4].scImageEn._publishUrl
+                  : pageData.scFragments[4].scImageFr._publishUrl
+              }
               imgAlt=""
+              imgHeight={
+                props.locale === "en"
+                  ? pageData.scFragments[4].scImageEn.height
+                  : pageData.scFragments[4].scImageFr.height
+              }
+              imgWidth={
+                props.locale === "en"
+                  ? pageData.scFragments[4].scImageEn.width
+                  : pageData.scFragments[4].scImageFr.width
+              }
               title={
                 props.locale === "en"
                   ? pageData.scFragments[4].scTitleEn
