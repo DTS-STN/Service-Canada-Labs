@@ -33,6 +33,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added environment variable for our project version to our Next.js config for metadata purposes
 - Added image in Experiment card
 - Added Sharp for image optimization in production
+- Added the `Alert` component for contextual alerts
 
 ## Changed
 

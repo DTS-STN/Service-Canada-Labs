@@ -151,6 +151,17 @@ query getProjectsPage {
             scButtonType
           }
         }
+        ... on SCLabsAlertModel {
+            scId
+            scTitleEn
+            scTitleFr
+            scContentEn {
+                json
+            }
+            scContentFr {
+                json
+            }
+        }
       }
     }
   }
