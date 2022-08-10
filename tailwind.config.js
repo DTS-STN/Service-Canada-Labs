@@ -205,6 +205,9 @@ module.exports = {
         "dark-goldenrod": ["2px solid #c78100"],
         "white-solid": ["2px solid #ffffff"],
       },
+      borderWidth: {
+        6: "6px",
+      },
     },
   },
   plugins: [

@@ -10,6 +10,7 @@ import queryGraphQL from "../graphql/client";
 import getAllProjects from "../graphql/queries/projectQuery.graphql";
 import getProjectsPage from "../graphql/queries/projectsPageQuery.graphql";
 import Image from "next/image";
+import { Alert } from "../components/atoms/Alert";
 
 export default function Projects(props) {
   const { t } = useTranslation("common");
@@ -199,6 +200,48 @@ export default function Projects(props) {
               ? pageData.scFragments[1].scContentEn.json[0].content[0].value
               : pageData.scFragments[1].scContentFr.json[0].content[0].value}
           </h2>
+          <Alert
+            title={
+              props.locale === "en"
+                ? pageData.scFragments[4].scTitleEn
+                : pageData.scFragments[4].scTitleFr
+            }
+            text={
+              props.locale === "en" ? (
+                <>
+                  {pageData.scFragments[4].scContentEn.json[0].content[0].value}
+                  <a
+                    className="underline text-canada-footer-font hover:text-canada-footer-hover-font-blue"
+                    href={
+                      pageData.scFragments[4].scContentEn.json[0].content[1]
+                        .data.href
+                    }
+                  >
+                    {
+                      pageData.scFragments[4].scContentEn.json[0].content[1]
+                        .value
+                    }
+                  </a>
+                </>
+              ) : (
+                <>
+                  {pageData.scFragments[4].scContentFr.json[0].content[0].value}
+                  <a
+                    className="underline text-canada-footer-font hover:text-canada-footer-hover-font-blue"
+                    href={
+                      pageData.scFragments[4].scContentFr.json[0].content[1]
+                        .data.href
+                    }
+                  >
+                    {
+                      pageData.scFragments[4].scContentFr.json[0].content[1]
+                        .value
+                    }
+                  </a>
+                </>
+              )
+            }
+          />
           <p>
             {props.locale === "en"
               ? pageData.scFragments[1].scContentEn.json[1].content[0].value
