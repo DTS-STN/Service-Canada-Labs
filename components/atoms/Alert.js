@@ -14,12 +14,12 @@ export function Alert(props) {
         <span className="absolute py-1 top-4 -left-3.5 bg-white">
           <FontAwesomeIcon icon={faCircleInfo} color={"#269ABC"} size="xl" />
         </span>
-        <aside className="ml-6">
+        <div className="ml-6">
           <p className="text-h3 font-display pt-4 pb-4 lg:pt-5">
             <b>{props.title}</b>
           </p>
           <p className="text-p">{props.text}</p>
-        </aside>
+        </div>
       </div>
     </div>
   );
