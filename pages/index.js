@@ -125,8 +125,8 @@ export default function Index(props) {
         <meta property="twitter:image" content={`${t("metaImage")}`} />
         <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
       </Head>
-      <main>
-        <div className="flex flex-col justify-center items-center m-auto v-xxs:h-screen">
+      <main className="h-full flex justify-center">
+        <div className="flex flex-col pt-8 sm:justify-center sm:items-center sm:pb-48 v-xxs:h-screen">
           <div className="z-10 bg-white h-auto min-w-300px w-300px xl:w-500px">
             <h1 className="sr-only">alpha.service.canada.ca</h1>
             <div className="p-4">
@@ -153,14 +153,14 @@ export default function Index(props) {
                 id="english-button"
                 text="English"
                 lang="en"
-                className="text-center text-sm w-7.5rem xl:w-138px py-3.5 mr-6 rounded leading-3"
+                className="text-center text-sm w-7.5rem xl:w-138px mr-6 rounded"
                 href="/home"
                 onClick={setLanguage}
               />
               <ActionButton
                 id="french-button"
                 text="Français"
-                className="text-center w-7.5rem xl:w-138px text-sm py-3.5 rounded leading-3"
+                className="text-center w-7.5rem xl:w-138px text-sm py-3.5 rounded"
                 href="/fr/accueil"
                 lang="fr"
                 onClick={setLanguage}
