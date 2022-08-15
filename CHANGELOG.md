@@ -78,6 +78,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated `/thankyou` page to use animated checkmark for consistency
 - Updated Footer component to add To top of page button in mobile view
 - Updated background image for splash page
+- Updated metadata social media image for splash page
 
 ## Fixed
 
