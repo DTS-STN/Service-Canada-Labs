@@ -2,7 +2,6 @@ import { Layout } from "../../components/organisms/Layout";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import { HTMList } from "../../components/atoms/HTMList";
 import { CallToAction } from "../../components/molecules/CallToAction";
 import { useEffect, useState } from "react";
 import { Alert } from "../../components/atoms/Alert";
