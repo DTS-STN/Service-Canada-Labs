@@ -34,6 +34,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added image in Experiment card
 - Added Sharp for image optimization in production
 - Added the `Alert` component for contextual alerts
+- Added the `TableOfContents` component to convert page headings into a table of contents
 
 ## Changed
 
