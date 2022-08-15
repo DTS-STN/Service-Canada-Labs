@@ -4678,3 +4678,859 @@ export const signupInfoPageData = {
     },
   },
 };
+export const privacyPageData = {
+  data: {
+    sCLabsPageByPath: {
+      item: {
+        scId: "sclabs-privacy-policy-page",
+        scPageNameEn: "/signup/privacy",
+        scPageNameFr: "/fr/inscription/protection-renseignements-personnels",
+        scTitleEn: "Privacy Policy",
+        scTitleFr:
+          "Politique en matière de protection des renseignements personnels",
+        scShortTitleEn: null,
+        scShortTitleFr: null,
+        scDescriptionEn: {
+          json: null,
+        },
+        scDescriptionFr: {
+          json: null,
+        },
+        scSubject: null,
+        scKeywordsEn: null,
+        scKeywordsFr: null,
+        scContentType: null,
+        scOwner: null,
+        scDateModifiedOverwrite: "2022-07-14",
+        scAudience: null,
+        scRegion: null,
+        scSocialMediaImageEn: null,
+        scSocialMediaImageFr: null,
+        scSocialMediaImageAltTextEn: null,
+        scSocialMediaImageAltTextFr: null,
+        scNoIndex: false,
+        scNoFollow: false,
+        scFragments: [
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/privacy-policy---main-content",
+            scId: "sclabs-privacy-policy-main-content",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Your participation is completely voluntary.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "You can withdraw your personal information from our list at any time with no impact.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "What we will collect",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "To sign up to join our group of participants we need the following information so we can contact you with any relevant opportunities to take part in our research:",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Email address",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Year of birth",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Language preference",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "You can also choose to answer a few more questions below. Your answers will help us invite you to research opportunities relevant to your life experiences.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Province or territory",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Gender identity",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Indigenous identity",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Disabilities",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Visible Minority group",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Income range",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "This information will be collected under the authority of the ",
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        "Department of Employment and Social Development Act",
+                      format: {
+                        variants: ["emphasis"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value: " and the ",
+                    },
+                    {
+                      nodeType: "text",
+                      value: "Financial Administration Act",
+                      format: {
+                        variants: ["emphasis"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        ". Employment and Social Development Canada’s Digital Experience and Client Data group will use this information to understand and improve how it delivers benefits and services through Service Canada.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "We collect this information to ensure our research groups are diverse, and to identify trends in feedback for specific groups.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "How we will use this information",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "This personal information is confidential and will not be used for any “administrative purposes.” This means that your information will not be used for any decision-making process that directly affects you or your access to Government of Canada services. Your information will be used by Employment and Social Development Canada for policy analysis, research, and evaluation purposes.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "We will only use your email address to communicate with you.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "The Digital Experience and Client Data group will own the information for two years after the project’s end date. Your information may be shared with other government departments such as the Canada Revenue Agency, Immigration, Refugees and Citizenship Canada for the purpose of collaborating on other service improvement projects and would not include your name, or email address.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "How to withdraw your information",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "If you have previously signed up to become a participant and no longer wish to be contacted for future research studies, you can ",
+                    },
+                    {
+                      nodeType: "link",
+                      data: {
+                        href: "/unsubscribe/",
+                      },
+                      value: "unsubscribe",
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        " yourself from the participant list and we will remove your personal information.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Who we are",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "The Digital Experience and Client Data group is a program within Employment and Social Development Canada.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "The collection, use, and disclosure of your personal information is in accordance with the federal ",
+                    },
+                    {
+                      nodeType: "text",
+                      value: "Privacy Act",
+                      format: {
+                        variants: ["emphasis"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value: ", the",
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        " Department of Employment and Social Development Act",
+                      format: {
+                        variants: ["emphasis"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value: ", the",
+                    },
+                    {
+                      nodeType: "text",
+                      value: " Financial Administration Act",
+                      format: {
+                        variants: ["emphasis"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value: " and any other applicable laws.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "You have the right to the protection of, access to, and correction of your personal information which is described in the Standard Personal Information Banks entitled “PSU 914 – Public Communications” and “PSU 938 – Outreach Activities.”",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Instructions for obtaining this information are outlined in the government publication ",
+                    },
+                    {
+                      nodeType: "link",
+                      data: {
+                        href: "https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information/information-about-programs-information-holdings.html",
+                      },
+                      value:
+                        "Information about programs and information holdings",
+                    },
+                    {
+                      nodeType: "text",
+                      value: ".",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Information about programs and information holdings",
+                      format: {
+                        variants: ["emphasis"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        " may also be accessed on-line at any Service Canada Centre.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Your legal rights",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "You have the right to file a complaint with the ",
+                    },
+                    {
+                      nodeType: "link",
+                      data: {
+                        href: "https://www.priv.gc.ca/en/about-the-opc/who-we-are/the-privacy-commissioner-of-canada/",
+                      },
+                      value: "Privacy Commissioner of Canada ",
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        "regarding Employment and Social Development Canada’s handling of your personal information.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Votre participation est volontaire.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Vous pouvez retirer vos renseignements personnels de notre liste à tout moment, sans aucune conséquence.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Ce que nous allons recueillir",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Pour vous inscrire à notre groupe de participants, vous devez nous fournir les renseignements suivants. Ils nous permettront de communiquer avec vous pour vous proposer de participer à nos recherches :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Adresse de courrier électronique",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Année de naissance",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Langue de votre choix",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Vous pouvez également choisir de répondre à quelques questions supplémentaires ci-dessous. Vos réponses nous permettront de vous inviter à participer à des recherches et à des essais correspondant à vos expériences de vie.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Province ou territoire",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Identité de genre",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Identité autochtone",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Situation de handicap",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Groupe de minorité visible",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Niveau de revenus",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Ces renseignements seront recueillis en vertu de la ",
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        "Loi sur le ministère de l’Emploi et du Développement social",
+                      format: {
+                        variants: ["emphasis"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value: " et de la ",
+                    },
+                    {
+                      nodeType: "text",
+                      value: "Loi sur la gestion des finances publiques",
+                      format: {
+                        variants: ["emphasis"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        ". Le groupe Expérience numérique et données clients d’Emploi et Développement social Canada utilisera ces renseignements pour comprendre et améliorer la façon dont il verse les prestations et fournit les services par l’intermédiaire de Service Canada.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Nous recueillons ces renseignements pour nous assurer que nos groupes de recherche sont diversifiés et pour reconnaître les tendances en matière de rétroaction provenant de groupes précis.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Comment nous utiliserons ces renseignements",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Ces renseignements personnels ne seront pas utilisés à des « fins administratives ». Cela signifie que vos renseignements ne seront pas utilisés dans le cadre d’un processus décisionnel qui vous touche directement ou qui peut modifier votre accès aux services du gouvernement du Canada. Vos renseignements seront utilisés par Emploi et Développement social Canada aux fins d’analyse des politiques, de recherche et d’évaluation.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Nous n’utiliserons votre adresse de courrier électronique que pour communiquer avec vous.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Le groupe Expérience numérique et données clients conservera vos renseignements pendant deux ans après la date de fin du projet. Vos renseignements pourraient être communiqués à d’autres ministères, tels que l’Agence du revenu du Canada, Immigration, Réfugiés et Citoyenneté Canada, dans le but de collaborer à d’autres projets d’amélioration du service, et n'incluraient pas votre nom ou votre adresse de courrier électronique.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Comment retirer vos informations",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Si vous vous êtes déjà inscrit pour participer et que vous ne souhaitez plus être contacté pour de futures recherches, vous pouvez ",
+                    },
+                    {
+                      nodeType: "link",
+                      data: {
+                        href: "/fr/desabonnement/",
+                      },
+                      value: "vous désabonner",
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        " et nous supprimerons vos renseignements personnels.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Qui nous sommes",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Le groupe Expérience numérique et données clients relève de la responsabilité d’Emploi et Développement social Canada.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "La collecte, l’utilisation et la divulgation de vos renseignements personnels sont conformes à la ",
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        "Loi sur la protection des renseignements personnels ",
+                      format: {
+                        variants: ["emphasis"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value: ", à la",
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        " Loi sur le ministère de l’Emploi et du Développement social",
+                      format: {
+                        variants: ["emphasis"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value: ", à la",
+                    },
+                    {
+                      nodeType: "text",
+                      value: " Loi sur la gestion des finances publiques",
+                      format: {
+                        variants: ["emphasis"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value: " et à toute autre loi applicable.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Vous avez droit à la protection de vos renseignements personnels et vous avez le droit d’y accéder et de les faire corriger. Ce droit est décrit dans les fichiers de renseignements personnels POU 914, « Communications publiques » et POU 938, « Activités de sensibilisation ».",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Les instructions pour obtenir ces renseignements sont décrites dans la publication du gouvernement ",
+                    },
+                    {
+                      nodeType: "link",
+                      data: {
+                        href: "https://www.canada.ca/fr/secretariat-conseil-tresor/services/acces-information-protection-reseignements-personnels/acces-information/renseignements-programmes-fonds-renseignements.html",
+                      },
+                      value:
+                        "Renseignements sur les programmes et les fonds de renseignements",
+                    },
+                    {
+                      nodeType: "text",
+                      value: ".",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Renseignements sur les programmes et les fonds de renseignements",
+                      format: {
+                        variants: ["emphasis"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        " peut également être consultée en ligne dans n’importe quel Centre Service Canada.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Vos droits",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Vous avez le droit de déposer une plainte auprès du ",
+                    },
+                    {
+                      nodeType: "link",
+                      data: {
+                        href: "https://www.priv.gc.ca/fr/a-propos-du-commissariat/qui-nous-sommes/commissaire-a-la-protection-de-la-vie-privee-du-canada/",
+                      },
+                      value:
+                        "Commissaire à la protection de la vie privée du Canada ",
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        "au sujet du mode de traitement de vos renseignements personnels par Emploi et Développement social Canada.",
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  },
+};

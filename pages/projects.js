@@ -319,7 +319,7 @@ export default function Projects(props) {
           description={t("signupBannerDescription")}
           disclaimer={t("signupBannerDisclaimer")}
           lang={props.locale}
-          href="/signup-info"
+          href={t("signupInfoRedirect")}
           hrefText={t("signupBannerBtnText")}
         />
       </Layout>
