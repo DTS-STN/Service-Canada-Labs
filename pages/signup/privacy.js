@@ -2,14 +2,27 @@ import { Layout } from "../../components/organisms/Layout";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import { HTMList } from "../../components/atoms/HTMList";
 import { CallToAction } from "../../components/molecules/CallToAction";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Alert } from "../../components/atoms/Alert";
+import queryGraphQL from "../../graphql/client";
+import getPrivacyPage from "../../graphql/queries/privacyPageQuery.graphql";
+import { TableOfContents } from "../../components/atoms/TableOfContents";
 
 export default function Privacy(props) {
   const { t } = useTranslation("common");
+  const [pageData] = useState(props.pageData.item);
+  const [headings, setHeadings] = useState([]);
 
   useEffect(() => {
+    const headingElements = Array.from(document.querySelectorAll("h2"))
+      .filter((element) => element.id)
+      .map((element) => ({
+        id: element.id,
+        text: element.textContent ?? "",
+      }));
+    setHeadings(headingElements);
+
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
@@ -120,103 +133,279 @@ export default function Privacy(props) {
             className="mb-8 text-h1l font-bold flex-wrap"
             tabIndex="-1"
           >
-            {t("privacyTitle")}
+            {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
           </h1>
+          <TableOfContents
+            title={t("tableOfContentsTitle")}
+            headings={headings}
+          />
+          <div className="lg:ml-4 pb-8 pt-4">
+            <Alert
+              title={
+                props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[0].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[0].content[0].value
+              }
+              text={
+                props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[1].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[1].content[0].value
+              }
+            />
+          </div>
           <div className="xl:w-2/3">
-            <p className="mb-8">{t("privacyPolicyContent1")}</p>
-            <h2 className="mb-4 font-bold leading-10">
-              {t("privacyPolicyHeading1")}
+            <h2 id="what-we-collect" className="mb-4 font-bold leading-10">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[2].content[0].value
+                : pageData.scFragments[0].scContentFr.json[2].content[0].value}
             </h2>
-            <p className="mb-4">{t("privacyPolicyContent2")}</p>
-            <HTMList
-              listClassName={"ml-9 mb-4 text-p list-disc"}
-              content={t("privacyPolicyList1")}
-            />
-            <p className="mb-4">{t("privacyPolicyContent3")}</p>
-            <HTMList
-              listClassName={"ml-9 mb-4 text-p list-disc"}
-              content={t("privacyPolicyList2")}
-            />
             <p className="mb-4">
-              {t("privacyPolicyContent4")}
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[3].content[0].value
+                : pageData.scFragments[0].scContentFr.json[3].content[0].value}
+            </p>
+            <ul className="ml-9 mb-4 text-p list-disc">
+              {pageData.scFragments[0].scContentEn.json[4].content.map(
+                (item) => (
+                  <li key={item.content[0].value}>{item.content[0].value}</li>
+                )
+              )}
+            </ul>
+            <p className="mb-4">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[5].content[0].value
+                : pageData.scFragments[0].scContentFr.json[5].content[0].value}
+            </p>
+            <ul className="ml-9 mb-4 text-p list-disc">
+              {pageData.scFragments[0].scContentEn.json[6].content.map(
+                (item) => (
+                  <li key={item.content[0].value}>{item.content[0].value}</li>
+                )
+              )}
+            </ul>
+            <p className="mb-4">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[7].content[0].value
+                : pageData.scFragments[0].scContentFr.json[7].content[0].value}
               <span>
                 {" "}
-                <i>{t("privacyPolicyAct1")}</i> {t("privacyPolicyAnd")}{" "}
-                <i>{t("privacyPolicyAct2")}</i>
-                {". "} {t("privacyPolicyContent5")}
+                <i>
+                  {props.locale === "en"
+                    ? pageData.scFragments[0].scContentEn.json[7].content[1]
+                        .value
+                    : pageData.scFragments[0].scContentFr.json[7].content[1]
+                        .value}
+                </i>{" "}
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[7].content[2].value
+                  : pageData.scFragments[0].scContentFr.json[7].content[2]
+                      .value}
+                <i>
+                  {props.locale === "en"
+                    ? pageData.scFragments[0].scContentEn.json[7].content[3]
+                        .value
+                    : pageData.scFragments[0].scContentFr.json[7].content[3]
+                        .value}
+                </i>
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[7].content[4].value
+                  : pageData.scFragments[0].scContentFr.json[7].content[4]
+                      .value}
               </span>
             </p>
-            <p className="mb-8">{t("privacyPolicyContent6")}</p>
-            <h2 className="mb-4 font-bold leading-10">
-              {t("privacyPolicyHeading2")}
-            </h2>
-            <p className="mb-4">{t("privacyPolicyContent7")}</p>
-            <p className="mb-4">{t("privacyPolicyContent8")}</p>
-            <p className="mb-8">{t("privacyPolicyContent9")}</p>
-            <h2 className="mb-4 font-bold leading-10">{t("withdraw")}</h2>
             <p className="mb-8">
-              {t("privacyWithdraw")}
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[8].content[0].value
+                : pageData.scFragments[0].scContentFr.json[8].content[0].value}
+            </p>
+            <h2 id="how-we-use" className="mb-4 font-bold leading-10">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[9].content[0].value
+                : pageData.scFragments[0].scContentFr.json[9].content[0].value}
+            </h2>
+            <p className="mb-4">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[10].content[0].value
+                : pageData.scFragments[0].scContentFr.json[10].content[0].value}
+            </p>
+            <p className="mb-4">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[11].content[0].value
+                : pageData.scFragments[0].scContentFr.json[11].content[0].value}
+            </p>
+            <p className="mb-8">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[12].content[0].value
+                : pageData.scFragments[0].scContentFr.json[12].content[0].value}
+            </p>
+            <h2 id="how-to-withdraw" className="mb-4 font-bold leading-10">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[13].content[0].value
+                : pageData.scFragments[0].scContentFr.json[13].content[0].value}
+            </h2>
+            <p className="mb-8">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[14].content[0].value
+                : pageData.scFragments[0].scContentFr.json[14].content[0].value}
               <a
-                href={t("unsubRedirect")}
+                href={
+                  props.locale === "en"
+                    ? pageData.scFragments[0].scContentEn.json[14].content[1]
+                        .data.href
+                    : pageData.scFragments[0].scContentFr.json[14].content[1]
+                        .data.href
+                }
                 className="text-custom-blue-link underline"
               >
-                {t("unsubscribeWord")}
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[14].content[1]
+                      .value
+                  : pageData.scFragments[0].scContentFr.json[14].content[1]
+                      .value}
               </a>
-              {t("privacyWithdraw2")}
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[14].content[2].value
+                : pageData.scFragments[0].scContentFr.json[14].content[2].value}
             </p>
-            <h2 className="mb-4 font-bold leading-10">
-              {t("privacyPolicyHeading3")}
+            <h2 id="who-we-are" className="mb-4 font-bold leading-10">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[15].content[0].value
+                : pageData.scFragments[0].scContentFr.json[15].content[0].value}
             </h2>
-            <p className="mb-4">{t("privacyPolicyContent10")}</p>
             <p className="mb-4">
-              {t("privacyPolicyContent11")}
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[16].content[0].value
+                : pageData.scFragments[0].scContentFr.json[16].content[0].value}
+            </p>
+            <p className="mb-4">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[17].content[0].value
+                : pageData.scFragments[0].scContentFr.json[17].content[0].value}
               <span>
-                <i>{t("privacyPolicyAct3")}</i>
-                {", "}
-                {t("privacyPolicyThe")}
-                <i> {t("privacyPolicyAct1")}</i>
-                {", "}
-                {t("privacyPolicyThe")}
-                <i> {t("privacyPolicyAct2")}</i>
-                {t("privacyPolicyContent12")}
+                <i>
+                  {props.locale === "en"
+                    ? pageData.scFragments[0].scContentEn.json[17].content[1]
+                        .value
+                    : pageData.scFragments[0].scContentFr.json[17].content[1]
+                        .value}
+                </i>
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[17].content[2]
+                      .value
+                  : pageData.scFragments[0].scContentFr.json[17].content[2]
+                      .value}
+                <i>
+                  {" "}
+                  {props.locale === "en"
+                    ? pageData.scFragments[0].scContentEn.json[17].content[3]
+                        .value
+                    : pageData.scFragments[0].scContentFr.json[17].content[3]
+                        .value}
+                </i>
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[17].content[4]
+                      .value
+                  : pageData.scFragments[0].scContentFr.json[17].content[4]
+                      .value}
+                <i>
+                  {props.locale === "en"
+                    ? pageData.scFragments[0].scContentEn.json[17].content[5]
+                        .value
+                    : pageData.scFragments[0].scContentFr.json[17].content[5]
+                        .value}
+                </i>
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[17].content[6]
+                      .value
+                  : pageData.scFragments[0].scContentFr.json[17].content[6]
+                      .value}
               </span>
             </p>
-            <p className="mb-4">{t("privacyPolicyContent13")}</p>
             <p className="mb-4">
-              {t("privacyPolicyContent14")}
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[18].content[0].value
+                : pageData.scFragments[0].scContentFr.json[18].content[0].value}
+            </p>
+            <p className="mb-4">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[19].content[0].value
+                : pageData.scFragments[0].scContentFr.json[19].content[0].value}
               <a
-                href={t("privacyPolicyInfoHoldingsURL")}
+                href={
+                  props.locale === "en"
+                    ? pageData.scFragments[0].scContentEn.json[19].content[1]
+                        .data.href
+                    : pageData.scFragments[0].scContentFr.json[19].content[1]
+                        .data.href
+                }
                 className="text-custom-blue-link underline"
               >
-                {" "}
-                {t("privacyPolicyInfoHoldings")}
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[19].content[1]
+                      .value
+                  : pageData.scFragments[0].scContentFr.json[19].content[1]
+                      .value}
               </a>
               {"."}
             </p>
-            <p className="mb-8 italic">
-              {t("privacyPolicyInfoHoldings")}
-              <span className="not-italic">{t("privacyPolicyContent15")}</span>
+            <p className="mb-8">
+              <i>
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[20].content[0]
+                      .value
+                  : pageData.scFragments[0].scContentFr.json[20].content[0]
+                      .value}
+              </i>
+              <span>
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[20].content[1]
+                      .value
+                  : pageData.scFragments[0].scContentFr.json[20].content[1]
+                      .value}
+              </span>
             </p>
-            <h2 className="mb-4 font-bold leading-10">
-              {t("privacyPolicyHeading4")}
+            <h2 id="legal-rights" className="mb-4 font-bold leading-10">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[21].content[0].value
+                : pageData.scFragments[0].scContentFr.json[21].content[0].value}
             </h2>
             <p className="mb-4">
-              {t("privacyPolicyContent16")}
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[22].content[0].value
+                : pageData.scFragments[0].scContentFr.json[22].content[0].value}
               <a
-                href={t("privacyPolicyPrivacyCommissionerURL")}
+                href={
+                  props.locale === "en"
+                    ? pageData.scFragments[0].scContentEn.json[22].content[1]
+                        .data.href
+                    : pageData.scFragments[0].scContentFr.json[22].content[1]
+                        .data.href
+                }
                 className="text-custom-blue-link underline"
               >
-                {t("privacyPolicyPrivacyCommissioner")}
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[22].content[1]
+                      .value
+                  : pageData.scFragments[0].scContentFr.json[22].content[1]
+                      .value}
               </a>
-              <span>{t("privacyPolicyContent17")}</span>
+              <span>
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[22].content[2]
+                      .value
+                  : pageData.scFragments[0].scContentFr.json[22].content[2]
+                      .value}
+              </span>
             </p>
           </div>
         </section>
         <CallToAction
-          title={t("signupTitleCallToAction")}
-          html={t("becomeAParticipantDescription")}
+          title={t("signupHomeButton")}
+          description={t("signupBannerDescription")}
+          disclaimer={t("signupBannerDisclaimer")}
+          lang={props.locale}
           href={t("signupInfoRedirect")}
-          hrefText={t("signupBtn")}
+          hrefText={t("signupBannerBtnText")}
         />
       </Layout>
       {props.adobeAnalyticsUrl ? (
@@ -229,10 +418,17 @@ export default function Privacy(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
+  // get page data from AEM
+  const res = await queryGraphQL(getPrivacyPage).then((result) => {
+    return result;
+  });
+
+  const data = res.data.sCLabsPageByPath;
   return {
     props: {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+      pageData: data,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };
