@@ -156,7 +156,7 @@ export default function LifeJourneys(props) {
               : pageData.scFragments[0].scContentFr.json[5].content[0].value}
           </h2>
           <figure className="mb-6 lg:w-2/3 border shadow-experiment-shadow">
-            <Image
+            {/* <Image
               src={`https://www.canada.ca${
                 props.locale === "en"
                   ? pageData.scFragments[1].scImageEn._path
@@ -170,6 +170,18 @@ export default function LifeJourneys(props) {
               width={800}
               height={375}
               priority
+            /> */}
+            <img
+              src={`https://www.canada.ca${
+                props.locale === "en"
+                  ? pageData.scFragments[1].scImageEn._path
+                  : pageData.scFragments[1].scImageFr._path
+              }`}
+              alt={
+                props.locale === "en"
+                  ? pageData.scFragments[1].scImageAltTextEn
+                  : pageData.scFragments[1].scImageAltTextFr
+              }
             />
             <figcaption className="p-6 text-sm font-display border-t">
               {props.locale === "en"

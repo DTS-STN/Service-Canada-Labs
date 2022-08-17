@@ -26,12 +26,11 @@ describe("project page", () => {
     cy.url().should("eq", "http://localhost:3000/fr/projets");
   });
 
-
   it("Filter projects: All", () => {
     cy.get('[data-cy="all"]').click();
     // list is actually pretty annoying since the pages are pre-rendered using the dev strapi api
     // meaning we can't intercept the api link and use our fixtures
-    cy.get('[data-cy="projects-list"]>li').should("have.length", 4);
+    cy.get('[data-cy="projects-list"]>li').should("have.length", 3);
   });
 
   it("Filter projects: Upcoming projects", () => {
