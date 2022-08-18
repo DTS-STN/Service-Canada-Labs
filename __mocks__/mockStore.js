@@ -4347,23 +4347,22 @@ export const signupInfoPageData = {
             scContentFr: {
               json: [
                 {
-                  nodeType: "paragraph",
+                  nodeType: "header",
+                  style: "h2",
                   content: [
                     {
                       nodeType: "text",
                       value: "Votre participation est volontaire.",
-                      format: {
-                        variants: ["strong"],
-                      },
                     },
-                    {
-                      nodeType: "line-break",
-                      content: [],
-                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
                     {
                       nodeType: "text",
                       value:
-                        " Vous pouvez retirer vos renseignements personnels de notre liste à tout moment, sans aucune conséquence.",
+                        "Vous pouvez retirer vos renseignements personnels de notre liste à tout moment, sans aucune conséquence.",
                     },
                   ],
                 },
@@ -4565,7 +4564,7 @@ export const signupInfoPageData = {
                     {
                       nodeType: "link",
                       data: {
-                        href: "ht/fr/inscription/protection-renseignements-personnels/",
+                        href: "/fr/inscription/protection-renseignements-personnels/",
                       },
                       value:
                         "Lire la politique en matière de protection des renseignements personnels dans son intégralité",
