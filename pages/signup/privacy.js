@@ -127,7 +127,7 @@ export default function Privacy(props) {
           <meta property="twitter:image" content={`${t("metaImage")}`} />
           <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
-        <section className="layout-container relative mb-10">
+        <section className="layout-container relative mb-8">
           <h1
             id="pageMainTitle"
             className="mb-8 text-h1l font-bold flex-wrap"
@@ -135,11 +135,7 @@ export default function Privacy(props) {
           >
             {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
           </h1>
-          <TableOfContents
-            title={t("tableOfContentsTitle")}
-            headings={headings}
-          />
-          <div className="lg:ml-4 pb-8 pt-4">
+          <div className="lg:ml-4 pb-4">
             <Alert
               title={
                 props.locale === "en"
@@ -153,8 +149,12 @@ export default function Privacy(props) {
               }
             />
           </div>
+          <TableOfContents
+            title={t("tableOfContentsTitle")}
+            headings={headings}
+          />
           <div className="xl:w-2/3">
-            <h2 id="what-we-collect" className="mb-4 font-bold leading-10">
+            <h2 id="what-we-collect" className="mb-4 pt-6 font-bold leading-10">
               {props.locale === "en"
                 ? pageData.scFragments[0].scContentEn.json[2].content[0].value
                 : pageData.scFragments[0].scContentFr.json[2].content[0].value}

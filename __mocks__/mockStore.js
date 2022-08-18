@@ -3988,6 +3988,26 @@ export const signupInfoPageData = {
             scContentEn: {
               json: [
                 {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Your participation is completely voluntary.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "You can withdraw your personal information from our list at any time with no impact.",
+                    },
+                  ],
+                },
+                {
                   nodeType: "paragraph",
                   content: [
                     {
@@ -4185,7 +4205,7 @@ export const signupInfoPageData = {
                     {
                       nodeType: "link",
                       data: {
-                        href: "https://alphasite.dts-stn.com/signup/privacy",
+                        href: "/signup/privacy/",
                       },
                       value: "Read the full privacy policy",
                     },
@@ -4326,6 +4346,26 @@ export const signupInfoPageData = {
             },
             scContentFr: {
               json: [
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Votre participation est volontaire.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Vous pouvez retirer vos renseignements personnels de notre liste à tout moment, sans aucune conséquence.",
+                    },
+                  ],
+                },
                 {
                   nodeType: "paragraph",
                   content: [
@@ -4524,7 +4564,7 @@ export const signupInfoPageData = {
                     {
                       nodeType: "link",
                       data: {
-                        href: "https://alphasite.dts-stn.com/fr/inscription/protection-renseignements-personnels",
+                        href: "/fr/inscription/protection-renseignements-personnels/",
                       },
                       value:
                         "Lire la politique en matière de protection des renseignements personnels dans son intégralité",

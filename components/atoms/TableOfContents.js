@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 export function TableOfContents(props) {
   return (
     <>
-      <p className="font-semibold">{props.title}</p>
+      <h2 className="font-semibold">{props.title}</h2>
       <nav>
         <ul className="leading-4 list-disc">
           {props.headings.map((heading) => (
