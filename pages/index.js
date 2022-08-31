@@ -25,7 +25,7 @@ export default function Index(props) {
 
   return (
     <>
-      <div className="z-0 fixed inset-0 bg-splash-img-mobile xs:bg-splash-img bg-auto bg-no-repeat bg-bottom h-screen min-w-300px min-h-screen" />
+      <div className="z-0 fixed inset-0 splash-image bg-splash-img-mobile xs:bg-splash-img bg-no-repeat h-screen min-w-300px min-h-screen" />
       <Head>
         {props.adobeAnalyticsUrl ? (
           <script src={props.adobeAnalyticsUrl} />
@@ -126,8 +126,8 @@ export default function Index(props) {
         <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
       </Head>
       <main className="h-full flex justify-center">
-        <div className="flex flex-col pt-8 sm:justify-center sm:items-center sm:pb-48 v-xxs:h-screen">
-          <div className="z-10 bg-white h-auto min-w-300px w-300px xl:w-500px">
+        <div className="splash-cta flex flex-col sm:justify-center sm:items-center">
+          <div className="z-10 bg-white h-auto min-w-300px w-300px xl:w-500px bg-custom-gray-index">
             <h1 className="sr-only">alpha.service.canada.ca</h1>
             <div className="p-4">
               <Image

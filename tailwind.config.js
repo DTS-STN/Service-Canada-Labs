@@ -63,7 +63,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: (theme) => ({
-        "splash-img": "url('../public/splash-image.webp')",
+        "splash-img": "url('../public/splash-image.png')",
         "splash-img-mobile": "url('../public/splash-mobile.png')",
         "banner-img": "url('../public/bg-banner-v2.png')",
         "banner-img-mobile": "url('../public/bg-banner-mobile.png')",
@@ -94,6 +94,7 @@ module.exports = {
         "custom-gray": {
           lighter: "#EEEEEE",
           darker: "#ACACAC",
+          index: "#F8F8F8",
         },
         "error-border-red": "#D3080C",
         "error-background-red": "#F3E9E8",
