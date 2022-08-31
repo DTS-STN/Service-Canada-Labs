@@ -296,12 +296,12 @@ li {
 }
 
 .splash-image {
+  background-attachment: fixed;
   background-position: 50% 85%; 
-  background-size: 750px 450px
+  background-size: 750px 450px;
 }
 
 .splash-cta {
-  position: fixed;
   left: 50%;
   top: 25%;
   transform: translate(-50%, -25%);
@@ -320,7 +320,7 @@ li {
     background-position: bottom; 
     background-size: 370px 250px
   }
-  .cta-position {
+  .splash-cta {
     position: fixed;
     left: 50%;
     top: 10%;
