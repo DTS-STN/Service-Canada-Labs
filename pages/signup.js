@@ -377,28 +377,45 @@ export default function Signup(props) {
       }
     } else {
       //submit data to the api and then redirect to the thank you page
-      const response = await fetch("/api/sign-up", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      // const response = await fetch("/api/sign-up", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(formData),
+      // });
 
       // if the response is good, redirect to the thankyou page
-      if (response.status === 201 || response.status === 200) {
-        sessionStorage.setItem("email", formData.email);
-        // Remove confirm email since it's no longer needed
-        delete formData["confirmEmail"];
-        let maskedEmail = maskEmail(formData.email);
+      // if (response.status === 201 || response.status === 200) {
+      //   sessionStorage.setItem("email", formData.email);
+      //   // Remove confirm email since it's no longer needed
+      //   delete formData["confirmEmail"];
+      //   let maskedEmail = maskEmail(formData.email);
 
-        await push({
-          pathname: "/thankyou",
-          query: { e: maskedEmail, ref: "signup" },
-        });
-      } else if (response.status === 400) {
+      //   await push({
+      //     pathname: "/thankyou",
+      //     query: { e: maskedEmail, ref: "signup" },
+      //   });
+      // } else if (response.status === 400) {
+      //   await setGlobalErrorText(formField.errorMsg.errorRegistered);
+      // } else {
+      //   await setGlobalErrorText(formField.errorMsg.errorUnknown);
+      // }
+
+      let response = await fetch("/api/check-email", {
+        method: "POST",
+        body: formData.email,
+      });
+      response = await response.json();
+
+      if (response.message === "User exists") {
         await setGlobalErrorText(formField.errorMsg.errorRegistered);
-      } else {
+      } else if (response.message === "User does not exist") {
+        sessionStorage.setItem("formData", JSON.stringify(formData));
+        await push({
+          pathname: "/signup-review",
+        });
+      } else if (response.status === 500 || 400) {
         await setGlobalErrorText(formField.errorMsg.errorUnknown);
       }
     }
