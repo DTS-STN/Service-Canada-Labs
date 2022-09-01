@@ -324,7 +324,7 @@ module.exports = {
         permanent: false,
       },
       {
-        source: "/en",
+        source: "/default",
         has: [
           {
             type: "cookie",
@@ -337,7 +337,7 @@ module.exports = {
         destination: "/fr/accueil",
       },
       {
-        source: "/en",
+        source: "/default",
         has: [
           {
             type: "cookie",
