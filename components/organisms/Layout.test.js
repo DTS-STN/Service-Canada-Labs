@@ -33,8 +33,7 @@ describe("Layout", () => {
     act(() => {
       inputElem3.click();
     });
-    const currentLang = Cookies.get("lang");
-    expect(currentLang).toEqual("en");
+    expect(screen.getByTestId("languageLink3").textContent).toEqual("English");
   });
 
   it("has no a11y violations", async () => {
