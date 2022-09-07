@@ -35,6 +35,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added Sharp for image optimization in production
 - Added the `Alert` component for contextual alerts
 - Added the `TableOfContents` component to convert page headings into a table of contents
+- Added the `default` locale and middleware to redirect all routes using this locale to their corresponding `en` routes
 
 ## Changed
 
@@ -80,6 +81,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated Footer component to add To top of page button in mobile view
 - Updated background image for splash page
 - Updated metadata social media image for splash page
+- Removed cookie redirects based on language
 
 ## Fixed
 

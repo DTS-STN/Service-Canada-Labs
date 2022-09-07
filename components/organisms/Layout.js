@@ -7,14 +7,7 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
 import { Breadcrumb } from "../atoms/Breadcrumb";
-import Cookies from "js-cookie";
 import Image from "next/image";
-
-const setLanguage = (language) => {
-  language === "fr"
-    ? Cookies.set("lang", "fr", { sameSite: "strict" })
-    : Cookies.set("lang", "en", { sameSite: "strict" });
-};
 
 /**
  * Component which defines the layout of the page for all screen sizes
@@ -90,10 +83,7 @@ export const Layout = ({
               locale={language}
               data-testid="languageLink1"
             >
-              <a
-                className="visible lg:invisible ml-6 sm:ml-16 underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue"
-                onClick={() => setLanguage(language)}
-              >
+              <a className="visible lg:invisible ml-6 sm:ml-16 underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue">
                 {language === "en" ? "EN" : "FR"}
               </a>
             </Link>
@@ -110,7 +100,6 @@ export const Layout = ({
                 data-cy="toggle-language-link"
                 data-testid="languageLink3"
                 lang={language}
-                onClick={() => setLanguage(language)}
               >
                 {language === "en" ? "English" : "Français"}
               </a>
