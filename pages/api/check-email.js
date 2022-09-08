@@ -7,7 +7,6 @@ export default async function handler(req, res) {
     process.env.MONGO_URL,
     process.env.MONGO_DB
   );
-  console.log(email);
 
   try {
     let user = await getUserByEmail(conn.db, email);

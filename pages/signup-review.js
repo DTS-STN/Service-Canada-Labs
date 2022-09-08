@@ -4,19 +4,167 @@ import { useEffect, useState } from "react";
 import { Layout } from "../components/organisms/Layout";
 import queryGraphQL from "../graphql/client";
 import getSignupReviewPage from "../graphql/queries/signupReviewQuery.graphql";
+import getSignupPage from "../graphql/queries/signupQuery.graphql";
 import Head from "next/head";
 
 export default function SignupReview(props) {
   const { t } = useTranslation("common");
   const [pageData] = useState(props.pageData.item);
+  const [formFieldData] = useState(props.formFieldData.item);
+  const [formData, setFormData] = useState({});
+  const [formFields] = useState(
+    props.locale === "en"
+      ? formFieldData.scFragments[0].formFields.en
+      : formFieldData.scFragments[0].formFields.fr
+  );
+
+  const provinceDictionary = {
+    ON: "Ontario",
+    QC: "Quebec",
+    NL: "Newfoundland",
+    PE: "Prince Edward Island",
+    NS: "Nova Scotia",
+    NB: "New Brunswick",
+    MB: "Manitoba",
+    SK: "Saskatchewan",
+    AB: "Alberta",
+    BC: "British Columbia",
+    YT: "Yukon",
+    NT: "Northwest Territory",
+    NU: "Nunavut",
+  };
+
+  const minorityString = (minority, minorityGroup, minorityGroupOther) => {
+    if (!minority) {
+      return "NA";
+    } else if (minority === "preferNotToAnswer") {
+      return formFields.option.preferNotAnswer;
+    } else if (minority && !minorityGroup && !minorityGroupOther) {
+      return (
+        formFields.option.no.charAt(0).toUpperCase() +
+        formFields.option.no.slice(1).toLowerCase()
+      );
+    } else {
+      let minorityStatusString = "Yes";
+      minorityGroup.forEach((minority) => {
+        if (minority === "southeastAsian") {
+          minorityStatusString = `${minorityStatusString}, ${formFields.option.minority.sea}`;
+        } else if (minority === "nonWhiteAAA") {
+          minorityStatusString = `${minorityStatusString}, ${formFields.option.minority.nonWhite}`;
+        } else if (minority !== "other") {
+          minorityStatusString = `${minorityStatusString}, ${formFields.option.minority[minority]}`;
+        }
+      });
+      minorityStatusString = `${minorityStatusString}, ${minorityGroupOther}`;
+      return minorityStatusString;
+    }
+  };
+
+  const yearOfBirthString = (yobRange) => {
+    if (!yobRange) {
+      return "NA";
+    } else if (yobRange.includes("before")) {
+      let year = yobRange.slice(6);
+      return props.locale === "en" ? `Before ${year}` : `Avant ${year}`;
+    } else if (yobRange.includes("after")) {
+      let year = yobRange.slice(5);
+      return props.locale === "en" ? `After ${year}` : `Après ${year}`;
+    } else {
+      return yobRange;
+    }
+  };
+
+  const genderString = (gender, genderDetails) => {
+    if (!gender) {
+      return "NA";
+    } else if (gender === "preferNotToAnswer") {
+      return formFields.option.preferNotAnswer;
+    } else if (gender && !genderDetails) {
+      return formFields.option[gender];
+    } else {
+      return genderDetails;
+    }
+  };
+
+  const disabilityString = (disability, disabilityDetails) => {
+    if (!disability) {
+      return "NA";
+    } else if (disability === "preferNotToAnswer") {
+      return formFields.option.preferNotAnswer;
+    } else if (disability === "no") {
+      return (
+        formFields.option.no.charAt(0).toUpperCase() +
+        formFields.option.no.slice(1).toLowerCase()
+      );
+    } else if (disability && !disabilityDetails) {
+      return formFields.option.notSure;
+    } else {
+      return `${
+        formFields.option.yes.charAt(0).toUpperCase() +
+        formFields.option.yes.slice(1).toLowerCase()
+      }, ${disabilityDetails}`;
+    }
+  };
+
+  const incomeString = (income) => {
+    if (!income) {
+      return "NA";
+    } else if (income === "preferNotToAnswer") {
+      return formFields.option.preferNotAnswer;
+    } else {
+      switch (income) {
+        case "30kLess":
+          return formFields.option.income1;
+        case "30kto60k":
+          return formFields.option.income2;
+        case "60kto100k":
+          return formFields.option.income3;
+        case "100kto150k":
+          return formFields.option.income4;
+        case "150kMore":
+          return formFields.option.income5;
+        default:
+          break;
+      }
+    }
+  };
+
+  const indigenousString = (nativeStatus) => {
+    if (!nativeStatus || nativeStatus === "N/A") {
+      return "NA";
+    } else if (nativeStatus === "preferNotToAnswer") {
+      return formFields.option.preferNotAnswer;
+    } else {
+      switch (nativeStatus) {
+        case "firstNations":
+          return formFields.option.firstNations;
+        case "métis":
+          return formFields.option.metis;
+        case "inuit":
+          return formFields.option.inuk;
+        default:
+          break;
+      }
+    }
+  };
+
+  const publicServantString = (publicServant) => {
+    if (!publicServant) {
+      return "NA";
+    } else {
+      return (
+        formFields.option[publicServant].charAt(0).toUpperCase() +
+        formFields.option[publicServant].slice(1).toLowerCase()
+      );
+    }
+  };
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
-    let formData = sessionStorage.getItem("formData");
-    console.log(JSON.stringify(formData));
+    setFormData(JSON.parse(sessionStorage.getItem("formData")));
   }, []);
 
   return (
@@ -133,22 +281,30 @@ export default function SignupReview(props) {
           </h2>
           <div className="mb-16 grid grid-cols-1 lg:grid-cols-2">
             <div className="p-1 border border-grey">
-              <p className="font-display font-bold">Email Address</p>
+              <p className="font-display font-bold">{formFields.label.email}</p>
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
-              <p className="font-display font-bold">email@address.com</p>
+              <p className="font-display font-bold">{formData.email}</p>
             </div>
             <div className="p-1 border-x border-b lg:border-y border-grey">
-              <p className="font-display font-bold">Preferred Language</p>
+              <p className="font-display font-bold">
+                {formFields.label.language}
+              </p>
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
-              <p className="font-display font-bold">English</p>
+              <p className="font-display font-bold">
+                {formData.language === "en" ? "English" : "Français"}
+              </p>
             </div>
             <div className="p-1 border-x border-b lg:border-y border-grey">
-              <p className="font-display font-bold">Year of Birth</p>
+              <p className="font-display font-bold">
+                {formFields.label.yearOfBirth}
+              </p>
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
-              <p className="font-display font-bold">1973</p>
+              <p className="font-display font-bold">
+                {yearOfBirthString(formData.yearOfBirthRange)}
+              </p>
             </div>
           </div>
           <h2 className="pb-6 border-b border-black">
@@ -158,29 +314,69 @@ export default function SignupReview(props) {
           </h2>
           <div className="mb-16 grid grid-cols-1 lg:grid-cols-2">
             <div className="p-1 border border-grey">
-              <p className="font-display">
-                What province or territory do you live in?
-              </p>
+              <p className="font-display">{formFields.label.province}</p>
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
-              <p className="font-display font-bold">NA</p>
+              <p className="font-display font-bold">
+                {formData.province === undefined
+                  ? "NA"
+                  : provinceDictionary[formData.province]}
+              </p>
             </div>
             <div className="p-1 border-x border-b lg:border-y border-grey">
-              <p className="font-display">
-                Which term best describes your gender identity?
-              </p>
+              <p className="font-display">{formFields.label.gender}</p>
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
-              <p className="font-display font-bold">NA</p>
+              <p className="font-display font-bold">
+                {genderString(formData.gender, formData.genderOtherDetails)}
+              </p>
             </div>
             <div className="p-1 border-x border-b lg:border-y border-grey">
-              <p className="font-display">
-                Do you identify as Indigenous; that is First Nations, Métis, or
-                Inuk (Inuit)?
-              </p>
+              <p className="font-display">{formFields.label.disability}</p>
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
-              <p className="font-display font-bold">NA</p>
+              <p className="font-display font-bold">
+                {disabilityString(
+                  formData.disability,
+                  formData.disabilityDetails
+                )}
+              </p>
+            </div>
+            <div className="p-1 border-x border-b lg:border-y border-grey">
+              <p className="font-display">{formFields.label.income}</p>
+            </div>
+            <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
+              <p className="font-display font-bold">
+                {incomeString(formData.incomeLevel)}
+              </p>
+            </div>
+            <div className="p-1 border-x border-b lg:border-y border-grey">
+              <p className="font-display">{formFields.label.indigenous}</p>
+            </div>
+            <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
+              <p className="font-display font-bold">
+                {indigenousString(formData.nativeStatus)}
+              </p>
+            </div>
+            <div className="p-1 border-x border-b lg:border-y border-grey">
+              <p className="font-display">{formFields.label.minority}</p>
+            </div>
+            <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
+              <p className="font-display font-bold">
+                {minorityString(
+                  formData.minority,
+                  formData.minorityGroup,
+                  formData.minorityGroupOther
+                )}
+              </p>
+            </div>
+            <div className="p-1 border-x border-b lg:border-y border-grey">
+              <p className="font-display">{formFields.label.publicServant}</p>
+            </div>
+            <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
+              <p className="font-display font-bold">
+                {publicServantString(formData.publicServant)}
+              </p>
             </div>
           </div>
         </section>
@@ -194,12 +390,16 @@ export const getStaticProps = async ({ locale }) => {
   const res = await queryGraphQL(getSignupReviewPage).then((result) => {
     return result;
   });
+  const res2 = await queryGraphQL(getSignupPage).then((result) => {
+    return result;
+  });
 
   const data = res.data.sCLabsPageByPath;
-  console.log(data.item.scFragments[0].scContentEn.json[0].content[0].value);
+  const formFieldData = res2.data.sCLabsPageByPath;
   return {
     props: {
       pageData: data,
+      formFieldData: formFieldData,
       locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       ...(await serverSideTranslations(locale, ["common"])),
