@@ -94,6 +94,7 @@ module.exports = {
         "custom-gray": {
           lighter: "#EEEEEE",
           darker: "#ACACAC",
+          index: "#F8F8F8",
         },
         "error-border-red": "#D3080C",
         "error-background-red": "#F3E9E8",

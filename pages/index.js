@@ -4,17 +4,10 @@ import { useTranslation } from "next-i18next";
 import { ActionButton } from "../components/atoms/ActionButton";
 import Link from "next/link";
 import { useEffect } from "react";
-import Cookies from "js-cookie";
 import Image from "next/image";
 
 export default function Index(props) {
   const { t } = useTranslation("common");
-
-  const setLanguage = (event) => {
-    event.target.id === "french-button"
-      ? Cookies.set("lang", "fr", { sameSite: "strict" })
-      : Cookies.set("lang", "en", { sameSite: "strict" });
-  };
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
@@ -25,7 +18,7 @@ export default function Index(props) {
 
   return (
     <>
-      <div className="z-0 fixed inset-0 bg-splash-img-mobile xs:bg-splash-img bg-cover bg-center h-screen min-w-300px min-h-screen" />
+      <div className="splash-image bg-splash-img-mobile xs:bg-splash-img bg-no-repeat h-screen min-w-300px min-h-screen" />
       <Head>
         {props.adobeAnalyticsUrl ? (
           <script src={props.adobeAnalyticsUrl} />
@@ -126,8 +119,8 @@ export default function Index(props) {
         <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
       </Head>
       <main className="h-full flex justify-center">
-        <div className="flex flex-col pt-8 sm:justify-center sm:items-center sm:pb-48 v-xxs:h-screen">
-          <div className="z-10 bg-white h-auto min-w-300px w-300px xl:w-500px">
+        <div className="splash-cta fixed flex flex-col sm:justify-center sm:items-center">
+          <div className="z-10 bg-white h-auto min-w-300px w-300px xl:w-500px bg-custom-gray-index">
             <h1 className="sr-only">alpha.service.canada.ca</h1>
             <div className="p-4">
               <Image
@@ -154,8 +147,7 @@ export default function Index(props) {
                 text="English"
                 lang="en"
                 className="text-center text-sm w-7.5rem xl:w-138px mr-6 rounded"
-                href="/home"
-                onClick={setLanguage}
+                href="/en/home"
               />
               <ActionButton
                 id="french-button"
@@ -163,7 +155,6 @@ export default function Index(props) {
                 className="text-center w-7.5rem xl:w-138px text-sm py-3.5 rounded"
                 href="/fr/accueil"
                 lang="fr"
-                onClick={setLanguage}
               />
             </div>
           </div>

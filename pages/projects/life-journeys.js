@@ -258,7 +258,6 @@ export default function LifeJourneys(props) {
               }
               width={800}
               height={450}
-              priority
             />
             <figcaption className="p-6 text-sm font-display border-t">
               {props.locale === "en"
