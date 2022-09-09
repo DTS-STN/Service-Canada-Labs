@@ -213,6 +213,7 @@ export default function SignupReview(props) {
         }
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
+          { text: t("signupLink"), link: t("breadCrumbsHref3") },
         ]}
       >
         <Head>
@@ -321,7 +322,9 @@ export default function SignupReview(props) {
               <p className="font-display font-bold">{formFields.label.email}</p>
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
-              <p className="font-display font-bold">{formData.email}</p>
+              <p className="font-display font-bold">
+                {formData !== null ? formData.email : undefined}
+              </p>
             </div>
             <div className="p-1 border-x border-b lg:border-y border-grey">
               <p className="font-display font-bold">
@@ -330,7 +333,11 @@ export default function SignupReview(props) {
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
               <p className="font-display font-bold">
-                {formData.language === "en" ? "English" : "Français"}
+                {formData !== null
+                  ? formData.language === "en"
+                    ? "English"
+                    : "Français"
+                  : undefined}
               </p>
             </div>
             <div className="p-1 border-x border-b lg:border-y border-grey">
@@ -340,7 +347,9 @@ export default function SignupReview(props) {
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
               <p className="font-display font-bold">
-                {yearOfBirthString(formData.yearOfBirthRange)}
+                {yearOfBirthString(
+                  formData !== null ? formData.yearOfBirthRange : undefined
+                )}
               </p>
             </div>
           </div>
@@ -355,9 +364,11 @@ export default function SignupReview(props) {
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
               <p className="font-display font-bold">
-                {formData.province === undefined
-                  ? "NA"
-                  : provinceDictionary[formData.province]}
+                {formData !== null
+                  ? formData.province === undefined
+                    ? "NA"
+                    : provinceDictionary[formData.province]
+                  : undefined}
               </p>
             </div>
             <div className="p-1 border-x border-b lg:border-y border-grey">
@@ -365,7 +376,9 @@ export default function SignupReview(props) {
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
               <p className="font-display font-bold">
-                {genderString(formData.gender, formData.genderOtherDetails)}
+                {formData !== null
+                  ? genderString(formData.gender, formData.genderOtherDetails)
+                  : undefined}
               </p>
             </div>
             <div className="p-1 border-x border-b lg:border-y border-grey">
@@ -373,10 +386,12 @@ export default function SignupReview(props) {
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
               <p className="font-display font-bold">
-                {disabilityString(
-                  formData.disability,
-                  formData.disabilityDetails
-                )}
+                {formData !== null
+                  ? disabilityString(
+                      formData.disability,
+                      formData.disabilityDetails
+                    )
+                  : undefined}
               </p>
             </div>
             <div className="p-1 border-x border-b lg:border-y border-grey">
@@ -384,7 +399,9 @@ export default function SignupReview(props) {
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
               <p className="font-display font-bold">
-                {incomeString(formData.incomeLevel)}
+                {formData !== null
+                  ? incomeString(formData.incomeLevel)
+                  : undefined}
               </p>
             </div>
             <div className="p-1 border-x border-b lg:border-y border-grey">
@@ -392,7 +409,9 @@ export default function SignupReview(props) {
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
               <p className="font-display font-bold">
-                {indigenousString(formData.nativeStatus)}
+                {formData !== null
+                  ? indigenousString(formData.nativeStatus)
+                  : undefined}
               </p>
             </div>
             <div className="p-1 border-x border-b lg:border-y border-grey">
@@ -400,11 +419,13 @@ export default function SignupReview(props) {
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
               <p className="font-display font-bold">
-                {minorityString(
-                  formData.minority,
-                  formData.minorityGroup,
-                  formData.minorityGroupOther
-                )}
+                {formData !== null
+                  ? minorityString(
+                      formData.minority,
+                      formData.minorityGroup,
+                      formData.minorityGroupOther
+                    )
+                  : undefined}
               </p>
             </div>
             <div className="p-1 border-x border-b lg:border-y border-grey">
@@ -412,7 +433,9 @@ export default function SignupReview(props) {
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
               <p className="font-display font-bold">
-                {publicServantString(formData.publicServant)}
+                {formData !== null
+                  ? publicServantString(formData.publicServant)
+                  : undefined}
               </p>
             </div>
           </div>
