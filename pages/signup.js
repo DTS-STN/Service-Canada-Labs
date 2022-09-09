@@ -15,7 +15,6 @@ import { OptionalTextField } from "../components/molecules/OptionalTextField";
 import { SelectField } from "../components/atoms/SelectField";
 import { CheckBox } from "../components/atoms/CheckBox";
 import { OptionalListField } from "../components/molecules/OptionalListField";
-import { maskEmail } from "../lib/utils/maskEmail";
 import Link from "next/link";
 import queryGraphQL from "../graphql/client";
 import getSignupPage from "../graphql/queries/signupQuery.graphql";
@@ -376,32 +375,6 @@ export default function Signup(props) {
         errorsList.push(errors[error]);
       }
     } else {
-      //submit data to the api and then redirect to the thank you page
-      // const response = await fetch("/api/sign-up", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify(formData),
-      // });
-
-      // if the response is good, redirect to the thankyou page
-      // if (response.status === 201 || response.status === 200) {
-      //   sessionStorage.setItem("email", formData.email);
-      //   // Remove confirm email since it's no longer needed
-      //   delete formData["confirmEmail"];
-      //   let maskedEmail = maskEmail(formData.email);
-
-      //   await push({
-      //     pathname: "/thankyou",
-      //     query: { e: maskedEmail, ref: "signup" },
-      //   });
-      // } else if (response.status === 400) {
-      //   await setGlobalErrorText(formField.errorMsg.errorRegistered);
-      // } else {
-      //   await setGlobalErrorText(formField.errorMsg.errorUnknown);
-      // }
-
       let response = await fetch("/api/check-email", {
         method: "POST",
         body: formData.email,
@@ -436,6 +409,27 @@ export default function Signup(props) {
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
+    }
+    let formData = JSON.parse(sessionStorage.getItem("formData"));
+    if (formData) {
+      setEmail(formData.email);
+      setConfirmEmail(formData.confirmEmail);
+      setYearOfBirthRange(formData.yearOfBirthRange);
+      setLanguage(formData.language);
+      setGender(formData.gender);
+      setProvince(formData.province);
+      setGenderOtherDetails(formData.genderOtherDetails);
+      setNativeStatus(formData.nativeStatus);
+      setDisability(formData.disability);
+      setDisabilityDetails(formData.disabilityDetails);
+      setMinority(formData.minority);
+      setMinorityGroup(
+        formData.minorityGroup === undefined ? [] : formData.minorityGroup
+      );
+      setMinorityGroupOther(formData.minorityGroupOther);
+      setIncomeLevel(formData.incomeLevel);
+      setPublicServant(formData.publicServant);
+      setAgreeToConditions(formData.agreeToConditions);
     }
   }, []);
 

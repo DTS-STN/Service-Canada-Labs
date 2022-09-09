@@ -2,6 +2,9 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useEffect, useState } from "react";
 import { Layout } from "../components/organisms/Layout";
+import { ActionButton } from "../components/atoms/ActionButton";
+import { useRouter } from "next/router";
+import { maskEmail } from "../lib/utils/maskEmail";
 import queryGraphQL from "../graphql/client";
 import getSignupReviewPage from "../graphql/queries/signupReviewQuery.graphql";
 import getSignupPage from "../graphql/queries/signupQuery.graphql";
@@ -9,6 +12,7 @@ import Head from "next/head";
 
 export default function SignupReview(props) {
   const { t } = useTranslation("common");
+  const router = useRouter();
   const [pageData] = useState(props.pageData.item);
   const [formFieldData] = useState(props.formFieldData.item);
   const [formData, setFormData] = useState({});
@@ -45,7 +49,9 @@ export default function SignupReview(props) {
         formFields.option.no.slice(1).toLowerCase()
       );
     } else {
-      let minorityStatusString = "Yes";
+      let minorityStatusString =
+        formFields.option.yes.charAt(0).toUpperCase() +
+        formFields.option.yes.slice(1).toLowerCase();
       minorityGroup.forEach((minority) => {
         if (minority === "southeastAsian") {
           minorityStatusString = `${minorityStatusString}, ${formFields.option.minority.sea}`;
@@ -55,7 +61,9 @@ export default function SignupReview(props) {
           minorityStatusString = `${minorityStatusString}, ${formFields.option.minority[minority]}`;
         }
       });
-      minorityStatusString = `${minorityStatusString}, ${minorityGroupOther}`;
+      if (minorityGroupOther) {
+        minorityStatusString = `${minorityStatusString}, ${minorityGroupOther}`;
+      }
       return minorityStatusString;
     }
   };
@@ -156,6 +164,35 @@ export default function SignupReview(props) {
         formFields.option[publicServant].charAt(0).toUpperCase() +
         formFields.option[publicServant].slice(1).toLowerCase()
       );
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    // submit data to the api and then redirect to the thank you page
+    const response = await fetch("/api/sign-up", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    // if the response is good, redirect to the thankyou page
+    if (response.status === 201 || response.status === 200) {
+      sessionStorage.setItem("email", formData.email);
+      // Remove form data from session storage since it's no longer needed
+      delete formData["confirmEmail"];
+      sessionStorage.removeItem("formData");
+      let maskedEmail = maskEmail(formData.email);
+
+      await router.push({
+        pathname: "/thankyou",
+        query: { e: maskedEmail, ref: "signup" },
+      });
+    } else if (response.status === 400) {
+      return;
+    } else {
+      return;
     }
   };
 
@@ -379,6 +416,29 @@ export default function SignupReview(props) {
               </p>
             </div>
           </div>
+          <ActionButton
+            id="signup-review-submit"
+            className="rounded xxs:w-full xs:w-72 my-16 text-base font-bold py-2"
+            type="submit"
+            dataCy="signup-review-submit"
+            dataTestId="signup-review-submit"
+            analyticsTracking
+            onClick={handleSubmit}
+          >
+            {formFields.submit}
+          </ActionButton>
+          <ActionButton
+            id="signup-review-back"
+            className="rounded xxs:w-full xs:w-72 my-16 ml-16 text-base font-bold py-2"
+            type="submit"
+            dataCy="signup-review-back"
+            dataTestId="signup-review-back"
+            analyticsTracking
+            secondary
+            onClick={() => router.back()}
+          >
+            {formFields.back}
+          </ActionButton>
         </section>
       </Layout>
     </>
