@@ -10,7 +10,7 @@ export default async function handler(req, res) {
 
   try {
     let user = await getUserByEmail(conn.db, email);
-    if (user === null || undefined) {
+    if (user === null) {
       return res.status(200).json({
         message: "User does not exist",
       });

@@ -43,7 +43,7 @@ export default function SignupReview(props) {
       return "NA";
     } else if (minority === "preferNotToAnswer") {
       return formFields.option.preferNotAnswer;
-    } else if (minority && !minorityGroup && !minorityGroupOther) {
+    } else if (!minorityGroup && !minorityGroupOther) {
       return (
         formFields.option.no.charAt(0).toUpperCase() +
         formFields.option.no.slice(1).toLowerCase()
@@ -87,7 +87,7 @@ export default function SignupReview(props) {
       return "NA";
     } else if (gender === "preferNotToAnswer") {
       return formFields.option.preferNotAnswer;
-    } else if (gender && !genderDetails) {
+    } else if (!genderDetails) {
       return formFields.option[gender];
     } else {
       return genderDetails;
@@ -104,7 +104,7 @@ export default function SignupReview(props) {
         formFields.option.no.charAt(0).toUpperCase() +
         formFields.option.no.slice(1).toLowerCase()
       );
-    } else if (disability && !disabilityDetails) {
+    } else if (!disabilityDetails) {
       return formFields.option.notSure;
     } else {
       return `${
