@@ -121,7 +121,12 @@ export const FeedbackWidget = ({
   return (
     <>
       {showFeedback ? (
-        <FocusTrap focusTrapOptions={{ initialFocus: false }}>
+        <FocusTrap
+          focusTrapOptions={{
+            initialFocus: false,
+            fallbackFocus: "#feedbackClose",
+          }}
+        >
           <div
             className="fixed top-0 left-0 w-screen h-full flex justify-center items-center"
             style={{ background: "rgba(71, 71, 71, 0.8)" }}
@@ -169,6 +174,7 @@ export const FeedbackWidget = ({
                             imageSpanClass="text-xs text-white leading-4 lg:text-sm underline ml-1 lg:ml-2 lg:leading-10"
                             imageSpanText={t("close")}
                             onClick={() => setFeedbackClose(true)}
+                            tabindex="-1"
                           />
                         </div>
                       </div>
@@ -201,22 +207,11 @@ export const FeedbackWidget = ({
                 <h2 className="text-h4 lg:text-h3 lg:text-sm font-display pt-6 mb-4 w-48 sm:w-auto">
                   {t("improveService")}
                 </h2>
-                <ul className="list-outside list-disc px-6 py-2">
-                  <li className="text-xs lg:text-sm font-body mb-4">
-                    <strong>{t("reportAProblemNoReply")}</strong>{" "}
-                    {t("reportAProblemEnquiries")}{" "}
-                    <ActionButton
-                      id="link-mail"
-                      ariaLabel="Service Canada email"
-                      dataCy="link-mail"
-                      dataTestId="link-mail"
-                      href={`mailto:${email}`}
-                      text={email}
-                      custom="text-xs lg:text-sm underline outline-none focus:outline-white-solid"
-                    />
-                    .
+                <ul className="list-outside list-disc px-6 pb-3">
+                  <li className="text-xs lg:text-sm pt-2 pb-1 font-body">
+                    <strong>{t("reportAProblemNoReply")}</strong>
                   </li>
-                  <li className="text-xs lg:text-sm font-body mb-4">
+                  <li className="text-xs lg:text-sm font-body mb-0">
                     <strong>{t("confidential")}</strong>
                     <ActionButton
                       ariaLabel="Privacy page link"

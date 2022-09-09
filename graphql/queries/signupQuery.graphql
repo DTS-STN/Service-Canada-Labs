@@ -1,0 +1,54 @@
+query getSignupPage {
+  sCLabsPageByPath(
+    _path: "/content/dam/decd-endc/content-fragments/alpha/sclabs/pages/signup-page"
+  ) {
+    item {
+      scId
+      scPageNameEn
+      scPageNameFr
+      scTitleEn
+      scTitleFr
+      scShortTitleEn
+      scShortTitleFr
+      scDescriptionEn {
+        json
+      }
+      scDescriptionFr {
+        json
+      }
+      scSubject
+      scKeywordsEn
+      scKeywordsFr
+      scContentType
+      scOwner
+      scDateModifiedOverwrite
+      scAudience
+      scRegion
+      scSocialMediaImageEn {
+        ... on ImageRef {
+          _path
+        }
+        ... on DocumentRef {
+          _path
+        }
+      }
+      scSocialMediaImageFr {
+        ... on ImageRef {
+          _path
+        }
+        ... on DocumentRef {
+          _path
+        }
+      }
+      scSocialMediaImageAltTextEn
+      scSocialMediaImageAltTextFr
+      scNoIndex
+      scNoFollow
+      scFragments {
+        ... on SclabsFormModel {
+          formFields
+        }
+      }
+    }
+  }
+}

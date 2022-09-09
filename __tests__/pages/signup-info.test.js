@@ -1,29 +1,19 @@
 /**
  * @jest-environment jsdom
  */
-import { screen } from "@testing-library/react";
-import fetchMock from "fetch-mock";
+import { render, screen } from "@testing-library/react";
+import SignupInfo from "../../pages/signup-info";
+import { signupInfoPageData } from "../../__mocks__/mockStore";
 
-describe("About", () => {
-  beforeEach(() => {
-    fetchMock.getOnce(
-      `${process.env.NEXT_PUBLIC_STRAPI_API_BACKEND_URL}/page-contents?populate=%2A&locale=all`,
-      {
-        status: 200,
-        body: "signup info page content",
-      }
-    );
-  });
-  afterEach(() => {
-    fetchMock.restore();
-  });
-  it.skip("renders without crashing", async () => {
-    const { render } = await getPage({
-      route: "/signup-info",
-    });
-    render();
+jest.mock("@apollo/client");
+
+describe("Signup Info", () => {
+  it("renders without crashing", () => {
+    render(<SignupInfo pageData={signupInfoPageData.data.sCLabsPageByPath} />);
     expect(
-      screen.getAllByText("Sign up to be a voice in tomorrow's services")[0]
+      screen.getByRole("heading", {
+        name: "S’inscrire pour participer à l’élaboration des services de demain",
+      })
     ).toBeInTheDocument();
   });
 });

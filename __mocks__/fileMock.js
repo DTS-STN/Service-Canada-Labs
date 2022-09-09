@@ -1,1 +1,1 @@
-module.exports = 'sig-blk-en.svg';
+module.exports = "/sig-blk-en.svg";

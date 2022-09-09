@@ -1,0 +1,62 @@
+query getNotSupported {
+  scLabsErrorPageByPath(
+    _path: "/content/dam/decd-endc/content-fragments/alpha/sclabs/pages/browser-not-supported-page"
+  ) {
+    item {
+      scGcImages {
+        ... on SCLabsImageModel {
+          scId
+          scImageEn {
+            ... on DocumentRef {
+              _path
+            }
+          }
+          scImageAltTextEn
+          scImageFr {
+            ... on DocumentRef {
+              _path
+            }
+          }
+          scImageAltTextFr
+        }
+      }
+      scImageList {
+        ... on SCLabsImageModel {
+          scId
+          scImageEn {
+            ... on ImageRef {
+              _path
+            }
+            ... on DocumentRef {
+              _path
+            }
+          }
+          scImageAltTextEn
+          scImageFr {
+            ... on ImageRef {
+              _path
+            }
+            ... on DocumentRef {
+              _path
+            }
+          }
+          scImageAltTextFr
+        }
+      }
+      scContentEn {
+        json
+      }
+      scCopyToClipboardLabelEn
+      scBrowserDownloadLinksEn {
+        json
+      }
+      scContentFr {
+        json
+      }
+      scCopyToClipboardLabelFr
+      scBrowserDownloadLinksFr {
+        json
+      }
+    }
+  }
+}

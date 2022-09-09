@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { Banner } from "../atoms/Banner";
-import { Menu } from "../molecules/Menu";
 import { Footer } from "./Footer";
 import { PhaseBanner } from "./PhaseBanner";
 import { ReportAProblem } from "./ReportAProblem";
@@ -8,13 +7,7 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
 import { Breadcrumb } from "../atoms/Breadcrumb";
-import Cookies from "js-cookie";
-
-const setLanguage = (language) => {
-  language === "fr"
-    ? Cookies.set("lang", "fr", { sameSite: "strict" })
-    : Cookies.set("lang", "en", { sameSite: "strict" });
-};
+import Image from "next/image";
 
 /**
  * Component which defines the layout of the page for all screen sizes
@@ -27,8 +20,10 @@ export const Layout = ({
   langUrl,
   breadcrumbItems,
   feedbackActive,
+  showDisclaimer,
   projectName,
   path,
+  dateModifiedOverride,
 }) => {
   const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
@@ -53,13 +48,17 @@ export const Layout = ({
       <header>
         <h2 className="sr-only">{t("globalHeader")}</h2>
         <h3 className="sr-only">{t("testSiteNotice")}</h3>
-        <PhaseBanner
-          phase={t("phaseBannerTag")}
-          feedbackActive={feedbackActive}
-          text={t("phaseBannerText")}
-          projectName={projectName}
-          path={path}
-        />
+        {showDisclaimer ? (
+          <PhaseBanner
+            phase={t("phaseBannerTag")}
+            feedbackActive={feedbackActive}
+            text={t("phaseBannerText")}
+            projectName={projectName}
+            path={path}
+          />
+        ) : (
+          ""
+        )}
         <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">
           <div
             className="flex flex-row justify-between items-center lg:mt-7 mt-1.5"
@@ -70,10 +69,11 @@ export const Layout = ({
               {t("officialSiteNavigation")}
             </h3>
             <a href="https://www.canada.ca">
-              <img
-                className="h-5 w-auto xs:h-6 sm:h-8 md:h-8 lg:h-7 xl:h-8"
+              <Image
                 src={language === "en" ? "/sig-blk-fr.svg" : "/sig-blk-en.svg"}
                 alt={t("symbol")}
+                width="375"
+                height="35"
               />
             </a>
             <h3 className="sr-only">{t("languageSelection")}</h3>
@@ -83,10 +83,7 @@ export const Layout = ({
               locale={language}
               data-testid="languageLink1"
             >
-              <a
-                className="visible lg:invisible ml-6 sm:ml-16 underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue"
-                onClick={() => setLanguage(language)}
-              >
+              <a className="visible lg:invisible ml-6 sm:ml-16 underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue">
                 {language === "en" ? "EN" : "FR"}
               </a>
             </Link>
@@ -96,7 +93,6 @@ export const Layout = ({
               key={language}
               href={langUrl}
               locale={language}
-              onClick={() => setLanguage(language)}
               data-testid="languageLink2"
             >
               <a
@@ -104,7 +100,6 @@ export const Layout = ({
                 data-cy="toggle-language-link"
                 data-testid="languageLink3"
                 lang={language}
-                onClick={() => setLanguage(language)}
               >
                 {language === "en" ? "English" : "Français"}
               </a>
@@ -113,25 +108,7 @@ export const Layout = ({
         </div>
 
         <div className="mb-2 border-t pb-2 mt-4">
-          <Menu
-            menuButtonTitle={t("menuTitle")}
-            signUpText={t("signupBtn")}
-            items={[
-              {
-                link: t("projectRedirect"),
-                text: t("menuLink1"),
-              },
-              {
-                link: t("aboutRedirect"),
-                text: t("menuLink2"),
-              },
-              {
-                link: t("signupInfoRedirect"),
-                text: t("signupLink"),
-              },
-            ]}
-          />
-          <div className="layout-container mt-2 mb-12">
+          <div className="layout-container mt-10 mb-12">
             <Breadcrumb items={breadcrumbItems} />
           </div>
         </div>
@@ -150,7 +127,7 @@ export const Layout = ({
           <ReportAProblem />
         </div>
         <div className="layout-container mb-2">
-          <DateModified date={process.env.NEXT_PUBLIC_BUILD_DATE} />
+          <DateModified date={dateModifiedOverride} />
         </div>
         <Footer
           footerLogoAltText={t("symbol2")}
@@ -214,6 +191,7 @@ export const Layout = ({
               footerBoxLinkText: t("footerOpenGov"),
             },
           ]}
+          topOfPage={t("topOfPage")}
         />
       </footer>
     </div>
@@ -272,6 +250,10 @@ Layout.propTypes = {
    */
   feedbackActive: PropTypes.bool,
   /**
+   * Boolean that determines whether the disclaimer at the top of the screen is shown or not
+   */
+  showDisclaimer: PropTypes.bool,
+  /**
    * Project/page name that feedback is coming from
    */
   projectName: PropTypes.string,
@@ -279,4 +261,8 @@ Layout.propTypes = {
    * Path that the feedback is coming from
    */
   path: PropTypes.string,
+  /**
+   * Manual override for date modified component
+   */
+  dateModifiedOverride: PropTypes.string,
 };

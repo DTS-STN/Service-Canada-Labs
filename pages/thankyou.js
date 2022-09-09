@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import animatedCheckmark from "../public/animatedCheckmark.json";
+import Image from "next/image";
 
 export default function Confirmation(props) {
   const { t } = useTranslation("common");
@@ -17,7 +18,7 @@ export default function Confirmation(props) {
   const [email, setEmail] = useState("");
 
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
+    if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
@@ -59,8 +60,8 @@ export default function Confirmation(props) {
         ]}
       >
         <Head>
-          {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
-            <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+          {props.adobeAnalyticsUrl ? (
+            <script src={props.adobeAnalyticsUrl} />
           ) : (
             ""
           )}
@@ -170,10 +171,11 @@ export default function Confirmation(props) {
           </h1>
           <div className="lg:flex lg:flex-row-reverse">
             <span className="w-full flex justify-center lg:w-1/3">
-              <img
-                className="w-80px mb-10 lg:mb-0 lg:ml-24 lg:w-160px"
+              <Image
                 src="/circle-info.svg"
-                alt=""
+                alt={t("informationIconAltText")}
+                width="160"
+                height="160"
               />
             </span>
             <div className="lg:w-2/3">
@@ -181,9 +183,9 @@ export default function Confirmation(props) {
                 {t("sentEmailTo")} {maskedEmail} {t("from")}{" "}
                 <a
                   className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-                  href={`mailto: ${process.env.NEXT_PUBLIC_THANK_YOU_EMAIL}`}
+                  href={`mailto: ${props.thankYouEmailAddress}`}
                 >
-                  {process.env.NEXT_PUBLIC_THANK_YOU_EMAIL}
+                  {props.thankYouEmailAddress}
                 </a>{" "}
                 {t("toCheckEmail")}
               </p>
@@ -222,11 +224,16 @@ export default function Confirmation(props) {
               {resent ? t("emailResent") : t("resendEmail")}
             </ActionButton>
             {resent ? (
-              <div className="flex justify-start my-6">
+              <div
+                role="img"
+                aria-label={t("animatedCheckmarkAltText")}
+                className="flex justify-start my-6"
+              >
                 <Player
                   autoplay
                   keepLastFrame
                   src={animatedCheckmark}
+                  alt={t("animatedCheckmarkAltText")}
                   style={{
                     height: "248px",
                     width: "248px",
@@ -242,7 +249,7 @@ export default function Confirmation(props) {
           </div>
         </section>
       </Layout>
-      {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+      {props.adobeAnalyticsUrl ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
       ) : (
         ""
@@ -255,6 +262,8 @@ export const getStaticProps = async ({ locale }) => {
   return {
     props: {
       locale: locale,
+      adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+      thankYouEmailAddress: process.env.THANK_YOU_EMAIL,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };

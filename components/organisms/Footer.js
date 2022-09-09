@@ -1,4 +1,6 @@
 import PropTypes from "prop-types";
+import Image from "next/image";
+import { ActionButton } from "../atoms/ActionButton";
 
 /**
  * footer element for all pages
@@ -22,7 +24,7 @@ export function Footer(props) {
               return (
                 <li
                   key={index}
-                  className="text-white w-64 md:w-56 lg:w-80 my-2.5 hover:underline"
+                  className="text-white w-64 md:w-56 lg:w-80 my-2.5 hover:underline list-none"
                 >
                   <a className="font-body" href={value.footerBoxlink}>
                     {value.footerBoxLinkText}
@@ -50,8 +52,8 @@ export function Footer(props) {
                     key={index}
                     className={
                       index === 0
-                        ? "lg:mb-4 mb-5 mr-2.5 list-inside list-disc xl:list-none text-xxs"
-                        : "lg:mb-4 mb-5 mr-2.5 list-inside list-disc text-xxs"
+                        ? "lg:mb-4 mb-5 lg:list-inside list-disc xl:list-none text-xxs"
+                        : "lg:mb-4 mb-5 lg:list-inside list-disc text-xxs"
                     }
                   >
                     <a
@@ -66,12 +68,22 @@ export function Footer(props) {
               })}
             </ul>
           </div>
-          <div>
-            <img
-              className="mb-2.5 mt-8 xl:mt-0 h-6 md:h-10 w-auto float-right"
-              src={props.footerLogoImage}
-              alt={props.footerLogoAltText}
+          <div className="flex items-center justify-between">
+            <ActionButton
+              id="TopOfPageButton"
+              href="#"
+              custom="text-left w-32 flex flex-col lg:hidden"
+              text={props.topOfPage}
+              icon="icon-up-caret"
+              iconEnd
             />
+            <span className="flex relative footer-logo">
+              <Image
+                src={props.footerLogoImage}
+                alt={props.footerLogoAltText}
+                layout="fill"
+              />
+            </span>
           </div>
         </div>
       </div>

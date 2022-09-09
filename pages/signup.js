@@ -17,6 +17,8 @@ import { CheckBox } from "../components/atoms/CheckBox";
 import { OptionalListField } from "../components/molecules/OptionalListField";
 import { maskEmail } from "../lib/utils/maskEmail";
 import Link from "next/link";
+import queryGraphQL from "../graphql/client";
+import getSignupPage from "../graphql/queries/signupQuery.graphql";
 
 // TODO
 //  - fix bug with error messages not showing custom error message [x]
@@ -27,7 +29,14 @@ import Link from "next/link";
 export default function Signup(props) {
   const { t } = useTranslation("common");
   const { push } = useRouter();
+  const [pageData] = useState(props.pageData.item);
   const fr = props.locale === "fr";
+
+  const [formField] = useState(
+    props.locale === "en"
+      ? pageData.scFragments[0].formFields.en
+      : pageData.scFragments[0].formFields.fr
+  );
 
   // get the options for the year of birth ranges
   const minYear = new Date().getFullYear() - 18;
@@ -58,10 +67,10 @@ export default function Signup(props) {
         errors.forEach((error) => {
           switch (error.code) {
             case "any.required":
-              error.message = t("emailRequired");
+              error.message = formField.errorMsg.emailRequired;
               break;
             case "string.email":
-              error.message = t("errorEmail");
+              error.message = formField.errorMsg.invalidEmail;
             default:
               break;
           }
@@ -76,12 +85,12 @@ export default function Signup(props) {
         errors.forEach((error) => {
           switch (error.code) {
             case "any.required":
-              error.message = t("emailRequired");
+              error.message = formField.errorMsg.emailRequired;
               break;
             case "string.email":
-              error.message = t("errorEmail");
+              error.message = formField.errorMsg.invalidEmail;
             case "any.only":
-              error.message = t("emailError");
+              error.message = formField.errorMsg.emailMustMatch;
             default:
               break;
           }
@@ -95,10 +104,10 @@ export default function Signup(props) {
         errors.forEach((error) => {
           switch (error.code) {
             case "any.required":
-              error.message = t("yearRequired");
+              error.message = formField.errorMsg.yearOfBirthRequired;
               break;
             case "any.invalid":
-              error.message = t("errorMustBe18");
+              error.message = formField.errorMsg.age;
               break;
             default:
               break;
@@ -113,7 +122,7 @@ export default function Signup(props) {
         errors.forEach((error) => {
           switch (error.code) {
             case "any.required":
-              error.message = t("languageRequired");
+              error.message = formField.errorMsg.language;
               break;
             default:
               break;
@@ -175,7 +184,7 @@ export default function Signup(props) {
         errors.forEach((error) => {
           switch (error.code) {
             case "any.required":
-              error.message = t("errorTerms");
+              error.message = formField.errorMsg.agreeToConditions;
               break;
             default:
               break;
@@ -335,14 +344,16 @@ export default function Signup(props) {
         if (!prevErrors[field]) {
           prevErrors[field] = {
             id: field,
-            text: `${t("error")} ${fr ? "\u00A0:" : ":"} ` + message,
+            text:
+              `${formField.errorMsg.error} ${fr ? "\u00A0:" : ":"} ` + message,
           };
         }
         // override the error message if the type of error is because the field is empty
         else if (type.includes("empty")) {
           prevErrors[field] = {
             id: field,
-            text: `${t("error")} ${fr ? "\u00A0:" : ":"} ` + message,
+            text:
+              `${formField.errorMsg.error} ${fr ? "\u00A0:" : ":"} ` + message,
           };
         }
         return prevErrors;
@@ -386,9 +397,9 @@ export default function Signup(props) {
           query: { e: maskedEmail, ref: "signup" },
         });
       } else if (response.status === 400) {
-        await setGlobalErrorText(t("errorRegistered"));
+        await setGlobalErrorText(formField.errorMsg.errorRegistered);
       } else {
-        await setGlobalErrorText(t("errorUnknown"));
+        await setGlobalErrorText(formField.errorMsg.errorUnknown);
       }
     }
     // Checks if error exists
@@ -405,7 +416,7 @@ export default function Signup(props) {
   };
 
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
+    if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
@@ -415,15 +426,17 @@ export default function Signup(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={t("signupPath")}
+        langUrl={
+          props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
+        }
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("signupInfoTitle"), link: t("breadCrumbsHref4") },
         ]}
       >
         <Head>
-          {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
-            <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+          {props.adobeAnalyticsUrl ? (
+            <script src={props.adobeAnalyticsUrl} />
           ) : (
             ""
           )}
@@ -511,7 +524,7 @@ export default function Signup(props) {
         <section className="layout-container mb-2 mt-12">
           <div className="xl:w-2/3">
             <h1 className="mb-12" id="pageMainTitle" tabIndex="-1">
-              {t("signupTitle")}
+              {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
             </h1>
           </div>
         </section>
@@ -541,11 +554,11 @@ export default function Signup(props) {
                 <b className="text-error-border-red mr-2" aria-hidden="true">
                   *
                 </b>
-                {t("requiredInfo")}
+                {formField.requiredInfo}
               </p>
               <TextField
                 className="mb-10"
-                label={t("email")}
+                label={formField.label.email}
                 type="email"
                 name="email"
                 id="email"
@@ -559,7 +572,7 @@ export default function Signup(props) {
               />
               <TextField
                 className="mb-10"
-                label={t("confirmEmail")}
+                label={formField.label.confirmEmail}
                 type="email"
                 name="confirmEmail"
                 id="confirmEmail"
@@ -571,7 +584,7 @@ export default function Signup(props) {
                 autoComplete="email"
               />
               <SelectField
-                label={t("formYear")}
+                label={formField.label.yearOfBirth}
                 className="mb-10"
                 id="yearOfBirthRange"
                 boldLabel
@@ -594,14 +607,16 @@ export default function Signup(props) {
                   <b className="text-error-border-red" aria-hidden="true">
                     *
                   </b>{" "}
-                  {t("formLang")}
+                  {formField.label.language}
                   <span className="sr-only">required</span>
                 </legend>
                 {languageError ? (
                   <ErrorLabel message={languageError} />
                 ) : undefined}
                 <RadioField
-                  label={fr ? t("fr") : t("en")}
+                  label={
+                    fr ? formField.option.french : formField.option.english
+                  }
                   id={fr ? "languageFr" : "languageEn"}
                   name="language"
                   value={fr ? "fr" : "en"}
@@ -610,7 +625,9 @@ export default function Signup(props) {
                   onChange={(checked, name, value) => setLanguage(value)}
                 />
                 <RadioField
-                  label={fr ? t("en") : t("fr")}
+                  label={
+                    fr ? formField.option.english : formField.option.french
+                  }
                   id={fr ? "languageEn" : "languageFr"}
                   name="language"
                   value={fr ? "en" : "fr"}
@@ -621,7 +638,7 @@ export default function Signup(props) {
               </fieldset>
 
               <SelectField
-                label={t("prov")}
+                label={formField.label.province}
                 className="mb-10"
                 id="province"
                 boldLabel
@@ -631,67 +648,67 @@ export default function Signup(props) {
                 options={[
                   {
                     id: "on",
-                    name: t("ON"),
+                    name: formField.option.province.ON,
                     value: "ON",
                   },
                   {
                     id: "qc",
-                    name: t("QC"),
+                    name: formField.option.province.QC,
                     value: "QC",
                   },
                   {
                     id: "nl",
-                    name: t("NL"),
+                    name: formField.option.province.NL,
                     value: "NL",
                   },
                   {
                     id: "pe",
-                    name: t("PE"),
+                    name: formField.option.province.PE,
                     value: "PE",
                   },
                   {
                     id: "ns",
-                    name: t("NS"),
+                    name: formField.option.province.NS,
                     value: "NS",
                   },
                   {
                     id: "nb",
-                    name: t("NB"),
+                    name: formField.option.province.NB,
                     value: "NB",
                   },
                   {
                     id: "mb",
-                    name: t("MB"),
+                    name: formField.option.province.MB,
                     value: "MB",
                   },
                   {
                     id: "sk",
-                    name: t("SK"),
+                    name: formField.option.province.SK,
                     value: "SK",
                   },
                   {
                     id: "ab",
-                    name: t("AB"),
+                    name: formField.option.province.AB,
                     value: "AB",
                   },
                   {
                     id: "bc",
-                    name: t("BC"),
+                    name: formField.option.province.BC,
                     value: "BC",
                   },
                   {
                     id: "yt",
-                    name: t("YT"),
+                    name: formField.option.province.YT,
                     value: "YT",
                   },
                   {
                     id: "nt",
-                    name: t("NT"),
+                    name: formField.option.province.NT,
                     value: "NT",
                   },
                   {
                     id: "nu",
-                    name: t("NU"),
+                    name: formField.option.province.NU,
                     value: "NU",
                   },
                 ]}
@@ -701,10 +718,10 @@ export default function Signup(props) {
 
               <fieldset className="mb-6">
                 <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
-                  {t("formGender")}{" "}
+                  {formField.label.gender}{" "}
                 </legend>
                 <RadioField
-                  label={t("woman")}
+                  label={formField.option.woman}
                   id="genderWoman"
                   name="gender"
                   onChange={(checked, name, value) => setGender(value)}
@@ -712,7 +729,7 @@ export default function Signup(props) {
                   value="woman"
                 />
                 <RadioField
-                  label={t("man")}
+                  label={formField.option.man}
                   id="genderMan"
                   name="gender"
                   onChange={(checked, name, value) => setGender(value)}
@@ -720,10 +737,10 @@ export default function Signup(props) {
                   value="man"
                 />
                 <OptionalTextField
-                  controlLabel={t("another")}
+                  controlLabel={formField.option.another}
                   textFieldName="genderOtherDetails"
                   textFieldId="genderOtherDetails"
-                  textFieldLabel={t("otherDetails")}
+                  textFieldLabel={formField.option.anotherDetail}
                   controlName="gender"
                   controlId="genderOther"
                   controlValue="other"
@@ -739,7 +756,7 @@ export default function Signup(props) {
                   describedby="genderotherDescribedBy"
                 />
                 <RadioField
-                  label={t("preferNotAnswer")}
+                  label={formField.option.preferNotAnswer}
                   id="genderPreferNotToAnswer"
                   name="gender"
                   onChange={(checked, name, value) => setGender(value)}
@@ -750,10 +767,10 @@ export default function Signup(props) {
 
               <fieldset className="mb-6">
                 <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
-                  {t("formIndigenous")}{" "}
+                  {formField.label.indigenous}{" "}
                 </legend>
                 <RadioField
-                  label={t("FN")}
+                  label={formField.option.firstNations}
                   id="nativeStatusFirstNations"
                   checked={nativeStatus === "firstNations"}
                   onChange={(checked, name, value) => {
@@ -763,7 +780,7 @@ export default function Signup(props) {
                   value="firstNations"
                 />
                 <RadioField
-                  label={t("metis")}
+                  label={formField.option.metis}
                   id="nativeStatusMétis"
                   checked={nativeStatus === "métis"}
                   onChange={(checked, name, value) => {
@@ -773,7 +790,7 @@ export default function Signup(props) {
                   value="métis"
                 />
                 <RadioField
-                  label={t("inuit")}
+                  label={formField.option.inuk}
                   id="nativeStatusInuit"
                   checked={nativeStatus === "inuit"}
                   onChange={(checked, name, value) => {
@@ -783,7 +800,7 @@ export default function Signup(props) {
                   value="inuit"
                 />
                 <RadioField
-                  label={t("doesNotApply")}
+                  label={formField.option.notApply}
                   id="nativeStatusNA"
                   checked={nativeStatus === "N/A"}
                   onChange={(checked, name, value) => {
@@ -793,7 +810,7 @@ export default function Signup(props) {
                   value="N/A"
                 />
                 <RadioField
-                  label={t("preferNotAnswer")}
+                  label={formField.option.preferNotAnswer}
                   id="nativeStatusPreferNotToAnswer"
                   checked={nativeStatus === "preferNotToAnswer"}
                   onChange={(checked, name, value) => {
@@ -806,13 +823,13 @@ export default function Signup(props) {
 
               <fieldset className="mb-6">
                 <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
-                  {t("disability")}{" "}
+                  {formField.label.disability}{" "}
                 </legend>
                 <OptionalTextField
-                  controlLabel={t("yes")}
+                  controlLabel={formField.option.yes}
                   textFieldName="disabilityDetails"
                   textFieldId="disabilityDetails"
-                  textFieldLabel={t("yesDetails")}
+                  textFieldLabel={formField.option.assistiveTech}
                   textLabelBold={true}
                   textFieldRequired={true}
                   multiText={true}
@@ -833,7 +850,7 @@ export default function Signup(props) {
                   describedby="disabilityDetailsDescribedBy"
                 />
                 <RadioField
-                  label={t("no")}
+                  label={formField.option.no}
                   id="disabilityNo"
                   onChange={(checked, name, value) => setDisability(value)}
                   checked={disability === "no"}
@@ -842,7 +859,7 @@ export default function Signup(props) {
                   dataCy="btn-disability-no"
                 />
                 <RadioField
-                  label={t("notSure")}
+                  label={formField.option.notSure}
                   id="disabilityNotSure"
                   onChange={(checked, name, value) => setDisability(value)}
                   checked={disability === "notSure"}
@@ -850,7 +867,7 @@ export default function Signup(props) {
                   value="notSure"
                 />
                 <RadioField
-                  label={t("preferNotAnswer")}
+                  label={formField.option.preferNotAnswer}
                   id="disabilityPreferNotToAnswer"
                   onChange={(checked, name, value) => setDisability(value)}
                   checked={disability === "preferNotToAnswer"}
@@ -861,20 +878,20 @@ export default function Signup(props) {
 
               <fieldset className="mb-6">
                 <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
-                  {t("formMinority")}{" "}
+                  {formField.label.minority}{" "}
                 </legend>
                 <OptionalListField
                   controlName="minority"
                   controlId="minorityYes"
-                  controlLabel={t("yes")}
+                  controlLabel={formField.option.yes}
                   controlValue="yes"
                   controlType="radiofield"
                   checked={minority === "yes"}
                   onControlChange={(checked, name, value) => setMinority(value)}
-                  listLabel={t("minorityYesDetails")}
+                  listLabel={formField.option.minority.detail}
                 >
                   <CheckBox
-                    label={t("black")}
+                    label={formField.option.minority.black}
                     id="minorityGroupBlack"
                     name="minorityGroup"
                     checked={minorityGroup.includes("black")}
@@ -883,7 +900,7 @@ export default function Signup(props) {
                     className="mb-7"
                   />
                   <CheckBox
-                    label={t("chinese")}
+                    label={formField.option.minority.chinese}
                     id="minorityGroupChinese"
                     name="minorityGroup"
                     checked={minorityGroup.includes("chinese")}
@@ -892,7 +909,7 @@ export default function Signup(props) {
                     className="mb-7"
                   />
                   <CheckBox
-                    label={t("filipino")}
+                    label={formField.option.minority.filipino}
                     id="minorityGroupFilipino"
                     name="minorityGroup"
                     checked={minorityGroup.includes("filipino")}
@@ -901,7 +918,7 @@ export default function Signup(props) {
                     className="mb-7"
                   />
                   <CheckBox
-                    label={t("japanese")}
+                    label={formField.option.minority.japanese}
                     id="minorityGroupJapanese"
                     name="minorityGroup"
                     checked={minorityGroup.includes("japanese")}
@@ -910,7 +927,7 @@ export default function Signup(props) {
                     className="mb-7"
                   />
                   <CheckBox
-                    label={t("korean")}
+                    label={formField.option.minority.korean}
                     id="minorityGroupKorean"
                     name="minorityGroup"
                     checked={minorityGroup.includes("korean")}
@@ -919,7 +936,7 @@ export default function Signup(props) {
                     className="mb-7"
                   />
                   <CheckBox
-                    label={t("SA")}
+                    label={formField.option.minority.southAsian}
                     id="minorityGroupSouthAsian"
                     name="minorityGroup"
                     checked={minorityGroup.includes("southAsian")}
@@ -932,7 +949,7 @@ export default function Signup(props) {
                     }
                   />
                   <CheckBox
-                    label={t("SEA")}
+                    label={formField.option.minority.sea}
                     id="minorityGroupSoutheastAsian"
                     name="minorityGroup"
                     checked={minorityGroup.includes("southeastAsian")}
@@ -941,7 +958,7 @@ export default function Signup(props) {
                     className="mb-12 md:mb-7"
                   />
                   <CheckBox
-                    label={t("nonWhiteAAA")}
+                    label={formField.option.minority.nonWhite}
                     id="minorityGroupNonWhiteAAA"
                     name="minorityGroup"
                     checked={minorityGroup.includes("nonWhiteAAA")}
@@ -952,7 +969,7 @@ export default function Signup(props) {
                     }
                   />
                   <CheckBox
-                    label={t("LA")}
+                    label={formField.option.minority.latinAmerican}
                     id="minorityGroupLatinAmerican"
                     name="minorityGroup"
                     checked={minorityGroup.includes("latinAmerican")}
@@ -961,7 +978,7 @@ export default function Signup(props) {
                     className="mb-16 md:mb-7"
                   />
                   <CheckBox
-                    label={t("mixedOrigin")}
+                    label={formField.option.minority.mixedOrigin}
                     id="minorityGroupMixedOrigin"
                     name="minorityGroup"
                     checked={minorityGroup.includes("mixedOrigin")}
@@ -970,7 +987,7 @@ export default function Signup(props) {
                     className="mb-12 md:mb-7"
                   />
                   <OptionalTextField
-                    controlLabel={t("otherMinority")}
+                    controlLabel={formField.option.minority.another}
                     textFieldName="minorityGroupOther"
                     textFieldId="minorityGroupOtherDetails"
                     textLabelBold={true}
@@ -978,7 +995,7 @@ export default function Signup(props) {
                     onControlChange={handlerMinorityGroupOnChange}
                     onTextFieldChange={setMinorityGroupOther}
                     textFieldValue={minorityGroupOther}
-                    textFieldLabel={t("otherMinorityDetails")}
+                    textFieldLabel={formField.option.minority.anotherDetail}
                     controlValue="other"
                     controlName="minorityGroup"
                     controlId="minorityGroupOther"
@@ -986,7 +1003,7 @@ export default function Signup(props) {
                   />
                 </OptionalListField>
                 <RadioField
-                  label={t("no")}
+                  label={formField.option.no}
                   id="minorityNo"
                   name="minority"
                   value="no"
@@ -994,7 +1011,7 @@ export default function Signup(props) {
                   onChange={(checked, name, value) => setMinority(value)}
                 />
                 <RadioField
-                  label={t("preferNotAnswer")}
+                  label={formField.option.preferNotAnswer}
                   id="minorityPreferNotToAnswer"
                   onChange={(checked, name, value) => setMinority(value)}
                   checked={minority === "preferNotToAnswer"}
@@ -1005,10 +1022,10 @@ export default function Signup(props) {
 
               <fieldset className="mb-6">
                 <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
-                  {t("formIncome")}{" "}
+                  {formField.label.income}{" "}
                 </legend>
                 <RadioField
-                  label={t("income1")}
+                  label={formField.option.income1}
                   id="income30kLess"
                   name="incomeLevel"
                   checked={incomeLevel === "30kLess"}
@@ -1016,7 +1033,7 @@ export default function Signup(props) {
                   value="30kLess"
                 />
                 <RadioField
-                  label={t("income2")}
+                  label={formField.option.income2}
                   id="income60kLess"
                   name="incomeLevel"
                   checked={incomeLevel === "30kto60k"}
@@ -1024,7 +1041,7 @@ export default function Signup(props) {
                   value="30kto60k"
                 />
                 <RadioField
-                  label={t("income3")}
+                  label={formField.option.income3}
                   id="income100kLess"
                   name="incomeLevel"
                   checked={incomeLevel === "60kto100k"}
@@ -1032,7 +1049,7 @@ export default function Signup(props) {
                   value="60kto100k"
                 />
                 <RadioField
-                  label={t("income4")}
+                  label={formField.option.income4}
                   id="income150kLess"
                   name="incomeLevel"
                   checked={incomeLevel === "100kto150k"}
@@ -1040,7 +1057,7 @@ export default function Signup(props) {
                   value="100kto150k"
                 />
                 <RadioField
-                  label={t("income5")}
+                  label={formField.option.income5}
                   id="income150kMore"
                   name="incomeLevel"
                   checked={incomeLevel === "150kMore"}
@@ -1048,7 +1065,7 @@ export default function Signup(props) {
                   value="150kMore"
                 />
                 <RadioField
-                  label={t("preferNotAnswer")}
+                  label={formField.option.preferNotAnswer}
                   id="incomePreferNotToAnswer"
                   name="incomeLevel"
                   checked={incomeLevel === "preferNotToAnswer"}
@@ -1059,10 +1076,10 @@ export default function Signup(props) {
 
               <fieldset className="mb-16">
                 <legend className="block leading-tight text-sm lg:text-p font-body mb-5 font-bold">
-                  {t("formPublicServant")}{" "}
+                  {formField.label.publicServant}{" "}
                 </legend>
                 <RadioField
-                  label={t("yes")}
+                  label={formField.option.yes}
                   id="publicServantYes"
                   name="publicServant"
                   checked={publicServant === "yes"}
@@ -1070,7 +1087,7 @@ export default function Signup(props) {
                   value="yes"
                 />
                 <RadioField
-                  label={t("no")}
+                  label={formField.option.no}
                   id="publicServantNo"
                   name="publicServant"
                   checked={publicServant === "no"}
@@ -1093,7 +1110,7 @@ export default function Signup(props) {
                       setAgreeToConditions(value);
                     }
                   }}
-                  label={t("formCheckBox")}
+                  label={formField.agreeToConditions}
                   id="agreeToConditions"
                   name="agreeToConditions"
                   value="yes"
@@ -1102,9 +1119,9 @@ export default function Signup(props) {
                 />
               </div>
             </div>
-            <Link href={t("privacyRedirect")} locale={props.locale}>
+            <Link href={formField.privacyLink} locale={props.locale}>
               <a className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-10 text-sm lg:text-p">
-                {t("privacy")}
+                {formField.privacy}
               </a>
             </Link>
             <ActionButton
@@ -1115,7 +1132,7 @@ export default function Signup(props) {
               dataTestId="signup-submit"
               analyticsTracking
             >
-              {t("reportAProblemSubmit")}
+              {formField.submit}
             </ActionButton>
             <ActionButton
               id="reset-bottom"
@@ -1126,12 +1143,12 @@ export default function Signup(props) {
                 setProvince("");
               }}
             >
-              {t("clear")}
+              {formField.clearForm}
             </ActionButton>
           </form>
         </section>
       </Layout>
-      {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+      {props.adobeAnalyticsUrl ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
       ) : (
         ""
@@ -1141,10 +1158,29 @@ export default function Signup(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  return {
-    props: {
-      locale,
-      ...(await serverSideTranslations(locale, ["common"])),
-    },
-  };
+  // get page data from AEM
+  const res = await queryGraphQL(getSignupPage).then((result) => {
+    return result;
+  });
+
+  const data = res.data.sCLabsPageByPath;
+
+  return process.env.ISR_ENABLED
+    ? {
+        props: {
+          locale: locale,
+          adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+          ...(await serverSideTranslations(locale, ["common"])),
+          pageData: data,
+        },
+        revalidate: 60, // revalidate once an minute
+      }
+    : {
+        props: {
+          locale: locale,
+          adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+          ...(await serverSideTranslations(locale, ["common"])),
+          pageData: data,
+        },
+      };
 };

@@ -6,14 +6,18 @@ import { ReportAProblem } from "../components/organisms/ReportAProblem";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import queryGraphQL from "../graphql/client";
+import get404Page from "../graphql/queries/error404Query.graphql";
+import Image from "next/image";
 
 export default function error404(props) {
   const { t } = useTranslation("common");
   const [loaded, setLoaded] = useState(false);
   const router = useRouter();
+  const [pageData] = useState(props.pageData.item);
 
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
+    if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
@@ -35,15 +39,16 @@ export default function error404(props) {
     <>
       <div className="min-h-screen relative">
         <Head>
-          {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
-            <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+          {props.adobeAnalyticsUrl ? (
+            <script src={props.adobeAnalyticsUrl} />
           ) : (
             ""
           )}
 
           {/* Primary HTML Meta Tags */}
           <title data-gc-analytics-error="404">
-            {`404 — ${t("siteTitle")}`}
+            {pageData.scContentEn.json[0].content[0].value} (404) |{" "}
+            {pageData.scContentFr.json[0].content[0].value} (404)
           </title>
           <meta
             name="description"
@@ -114,30 +119,43 @@ export default function error404(props) {
           <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <section className="layout-container pb-44">
-          <img
-            className="h-auto w-60 pt-6 xl:w-96 xxl:w-1/2"
-            src={"/sig-blk-en.svg"}
-            alt={"Symbol of the Government of Canada"}
-          />
+          <div className="pt-6">
+            <Image
+              src={`https://www.canada.ca${
+                props.locale === "en"
+                  ? pageData.scGcImages[0].scImageEn._path
+                  : pageData.scGcImages[0].scImageFr._path
+              }`}
+              alt={
+                props.locale === "en"
+                  ? pageData.scGcImages[0].scImageAltTextEn
+                  : pageData.scGcImages[0].scImageAltTextFr
+              }
+              width={575}
+              height={59}
+            />
+          </div>
           <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start mt-8">
             <div>
               <div className="relative h-auto xl:w-96 xxl:w-400px lg:w-72 xl:h-400px lg:h-500px mb-8 lg:mb-0">
                 <h1 className="font-bold font-display mb-4">
-                  We couldn't find that page
+                  {pageData.scContentEn.json[0].content[0].value}
                 </h1>
-                <p className="font-bold font-body mb-8">Error 404</p>
+                <p className="font-bold font-body mb-8">
+                  {pageData.scContentEn.json[1].content[0].value}
+                </p>
                 <p className="font-body text-sm mb-4 leading-30px">
-                  We're sorry you ended up here. Sometimes a page gets moved or
-                  deleted, but hopefully we can help you find what you're
-                  looking for.
+                  {pageData.scContentEn.json[2].content[0].value}
                 </p>
                 <div className="flex">
                   <span className="error404-link" />
                   <p className="font-body text-sm leading-30px">
-                    Return to the &nbsp;
-                    <Link href="/">
+                    {pageData.scContentEn.json[3].content[0].value}
+                    <Link
+                      href={pageData.scContentEn.json[3].content[1].data.href}
+                    >
                       <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                        Service Canada Labs home page
+                        {pageData.scContentEn.json[3].content[1].value}
                       </a>
                     </Link>
                   </p>
@@ -145,12 +163,19 @@ export default function error404(props) {
               </div>
               <ReportAProblem language={"en"} />
             </div>
-            <div className="flex items-center justify-center circle-background my-8 lg:mt-0">
-              <img
-                className="w-68px xl:w-24"
-                src="/crackedbulb.svg"
-                alt="Cracked lightbulb"
-              />
+            <div className="flex items-center justify-center circle-background my-8 mx-4 lg:mt-0 lightbulb-bg shrink-0">
+              <span className="relative lightbulb">
+                <Image
+                  src={`https://www.canada.ca${
+                    props.locale === "en"
+                      ? pageData.scImageList[0].scImageEn._path
+                      : pageData.scImageList[0].scImageFr._path
+                  }`}
+                  alt=""
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </span>
             </div>
             <div>
               <div
@@ -158,22 +183,23 @@ export default function error404(props) {
                 lang="fr"
               >
                 <h1 className="font-bold font-display mb-4">
-                  Nous ne trouvons pas cette page
+                  {pageData.scContentFr.json[0].content[0].value}
                 </h1>
-                <p className="font-bold font-body mb-8">Erreur 404</p>
+                <p className="font-bold font-body mb-8">
+                  {pageData.scContentFr.json[1].content[0].value}
+                </p>
                 <p className="font-body text-sm mb-4 leading-30px">
-                  Nous sommes désolés que vous ayez abouti ici. Il arrive
-                  parfois qu'une page ait été déplacée ou supprimée.
-                  Heureusement, nous pouvons vous aider à trouver ce que vous
-                  cherchez.
+                  {pageData.scContentFr.json[2].content[0].value}
                 </p>
                 <div className="flex">
                   <span className="error404-link" />
                   <p className="font-body text-sm leading-30px">
-                    Retournez à la &nbsp;
-                    <Link href="/fr">
+                    {pageData.scContentFr.json[3].content[0].value}
+                    <Link
+                      href={pageData.scContentFr.json[3].content[1].data.href}
+                    >
                       <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                        page d'accueil des laboratoires de Service Canada
+                        {pageData.scContentFr.json[3].content[1].value}
                       </a>
                     </Link>
                   </p>
@@ -193,15 +219,25 @@ export default function error404(props) {
               icon="icon-up-caret"
               iconEnd
             />
-            <img
-              className="h-6 w-auto lg:h-auto lg:w-40"
-              src="/wmms-blk.svg"
-              alt="Symbol of the Government of Canada"
-            />
+            <span className="relative footer-logo">
+              <Image
+                src={`https://www.canada.ca${
+                  props.locale === "en"
+                    ? pageData.scGcImages[1].scImageEn._path
+                    : pageData.scGcImages[1].scImageFr._path
+                }`}
+                alt={
+                  props.locale === "en"
+                    ? pageData.scGcImages[1].scImageAltTextEn
+                    : pageData.scGcImages[1].scImageAltTextFr
+                }
+                layout="fill"
+              />
+            </span>
           </div>
         </footer>
       </div>
-      {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+      {props.adobeAnalyticsUrl ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
       ) : (
         ""
@@ -210,10 +246,32 @@ export default function error404(props) {
   );
 }
 
-export const getStaticProps = async ({ locale }) => ({
-  props: {
-    locale: locale,
-    ...(await serverSideTranslations("en", ["common"])),
-    ...(await serverSideTranslations("fr", ["common"])),
-  },
-});
+export const getStaticProps = async ({ locale }) => {
+  // get page data from AEM
+  const res = await queryGraphQL(get404Page).then((result) => {
+    return result;
+  });
+
+  const data = res.data.scLabsErrorPageByPath;
+
+  return process.env.ISR_ENABLED
+    ? {
+        props: {
+          locale: locale,
+          adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+          ...(await serverSideTranslations("en", ["common"])),
+          ...(await serverSideTranslations("fr", ["common"])),
+          pageData: data,
+        },
+        revalidate: 60, // revalidate once an minute
+      }
+    : {
+        props: {
+          locale: locale,
+          adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+          ...(await serverSideTranslations("en", ["common"])),
+          ...(await serverSideTranslations("fr", ["common"])),
+          pageData: data,
+        },
+      };
+};

@@ -3,10 +3,17 @@
  */
 import { render, screen } from "@testing-library/react";
 import Signup from "../../pages/signup";
+import { signupPage } from "../../__mocks__/mockStore";
+
+jest.mock("@apollo/client");
 
 describe("Signup", () => {
   it("renders without crashing", () => {
-    render(<Signup />);
-    expect(screen.getByText("signupTitle")).toBeInTheDocument();
+    render(<Signup pageData={signupPage.data.sCLabsPageByPath} />);
+    expect(
+      screen.getByRole("heading", {
+        name: "S’inscrire pour être invité aux séances de recherche (étape 1 sur 2)",
+      })
+    ).toBeInTheDocument();
   });
 });

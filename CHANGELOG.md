@@ -30,6 +30,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added remaining character counter to feedback widget
 - Added the `stripFeedback` helper function which strips PII from both the feedback and report a problem forms
 - Added error label in report a problem widget
+- Added environment variable for our project version to our Next.js config for metadata purposes
+- Added image in Experiment card
+- Added Sharp for image optimization in production
+- Added the `Alert` component for contextual alerts
+- Added the `TableOfContents` component to convert page headings into a table of contents
+- Added the `default` locale and middleware to redirect all routes using this locale to their corresponding `en` routes
 
 ## Changed
 
@@ -51,8 +57,31 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Update home page data model to read content from cms
 - Update about page to read content from cms
 - Changed number of steps for signup and unsubscribe from 3 to 2
-- Removed srSpeak function from feedback widget and instead put `aria-live="polite"` on the form 
+- Removed srSpeak function from feedback widget and instead put `aria-live="polite"` on the form
 - Update signup-info page to read content from cms
+- Removed `experience` email from privacy page, Report a Problem and Feedback components
+- Updated to Next.js `v12.1.6`
+- Updated `/notsupported`, `/404` and `/500` to use data from AEM
+- Updated `/signup` page to use data from AEM
+- Updated `/notsupported`, `/404`, `/500`, and `/error` to use data from AEM
+- Updated Experiment component to a generic card component
+- Updated `/projects` page to use data from AEM
+- Updated home page to match new Figma designs
+- Updated DateModified component to accept a manual date (for use with AEM)
+- Updated images to use next/image instead of html img tag
+- Updated past project label to be gray instead of red, and also updated projects page to use new AEM data
+- Added the `showDisclaimer` prop to the `Layout` component so control which pages have the disclaimer
+- Updated digital centre page to use data from AEM
+- Updated having a child page to use data form AEM
+- Updated virtual assistant page to use data from AEM
+- Updated signup-info page to use data from AEM
+- Remove Test Site banner on the projects page
+- Updated alt text across site based on best practices
+- Updated `/thankyou` page to use animated checkmark for consistency
+- Updated Footer component to add To top of page button in mobile view
+- Updated background image for splash page
+- Updated metadata social media image for splash page
+- Removed cookie redirects based on language
 
 ## Fixed
 
@@ -65,7 +94,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Fixed how we handle data from Strapi
 - Fixed CallToAction redirect on `/projects` page so that it links to `/signup-info` instead of `/signup`
 - Fixed email and close button focus on the feedback widget
-
+- Moved content security policy entries from `_document` to `next.config.js` so there is a single source of truth (and also added a few other security headers)
+- Fixed issue with our `Next/Image` implementation within our `Card` component and with the image on the `/projects` page
 
 ## [v1.1.3] - 2021-10-27
 
@@ -82,6 +112,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Removed signup confirmation/validation pages from search engine indexing
 - Added projects disclaimer to the main body text of each page
 - Updated `See the projects` button text on home and confirmation pages to be `Explore our projects` for consistency
+- Added Apollo GraphQL client function
+- Updated projects page to use data from AEM obtained via GraphQL query
 
 ## Fixed
 

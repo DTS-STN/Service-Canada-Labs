@@ -4,19 +4,13 @@ import { useTranslation } from "next-i18next";
 import { ActionButton } from "../components/atoms/ActionButton";
 import Link from "next/link";
 import { useEffect } from "react";
-import Cookies from "js-cookie";
+import Image from "next/image";
 
 export default function Index(props) {
   const { t } = useTranslation("common");
 
-  const setLanguage = (event) => {
-    event.target.id === "french-button"
-      ? Cookies.set("lang", "fr", { sameSite: "strict" })
-      : Cookies.set("lang", "en", { sameSite: "strict" });
-  };
-
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
+    if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
@@ -24,10 +18,10 @@ export default function Index(props) {
 
   return (
     <>
-      <div className="z-0 fixed inset-0 bg-splash-img-mobile xs:bg-splash-img bg-cover bg-center h-screen min-w-300px min-h-screen" />
+      <div className="splash-image bg-splash-img-mobile xs:bg-splash-img bg-no-repeat h-screen min-w-300px min-h-screen" />
       <Head>
-        {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
-          <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+        {props.adobeAnalyticsUrl ? (
+          <script src={props.adobeAnalyticsUrl} />
         ) : (
           ""
         )}
@@ -124,15 +118,18 @@ export default function Index(props) {
         <meta property="twitter:image" content={`${t("metaImage")}`} />
         <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
       </Head>
-      <main>
-        <div className="flex flex-col justify-center items-center m-auto v-xxs:h-screen">
-          <div className="z-10 bg-white h-auto min-w-300px w-300px xl:w-500px">
+      <main className="h-full flex justify-center">
+        <div className="splash-cta fixed flex flex-col sm:justify-center sm:items-center">
+          <div className="z-10 bg-white h-auto min-w-300px w-300px xl:w-500px bg-custom-gray-index">
             <h1 className="sr-only">alpha.service.canada.ca</h1>
-            <img
-              className="h-auto w-64 container mx-auto pt-6 xl:w-2/3 xl:mx-0 xl:px-6"
-              src={"/sig-blk-en.svg"}
-              alt={"Government of Canada / Gouvernement du Canada"}
-            />
+            <div className="p-4">
+              <Image
+                src={"/sig-blk-en.svg"}
+                alt={"Government of Canada / Gouvernement du Canada"}
+                width="300"
+                height="35"
+              />
+            </div>
             <div className="flex w-max container mx-auto py-6 font-display">
               <h2
                 className="text-p text-right xl:text-h4 mr-6 w-32 xl:w-40"
@@ -149,17 +146,15 @@ export default function Index(props) {
                 id="english-button"
                 text="English"
                 lang="en"
-                className="text-center text-sm w-7.5rem xl:w-138px py-3.5 mr-6 rounded leading-3"
-                href="/home"
-                onClick={setLanguage}
+                className="text-center text-sm w-7.5rem xl:w-138px mr-6 rounded"
+                href="/en/home"
               />
               <ActionButton
                 id="french-button"
                 text="Français"
-                className="text-center w-7.5rem xl:w-138px text-sm py-3.5 rounded leading-3"
+                className="text-center w-7.5rem xl:w-138px text-sm py-3.5 rounded"
                 href="/fr/accueil"
                 lang="fr"
-                onClick={setLanguage}
               />
             </div>
           </div>
@@ -179,15 +174,16 @@ export default function Index(props) {
                 </a>
               </Link>
             </div>
-            <img
-              className="h-auto w-24 xl:w-28"
+            <Image
               src="/wmms-blk.svg"
               alt="Symbol of the Government of Canada / Symbole du gouvernement du Canada"
+              width="150"
+              height="25"
             />
           </div>
         </div>
       </main>
-      {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+      {props.adobeAnalyticsUrl ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
       ) : (
         ""
@@ -199,6 +195,7 @@ export default function Index(props) {
 export const getStaticProps = async ({ locale }) => ({
   props: {
     locale: locale,
+    adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
     ...(await serverSideTranslations(locale, ["common"])),
   },
 });

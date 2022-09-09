@@ -1,0 +1,135 @@
+import React from "react";
+import PropTypes from "prop-types";
+import Link from "next/link";
+import { ActionButton } from "../atoms/ActionButton";
+import Image from "next/image";
+
+/**
+ * Displays an experiment card on the page
+ */
+
+export const Card = (props) => {
+  const tagColours = {
+    current_projects: "custom-green",
+    past_projects: "custom-gray",
+    upcoming_projects: "custom-blue",
+  };
+
+  return (
+    <div
+      className={`${
+        props.isExperiment ? "shadow-experiment-shadow -ml-8" : ""
+      } xl:min-h-250px ${
+        "border-" + (tagColours[props.tag] || "gray-experiment")
+      } min-w-full`}
+      data-testid={props.dataTestId}
+      data-cy={props.dataCy}
+      style={{
+        maxWidth: "560px",
+      }}
+    >
+      <div className="mb-4">
+        <Image
+          src={props.imgSrc}
+          alt={props.imgAlt}
+          height={props.imgHeight}
+          width={props.imgWidth}
+          layout="responsive"
+          priority={props.priority}
+        />
+      </div>
+      <h2>
+        {props.isExperiment ? (
+          <Link href={props.href}>
+            <a
+              className="flex block text-p text-custom-blue-projects-link underline hover:opacity-70 px-4 items-center"
+              tabIndex="0"
+            >
+              {props.title}
+              {props.href.substring(0, 8) === "https://" ? (
+                <div className="h-4 w-4 ml-1 mt-1 relative">
+                  <Image
+                    src={props.icon}
+                    alt={props.iconAlt}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
+              ) : undefined}
+            </a>
+          </Link>
+        ) : (
+          props.title
+        )}
+      </h2>
+      {props.isExperiment ? (
+        <span
+          className={`block w-max py-2 px-2 my-4 font-body font-bold border-l-4 ml-4 ${
+            "border-" + (tagColours[props.tag] || "gray-experiment") + "-darker"
+          } ${
+            "bg-" + (tagColours[props.tag] || "gray-experiment") + "-lighter"
+          }`}
+        >
+          {props.tagLabel}
+        </span>
+      ) : undefined}
+      <p
+        className={`${
+          props.isExperiment ? "ml-4 mb-4" : ""
+        } mt-2 leading-30px text-lg`}
+      >
+        {props.description}
+      </p>
+      {!props.isExperiment ? (
+        <span className="flex">
+          <ActionButton
+            href={props.btnHref}
+            text={props.btnText}
+            id={props.btnId}
+            dataCy={props.btnId}
+            className="rounded xxs:w-full xs:w-fit my-4 py-2 bg-[#EAEBED] text-custom-blue-text focus:ring-inset focus:ring-2 focus:ring-black hover:bg-details-button-hover-gray text-center border border-details-button-gray"
+          />
+        </span>
+      ) : undefined}
+    </div>
+  );
+};
+
+Card.propTypes = {
+  /**
+   * Title of the experiment card.
+   */
+  title: PropTypes.string.isRequired,
+
+  /**
+   * tag of the experiment card
+   */
+  tag: PropTypes.string,
+
+  /**
+   * Link of the card
+   */
+  href: PropTypes.string,
+
+  /**
+   * the label of the tag card
+   */
+  tagLabel: PropTypes.string,
+
+  /**
+   * Description of the experiment card.
+   */
+  description: PropTypes.string.isRequired,
+
+  /**
+   * the test id for unit tests
+   */
+  dataTestId: PropTypes.string,
+
+  /**
+   * the test id for cypress test
+   */
+  dataCy: PropTypes.string,
+};
+
+export default Card;

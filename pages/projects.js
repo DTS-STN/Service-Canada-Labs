@@ -3,25 +3,22 @@ import { useEffect, useState } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
-import { Experiment } from "../components/molecules/Experiment";
+import { Card } from "../components/molecules/Card";
 import { Filter } from "../components/molecules/Filter";
 import { CallToAction } from "../components/molecules/CallToAction";
-import strapiServiceInstance from "./api/StrapiServiceInstance";
-import ReactMarkdown from "react-markdown";
+import queryGraphQL from "../graphql/client";
+import getAllProjects from "../graphql/queries/projectQuery.graphql";
+import getProjectsPage from "../graphql/queries/projectsPageQuery.graphql";
+import Image from "next/image";
+import { Alert } from "../components/atoms/Alert";
 
 export default function Projects(props) {
   const { t } = useTranslation("common");
   const [filter, setFilter] = useState("all");
-  const pageContent = props.pageContent.filter(
-    (content) => content.attributes.locale === props.locale
-  );
-  const experimentData = props.experimentData.filter(
-    (experiment) => experiment.attributes.locale === props.locale
-  );
+  const [pageData] = useState(props.pageData.item);
+  const [experimentData] = useState(props.experimentData.items);
   const [filteredExperiments, setFilteredExperiments] = useState(
-    props.experimentData.filter(
-      (experiment) => experiment.attributes.locale === props.locale
-    )
+    props.experimentData.items
   );
 
   // get the filters from the data
@@ -41,14 +38,14 @@ export default function Projects(props) {
       setFilter(value);
       setFilteredExperiments(
         experimentData.filter(
-          (experiment) => experiment.attributes.Status === value
+          (experiment) => experiment.scLabProjectStatus[0] === value
         )
       );
     }
   };
 
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
+    if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
@@ -56,169 +53,277 @@ export default function Projects(props) {
 
   return (
     <>
-      {pageContent &&
-        pageContent.map((content, index) => (
-          <Layout
-            locale={props.locale}
-            langUrl={content.attributes.url}
-            breadcrumbItems={[
-              {
-                text: content.attributes.navigation.sclabsTitle,
-                link: content.attributes.navigation.home,
-              },
-            ]}
-            key={index}
-          >
-            <Head>
-              {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
-                <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
-              ) : (
-                ""
-              )}
+      <Layout
+        locale={props.locale}
+        langUrl={
+          props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
+        }
+        breadcrumbItems={[
+          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
+        ]}
+      >
+        <Head>
+          {props.adobeAnalyticsUrl ? (
+            <script src={props.adobeAnalyticsUrl} />
+          ) : (
+            ""
+          )}
 
-              {/* Primary HTML Meta Tags */}
-              <title>{`${t("projectsTitle")} — ${t("siteTitle")}`}</title>
-              <meta
-                name="title"
-                content={`${t("projectsTitle")} — ${t("siteTitle")}`}
-              />
-              <meta name="description" content={t("projectsMetaDescription")} />
-              <meta name="author" content="Service Canada" />
-              <link rel="icon" href="/favicon.ico" />
-              <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
-              <meta name="keywords" content={t("homeKeywords")} />
+          {/* Primary HTML Meta Tags */}
+          <title>{`${t("projectsTitle")} — ${t("siteTitle")}`}</title>
+          <meta
+            name="title"
+            content={`${t("projectsTitle")} — ${t("siteTitle")}`}
+          />
+          <meta name="description" content={t("projectsMetaDescription")} />
+          <meta name="author" content="Service Canada" />
+          <link rel="icon" href="/favicon.ico" />
+          <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+          <meta name="keywords" content={t("homeKeywords")} />
 
-              {/* DCMI Meta Tags */}
-              <meta
-                name="dcterms.title"
-                content={`${t("projectsTitle")} — ${t("siteTitle")}`}
-              />
-              <meta
-                name="dcterms.language"
-                content={props.locale === "en" ? "eng" : "fra"}
-                title="ISO639-2/T"
-              />
-              <meta
-                name="dcterms.description"
-                content={t("projectsMetaDescription")}
-              />
-              <meta
-                name="dcterms.subject"
-                title="gccore"
-                content={t("metaSubject")}
-              />
-              <meta name="dcterms.creator" content="Service Canada" />
-              <meta name="dcterms.accessRights" content="2" />
-              <meta
-                name="dcterms.service"
-                content="ESDC-EDSC_SCLabs-LaboratoireSC"
-              />
-              <meta name="dcterms.issued" content="2021-04-22" />
-              <meta
-                name="dcterms.modified"
-                title="W3CDTF"
-                content="2021-12-16"
-              />
-              <meta name="dcterms.spatial" title="W3CDTF" content="Canada" />
+          {/* DCMI Meta Tags */}
+          <meta
+            name="dcterms.title"
+            content={`${t("projectsTitle")} — ${t("siteTitle")}`}
+          />
+          <meta
+            name="dcterms.language"
+            content={props.locale === "en" ? "eng" : "fra"}
+            title="ISO639-2/T"
+          />
+          <meta
+            name="dcterms.description"
+            content={t("projectsMetaDescription")}
+          />
+          <meta
+            name="dcterms.subject"
+            title="gccore"
+            content={t("metaSubject")}
+          />
+          <meta name="dcterms.creator" content="Service Canada" />
+          <meta name="dcterms.accessRights" content="2" />
+          <meta
+            name="dcterms.service"
+            content="ESDC-EDSC_SCLabs-LaboratoireSC"
+          />
+          <meta name="dcterms.issued" content="2021-04-22" />
+          <meta name="dcterms.modified" title="W3CDTF" content="2021-12-16" />
+          <meta name="dcterms.spatial" title="W3CDTF" content="Canada" />
 
-              {/* Open Graph / Facebook */}
-              <meta property="og:type" content="website" />
-              <meta property="og:locale" content={props.locale} />
-              <meta
-                property="og:url"
-                content={
-                  "https://alpha.service.canada.ca/" +
-                  `${props.locale}` +
-                  `${t("projectRedirect")}`
-                }
-              />
-              <meta
-                property="og:title"
-                content={`${t("projectsTitle")} — ${t("siteTitle")}`}
-              />
-              <meta
-                property="og:description"
-                content={`${t("projectsMetaDescription")}`}
-              />
-              <meta property="og:image" content={`${t("metaImage")}`} />
-              <meta property="og:image:alt" content={`${t("siteTitle")}`} />
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="website" />
+          <meta property="og:locale" content={props.locale} />
+          <meta
+            property="og:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("projectRedirect")}`
+            }
+          />
+          <meta
+            property="og:title"
+            content={`${t("projectsTitle")} — ${t("siteTitle")}`}
+          />
+          <meta
+            property="og:description"
+            content={`${t("projectsMetaDescription")}`}
+          />
+          <meta property="og:image" content={`${t("metaImage")}`} />
+          <meta property="og:image:alt" content={`${t("siteTitle")}`} />
 
-              {/* Twitter */}
-              <meta property="twitter:card" content="summary_large_image" />
-              <meta
-                property="twitter:url"
-                content={
-                  "https://alpha.service.canada.ca/" +
-                  `${props.locale}` +
-                  `${t("projectRedirect")}`
-                }
-              />
-              <meta
-                property="twitter:title"
-                content={`${t("projectsTitle")} — ${t("siteTitle")}`}
-              />
-              <meta name="twitter:creator" content="Service Canada" />
-              <meta
-                property="twitter:description"
-                content={`${t("projectsMetaDescription")}`}
-              />
-              <meta property="twitter:image" content={`${t("metaImage")}`} />
-              <meta
-                property="twitter:image:alt"
-                content={`${t("siteTitle")}`}
-              />
-            </Head>
-            <section className="layout-container mb-10">
-              <h1 id="pageMainTitle" tabIndex="-1" className="flex-wrap mb-10">
-                {content.attributes.textField[0].heading}
-              </h1>
-              <ReactMarkdown
-                parserOptions={{ commonmark: true }}
-                className="mb-6 text-sm lg:text-p"
-              >
-                {content.attributes.textField[0].paragraph}
-              </ReactMarkdown>
-              <p dangerouslySetInnerHTML={{ __html: t("projectSignup") }}></p>
-              <p className="mt-4 mb-10">
-                <strong>{content.attributes.textField[1].paragraph}</strong>
+          {/* Twitter */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta
+            property="twitter:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("projectRedirect")}`
+            }
+          />
+          <meta
+            property="twitter:title"
+            content={`${t("projectsTitle")} — ${t("siteTitle")}`}
+          />
+          <meta name="twitter:creator" content="Service Canada" />
+          <meta
+            property="twitter:description"
+            content={`${t("projectsMetaDescription")}`}
+          />
+          <meta property="twitter:image" content={`${t("metaImage")}`} />
+          <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
+        </Head>
+        <section className="layout-container mb-10">
+          <h1 id="pageMainTitle" tabIndex="-1" className="flex-wrap mb-2">
+            {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
+          </h1>
+          <div className="lg:flex">
+            <span className="w-full py-4">
+              <p>
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[0].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[0].content[0]
+                      .value}
               </p>
-              <Filter
-                label={content.attributes.textField[2].heading}
-                options={filters}
-                onChange={handleFilter}
-                dataCy={"filter-projects"}
+              <p className="my-4">
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[1].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[1].content[0]
+                      .value}
+              </p>
+            </span>
+            <span
+              className="block mt-4 lg:ml-8 lg:w-3/4"
+              style={{ maxWidth: "453px" }}
+              role="presentation"
+            >
+              <Image
+                src={pageData.scFragments[2].scImageEn._publishUrl}
+                alt=""
+                height={
+                  props.locale === "en"
+                    ? pageData.scFragments[2].scImageEn.height
+                    : pageData.scFragments[2].scImageFr.height
+                }
+                width={
+                  props.locale === "en"
+                    ? pageData.scFragments[2].scImageEn.width
+                    : pageData.scFragments[2].scImageFr.width
+                }
+                layout="responsive"
               />
-              <ul
-                className="grid gap-y-5 lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12"
-                data-cy="projects-list"
-              >
-                {filteredExperiments &&
-                  filteredExperiments.map((experiment) => (
-                    <li key={experiment.id} className="flex items-stretch">
-                      <Experiment
-                        title={experiment.attributes.Title}
-                        tag={experiment.attributes.Status}
-                        tagLabel={t(experiment.attributes.Status)}
-                        description={experiment.attributes.Description}
-                        href={experiment.attributes.Link}
-                        dataTestId={`${experiment.id}`}
-                        dataCy={`${experiment.id}`}
-                      />
-                    </li>
-                  ))}
-              </ul>
-            </section>
-            <CallToAction
-              title={content.attributes.callToAction.title}
-              html={t("becomeAParticipantDescription")}
-              lang={props.locale}
-              href={content.attributes.callToAction.href}
-              hrefText={content.attributes.callToAction.text}
-            />
-          </Layout>
-        ))}
-
-      {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+            </span>
+          </div>
+          <h2 className="mt-8">
+            {props.locale === "en"
+              ? pageData.scFragments[1].scContentEn.json[0].content[0].value
+              : pageData.scFragments[1].scContentFr.json[0].content[0].value}
+          </h2>
+          <Alert
+            title={
+              props.locale === "en"
+                ? pageData.scFragments[4].scTitleEn
+                : pageData.scFragments[4].scTitleFr
+            }
+            text={
+              props.locale === "en" ? (
+                <>
+                  {pageData.scFragments[4].scContentEn.json[0].content[0].value}
+                  <a
+                    className="underline text-canada-footer-font hover:text-canada-footer-hover-font-blue"
+                    href={
+                      pageData.scFragments[4].scContentEn.json[0].content[1]
+                        .data.href
+                    }
+                  >
+                    {
+                      pageData.scFragments[4].scContentEn.json[0].content[1]
+                        .value
+                    }
+                  </a>
+                </>
+              ) : (
+                <>
+                  {pageData.scFragments[4].scContentFr.json[0].content[0].value}
+                  <a
+                    className="underline text-canada-footer-font hover:text-canada-footer-hover-font-blue"
+                    href={
+                      pageData.scFragments[4].scContentFr.json[0].content[1]
+                        .data.href
+                    }
+                  >
+                    {
+                      pageData.scFragments[4].scContentFr.json[0].content[1]
+                        .value
+                    }
+                  </a>
+                </>
+              )
+            }
+          />
+          <p>
+            {props.locale === "en"
+              ? pageData.scFragments[1].scContentEn.json[1].content[0].value
+              : pageData.scFragments[1].scContentFr.json[1].content[0].value}
+          </p>
+          <Filter
+            label={t("filterBy")}
+            options={filters}
+            onChange={handleFilter}
+            dataCy={"filter-projects"}
+          />
+          <ul
+            className="grid gap-y-0 lg:grid-cols-2 lg:gap-x-11 lg:gap-y-4"
+            data-cy="projects-list"
+          >
+            {filteredExperiments.map((experiment) => (
+              <li key={experiment.scId} className="flex items-stretch">
+                <Card
+                  title={
+                    props.locale === "en"
+                      ? experiment.scTitleEn
+                      : experiment.scTitleFr
+                  }
+                  tag={
+                    experiment.scLabProjectStatus[0] ===
+                    "gc:custom/decd-endc/project-status/current"
+                      ? "current_projects"
+                      : experiment.scLabProjectStatus[0] ===
+                        "gc:custom/decd-endc/project-status/upcoming"
+                      ? "upcoming_projects"
+                      : "past_projects"
+                  }
+                  tagLabel={t(
+                    experiment.scLabProjectStatus[0] ===
+                      "gc:custom/decd-endc/project-status/current"
+                      ? "current_projects"
+                      : experiment.scLabProjectStatus[0] ===
+                        "gc:custom/decd-endc/project-status/upcoming"
+                      ? "upcoming_projects"
+                      : "past_projects"
+                  )}
+                  description={
+                    props.locale === "en"
+                      ? experiment.scContentEn.json[0].content[0].value
+                      : experiment.scContentFr.json[0].content[0].value
+                  }
+                  href={
+                    props.locale === "en"
+                      ? experiment.scDestinationURLEn
+                      : experiment.scDestinationURLFr
+                  }
+                  dataTestId={`${experiment.scId}`}
+                  dataCy={`${experiment.scId}`}
+                  isExperiment
+                  imgSrc="/placeholder.png"
+                  //Eventually this alt text will change as we provide unique images for each project
+                  imgAlt="placeholder"
+                  //Manually entered width and height for now, will eventually take these values from AEM image data
+                  imgHeight={290}
+                  imgWidth={547}
+                  icon={pageData.scFragments[3].scImageEn._publishUrl}
+                  iconAlt={
+                    props.locale === "en"
+                      ? pageData.scFragments[3].scImageAltTextEn
+                      : pageData.scFragments[3].scImageAltTextFr
+                  }
+                  priority
+                />
+              </li>
+            ))}
+          </ul>
+        </section>
+        <CallToAction
+          title={t("signupHomeButton")}
+          description={t("signupBannerDescription")}
+          disclaimer={t("signupBannerDisclaimer")}
+          lang={props.locale}
+          href={t("signupInfoRedirect")}
+          hrefText={t("signupBannerBtnText")}
+        />
+      </Layout>
+      {props.adobeAnalyticsUrl ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
       ) : (
         ""
@@ -228,27 +333,32 @@ export default function Projects(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  const query1 = "/experiments?locale=all";
-  const query2 = "/page-contents?populate=%2A&locale=all";
+  // get page data and experiments data from AEM
+  const res1 = await queryGraphQL(getAllProjects).then((result) => {
+    return result;
+  });
+  const res2 = await queryGraphQL(getProjectsPage).then((result) => {
+    return result;
+  });
 
-  // get page content and experiment data from stapi service instance
-  const res1 = await strapiServiceInstance.getFragment(query1);
-  const res2 = await strapiServiceInstance.getFragment(query2);
+  const experimentsData = res1.data.sCLabsProjectList;
 
-  const experiments = res1.data.data;
-  const pageContent = res2.data.data;
-
-  const projectPage = pageContent.filter(
-    (content) => content.attributes.title === "projects"
-  );
+  const pageData = res2.data.sCLabsPageByPath;
 
   const filters = Object.values(
-    experiments.reduce(
-      (filters, { attributes }) => {
-        if (!filters[attributes.Status]) {
-          filters[attributes.Status] = {
-            id: attributes.Status,
-            label: attributes.Status,
+    experimentsData.items.reduce(
+      (filters, { scLabProjectStatus }) => {
+        if (!filters[scLabProjectStatus]) {
+          filters[scLabProjectStatus] = {
+            id: scLabProjectStatus[0],
+            label:
+              scLabProjectStatus[0] ===
+              "gc:custom/decd-endc/project-status/current"
+                ? "current_projects"
+                : scLabProjectStatus[0] ===
+                  "gc:custom/decd-endc/project-status/upcoming"
+                ? "upcoming_projects"
+                : "past_projects",
             checked: false,
           };
         }
@@ -264,13 +374,14 @@ export const getStaticProps = async ({ locale }) => {
     )
   );
 
-  return process.env.NEXT_PUBLIC_ISR_ENABLED
+  return process.env.ISR_ENABLED
     ? {
         props: {
           locale: locale,
+          adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
           ...(await serverSideTranslations(locale, ["common"])),
-          experimentData: experiments,
-          pageContent: projectPage,
+          experimentData: experimentsData,
+          pageData: pageData,
           filters,
         },
         revalidate: 60, // revalidate once an minute
@@ -278,9 +389,10 @@ export const getStaticProps = async ({ locale }) => {
     : {
         props: {
           locale: locale,
+          adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
           ...(await serverSideTranslations(locale, ["common"])),
-          experimentData: experiments,
-          pageContent: projectPage,
+          experimentData: experimentsData,
+          pageData: pageData,
           filters,
         },
       };

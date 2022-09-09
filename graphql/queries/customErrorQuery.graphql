@@ -1,0 +1,52 @@
+query getCustomErrorPage {
+  scLabsErrorPageByPath(
+    _path: "/content/dam/decd-endc/content-fragments/alpha/sclabs/pages/custom-error-page"
+  ) {
+    item {
+      scGcImages {
+        ... on SCLabsImageModel {
+          scId
+          scImageEn {
+            ... on DocumentRef {
+              _path
+            }
+          }
+          scImageAltTextEn
+          scImageFr {
+            ... on DocumentRef {
+              _path
+            }
+          }
+          scImageAltTextFr
+        }
+      }
+      scImageList {
+        ... on SCLabsImageModel {
+          scId
+          scImageEn {
+            ... on DocumentRef {
+              _path
+            }
+            ... on ImageRef {
+              _path
+            }
+          }
+          scImageFr {
+            ... on DocumentRef {
+              _path
+            }
+            ... on ImageRef {
+              _path
+            }
+          }
+        }
+      }
+      scContentEn {
+        json
+      }
+      scContentFr {
+        json
+      }
+    }
+  }
+}

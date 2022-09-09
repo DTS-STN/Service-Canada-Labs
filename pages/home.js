@@ -2,20 +2,19 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
-import { CallToAction } from "../components/molecules/CallToAction";
 import { ActionButton } from "../components/atoms/ActionButton";
-import { useEffect } from "react";
-import strapiServiceInstance from "./api/StrapiServiceInstance";
-import ReactMarkdown from "react-markdown";
+import { useEffect, useState } from "react";
+import Card from "../components/molecules/Card";
+import queryGraphQL from "../graphql/client";
+import getHomePage from "../graphql/queries/homePageQuery.graphql";
+import Image from "next/image";
 
 export default function Home(props) {
   const { t } = useTranslation("common");
-  const contents = props.data.filter(
-    (data) => data.attributes.locale === props.locale
-  );
+  const [pageData] = useState(props.pageData.item);
 
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
+    if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
@@ -23,152 +22,243 @@ export default function Home(props) {
 
   return (
     <>
-      {contents.map((content, index) => (
-        <Layout
-          bannerTitle={content.attributes.banner.title}
-          bannerText={content.attributes.banner.description}
-          locale={props.locale}
-          langUrl={content.attributes.url}
-          key={index}
-        >
-          <Head>
-            {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
-              <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
-            ) : (
-              ""
-            )}
+      <Layout
+        locale={props.locale}
+        langUrl={t("homePath")}
+        dateModifiedOverride={pageData.scDateModifiedOverwrite}
+      >
+        <Head>
+          {props.adobeAnalyticsUrl ? (
+            <script src={props.adobeAnalyticsUrl} />
+          ) : (
+            ""
+          )}
 
-            {/* Primary HTML Meta Tags */}
-            <title>{`${t("scLabsHome")} — ${t("siteTitle")}`}</title>
-            <meta name="description" content={`${t("homeMetaDescription")}`} />
-            <meta name="author" content="Service Canada" />
-            <link rel="icon" href="/favicon.ico" />
-            <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
-            <meta name="keywords" content={t("homeKeywords")} />
+          {/* Primary HTML Meta Tags */}
+          <title>{`${t("scLabsHome")} — ${t("siteTitle")}`}</title>
+          <meta name="description" content={`${t("homeMetaDescription")}`} />
+          <meta name="author" content="Service Canada" />
+          <link rel="icon" href="/favicon.ico" />
+          <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+          <meta name="keywords" content={t("homeKeywords")} />
 
-            {/* DCMI Meta Tags */}
-            <meta
-              name="dcterms.title"
-              content={`${t("scLabsHome")} — ${t("siteTitle")}`}
-            />
-            <meta
-              name="dcterms.language"
-              content={props.locale === "en" ? "eng" : "fra"}
-              title="ISO639-2/T"
-            />
-            <meta
-              name="dcterms.description"
-              content={t("homeMetaDescription")}
-            />
-            <meta
-              name="dcterms.subject"
-              title="gccore"
-              content={t("metaSubject")}
-            />
-            <meta name="dcterms.creator" content="Service Canada" />
-            <meta name="dcterms.accessRights" content="2" />
-            <meta
-              name="dcterms.service"
-              content="ESDC-EDSC_SCLabs-LaboratoireSC"
-            />
-            <meta name="dcterms.issued" title="W3CDTF" content="2021-03-18" />
-            <meta name="dcterms.modified" title="W3CDTF" content="2021-12-16" />
-            <meta name="dcterms.spatial" content="Canada" />
-
-            {/* Open Graph / Facebook */}
-            <meta property="og:type" content="website" />
-            <meta property="og:locale" content={props.locale} />
-            <meta
-              property="og:url"
-              content={
-                "https://alpha.service.canada.ca/" +
-                `${props.locale}` +
-                `${t("homeMetaPath")}`
-              }
-            />
-            <meta
-              property="og:title"
-              content={`${t("scLabsHome")} — ${t("siteTitle")}`}
-            />
-            <meta
-              property="og:description"
-              content={`${t("homeMetaDescription")}`}
-            />
-            <meta property="og:image" content={`${t("metaImage")}`} />
-            <meta property="og:image:alt" content={`${t("siteTitle")}`} />
-
-            {/* Twitter */}
-            <meta property="twitter:card" content="summary_large_image" />
-            <meta
-              property="twitter:url"
-              content={
-                "https://alpha.service.canada.ca/" +
-                `${props.locale}` +
-                `${t("homeMetaPath")}`
-              }
-            />
-            <meta
-              property="twitter:title"
-              content={`${t("scLabsHome")} — ${t("siteTitle")}`}
-            />
-            <meta name="twitter:creator" content="Service Canada" />
-            <meta
-              property="twitter:description"
-              content={`${t("homeMetaDescription")}`}
-            />
-            <meta property="twitter:image" content={`${t("metaImage")}`} />
-            <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
-          </Head>
-          <section className="layout-container my-12">
-            <div className="xl:w-2/3">
-              <ActionButton
-                href={content.attributes.actionButton[0].href}
-                id="signup-home-page"
-                dataCy="signup-home-page"
-                className="rounded !px-6 !py-4 font-bold text-center inline-block"
-              >
-                {content.attributes.actionButton[0].text}
-              </ActionButton>
-              <h2 className="my-8">
-                {content.attributes.textField[0].heading}
-              </h2>
-              <ReactMarkdown
-                parserOptions={{ commonmark: true }}
-                className="mb-6 text-sm lg:text-p"
-              >
-                {content.attributes.textField[0].paragraph}
-              </ReactMarkdown>
-            </div>
-            <div className="flex flex-col gap-6 lg:gap-10 lg:flex-row ">
-              <ActionButton
-                href={content.attributes.actionButton[1].href}
-                text={content.attributes.actionButton[1].text}
-                id="ProjectsButton"
-                dataCy="ProjectsButton"
-                className="flex py-2 !px-6 justify-center font-bold rounded"
-                secondary
-              />
-              <ActionButton
-                href={content.attributes.actionButton[2].href}
-                text={content.attributes.actionButton[2].text}
-                id="AboutButton"
-                dataCy="AboutButton"
-                className="flex py-2 !px-6 justify-center font-bold rounded"
-                secondary
-              />
-            </div>
-          </section>
-          <CallToAction
-            title={content.attributes.callToAction.title}
-            html={t("becomeAParticipantDescription")}
-            lang={props.locale}
-            href={content.attributes.callToAction.href}
-            hrefText={content.attributes.callToAction.text}
+          {/* DCMI Meta Tags */}
+          <meta
+            name="dcterms.title"
+            content={`${t("scLabsHome")} — ${t("siteTitle")}`}
           />
-        </Layout>
-      ))}
+          <meta
+            name="dcterms.language"
+            content={props.locale === "en" ? "eng" : "fra"}
+            title="ISO639-2/T"
+          />
+          <meta name="dcterms.description" content={t("homeMetaDescription")} />
+          <meta
+            name="dcterms.subject"
+            title="gccore"
+            content={t("metaSubject")}
+          />
+          <meta name="dcterms.creator" content="Service Canada" />
+          <meta name="dcterms.accessRights" content="2" />
+          <meta
+            name="dcterms.service"
+            content="ESDC-EDSC_SCLabs-LaboratoireSC"
+          />
+          <meta name="dcterms.issued" title="W3CDTF" content="2021-03-18" />
+          <meta name="dcterms.modified" title="W3CDTF" content="2021-12-16" />
+          <meta name="dcterms.spatial" content="Canada" />
 
-      {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="website" />
+          <meta property="og:locale" content={props.locale} />
+          <meta
+            property="og:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("homeMetaPath")}`
+            }
+          />
+          <meta
+            property="og:title"
+            content={`${t("scLabsHome")} — ${t("siteTitle")}`}
+          />
+          <meta
+            property="og:description"
+            content={`${t("homeMetaDescription")}`}
+          />
+          <meta property="og:image" content={`${t("metaImage")}`} />
+          <meta property="og:image:alt" content={`${t("siteTitle")}`} />
+
+          {/* Twitter */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta
+            property="twitter:url"
+            content={
+              "https://alpha.service.canada.ca/" +
+              `${props.locale}` +
+              `${t("homeMetaPath")}`
+            }
+          />
+          <meta
+            property="twitter:title"
+            content={`${t("scLabsHome")} — ${t("siteTitle")}`}
+          />
+          <meta name="twitter:creator" content="Service Canada" />
+          <meta
+            property="twitter:description"
+            content={`${t("homeMetaDescription")}`}
+          />
+          <meta property="twitter:image" content={`${t("metaImage")}`} />
+          <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
+        </Head>
+        <section className="layout-container mb-12 mt-8">
+          <h1
+            className="font-display pb-4 text-h1xl font-bold"
+            tabIndex="-1"
+            id="pageMainTitle"
+          >
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[0].content[0].value
+              : pageData.scFragments[0].scContentFr.json[0].content[0].value}
+          </h1>
+          <p className="font-body">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[1].content[0].value
+              : pageData.scFragments[0].scContentFr.json[1].content[0].value}
+          </p>
+          <h2 className="mt-12 mb-6 text-h1l">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[2].content[0].value
+              : pageData.scFragments[0].scContentFr.json[2].content[0].value}
+          </h2>
+          <div className="mb-20 lg:flex">
+            <span className="w-full py-4">
+              <p className="mt-6">
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[3].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[3].content[0]
+                      .value}{" "}
+              </p>
+              <br />
+              <span className="flex pt-12">
+                <ActionButton
+                  href={
+                    props.locale === "en"
+                      ? pageData.scFragments[2].scDestinationURLEn
+                      : pageData.scFragments[2].scDestinationURLFr
+                  }
+                  text={
+                    props.locale === "en"
+                      ? pageData.scFragments[2].scTitleEn
+                      : pageData.scFragments[2].scTitleFr
+                  }
+                  id={pageData.scFragments[2].scId}
+                  dataCy="AboutButton"
+                />
+              </span>
+            </span>
+            <span
+              className="relative hidden lg:flex w-full mt-4 lg:ml-8"
+              style={{ height: "316px", width: "452px", minWidth: "452px" }}
+              role="presentation"
+            >
+              <Image
+                src={
+                  props.locale === "en"
+                    ? pageData.scFragments[1].scImageEn._publishUrl
+                    : pageData.scFragments[1].scImageFr._publishUrl
+                }
+                alt=""
+                layout="fill"
+                objectFit="cover"
+              />
+            </span>
+          </div>
+          <div className="xl:w-2/3"></div>
+          <div className="grid lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12">
+            <Card
+              imgSrc={
+                props.locale === "en"
+                  ? pageData.scFragments[3].scImageEn._publishUrl
+                  : pageData.scFragments[3].scImageFr._publishUrl
+              }
+              imgHeight={
+                props.locale === "en"
+                  ? pageData.scFragments[3].scImageEn.height
+                  : pageData.scFragments[3].scImageFr.height
+              }
+              imgWidth={
+                props.locale === "en"
+                  ? pageData.scFragments[3].scImageEn.width
+                  : pageData.scFragments[3].scImageFr.width
+              }
+              imgAlt=""
+              title={
+                props.locale === "en"
+                  ? pageData.scFragments[3].scTitleEn
+                  : pageData.scFragments[3].scTitleFr
+              }
+              description={
+                props.locale === "en"
+                  ? pageData.scFragments[3].scContentEn.json[0].content[0].value
+                  : pageData.scFragments[3].scContentFr.json[0].content[0].value
+              }
+              btnText={
+                props.locale === "en"
+                  ? pageData.scFragments[3].scLabsButton[0].scTitleEn
+                  : pageData.scFragments[3].scLabsButton[0].scTitleFr
+              }
+              btnHref={
+                props.locale === "en"
+                  ? pageData.scFragments[3].scLabsButton[0].scDestinationURLEn
+                  : pageData.scFragments[3].scLabsButton[0].scDestinationURLFr
+              }
+              btnId={pageData.scFragments[3].scLabsButton[0].scId}
+            />
+            <Card
+              imgSrc={
+                props.locale === "en"
+                  ? pageData.scFragments[4].scImageEn._publishUrl
+                  : pageData.scFragments[4].scImageFr._publishUrl
+              }
+              imgAlt=""
+              imgHeight={
+                props.locale === "en"
+                  ? pageData.scFragments[4].scImageEn.height
+                  : pageData.scFragments[4].scImageFr.height
+              }
+              imgWidth={
+                props.locale === "en"
+                  ? pageData.scFragments[4].scImageEn.width
+                  : pageData.scFragments[4].scImageFr.width
+              }
+              title={
+                props.locale === "en"
+                  ? pageData.scFragments[4].scTitleEn
+                  : pageData.scFragments[4].scTitleFr
+              }
+              description={
+                props.locale === "en"
+                  ? pageData.scFragments[4].scContentEn.json[0].content[0].value
+                  : pageData.scFragments[4].scContentFr.json[0].content[0].value
+              }
+              btnText={
+                props.locale === "en"
+                  ? pageData.scFragments[4].scLabsButton[0].scTitleEn
+                  : pageData.scFragments[4].scLabsButton[0].scTitleFr
+              }
+              btnHref={
+                props.locale === "en"
+                  ? pageData.scFragments[4].scLabsButton[0].scDestinationURLEn
+                  : pageData.scFragments[4].scLabsButton[0].scDestinationURLFr
+              }
+              btnId={pageData.scFragments[4].scLabsButton[0].scId}
+            />
+          </div>
+        </section>
+      </Layout>
+      {props.adobeAnalyticsUrl ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
       ) : (
         ""
@@ -178,15 +268,17 @@ export default function Home(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  const query = "/page-contents?populate=%2A&locale=all";
-  const res = await strapiServiceInstance.getFragment(query);
-  const data = res.data.data;
-  const homepage = data.filter((data) => data.attributes.title === "home");
+  // get page data from AEM
+  const res = await queryGraphQL(getHomePage).then((result) => {
+    return result;
+  });
 
+  const data = res.data.sCLabsPageByPath;
   return {
     props: {
       locale: locale,
-      data: homepage,
+      adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+      pageData: data,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };

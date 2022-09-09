@@ -5,6 +5,8 @@ import { Layout } from "../components/organisms/Layout";
 import Head from "next/head";
 import { TextButtonField } from "../components/molecules/TextButtonField";
 import { useEffect } from "react";
+import { Player, Controls } from "@lottiefiles/react-lottie-player";
+import animatedCheckmark from "../public/animatedCheckmark.json";
 
 export default function Confirmation(props) {
   const { t } = useTranslation("common");
@@ -12,7 +14,7 @@ export default function Confirmation(props) {
   const referrer = query.ref || "";
 
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
+    if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
@@ -28,8 +30,8 @@ export default function Confirmation(props) {
         ]}
       >
         <Head>
-          {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
-            <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+          {props.adobeAnalyticsUrl ? (
+            <script src={props.adobeAnalyticsUrl} />
           ) : (
             ""
           )}
@@ -159,13 +161,27 @@ export default function Confirmation(props) {
               : t("emailConfirmationTitle")}
           </h1>
           <div className="lg:flex lg:flex-row-reverse">
-            <span className="w-full flex justify-center lg:w-1/3">
-              <img
-                className="w-80px mb-10 lg:mb-0 lg:ml-24 lg:w-160px"
-                src="/circle-check.svg"
-                alt=""
-              />
-            </span>
+            <div
+              role="img"
+              aria-label={t("animatedCheckmarkAltText")}
+              className="w-full flex justify-center lg:w-1/3"
+            >
+              <Player
+                autoplay
+                keepLastFrame
+                src={animatedCheckmark}
+                alt={t("animatedCheckmarkAltText")}
+                style={{
+                  height: "248px",
+                  width: "248px",
+                }}
+              >
+                <Controls
+                  visible={false}
+                  buttons={["play", "repeat", "frame", "debug"]}
+                />
+              </Player>
+            </div>
             {referrer === "unsubscribe" ? (
               <div className="lg:w-2/3">
                 <p className="mb-4 text-sm lg:text-p leading-30px">
@@ -195,7 +211,7 @@ export default function Confirmation(props) {
           </div>
         </section>
       </Layout>
-      {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+      {props.adobeAnalyticsUrl ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
       ) : (
         ""
@@ -208,6 +224,7 @@ export const getStaticProps = async ({ locale }) => {
   return {
     props: {
       locale: locale,
+      adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };

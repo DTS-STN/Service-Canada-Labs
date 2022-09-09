@@ -2,23 +2,25 @@ import PropTypes from "prop-types";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import { HTMList } from "../../components/atoms/HTMList";
 import { Layout } from "../../components/organisms/Layout";
 import { CallToAction } from "../../components/molecules/CallToAction";
 import { useEffect, useState } from "react";
 import FeedbackWidget from "../../components/molecules/FeedbackWidget";
+import queryGraphQL from "../../graphql/client";
+import getDigitalCentrePage from "../../graphql/queries/digitalCentreQuery.graphql";
+import Image from "next/image";
 
 function ThumbnailWithCaption({
   title = "Image 1",
-  src = "https://uhdwallpapers.org/uploads/converted/20/01/14/the-mandalorian-5k-1920x1080_477555-mm-90.jpg",
-  alt = "",
+  src = "/placeholder.png",
+  alt = "placeholder",
   children,
 }) {
   return (
     <div className="flex justify-center flex-col">
       <h3 className=" mt-3">{title}</h3>
       <figure className="shadow-experiment-shadow">
-        <img src={src} alt={alt} className="border-b-2" />
+        <Image src={src} alt={alt} width={570} height={320} />
         <figcaption className="text-base p-6">{children}</figcaption>
       </figure>
     </div>
@@ -34,6 +36,8 @@ ThumbnailWithCaption.propTypes = {
 export default function DigitalCenter(props) {
   const { t } = useTranslation(["common", "dc"]);
   const [showFeedback, setShowFeedback] = useState(false);
+  const [pageData] = useState(props.pageData.item);
+
   let path =
     typeof window !== "undefined" && window.location.origin
       ? window.location.href
@@ -44,7 +48,7 @@ export default function DigitalCenter(props) {
   };
 
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
+    if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
@@ -60,7 +64,9 @@ export default function DigitalCenter(props) {
       />
       <Layout
         locale={props.locale}
-        langUrl={t("digitalCentrePath")}
+        langUrl={
+          props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
+        }
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },
@@ -69,14 +75,16 @@ export default function DigitalCenter(props) {
         projectName={t("dc:OverviewTitle")}
       >
         <Head>
-          {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
-            <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+          {props.adobeAnalyticsUrl ? (
+            <script src={props.adobeAnalyticsUrl} />
           ) : (
             ""
           )}
 
           {/* Primary HTML Meta Tags */}
-          <title>{`${t("dc:OverviewTitle")} — ${t("siteTitle")}`}</title>
+          <title>{`${
+            props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+          } — ${t("siteTitle")}`}</title>
           <meta name="description" content={`${t("dc:MetaDescription")}`} />
           <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
@@ -146,202 +154,671 @@ export default function DigitalCenter(props) {
 
         <section className="layout-container mb-10 text-lg">
           <h1 id="pageMainTitle" className="mb-10 text-h1l" tabIndex="-1">
-            {t("dc:OverviewTitle")}
+            {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
           </h1>
-          <p className="mt-3">{t("dc:ProductGoal1")}</p>
-          <p className="mt-3">{t("dc:ProductGoal2")}</p>
-          <p className="mt-3">{t("dc:ProductGoal3")}</p>
-
-          <h2 className="mt-10">{t("dc:Concept1Heading")}</h2>
-          <p className="mt-6">{t("dc:Concept1P1")}</p>
-          <p className="mt-6">{t("dc:Concept1P2")}</p>
+          <p className="mt-3">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[0].content[0].value
+              : pageData.scFragments[0].scContentFr.json[0].content[0].value}
+          </p>
+          <p className="mt-3">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[1].content[0].value
+              : pageData.scFragments[0].scContentFr.json[1].content[0].value}
+          </p>
+          <p className="mt-3">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[2].content[0].value
+              : pageData.scFragments[0].scContentFr.json[2].content[0].value}
+          </p>
+          <h2 className="mt-10">
+            {props.locale === "en"
+              ? pageData.scFragments[1].scContentEn.json[0].content[0].value
+              : pageData.scFragments[1].scContentFr.json[0].content[0].value}
+          </h2>
+          <p className="mt-6">
+            {props.locale === "en"
+              ? pageData.scFragments[1].scContentEn.json[1].content[0].value
+              : pageData.scFragments[1].scContentFr.json[1].content[0].value}
+          </p>
+          <p className="mt-6">
+            {props.locale === "en"
+              ? pageData.scFragments[1].scContentEn.json[2].content[0].value
+              : pageData.scFragments[1].scContentFr.json[2].content[0].value}
+          </p>
           <div className="mx-auto">
             <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 items-start gap-6">
               <ThumbnailWithCaption
-                title={t("dc:Concept1Img1Title")}
-                alt={t("dc:Concept1Img1Alt")}
-                src={t("dc:Concept1Img1")}
+                title={
+                  props.locale === "en"
+                    ? pageData.scFragments[5].scContentEn.json[0].content[0]
+                        .value
+                    : pageData.scFragments[5].scContentFr.json[0].content[0]
+                        .value
+                }
+                alt={
+                  props.locale === "en"
+                    ? pageData.scFragments[13].scImageAltTextEn
+                    : pageData.scFragments[13].scImageAltTextFr
+                }
+                src={`https://www.canada.ca${
+                  props.locale === "en"
+                    ? pageData.scFragments[13].scImageEn._path
+                    : pageData.scFragments[13].scImageFr._path
+                }`}
               >
-                <p className="text-base">{t("dc:Concept1Img1Caption")}</p>
-                <HTMList
-                  tag="ol"
-                  listClassName={
-                    "ml-6 mt-2 text-base list-decimal list-outside"
-                  }
-                  liClassName={"mt-1"}
-                  content={t("dc:Concept1Img1CaptionList")}
-                />
+                <p className="text-base">
+                  {props.locale === "en"
+                    ? pageData.scFragments[5].scContentEn.json[1].content[0]
+                        .value
+                    : pageData.scFragments[5].scContentFr.json[1].content[0]
+                        .value}
+                </p>
+                <ol className="ml-8">
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[5].scContentEn.json[2].content[0]
+                          .content[0].value
+                      : pageData.scFragments[5].scContentFr.json[2].content[0]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[5].scContentEn.json[2].content[1]
+                          .content[0].value
+                      : pageData.scFragments[5].scContentFr.json[2].content[1]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[5].scContentEn.json[2].content[2]
+                          .content[0].value
+                      : pageData.scFragments[5].scContentFr.json[2].content[2]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[5].scContentEn.json[2].content[3]
+                          .content[0].value
+                      : pageData.scFragments[5].scContentFr.json[2].content[3]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[5].scContentEn.json[2].content[4]
+                          .content[0].value
+                      : pageData.scFragments[5].scContentFr.json[2].content[4]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[5].scContentEn.json[2].content[5]
+                          .content[0].value
+                      : pageData.scFragments[5].scContentFr.json[2].content[5]
+                          .content[0].value}
+                  </li>
+                </ol>
               </ThumbnailWithCaption>
               <ThumbnailWithCaption
-                title={t("dc:Concept1Img2Title")}
-                alt={t("dc:Concept1Img2Alt")}
-                src={t("dc:Concept1Img2")}
+                title={
+                  props.locale === "en"
+                    ? pageData.scFragments[6].scContentEn.json[0].content[0]
+                        .value
+                    : pageData.scFragments[6].scContentFr.json[0].content[0]
+                        .value
+                }
+                alt={
+                  props.locale === "en"
+                    ? pageData.scFragments[14].scImageAltTextEn
+                    : pageData.scFragments[14].scImageAltTextFr
+                }
+                src={`https://www.canada.ca${
+                  props.locale === "en"
+                    ? pageData.scFragments[14].scImageEn._path
+                    : pageData.scFragments[14].scImageFr._path
+                }`}
               >
-                <p className="text-base">{t("dc:Concept1Img2Caption")}</p>
-                <HTMList
-                  tag="ol"
-                  listClassName={
-                    "ml-6 mt-2 text-base list-decimal list-outside"
-                  }
-                  liClassName={"mt-1"}
-                  content={t("dc:Concept1Img2CaptionList")}
-                />
+                <p className="text-base">
+                  {props.locale === "en"
+                    ? pageData.scFragments[6].scContentEn.json[1].content[0]
+                        .value
+                    : pageData.scFragments[6].scContentFr.json[1].content[0]
+                        .value}
+                </p>
+                <ol className="ml-8">
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[6].scContentEn.json[2].content[0]
+                          .content[0].value
+                      : pageData.scFragments[6].scContentFr.json[2].content[0]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[6].scContentEn.json[2].content[1]
+                          .content[0].value
+                      : pageData.scFragments[6].scContentFr.json[2].content[1]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[6].scContentEn.json[2].content[2]
+                          .content[0].value
+                      : pageData.scFragments[6].scContentFr.json[2].content[2]
+                          .content[0].value}
+                  </li>
+                </ol>
               </ThumbnailWithCaption>
               <ThumbnailWithCaption
-                title={t("dc:Concept1Img3Title")}
-                alt={t("dc:Concept1Img3Alt")}
-                src={t("dc:Concept1Img3")}
+                title={
+                  props.locale === "en"
+                    ? pageData.scFragments[7].scContentEn.json[0].content[0]
+                        .value
+                    : pageData.scFragments[7].scContentFr.json[0].content[0]
+                        .value
+                }
+                alt={
+                  props.locale === "en"
+                    ? pageData.scFragments[15].scImageAltTextEn
+                    : pageData.scFragments[15].scImageAltTextFr
+                }
+                src={`https://www.canada.ca${
+                  props.locale === "en"
+                    ? pageData.scFragments[15].scImageEn._path
+                    : pageData.scFragments[15].scImageFr._path
+                }`}
               >
-                <p className="text-base">{t("dc:Concept1Img3Caption")}</p>
-                <HTMList
-                  tag="ol"
-                  listClassName={
-                    "ml-6 mt-2 text-base list-decimal list-outside"
-                  }
-                  liClassName={"mt-1"}
-                  content={t("dc:Concept1Img3CaptionList")}
-                />
+                <p className="text-base">
+                  {props.locale === "en"
+                    ? pageData.scFragments[7].scContentEn.json[1].content[0]
+                        .value
+                    : pageData.scFragments[7].scContentFr.json[1].content[0]
+                        .value}
+                </p>
+                <ol className="ml-8">
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[7].scContentEn.json[2].content[0]
+                          .content[0].value
+                      : pageData.scFragments[7].scContentFr.json[2].content[0]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[7].scContentEn.json[2].content[1]
+                          .content[0].value
+                      : pageData.scFragments[7].scContentFr.json[2].content[1]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[7].scContentEn.json[2].content[2]
+                          .content[0].value
+                      : pageData.scFragments[7].scContentFr.json[2].content[2]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[7].scContentEn.json[2].content[3]
+                          .content[0].value
+                      : pageData.scFragments[7].scContentFr.json[2].content[3]
+                          .content[0].value}
+                  </li>
+                </ol>
               </ThumbnailWithCaption>
             </div>
           </div>
 
-          <h2 className="mt-10">{t("dc:Concept2Heading")}</h2>
-          <p className="mt-6">{t("dc:Concept2P1")}</p>
-          <ol className="mt-4 ml-8  list-decimal list-outside">
+          <h2 className="mt-10">
+            {props.locale === "en"
+              ? pageData.scFragments[2].scContentEn.json[0].content[0].value
+              : pageData.scFragments[2].scContentFr.json[0].content[0].value}
+          </h2>
+          <p className="mt-6">
+            {props.locale === "en"
+              ? pageData.scFragments[2].scContentEn.json[1].content[0].value
+              : pageData.scFragments[2].scContentFr.json[1].content[0].value}
+          </p>
+          <ol className="mt-4 ml-8 list-decimal list-outside">
             <li className="mt-1">
               <a
-                href={t("dc:Concept2P2Href1")}
+                href={
+                  props.locale === "en"
+                    ? pageData.scFragments[2].scContentEn.json[2].content[0]
+                        .content[0].data.href
+                    : pageData.scFragments[2].scContentFr.json[2].content[0]
+                        .content[0].data.href
+                }
                 target="_blank"
                 rel="noopener"
                 className="font-body hover:text-canada-footer-hover-font-blue text-custom-blue-projects-link visited:text-purple-700 underline "
               >
-                {t("dc:Concept2P2Link1")}
+                {props.locale === "en"
+                  ? pageData.scFragments[2].scContentEn.json[2].content[0]
+                      .content[0].value
+                  : pageData.scFragments[2].scContentFr.json[2].content[0]
+                      .content[0].value}
               </a>{" "}
-              {t("dc:Concept2P2Li1")}
+              {props.locale === "en"
+                ? pageData.scFragments[2].scContentEn.json[2].content[0]
+                    .content[1].value
+                : pageData.scFragments[2].scContentFr.json[2].content[0]
+                    .content[1].value}
             </li>
             <li className="mt-1">
               <a
-                href={t("dc:Concept2P2Href2")}
+                href={
+                  props.locale === "en"
+                    ? pageData.scFragments[2].scContentEn.json[2].content[1]
+                        .content[0].data.href
+                    : pageData.scFragments[2].scContentFr.json[2].content[1]
+                        .content[0].data.href
+                }
                 target="_blank"
                 rel="noopener"
                 className="font-body hover:text-canada-footer-hover-font-blue text-custom-blue-projects-link visited:text-purple-700 underline "
               >
-                {t("dc:Concept2P2Link2")}
+                {props.locale === "en"
+                  ? pageData.scFragments[2].scContentEn.json[2].content[1]
+                      .content[0].value
+                  : pageData.scFragments[2].scContentFr.json[2].content[1]
+                      .content[0].value}
               </a>
-              {t("dc:Concept2P2Li2")}
+              {props.locale === "en"
+                ? pageData.scFragments[2].scContentEn.json[2].content[1]
+                    .content[1].value
+                : pageData.scFragments[2].scContentFr.json[2].content[1]
+                    .content[1].value}
             </li>
             <li className="mt-1">
               <a
-                href={t("dc:Concept2P2Href3")}
+                href={
+                  props.locale === "en"
+                    ? pageData.scFragments[2].scContentEn.json[2].content[2]
+                        .content[0].data.href
+                    : pageData.scFragments[2].scContentFr.json[2].content[2]
+                        .content[0].data.href
+                }
                 target="_blank"
                 rel="noopener"
                 className="font-body hover:text-canada-footer-hover-font-blue text-custom-blue-projects-link visited:text-purple-700 underline "
               >
-                {t("dc:Concept2P2Link3")}
+                {props.locale === "en"
+                  ? pageData.scFragments[2].scContentEn.json[2].content[2]
+                      .content[0].value
+                  : pageData.scFragments[2].scContentFr.json[2].content[2]
+                      .content[0].value}
               </a>
-              {t("dc:Concept2P2Li3")}
+              {props.locale === "en"
+                ? pageData.scFragments[2].scContentEn.json[2].content[2]
+                    .content[1].value
+                : pageData.scFragments[2].scContentFr.json[2].content[2]
+                    .content[1].value}
             </li>
-            <li className="mt-1">{t("dc:Concept2P2Li4")}</li>
+            <li className="mt-1">
+              {props.locale === "en"
+                ? pageData.scFragments[2].scContentEn.json[2].content[3]
+                    .content[0].value
+                : pageData.scFragments[2].scContentFr.json[2].content[3]
+                    .content[0].value}
+            </li>
           </ol>
 
           <div className="mx-auto">
             <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 items-start gap-6">
               <ThumbnailWithCaption
-                title={t("dc:Concept2Img1Title")}
-                alt={t("dc:Concept2Img1Alt")}
-                src={t("dc:Concept2Img1")}
+                title={
+                  props.locale === "en"
+                    ? pageData.scFragments[8].scContentEn.json[0].content[0]
+                        .value
+                    : pageData.scFragments[8].scContentFr.json[0].content[0]
+                        .value
+                }
+                alt={
+                  props.locale === "en"
+                    ? pageData.scFragments[16].scImageAltTextEn
+                    : pageData.scFragments[16].scImageAltTextFr
+                }
+                src={`https://www.canada.ca${
+                  props.locale === "en"
+                    ? pageData.scFragments[16].scImageEn._path
+                    : pageData.scFragments[16].scImageFr._path
+                }`}
               >
-                <p className="text-base">{t("dc:Concept2Img1Caption")}</p>
-                <HTMList
-                  tag="ol"
-                  listClassName={
-                    "ml-6 mt-2 text-base list-decimal list-outside"
-                  }
-                  liClassName={"mt-1"}
-                  content={t("dc:Concept2Img1CaptionList")}
-                />
+                <p className="text-base">
+                  {props.locale === "en"
+                    ? pageData.scFragments[8].scContentEn.json[1].content[0]
+                        .value
+                    : pageData.scFragments[8].scContentFr.json[1].content[0]
+                        .value}
+                </p>
+                <ol className="ml-8">
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[8].scContentEn.json[2].content[0]
+                          .content[0].value
+                      : pageData.scFragments[8].scContentFr.json[2].content[0]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[8].scContentEn.json[2].content[1]
+                          .content[0].value
+                      : pageData.scFragments[8].scContentFr.json[2].content[1]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[8].scContentEn.json[2].content[2]
+                          .content[0].value
+                      : pageData.scFragments[8].scContentFr.json[2].content[2]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[8].scContentEn.json[2].content[3]
+                          .content[0].value
+                      : pageData.scFragments[8].scContentFr.json[2].content[3]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[8].scContentEn.json[2].content[4]
+                          .content[0].value
+                      : pageData.scFragments[8].scContentFr.json[2].content[4]
+                          .content[0].value}
+                  </li>
+                </ol>
               </ThumbnailWithCaption>
               <ThumbnailWithCaption
-                title={t("dc:Concept2Img2Title")}
-                alt={t("dc:Concept2Img2Alt")}
-                src={t("dc:Concept2Img2")}
+                title={
+                  props.locale === "en"
+                    ? pageData.scFragments[9].scContentEn.json[0].content[0]
+                        .value
+                    : pageData.scFragments[9].scContentFr.json[0].content[0]
+                        .value
+                }
+                alt={
+                  props.locale === "en"
+                    ? pageData.scFragments[17].scImageAltTextEn
+                    : pageData.scFragments[17].scImageAltTextFr
+                }
+                src={`https://www.canada.ca${
+                  props.locale === "en"
+                    ? pageData.scFragments[17].scImageEn._path
+                    : pageData.scFragments[17].scImageFr._path
+                }`}
               >
-                <p className="text-base">{t("dc:Concept2Img2Caption")}</p>
-                <HTMList
-                  tag="ol"
-                  listClassName={
-                    "ml-6 mt-2 text-base list-decimal list-outside"
-                  }
-                  liClassName={"mt-1"}
-                  content={t("dc:Concept2Img2CaptionList")}
-                />
+                <p className="text-base">
+                  {props.locale === "en"
+                    ? pageData.scFragments[9].scContentEn.json[1].content[0]
+                        .value
+                    : pageData.scFragments[9].scContentFr.json[1].content[0]
+                        .value}
+                </p>
+                <ol className="ml-8">
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[9].scContentEn.json[2].content[0]
+                          .content[0].value
+                      : pageData.scFragments[9].scContentFr.json[2].content[0]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[9].scContentEn.json[2].content[1]
+                          .content[0].value
+                      : pageData.scFragments[9].scContentFr.json[2].content[1]
+                          .content[0].value}
+                  </li>
+                </ol>
               </ThumbnailWithCaption>
               <ThumbnailWithCaption
-                title={t("dc:Concept2Img3Title")}
-                alt={t("dc:Concept2Img3Alt")}
-                src={t("dc:Concept2Img3")}
+                title={
+                  props.locale === "en"
+                    ? pageData.scFragments[10].scContentEn.json[0].content[0]
+                        .value
+                    : pageData.scFragments[10].scContentFr.json[0].content[0]
+                        .value
+                }
+                alt={
+                  props.locale === "en"
+                    ? pageData.scFragments[18].scImageAltTextEn
+                    : pageData.scFragments[18].scImageAltTextFr
+                }
+                src={`https://www.canada.ca${
+                  props.locale === "en"
+                    ? pageData.scFragments[18].scImageEn._path
+                    : pageData.scFragments[18].scImageFr._path
+                }`}
               >
-                <p className="text-base">{t("dc:Concept2Img3Caption")}</p>
-                <HTMList
-                  tag="ol"
-                  listClassName={
-                    "ml-6 mt-2 text-base list-decimal list-outside"
-                  }
-                  liClassName={"mt-1"}
-                  content={t("dc:Concept2Img3CaptionList")}
-                />
+                <p className="text-base">
+                  {props.locale === "en"
+                    ? pageData.scFragments[10].scContentEn.json[1].content[0]
+                        .value
+                    : pageData.scFragments[10].scContentFr.json[1].content[0]
+                        .value}
+                </p>
+                <ol className="ml-8">
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[10].scContentEn.json[2].content[0]
+                          .content[0].value
+                      : pageData.scFragments[10].scContentFr.json[2].content[0]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[10].scContentEn.json[2].content[1]
+                          .content[0].value
+                      : pageData.scFragments[10].scContentFr.json[2].content[1]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[10].scContentEn.json[2].content[2]
+                          .content[0].value
+                      : pageData.scFragments[10].scContentFr.json[2].content[2]
+                          .content[0].value}
+                  </li>
+                </ol>
               </ThumbnailWithCaption>
             </div>
           </div>
 
-          <h2 className=" mt-10">{t("dc:Concept3Heading")}</h2>
-          <p className=" mt-6">{t("dc:Concept3P1")}</p>
-          <HTMList
-            tag="ol"
-            listClassName={" mt-4 ml-8 list-decimal list-outside"}
-            liClassName={"mt-1"}
-            content={t("dc:Concept3P1List")}
-          />
+          <h2 className="mt-10">
+            {props.locale === "en"
+              ? pageData.scFragments[3].scContentEn.json[0].content[0].value
+              : pageData.scFragments[3].scContentFr.json[0].content[0].value}
+          </h2>
+          <p className="mt-6">
+            {props.locale === "en"
+              ? pageData.scFragments[3].scContentEn.json[1].content[0].value
+              : pageData.scFragments[3].scContentFr.json[1].content[0].value}
+          </p>
+          <ol className="mt-4 ml-8">
+            <li>
+              {props.locale === "en"
+                ? pageData.scFragments[3].scContentEn.json[2].content[0]
+                    .content[0].value
+                : pageData.scFragments[3].scContentFr.json[2].content[0]
+                    .content[0].value}
+            </li>
+            <li>
+              {props.locale === "en"
+                ? pageData.scFragments[3].scContentEn.json[2].content[1]
+                    .content[0].value
+                : pageData.scFragments[3].scContentFr.json[2].content[1]
+                    .content[0].value}
+            </li>
+            <li>
+              {props.locale === "en"
+                ? pageData.scFragments[3].scContentEn.json[2].content[2]
+                    .content[0].value
+                : pageData.scFragments[3].scContentFr.json[2].content[2]
+                    .content[0].value}
+            </li>
+            <li>
+              {props.locale === "en"
+                ? pageData.scFragments[3].scContentEn.json[2].content[3]
+                    .content[0].value
+                : pageData.scFragments[3].scContentFr.json[2].content[3]
+                    .content[0].value}
+            </li>
+          </ol>
 
           <div className="mx-auto">
             <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 items-start gap-6">
               <ThumbnailWithCaption
-                title={t("dc:Concept3Img1Title")}
-                alt={t("dc:Concept3Img1Alt")}
-                src={t("dc:Concept3Img1")}
+                title={
+                  props.locale === "en"
+                    ? pageData.scFragments[11].scContentEn.json[0].content[0]
+                        .value
+                    : pageData.scFragments[11].scContentFr.json[0].content[0]
+                        .value
+                }
+                alt={
+                  props.locale === "en"
+                    ? pageData.scFragments[19].scImageAltTextEn
+                    : pageData.scFragments[19].scImageAltTextFr
+                }
+                src={`https://www.canada.ca${
+                  props.locale === "en"
+                    ? pageData.scFragments[19].scImageEn._path
+                    : pageData.scFragments[19].scImageFr._path
+                }`}
               >
-                <p className="text-base">{t("dc:Concept3Img1Caption")}</p>
-                <HTMList
-                  tag="ol"
-                  listClassName={
-                    "ml-6 mt-2 text-base list-decimal list-outside"
-                  }
-                  liClassName={"mt-1"}
-                  content={t("dc:Concept3Img1CaptionList")}
-                />
+                <p className="text-base">
+                  {props.locale === "en"
+                    ? pageData.scFragments[11].scContentEn.json[1].content[0]
+                        .value
+                    : pageData.scFragments[11].scContentFr.json[1].content[0]
+                        .value}
+                </p>
+                <ol className="ml-8">
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[11].scContentEn.json[2].content[0]
+                          .content[0].value
+                      : pageData.scFragments[11].scContentFr.json[2].content[0]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[11].scContentEn.json[2].content[1]
+                          .content[0].value
+                      : pageData.scFragments[11].scContentFr.json[2].content[1]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[11].scContentEn.json[2].content[2]
+                          .content[0].value
+                      : pageData.scFragments[11].scContentFr.json[2].content[2]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[11].scContentEn.json[2].content[3]
+                          .content[0].value
+                      : pageData.scFragments[11].scContentFr.json[2].content[3]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[11].scContentEn.json[2].content[4]
+                          .content[0].value
+                      : pageData.scFragments[11].scContentFr.json[2].content[4]
+                          .content[0].value}
+                  </li>
+                </ol>
               </ThumbnailWithCaption>
             </div>
           </div>
 
-          <h2 className=" mt-10">{t("dc:Concept4Heading")}</h2>
-          <p className=" mt-6">{t("dc:Concept4P1")}</p>
+          <h2 className=" mt-10">
+            {props.locale === "en"
+              ? pageData.scFragments[4].scContentEn.json[0].content[0].value
+              : pageData.scFragments[4].scContentFr.json[0].content[0].value}
+          </h2>
+          <p className=" mt-6">
+            {props.locale === "en"
+              ? pageData.scFragments[4].scContentEn.json[1].content[0].value
+              : pageData.scFragments[4].scContentFr.json[1].content[0].value}
+          </p>
 
           <div className="mx-auto">
             <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 items-start gap-6">
               <ThumbnailWithCaption
-                title={t("dc:Concept4Img1Title")}
-                alt={t("dc:Concept4Img1Alt")}
-                src={t("dc:Concept4Img1")}
+                title={
+                  props.locale === "en"
+                    ? pageData.scFragments[12].scContentEn.json[0].content[0]
+                        .value
+                    : pageData.scFragments[12].scContentFr.json[0].content[0]
+                        .value
+                }
+                alt={
+                  props.locale === "en"
+                    ? pageData.scFragments[20].scImageAltTextEn
+                    : pageData.scFragments[20].scImageAltTextFr
+                }
+                src={`https://www.canada.ca${
+                  props.locale === "en"
+                    ? pageData.scFragments[20].scImageEn._path
+                    : pageData.scFragments[20].scImageFr._path
+                }`}
               >
-                <p className="text-base">{t("dc:Concept4Img1Caption")}</p>
-                <HTMList
-                  tag="ol"
-                  listClassName={
-                    "ml-6 mt-2 text-base list-decimal list-outside"
-                  }
-                  liClassName={"mt-1"}
-                  content={t("dc:Concept4Img1CaptionList")}
-                />
+                <p className="text-base">
+                  {props.locale === "en"
+                    ? pageData.scFragments[12].scContentEn.json[1].content[0]
+                        .value
+                    : pageData.scFragments[12].scContentFr.json[1].content[0]
+                        .value}
+                </p>
+                <ol className="ml-8">
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[12].scContentEn.json[2].content[0]
+                          .content[0].value
+                      : pageData.scFragments[12].scContentFr.json[2].content[0]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[12].scContentEn.json[2].content[1]
+                          .content[0].value
+                      : pageData.scFragments[12].scContentFr.json[2].content[1]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[12].scContentEn.json[2].content[2]
+                          .content[0].value
+                      : pageData.scFragments[12].scContentFr.json[2].content[2]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[12].scContentEn.json[2].content[3]
+                          .content[0].value
+                      : pageData.scFragments[12].scContentFr.json[2].content[3]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[12].scContentEn.json[2].content[4]
+                          .content[0].value
+                      : pageData.scFragments[12].scContentFr.json[2].content[4]
+                          .content[0].value}
+                  </li>
+                  <li>
+                    {props.locale === "en"
+                      ? pageData.scFragments[12].scContentEn.json[2].content[5]
+                          .content[0].value
+                      : pageData.scFragments[12].scContentFr.json[2].content[5]
+                          .content[0].value}
+                  </li>
+                </ol>
               </ThumbnailWithCaption>
             </div>
           </div>
@@ -362,7 +839,7 @@ export default function DigitalCenter(props) {
           ariaExpanded={showFeedback.toString()}
         />
       </Layout>
-      {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+      {props.adobeAnalyticsUrl ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
       ) : (
         ""
@@ -371,9 +848,19 @@ export default function DigitalCenter(props) {
   );
 }
 
-export const getStaticProps = async ({ locale }) => ({
-  props: {
-    locale: locale,
-    ...(await serverSideTranslations(locale, ["common", "dc"])),
-  },
-});
+export const getStaticProps = async ({ locale }) => {
+  // get page data from AEM
+  const res = await queryGraphQL(getDigitalCentrePage).then((result) => {
+    return result;
+  });
+
+  const data = res.data.sCLabsPageByPath;
+  return {
+    props: {
+      locale: locale,
+      pageData: data,
+      adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
+  };
+};

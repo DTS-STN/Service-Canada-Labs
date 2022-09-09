@@ -145,8 +145,14 @@ mock API responses during Cypress testing.
 `NEXT_PUBLIC_STRAPI_API_BACKEND_URL`: Root URL for the Strapi CMS API. We use https://alphasite-api.dts-stn.com/ for our
 application.
 
-`NEXT_PUBLIC_ADOBE_ANALYTICS_URL`: URL for adobe analytics. It is found in the documentation for Adobe Analytics
+`ADOBE_ANALYTICS_URL`: URL for adobe analytics. It is found in the documentation for Adobe Analytics
 installation.
+
+## Checking Deployed Version
+Run the following bash script to check whether the latest (on `main`) has been deployed to various environments:
+```bash
+$ sh ./check-version.sh
+```
 
 ## Learn More About the Framework We're Using
 

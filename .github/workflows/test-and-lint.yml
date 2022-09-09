@@ -18,8 +18,10 @@ jobs:
       - name: Build 🔧
         run: yarn build
         env:
-          NEXT_PUBLIC_STRAPI_API_BACKEND_URL: https://alphasite-api.dts-stn.com
           NEXT_PUBLIC_API_MOCKING: enabled
+          AEM_GRAPHQL_ENDPOINT: ${{ secrets.AEM_GRAPHQL_ENDPOINT }}
+          ADOBE_ANALYTICS_URL: ${{ secrets.ADOBE_ANALYTICS_URL }}
+          THANK_YOU_EMAIL: ${{ secrets.THANK_YOU_EMAIL }}
           CI: true
 
       - name: Linting Test 📝

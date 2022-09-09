@@ -4,6 +4,10 @@ import "../styles/globals.css";
 import "../styles/forms.css";
 import "../styles/menu.css";
 import Head from "next/head";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+
+config.autoAddCss = false;
 
 if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
   require("../mocks");
@@ -19,6 +23,7 @@ function MyApp({ Component, pageProps }) {
           content={process.env.NEXT_PUBLIC_BUILD_DATE}
         />
         <meta name="og:buildid" content={process.env.NEXT_PUBLIC_TC_BUILD} />
+        <meta name="VERSION" content={process.env.NEXT_PUBLIC_VERSION} />
       </Head>
       <Component {...pageProps} />
     </>

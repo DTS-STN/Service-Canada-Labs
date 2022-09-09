@@ -1,0 +1,19 @@
+query getAllProjects {
+  sCLabsProjectList {
+    items {
+      _path
+      scId
+      scTitleEn
+      scTitleFr
+      scDestinationURLEn
+      scDestinationURLFr
+      scContentEn {
+          json
+      }
+      scContentFr {
+          json
+      }
+      scLabProjectStatus
+    }
+  }
+}

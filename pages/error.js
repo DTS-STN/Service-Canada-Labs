@@ -5,24 +5,28 @@ import { ActionButton } from "../components/atoms/ActionButton";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import queryGraphQL from "../graphql/client";
+import getCustomErrorPage from "../graphql/queries/customErrorQuery.graphql";
+import Image from "next/image";
 
 export default function ErrorPage(props) {
   const { t } = useTranslation("common");
   const { query } = useRouter();
+  const [pageData] = useState(props.pageData.item);
 
   const statusCode = query.statusCode || "";
-  const errorTitle = query.errorTitle || "The web site has reported an error.";
+  const errorTitle =
+    query.errorTitle || pageData.scContentEn.json[0].content[0].value;
   const errorTitleFr =
-    query.errorTitleFr || "Le site Web a signalé une erreur.";
+    query.errorTitleFr || pageData.scContentFr.json[0].content[0].value;
   const errorMessage =
-    query.errorMessage || "If the problem persists, report the problem.";
+    query.errorMessage || pageData.scContentEn.json[1].content[0].value;
   const errorMessageFr =
-    query.errorMessageFr ||
-    "Si le problème persiste, veuillez signaler le problème.";
+    query.errorMessageFr || pageData.scContentFr.json[1].content[0].value;
 
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
+    if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
@@ -32,16 +36,16 @@ export default function ErrorPage(props) {
     <>
       <div className="min-h-screen relative">
         <Head>
-          {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
-            <script src={process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL} />
+          {props.adobeAnalyticsUrl ? (
+            <script src={props.adobeAnalyticsUrl} />
           ) : (
             ""
           )}
 
           {/* Primary HTML Meta Tags */}
           <title data-gc-analytics-error={props.statusCode}>
-            The web site has reported an error | Le site Web a signalé une
-            erreur
+            {pageData.scContentEn.json[0].content[0].value} |{" "}
+            {pageData.scContentFr.json[0].content[0].value}
           </title>
           <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
           <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -165,11 +169,22 @@ export default function ErrorPage(props) {
         </Head>
         <main>
           <section className="layout-container pb-44">
-            <img
-              className="h-auto w-60 pt-6 xl:w-96 xxl:w-1/2"
-              src={"/sig-blk-en.svg"}
-              alt={"Symbol of the Government of Canada"}
-            />
+            <div className="pt-6">
+              <Image
+                src={`https://www.canada.ca${
+                  props.locale === "en"
+                    ? pageData.scGcImages[0].scImageEn._path
+                    : pageData.scGcImages[0].scImageFr._path
+                }`}
+                alt={
+                  props.locale === "en"
+                    ? pageData.scGcImages[0].scImageAltTextEn
+                    : pageData.scGcImages[0].scImageAltTextFr
+                }
+                width={575}
+                height={59}
+              />
+            </div>
             <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start mt-8">
               {/* Left Side (English section) */}
               <div>
@@ -185,7 +200,8 @@ export default function ErrorPage(props) {
                       className="font-bold font-body mb-8"
                       data-testid="statuscode-en"
                     >
-                      Error {statusCode}
+                      {pageData.scContentEn.json[2].content[0].value}{" "}
+                      {statusCode}
                     </p>
                   ) : (
                     ""
@@ -200,57 +216,62 @@ export default function ErrorPage(props) {
                     <>
                       {/* Wrong URL English Section */}
                       <p className="font-body text-sm leading-30px mb-5">
-                        It may be due to an invalid ID or missing ID. What’s
-                        next?
+                        {pageData.scContentEn.json[3].content[0].value}
                       </p>
                       <ul>
                         <li className="flex">
                           <span className="error404-link" />
                           <p className="font-body text-sm leading-30px">
-                            Try clicking the link again from your email;
+                            {pageData.scContentEn.json[4].content[0].value}
                           </p>
                         </li>
                         <li className="flex">
                           <span className="error404-link" />
                           <p className="font-body text-sm leading-30px">
-                            Contact us at{" "}
+                            {pageData.scContentEn.json[5].content[0].value}
                             <a
                               href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
                               className="text-custom-blue-link underline"
                             >
-                              experience@service.gc.ca
+                              {
+                                process.env
+                                  .NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL
+                              }
                             </a>{" "}
-                            and we’ll help you out.
+                            {pageData.scContentEn.json[6].content[0].value}
                           </p>
                         </li>
                       </ul>
                       <p className="font-body text-sm leading-30px mt-5">
-                        Thank you for your patience.
+                        {pageData.scContentEn.json[7].content[0].value}
                       </p>
                     </>
                   ) : errorMessage === "Expired URL" ? (
                     <>
                       {/* Expired URL English Section */}
                       <p className="font-body text-sm leading-30px mb-5">
-                        It may be due to an expired URL if it has been more than
-                        24 hours since you received the email to verify your
-                        email address. What’s next?
+                        {pageData.scContentEn.json[8].content[0].value}
                       </p>
                       <ul>
                         <li className="flex">
                           <span className="error404-link" />
                           <p className="font-body text-sm leading-30px">
-                            <Link href="/signup">
+                            <Link
+                              href={
+                                pageData.scContentEn.json[9].content[0].data
+                                  .href
+                              }
+                            >
                               <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                                Sign up
+                                {pageData.scContentEn.json[9].content[0].value}
                               </a>
                             </Link>{" "}
-                            again
+                            {pageData.scContentEn.json[9].content[1].value}
                           </p>
                         </li>
                       </ul>
                       <p className="font-body text-sm leading-30px mt-5">
-                        Thank you for your patience.
+                        {pageData.scContentEn.json[7].content[0].value}
                       </p>
                     </>
                   ) : (
@@ -258,10 +279,14 @@ export default function ErrorPage(props) {
                     <div className="flex">
                       <span className="error404-link" />
                       <p className="font-body text-sm leading-30px">
-                        Return to the &nbsp;
-                        <Link href="/">
+                        {pageData.scContentEn.json[10].content[0].value}
+                        <Link
+                          href={
+                            pageData.scContentEn.json[10].content[1].data.href
+                          }
+                        >
                           <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                            Service Canada Labs home page
+                            {pageData.scContentEn.json[10].content[1].value}
                           </a>
                         </Link>
                       </p>
@@ -270,12 +295,19 @@ export default function ErrorPage(props) {
                 </div>
                 <ReportAProblem language="en" />
               </div>
-              <div className="flex items-center justify-center circle-background my-8 lg:mt-0">
-                <img
-                  className="w-68px xl:w-24"
-                  src="/crackedbulb.svg"
-                  alt="Cracked lightbulb"
-                />
+              <div className="flex items-center justify-center circle-background my-8 lg:mt-0 lightbulb-bg">
+                <span className="relative lightbulb">
+                  <Image
+                    src={`https://www.canada.ca${
+                      props.locale === "en"
+                        ? pageData.scImageList[0].scImageEn._path
+                        : pageData.scImageList[0].scImageFr._path
+                    }`}
+                    alt=""
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </span>
               </div>
               {/* Right Side (French section) */}
               <div>
@@ -294,7 +326,8 @@ export default function ErrorPage(props) {
                       className="font-bold font-body mb-8"
                       data-testid="statuscode-fr"
                     >
-                      Erreur {statusCode}
+                      {pageData.scContentFr.json[2].content[0].value}{" "}
+                      {statusCode}
                     </p>
                   ) : (
                     ""
@@ -309,59 +342,62 @@ export default function ErrorPage(props) {
                     <>
                       {/* Wrong URL French Section */}
                       <p className="font-body text-sm leading-30px mb-5">
-                        Cela peut être dû à un identificateur invalide ou à un
-                        identificateur manquant. Que faire?
+                        {pageData.scContentFr.json[3].content[0].value}
                       </p>
                       <ul>
                         <li className="flex">
                           <span className="error404-link" />
                           <p className="font-body text-sm leading-30px">
-                            Essayez de cliquer à nouveau sur le lien depuis
-                            votre courriel;
+                            {pageData.scContentFr.json[4].content[0].value}
                           </p>
                         </li>
                         <li className="flex">
                           <span className="error404-link" />
                           <p className="font-body text-sm leading-30px">
-                            Contactez nous à{" "}
+                            {pageData.scContentFr.json[5].content[0].value}
                             <a
                               href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
                               className="text-custom-blue-link underline"
                             >
-                              experience@service.gc.ca
+                              {
+                                process.env
+                                  .NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL
+                              }
                             </a>{" "}
-                            et nous vous aiderons.
+                            {pageData.scContentFr.json[6].content[0].value}
                           </p>
                         </li>
                       </ul>
                       <p className="font-body text-sm leading-30px mt-5">
-                        Merci de votre patience.
+                        {pageData.scContentFr.json[7].content[0].value}
                       </p>
                     </>
                   ) : errorMessageFr === "URL expirée" ? (
                     <>
                       {/* Expired URL French Section */}
                       <p className="font-body text-sm leading-30px mb-5">
-                        Le problème peut être dû à une URL expirée si cela fait
-                        plus de 24 heures que vous avez reçu le courriel
-                        vérifier votre adresse de courrier électronique. Que
-                        faire?
+                        {pageData.scContentFr.json[8].content[0].value}
                       </p>
                       <ul>
                         <li className="flex">
                           <span className="error404-link" />
                           <p className="font-body text-sm leading-30px">
-                            <Link href="/signup">
+                            <Link
+                              href={
+                                pageData.scContentFr.json[9].content[0].data
+                                  .href
+                              }
+                            >
                               <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                                Inscrivez-vous
+                                {pageData.scContentFr.json[9].content[0].value}
                               </a>
                             </Link>{" "}
-                            de nouveau
+                            {pageData.scContentFr.json[9].content[1].value}
                           </p>
                         </li>
                       </ul>
                       <p className="font-body text-sm leading-30px mt-5">
-                        Merci de votre patience.
+                        {pageData.scContentFr.json[7].content[0].value}
                       </p>
                     </>
                   ) : (
@@ -369,10 +405,14 @@ export default function ErrorPage(props) {
                     <div className="flex">
                       <span className="error404-link" />
                       <p className="font-body text-sm leading-30px">
-                        Retournez à la &nbsp;
-                        <Link href="/fr">
+                        {pageData.scContentFr.json[10].content[0].value}
+                        <Link
+                          href={
+                            pageData.scContentFr.json[10].content[1].data.href
+                          }
+                        >
                           <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                            page d'accueil des laboratoires de Service Canada
+                            {pageData.scContentFr.json[10].content[1].value}
                           </a>
                         </Link>
                       </p>
@@ -394,15 +434,25 @@ export default function ErrorPage(props) {
               icon="icon-up-caret"
               iconEnd
             />
-            <img
-              className="h-6 w-auto lg:h-auto lg:w-40"
-              src="/wmms-blk.svg"
-              alt="Symbol of the Government of Canada"
-            />
+            <span className="relative footer-logo">
+              <Image
+                src={`https://www.canada.ca${
+                  props.locale === "en"
+                    ? pageData.scGcImages[1].scImageEn._path
+                    : pageData.scGcImages[1].scImageFr._path
+                }`}
+                alt={
+                  props.locale === "en"
+                    ? pageData.scGcImages[1].scImageAltTextEn
+                    : pageData.scGcImages[1].scImageAltTextFr
+                }
+                layout="fill"
+              />
+            </span>
           </div>
         </footer>
       </div>
-      {process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL ? (
+      {props.adobeAnalyticsUrl ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
       ) : (
         ""
@@ -412,11 +462,31 @@ export default function ErrorPage(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  return {
-    props: {
-      locale: locale,
-      ...(await serverSideTranslations("en", ["common"])),
-      ...(await serverSideTranslations("fr", ["common"])),
-    },
-  };
+  // get page data from AEM
+  const res = await queryGraphQL(getCustomErrorPage).then((result) => {
+    return result;
+  });
+
+  const data = res.data.scLabsErrorPageByPath;
+
+  return process.env.ISR_ENABLED
+    ? {
+        props: {
+          locale: locale,
+          adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+          ...(await serverSideTranslations("en", ["common"])),
+          ...(await serverSideTranslations("fr", ["common"])),
+          pageData: data,
+        },
+        revalidate: 60, // revalidate once an minute
+      }
+    : {
+        props: {
+          locale: locale,
+          adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+          ...(await serverSideTranslations("en", ["common"])),
+          ...(await serverSideTranslations("fr", ["common"])),
+          pageData: data,
+        },
+      };
 };

@@ -1,22 +1,21 @@
 /**
  * @jest-environment jsdom
  */
+
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { axe, toHaveNoViolations } from "jest-axe";
-import { Primary } from "./Experiment.stories";
+import { Primary } from "./TableOfContents.stories";
 
 expect.extend(toHaveNoViolations);
 
-describe("Experiment tests", () => {
-  it("renders Experiment in its primary state", () => {
+describe("Alert tests", () => {
+  it("renders TableOfContents in its primary state", () => {
     render(<Primary {...Primary.args} />);
-    const titleElement = screen.getByText("Experiment title");
-    const tagElement = screen.getByText("Experiment tag");
-    const descriptionElement = screen.getByText("Experiment description");
-    expect(titleElement).toBeTruthy();
-    expect(tagElement).toBeTruthy();
-    expect(descriptionElement).toBeTruthy();
+    const title = screen.getByText("Table of Contents Title");
+    const text = screen.getByText("Heading one");
+    expect(title).toBeTruthy();
+    expect(text).toBeTruthy();
   });
 
   it("has no a11y violations", async () => {

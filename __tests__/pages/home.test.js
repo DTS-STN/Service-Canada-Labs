@@ -1,27 +1,19 @@
 /**
  * @jest-environment jsdom
  */
-import { screen } from "@testing-library/react";
-import fetchMock from "fetch-mock";
+import { render, screen } from "@testing-library/react";
+import Home from "../../pages/home";
+import { homePageData } from "../../__mocks__/mockStore";
 
-describe("Homepage content", () => {
-  beforeEach(() => {
-    fetchMock.getOnce(
-      `${process.env.NEXT_PUBLIC_STRAPI_API_BACKEND_URL}/page-contents?populate=%2A&locale=all`,
-      {
-        status: 200,
-        body: "Homepage content",
-      }
-    );
-  });
-  afterEach(() => {
-    fetchMock.restore();
-  });
-  it.skip("renders without crashing", async () => {
-    const { render } = await getPage({
-      route: "/home",
-    });
-    render();
-    expect(screen.getAllByText("Service Cananda Labs")[0]).toBeInTheDocument();
+jest.mock("@apollo/client");
+
+describe("Home", () => {
+  it("renders without crashing", () => {
+    render(<Home pageData={homePageData.data.sCLabsPageByPath} />);
+    expect(
+      screen.getByRole("heading", {
+        name: "Service Canada Labs(FR)",
+      })
+    ).toBeInTheDocument();
   });
 });
