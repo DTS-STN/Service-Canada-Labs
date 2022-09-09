@@ -358,7 +358,7 @@ export default function SignupReview(props) {
               ? pageData.scFragments[0].scContentEn.json[2].content[0].value
               : pageData.scFragments[0].scContentFr.json[2].content[0].value}
           </h2>
-          <div className="mb-16 grid grid-cols-1 lg:grid-cols-2">
+          <div className="mb-10 grid grid-cols-1 lg:grid-cols-2">
             <div className="p-1 border border-grey">
               <p className="font-display">{formFields.label.province}</p>
             </div>
@@ -439,29 +439,31 @@ export default function SignupReview(props) {
               </p>
             </div>
           </div>
-          <ActionButton
-            id="signup-review-submit"
-            className="rounded xxs:w-full xs:w-72 my-16 text-base font-bold py-2"
-            type="submit"
-            dataCy="signup-review-submit"
-            dataTestId="signup-review-submit"
-            analyticsTracking
-            onClick={handleSubmit}
-          >
-            {formFields.submit}
-          </ActionButton>
-          <ActionButton
-            id="signup-review-back"
-            className="rounded xxs:w-full xs:w-72 my-16 ml-16 text-base font-bold py-2"
-            type="submit"
-            dataCy="signup-review-back"
-            dataTestId="signup-review-back"
-            analyticsTracking
-            secondary
-            onClick={() => router.back()}
-          >
-            {formFields.back}
-          </ActionButton>
+          <div className="grid grid-cols-1 lg:grid-cols-2 content-center">
+            <ActionButton
+              id="signup-review-submit"
+              className="rounded w-full my-6 lg:my-12 md:w-80 md:mx-30 py-2 text-base font-bold"
+              type="submit"
+              dataCy="signup-review-submit"
+              dataTestId="signup-review-submit"
+              analyticsTracking
+              onClick={handleSubmit}
+            >
+              {formFields.submit}
+            </ActionButton>
+            <ActionButton
+              id="signup-review-back"
+              className="rounded w-full my-6 lg:my-12 md:w-80 py-2 text-base font-bold"
+              type="submit"
+              dataCy="signup-review-back"
+              dataTestId="signup-review-back"
+              analyticsTracking
+              secondary
+              onClick={() => router.back()}
+            >
+              {formFields.back}
+            </ActionButton>
+          </div>
         </section>
       </Layout>
     </>
