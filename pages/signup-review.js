@@ -211,6 +211,7 @@ export default function SignupReview(props) {
         }
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
+          { text: t("signupInfoTitle"), link: t("breadCrumbsHref4") },
           { text: t("signupLink"), link: t("breadCrumbsHref3") },
         ]}
       >
