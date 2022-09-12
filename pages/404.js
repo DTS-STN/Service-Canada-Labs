@@ -6,9 +6,8 @@ import { ReportAProblem } from "../components/organisms/ReportAProblem";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import queryGraphQL from "../graphql/client";
-import get404Page from "../graphql/queries/error404Query.graphql";
 import Image from "next/image";
+import aemServiceInstance from "../services/aemServiceInstance";
 
 export default function error404(props) {
   const { t } = useTranslation("common");
@@ -247,31 +246,15 @@ export default function error404(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  // get page data from AEM
-  const res = await queryGraphQL(get404Page).then((result) => {
-    return result;
-  });
+  const { data } = await aemServiceInstance.getFragment("error404Query");
 
-  const data = res.data.scLabsErrorPageByPath;
-
-  return process.env.ISR_ENABLED
-    ? {
-        props: {
-          locale: locale,
-          adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
-          ...(await serverSideTranslations("en", ["common"])),
-          ...(await serverSideTranslations("fr", ["common"])),
-          pageData: data,
-        },
-        revalidate: 60, // revalidate once an minute
-      }
-    : {
-        props: {
-          locale: locale,
-          adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
-          ...(await serverSideTranslations("en", ["common"])),
-          ...(await serverSideTranslations("fr", ["common"])),
-          pageData: data,
-        },
-      };
+  return {
+    props: {
+      locale: locale,
+      adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+      ...(await serverSideTranslations("en", ["common"])),
+      ...(await serverSideTranslations("fr", ["common"])),
+      pageData: data.scLabsErrorPageByPath,
+    },
+  };
 };

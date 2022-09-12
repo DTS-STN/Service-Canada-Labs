@@ -4,8 +4,7 @@ import { useTranslation } from "next-i18next";
 import { Layout } from "../../../components/organisms/Layout";
 import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect, useState } from "react";
-import queryGraphQL from "../../../graphql/client";
-import getVirtualAssistantPage from "../../../graphql/queries/virtualAssistantQuery.graphql";
+import aemServiceInstance from "../../../services/aemServiceInstance";
 import Image from "next/image";
 
 //  On hold for now
@@ -233,17 +232,14 @@ export default function Home(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  // get page data from AEM
-  const res = await queryGraphQL(getVirtualAssistantPage).then((result) => {
-    return result;
-  });
-
-  const data = res.data.sCLabsPageByPath;
+  const { data } = await aemServiceInstance.getFragment(
+    "virtualAssistantQuery"
+  );
   return {
     props: {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
-      pageData: data,
+      pageData: data.sCLabsPageByPath,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };

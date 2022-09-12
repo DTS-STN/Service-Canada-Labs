@@ -6,9 +6,7 @@ import { Layout } from "../components/organisms/Layout";
 import { Card } from "../components/molecules/Card";
 import { Filter } from "../components/molecules/Filter";
 import { CallToAction } from "../components/molecules/CallToAction";
-import queryGraphQL from "../graphql/client";
-import getAllProjects from "../graphql/queries/projectQuery.graphql";
-import getProjectsPage from "../graphql/queries/projectsPageQuery.graphql";
+import aemServiceInstance from "../services/aemServiceInstance";
 import Image from "next/image";
 import { Alert } from "../components/atoms/Alert";
 
@@ -333,20 +331,14 @@ export default function Projects(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  // get page data and experiments data from AEM
-  const res1 = await queryGraphQL(getAllProjects).then((result) => {
-    return result;
-  });
-  const res2 = await queryGraphQL(getProjectsPage).then((result) => {
-    return result;
-  });
-
-  const experimentsData = res1.data.sCLabsProjectList;
-
-  const pageData = res2.data.sCLabsPageByPath;
-
+  const { data: experimentsData } = await aemServiceInstance.getFragment(
+    "projectQuery"
+  );
+  const { data: pageData } = await aemServiceInstance.getFragment(
+    "projectsPageQuery"
+  );
   const filters = Object.values(
-    experimentsData.items.reduce(
+    experimentsData.sCLabsProjectList.items.reduce(
       (filters, { scLabProjectStatus }) => {
         if (!filters[scLabProjectStatus]) {
           filters[scLabProjectStatus] = {
@@ -374,26 +366,14 @@ export const getStaticProps = async ({ locale }) => {
     )
   );
 
-  return process.env.ISR_ENABLED
-    ? {
-        props: {
-          locale: locale,
-          adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
-          ...(await serverSideTranslations(locale, ["common"])),
-          experimentData: experimentsData,
-          pageData: pageData,
-          filters,
-        },
-        revalidate: 60, // revalidate once an minute
-      }
-    : {
-        props: {
-          locale: locale,
-          adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
-          ...(await serverSideTranslations(locale, ["common"])),
-          experimentData: experimentsData,
-          pageData: pageData,
-          filters,
-        },
-      };
+  return {
+    props: {
+      locale: locale,
+      adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+      ...(await serverSideTranslations(locale, ["common"])),
+      experimentData: experimentsData.sCLabsProjectList,
+      pageData: pageData.sCLabsPageByPath,
+      filters,
+    },
+  };
 };

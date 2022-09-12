@@ -87,3 +87,5 @@ globalConfig.json
 # IDE related files
 .vscode
 .idea
+
+graphql/.cache/
