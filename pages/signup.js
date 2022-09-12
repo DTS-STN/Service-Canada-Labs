@@ -271,6 +271,7 @@ export default function Signup(props) {
     setIncomeLevel("");
     setPublicServant("");
     setAgreeToConditions("");
+    sessionStorage.removeItem("formData");
   };
 
   const handleSubmit = async (e) => {
