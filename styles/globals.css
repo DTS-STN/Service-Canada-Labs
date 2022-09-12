@@ -308,6 +308,10 @@ li {
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.card-shadow {
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
 @media (max-width: 990px) {
   .splash-image {
     background-position: 50% 75%; 

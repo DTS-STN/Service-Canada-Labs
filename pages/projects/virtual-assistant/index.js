@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import queryGraphQL from "../../../graphql/client";
 import getVirtualAssistantPage from "../../../graphql/queries/virtualAssistantQuery.graphql";
 import Image from "next/image";
+import Card from "../../../components/molecules/Card";
+import { Alert } from "../../../components/atoms/Alert";
 
 //  On hold for now
 //  import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge";
@@ -113,74 +115,10 @@ export default function Home(props) {
 
         {/* Virtual Assitant Demo section start -  with link to working prototype */}
         <section className="layout-container mb-10">
-          <h1 className="mb-8 text-h1l" tabIndex="-1" id="pageMainTitle">
+          <h1 className="mb-16 text-h1l" tabIndex="-1" id="pageMainTitle">
             {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
           </h1>
-          {/* the scenario section */}
-          <div>
-            <h2 className="mb-6 mt-8 text-h1" id="virtualAssistantScenario">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[0].content[0].value
-                : pageData.scFragments[0].scContentFr.json[0].content[0].value}
-            </h2>
-            <p className="mb-6 lg:col-span-2 px-1 lg:px-0 xl:w-3/4">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[1].content[0].value
-                : pageData.scFragments[0].scContentFr.json[1].content[0].value}
-              <strong>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[1].content[1].value
-                  : pageData.scFragments[0].scContentFr.json[1].content[1]
-                      .value}
-              </strong>
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[1].content[2].value
-                : pageData.scFragments[0].scContentFr.json[1].content[2].value}
-              <strong>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[1].content[3].value
-                  : pageData.scFragments[0].scContentFr.json[1].content[3]
-                      .value}
-              </strong>
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[1].content[4].value
-                : pageData.scFragments[0].scContentFr.json[1].content[4].value}
-            </p>
-            <p className="mb-6 lg:col-span-2 px-1 lg:px-0 xl:w-3/4">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[2].content[0].value
-                : pageData.scFragments[0].scContentFr.json[2].content[0].value}
-              <strong>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[2].content[1].value
-                  : pageData.scFragments[0].scContentFr.json[2].content[1]
-                      .value}
-              </strong>
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[2].content[2].value
-                : pageData.scFragments[0].scContentFr.json[2].content[2].value}
-            </p>
-
-            <p className="flex mb-16 text-center">
-              <ActionButton
-                href={
-                  props.locale === "en"
-                    ? pageData.scFragments[3].scDestinationURLEn
-                    : pageData.scFragments[3].scDestinationURLFr
-                }
-                id="meet-va-link"
-                dataCy="meet-va-link"
-                className="rounded px-6 py-4 font-bold text-center inline-block"
-              >
-                {props.locale === "en"
-                  ? pageData.scFragments[3].scTitleEn
-                  : pageData.scFragments[3].scTitleFr}
-              </ActionButton>
-              {/* href="https://av-va.alpha.service.canada.ca" */}
-            </p>
-          </div>
-
-          <div className="w-auto mb-6 ">
+          <div className="w-auto mb-12">
             <div className="flex flex-col break-words lg:grid lg:grid-cols-2 gap-4 lg:gap-6 ">
               <h2 className="mb-0 text-h1" id="virtualAssistantTitle">
                 {props.locale === "en"
@@ -212,6 +150,35 @@ export default function Home(props) {
                       .value}
               </p>
             </div>
+          </div>
+          <div className="mb-12">
+            <h2>Project updates</h2>
+            <Card
+              href="/projects"
+              title="What we learned building the Service Canada Virtual Assistant"
+              description="Our goal with the Virtual Assistant was to start with user needs and build a prototype that shows how a user-friendly chatbot experience could be. From there, we can work backwards to identify what else needs to be in place to make it possible."
+              btnText="Read more about the Virtual Assistant"
+              btnHref="/projects"
+              btnId=""
+              blog
+            />
+          </div>
+          <div>
+            <h2>Explore the Virtual Assistant</h2>
+            <Alert
+              title="This project is no longer collecting feedback."
+              text="We are not actively working on this project and are not collecting feedback to improve it at this time. This may change in the future."
+            />
+            <p className="flex mb-4 text-center">
+              <ActionButton
+                id="become-a-participant-btn"
+                custom={`py-1.5 px-3 rounded text-white text-base lg:text-p font-display bg-custom-blue-dark hover:bg-custom-blue-light border border-custom-blue-darker active:bg-custom-blue-darker hover:ring-2 hover:ring-white`}
+                className=""
+                href={"/tryitout"}
+                text={"Explore the Virtual Assistant"}
+                ariaExpanded={props.ariaExpanded}
+              />
+            </p>
           </div>
         </section>
         {/* END Virtual Assistant Demo section end for working prototype */}

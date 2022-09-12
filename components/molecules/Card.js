@@ -18,7 +18,11 @@ export const Card = (props) => {
   return (
     <div
       className={`${
-        props.isExperiment ? "shadow-experiment-shadow -ml-8" : ""
+        props.blog
+          ? "card-shadow border border-custom-gray-border rounded-md px-4 py-2 mb-8"
+          : props.isExperiment
+          ? "shadow-experiment-shadow -ml-8"
+          : ""
       } xl:min-h-250px ${
         "border-" + (tagColours[props.tag] || "gray-experiment")
       } min-w-full`}
@@ -28,18 +32,32 @@ export const Card = (props) => {
         maxWidth: "560px",
       }}
     >
-      <div className="mb-4">
-        <Image
-          src={props.imgSrc}
-          alt={props.imgAlt}
-          height={props.imgHeight}
-          width={props.imgWidth}
-          layout="responsive"
-          priority={props.priority}
-        />
-      </div>
+      {!props.blog ? (
+        <div className="mb-4">
+          <Image
+            src={props.imgSrc}
+            alt={props.imgAlt}
+            height={props.imgHeight}
+            width={props.imgWidth}
+            layout="responsive"
+            priority={props.priority}
+          />
+        </div>
+      ) : undefined}
+
       <h2>
-        {props.isExperiment ? (
+        {props.blog ? (
+          <div>
+            <Link href={props.href}>
+              <a className="text-canada-footer-font text-lg underline">
+                {props.title}
+              </a>
+            </Link>
+            <p className="text-base text-custom-gray-date">
+              {"Posted: " + props.date}
+            </p>
+          </div>
+        ) : props.isExperiment ? (
           <Link href={props.href}>
             <a
               className="flex block text-p text-custom-blue-projects-link underline hover:opacity-70 px-4 items-center"
@@ -75,7 +93,11 @@ export const Card = (props) => {
       ) : undefined}
       <p
         className={`${
-          props.isExperiment ? "ml-4 mb-4" : ""
+          props.blog
+            ? "text-custom-gray-text"
+            : props.isExperiment
+            ? "ml-4 mb-4"
+            : ""
         } mt-2 leading-30px text-lg`}
       >
         {props.description}
