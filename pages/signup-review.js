@@ -191,8 +191,6 @@ export default function SignupReview(props) {
       });
     } else if (response.status === 400 || 500) {
       await router.push("/500");
-    } else {
-      return;
     }
   };
 
