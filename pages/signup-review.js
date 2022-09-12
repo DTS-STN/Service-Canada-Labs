@@ -189,8 +189,8 @@ export default function SignupReview(props) {
         pathname: "/thankyou",
         query: { e: maskedEmail, ref: "signup" },
       });
-    } else if (response.status === 400) {
-      return;
+    } else if (response.status === 400 || 500) {
+      await router.push("/500");
     } else {
       return;
     }

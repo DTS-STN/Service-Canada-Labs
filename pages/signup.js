@@ -383,14 +383,14 @@ export default function Signup(props) {
       response = await response.json();
 
       if (response.message === "User exists") {
-        await setGlobalErrorText(formField.errorMsg.errorRegistered);
+        setGlobalErrorText(formField.errorMsg.errorRegistered);
       } else if (response.message === "User does not exist") {
         sessionStorage.setItem("formData", JSON.stringify(formData));
         await push({
           pathname: "/signup-review",
         });
       } else if (response.status === 500 || 400) {
-        await setGlobalErrorText(formField.errorMsg.errorUnknown);
+        setGlobalErrorText(formField.errorMsg.errorUnknown);
       }
     }
     // Checks if error exists
