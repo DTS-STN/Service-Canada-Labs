@@ -302,6 +302,8 @@
   "unsubRedirect": "/unsubscribe",
   "virtualAssistantPath": "/projets/assistant-virtuel",
   "virtualAssistantRedirect": "/projects/virtual-assistant",
+  "virtualAssistantTryItPath": "/projets/assistant-virtuel/l'essayer",
+  "virtualAssistantTryItRedirect": "/projects/virtual-assistant/try-it-out",
   "digitalCentrePath": "/projets/centre-numerique",
   "digitalCentreRedirect": "/projects/digital-centre",
   "before": "Before",

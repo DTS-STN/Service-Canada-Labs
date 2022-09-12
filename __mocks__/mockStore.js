@@ -5574,3 +5574,468 @@ export const privacyPageData = {
     },
   },
 };
+
+export const tryVirtualAssistantPageData = {
+  data: {
+    scLabsPagev1ByPath: {
+      item: {
+        scId: "VIRTUAL-ASSISTANT-TRY-IT-OUT",
+        scPageNameEn: "/en/projects/virtual-assistant/try-it-out",
+        scPageNameFr: "/fr/projets/assistant-virtuel/l'essayer",
+        scTitleEn: "Virtual Assistant",
+        scTitleFr: "Assistent Virtuel",
+        scShortTitleEn: null,
+        scShortTitleFr: null,
+        scDescriptionEn: {
+          json: null,
+        },
+        scDescriptionFr: {
+          json: null,
+        },
+        scSubject: null,
+        scKeywordsEn: null,
+        scKeywordsFr: null,
+        scContentType: null,
+        scOwner: null,
+        scDateModifiedOverwrite: "2022-09-09",
+        scAudience: null,
+        scRegion: null,
+        scSocialMediaImageAltTextEn: null,
+        scSocialMediaImageAltTextFr: null,
+        scNoIndex: false,
+        scNoFollow: false,
+        scFragments: [
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/virtual-assistant-try-it-out-page-content",
+            scId: "VIRTUAL-ASSISTANT-TRY-IT-OUT-MAIN-CONTENT",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h1",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Virtual Assistant",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "The Virtual Assistant is a chatbot designed to guide Canadians through applying for new benefits and overcome challenges they may face as they apply for and receive benefits.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "The Virtual Assistant would be able to:",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Help you overcome obstacles you may face when applying for a benefit (for example, if you’re missing a document).",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Change your account details (for example, it can update your home address).",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Answer specific questions about your file (for example, check the status of your application).",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Let's see it in action!",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h1",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Assistant Virtuel",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "L'assistant virtuel est un chatbot conçu pour guider les Canadiens dans leur demande de nouvelles prestations et pour surmonter les difficultés qu'ils peuvent rencontrer lorsqu'ils demandent et reçoivent des prestations.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "L'assistant virtuel devra être capable de :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Vous aider à surmonter les obstacles que vous pouvez rencontrer lors de la demande d'une prestation (par exemple, s'il vous manque un document).",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Modifier les données de votre compte (par exemple, il peut mettre à jour l'adresse de votre domicile).",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Répondre à des questions précises sur votre dossier (par exemple, vérifier l'état d'avancement de votre demande).",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Regardons-le à l'œuvre!",
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/images/virtual-assistant/try-it-out-page/virtual-assistant",
+            scId: "VIRTUAL-ASSISTANT",
+            scImageEn: {
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/1x_canihelpyou.png",
+            },
+            scImageFr: {
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/1x_fr_canihelpyou.png",
+            },
+            scImageAltTextEn: null,
+            scImageAltTextFr: null,
+          },
+          {
+            scId: "VIRTUAL-ASSISTANT-TRY-IT-OUT-ALERT",
+            scTitleEn: "Demonstration only",
+            scTitleFr: "Démonstration uniquement",
+            scAlertType: ["gc:custom/decd-endc/alert-type/information"],
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "The following scenarios are examples for demonstration purposes only. To apply for benefits or services, visit ",
+                    },
+                    {
+                      nodeType: "link",
+                      data: {
+                        href: "https://www.canada.ca/en/employment-social-development/services/my-account.html",
+                      },
+                      value: "Service Canada.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Les scénarios suivants sont des exemples à des fins de démonstration seulement. Pour demander des prestations ou des services, visitez le site de ",
+                    },
+                    {
+                      nodeType: "link",
+                      data: {
+                        href: "https://www.canada.ca/fr/emploi-developpement-social/services/mon-dossier.html",
+                      },
+                      value: "Service Canada.",
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            scId: "VIRTUAL-ASSISTANT-SCENARIO-1",
+            scTitleEn: "Scenario 1",
+            scTitleFr: "Scénario 1",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Hafsa applies for Old Age Security",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Hafsa fait une demande de pension de la Sécurité de la vieillesse",
+                    },
+                  ],
+                },
+              ],
+            },
+            scImageEn: {
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/1x_hafsa.png",
+            },
+            scImageFr: {
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/1x_hafsa.png",
+            },
+            scLabsButton: [
+              {
+                scId: "VIRTUAL-ASSISTANT-SCENARIO-1-BUTTON",
+                scTitleEn: "Try Scenario 1",
+                scTitleFr: "Lancer le scénario 1",
+                scDestinationURLEn:
+                  "https://va-av-bot.alpha.service.canada.ca/en/hafsa",
+                scDestinationURLFr:
+                  "https://va-av-bot.alpha.service.canada.ca/fr/hafsa",
+              },
+            ],
+          },
+          {
+            scId: "VIRTUAL-ASSISTANT-SCENARIO-2",
+            scTitleEn: "Scenario 2",
+            scTitleFr: "Scénario 2",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Hafsa updates her email address",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Hafsa met à jour son adresse de courrier électronique",
+                    },
+                  ],
+                },
+              ],
+            },
+            scImageEn: {
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/1x_alwaysOnBot.jpg",
+            },
+            scImageFr: {
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/1x_alwaysOnBot.jpg",
+            },
+            scLabsButton: [
+              {
+                scId: "VIRTUAL-ASSISTANT-SCENARIO-2-BUTTON",
+                scTitleEn: "Try Scenario 2",
+                scTitleFr: "Lancer le scénario 2",
+                scDestinationURLEn:
+                  "https://va-av-bot.alpha.service.canada.ca/en/alwaysonbot",
+                scDestinationURLFr:
+                  "https://va-av-bot.alpha.service.canada.ca/fr/alwaysonbot",
+              },
+            ],
+          },
+          {
+            scId: "VIRTUAL-ASSISTANT-SCENARIO-3",
+            scTitleEn: "Scenario 3",
+            scTitleFr: "Scénario 3",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Ray restarts his Guaranteed Income Supplement payments",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Ray rétablit ses paiements de Supplément de revenu garanti",
+                    },
+                  ],
+                },
+              ],
+            },
+            scImageEn: {
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/1x_ray.png",
+            },
+            scImageFr: {
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/1x_ray.png",
+            },
+            scLabsButton: [
+              {
+                scId: "VIRTUAL-ASSISTANT-SCENARIO-3-BUTTON",
+                scTitleEn: "Try Scenario 3",
+                scTitleFr: "Lancer le scénario 3",
+                scDestinationURLEn:
+                  "https://va-av-bot.alpha.service.canada.ca/en/ray",
+                scDestinationURLFr:
+                  "https://va-av-bot.alpha.service.canada.ca/fr/ray",
+              },
+            ],
+          },
+          {
+            scId: "VIRTUAL-ASSISTANT-SCENARIO-4",
+            scTitleEn: "Scenario 4",
+            scTitleFr: "Scénario 4",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Mary applies for Employment Insurance",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Marie fait une demande de prestations d'assurance-emploi",
+                    },
+                  ],
+                },
+              ],
+            },
+            scImageEn: {
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/1x_mary.png",
+            },
+            scImageFr: {
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/1x_mary.png",
+            },
+            scLabsButton: [
+              {
+                scId: "VIRTUAL-ASSISTANT-SCENARIO-4-BUTTON",
+                scTitleEn: "Try Scenario 4",
+                scTitleFr: "Lancer le scénario 4",
+                scDestinationURLEn:
+                  "https://va-av-bot.alpha.service.canada.ca/en/mary",
+                scDestinationURLFr:
+                  "https://va-av-bot.alpha.service.canada.ca/fr/mary",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  },
+};

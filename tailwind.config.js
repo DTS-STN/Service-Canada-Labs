@@ -79,6 +79,7 @@ module.exports = {
           darker: "#083C6C",
           link: "#0535d2",
           text: "#335075",
+          hover: "#083DCA",
           "experiment-blue": "#004986",
           "projects-link": "#2B4380",
         },

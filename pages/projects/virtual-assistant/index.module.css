@@ -5,7 +5,3 @@
 .h3 {
 	font-size: 24px;
 }
-
-.card:hover div p {
-	text-decoration:underline;
-}

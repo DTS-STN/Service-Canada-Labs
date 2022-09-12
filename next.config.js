@@ -126,6 +126,10 @@ module.exports = {
         source: "/projets/assistant-virtuel",
         destination: "/projects/virtual-assistant",
       },
+      {
+        source: "/projets/assistant-virtuel/l'essayer",
+        destination: "/projects/virtual-assistant/try-it-out"
+      }
     ];
   },
   async redirects() {
@@ -290,6 +294,18 @@ module.exports = {
       },
       {
         source: "/projects/virtual-assistant",
+        has: [
+          {
+            type: "header",
+            key: "User-Agent",
+            value: "(.*Trident.*)",
+          },
+        ],
+        destination: "/notsupported",
+        permanent: false,
+      },
+      {
+        source: "/projects/virtual-assistant/try-it-out",
         has: [
           {
             type: "header",
