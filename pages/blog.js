@@ -6,8 +6,7 @@ import { CallToAction } from "../components/molecules/CallToAction";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { HTMList } from "../components/atoms/HTMList";
 import { useEffect } from "react";
-import queryGraphQL from "../graphql/client";
-import getAllBlogEntries from "../graphql/queries/blogEntries.graphql";
+import aemServiceInstance from "../services/aemServiceInstance";
 
 export default function Blog(props) {
   const { t } = useTranslation("common");
@@ -139,8 +138,8 @@ export default function Blog(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  const { data: blogEntriesResponse } = await queryGraphQL(getAllBlogEntries);
-  const posts = blogEntriesResponse.sCLabsPageList.items;
+  const { data } = await aemServiceInstance.getFragment("blogEntries");
+  const posts = data.sCLabsPageList.items;
   return {
     props: {
       locale: locale,

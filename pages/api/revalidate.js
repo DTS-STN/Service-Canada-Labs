@@ -1,21 +1,24 @@
-const REVALIDATION_ROUTES = [
-  "/404",
-  "/500",
-  "/about",
-  "/blog",
-  "/confirmation",
-  "/error",
-  "/home",
-  "/",
-  "/notsupported",
-  "/projects",
-  "/signup-info",
-  "/signup",
-  "/signup/privacy",
-  "/thankyou",
-  "/unsubscribe",
-  "/projects",
-];
+import aemServiceInstance from "../../services/aemServiceInstance";
+
+const getPromise = async (promise) => {
+  return Promise.resolve().then(() => promise);
+};
+
+const callTasks = async (promises) => {
+  try {
+    const promise = await getPromise(promises.shift());
+
+    if (!promises.length) {
+      return promise;
+    }
+
+    return callTasks(promises);
+  } catch (err) {
+    console.error(err.message);
+
+    return promise;
+  }
+};
 
 export default async function handler(req, res) {
   // Check for secret to confirm this is a valid request
@@ -23,10 +26,15 @@ export default async function handler(req, res) {
     return res.status(401).json({ message: "Invalid token" });
   }
 
+  const routes = req.query?.routes?.split(",") || [];
+
+  if (!routes?.length) {
+    return res.status(500).send("Pass in routes to revalidate");
+  }
+
   try {
-    await Promise.all(
-      REVALIDATION_ROUTES.map((route) => res.revalidate(route))
-    );
+    aemServiceInstance.flush();
+    await callTasks(routes.map((route) => res.revalidate(route)));
     return res.json({ revalidated: true });
   } catch (err) {
     // If there was an error, Next.js will continue

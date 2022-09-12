@@ -4,8 +4,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { CallToAction } from "../../components/molecules/CallToAction";
 import { useEffect, useState } from "react";
-import queryGraphQL from "../../graphql/client";
-import getHavingAChildPage from "../../graphql/queries/havingAChildQuery.graphql";
+import aemServiceInstance from "../../services/aemServiceInstance";
 import Image from "next/image";
 
 export default function LifeJourneys(props) {
@@ -363,16 +362,11 @@ export default function LifeJourneys(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  // get page data from AEM
-  const res = await queryGraphQL(getHavingAChildPage).then((result) => {
-    return result;
-  });
-
-  const data = res.data.sCLabsPageByPath;
+  const { data } = await aemServiceInstance.getFragment("havingAChildQuery");
   return {
     props: {
       locale: locale,
-      pageData: data,
+      pageData: data.sCLabsPageByPath,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       ...(await serverSideTranslations(locale, ["common"])),
     },
