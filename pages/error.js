@@ -6,8 +6,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import queryGraphQL from "../graphql/client";
-import getCustomErrorPage from "../graphql/queries/customErrorQuery.graphql";
+import aemServiceInstance from "../services/aemServiceInstance";
 import Image from "next/image";
 
 export default function ErrorPage(props) {
@@ -462,31 +461,15 @@ export default function ErrorPage(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  // get page data from AEM
-  const res = await queryGraphQL(getCustomErrorPage).then((result) => {
-    return result;
-  });
+  const { data } = await aemServiceInstance.getFragment("customErrorQuery");
 
-  const data = res.data.scLabsErrorPageByPath;
-
-  return process.env.ISR_ENABLED
-    ? {
-        props: {
-          locale: locale,
-          adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
-          ...(await serverSideTranslations("en", ["common"])),
-          ...(await serverSideTranslations("fr", ["common"])),
-          pageData: data,
-        },
-        revalidate: 60, // revalidate once an minute
-      }
-    : {
-        props: {
-          locale: locale,
-          adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
-          ...(await serverSideTranslations("en", ["common"])),
-          ...(await serverSideTranslations("fr", ["common"])),
-          pageData: data,
-        },
-      };
+  return {
+    props: {
+      locale: locale,
+      adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+      ...(await serverSideTranslations("en", ["common"])),
+      ...(await serverSideTranslations("fr", ["common"])),
+      pageData: data.scLabsErrorPageByPath,
+    },
+  };
 };

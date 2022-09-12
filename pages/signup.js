@@ -17,8 +17,7 @@ import { CheckBox } from "../components/atoms/CheckBox";
 import { OptionalListField } from "../components/molecules/OptionalListField";
 import { maskEmail } from "../lib/utils/maskEmail";
 import Link from "next/link";
-import queryGraphQL from "../graphql/client";
-import getSignupPage from "../graphql/queries/signupQuery.graphql";
+import aemServiceInstance from "../services/aemServiceInstance";
 
 // TODO
 //  - fix bug with error messages not showing custom error message [x]
@@ -1158,29 +1157,14 @@ export default function Signup(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  // get page data from AEM
-  const res = await queryGraphQL(getSignupPage).then((result) => {
-    return result;
-  });
+  const { data } = await aemServiceInstance.getFragment("signupQuery");
 
-  const data = res.data.sCLabsPageByPath;
-
-  return process.env.ISR_ENABLED
-    ? {
-        props: {
-          locale: locale,
-          adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
-          ...(await serverSideTranslations(locale, ["common"])),
-          pageData: data,
-        },
-        revalidate: 60, // revalidate once an minute
-      }
-    : {
-        props: {
-          locale: locale,
-          adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
-          ...(await serverSideTranslations(locale, ["common"])),
-          pageData: data,
-        },
-      };
+  return {
+    props: {
+      locale: locale,
+      adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+      ...(await serverSideTranslations(locale, ["common"])),
+      pageData: data.sCLabsPageByPath,
+    },
+  };
 };

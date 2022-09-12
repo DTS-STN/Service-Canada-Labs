@@ -5,9 +5,8 @@ import { ActionButton } from "../components/atoms/ActionButton";
 import { useEffect } from "react";
 import { CopyToClipboard } from "../components/molecules/CopyToClipboard";
 import { useState } from "react";
-import queryGraphQL from "../graphql/client";
-import getNotSupported from "../graphql/queries/notsupportedQuery.graphql";
 import Image from "next/image";
+import aemServiceInstance from "../services/aemServiceInstance";
 
 export default function notSupported(props) {
   const { t } = useTranslation("common");
@@ -480,31 +479,15 @@ export default function notSupported(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  // get page data from AEM
-  const res = await queryGraphQL(getNotSupported).then((result) => {
-    return result;
-  });
+  const { data } = await aemServiceInstance.getFragment("notsupportedQuery");
 
-  const data = res.data.scLabsErrorPageByPath;
-
-  return process.env.ISR_ENABLED
-    ? {
-        props: {
-          locale: locale,
-          adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
-          ...(await serverSideTranslations("en", ["common"])),
-          ...(await serverSideTranslations("fr", ["common"])),
-          pageData: data,
-        },
-        revalidate: 60, // revalidate once an minute
-      }
-    : {
-        props: {
-          locale: locale,
-          adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
-          ...(await serverSideTranslations("en", ["common"])),
-          ...(await serverSideTranslations("fr", ["common"])),
-          pageData: data,
-        },
-      };
+  return {
+    props: {
+      locale: locale,
+      adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+      ...(await serverSideTranslations("en", ["common"])),
+      ...(await serverSideTranslations("fr", ["common"])),
+      pageData: data.scLabsErrorPageByPath,
+    },
+  };
 };
