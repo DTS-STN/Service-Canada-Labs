@@ -6,6 +6,9 @@ import signupData from "../fixtures/signup.json"
 
 describe("signup review page", () => {
   beforeEach(() => {
+    cy.window().then((win) => {
+      win.sessionStorage.setItem("formData", JSON.stringify(signupData))
+    })
     cy.visit("/signup-review");
     cy.injectAxe();
   });
@@ -28,12 +31,10 @@ describe("signup review page", () => {
     cy.url().should("contains", "/signup-review");
   });
 
-  it("Test signup on successful submit", () => {
+  it.only("Test signup on successful submit", async () => {
     cy.intercept("/api/**", {
       fixture: "signup",
     }).as("response");
-
-    window.localStorage.setItem("formData", signupData)
     cy.get('[data-cy="signup-review-submit"]').click();
 
     cy.wait("@response").then((xhr) => {
