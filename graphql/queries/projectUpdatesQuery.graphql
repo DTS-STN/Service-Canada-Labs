@@ -1,0 +1,27 @@
+query getProjectUpdates {
+  sCLabsProjectUpdateList {
+    items {
+      _path
+      scId
+      scTitleEn
+      scTitleFr
+      datePosted
+      scDescriptionEn {
+        json
+      }
+      scDescriptionFr {
+        json
+      }
+      scFragments {
+        ... on SCLabsButtonv1Model {
+          scId
+          scTitleEn
+          scTitleFr
+          scDestinationURLEn
+          scDestinationURLFr
+          scButtonType
+        }
+      }
+    }
+  }
+}

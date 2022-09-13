@@ -99,6 +99,9 @@ module.exports = {
           text: "#555555",
           date: "#6F6F6F",
         },
+        "custom-orange": {
+          warning: "#EE7100",
+        },
         "error-border-red": "#D3080C",
         "error-background-red": "#F3E9E8",
         "details-button-gray": "#E7E8EA",

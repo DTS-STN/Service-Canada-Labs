@@ -19,7 +19,7 @@ export const Card = (props) => {
     <div
       className={`${
         props.blog
-          ? "card-shadow border border-custom-gray-border rounded-md px-4 py-2 mb-8"
+          ? "card-shadow border border-custom-gray-border rounded-md px-4 py-2 mb-8 min-h-250px"
           : props.isExperiment
           ? "shadow-experiment-shadow -ml-8"
           : ""
@@ -54,7 +54,7 @@ export const Card = (props) => {
               </a>
             </Link>
             <p className="text-base text-custom-gray-date">
-              {"Posted: " + props.date}
+              {"Posted: " + props.datePosted.substring(0, 10)}
             </p>
           </div>
         ) : props.isExperiment ? (
@@ -103,15 +103,13 @@ export const Card = (props) => {
         {props.description}
       </p>
       {!props.isExperiment ? (
-        <span className="flex">
-          <ActionButton
-            href={props.btnHref}
-            text={props.btnText}
-            id={props.btnId}
-            dataCy={props.btnId}
-            className="rounded xxs:w-full xs:w-fit my-4 py-2 bg-[#EAEBED] text-custom-blue-text focus:ring-inset focus:ring-2 focus:ring-black hover:bg-details-button-hover-gray text-center border border-details-button-gray"
-          />
-        </span>
+        <ActionButton
+          href={props.btnHref}
+          text={props.btnText}
+          id={props.btnId}
+          dataCy={props.btnId}
+          className="flex mt-6 mb-2 rounded xxs:w-full xs:w-fit py-2 bg-[#EAEBED] text-custom-blue-text focus:ring-inset focus:ring-2 focus:ring-black hover:bg-details-button-hover-gray text-center border border-details-button-gray"
+        />
       ) : undefined}
     </div>
   );
