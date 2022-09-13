@@ -36,6 +36,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added the `Alert` component for contextual alerts
 - Added the `TableOfContents` component to convert page headings into a table of contents
 - Added the `default` locale and middleware to redirect all routes using this locale to their corresponding `en` routes
+- Added `/signup-review` page where users can review their signup information before final submission for registration
+- Added `check-email` API endpoint for checking if a user exists
 
 ## Changed
 
