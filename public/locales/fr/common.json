@@ -300,6 +300,8 @@
   "unsubRedirect": "/desabonnement",
   "virtualAssistantPath": "/projects/virtual-assistant",
   "virtualAssistantRedirect": "/projets/assistant-virtuel",
+  "virtualAssistantTryItPath": "/projects/virtual-assistant/try-it-out",
+  "virtualAssistantTryItRedirect": "/projets/assistant-virtuel/l'essayer",
   "digitalCentrePath": "/projects/digital-centre",
   "digitalCentreRedirect": "/projets/centre-numerique",
   "before": "Avant",
