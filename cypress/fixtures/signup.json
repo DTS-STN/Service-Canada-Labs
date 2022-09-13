@@ -1,7 +1,7 @@
 { 
     "id": 1,
     "email": "some@email.com",
-    "dateOfBirth": "before1936",
-    "language": "EN",
+    "dateOfBirth": "before1937",
+    "language": "en",
     "agreeToCondition": true
 }

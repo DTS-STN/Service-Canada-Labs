@@ -165,11 +165,12 @@ export default function Privacy(props) {
                 : pageData.scFragments[0].scContentFr.json[3].content[0].value}
             </p>
             <ul className="ml-9 mb-4 text-p list-disc">
-              {pageData.scFragments[0].scContentEn.json[4].content.map(
-                (item) => (
-                  <li key={item.content[0].value}>{item.content[0].value}</li>
-                )
-              )}
+              {(props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[4].content
+                : pageData.scFragments[0].scContentFr.json[4].content
+              ).map((item) => (
+                <li key={item.content[0].value}>{item.content[0].value}</li>
+              ))}
             </ul>
             <p className="mb-4">
               {props.locale === "en"
@@ -177,11 +178,12 @@ export default function Privacy(props) {
                 : pageData.scFragments[0].scContentFr.json[5].content[0].value}
             </p>
             <ul className="ml-9 mb-4 text-p list-disc">
-              {pageData.scFragments[0].scContentEn.json[6].content.map(
-                (item) => (
-                  <li key={item.content[0].value}>{item.content[0].value}</li>
-                )
-              )}
+              {(props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[6].content
+                : pageData.scFragments[0].scContentFr.json[6].content
+              ).map((item) => (
+                <li key={item.content[0].value}>{item.content[0].value}</li>
+              ))}
             </ul>
             <p className="mb-4">
               {props.locale === "en"
