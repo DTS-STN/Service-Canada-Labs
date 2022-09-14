@@ -4,12 +4,6 @@ const testUrl = "https://test-url.com";
 
 describe("AEMService class", () => {
   it("base url should not be empty", () => {
-    expect(() => {
-      new AEMService();
-    }).toThrow(Error);
-    expect(() => {
-      new AEMService(" ");
-    }).toThrow(Error);
     expect(new AEMService(testUrl).baseUrl).toBe(testUrl);
   });
   it("should contain a cache bust string that is passed as a second arg, or defaulted to today date (en-CA localized)", () => {

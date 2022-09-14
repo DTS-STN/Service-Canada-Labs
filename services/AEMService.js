@@ -5,8 +5,6 @@ const cacheFilePath = path.resolve('.', 'graphql', '.cache')
 
 class AEMService {
   constructor(baseUrl, cacheBust) {
-    if (!baseUrl?.trim?.()) throw new Error(`Provide a base URL for AEM.`);
-
     this.cacheBustString = !!cacheBust?.trim?.()
       ? cacheBust
       : new Date().toLocaleDateString("en-CA");
