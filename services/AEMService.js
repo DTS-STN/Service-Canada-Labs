@@ -80,46 +80,6 @@ class AEMService {
   }
 
   //
-  // gets the data for all benefits, start by getting the urls for each, then get the benefit data using the url
-  //
-  async getBenefits(fragId) {
-    const { data, error } = await this.getFragment(fragId);
-    let benefitsUrls = [];
-    let benefitData = [];
-    let errorCode = error;
-
-    if (!error) {
-      benefitsUrls = data.entities.map((benefit) => {
-        return {
-          name: benefit.properties.name,
-          href: benefit.links[0].href,
-        };
-      });
-
-      benefitData = await Promise.all(
-        benefitsUrls.map(async (benefit) => {
-          const { data, error } = await this.getFragment(
-            benefit.href
-              .replace(this.baseUrl, "")
-              .replace(`?dates=${this.cacheBustString}`, "")
-          );
-          return {
-            elements: data?.entities[0]?.properties?.elements || [],
-            name: data?.entities[0]?.properties?.name || "",
-            description: data?.entities[0]?.properties?.description || "",
-            title: data?.entities[0]?.properties?.title || "",
-            error: error,
-          };
-        })
-      );
-    }
-    return {
-      benefits: benefitData,
-      error: errorCode,
-    };
-  }
-
-  //
   // gets the data for a single benefit
   //
   async getBenefit(benefitId) {
