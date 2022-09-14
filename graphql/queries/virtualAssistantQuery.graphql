@@ -1,6 +1,6 @@
 query getVirtualAssistantPage {
   sCLabsPageByPath(
-    _path: "/content/dam/decd-endc/content-fragments/sclabs/projects/v1/virtual-assistant/overview"
+    _path: "/content/dam/decd-endc/content-fragments/sclabs/projects/virtual-assistant/overview"
   ) {
     item {
       scId

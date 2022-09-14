@@ -28,6 +28,14 @@ describe("Card tests", () => {
     expect(descriptionElement).toBeTruthy();
   });
 
+  it("renders Card in its Experiment state", () => {
+    render(<Blog {...Blog.args} />);
+    const titleElement = screen.getByText("Title");
+    const descriptionElement = screen.getByText("Project description");
+    expect(titleElement).toBeTruthy();
+    expect(descriptionElement).toBeTruthy();
+  });
+
   it("has no a11y violations", async () => {
     const { container } = render(<Primary {...Primary.args} />);
     const results = await axe(container);

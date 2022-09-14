@@ -11,7 +11,6 @@ import Image from "next/image";
 import Card from "../../../components/molecules/Card";
 import { Alert } from "../../../components/atoms/Alert";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
-import { faRoadSpikes } from "@fortawesome/free-solid-svg-icons";
 
 //  On hold for now
 //  import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge";
@@ -21,8 +20,6 @@ export default function Home(props) {
   const { t } = useTranslation(["common", "vc"]);
   const [pageData] = useState(props.pageData.item);
   const [projectUpdates] = useState(props.projectUpdates.items);
-
-  console.log(projectUpdates);
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
@@ -142,9 +139,23 @@ export default function Home(props) {
                         .value}
                 </p>
                 <ProjectInfo
+                  stage={
+                    props.locale === "en"
+                      ? pageData.scFragments[5].scContentEn.json[0].content[0]
+                          .value
+                      : pageData.scFragments[5].scContentFn.json[0].content[0]
+                          .value
+                  }
+                  info={
+                    props.locale === "en"
+                      ? pageData.scFragments[5].scContentEn.json[0].content[1]
+                          .value
+                      : pageData.scFragments[5].scContentFn.json[0].content[1]
+                          .value
+                  }
                   dateStarted={pageData.scFragments[1].dateStarted}
                   dateEnded={pageData.scFragments[1].dateEnded}
-                  stage={
+                  projectStage={
                     props.locale === "en"
                       ? pageData.scFragments[1].projectStageEn
                       : pageData.scFragments[1].projectStageFr
