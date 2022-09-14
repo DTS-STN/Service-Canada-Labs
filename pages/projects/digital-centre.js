@@ -6,8 +6,7 @@ import { Layout } from "../../components/organisms/Layout";
 import { CallToAction } from "../../components/molecules/CallToAction";
 import { useEffect, useState } from "react";
 import FeedbackWidget from "../../components/molecules/FeedbackWidget";
-import queryGraphQL from "../../graphql/client";
-import getDigitalCentrePage from "../../graphql/queries/digitalCentreQuery.graphql";
+import aemServiceInstance from "../../services/aemServiceInstance";
 import Image from "next/image";
 
 function ThumbnailWithCaption({
@@ -849,16 +848,11 @@ export default function DigitalCenter(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  // get page data from AEM
-  const res = await queryGraphQL(getDigitalCentrePage).then((result) => {
-    return result;
-  });
-
-  const data = res.data.sCLabsPageByPath;
+  const { data } = await aemServiceInstance.getFragment("digitalCentreQuery");
   return {
     props: {
       locale: locale,
-      pageData: data,
+      pageData: data.sCLabsPageByPath,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       ...(await serverSideTranslations(locale, ["common"])),
     },

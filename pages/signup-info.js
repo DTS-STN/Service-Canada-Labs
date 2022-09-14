@@ -5,8 +5,7 @@ import { useEffect, useState } from "react";
 import { ActionButton } from "../components/atoms/ActionButton";
 import Link from "next/link";
 import Head from "next/head";
-import queryGraphQL from "../graphql/client";
-import getSignupInfoPage from "../graphql/queries/signupInfoQuery.graphql";
+import aemServiceInstance from "../services/aemServiceInstance";
 import { Alert } from "../components/atoms/Alert";
 
 export default function SignupInfo(props) {
@@ -398,15 +397,10 @@ export default function SignupInfo(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  // get page data from AEM
-  const res = await queryGraphQL(getSignupInfoPage).then((result) => {
-    return result;
-  });
-
-  const data = res.data.sCLabsPageByPath;
+  const { data } = await aemServiceInstance.getFragment("signupInfoQuery");
   return {
     props: {
-      pageData: data,
+      pageData: data.sCLabsPageByPath,
       locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       ...(await serverSideTranslations(locale, ["common"])),
