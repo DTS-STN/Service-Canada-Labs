@@ -5,8 +5,6 @@ import { render, screen } from "@testing-library/react";
 import DigitalCentre from "../../pages/projects/digital-centre";
 import { digitalCentrePageData } from "../../__mocks__/mockStore";
 
-jest.mock("@apollo/client");
-
 describe("Digital Centre", () => {
   it("renders without crashing", () => {
     render(
