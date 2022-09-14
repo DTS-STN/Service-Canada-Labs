@@ -4,9 +4,7 @@ import { useTranslation } from "next-i18next";
 import { Layout } from "../../../components/organisms/Layout";
 import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect, useState } from "react";
-import queryGraphQL from "../../../graphql/client";
-import getVirtualAssistantPage from "../../../graphql/queries/virtualAssistantQuery.graphql";
-import getProjectUpdates from "../../../graphql/queries/projectUpdatesQuery.graphql";
+import aemServiceInstance from "../../../services/aemServiceInstance";
 import Image from "next/image";
 import Card from "../../../components/molecules/Card";
 import { Alert } from "../../../components/atoms/Alert";
@@ -280,24 +278,20 @@ export default function Home(props) {
 
 export const getStaticProps = async ({ locale }) => {
   // get page data from AEM
-  const res = await queryGraphQL(getVirtualAssistantPage).then((result) => {
-    return result;
-  });
-
+  const { data: pageData } = await aemServiceInstance.getFragment(
+    "virtualAssistantQuery"
+  );
   // get project updates
-  const res2 = await queryGraphQL(getProjectUpdates).then((result) => {
-    return result;
-  });
-
-  const data = res.data.sCLabsPageByPath;
-  const data2 = res2.data.sCLabsProjectUpdateList;
+  const { data: projectUpdates } = await aemServiceInstance.getFragment(
+    "projectUpdatesQuery"
+  );
 
   return {
     props: {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
-      pageData: data,
-      projectUpdates: data2,
+      pageData: pageData.sCLabsPageByPath,
+      projectUpdates: projectUpdates.sCLabsProjectUpdateList,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };

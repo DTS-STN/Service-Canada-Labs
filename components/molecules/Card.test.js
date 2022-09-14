@@ -6,6 +6,7 @@ import "@testing-library/jest-dom/extend-expect";
 import { axe, toHaveNoViolations } from "jest-axe";
 import { Primary } from "./Card.stories";
 import { Experiment } from "./Card.stories";
+import { Blog } from "./Card.stories";
 
 expect.extend(toHaveNoViolations);
 
@@ -28,7 +29,7 @@ describe("Card tests", () => {
     expect(descriptionElement).toBeTruthy();
   });
 
-  it("renders Card in its Experiment state", () => {
+  it("renders Card in its Blog state", () => {
     render(<Blog {...Blog.args} />);
     const titleElement = screen.getByText("Title");
     const descriptionElement = screen.getByText("Project description");

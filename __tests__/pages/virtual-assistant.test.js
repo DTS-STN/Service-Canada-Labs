@@ -5,8 +5,6 @@ import { render, screen } from "@testing-library/react";
 import VirtualAssistant from "../../pages/projects/virtual-assistant/index";
 import { virtualAssistantPageData } from "../../__mocks__/mockStore";
 
-jest.mock("@apollo/client");
-
 describe("Virtual Assistant", () => {
   it("renders without crashing", () => {
     render(
