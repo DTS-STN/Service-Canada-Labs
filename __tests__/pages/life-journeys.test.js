@@ -5,8 +5,6 @@ import { render, screen } from "@testing-library/react";
 import HavingAChild from "../../pages/projects/life-journeys";
 import { havingAChildPageData } from "../../__mocks__/mockStore";
 
-jest.mock("@apollo/client");
-
 describe("Having A Child", () => {
   it("renders without crashing", () => {
     render(
