@@ -8,7 +8,7 @@ export default async function handler(req, res) {
 
   const routes = req.query?.routes?.split(",") || [];
 
-  if (!routes?.length || !routes.every((route) => route.startsWith("/"))) {
+  if (!routes?.length) {
     return res
       .status(500)
       .send(
@@ -25,7 +25,7 @@ export default async function handler(req, res) {
     // to show the last successfully generated page
     console.log(err);
     return res.status(500).json({
-      msg: err.message,
+      message: err.message,
     });
   }
 }
