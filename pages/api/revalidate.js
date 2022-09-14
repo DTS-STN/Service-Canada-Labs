@@ -1,3 +1,4 @@
+import e from "cors";
 import aemServiceInstance from "../../services/aemServiceInstance";
 
 export default async function handler(req, res) {
@@ -24,6 +25,8 @@ export default async function handler(req, res) {
     // If there was an error, Next.js will continue
     // to show the last successfully generated page
     console.log(err);
-    return res.status(500).json({});
+    return res.status(500).json({
+      msg: e.message,
+    });
   }
 }
