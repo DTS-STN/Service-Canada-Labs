@@ -84,6 +84,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated background image for splash page
 - Updated metadata social media image for splash page
 - Removed cookie redirects based on language
+- Updated virtual assistant overview page to match Figma mockup
 
 ## Fixed
 
