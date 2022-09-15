@@ -14,7 +14,7 @@ export function ProjectInfo(props) {
         <p className="col-span-3">{props.dateStarted.substring(0, 10)}</p>
         <strong className="col-span-1">{t("ended")}</strong>
         <p className="col-span-3">{props.dateEnded.substring(0, 10)}</p>
-        <strong className="col-span-1">{t("stage")}</strong>
+        <strong className="col-span-1 whitespace-nowrap">{t("stage")}</strong>
         <div className="info col-span-3">
           <p className="shrink-0">
             {props.stage}

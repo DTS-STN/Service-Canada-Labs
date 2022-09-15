@@ -141,14 +141,14 @@ export default function Home(props) {
                     props.locale === "en"
                       ? pageData.scFragments[5].scContentEn.json[0].content[0]
                           .value
-                      : pageData.scFragments[5].scContentFn.json[0].content[0]
+                      : pageData.scFragments[5].scContentFr.json[0].content[0]
                           .value
                   }
                   info={
                     props.locale === "en"
                       ? pageData.scFragments[5].scContentEn.json[0].content[1]
                           .value
-                      : pageData.scFragments[5].scContentFn.json[0].content[1]
+                      : pageData.scFragments[5].scContentFr.json[0].content[1]
                           .value
                   }
                   dateStarted={pageData.scFragments[1].dateStarted}
