@@ -3778,7 +3778,8 @@ export const virtualAssistantPageData = {
                   content: [
                     {
                       nodeType: "text",
-                      value: "About the Service Canada Virtual Assistant",
+                      value:
+                        "À propos de l'assistant virtuel de Service Canada",
                     },
                   ],
                 },
@@ -3788,7 +3789,7 @@ export const virtualAssistantPageData = {
                     {
                       nodeType: "text",
                       value:
-                        "The Virtual Assistant is a chatbot designed to help you overcome obstacles you may face when applying for a benefit. ",
+                        "L'assistant virtuel est un chatbot conçu pour vous aider à surmonter les obstacles que vous pouvez rencontrer lorsque vous demandez une prestation. ",
                     },
                   ],
                 },
@@ -3798,7 +3799,7 @@ export const virtualAssistantPageData = {
                   content: [
                     {
                       nodeType: "text",
-                      value: "Project updates",
+                      value: "Mise à jour du projet",
                     },
                   ],
                 },
@@ -3808,7 +3809,7 @@ export const virtualAssistantPageData = {
                   content: [
                     {
                       nodeType: "text",
-                      value: "Explore the Virtual Assistant",
+                      value: "Découvrez l'assistant virtuel",
                     },
                   ],
                 },
@@ -3824,7 +3825,7 @@ export const virtualAssistantPageData = {
             statusEn:
               "We've paused work on the Virtual Assistant due to lack of funding and resources needed to address significant technical barriers to implementation.",
             statusFr:
-              "We've paused work on the Virtual Assistant due to lack of funding and resources needed to address significant technical barriers to implementation.",
+              "Nous avons interrompu le travail sur l'assistant virtuel en raison du manque de financement et de ressources nécessaires pour surmonter les importants obstacles techniques à la mise en œuvre.",
           },
           {
             scId: "SCLABS-VIRTUAL-ASSISTANT-VIRTUAL-CONCIERGE",
@@ -3856,7 +3857,7 @@ export const virtualAssistantPageData = {
               "/content/dam/decd-endc/content-fragments/sclabs/projects/virtual-assistant/alert",
             scId: "SCLABS-VIRTUAL-ASSISTANT-OVERVIEW-ALERT",
             scTitleEn: "This project is no longer collecting feedback.",
-            scTitleFr: "This project is no longer collecting feedback.",
+            scTitleFr: "Ce projet ne recueille plus de commentaires.",
             scContentEn: {
               json: [
                 {
@@ -3879,7 +3880,7 @@ export const virtualAssistantPageData = {
                     {
                       nodeType: "text",
                       value:
-                        "We are not actively working on this project and are not collecting feedback to improve it at this time. This may change in the future.",
+                        "Nous ne travaillons pas activement sur ce projet et ne recueillons pas de commentaires pour l'améliorer pour le moment. Cela pourrait changer à l'avenir.",
                     },
                   ],
                 },
@@ -3890,9 +3891,9 @@ export const virtualAssistantPageData = {
           {
             scId: "SCLABS-VIRTUAL-ASSISTANT-EXPLORE",
             scTitleEn: "Explore the Virtual Assistant",
-            scTitleFr: "Explore the Virtual Assistant",
+            scTitleFr: "Découvrez l'assistant virtuel",
             scDestinationURLEn: "/en/projects/virtual-assistant/try-it-out",
-            scDestinationURLFr: "/fr/projets/assistant-virtuel/try-it-out",
+            scDestinationURLFr: "/fr/projets/assistant-virtuel/l'essayer",
             scButtonType: null,
           },
           {
@@ -3935,7 +3936,7 @@ export const virtualAssistantPageData = {
                     {
                       nodeType: "text",
                       value:
-                        " Building a 'proof of concept' tool or service to meet user needs and testing it with users. Understanding next steps for making the tool or service functional and usable.",
+                        " Construction d'un outil ou d'un service \"proof of concept\" répondant aux besoins des utilisateurs et testé par ces derniers. Comprendre les prochaines étapes pour rendre l'outil ou le service fonctionnel et utilisable.",
                     },
                   ],
                 },
@@ -3944,6 +3945,61 @@ export const virtualAssistantPageData = {
           },
         ],
       },
+    },
+  },
+};
+export const projectUpdates = {
+  data: {
+    sCLabsProjectUpdateList: {
+      items: [
+        {
+          _path:
+            "/content/dam/decd-endc/content-fragments/sclabs/projects/virtual-assistant/project-updates/what-we-learned-building-the-service-canada-virtual-assistant",
+          scId: "SCLABS-PROJECT-UPDATE-1",
+          scTitleEn:
+            "What we learned building the Service Canada Virtual Assistant",
+          scTitleFr:
+            "Ce que nous avons appris en construisant l'assistant virtuel de Service Canada",
+          datePosted: "2022-08-25T09:59:00.000-04:00",
+          scDescriptionEn: {
+            json: [
+              {
+                nodeType: "paragraph",
+                content: [
+                  {
+                    nodeType: "text",
+                    value:
+                      "Our goal with the Virtual Assistant was to start with user needs and build a prototype that shows how a user-friendly chatbot experience could be. From there, we can work backwards to identify what else needs to be in place to make it possible.",
+                  },
+                ],
+              },
+            ],
+          },
+          scDescriptionFr: {
+            json: [
+              {
+                nodeType: "paragraph",
+                content: [
+                  {
+                    nodeType: "text",
+                    value:
+                      "Notre objectif avec l'assistant virtuel était de commencer par les besoins des utilisateurs et de construire un prototype qui montre comment une expérience de chatbot conviviale pourrait être. À partir de là, nous pouvons travailler à rebours pour identifier ce qui doit être mis en place pour que cela soit possible.",
+                  },
+                ],
+              },
+            ],
+          },
+          scFragments: {
+            scId: "SCLABS-READ-MORE-BUTTON-1",
+            scTitleEn: "Read more about the Virtual Assistant",
+            scTitleFr: "En savoir plus sur l'assistant virtuel",
+            scDestinationURLEn:
+              "/en/projects/virtual-assistant/what-we-learned",
+            scDestinationURLFr: "/fr/projets/assistant-virtuel/what-we-learned",
+            scButtonType: null,
+          },
+        },
+      ],
     },
   },
 };
