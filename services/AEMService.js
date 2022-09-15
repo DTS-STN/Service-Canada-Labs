@@ -59,36 +59,9 @@ class AEMService {
     return { data, error };
   }
 
-  async getElements(fragId) {
-    const { data, error } = await this.getFragment(fragId);
-    return {
-      elements: data?.properties?.elements || [],
-      error: error,
-    };
-  }
-
-  async getPage(pageId) {
-    const { elements } = await this.getElements(pageId);
-    return elements;
-  }
-
   flush(){
     fs.rmSync(cacheFilePath, { recursive: true, force: true });
     fs.mkdirSync(cacheFilePath, { recursive: true })
-  }
-
-  //
-  // gets the data for a single benefit
-  //
-  async getBenefit(benefitId) {
-    const { data, error } = await this.getFragment(benefitId);
-    return {
-      elements: data?.entities[0]?.properties?.elements || [],
-      name: data?.entities[0]?.properties?.name || "",
-      description: data?.entities[0]?.properties?.description || "",
-      title: data?.entities[0]?.properties?.title || "",
-      error: error,
-    };
   }
 }
 
