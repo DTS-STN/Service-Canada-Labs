@@ -9,7 +9,7 @@ export function ProjectInfo(props) {
   const [showInfo, setShowInfo] = useState(false);
   return (
     <>
-      <div className="p-4 grid grid-cols-4 gap-x-4">
+      <div className="p-4 grid grid-cols-4 gap-x-6">
         <strong className="col-span-1">{t("started")}</strong>
         <p className="col-span-3">{props.dateStarted.substring(0, 10)}</p>
         <strong className="col-span-1">{t("ended")}</strong>
