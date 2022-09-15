@@ -51,7 +51,7 @@ class AEMService {
     }
 
     // if there's no error, store for memoization
-    if (!error) {
+    if (!error && data) {
       console.log("storing", fragId, "in cache")
       fs.writeFileSync(path.resolve(cacheFilePath, `${fragId}.json`), JSON.stringify(data));
     }

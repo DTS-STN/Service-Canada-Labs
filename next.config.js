@@ -1,5 +1,58 @@
 const { i18n } = require("./next-i18next.config");
 
+const REWRITES = [
+  {
+    source: "/robots.txt",
+    destination: "/api/robots",
+  },
+  {
+    source: "/accueil",
+    destination: "/home",
+  },
+  {
+    source: "/a-propos",
+    destination: "/about",
+  },
+  {
+    source: "/projets",
+    destination: "/projects",
+  },
+  {
+    source: "/inscription",
+    destination: "/signup",
+  },
+  {
+    source: "/inscription-info",
+    destination: "/signup-info",
+  },
+  {
+    source: "/inscription/protection-renseignements-personnels",
+    destination: "/signup/privacy",
+  },
+  {
+    source: "/merci",
+    destination: "/thankyou",
+  },
+  {
+    source: "/desabonnement",
+    destination: "/unsubscribe",
+  },
+  {
+    source: "/projets/centre-numerique",
+    destination: "/projects/digital-centre",
+  },
+  {
+    source: "/projets/assistant-virtuel",
+    destination: "/projects/virtual-assistant",
+  },
+  {
+    source: "/projets/assistant-virtuel/l'essayer",
+    destination: "/projects/virtual-assistant/try-it-out"
+  }
+]
+
+
+
 securityHeaders = [
   //Enables DNS prefetching, which reduces latency when a user clicks a link
   {
@@ -81,56 +134,7 @@ module.exports = {
   },
 
   async rewrites() {
-    return [
-      {
-        source: "/robots.txt",
-        destination: "/api/robots",
-      },
-      {
-        source: "/accueil",
-        destination: "/home",
-      },
-      {
-        source: "/a-propos",
-        destination: "/about",
-      },
-      {
-        source: "/projets",
-        destination: "/projects",
-      },
-      {
-        source: "/inscription",
-        destination: "/signup",
-      },
-      {
-        source: "/inscription-info",
-        destination: "/signup-info",
-      },
-      {
-        source: "/inscription/protection-renseignements-personnels",
-        destination: "/signup/privacy",
-      },
-      {
-        source: "/merci",
-        destination: "/thankyou",
-      },
-      {
-        source: "/desabonnement",
-        destination: "/unsubscribe",
-      },
-      {
-        source: "/projets/centre-numerique",
-        destination: "/projects/digital-centre",
-      },
-      {
-        source: "/projets/assistant-virtuel",
-        destination: "/projects/virtual-assistant",
-      },
-      {
-        source: "/projets/assistant-virtuel/l'essayer",
-        destination: "/projects/virtual-assistant/try-it-out"
-      }
-    ];
+    return REWRITES;
   },
   async redirects() {
     return [
@@ -343,3 +347,5 @@ module.exports = {
     ];
   },
 };
+
+console.log(REWRITES)
