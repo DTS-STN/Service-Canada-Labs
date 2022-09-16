@@ -154,6 +154,20 @@ Run the following bash script to check whether the latest (on `main`) has been d
 $ sh ./check-version.sh
 ```
 
+## Revalidation - Site Cache Flush
+If there's ever a need to flush a page's cache, trigger an API call from any client to `GET /api/revalidate`. 
+
+The API requires two `query` params, `secret` and `routes`:
+- `secret` - get value from a team member or Azure app service configuration (`REVALIDATION_TOKEN`)
+- `routes` - comma-separated, HTML-encoded, relative URLs that need to be flushed
+
+Example:
+```curl
+curl --request POST \
+  --url 'http://alphasite.dts-stn.com/api/revalidate?secret=somevalidkey1&routes=%2Fen%2Fhome&=&='
+```
+
+
 ## Learn More About the Framework We're Using
 
 To learn more about Next.js, take a look at the following resources:
