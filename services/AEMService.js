@@ -36,8 +36,6 @@ class AEMService {
 
     let error, data;
     try {
-      console.log(`going to fetch....`, this.baseUrl)
-      console.log('with query', query)
       let resp = await fetch(this.baseUrl, {
         method: "POST",
         headers: headers,

@@ -5,11 +5,6 @@ import { NextRequest, NextResponse } from "next/server";
 const PUBLIC_FILE = /\.(.*)$/;
 
 export async function middleware(req: NextRequest) {
-  console.log("middleware >>>>>>>>>>>>>>>>>>>>>> middleware")
-  console.log("req.nextUrl.pathname", req?.nextUrl?.pathname)
-  console.log("req.headers", Object.entries(req.headers))
-  console.log("req.referrer", req.referrer)
-  console.log("req.url", req.url)
   if (
     req.nextUrl.pathname.startsWith("/_next") ||
     req.nextUrl.pathname.includes("/api/") ||
