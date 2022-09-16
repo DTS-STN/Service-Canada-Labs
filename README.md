@@ -159,7 +159,7 @@ If there's ever a need to flush a page's cache, trigger an API call from any cli
 
 The API requires two `query` params, `secret` and `routes`:
 - `secret` - get value from a team member or Azure app service configuration (`REVALIDATION_TOKEN`)
-- `routes` - comma-separated, HTML-encoded, relative URLs that need to be flushed
+- `routes` - comma-separated, HTML-encoded, relative site paths that need to be flushed
 
 Example:
 ```curl
