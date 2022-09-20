@@ -5,7 +5,6 @@ import { useTranslation } from "next-i18next";
 import { Layout } from "../../components/organisms/Layout";
 import { CallToAction } from "../../components/molecules/CallToAction";
 import { useEffect, useState } from "react";
-import FeedbackWidget from "../../components/molecules/FeedbackWidget";
 import aemServiceInstance from "../../services/aemServiceInstance";
 import Image from "next/image";
 
@@ -34,17 +33,12 @@ ThumbnailWithCaption.propTypes = {
 
 export default function DigitalCenter(props) {
   const { t } = useTranslation(["common", "dc"]);
-  const [showFeedback, setShowFeedback] = useState(false);
   const [pageData] = useState(props.pageData.item);
 
   let path =
     typeof window !== "undefined" && window.location.origin
       ? window.location.href
       : "";
-
-  let toggleForm = async (e) => {
-    setShowFeedback(!showFeedback);
-  };
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
@@ -55,12 +49,6 @@ export default function DigitalCenter(props) {
 
   return (
     <>
-      <FeedbackWidget
-        showFeedback={showFeedback}
-        toggleForm={toggleForm}
-        projectName={t("dc:OverviewTitle")}
-        path={path}
-      />
       <Layout
         locale={props.locale}
         langUrl={
@@ -70,7 +58,6 @@ export default function DigitalCenter(props) {
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },
         ]}
-        feedbackActive={true}
         projectName={t("dc:OverviewTitle")}
       >
         <Head>
@@ -828,14 +815,12 @@ export default function DigitalCenter(props) {
         </section>
 
         <CallToAction
-          title={t("giveFeedback")}
-          html={t("bottomFeedbackDescription")}
+          title={t("signupHomeButton")}
+          description={t("signupBannerDescription")}
+          disclaimer={t("signupBannerDisclaimer")}
           lang={props.locale}
-          href=""
-          hrefText={t("bottomFeedbackBtn")}
-          feedbackActive={true}
-          clicked={() => setShowFeedback(true)}
-          ariaExpanded={showFeedback.toString()}
+          href={t("signupInfoRedirect")}
+          hrefText={t("signupBannerBtnText")}
         />
       </Layout>
       {props.adobeAnalyticsUrl ? (
