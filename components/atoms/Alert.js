@@ -13,7 +13,7 @@ export function Alert(props) {
     <div className="layout-container">
       <div
         className={`relative border-l-6 min-h-40px my-10 ${
-          props.triangle ? "border-custom-orange-warning" : "border=[#269ABC]"
+          props.triangle ? "border-[#EE7100]" : "border-[#269ABC]"
         }`}
       >
         <span className="absolute py-1 top-4 -left-3.5 bg-white">
