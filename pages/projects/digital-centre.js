@@ -35,11 +35,6 @@ export default function DigitalCenter(props) {
   const { t } = useTranslation(["common", "dc"]);
   const [pageData] = useState(props.pageData.item);
 
-  let path =
-    typeof window !== "undefined" && window.location.origin
-      ? window.location.href
-      : "";
-
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
