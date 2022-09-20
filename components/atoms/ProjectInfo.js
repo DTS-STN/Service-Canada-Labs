@@ -9,8 +9,6 @@ export function ProjectInfo(props) {
   const { t } = useTranslation("common");
   const [showInfo, setShowInfo] = useState(false);
 
-  console.log(showInfo);
-
   return (
     <>
       <div className="p-4 grid grid-cols-4 gap-x-6">
@@ -22,33 +20,41 @@ export function ProjectInfo(props) {
         <div className="info col-span-3">
           <p className="shrink-0">
             {props.stage}
-            <FontAwesomeIcon
-              icon={faCircleInfo}
-              color={"#269ABC"}
-              size="lg"
-              className="px-2 mr-2"
-              onClick={() => setShowInfo(true)}
-            />
+            <button
+              onClick={() => setShowInfo(!showInfo)}
+              aria-label="project stage detail"
+              aria-expanded={showInfo}
+            >
+              <FontAwesomeIcon
+                icon={faCircleInfo}
+                color={"#269ABC"}
+                size="lg"
+                className="px-2 mr-2"
+              />
+            </button>
           </p>
           {showInfo ? (
             <FocusTrap
               focusTrapOptions={{
-                fallbackFocus: "#info",
+                initialFocus: false,
+                allowOutsideClick: true,
               }}
             >
-              <div
-                style={{
-                  background: "#E8F2F4",
-                  borderColor: "#269ABC",
-                }}
-                className="border rounded-md px-4 py-2 my-2"
-              >
-                {
-                  <p id="info" tabIndex={-1}>
-                    <strong>{props.stage}</strong>
-                    {props.info}
-                  </p>
-                }
+              <div className="relative w-full">
+                <div
+                  style={{
+                    background: "#E8F2F4",
+                    borderColor: "#269ABC",
+                  }}
+                  className="absolute border rounded-md px-4 py-2 my-2"
+                >
+                  {
+                    <p tabIndex={0}>
+                      <strong>{props.stage}</strong>
+                      {props.info}
+                    </p>
+                  }
+                </div>
               </div>
             </FocusTrap>
           ) : undefined}

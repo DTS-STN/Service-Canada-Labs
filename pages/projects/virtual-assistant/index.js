@@ -5,7 +5,6 @@ import { Layout } from "../../../components/organisms/Layout";
 import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
-import Image from "next/image";
 import Card from "../../../components/molecules/Card";
 import { Alert } from "../../../components/atoms/Alert";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
@@ -166,7 +165,7 @@ export default function Home(props) {
                 />
               </div>
               <div className="flex justify-center">
-                <Image
+                <img
                   src={
                     props.locale === "en"
                       ? pageData.scFragments[2].scImageEn._publishUrl
