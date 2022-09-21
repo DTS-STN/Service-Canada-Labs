@@ -347,5 +347,3 @@ module.exports = {
     ];
   },
 };
-
-console.log(REWRITES)
