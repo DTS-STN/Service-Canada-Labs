@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1663342085779" clover="3.2.0">
-  <project timestamp="1663342085779" name="All files">
-    <metrics statements="1045" coveredstatements="692" conditionals="1501" coveredconditionals="732" methods="238" coveredmethods="161" elements="2784" coveredelements="1585" complexity="0" loc="1045" ncloc="1045" packages="15" files="107" classes="107"/>
+<coverage generated="1663775280794" clover="3.2.0">
+  <project timestamp="1663775280794" name="All files">
+    <metrics statements="1040" coveredstatements="689" conditionals="1497" coveredconditionals="725" methods="236" coveredmethods="161" elements="2773" coveredelements="1575" complexity="0" loc="1040" ncloc="1040" packages="15" files="107" classes="107"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/index.js">
@@ -9,9 +9,9 @@
       </file>
     </package>
     <package name="components.atoms">
-      <metrics statements="169" coveredstatements="161" conditionals="171" coveredconditionals="142" methods="51" coveredmethods="44"/>
+      <metrics statements="169" coveredstatements="161" conditionals="171" coveredconditionals="141" methods="51" coveredmethods="44"/>
       <file name="ActionButton.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/atoms/ActionButton.js">
-        <metrics statements="14" coveredstatements="14" conditionals="80" coveredconditionals="70" methods="3" coveredmethods="3"/>
+        <metrics statements="14" coveredstatements="14" conditionals="80" coveredconditionals="69" methods="3" coveredmethods="3"/>
         <line num="11" count="126" type="stmt"/>
         <line num="13" count="126" type="stmt"/>
         <line num="15" count="126" type="stmt"/>
@@ -268,9 +268,9 @@
       </file>
     </package>
     <package name="components.molecules">
-      <metrics statements="193" coveredstatements="167" conditionals="110" coveredconditionals="83" methods="51" coveredmethods="40"/>
+      <metrics statements="193" coveredstatements="167" conditionals="110" coveredconditionals="80" methods="51" coveredmethods="40"/>
       <file name="CallToAction.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/molecules/CallToAction.js">
-        <metrics statements="3" coveredstatements="3" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
+        <metrics statements="3" coveredstatements="3" conditionals="8" coveredconditionals="5" methods="1" coveredmethods="1"/>
         <line num="12" count="9" type="stmt"/>
         <line num="13" count="9" type="stmt"/>
         <line num="83" count="6" type="stmt"/>
@@ -341,19 +341,19 @@
       <file name="FeedbackWidget.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/molecules/FeedbackWidget.js">
         <metrics statements="51" coveredstatements="34" conditionals="22" coveredconditionals="9" methods="10" coveredmethods="5"/>
         <line num="15" count="15" type="stmt"/>
-        <line num="21" count="9" type="stmt"/>
-        <line num="22" count="9" type="stmt"/>
-        <line num="23" count="9" type="stmt"/>
-        <line num="24" count="9" type="stmt"/>
-        <line num="25" count="9" type="stmt"/>
-        <line num="26" count="9" type="stmt"/>
-        <line num="27" count="9" type="stmt"/>
-        <line num="29" count="9" type="stmt"/>
-        <line num="31" count="9" type="stmt"/>
-        <line num="32" count="8" type="cond" truecount="2" falsecount="0"/>
-        <line num="33" count="3" type="stmt"/>
-        <line num="34" count="3" type="stmt"/>
-        <line num="39" count="9" type="stmt"/>
+        <line num="21" count="8" type="stmt"/>
+        <line num="22" count="8" type="stmt"/>
+        <line num="23" count="8" type="stmt"/>
+        <line num="24" count="8" type="stmt"/>
+        <line num="25" count="8" type="stmt"/>
+        <line num="26" count="8" type="stmt"/>
+        <line num="27" count="8" type="stmt"/>
+        <line num="29" count="8" type="stmt"/>
+        <line num="31" count="8" type="stmt"/>
+        <line num="32" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="39" count="8" type="stmt"/>
         <line num="43" count="1" type="stmt"/>
         <line num="44" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="46" count="0" type="stmt"/>
@@ -362,10 +362,10 @@
         <line num="50" count="1" type="stmt"/>
         <line num="53" count="1" type="stmt"/>
         <line num="58" count="0" type="stmt"/>
-        <line num="61" count="9" type="stmt"/>
-        <line num="62" count="9" type="stmt"/>
-        <line num="63" count="9" type="stmt"/>
-        <line num="71" count="9" type="stmt"/>
+        <line num="61" count="8" type="stmt"/>
+        <line num="62" count="8" type="stmt"/>
+        <line num="63" count="8" type="stmt"/>
+        <line num="71" count="8" type="stmt"/>
         <line num="73" count="1" type="stmt"/>
         <line num="75" count="1" type="stmt"/>
         <line num="77" count="1" type="stmt"/>
@@ -384,7 +384,7 @@
         <line num="114" count="0" type="stmt"/>
         <line num="115" count="0" type="stmt"/>
         <line num="117" count="1" type="stmt"/>
-        <line num="121" count="9" type="stmt"/>
+        <line num="121" count="8" type="stmt"/>
         <line num="176" count="0" type="stmt"/>
         <line num="202" count="0" type="stmt"/>
         <line num="203" count="0" type="stmt"/>
@@ -1322,26 +1322,21 @@
       </file>
     </package>
     <package name="pages.projects">
-      <metrics statements="27" coveredstatements="17" conditionals="291" coveredconditionals="143" methods="9" coveredmethods="5"/>
+      <metrics statements="22" coveredstatements="14" conditionals="287" coveredconditionals="140" methods="7" coveredmethods="5"/>
       <file name="digital-centre.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/projects/digital-centre.js">
-        <metrics statements="17" coveredstatements="11" conditionals="207" coveredconditionals="102" methods="6" coveredmethods="3"/>
-        <line num="18" count="8" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
+        <metrics statements="12" coveredstatements="8" conditionals="203" coveredconditionals="99" methods="4" coveredmethods="3"/>
+        <line num="17" count="8" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
         <line num="36" count="1" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
         <line num="38" count="1" type="stmt"/>
-        <line num="41" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="39" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="41" count="0" type="stmt"/>
         <line num="45" count="1" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="49" count="1" type="stmt"/>
-        <line num="50" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="51" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="56" count="1" type="stmt"/>
-        <line num="837" count="0" type="stmt"/>
-        <line num="850" count="1" type="stmt"/>
-        <line num="851" count="0" type="stmt"/>
-        <line num="852" count="0" type="stmt"/>
+        <line num="830" count="1" type="stmt"/>
+        <line num="831" count="0" type="stmt"/>
+        <line num="832" count="0" type="stmt"/>
       </file>
       <file name="life-journeys.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/projects/life-journeys.js">
         <metrics statements="10" coveredstatements="6" conditionals="84" coveredconditionals="41" methods="3" coveredmethods="2"/>

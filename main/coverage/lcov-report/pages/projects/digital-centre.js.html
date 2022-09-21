@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64.7% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/17</span>
+                <span class='fraction'>8/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">49.27% </span>
+                <span class="strong">48.76% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>102/207</span>
+                <span class='fraction'>99/203</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/6</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64.7% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/17</span>
+                <span class='fraction'>8/12</span>
             </div>
         
             
@@ -903,28 +903,7 @@
 <a name='L838'></a><a href='#L838'>838</a>
 <a name='L839'></a><a href='#L839'>839</a>
 <a name='L840'></a><a href='#L840'>840</a>
-<a name='L841'></a><a href='#L841'>841</a>
-<a name='L842'></a><a href='#L842'>842</a>
-<a name='L843'></a><a href='#L843'>843</a>
-<a name='L844'></a><a href='#L844'>844</a>
-<a name='L845'></a><a href='#L845'>845</a>
-<a name='L846'></a><a href='#L846'>846</a>
-<a name='L847'></a><a href='#L847'>847</a>
-<a name='L848'></a><a href='#L848'>848</a>
-<a name='L849'></a><a href='#L849'>849</a>
-<a name='L850'></a><a href='#L850'>850</a>
-<a name='L851'></a><a href='#L851'>851</a>
-<a name='L852'></a><a href='#L852'>852</a>
-<a name='L853'></a><a href='#L853'>853</a>
-<a name='L854'></a><a href='#L854'>854</a>
-<a name='L855'></a><a href='#L855'>855</a>
-<a name='L856'></a><a href='#L856'>856</a>
-<a name='L857'></a><a href='#L857'>857</a>
-<a name='L858'></a><a href='#L858'>858</a>
-<a name='L859'></a><a href='#L859'>859</a>
-<a name='L860'></a><a href='#L860'>860</a>
-<a name='L861'></a><a href='#L861'>861</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L841'></a><a href='#L841'>841</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -960,16 +939,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -1751,15 +1720,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1790,7 +1750,6 @@ import { useTranslation } from "next-i18next";
 import { Layout } from "../../components/organisms/Layout";
 import { CallToAction } from "../../components/molecules/CallToAction";
 import { useEffect, useState } from "react";
-import FeedbackWidget from "../../components/molecules/FeedbackWidget";
 import aemServiceInstance from "../../services/aemServiceInstance";
 import Image from "next/image";
 &nbsp;
@@ -1819,17 +1778,7 @@ ThumbnailWithCaption.propTypes = {
 &nbsp;
 export default function DigitalCenter(props) {
   const { t } = useTranslation(["common", "dc"]);
-  const [showFeedback, setShowFeedback] = useState(false);
   const [pageData] = useState(props.pageData.item);
-&nbsp;
-  let path =
-    typeof window !== "undefined" &amp;&amp; window.location.origin
-      ? window.location.href
-      : <span class="branch-1 cbranch-no" title="branch not covered" >"";</span>
-&nbsp;
-  let toggleForm = <span class="fstat-no" title="function not covered" >as</span>ync (e) =&gt; {
-<span class="cstat-no" title="statement not covered" >    setShowFeedback(!showFeedback);</span>
-  };
 &nbsp;
   useEffect(() =&gt; {
     <span class="missing-if-branch" title="if path not taken" >I</span>if (props.adobeAnalyticsUrl) {
@@ -1840,12 +1789,6 @@ export default function DigitalCenter(props) {
 &nbsp;
   return (
     &lt;&gt;
-      &lt;FeedbackWidget
-        showFeedback={showFeedback}
-        toggleForm={toggleForm}
-        projectName={t("dc:OverviewTitle")}
-        path={path}
-      /&gt;
       &lt;Layout
         locale={props.locale}
         langUrl={
@@ -1855,7 +1798,6 @@ export default function DigitalCenter(props) {
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },
         ]}
-        feedbackActive={true}
         projectName={t("dc:OverviewTitle")}
       &gt;
         &lt;Head&gt;
@@ -2613,14 +2555,12 @@ export default function DigitalCenter(props) {
         &lt;/section&gt;
 &nbsp;
         &lt;CallToAction
-          title={t("giveFeedback")}
-          html={t("bottomFeedbackDescription")}
+          title={t("signupHomeButton")}
+          description={t("signupBannerDescription")}
+          disclaimer={t("signupBannerDisclaimer")}
           lang={props.locale}
-          href=""
-          hrefText={t("bottomFeedbackBtn")}
-          feedbackActive={true}
-          clicked={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setShowFeedback(true)}</span>
-          ariaExpanded={showFeedback.toString()}
+          href={t("signupInfoRedirect")}
+          hrefText={t("signupBannerBtnText")}
         /&gt;
       &lt;/Layout&gt;
       {props.adobeAnalyticsUrl ? (
@@ -2650,7 +2590,7 @@ export const getStaticProps = <span class="fstat-no" title="function not covered
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri Sep 16 2022 15:28:05 GMT+0000 (Coordinated Universal Time)
+                at Wed Sep 21 2022 15:48:00 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
