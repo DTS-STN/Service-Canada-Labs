@@ -5,7 +5,9 @@ import { Layout } from "../../../components/organisms/Layout";
 import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
-import Image from "next/image";
+import Card from "../../../components/molecules/Card";
+import { Alert } from "../../../components/atoms/Alert";
+import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
 
 //  On hold for now
 //  import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge";
@@ -14,6 +16,7 @@ import Image from "next/image";
 export default function Home(props) {
   const { t } = useTranslation(["common", "vc"]);
   const [pageData] = useState(props.pageData.item);
+  const [projectUpdates] = useState(props.projectUpdates.items);
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
@@ -112,105 +115,146 @@ export default function Home(props) {
 
         {/* Virtual Assitant Demo section start -  with link to working prototype */}
         <section className="layout-container mb-10">
-          <h1 className="mb-8 text-h1l" tabIndex="-1" id="pageMainTitle">
+          <h1 className="mb-16 text-h1l" tabIndex="-1" id="pageMainTitle">
             {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
           </h1>
-          {/* the scenario section */}
           <div>
-            <h2 className="mb-6 mt-8 text-h1" id="virtualAssistantScenario">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[0].content[0].value
-                : pageData.scFragments[0].scContentFr.json[0].content[0].value}
-            </h2>
-            <p className="mb-6 lg:col-span-2 px-1 lg:px-0 xl:w-3/4">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[1].content[0].value
-                : pageData.scFragments[0].scContentFr.json[1].content[0].value}
-              <strong>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[1].content[1].value
-                  : pageData.scFragments[0].scContentFr.json[1].content[1]
-                      .value}
-              </strong>
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[1].content[2].value
-                : pageData.scFragments[0].scContentFr.json[1].content[2].value}
-              <strong>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[1].content[3].value
-                  : pageData.scFragments[0].scContentFr.json[1].content[3]
-                      .value}
-              </strong>
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[1].content[4].value
-                : pageData.scFragments[0].scContentFr.json[1].content[4].value}
-            </p>
-            <p className="mb-6 lg:col-span-2 px-1 lg:px-0 xl:w-3/4">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[2].content[0].value
-                : pageData.scFragments[0].scContentFr.json[2].content[0].value}
-              <strong>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[2].content[1].value
-                  : pageData.scFragments[0].scContentFr.json[2].content[1]
-                      .value}
-              </strong>
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[2].content[2].value
-                : pageData.scFragments[0].scContentFr.json[2].content[2].value}
-            </p>
-
-            <p className="flex mb-16 text-center">
-              <ActionButton
-                href={
-                  props.locale === "en"
-                    ? pageData.scFragments[3].scDestinationURLEn
-                    : pageData.scFragments[3].scDestinationURLFr
-                }
-                id="meet-va-link"
-                dataCy="meet-va-link"
-                className="rounded px-6 py-4 font-bold text-center inline-block"
-              >
-                {props.locale === "en"
-                  ? pageData.scFragments[3].scTitleEn
-                  : pageData.scFragments[3].scTitleFr}
-              </ActionButton>
-              {/* href="https://av-va.alpha.service.canada.ca" */}
-            </p>
-          </div>
-
-          <div className="w-auto mb-6 ">
             <div className="flex flex-col break-words lg:grid lg:grid-cols-2 gap-4 lg:gap-6 ">
-              <h2 className="mb-0 text-h1" id="virtualAssistantTitle">
-                {props.locale === "en"
-                  ? pageData.scFragments[1].scContentEn.json[0].content[0].value
-                  : pageData.scFragments[1].scContentFr.json[0].content[0]
-                      .value}
-              </h2>
-
-              <div className="row-span-2 bg-gradient-to-tr from-custom-blue-blue to-vc-blue-lt p-4 flex justify-center">
-                <Image
-                  src={`https://www.canada.ca${
+              <div>
+                <h2 className="mb-0 text-h1" id="virtualAssistantTitle">
+                  {props.locale === "en"
+                    ? pageData.scFragments[0].scContentEn.json[0].content[0]
+                        .value
+                    : pageData.scFragments[0].scContentFr.json[0].content[0]
+                        .value}
+                </h2>
+                <p className="pt-8">
+                  {props.locale === "en"
+                    ? pageData.scFragments[0].scContentEn.json[1].content[0]
+                        .value
+                    : pageData.scFragments[0].scContentFr.json[1].content[0]
+                        .value}
+                </p>
+                <ProjectInfo
+                  stage={
                     props.locale === "en"
-                      ? pageData.scFragments[2].scImageEn._path
-                      : pageData.scFragments[2].scImageFr._path
-                  }`}
+                      ? pageData.scFragments[5].scContentEn.json[0].content[0]
+                          .value
+                      : pageData.scFragments[5].scContentFr.json[0].content[0]
+                          .value
+                  }
+                  info={
+                    props.locale === "en"
+                      ? pageData.scFragments[5].scContentEn.json[0].content[1]
+                          .value
+                      : pageData.scFragments[5].scContentFr.json[0].content[1]
+                          .value
+                  }
+                  dateStarted={pageData.scFragments[1].dateStarted}
+                  dateEnded={pageData.scFragments[1].dateEnded}
+                  projectStage={
+                    props.locale === "en"
+                      ? pageData.scFragments[1].projectStageEn
+                      : pageData.scFragments[1].projectStageFr
+                  }
+                  status={
+                    props.locale === "en"
+                      ? pageData.scFragments[1].statusEn
+                      : pageData.scFragments[1].statusFr
+                  }
+                />
+              </div>
+              <div className="flex justify-center">
+                <img
+                  src={
+                    props.locale === "en"
+                      ? pageData.scFragments[2].scImageEn._publishUrl
+                      : pageData.scFragments[2].scImageFr._publishUrl
+                  }
                   alt={
                     props.locale === "en"
                       ? pageData.scFragments[2].scImageAltTextEn
                       : pageData.scFragments[2].scImageAltTextFr
                   }
-                  width={260}
-                  height={260}
+                  width={591}
+                  height={502}
                 />
               </div>
-              <p className=" font-body text-lg px-1 lg:px-0 ">
-                {props.locale === "en"
-                  ? pageData.scFragments[1].scContentEn.json[1].content[0].value
-                  : pageData.scFragments[1].scContentFr.json[1].content[0]
-                      .value}
-              </p>
             </div>
+          </div>
+          <div className="mb-12">
+            <h2>
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[2].content[0].value
+                : pageData.scFragments[0].scContentFr.json[2].content[0].value}
+            </h2>
+            {projectUpdates.map((data, index) => (
+              <Card
+                key={index}
+                title={props.locale === "en" ? data.scTitleEn : data.scTitleFr}
+                datePosted={data.datePosted}
+                description={
+                  props.locale === "en"
+                    ? data.scDescriptionEn.json[0].content[0].value
+                    : data.scDescriptionFr.json[0].content[0].value
+                }
+                href={
+                  props.locale === "en"
+                    ? data.scFragments.scDestinationURLEn
+                    : data.scFragments.scDestinationURLFr
+                }
+                btnText={
+                  props.locale === "en"
+                    ? data.scFragments.scTitleEn
+                    : data.scFragments.scTitleFr
+                }
+                btnHref={
+                  props.locale === "en"
+                    ? data.scFragments.scDestinationURLEn
+                    : data.scFragments.scDestinationURLFr
+                }
+                btnId={data.scId}
+                blog
+              />
+            ))}
+          </div>
+          <div>
+            <h2>
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[3].content[0].value
+                : pageData.scFragments[0].scContentFr.json[3].content[0].value}
+            </h2>
+            <Alert
+              triangle
+              title={
+                props.locale === "en"
+                  ? pageData.scFragments[3].scTitleEn
+                  : pageData.scFragments[3].scTitleFr
+              }
+              text={
+                props.locale === "en"
+                  ? pageData.scFragments[3].scContentEn.json[0].content[0].value
+                  : pageData.scFragments[3].scContentFr.json[0].content[0].value
+              }
+            />
+            <p className="flex mb-4 text-center">
+              <ActionButton
+                id="become-a-participant-btn"
+                custom={`py-1.5 px-3 rounded text-white text-base lg:text-p font-display bg-custom-blue-dark hover:bg-custom-blue-light border border-custom-blue-darker active:bg-custom-blue-darker hover:ring-2 hover:ring-white`}
+                className=""
+                href={
+                  props.locale === "en"
+                    ? pageData.scFragments[4].scDestinationURLEn
+                    : pageData.scFragments[4].scDestinationURLFr
+                }
+                text={
+                  props.locale === "en"
+                    ? pageData.scFragments[4].scTitleEn
+                    : pageData.scFragments[4].scTitleFr
+                }
+                ariaExpanded={props.ariaExpanded}
+              />
+            </p>
           </div>
         </section>
         {/* END Virtual Assistant Demo section end for working prototype */}
@@ -232,14 +276,21 @@ export default function Home(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  const { data } = await aemServiceInstance.getFragment(
+  // get page data from AEM
+  const { data: pageData } = await aemServiceInstance.getFragment(
     "virtualAssistantQuery"
   );
+  // get project updates
+  const { data: projectUpdates } = await aemServiceInstance.getFragment(
+    "projectUpdatesQuery"
+  );
+
   return {
     props: {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
-      pageData: data.sCLabsPageByPath,
+      pageData: pageData.sCLabsPageByPath,
+      projectUpdates: projectUpdates.sCLabsProjectUpdateList,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };

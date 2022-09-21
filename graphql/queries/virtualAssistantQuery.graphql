@@ -1,6 +1,6 @@
 query getVirtualAssistantPage {
   sCLabsPageByPath(
-    _path: "/content/dam/decd-endc/content-fragments/alpha/sclabs/pages/projects/virtual-assistant"
+    _path: "/content/dam/decd-endc/content-fragments/sclabs/projects/virtual-assistant/overview"
   ) {
     item {
       scId
@@ -45,7 +45,7 @@ query getVirtualAssistantPage {
       scNoIndex
       scNoFollow
       scFragments {
-        ... on SCLabsContentModel {
+        ... on SCLabsContentv1Model {
           _path
           scId
           scContentEn {
@@ -55,54 +55,68 @@ query getVirtualAssistantPage {
             json
           }
         }
-        ... on SCLabsImageModel {
+        ... on SCLabsProjectInfoModel {
+          scId
+          dateStarted
+          dateEnded
+          projectStageEn
+          projectStageFr
+          statusEn
+          statusFr
+        }
+        ... on SCLabsImagev1Model {
           scId
           scImageEn {
             ... on ImageRef {
-              _path
+              _publishUrl
+              width
+              height
             }
             ... on DocumentRef {
-              _path
+              _publishUrl
             }
           }
           scImageFr {
             ... on ImageRef {
-              _path
+              _publishUrl
+              width
+              height
             }
             ... on DocumentRef {
-              _path
+              _publishUrl
             }
           }
           scImageMobileEn {
             ... on ImageRef {
-              _path
+              _publishUrl
+              width
+              height
             }
             ... on DocumentRef {
-              _path
+              _publishUrl
             }
           }
           scImageMobileFr {
             ... on ImageRef {
-              _path
+              _publishUrl
+              width
+              height
             }
             ... on DocumentRef {
-              _path
+              _publishUrl
             }
           }
           scImageAltTextEn
           scImageAltTextFr
-          scImageCaptionEn
-          scImageCaptionFr
+          scImageCaptionEn {
+            json
+          }
+          scImageCaptionFr {
+            json
+          }
         }
-        ... on SCLabsButtonModel {
-          scId
-          scTitleEn
-          scTitleFr
-          scDestinationURLEn
-          scDestinationURLFr
-          scButtonType
-        }
-        ... on SCLabsFeatureModel {
+        ... on SCLabsAlertv1Model {
+          _path
           scId
           scTitleEn
           scTitleFr
@@ -112,32 +126,15 @@ query getVirtualAssistantPage {
           scContentFr {
             json
           }
-          scImageEn {
-            ... on ImageRef {
-              _path
-            }
-            ... on DocumentRef {
-              _path
-            }
-          }
-          scImageFr {
-            ... on ImageRef {
-              _path
-            }
-            ... on DocumentRef {
-              _path
-            }
-          }
-          scImageAltTextEn
-          scImageAltTextFr
-          scLabsButton {
-            scId
-            scTitleEn
-            scTitleFr
-            scDestinationURLEn
-            scDestinationURLFr
-            scButtonType
-          }
+          scAlertType
+        }
+        ... on SCLabsButtonv1Model {
+          scId
+          scTitleEn
+          scTitleFr
+          scDestinationURLEn
+          scDestinationURLFr
+          scButtonType
         }
       }
     }
