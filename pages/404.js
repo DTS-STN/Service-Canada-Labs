@@ -6,7 +6,6 @@ import { ReportAProblem } from "../components/organisms/ReportAProblem";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Image from "next/image";
 import aemServiceInstance from "../services/aemServiceInstance";
 
 export default function error404(props) {
@@ -119,7 +118,7 @@ export default function error404(props) {
         </Head>
         <section className="layout-container pb-44">
           <div className="pt-6">
-            <Image
+            <img
               src={`https://www.canada.ca${
                 props.locale === "en"
                   ? pageData.scGcImages[0].scImageEn._path
@@ -164,15 +163,13 @@ export default function error404(props) {
             </div>
             <div className="flex items-center justify-center circle-background my-8 mx-4 lg:mt-0 lightbulb-bg shrink-0">
               <span className="relative lightbulb">
-                <Image
+                <img
                   src={`https://www.canada.ca${
                     props.locale === "en"
                       ? pageData.scImageList[0].scImageEn._path
                       : pageData.scImageList[0].scImageFr._path
                   }`}
                   alt=""
-                  layout="fill"
-                  objectFit="cover"
                 />
               </span>
             </div>
@@ -219,7 +216,7 @@ export default function error404(props) {
               iconEnd
             />
             <span className="relative footer-logo">
-              <Image
+              <img
                 src={`https://www.canada.ca${
                   props.locale === "en"
                     ? pageData.scGcImages[1].scImageEn._path
@@ -230,7 +227,6 @@ export default function error404(props) {
                     ? pageData.scGcImages[1].scImageAltTextEn
                     : pageData.scGcImages[1].scImageAltTextFr
                 }
-                layout="fill"
               />
             </span>
           </div>

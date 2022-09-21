@@ -70,7 +70,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated `/projects` page to use data from AEM
 - Updated home page to match new Figma designs
 - Updated DateModified component to accept a manual date (for use with AEM)
-- Updated images to use next/image instead of html img tag
 - Updated past project label to be gray instead of red, and also updated projects page to use new AEM data
 - Added the `showDisclaimer` prop to the `Layout` component so control which pages have the disclaimer
 - Updated digital centre page to use data from AEM
@@ -84,6 +83,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated background image for splash page
 - Updated metadata social media image for splash page
 - Removed cookie redirects based on language
+- Updated images to use <img> tags instead of Next.js' <Image> component due to issues with image load time
 - Updated virtual assistant overview page to match Figma mockup
 - Updated cta banner on digital centre page and removed feedback reference
 

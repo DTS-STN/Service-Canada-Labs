@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import Image from "next/image";
 import { ActionButton } from "../atoms/ActionButton";
 
 /**
@@ -78,11 +77,7 @@ export function Footer(props) {
               iconEnd
             />
             <span className="flex relative footer-logo">
-              <Image
-                src={props.footerLogoImage}
-                alt={props.footerLogoAltText}
-                layout="fill"
-              />
+              <img src={props.footerLogoImage} alt={props.footerLogoAltText} />
             </span>
           </div>
         </div>

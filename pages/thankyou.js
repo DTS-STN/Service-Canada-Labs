@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import animatedCheckmark from "../public/animatedCheckmark.json";
-import Image from "next/image";
 
 export default function Confirmation(props) {
   const { t } = useTranslation("common");
@@ -171,7 +170,7 @@ export default function Confirmation(props) {
           </h1>
           <div className="lg:flex lg:flex-row-reverse">
             <span className="w-full flex justify-center lg:w-1/3">
-              <Image
+              <img
                 src="/circle-info.svg"
                 alt={t("informationIconAltText")}
                 width="160"

@@ -7,7 +7,6 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
 import { Breadcrumb } from "../atoms/Breadcrumb";
-import Image from "next/image";
 
 /**
  * Component which defines the layout of the page for all screen sizes
@@ -69,7 +68,7 @@ export const Layout = ({
               {t("officialSiteNavigation")}
             </h3>
             <a href="https://www.canada.ca">
-              <Image
+              <img
                 src={language === "en" ? "/sig-blk-fr.svg" : "/sig-blk-en.svg"}
                 alt={t("symbol")}
                 width="375"

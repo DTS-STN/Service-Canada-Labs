@@ -6,7 +6,6 @@ import { Layout } from "../../components/organisms/Layout";
 import { CallToAction } from "../../components/molecules/CallToAction";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../services/aemServiceInstance";
-import Image from "next/image";
 
 function ThumbnailWithCaption({
   title = "Image 1",
@@ -18,7 +17,7 @@ function ThumbnailWithCaption({
     <div className="flex justify-center flex-col">
       <h3 className=" mt-3">{title}</h3>
       <figure className="shadow-experiment-shadow">
-        <Image src={src} alt={alt} width={570} height={320} />
+        <img src={src} alt={alt} width={570} height={320} />
         <figcaption className="text-base p-6">{children}</figcaption>
       </figure>
     </div>
