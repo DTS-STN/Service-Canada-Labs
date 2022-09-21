@@ -33,14 +33,7 @@ export const Card = (props) => {
     >
       {!props.blog ? (
         <div className="mb-4">
-          <Image
-            src={props.imgSrc}
-            alt={props.imgAlt}
-            height={props.imgHeight}
-            width={props.imgWidth}
-            layout="responsive"
-            priority={props.priority}
-          />
+          <img src={props.imgSrc} alt={props.imgAlt} />
         </div>
       ) : undefined}
       <h2>
