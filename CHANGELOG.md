@@ -84,6 +84,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated metadata social media image for splash page
 - Removed cookie redirects based on language
 - Updated images to use <img> tags instead of Next.js' <Image> component due to issues with image load time
+- Updated virtual assistant overview page to match Figma mockup
+- Updated cta banner on digital centre page and removed feedback reference
 
 ## Fixed
 

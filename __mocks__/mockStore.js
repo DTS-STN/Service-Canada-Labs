@@ -3694,8 +3694,8 @@ export const virtualAssistantPageData = {
   data: {
     sCLabsPageByPath: {
       item: {
-        scId: "sclabs-virtual-assistant",
-        scPageNameEn: "/projects/virtual-assistant",
+        scId: "SCLABS-VIRTUAL-ASSISTANT-OVERVIEW",
+        scPageNameEn: "/en/projects/virtual-assistant",
         scPageNameFr: "/fr/projets/assistant-virtuel",
         scTitleEn: "Virtual Assistant",
         scTitleFr: "L’assistant virtuel",
@@ -3712,7 +3712,7 @@ export const virtualAssistantPageData = {
         scKeywordsFr: null,
         scContentType: null,
         scOwner: null,
-        scDateModifiedOverwrite: "2022-07-11",
+        scDateModifiedOverwrite: null,
         scAudience: null,
         scRegion: null,
         scSocialMediaImageEn: null,
@@ -3724,8 +3724,8 @@ export const virtualAssistantPageData = {
         scFragments: [
           {
             _path:
-              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/virtual-assistant---the-scenario",
-            scId: "sclabs-virtual-assistant-scenario",
+              "/content/dam/decd-endc/content-fragments/sclabs/projects/virtual-assistant/main-content",
+            scId: "SCLABS-VIRTUAL-ASSISTANT-MAIN-CONTENT",
             scContentEn: {
               json: [
                 {
@@ -3734,39 +3734,7 @@ export const virtualAssistantPageData = {
                   content: [
                     {
                       nodeType: "text",
-                      value: "The Scenario",
-                    },
-                  ],
-                },
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value: "Imagine you are someone named Mary. You ",
-                    },
-                    {
-                      nodeType: "text",
-                      value: "recently lost your job",
-                      format: {
-                        variants: ["strong"],
-                      },
-                    },
-                    {
-                      nodeType: "text",
-                      value: " and apply for ",
-                    },
-                    {
-                      nodeType: "text",
-                      value: "Employment Insurance",
-                      format: {
-                        variants: ["strong"],
-                      },
-                    },
-                    {
-                      nodeType: "text",
-                      value:
-                        ". Two or three weeks later, you have not heard anything about your application, or received any money. ",
+                      value: "About the Service Canada Virtual Assistant",
                     },
                   ],
                 },
@@ -3776,18 +3744,27 @@ export const virtualAssistantPageData = {
                     {
                       nodeType: "text",
                       value:
-                        "Looking for answers, you log into the Service Canada Digital Centre, and find a ",
+                        "The Virtual Assistant is a chatbot designed to help you overcome obstacles you may face when applying for a benefit. ",
                     },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
                     {
                       nodeType: "text",
-                      value: "new message",
-                      format: {
-                        variants: ["strong"],
-                      },
+                      value: "Project updates",
                     },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
                     {
                       nodeType: "text",
-                      value: " in your Inbox…",
+                      value: "Explore the Virtual Assistant",
                     },
                   ],
                 },
@@ -3801,42 +3778,8 @@ export const virtualAssistantPageData = {
                   content: [
                     {
                       nodeType: "text",
-                      value: "Le Scénario",
-                    },
-                  ],
-                },
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value: "Imaginez que vous vous appelez Mary. Vous ",
-                    },
-                    {
-                      nodeType: "text",
-                      value: "venez de perdre votre emploi ",
-                      format: {
-                        variants: ["strong"],
-                      },
-                    },
-                    {
-                      nodeType: "text",
-                      value: "*et vous faites une demande *",
-                      format: {
-                        variants: ["strong", "emphasis"],
-                      },
-                    },
-                    {
-                      nodeType: "text",
-                      value: "d'assurance-emploi",
-                      format: {
-                        variants: ["strong"],
-                      },
-                    },
-                    {
-                      nodeType: "text",
                       value:
-                        ". Deux ou trois semaines plus tard, vous n'avez toujours pas reçu de réponse à votre demande, ni d'argent. ",
+                        "À propos de l'assistant virtuel de Service Canada",
                     },
                   ],
                 },
@@ -3846,47 +3789,84 @@ export const virtualAssistantPageData = {
                     {
                       nodeType: "text",
                       value:
-                        "À la recherche de réponses, vous ouvrez une session au Centre numérique de Service Canada et vous voyez qu’il y a un ",
+                        "L'assistant virtuel est un chatbot conçu pour vous aider à surmonter les obstacles que vous pouvez rencontrer lorsque vous demandez une prestation. ",
                     },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
                     {
                       nodeType: "text",
-                      value: "nouveau message",
-                      format: {
-                        variants: ["strong"],
-                      },
+                      value: "Mise à jour du projet",
                     },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
                     {
                       nodeType: "text",
-                      value: " dans votre boîte de réception... ",
+                      value: "Découvrez l'assistant virtuel",
                     },
                   ],
                 },
               ],
+            },
+          },
+          {
+            scId: "SCLABS-VIRTUAL-ASSISTANT-PROJECT-INFO",
+            dateStarted: "2021-01-01T11:47:00.000-05:00",
+            dateEnded: "2022-03-31T11:48:00.000-04:00",
+            projectStageEn: "Alpha",
+            projectStageFr: "Alpha",
+            statusEn:
+              "We've paused work on the Virtual Assistant due to lack of funding and resources needed to address significant technical barriers to implementation.",
+            statusFr:
+              "Nous avons interrompu le travail sur l'assistant virtuel en raison du manque de financement et de ressources nécessaires pour surmonter les importants obstacles techniques à la mise en œuvre.",
+          },
+          {
+            scId: "SCLABS-VIRTUAL-ASSISTANT-VIRTUAL-CONCIERGE",
+            scImageEn: {
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/1x_canihelpyou.png",
+              width: 468,
+              height: 462,
+            },
+            scImageFr: {
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/1x_fr_canihelpyou.png",
+              width: 468,
+              height: 462,
+            },
+            scImageMobileEn: null,
+            scImageMobileFr: null,
+            scImageAltTextEn: "virtual concierge",
+            scImageAltTextFr: "virtual concierge",
+            scImageCaptionEn: {
+              json: null,
+            },
+            scImageCaptionFr: {
+              json: null,
             },
           },
           {
             _path:
-              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/virtual-assistant---about",
-            scId: "sclabs-virtual-assistant-about",
+              "/content/dam/decd-endc/content-fragments/sclabs/projects/virtual-assistant/alert",
+            scId: "SCLABS-VIRTUAL-ASSISTANT-OVERVIEW-ALERT",
+            scTitleEn: "This project is no longer collecting feedback.",
+            scTitleFr: "Ce projet ne recueille plus de commentaires.",
             scContentEn: {
               json: [
-                {
-                  nodeType: "header",
-                  style: "h2",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value: "About the Service Canada Virtual Assistant",
-                    },
-                  ],
-                },
                 {
                   nodeType: "paragraph",
                   content: [
                     {
                       nodeType: "text",
                       value:
-                        "The Virtual Assistant is a chatbot. It can help you overcome obstacles you may face when applying for a benefit. This demo shows what it might be like for someone who is applying for Employment Insurance, but is missing a document.",
+                        "We are not actively working on this project and are not collecting feedback to improve it at this time. This may change in the future.",
                     },
                   ],
                 },
@@ -3895,56 +3875,131 @@ export const virtualAssistantPageData = {
             scContentFr: {
               json: [
                 {
-                  nodeType: "header",
-                  style: "h2",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "À propos de l’assistant virtuel de Service Canada",
-                    },
-                  ],
-                },
-                {
                   nodeType: "paragraph",
                   content: [
                     {
                       nodeType: "text",
                       value:
-                        "L'assistant virtuel est un robot conversationnel. Il peut vous aider à surmonter les obstacles que vous pourriez rencontrer lorsque vous faites une demande de prestation. Cette démonstration donne une idée de ce qui se passe lorsqu’une personne fait une demande d’assurance-emploi quand il lui manque un document.",
+                        "Nous ne travaillons pas activement sur ce projet et ne recueillons pas de commentaires pour l'améliorer pour le moment. Cela pourrait changer à l'avenir.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scAlertType: null,
+          },
+          {
+            scId: "SCLABS-VIRTUAL-ASSISTANT-EXPLORE",
+            scTitleEn: "Explore the Virtual Assistant",
+            scTitleFr: "Découvrez l'assistant virtuel",
+            scDestinationURLEn: "/en/projects/virtual-assistant/try-it-out",
+            scDestinationURLFr: "/fr/projets/assistant-virtuel/l'essayer",
+            scButtonType: null,
+          },
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/sclabs/projects/virtual-assistant/info",
+            scId: "SCLABS-VIRTUAL-ASSISTANT-CONTENT-INFO",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Alpha:",
+                      format: {
+                        variants: ["strong"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        " Building a 'proof of concept' tool or service to meet user needs and testing it with users. Understanding next steps for making the tool or service functional and usable.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Alpha:",
+                      format: {
+                        variants: ["strong"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        " Construction d'un outil ou d'un service \"proof of concept\" répondant aux besoins des utilisateurs et testé par ces derniers. Comprendre les prochaines étapes pour rendre l'outil ou le service fonctionnel et utilisable.",
                     },
                   ],
                 },
               ],
             },
           },
-          {
-            scId: "sclabs-virtual-assistant-image-virtual-concierge",
-            scImageEn: {
-              _path:
-                "/content/dam/decd-endc/images/sclabs/VirtualConcierge.svg",
-            },
-            scImageFr: {
-              _path:
-                "/content/dam/decd-endc/images/sclabs/VirtualConcierge.svg",
-            },
-            scImageMobileEn: null,
-            scImageMobileFr: null,
-            scImageAltTextEn: "Virtual assistant logo",
-            scImageAltTextFr: "Logo assistant virtuel",
-            scImageCaptionEn: null,
-            scImageCaptionFr: null,
-          },
-          {
-            scId: "sclabs-button-meet-the-virtual-assistant",
-            scTitleEn: "Meet the Virtual Assistant",
-            scTitleFr: "Rencontrer l'assistant virtuel",
-            scDestinationURLEn: "https://av-va.alpha.service.canada.ca/en",
-            scDestinationURLFr: "https://av-va.alpha.service.canada.ca/fr",
-            scButtonType: null,
-          },
         ],
       },
+    },
+  },
+};
+export const projectUpdates = {
+  data: {
+    sCLabsProjectUpdateList: {
+      items: [
+        {
+          _path:
+            "/content/dam/decd-endc/content-fragments/sclabs/projects/virtual-assistant/project-updates/what-we-learned-building-the-service-canada-virtual-assistant",
+          scId: "SCLABS-PROJECT-UPDATE-1",
+          scTitleEn:
+            "What we learned building the Service Canada Virtual Assistant",
+          scTitleFr:
+            "Ce que nous avons appris en construisant l'assistant virtuel de Service Canada",
+          datePosted: "2022-08-25T09:59:00.000-04:00",
+          scDescriptionEn: {
+            json: [
+              {
+                nodeType: "paragraph",
+                content: [
+                  {
+                    nodeType: "text",
+                    value:
+                      "Our goal with the Virtual Assistant was to start with user needs and build a prototype that shows how a user-friendly chatbot experience could be. From there, we can work backwards to identify what else needs to be in place to make it possible.",
+                  },
+                ],
+              },
+            ],
+          },
+          scDescriptionFr: {
+            json: [
+              {
+                nodeType: "paragraph",
+                content: [
+                  {
+                    nodeType: "text",
+                    value:
+                      "Notre objectif avec l'assistant virtuel était de commencer par les besoins des utilisateurs et de construire un prototype qui montre comment une expérience de chatbot conviviale pourrait être. À partir de là, nous pouvons travailler à rebours pour identifier ce qui doit être mis en place pour que cela soit possible.",
+                  },
+                ],
+              },
+            ],
+          },
+          scFragments: {
+            scId: "SCLABS-READ-MORE-BUTTON-1",
+            scTitleEn: "Read more about the Virtual Assistant",
+            scTitleFr: "En savoir plus sur l'assistant virtuel",
+            scDestinationURLEn:
+              "/en/projects/virtual-assistant/what-we-learned",
+            scDestinationURLFr: "/fr/projets/assistant-virtuel/what-we-learned",
+            scButtonType: null,
+          },
+        },
+      ],
     },
   },
 };

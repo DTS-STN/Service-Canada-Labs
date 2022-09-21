@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 
 /**
  * Contextual alert component meant to draw attention to a short important message.
@@ -10,12 +11,24 @@ import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 export function Alert(props) {
   return (
     <div className="layout-container">
-      <div className="relative border-l-6 border-[#269ABC] min-h-40px my-10">
+      <div
+        className={`relative border-l-6 min-h-40px my-10 ${
+          props.triangle ? "border-[#EE7100]" : "border-[#269ABC]"
+        }`}
+      >
         <span className="absolute py-1 top-4 -left-3.5 bg-white">
-          <FontAwesomeIcon icon={faCircleInfo} color={"#269ABC"} size="xl" />
+          {props.triangle ? (
+            <FontAwesomeIcon
+              icon={faTriangleExclamation}
+              color={"#EE7100"}
+              size="xl"
+            />
+          ) : (
+            <FontAwesomeIcon icon={faCircleInfo} color={"#269ABC"} size="xl" />
+          )}
         </span>
         <div className="ml-6">
-          <p className="text-h3 font-display pt-4 pb-4 lg:pt-5">
+          <p className="text-h3 font-display pb-4">
             <b>{props.title}</b>
           </p>
           <p className="text-p">{props.text}</p>

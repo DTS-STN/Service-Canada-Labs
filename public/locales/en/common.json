@@ -371,5 +371,9 @@
   "signupBannerBtnText": "Sign up for research session invites",
   "signupBannerDescription": "You’re invited to fill out quick surveys or take part in research sessions to make Service Canada better for everyone. Your feedback helps us make our services simple and easy to use.",
   "signupBannerDisclaimer": "Your participation will not affect your access to government services. Participation is voluntary and you can opt out at any time.",
-  "tableOfContentsTitle": "On this page:"
+  "tableOfContentsTitle": "On this page:",
+  "started": "Started:",
+  "ended": "Ended:",
+  "stage": "Project stage:",
+  "status": "Status:"
 }
