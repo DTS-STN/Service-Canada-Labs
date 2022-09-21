@@ -7,7 +7,6 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../services/aemServiceInstance";
-import Image from "next/image";
 
 export default function ErrorPage(props) {
   const { t } = useTranslation("common");
@@ -169,7 +168,7 @@ export default function ErrorPage(props) {
         <main>
           <section className="layout-container pb-44">
             <div className="pt-6">
-              <Image
+              <img
                 src={`https://www.canada.ca${
                   props.locale === "en"
                     ? pageData.scGcImages[0].scImageEn._path
@@ -296,15 +295,13 @@ export default function ErrorPage(props) {
               </div>
               <div className="flex items-center justify-center circle-background my-8 lg:mt-0 lightbulb-bg">
                 <span className="relative lightbulb">
-                  <Image
+                  <img
                     src={`https://www.canada.ca${
                       props.locale === "en"
                         ? pageData.scImageList[0].scImageEn._path
                         : pageData.scImageList[0].scImageFr._path
                     }`}
                     alt=""
-                    layout="fill"
-                    objectFit="cover"
                   />
                 </span>
               </div>
@@ -434,7 +431,7 @@ export default function ErrorPage(props) {
               iconEnd
             />
             <span className="relative footer-logo">
-              <Image
+              <img
                 src={`https://www.canada.ca${
                   props.locale === "en"
                     ? pageData.scGcImages[1].scImageEn._path
@@ -445,7 +442,6 @@ export default function ErrorPage(props) {
                     ? pageData.scGcImages[1].scImageAltTextEn
                     : pageData.scGcImages[1].scImageAltTextFr
                 }
-                layout="fill"
               />
             </span>
           </div>

@@ -7,7 +7,6 @@ import { ActionButton } from "../components/atoms/ActionButton";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import aemServiceInstance from "../services/aemServiceInstance";
-import Image from "next/image";
 
 export default function error500(props) {
   const { t } = useTranslation("common");
@@ -152,7 +151,7 @@ export default function error500(props) {
         </Head>
         <section className="layout-container pb-44">
           <div className="pt-6">
-            <Image
+            <img
               src={`https://www.canada.ca${
                 props.locale === "en"
                   ? pageData.scGcImages[0].scImageEn._path
@@ -197,15 +196,13 @@ export default function error500(props) {
             </div>
             <div className="flex items-center justify-center circle-background my-8 lg:mt-0 lightbulb-bg">
               <span className="relative lightbulb">
-                <Image
+                <img
                   src={`https://www.canada.ca${
                     props.locale === "en"
                       ? pageData.scImageList[0].scImageEn._path
                       : pageData.scImageList[0].scImageFr._path
                   }`}
                   alt=""
-                  layout="fill"
-                  objectFit="cover"
                 />
               </span>
             </div>
@@ -252,7 +249,7 @@ export default function error500(props) {
               iconEnd
             />
             <span className="relative footer-logo">
-              <Image
+              <img
                 src={`https://www.canada.ca${
                   props.locale === "en"
                     ? pageData.scGcImages[1].scImageEn._path
@@ -263,7 +260,6 @@ export default function error500(props) {
                     ? pageData.scGcImages[1].scImageAltTextEn
                     : pageData.scGcImages[1].scImageAltTextFr
                 }
-                layout="fill"
               />
             </span>
           </div>

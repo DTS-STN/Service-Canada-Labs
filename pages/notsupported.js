@@ -5,7 +5,6 @@ import { ActionButton } from "../components/atoms/ActionButton";
 import { useEffect } from "react";
 import { CopyToClipboard } from "../components/molecules/CopyToClipboard";
 import { useState } from "react";
-import Image from "next/image";
 import aemServiceInstance from "../services/aemServiceInstance";
 
 export default function notSupported(props) {
@@ -151,7 +150,7 @@ export default function notSupported(props) {
         </Head>
         <section className="xs:px-0 lg:mx-auto lg:px-6 container">
           <div className="pt-6">
-            <Image
+            <img
               src={`https://www.canada.ca${
                 props.locale === "en"
                   ? pageData.scGcImages[0].scImageEn._path
@@ -179,15 +178,13 @@ export default function notSupported(props) {
             </div>
             <div className="flex items-center justify-center circle-background my-8 lg:mt-0 lightbulb-bg">
               <span className="relative lightbulb">
-                <Image
+                <img
                   src={`https://www.canada.ca${
                     props.locale === "en"
                       ? pageData.scImageList[0].scImageEn._path
                       : pageData.scImageList[0].scImageFr._path
                   }`}
                   alt=""
-                  layout="fill"
-                  objectFit="cover"
                 />
               </span>
             </div>
@@ -209,7 +206,7 @@ export default function notSupported(props) {
         <section className="-mt-0 lg:-mt-36 sm:-mt-4 pb-5">
           <div className="flex items-center justify-center">
             <figure className="mx-4">
-              <Image
+              <img
                 src={`https://www.canada.ca${
                   props.locale === "en"
                     ? pageData.scImageList[1].scImageEn._path
@@ -228,7 +225,7 @@ export default function notSupported(props) {
               </figcaption>
             </figure>
             <figure className="mx-4">
-              <Image
+              <img
                 src={`https://www.canada.ca${
                   props.locale === "en"
                     ? pageData.scImageList[2].scImageEn._path
@@ -247,7 +244,7 @@ export default function notSupported(props) {
               </figcaption>
             </figure>
             <figure className="mx-4">
-              <Image
+              <img
                 src={`https://www.canada.ca${
                   props.locale === "en"
                     ? pageData.scImageList[3].scImageEn._path
@@ -266,7 +263,7 @@ export default function notSupported(props) {
               </figcaption>
             </figure>
             <figure className="mx-4">
-              <Image
+              <img
                 src={`https://www.canada.ca${
                   props.locale === "en"
                     ? pageData.scImageList[4].scImageEn._path
@@ -289,7 +286,7 @@ export default function notSupported(props) {
         <section className="xs:px-0 lg:mx-auto lg:px-6 container pb-44">
           <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start mt-8">
             <div className="relative h-auto xl:w-96 xxl:w-400px lg:w-72 mb-8 lg:mb-0">
-              <p className="font-body text-sm mb-4 pb-5 leading-normal">
+              <p className="font-body text-sm mb-4 leading-normal">
                 {pageData.scCopyToClipboardLabelEn}
               </p>
               <CopyToClipboard
@@ -452,7 +449,7 @@ export default function notSupported(props) {
               iconEnd
             />
             <span className="relative footer-logo">
-              <Image
+              <img
                 src={`https://www.canada.ca${
                   props.locale === "en"
                     ? pageData.scGcImages[1].scImageEn._path
@@ -463,7 +460,6 @@ export default function notSupported(props) {
                     ? pageData.scGcImages[1].scImageAltTextEn
                     : pageData.scGcImages[1].scImageAltTextFr
                 }
-                layout="fill"
               />
             </span>
           </div>

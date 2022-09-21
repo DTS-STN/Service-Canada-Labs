@@ -4,7 +4,6 @@ import { useTranslation } from "next-i18next";
 import { ActionButton } from "../components/atoms/ActionButton";
 import Link from "next/link";
 import { useEffect } from "react";
-import Image from "next/image";
 
 export default function Index(props) {
   const { t } = useTranslation("common");
@@ -123,7 +122,7 @@ export default function Index(props) {
           <div className="z-10 bg-white h-auto min-w-300px w-300px xl:w-500px bg-custom-gray-index">
             <h1 className="sr-only">alpha.service.canada.ca</h1>
             <div className="p-4">
-              <Image
+              <img
                 src={"/sig-blk-en.svg"}
                 alt={"Government of Canada / Gouvernement du Canada"}
                 width="300"
@@ -174,7 +173,7 @@ export default function Index(props) {
                 </a>
               </Link>
             </div>
-            <Image
+            <img
               src="/wmms-blk.svg"
               alt="Symbol of the Government of Canada / Symbole du gouvernement du Canada"
               width="150"

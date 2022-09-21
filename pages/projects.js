@@ -7,7 +7,6 @@ import { Card } from "../components/molecules/Card";
 import { Filter } from "../components/molecules/Filter";
 import { CallToAction } from "../components/molecules/CallToAction";
 import aemServiceInstance from "../services/aemServiceInstance";
-import Image from "next/image";
 import { Alert } from "../components/atoms/Alert";
 
 export default function Projects(props) {
@@ -176,7 +175,7 @@ export default function Projects(props) {
               style={{ maxWidth: "453px" }}
               role="presentation"
             >
-              <Image
+              <img
                 src={pageData.scFragments[2].scImageEn._publishUrl}
                 alt=""
                 height={
@@ -189,7 +188,6 @@ export default function Projects(props) {
                     ? pageData.scFragments[2].scImageEn.width
                     : pageData.scFragments[2].scImageFr.width
                 }
-                layout="responsive"
               />
             </span>
           </div>

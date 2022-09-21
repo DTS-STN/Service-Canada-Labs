@@ -5,7 +5,6 @@ import { Layout } from "../components/organisms/Layout";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { useEffect, useState } from "react";
 import Card from "../components/molecules/Card";
-import Image from "next/image";
 import aemServiceInstance from "../services/aemServiceInstance";
 
 export default function Home(props) {
@@ -162,15 +161,13 @@ export default function Home(props) {
               style={{ height: "316px", width: "452px", minWidth: "452px" }}
               role="presentation"
             >
-              <Image
+              <img
                 src={
                   props.locale === "en"
                     ? pageData.scFragments[1].scImageEn._publishUrl
                     : pageData.scFragments[1].scImageFr._publishUrl
                 }
                 alt=""
-                layout="fill"
-                objectFit="cover"
               />
             </span>
           </div>

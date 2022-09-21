@@ -5,7 +5,6 @@ import { Layout } from "../../../components/organisms/Layout";
 import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
-import Image from "next/image";
 
 //  On hold for now
 //  import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge";
@@ -189,7 +188,7 @@ export default function Home(props) {
               </h2>
 
               <div className="row-span-2 bg-gradient-to-tr from-custom-blue-blue to-vc-blue-lt p-4 flex justify-center">
-                <Image
+                <img
                   src={`https://www.canada.ca${
                     props.locale === "en"
                       ? pageData.scFragments[2].scImageEn._path
