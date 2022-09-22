@@ -326,12 +326,13 @@ export default function LifeJourneys(props) {
             </strong>
           </p>
         </section>
-
         <CallToAction
-          title={t("signupTitleCallToAction")}
-          html={t("becomeAParticipantDescription")}
-          href={"/signup"}
-          hrefText={t("signupBtn")}
+          title={t("signupHomeButton")}
+          description={t("signupBannerDescription")}
+          disclaimer={t("signupBannerDisclaimer")}
+          lang={props.locale}
+          href={t("signupInfoRedirect")}
+          hrefText={t("signupBannerBtnText")}
         />
       </Layout>
       {props.adobeAnalyticsUrl ? (
