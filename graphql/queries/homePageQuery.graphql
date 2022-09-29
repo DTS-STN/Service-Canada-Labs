@@ -49,7 +49,7 @@ query getHomePage {
       scNoIndex
       scNoFollow
       scFragments {
-        ... on SCLabsContentModel {
+        ... on SCLabsContentv1Model {
           _path
           scId
           scContentEn {
@@ -59,7 +59,7 @@ query getHomePage {
             json
           }
         }
-        ... on SCLabsImageModel {
+        ... on SCLabsImagev1Model {
           scId
           scImageEn {
             ... on ImageRef {
@@ -103,10 +103,14 @@ query getHomePage {
           }
           scImageAltTextEn
           scImageAltTextFr
-          scImageCaptionEn
-          scImageCaptionFr
+          scImageCaptionEn {
+            json
+          }
+          scImageCaptionFr {
+            json
+          }
         }
-        ... on SCLabsButtonModel {
+        ... on SCLabsButtonv1Model {
           scId
           scTitleEn
           scTitleFr
@@ -114,7 +118,7 @@ query getHomePage {
           scDestinationURLFr
           scButtonType
         }
-        ... on SCLabsFeatureModel {
+        ... on SCLabsFeaturev1Model {
           scId
           scTitleEn
           scTitleFr
