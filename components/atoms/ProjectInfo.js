@@ -11,7 +11,7 @@ export function ProjectInfo(props) {
 
   return (
     <>
-      <div className="p-4 grid grid-cols-4 gap-x-6">
+      <div className="grid grid-cols-4">
         <strong className="col-span-1">{t("started")}</strong>
         <p className="col-span-3">{props.dateStarted.substring(0, 10)}</p>
         <strong className="col-span-1">{t("ended")}</strong>
