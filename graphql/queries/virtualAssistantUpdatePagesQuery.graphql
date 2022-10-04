@@ -1,0 +1,104 @@
+query getVirtualAssistantUpdatePages {
+    vaUpdatePageModelv1List {
+    items {
+      scId
+      scPageNameEn
+      scPageNameFr
+      scTitleEn
+      scTitleFr
+      scShortTitleEn
+      scShortTitleFr
+      scDescriptionEn {
+        json
+      }
+      scDescriptionFr {
+        json
+      }
+      scSubject
+      scKeywordsEn
+      scKeywordsFr
+      scContentType
+      scOwner
+      scDateModifiedOverwrite
+      scAudience
+      scRegion
+      scSocialMediaImageEn {
+        ... on ImageRef {
+          _path
+        }
+        ... on DocumentRef {
+          _path
+        }
+      }
+      scSocialMediaImageFr {
+        ... on ImageRef {
+          _path
+        }
+        ... on DocumentRef {
+          _path
+        }
+      }
+      scSocialMediaImageAltTextEn
+      scSocialMediaImageAltTextFr
+      scNoIndex
+      scNoFollow
+      scFragments {
+        ... on SCLabsContentv1Model {
+          _path
+          scId
+          scContentEn {
+            markdown
+          }
+          scContentFr {
+            markdown
+          }
+        }
+        ... on SCLabsButtonModel {
+          scId
+          scTitleEn
+          scTitleFr
+          scDestinationURLEn
+          scDestinationURLFr
+          scButtonType
+        }
+        ... on SCLabsFeatureModel {
+          scId
+          scTitleEn
+          scTitleFr
+          scContentEn {
+            json
+          }
+          scContentFr {
+            json
+          }
+          scImageEn {
+            ... on ImageRef {
+              _path
+            }
+            ... on DocumentRef {
+              _path
+            }
+          }
+          scImageFr {
+            ... on ImageRef {
+              _path
+            }
+            ... on DocumentRef {
+              _path
+            }
+          }
+          scImageAltTextEn
+          scImageAltTextFr
+          scLabsButton {
+            scId
+            scTitleEn
+            scTitleFr
+            scDestinationURLEn
+            scDestinationURLFr
+            scButtonType
+          }
+        }
+      }
+    }
+  }
+}
