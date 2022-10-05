@@ -11,7 +11,7 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 export function CallToAction(props) {
   const { t } = useTranslation("common");
   return (
-    <div className="bg-[#ebf2fc] text-[#333]">
+    <div className="bg-[#ebf2fc] text-[#333] my-12">
       <div className="layout-container pb-10 pt-10 text-sm md:text-base">
         <div>
           <div className="flex flex-col">

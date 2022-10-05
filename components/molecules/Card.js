@@ -18,13 +18,11 @@ export const Card = (props) => {
     <div
       className={`${
         props.blog
-          ? "card-shadow border border-custom-gray-border rounded-md px-4 py-2 mb-8 min-h-250px"
+          ? "card-shadow border border-custom-gray-border rounded-md px-4 py-2 pb-4 mb-8"
           : props.isExperiment
           ? "shadow-experiment-shadow -ml-8"
           : ""
-      } xl:min-h-250px ${
-        "border-" + (tagColours[props.tag] || "gray-experiment")
-      } min-w-full`}
+      } ${"border-" + (tagColours[props.tag] || "gray-experiment")} min-w-full`}
       data-testid={props.dataTestId}
       data-cy={props.dataCy}
       style={{
@@ -88,7 +86,7 @@ export const Card = (props) => {
       >
         {props.description}
       </p>
-      {!props.isExperiment ? (
+      {!props.isExperiment && !props.blog ? (
         <ActionButton
           href={props.btnHref}
           text={props.btnText}

@@ -8,7 +8,7 @@ import aemServiceInstance from "../../../services/aemServiceInstance";
 import Card from "../../../components/molecules/Card";
 import { Alert } from "../../../components/atoms/Alert";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
-
+import { CallToAction } from "../../../components/molecules/CallToAction";
 //  On hold for now
 //  import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge";
 // import { CallToAction } from "../../../components/molecules/CallToAction";
@@ -143,15 +143,10 @@ export default function Home(props) {
                 </div>
               </div>
             </div>
-            <h2 className="mb-0 text-h1" id="virtualAssistantTitle">
+            <p className="font-body text-lg">
               {props.locale === "en"
                 ? pageData.scFragments[0].scContentEn.json[0].content[0].value
                 : pageData.scFragments[0].scContentFr.json[0].content[0].value}
-            </h2>
-            <p className="font-body text-lg">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[1].content[0].value
-                : pageData.scFragments[0].scContentFr.json[1].content[0].value}
             </p>
             <ProjectInfo
               stage={
@@ -181,8 +176,8 @@ export default function Home(props) {
           <div className="my-8">
             <h2>
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[2].content[0].value
-                : pageData.scFragments[0].scContentFr.json[2].content[0].value}
+                ? pageData.scFragments[0].scContentEn.json[1].content[0].value
+                : pageData.scFragments[0].scContentFr.json[1].content[0].value}
             </h2>
             {projectUpdates.map((data, index) => (
               <Card
@@ -199,17 +194,6 @@ export default function Home(props) {
                     ? data.scFragments.scDestinationURLEn
                     : data.scFragments.scDestinationURLFr
                 }
-                btnText={
-                  props.locale === "en"
-                    ? data.scFragments.scTitleEn
-                    : data.scFragments.scTitleFr
-                }
-                btnHref={
-                  props.locale === "en"
-                    ? data.scFragments.scDestinationURLEn
-                    : data.scFragments.scDestinationURLFr
-                }
-                btnId={data.scId}
                 blog
               />
             ))}
@@ -217,8 +201,8 @@ export default function Home(props) {
           <div>
             <h2>
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[3].content[0].value
-                : pageData.scFragments[0].scContentFr.json[3].content[0].value}
+                ? pageData.scFragments[0].scContentEn.json[2].content[0].value
+                : pageData.scFragments[0].scContentFr.json[2].content[0].value}
             </h2>
             <Alert
               triangle
@@ -255,12 +239,14 @@ export default function Home(props) {
         </section>
         {/* END Virtual Assistant Demo section end for working prototype */}
 
-        {/* <CallToAction
-          title={t("signupTitleCallToAction")}
-          html={t("becomeAParticipantDescription")}
-          href={"/signup"}
-          hrefText={t("signupBtn")}
-        /> */}
+        <CallToAction
+          title={t("signupHomeButton")}
+          description={t("signupBannerDescription")}
+          disclaimer={t("signupBannerDisclaimer")}
+          lang={props.locale}
+          href={t("signupInfoRedirect")}
+          hrefText={t("signupBannerBtnText")}
+        />
       </Layout>
       {props.adobeAnalyticsUrl ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
