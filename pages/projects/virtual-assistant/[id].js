@@ -11,7 +11,7 @@ import ReactMarkdown from "react-markdown";
 import remarkBreaks from "remark-breaks";
 
 export default function VAUpdatePage(props) {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("common", "vc");
   const [pageData] = useState(props.pageData);
   const [actionButtonData] = useState(props.actionButtonData);
 
