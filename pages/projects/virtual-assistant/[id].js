@@ -29,6 +29,11 @@ export default function VAUpdatePage(props) {
         langUrl={
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
+        breadcrumbItems={[
+          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
+          { text: t("menuLink1"), link: t("breadCrumbsHref2") },
+          { text: t("menuLink3"), link: t("breadCrumbsHref5") },
+        ]}
       >
         <Head>
           {props.adobeAnalyticsUrl ? (
