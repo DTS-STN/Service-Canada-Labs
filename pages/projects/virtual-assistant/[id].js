@@ -2,7 +2,8 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../../../components/organisms/Layout";
-import { CallToAction } from "../../../components/molecules/CallToAction";
+import { Alert } from "../../../components/atoms/Alert";
+import { ActionButton } from "../../../components/atoms/ActionButton";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
@@ -12,6 +13,7 @@ import remarkBreaks from "remark-breaks";
 export default function VAUpdatePage(props) {
   const { t } = useTranslation("common");
   const [pageData] = useState(props.pageData);
+  const [actionButtonData] = useState(props.actionButtonData);
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
@@ -36,17 +38,19 @@ export default function VAUpdatePage(props) {
           )}
 
           {/* Primary HTML Meta Tags */}
-          <title>{`${t("scLabsHome")} — ${t("siteTitle")}`}</title>
-          <meta name="description" content={`${t("homeMetaDescription")}`} />
+          <title>{`${
+            props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+          } — ${t("siteTitle")}`}</title>
+          <meta name="description" content={`${t("vc:metaDescription")}`} />
           <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
           <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
-          <meta name="keywords" content={t("homeKeywords")} />
+          <meta name="keywords" content={t("vc:keywords")} />
 
           {/* DCMI Meta Tags */}
           <meta
             name="dcterms.title"
-            content={`${t("scLabsHome")} — ${t("siteTitle")}`}
+            content={`${t("vc:virtualAssistantTitle")} — ${t("siteTitle")}`}
           />
           <meta
             name="dcterms.language"
@@ -65,53 +69,45 @@ export default function VAUpdatePage(props) {
             name="dcterms.service"
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
-          <meta name="dcterms.issued" title="W3CDTF" content="2021-03-18" />
-          <meta name="dcterms.modified" title="W3CDTF" content="2021-12-16" />
-          <meta name="dcterms.spatial" content="Canada" />
+          <meta name="dcterms.modified" title="W3CDTF" content="2022-10-05" />
+          <meta name="dcterms.description" content={t("vc:metaDescription")} />
+          <meta
+            name="dcterms.subject"
+            title="gccore"
+            content={`${t("vc:metaSubject")}`}
+          />
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
           <meta property="og:locale" content={props.locale} />
-          <meta
-            property="og:url"
-            content={
-              "https://alpha.service.canada.ca/" +
-              `${props.locale}` +
-              `${t("homeMetaPath")}`
-            }
-          />
+          <meta property="og:url" content={t("vc:canonicalURL")} />
           <meta
             property="og:title"
-            content={`${t("scLabsHome")} — ${t("siteTitle")}`}
+            content={`${t("vc:virtualAssistantTitle")} — ${t("siteTitle")}`}
           />
           <meta
             property="og:description"
-            content={`${t("homeMetaDescription")}`}
+            content={t("vc:virtualAssistantBioBody")}
           />
-          <meta property="og:image" content={`${t("metaImage")}`} />
-          <meta property="og:image:alt" content={`${t("siteTitle")}`} />
+          <meta property="og:image" content={t("metaImage")} />
+          <meta property="og:image:alt" content={t("siteTitle")} />
 
           {/* Twitter */}
           <meta property="twitter:card" content="summary_large_image" />
-          <meta
-            property="twitter:url"
-            content={
-              "https://alpha.service.canada.ca/" +
-              `${props.locale}` +
-              `${t("homeMetaPath")}`
-            }
-          />
+          <meta property="twitter:url" content={t("vc:canonicalURL")} />
           <meta
             property="twitter:title"
-            content={`${t("scLabsHome")} — ${t("siteTitle")}`}
+            content={
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+            }
           />
           <meta name="twitter:creator" content="Service Canada" />
           <meta
             property="twitter:description"
-            content={`${t("homeMetaDescription")}`}
+            content={t("vc:virtualAssistantBioBody")}
           />
-          <meta property="twitter:image" content={`${t("metaImage")}`} />
-          <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
+          <meta property="twitter:image" content={t("metaImage")} />
+          <meta property="twitter:image:alt" content={t("siteTitle")} />
         </Head>
         <section className="layout-container my-12">
           <ReactMarkdown
@@ -128,14 +124,49 @@ export default function VAUpdatePage(props) {
                   )
             }
           ></ReactMarkdown>
+          <div className="mt-40">
+            <h2>
+              {props.locale === "en"
+                ? actionButtonData.scFragments[0].scContentEn.json[2].content[0]
+                    .value
+                : actionButtonData.scFragments[0].scContentFr.json[2].content[0]
+                    .value}
+            </h2>
+            <Alert
+              triangle
+              title={
+                props.locale === "en"
+                  ? actionButtonData.scFragments[3].scTitleEn
+                  : actionButtonData.scFragments[3].scTitleFr
+              }
+              text={
+                props.locale === "en"
+                  ? actionButtonData.scFragments[3].scContentEn.json[0]
+                      .content[0].value
+                  : actionButtonData.scFragments[3].scContentFr.json[0]
+                      .content[0].value
+              }
+            />
+            <p className="flex mb-4 text-center">
+              <ActionButton
+                id="become-a-participant-btn"
+                custom={`py-1.5 px-3 rounded text-white text-base lg:text-p font-display bg-custom-blue-dark hover:bg-custom-blue-light border border-custom-blue-darker active:bg-custom-blue-darker hover:ring-2 hover:ring-white`}
+                className=""
+                href={
+                  props.locale === "en"
+                    ? actionButtonData.scFragments[4].scDestinationURLEn
+                    : actionButtonData.scFragments[4].scDestinationURLFr
+                }
+                text={
+                  props.locale === "en"
+                    ? actionButtonData.scFragments[4].scTitleEn
+                    : actionButtonData.scFragments[4].scTitleFr
+                }
+                ariaExpanded={props.ariaExpanded}
+              />
+            </p>
+          </div>
         </section>
-        <CallToAction
-          title={t("signupTitleCallToAction")}
-          html={t("becomeAParticipantDescription")}
-          lang={props.locale}
-          href={t("signupInfoRedirect")}
-          hrefText={t("signupBtn")}
-        />
       </Layout>
       {props.adobeAnalyticsUrl ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
@@ -147,9 +178,11 @@ export default function VAUpdatePage(props) {
 }
 
 export async function getStaticPaths() {
+  // Get pages data
   const { data } = await aemServiceInstance.getFragment(
     "virtualAssistantUpdatePagesQuery"
   );
+  // Get paths for dynamic routes from the page name data
   const paths = getAllUpdateIds(data.vaUpdatePageModelv1List.items);
   return {
     paths,
@@ -158,20 +191,26 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = async ({ locale, params }) => {
+  // Get data for action prompt
+  const actionButtonData = await aemServiceInstance.getFragment(
+    "virtualAssistantQuery"
+  );
+  // Get pages data
   const { data } = await aemServiceInstance.getFragment(
     "virtualAssistantUpdatePagesQuery"
   );
   const pages = data.vaUpdatePageModelv1List.items;
+  // Return page data that matches the current page being built
   const pageData = pages.filter((page) => {
     return page.scPageNameEn === params.id || page.scPageNameFr === params.id;
   });
-  console.log(pageData[0].scFragments[0].scContentEn);
   return {
     props: {
       locale: locale,
       pageData: pageData[0],
+      actionButtonData: actionButtonData.data.sCLabsPageByPath.item,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
-      ...(await serverSideTranslations(locale, ["common"])),
+      ...(await serverSideTranslations(locale, ["common", "vc"])),
     },
   };
 };
