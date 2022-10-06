@@ -46,9 +46,9 @@ const REWRITES = [
     destination: "/projects/virtual-assistant",
   },
   {
-    source: "/projets/assistant-virtuel/l'essayer",
-    destination: "/projects/virtual-assistant/try-it-out"
-  }
+    source: "/projets/assistant-virtuel/:slug",
+    destination: "/projects/virtual-assistant/:slug"
+  },
 ]
 
 
