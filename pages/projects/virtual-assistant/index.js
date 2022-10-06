@@ -189,6 +189,8 @@ export default function Home(props) {
                     ? data.scDescriptionEn.json[0].content[0].value
                     : data.scDescriptionFr.json[0].content[0].value
                 }
+                // TODO: Maybe move the full path URL in AEM to the application level that way content
+                // managers won't need to concern themselves with multi-part URLs
                 href={
                   props.locale === "en"
                     ? data.scFragments.scDestinationURLEn
