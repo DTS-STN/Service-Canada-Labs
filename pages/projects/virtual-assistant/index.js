@@ -115,64 +115,69 @@ export default function Home(props) {
 
         {/* Virtual Assitant Demo section start -  with link to working prototype */}
         <section className="layout-container my-8">
-          <div className="flex flex-col break-words lg:grid lg:grid-cols-2 gap-4 lg:gap-6">
-            <h1
-              className="text-h1 border-h1-red-bar"
-              tabIndex="-1"
-              id="pageMainTitle"
-            >
-              {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
-            </h1>
-            <div className="row-span-4 p-0 mx-4">
-              <div className="flex justify-center">
-                <div className="object-fill h-auto w-auto max-w-450px">
-                  <img
-                    src={
-                      props.locale === "en"
-                        ? pageData.scFragments[2].scImageEn._publishUrl
-                        : pageData.scFragments[2].scImageFr._publishUrl
-                    }
-                    alt={
-                      props.locale === "en"
-                        ? pageData.scFragments[2].scImageAltTextEn
-                        : pageData.scFragments[2].scImageAltTextFr
-                    }
-                    width={468}
-                    height={462}
-                  />
+          <main aria-labelledby="pageMainTitle">
+            <div className="flex flex-col break-words lg:grid lg:grid-cols-2 gap-4 lg:gap-6">
+              <h1 className="text-h1 border-h1-red-bar" id="pageMainTitle">
+                {props.locale === "en"
+                  ? pageData.scTitleEn
+                  : pageData.scTitleFr}
+              </h1>
+              <div className="row-span-4 p-0 mx-4">
+                <div className="flex justify-center">
+                  <div className="object-fill h-auto w-auto max-w-450px">
+                    <img
+                      src={
+                        props.locale === "en"
+                          ? pageData.scFragments[2].scImageEn._publishUrl
+                          : pageData.scFragments[2].scImageFr._publishUrl
+                      }
+                      alt={
+                        props.locale === "en"
+                          ? pageData.scFragments[2].scImageAltTextEn
+                          : pageData.scFragments[2].scImageAltTextFr
+                      }
+                      width={468}
+                      height={462}
+                    />
+                  </div>
                 </div>
               </div>
+              <p className="font-body text-lg">
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[0].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[0].content[0]
+                      .value}
+              </p>
+              <ProjectInfo
+                stage={
+                  props.locale === "en"
+                    ? pageData.scFragments[5].scContentEn.json[0].content[0]
+                        .value
+                    : pageData.scFragments[5].scContentFr.json[0].content[0]
+                        .value
+                }
+                info={
+                  props.locale === "en"
+                    ? pageData.scFragments[5].scContentEn.json[0].content[1]
+                        .value
+                    : pageData.scFragments[5].scContentFr.json[0].content[1]
+                        .value
+                }
+                dateStarted={pageData.scFragments[1].dateStarted}
+                dateEnded={pageData.scFragments[1].dateEnded}
+                projectStage={
+                  props.locale === "en"
+                    ? pageData.scFragments[1].projectStageEn
+                    : pageData.scFragments[1].projectStageFr
+                }
+                status={
+                  props.locale === "en"
+                    ? pageData.scFragments[1].statusEn
+                    : pageData.scFragments[1].statusFr
+                }
+              />
             </div>
-            <p className="font-body text-lg">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[0].content[0].value
-                : pageData.scFragments[0].scContentFr.json[0].content[0].value}
-            </p>
-            <ProjectInfo
-              stage={
-                props.locale === "en"
-                  ? pageData.scFragments[5].scContentEn.json[0].content[0].value
-                  : pageData.scFragments[5].scContentFr.json[0].content[0].value
-              }
-              info={
-                props.locale === "en"
-                  ? pageData.scFragments[5].scContentEn.json[0].content[1].value
-                  : pageData.scFragments[5].scContentFr.json[0].content[1].value
-              }
-              dateStarted={pageData.scFragments[1].dateStarted}
-              dateEnded={pageData.scFragments[1].dateEnded}
-              projectStage={
-                props.locale === "en"
-                  ? pageData.scFragments[1].projectStageEn
-                  : pageData.scFragments[1].projectStageFr
-              }
-              status={
-                props.locale === "en"
-                  ? pageData.scFragments[1].statusEn
-                  : pageData.scFragments[1].statusFr
-              }
-            />
-          </div>
+          </main>
           <div className="my-8">
             <h2>
               {props.locale === "en"
@@ -221,7 +226,7 @@ export default function Home(props) {
             />
             <p className="flex mb-4 text-center">
               <ActionButton
-                id="become-a-participant-btn"
+                id="signup-btn"
                 custom={`py-1.5 px-3 rounded text-white text-base lg:text-p font-display bg-custom-blue-dark hover:bg-custom-blue-light border border-custom-blue-darker active:bg-custom-blue-darker hover:ring-2 hover:ring-white`}
                 className=""
                 href={
