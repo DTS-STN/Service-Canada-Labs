@@ -10,14 +10,14 @@ export function Footer(props) {
     <div className="w-full">
       <div className="w-full h-auto footerBackground bg-custom-blue-dark">
         <div
-          className="py-7 layout-container"
+          className="w-full py-7 layout-container"
           role="navigation"
           aria-labelledby="footerNav1"
         >
           <h3 className="sr-only" id="footerNav1">
             {props.footerNav1}
           </h3>
-          <ul className="flex flex-col text-xs lg:grid lg:grid-cols-2 xl:grid xl:grid-cols-3 lg:gap-1">
+          <ul className="flex flex-col text-xs lg:grid lg:grid-cols-2 xl:grid xl:grid-cols-3 lg:gap-1 -ml-4">
             {" "}
             {props.footerBoxLinks.map((value, index) => {
               return (
@@ -44,7 +44,7 @@ export function Footer(props) {
             <h3 className="sr-only" id="footerNav2">
               {props.footerNav2}
             </h3>
-            <ul className="flex flex-col md:grid md:grid-cols-2 xl:flex lg:flex-row">
+            <ul className="flex flex-col md:grid md:grid-cols-2 xl:flex lg:flex-row -ml-4">
               {props.links.map((value, index) => {
                 return (
                   <li
