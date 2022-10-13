@@ -35,9 +35,9 @@ export function CheckBox(props) {
         {...ifControlledProps}
       />
       <label
-        className={`checkbox-label control-label inline-block cursor-pointer pt-4px pb-5px px-15px text-sm lg:text-p leading-tight sm:leading-6 font-normal font-body${
-          props.error ? " text-error-border-red" : undefined
-        }`}
+        className={`checkbox-label control-label inline-block cursor-pointer pt-4px pb-5px px-15px text-sm lg:text-p leading-tight sm:leading-6 ${
+          props.bolded ? "font-semibold" : "font-normal"
+        } font-body${props.error ? " text-error-border-red" : undefined}`}
         htmlFor={props.id}
       >
         {props.showRequiredLabel ? (
@@ -111,6 +111,11 @@ CheckBox.propTypes = {
    * boolean flag to specify that this input should not be controlled by react
    */
   uncontrolled: PropTypes.bool,
+
+  /**
+   * boolean flag to specify when label content should be bolded
+   */
+  bolded: PropTypes.bool,
 
   /**
    * testing selector for cypress

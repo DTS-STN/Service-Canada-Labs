@@ -837,7 +837,10 @@ export default function Signup(props) {
                   {formField.label.disability}{" "}
                 </legend>
                 <OptionalTextField
-                  controlLabel={formField.option.yes}
+                  controlLabel={
+                    formField.option.yes.charAt(0).toUpperCase() +
+                    formField.option.yes.slice(1)
+                  }
                   textFieldName="disabilityDetails"
                   textFieldId="disabilityDetails"
                   textFieldLabel={formField.option.assistiveTech}
@@ -861,7 +864,10 @@ export default function Signup(props) {
                   describedby="disabilityDetailsDescribedBy"
                 />
                 <RadioField
-                  label={formField.option.no}
+                  label={
+                    formField.option.no.charAt(0).toUpperCase() +
+                    formField.option.no.slice(1)
+                  }
                   id="disabilityNo"
                   onChange={(checked, name, value) => setDisability(value)}
                   checked={disability === "no"}
@@ -894,7 +900,10 @@ export default function Signup(props) {
                 <OptionalListField
                   controlName="minority"
                   controlId="minorityYes"
-                  controlLabel={formField.option.yes}
+                  controlLabel={
+                    formField.option.yes.charAt(0).toUpperCase() +
+                    formField.option.yes.slice(1)
+                  }
                   controlValue="yes"
                   controlType="radiofield"
                   checked={minority === "yes"}
@@ -1014,7 +1023,10 @@ export default function Signup(props) {
                   />
                 </OptionalListField>
                 <RadioField
-                  label={formField.option.no}
+                  label={
+                    formField.option.no.charAt(0).toUpperCase() +
+                    formField.option.no.slice(1)
+                  }
                   id="minorityNo"
                   name="minority"
                   value="no"
@@ -1090,7 +1102,10 @@ export default function Signup(props) {
                   {formField.label.publicServant}{" "}
                 </legend>
                 <RadioField
-                  label={formField.option.yes}
+                  label={
+                    formField.option.yes.charAt(0).toUpperCase() +
+                    formField.option.yes.slice(1)
+                  }
                   id="publicServantYes"
                   name="publicServant"
                   checked={publicServant === "yes"}
@@ -1098,7 +1113,10 @@ export default function Signup(props) {
                   value="yes"
                 />
                 <RadioField
-                  label={formField.option.no}
+                  label={
+                    formField.option.no.charAt(0).toUpperCase() +
+                    formField.option.no.slice(1)
+                  }
                   id="publicServantNo"
                   name="publicServant"
                   checked={publicServant === "no"}
@@ -1112,7 +1130,8 @@ export default function Signup(props) {
                   <ErrorLabel message={agreeToConditionsError} />
                 ) : undefined}
                 <CheckBox
-                  className="h-187px sm:h-32 xxs:mb-6 xs:mb-0"
+                  className="h-187px sm:h-32 xxs:mb-6 xs:mb-0 font-bold"
+                  bolded={true}
                   checked={agreeToConditions === "yes"}
                   onChange={(checked, name, value) => {
                     if (checked) {
