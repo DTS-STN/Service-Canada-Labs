@@ -17,7 +17,7 @@ export default function Index(props) {
 
   return (
     <>
-      <div className="splash-image bg-splash-img-mobile xs:bg-splash-img bg-no-repeat h-screen min-w-300px min-h-screen" />
+      <div className="splash-bg splash-image bg-splash-img-mobile xs:bg-splash-img bg-no-repeat h-screen min-w-300px min-h-screen" />
       <Head>
         {props.adobeAnalyticsUrl ? (
           <script src={props.adobeAnalyticsUrl} />

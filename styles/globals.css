@@ -119,6 +119,7 @@ html {
   .layout-container {
     @apply mx-6;
   }
+
   .text-shadow-about-circles {
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
       1px 1px 0 #000;
@@ -140,7 +141,6 @@ html {
     .layout-container {
       @apply px-0;
     }
-
     .textbuttonField > p {
       @apply text-p;
     }
@@ -150,7 +150,6 @@ html {
     .layout-container {
       @apply container mx-auto px-6;
     }
-
     .circle-background {
       width: 120px;
       height: 120px;
@@ -308,12 +307,22 @@ li {
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.splash-bg {
+  background-size: 70%;
+}
+
 .card-shadow {
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .info {
   display: flex;
+}
+
+@media (max-width: 640px) {
+  .splash-bg {
+    background-size: 100%;
+  }
 }
 
 @media (max-width: 990px) {
