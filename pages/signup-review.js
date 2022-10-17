@@ -318,20 +318,18 @@ export default function SignupReview(props) {
           </h2>
           <div className="mb-16 grid grid-cols-1 lg:grid-cols-2">
             <div className="p-1 border border-grey">
-              <p className="font-display font-bold">{formFields.label.email}</p>
+              <p className="font-display">{formFields.label.email}</p>
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
-              <p className="font-display font-bold">
+              <p className="font-display">
                 {formData !== null ? formData.email : undefined}
               </p>
             </div>
             <div className="p-1 border-x border-b lg:border-y border-grey">
-              <p className="font-display font-bold">
-                {formFields.label.language}
-              </p>
+              <p className="font-display">{formFields.label.language}</p>
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
-              <p className="font-display font-bold">
+              <p className="font-display">
                 {formData !== null
                   ? formData.language === "en"
                     ? "English"
@@ -340,9 +338,7 @@ export default function SignupReview(props) {
               </p>
             </div>
             <div className="p-1 border-x border-b lg:border-y border-grey">
-              <p className="font-display font-bold">
-                {formFields.label.yearOfBirth}
-              </p>
+              <p className="font-display">{formFields.label.yearOfBirth}</p>
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
               <p className="font-display font-bold">
