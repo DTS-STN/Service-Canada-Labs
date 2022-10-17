@@ -186,6 +186,7 @@ export default function Home(props) {
             </h2>
             {projectUpdates.map((data, index) => (
               <Card
+                showDate
                 key={index}
                 title={props.locale === "en" ? data.scTitleEn : data.scTitleFr}
                 datePosted={data.datePosted}

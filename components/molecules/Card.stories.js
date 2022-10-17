@@ -9,33 +9,50 @@ export default {
 const Template = (args) => <Card {...args} />;
 
 export const Primary = Template.bind({});
-export const Experiment = Template.bind({});
-export const Blog = Template.bind({});
+export const WithTag = Template.bind({});
+export const WithImage = Template.bind({});
+export const WithDate = Template.bind({});
+export const WithButton = Template.bind({});
 
 Primary.args = {
   title: "Title",
+  href: "/some/link",
   description: "Description",
   imgSrc: "/placeholderImg",
   imgAlt: "placeholderAlt",
 };
 
-Experiment.args = {
-  isExperiment: true,
+WithTag.args = {
+  showTag: true,
   title: "Title",
   tag: "experiment_tag",
   tagLabel: "Experiment tag",
   description: "Description",
   href: "/some/link",
+};
+
+WithImage.args = {
+  showImage: true,
+  title: "Title",
+  description: "Description",
+  href: "/somelink",
   imgSrc: "/placeholderImg",
   imgAlt: "placeholderAlt",
 };
 
-Blog.args = {
-  blog: true,
+WithDate.args = {
+  showDate: true,
   title: "Title",
   href: "/somelink",
   datePosted: "2022-01-01",
-  description: "Project description",
+  description: "Description",
+};
+
+WithButton.args = {
+  showButton: true,
+  title: "Title",
+  description: "Description",
+  href: "/somelink",
   btnHref: "/somelink",
-  btnText: "More about",
+  btnText: "Button text",
 };
