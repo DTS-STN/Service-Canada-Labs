@@ -1150,7 +1150,7 @@ export default function Signup(props) {
               </div>
             </div>
             <Link href={formField.privacyLink} locale={props.locale}>
-              <a className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-10 text-sm lg:text-p">
+              <a className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mt-28 sm:mt-0 mb-10 text-sm lg:text-p">
                 {formField.privacy}
               </a>
             </Link>
