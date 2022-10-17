@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "./Card";
+import Image from "../../public/placeholder.png";
 
 export default {
   title: "Components/Molecules/Card",
@@ -36,7 +37,7 @@ WithImage.args = {
   title: "Title",
   description: "Description",
   href: "/somelink",
-  imgSrc: "/placeholderImg",
+  imgSrc: Image,
   imgAlt: "placeholderAlt",
 };
 

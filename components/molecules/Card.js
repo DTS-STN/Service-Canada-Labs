@@ -77,7 +77,7 @@ export const Card = (props) => {
           text={props.btnText}
           id={props.btnId}
           dataCy={props.btnId}
-          className="flex mt-6 mb-2 rounded xxs:w-full xs:w-fit py-2 bg-[#EAEBED] text-custom-blue-text focus:ring-inset focus:ring-2 focus:ring-black hover:bg-details-button-hover-gray text-center border border-details-button-gray"
+          className="flex mt-6 mb-2 ml-4 rounded xxs:w-full xs:w-fit py-2 bg-[#EAEBED] text-custom-blue-text focus:ring-inset focus:ring-2 focus:ring-black hover:bg-details-button-hover-gray text-center border border-details-button-gray"
         />
       ) : (
         ""
