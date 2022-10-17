@@ -1156,7 +1156,7 @@ export default function Signup(props) {
             </Link>
             <ActionButton
               id="signup-submit"
-              className="rounded xxs:w-full xs:w-72 my-6 text-base font-bold py-2"
+              className="rounded xs:w-72 my-6 mr-10 text-base font-display font-bold py-2"
               type="submit"
               dataCy="signup-submit"
               dataTestId="signup-submit"
@@ -1166,8 +1166,9 @@ export default function Signup(props) {
             </ActionButton>
             <ActionButton
               id="reset-bottom"
-              className="pb-12"
-              custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10 text-sm lg:text-p"
+              className="rounded xs:w-fit py-2 bg-[#EAEBED] text-base text-custom-blue-text focus:ring-inset focus:ring-2 focus:ring-black hover:bg-details-button-hover-gray text-center border-0"
+              secondary
+              custom=""
               type="reset"
               onClick={() => {
                 setProvince("");
