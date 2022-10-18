@@ -125,40 +125,47 @@ export default function Home(props) {
               ? pageData.scFragments[0].scContentEn.json[1].content[0].value
               : pageData.scFragments[0].scContentFr.json[1].content[0].value}
           </p>
-          <h2 className="mt-12 mb-6 text-h1l">
-            {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[2].content[0].value
-              : pageData.scFragments[0].scContentFr.json[2].content[0].value}
-          </h2>
-          <div className="mb-20 lg:flex">
-            <span className="w-full py-4">
-              <p className="mt-6">
+          <div className="flex pt-8">
+            <div>
+              <h2 className="mt-4 text-h1l">
                 {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[3].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[3].content[0]
-                      .value}{" "}
-              </p>
-              <br />
-              <span className="flex pt-12">
-                <ActionButton
-                  href={
-                    props.locale === "en"
-                      ? pageData.scFragments[2].scDestinationURLEn
-                      : pageData.scFragments[2].scDestinationURLFr
-                  }
-                  text={
-                    props.locale === "en"
-                      ? pageData.scFragments[2].scTitleEn
-                      : pageData.scFragments[2].scTitleFr
-                  }
-                  id={pageData.scFragments[2].scId}
-                  dataCy="AboutButton"
-                />
-              </span>
-            </span>
+                  ? pageData.scFragments[0].scContentEn.json[2].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[2].content[0]
+                      .value}
+              </h2>
+              <div className="mb-20 lg:flex">
+                <span className="w-full">
+                  <p className="mt-4">
+                    {props.locale === "en"
+                      ? pageData.scFragments[0].scContentEn.json[3].content[0]
+                          .value
+                      : pageData.scFragments[0].scContentFr.json[3].content[0]
+                          .value}{" "}
+                  </p>
+                  <br />
+                  <span className="flex pt-2">
+                    <ActionButton
+                      className="bg-[#26374A]"
+                      href={
+                        props.locale === "en"
+                          ? pageData.scFragments[2].scDestinationURLEn
+                          : pageData.scFragments[2].scDestinationURLFr
+                      }
+                      text={
+                        props.locale === "en"
+                          ? pageData.scFragments[2].scTitleEn
+                          : pageData.scFragments[2].scTitleFr
+                      }
+                      id={pageData.scFragments[2].scId}
+                      dataCy="AboutButton"
+                    />
+                  </span>
+                </span>
+              </div>
+            </div>
             <span
-              className="relative hidden lg:flex w-full mt-4 lg:ml-8"
-              style={{ height: "316px", width: "452px", minWidth: "452px" }}
+              className="hidden xl:flex w-full mt-4 lg:ml-8"
+              style={{ height: "347px", width: "500px", minWidth: "500px" }}
               role="presentation"
             >
               <img
@@ -171,23 +178,13 @@ export default function Home(props) {
               />
             </span>
           </div>
-          <div className="xl:w-2/3"></div>
-          <div className="grid lg:grid-cols-2 lg:gap-x-11 lg:gap-y-12">
+          <div className="grid lg:grid-cols-2 gap-x-8 lg:gap-y-12">
             <Card
+              showImage
               imgSrc={
                 props.locale === "en"
                   ? pageData.scFragments[3].scImageEn._publishUrl
                   : pageData.scFragments[3].scImageFr._publishUrl
-              }
-              imgHeight={
-                props.locale === "en"
-                  ? pageData.scFragments[3].scImageEn.height
-                  : pageData.scFragments[3].scImageFr.height
-              }
-              imgWidth={
-                props.locale === "en"
-                  ? pageData.scFragments[3].scImageEn.width
-                  : pageData.scFragments[3].scImageFr.width
               }
               imgAlt=""
               title={
@@ -195,61 +192,41 @@ export default function Home(props) {
                   ? pageData.scFragments[3].scTitleEn
                   : pageData.scFragments[3].scTitleFr
               }
+              href={
+                props.locale === "en"
+                  ? pageData.scFragments[3].scLabsButton[0].scDestinationURLEn
+                  : pageData.scFragments[3].scLabsButton[0].scDestinationURLFr
+              }
               description={
                 props.locale === "en"
                   ? pageData.scFragments[3].scContentEn.json[0].content[0].value
                   : pageData.scFragments[3].scContentFr.json[0].content[0].value
               }
-              btnText={
-                props.locale === "en"
-                  ? pageData.scFragments[3].scLabsButton[0].scTitleEn
-                  : pageData.scFragments[3].scLabsButton[0].scTitleFr
-              }
-              btnHref={
-                props.locale === "en"
-                  ? pageData.scFragments[3].scLabsButton[0].scDestinationURLEn
-                  : pageData.scFragments[3].scLabsButton[0].scDestinationURLFr
-              }
               btnId={pageData.scFragments[3].scLabsButton[0].scId}
             />
             <Card
+              showImage
               imgSrc={
                 props.locale === "en"
                   ? pageData.scFragments[4].scImageEn._publishUrl
                   : pageData.scFragments[4].scImageFr._publishUrl
               }
               imgAlt=""
-              imgHeight={
-                props.locale === "en"
-                  ? pageData.scFragments[4].scImageEn.height
-                  : pageData.scFragments[4].scImageFr.height
-              }
-              imgWidth={
-                props.locale === "en"
-                  ? pageData.scFragments[4].scImageEn.width
-                  : pageData.scFragments[4].scImageFr.width
-              }
               title={
                 props.locale === "en"
                   ? pageData.scFragments[4].scTitleEn
                   : pageData.scFragments[4].scTitleFr
+              }
+              href={
+                props.locale === "en"
+                  ? pageData.scFragments[4].scLabsButton[0].scDestinationURLEn
+                  : pageData.scFragments[4].scLabsButton[0].scDestinationURLFr
               }
               description={
                 props.locale === "en"
                   ? pageData.scFragments[4].scContentEn.json[0].content[0].value
                   : pageData.scFragments[4].scContentFr.json[0].content[0].value
               }
-              btnText={
-                props.locale === "en"
-                  ? pageData.scFragments[4].scLabsButton[0].scTitleEn
-                  : pageData.scFragments[4].scLabsButton[0].scTitleFr
-              }
-              btnHref={
-                props.locale === "en"
-                  ? pageData.scFragments[4].scLabsButton[0].scDestinationURLEn
-                  : pageData.scFragments[4].scLabsButton[0].scDestinationURLFr
-              }
-              btnId={pageData.scFragments[4].scLabsButton[0].scId}
             />
           </div>
         </section>
