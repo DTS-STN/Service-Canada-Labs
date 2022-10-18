@@ -1156,7 +1156,7 @@ export default function Signup(props) {
             </Link>
             <ActionButton
               id="signup-submit"
-              className="rounded xs:w-72 my-6 mr-10 text-base font-display font-bold py-2"
+              className="rounded xs:w-72 my-6 mr-10 text-base py-2"
               type="submit"
               dataCy="signup-submit"
               dataTestId="signup-submit"
