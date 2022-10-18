@@ -837,7 +837,10 @@ export default function Signup(props) {
                   {formField.label.disability}{" "}
                 </legend>
                 <OptionalTextField
-                  controlLabel={formField.option.yes}
+                  controlLabel={
+                    formField.option.yes.charAt(0).toUpperCase() +
+                    formField.option.yes.slice(1)
+                  }
                   textFieldName="disabilityDetails"
                   textFieldId="disabilityDetails"
                   textFieldLabel={formField.option.assistiveTech}
@@ -861,7 +864,10 @@ export default function Signup(props) {
                   describedby="disabilityDetailsDescribedBy"
                 />
                 <RadioField
-                  label={formField.option.no}
+                  label={
+                    formField.option.no.charAt(0).toUpperCase() +
+                    formField.option.no.slice(1)
+                  }
                   id="disabilityNo"
                   onChange={(checked, name, value) => setDisability(value)}
                   checked={disability === "no"}
@@ -894,7 +900,10 @@ export default function Signup(props) {
                 <OptionalListField
                   controlName="minority"
                   controlId="minorityYes"
-                  controlLabel={formField.option.yes}
+                  controlLabel={
+                    formField.option.yes.charAt(0).toUpperCase() +
+                    formField.option.yes.slice(1)
+                  }
                   controlValue="yes"
                   controlType="radiofield"
                   checked={minority === "yes"}
@@ -1014,7 +1023,10 @@ export default function Signup(props) {
                   />
                 </OptionalListField>
                 <RadioField
-                  label={formField.option.no}
+                  label={
+                    formField.option.no.charAt(0).toUpperCase() +
+                    formField.option.no.slice(1)
+                  }
                   id="minorityNo"
                   name="minority"
                   value="no"
@@ -1090,7 +1102,10 @@ export default function Signup(props) {
                   {formField.label.publicServant}{" "}
                 </legend>
                 <RadioField
-                  label={formField.option.yes}
+                  label={
+                    formField.option.yes.charAt(0).toUpperCase() +
+                    formField.option.yes.slice(1)
+                  }
                   id="publicServantYes"
                   name="publicServant"
                   checked={publicServant === "yes"}
@@ -1098,7 +1113,10 @@ export default function Signup(props) {
                   value="yes"
                 />
                 <RadioField
-                  label={formField.option.no}
+                  label={
+                    formField.option.no.charAt(0).toUpperCase() +
+                    formField.option.no.slice(1)
+                  }
                   id="publicServantNo"
                   name="publicServant"
                   checked={publicServant === "no"}
@@ -1112,7 +1130,8 @@ export default function Signup(props) {
                   <ErrorLabel message={agreeToConditionsError} />
                 ) : undefined}
                 <CheckBox
-                  className="h-187px sm:h-32 xxs:mb-6 xs:mb-0"
+                  className="h-187px sm:h-32 xxs:mb-6 xs:mb-0 font-bold"
+                  bolded={true}
                   checked={agreeToConditions === "yes"}
                   onChange={(checked, name, value) => {
                     if (checked) {
@@ -1131,13 +1150,13 @@ export default function Signup(props) {
               </div>
             </div>
             <Link href={formField.privacyLink} locale={props.locale}>
-              <a className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-10 text-sm lg:text-p">
+              <a className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mt-28 sm:mt-0 mb-10 text-sm lg:text-p">
                 {formField.privacy}
               </a>
             </Link>
             <ActionButton
               id="signup-submit"
-              className="rounded xxs:w-full xs:w-72 my-6 text-base font-bold py-2"
+              className="rounded xs:w-72 my-6 mr-10 text-base font-display font-bold py-2"
               type="submit"
               dataCy="signup-submit"
               dataTestId="signup-submit"
@@ -1147,8 +1166,9 @@ export default function Signup(props) {
             </ActionButton>
             <ActionButton
               id="reset-bottom"
-              className="pb-12"
-              custom="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline my-10 text-sm lg:text-p"
+              className="rounded xs:w-fit py-2 bg-[#EAEBED] text-base text-custom-blue-text focus:ring-inset focus:ring-2 focus:ring-black hover:bg-details-button-hover-gray text-center border-0"
+              secondary
+              custom=""
               type="reset"
               onClick={() => {
                 setProvince("");

@@ -10,7 +10,7 @@ export function ActionButton(props) {
   const basicStyle =
     "rounded focus:ring-1 focus:ring-black focus:ring-offset-2";
   const defaultStyle =
-    "py-2 px-4 bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light";
+    "py-2 px-4 active:bg-custom-blue-blue text-white border border-custom-blue-blue bg-custom-blue-dark hover:bg-custom-blue-light";
   const secondaryStyle =
     "py-2 px-4 bg-white text-custom-blue-blue border border-custom-blue-blue active:bg-gray-400 hover:bg-gray-200";
   const tertiaryStyle =

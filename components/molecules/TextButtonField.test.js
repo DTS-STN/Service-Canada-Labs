@@ -20,7 +20,7 @@ describe("TextButtonField", () => {
       Primary.args.buttonText
     );
     expect(screen.getByRole("button")).toHaveClass(
-      "bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light"
+      "active:bg-custom-blue-blue text-white border border-custom-blue-blue bg-custom-blue-dark hover:bg-custom-blue-light"
     );
   });
 
