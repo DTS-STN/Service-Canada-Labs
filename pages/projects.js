@@ -250,12 +250,15 @@ export default function Projects(props) {
             dataCy={"filter-projects"}
           />
           <ul
-            className="grid gap-y-0 lg:grid-cols-2 lg:gap-x-11 lg:gap-y-4"
+            className="grid gap-x-4 lg:grid-cols-2 -ml-4"
             data-cy="projects-list"
           >
             {filteredExperiments.map((experiment) => (
               <li key={experiment.scId} className="flex items-stretch">
                 <Card
+                  showImage
+                  showTag
+                  showIcon
                   title={
                     props.locale === "en"
                       ? experiment.scTitleEn
@@ -291,13 +294,10 @@ export default function Projects(props) {
                   }
                   dataTestId={`${experiment.scId}`}
                   dataCy={`${experiment.scId}`}
-                  isExperiment
                   imgSrc="/placeholder.png"
                   //Eventually this alt text will change as we provide unique images for each project
                   imgAlt="placeholder"
                   //Manually entered width and height for now, will eventually take these values from AEM image data
-                  imgHeight={290}
-                  imgWidth={547}
                   icon={pageData.scFragments[3].scImageEn._publishUrl}
                   iconAlt={
                     props.locale === "en"

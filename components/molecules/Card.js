@@ -16,55 +16,46 @@ export const Card = (props) => {
 
   return (
     <div
-      className={`${
-        props.blog
-          ? "card-shadow border border-custom-gray-border rounded-md px-4 py-2 pb-4 mb-8"
-          : props.isExperiment
-          ? "shadow-experiment-shadow -ml-8"
-          : ""
-      } ${"border-" + (tagColours[props.tag] || "gray-experiment")} min-w-full`}
+      className={`card-shadow border border-custom-gray-border rounded-md pb-4 ${
+        "border-" + (tagColours[props.tag] || "gray-experiment")
+      }`}
       data-testid={props.dataTestId}
       data-cy={props.dataCy}
-      style={{
-        maxWidth: "557px",
-      }}
     >
-      {!props.blog ? (
-        <div className="mb-4">
-          <img src={props.imgSrc} alt={props.imgAlt} />
-        </div>
-      ) : undefined}
+      {props.showImage ? (
+        <img src={props.imgSrc} alt={props.imgAlt} className="mb-4 w-full" />
+      ) : (
+        ""
+      )}
       <h2>
-        {props.blog ? (
-          <div>
-            <Link href={props.href}>
-              <a className="text-canada-footer-font text-lg underline">
-                {props.title}
-              </a>
-            </Link>
-            <p className="text-base text-custom-gray-date">
-              {"Posted: " + props.datePosted.substring(0, 10)}
-            </p>
-          </div>
-        ) : props.isExperiment ? (
-          <Link href={props.href}>
-            <a
-              className="flex block text-p text-custom-blue-projects-link underline hover:opacity-70 px-4 items-center"
-              tabIndex="0"
-            >
-              {props.title}
-              {props.href.substring(0, 8) === "https://" ? (
+        <Link href={props.href}>
+          <a
+            className="flex block text-p mt-4 text-canada-footer-font text-lg text-custom-blue-projects-link underline hover:opacity-70 px-4 items-center"
+            tabIndex="0"
+          >
+            {props.title}
+            {props.showIcon ? (
+              props.href.substring(0, 8) === "https://" ? (
                 <div className="h-4 w-4 ml-1 mt-1 relative">
                   <img src={props.icon} alt={props.iconAlt} />
                 </div>
-              ) : undefined}
-            </a>
-          </Link>
+              ) : (
+                ""
+              )
+            ) : (
+              ""
+            )}
+          </a>
+        </Link>
+        {props.showDate ? (
+          <p className="ml-4 text-base text-custom-gray-date">
+            {"Posted: " + props.datePosted.substring(0, 10)}
+          </p>
         ) : (
-          props.title
+          ""
         )}
       </h2>
-      {props.isExperiment ? (
+      {props.showTag ? (
         <span
           className={`block w-max py-2 px-2 my-4 font-body font-bold border-l-4 ml-4 ${
             "border-" + (tagColours[props.tag] || "gray-experiment") + "-darker"
@@ -74,27 +65,23 @@ export const Card = (props) => {
         >
           {props.tagLabel}
         </span>
-      ) : undefined}
-      <p
-        className={`${
-          props.blog
-            ? "text-custom-gray-text"
-            : props.isExperiment
-            ? "ml-4 mb-4"
-            : ""
-        } mt-2 leading-30px text-lg`}
-      >
+      ) : (
+        ""
+      )}
+      <p className="text-custom-gray-text mx-4 leading-30px text-lg">
         {props.description}
       </p>
-      {!props.isExperiment && !props.blog ? (
+      {props.showButton ? (
         <ActionButton
           href={props.btnHref}
           text={props.btnText}
           id={props.btnId}
           dataCy={props.btnId}
-          className="flex mt-6 mb-2 rounded xxs:w-full xs:w-fit py-2 bg-[#EAEBED] text-custom-blue-text focus:ring-inset focus:ring-2 focus:ring-black hover:bg-details-button-hover-gray text-center border border-details-button-gray"
+          className="flex mt-6 mb-2 ml-4 rounded xxs:w-full xs:w-fit py-2 bg-[#EAEBED] text-custom-blue-text focus:ring-inset focus:ring-2 focus:ring-black hover:bg-details-button-hover-gray text-center border border-details-button-gray"
         />
-      ) : undefined}
+      ) : (
+        ""
+      )}
     </div>
   );
 };
@@ -134,6 +121,31 @@ Card.propTypes = {
    * the test id for cypress test
    */
   dataCy: PropTypes.string,
+
+  /**
+   * Boolean value to show or hide image
+   */
+  showImage: PropTypes.bool,
+
+  /**
+   * Boolean value to show or hide button
+   */
+  showButton: PropTypes.bool,
+
+  /**
+   * Boolean value to show or hide date
+   */
+  showDate: PropTypes.bool,
+
+  /**
+   * Boolean value to show or hide icon beside title
+   */
+  showIcon: PropTypes.bool,
+
+  /**
+   * Boolean value to show or hide tag
+   */
+  showTag: PropTypes.bool,
 };
 
 export default Card;
