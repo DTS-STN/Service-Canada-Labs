@@ -6,6 +6,8 @@ query getProjectUpdates {
       scTitleEn
       scTitleFr
       datePosted
+      scProject
+      scProjectPhase
       scDescriptionEn {
         json
       }
