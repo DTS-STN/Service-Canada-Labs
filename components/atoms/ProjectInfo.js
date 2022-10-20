@@ -50,7 +50,7 @@ export function ProjectInfo(props) {
                 >
                   {
                     <p tabIndex={0}>
-                      <strong>{props.stage}</strong>
+                      <strong>{props.stageInfo}</strong>
                       {props.info}
                     </p>
                   }
