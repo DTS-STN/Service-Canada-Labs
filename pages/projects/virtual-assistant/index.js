@@ -58,7 +58,9 @@ export default function Home(props) {
           {/* DCMI Meta Tags */}
           <meta
             name="dcterms.title"
-            content={`${t("vc:virtualAssistantTitle")} — ${t("siteTitle")}`}
+            content={`${
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+            } — ${t("siteTitle")}`}
           />
           <meta
             name="dcterms.language"
@@ -88,11 +90,17 @@ export default function Home(props) {
           <meta property="og:url" content={t("vc:canonicalURL")} />
           <meta
             property="og:title"
-            content={`${t("vc:virtualAssistantTitle")} — ${t("siteTitle")}`}
+            content={`${
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+            } — ${t("siteTitle")}`}
           />
           <meta
             property="og:description"
-            content={t("vc:virtualAssistantBioBody")}
+            content={
+              props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[0].content[0].value
+                : pageData.scFragments[0].scContentFr.json[0].content[0].value
+            }
           />
           <meta property="og:image" content={t("metaImage")} />
           <meta property="og:image:alt" content={t("siteTitle")} />
@@ -102,12 +110,18 @@ export default function Home(props) {
           <meta property="twitter:url" content={t("vc:canonicalURL")} />
           <meta
             property="twitter:title"
-            content={`${t("vc:virtualAssistantTitle")} — ${t("siteTitle")}`}
+            content={`${
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+            } — ${t("siteTitle")}`}
           />
           <meta name="twitter:creator" content="Service Canada" />
           <meta
             property="twitter:description"
-            content={t("vc:virtualAssistantBioBody")}
+            content={
+              props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[0].content[0].value
+                : pageData.scFragments[0].scContentFr.json[0].content[0].value
+            }
           />
           <meta property="twitter:image" content={t("metaImage")} />
           <meta property="twitter:image:alt" content={t("siteTitle")} />
@@ -150,6 +164,11 @@ export default function Home(props) {
               </p>
               <ProjectInfo
                 stage={
+                  props.locale === "en"
+                    ? pageData.scFragments[1].projectStageEn
+                    : pageData.scFragments[1].projectStageFr
+                }
+                stageInfo={
                   props.locale === "en"
                     ? pageData.scFragments[5].scContentEn.json[0].content[0]
                         .value
