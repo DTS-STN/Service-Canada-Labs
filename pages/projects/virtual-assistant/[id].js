@@ -190,7 +190,7 @@ export async function getStaticPaths() {
     "virtualAssistantUpdatePagesQuery"
   );
   // Get paths for dynamic routes from the page name data
-  const paths = getAllUpdateIds(data.vaUpdatePageModelv1List.items);
+  const paths = getAllUpdateIds(data.scLabsBlogv1List.items);
   return {
     paths,
     fallback: false,
@@ -206,7 +206,7 @@ export const getStaticProps = async ({ locale, params }) => {
   const { data } = await aemServiceInstance.getFragment(
     "virtualAssistantUpdatePagesQuery"
   );
-  const pages = data.vaUpdatePageModelv1List.items;
+  const pages = data.scLabsBlogv1List.items;
   // Return page data that matches the current page being built
   const pageData = pages.filter((page) => {
     return page.scPageNameEn === params.id || page.scPageNameFr === params.id;
