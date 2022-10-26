@@ -321,7 +321,7 @@ export default function SignupReview(props) {
               <p className="font-display">{formFields.label.email}</p>
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
-              <p className="font-display">
+              <p className="font-display font-bold">
                 {formData !== null ? formData.email : undefined}
               </p>
             </div>
@@ -329,7 +329,7 @@ export default function SignupReview(props) {
               <p className="font-display">{formFields.label.language}</p>
             </div>
             <div className="p-1 border-x border-b lg:border-y lg:border-l-0 border-grey">
-              <p className="font-display">
+              <p className="font-display font-bold">
                 {formData !== null
                   ? formData.language === "en"
                     ? "English"
@@ -437,7 +437,7 @@ export default function SignupReview(props) {
           <div className="grid grid-cols-1 lg:grid-cols-2 content-center">
             <ActionButton
               id="signup-review-submit"
-              className="rounded w-full my-6 lg:my-12 md:w-80 md:mx-30 py-2 text-base font-bold"
+              className="rounded w-full my-6 lg:my-12 md:w-80 md:mx-30 py-2 text-base"
               type="submit"
               dataCy="signup-review-submit"
               dataTestId="signup-review-submit"
@@ -448,7 +448,7 @@ export default function SignupReview(props) {
             </ActionButton>
             <ActionButton
               id="signup-review-back"
-              className="rounded w-full my-6 lg:my-12 md:w-80 py-2 text-base font-bold"
+              className="rounded w-full my-6 lg:my-12 md:w-80 py-2 bg-[#EAEBED] text-base text-custom-blue-text focus:ring-inset focus:ring-2 focus:ring-black hover:bg-details-button-hover-gray text-center border-0"
               type="submit"
               dataCy="signup-review-back"
               dataTestId="signup-review-back"

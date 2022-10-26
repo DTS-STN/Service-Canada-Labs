@@ -375,7 +375,7 @@ export default function SignupInfo(props) {
           <div className="my-16 mb-36">
             <ActionButton
               id="signupInfo-continue"
-              className="text-base xxs:px-16 font-bold xs:px-24 py-3 rounded bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light"
+              className="text-base xxs:px-16 xs:px-24 py-3 rounded bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light"
               dataCy="signupInfo-continue"
               dataTestId="signupInfo-continue"
               href={
