@@ -145,7 +145,7 @@ export default function Home(props) {
                   <br />
                   <span className="flex pt-2">
                     <ActionButton
-                      className="bg-[#26374A]"
+                      className="bg-[#26374A] text-[20px]"
                       href={
                         props.locale === "en"
                           ? pageData.scFragments[2].scDestinationURLEn
