@@ -6,13 +6,11 @@ import { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import { Alert } from "../../../components/atoms/Alert";
 import { CallToAction } from "../../../components/molecules/CallToAction";
-import queryGraphQL from "../../../graphql/client";
-import getTryItOutPage from "../../../graphql/queries/tryVirtualAssistantQuery.graphql";
+import aemServiceInstance from "../../../services/aemServiceInstance";
 
 export default function Home(props) {
   const { t } = useTranslation(["common", "vc"]);
   const [pageData] = useState(props.pageData.item);
-  const language = props.locale === "en" ? "en" : "fr";
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ADOBE_ANALYTICS_URL) {
@@ -26,10 +24,13 @@ export default function Home(props) {
       <Layout
         locale={props.locale}
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
-        langUrl={t("virtualAssistantTryItPath")}
+        langUrl={
+          props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
+        }
         breadcrumbItems={[
           { text: t("siteTitle"), link: t("breadCrumbsHref1") },
           { text: t("menuLink1"), link: t("breadCrumbsHref2") },
+          { text: t("menuLink3"), link: t("breadCrumbsHref5") },
         ]}
       >
         <Head>
@@ -448,17 +449,15 @@ export default function Home(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  // get page data from AEM
-  const res = await queryGraphQL(getTryItOutPage).then((result) => {
-    return result;
-  });
+  const { data } = await aemServiceInstance.getFragment(
+    "tryVirtualAssistantQuery"
+  );
 
-  const data = res.data.scLabsPagev1ByPath;
   return {
     props: {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
-      pageData: data,
+      pageData: data.scLabsPagev1ByPath,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };

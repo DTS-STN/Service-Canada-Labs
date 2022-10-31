@@ -46,12 +46,14 @@ const REWRITES = [
     destination: "/projects/virtual-assistant",
   },
   {
-    source: "/projets/assistant-virtuel/:slug",
-    destination: "/projects/virtual-assistant/:slug"
+    source: "/projets/assistant-virtuel/lessayer",
+    destination: "/projects/virtual-assistant/try-it-out",
   },
-]
-
-
+  {
+    source: "/projets/assistant-virtuel/:slug",
+    destination: "/projects/virtual-assistant/:slug",
+  },
+];
 
 securityHeaders = [
   //Enables DNS prefetching, which reduces latency when a user clicks a link
