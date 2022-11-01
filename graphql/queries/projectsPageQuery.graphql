@@ -1,5 +1,5 @@
 query getProjectsPage {
-  sCLabsPageByPath(
+  scLabsPagev1ByPath(
     _path: "/content/dam/decd-endc/content-fragments/alpha/sclabs/pages/projects-page"
   ) {
     item {
@@ -45,7 +45,7 @@ query getProjectsPage {
       scNoIndex
       scNoFollow
       scFragments {
-        ... on SCLabsContentModel {
+        ... on SCLabsContentv1Model {
           _path
           scId
           scContentEn {
@@ -55,7 +55,7 @@ query getProjectsPage {
             json
           }
         }
-        ... on SCLabsImageModel {
+        ... on SCLabsImagev1Model {
           scId
           scImageEn {
             ... on ImageRef {
@@ -99,10 +99,14 @@ query getProjectsPage {
           }
           scImageAltTextEn
           scImageAltTextFr
-          scImageCaptionEn
-          scImageCaptionFr
+          scImageCaptionEn {
+            json
+          }
+          scImageCaptionFr {
+            json
+          }
         }
-        ... on SCLabsButtonModel {
+        ... on SCLabsButtonv1Model {
           scId
           scTitleEn
           scTitleFr
@@ -110,7 +114,7 @@ query getProjectsPage {
           scDestinationURLFr
           scButtonType
         }
-        ... on SCLabsFeatureModel {
+        ... on SCLabsFeaturev1Model {
           scId
           scTitleEn
           scTitleFr
@@ -151,16 +155,16 @@ query getProjectsPage {
             scButtonType
           }
         }
-        ... on SCLabsAlertModel {
-            scId
-            scTitleEn
-            scTitleFr
-            scContentEn {
-                json
-            }
-            scContentFr {
-                json
-            }
+        ... on SCLabsAlertv1Model {
+          scId
+          scTitleEn
+          scTitleFr
+          scContentEn {
+            json
+          }
+          scContentFr {
+            json
+          }
         }
       }
     }

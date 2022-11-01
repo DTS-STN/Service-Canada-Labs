@@ -1,5 +1,5 @@
 query getHomePage {
-  sCLabsPageByPath(
+  scLabsPagev1ByPath(
     _path: "/content/dam/decd-endc/content-fragments/alpha/sclabs/pages/home-page"
   ) {
     item {
