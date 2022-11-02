@@ -247,7 +247,7 @@ export const getStaticProps = async ({ locale }) => {
     props: {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
-      pageData: data.sCLabsPageByPath,
+      pageData: data.scLabsPagev1ByPath,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };

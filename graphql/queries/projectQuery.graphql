@@ -1,5 +1,5 @@
 query getAllProjects {
-  sCLabsProjectList {
+  scLabsProjectv1List {
     items {
       _path
       scId
@@ -8,10 +8,10 @@ query getAllProjects {
       scDestinationURLEn
       scDestinationURLFr
       scContentEn {
-          json
+        json
       }
       scContentFr {
-          json
+        json
       }
       scLabProjectStatus
     }
