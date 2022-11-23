@@ -1,5 +1,5 @@
 query getAllProjects {
-  scLabsProjectv1List {
+  sCLabsProjectList {
     items {
       _path
       scId
