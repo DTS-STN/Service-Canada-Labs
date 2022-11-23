@@ -336,7 +336,7 @@ export const getStaticProps = async ({ locale }) => {
     "projectsPageQuery"
   );
   const filters = Object.values(
-    experimentsData.scLabsProjectv1List.items.reduce(
+    experimentsData.sCLabsProjectList.items.reduce(
       (filters, { scLabProjectStatus }) => {
         if (!filters[scLabProjectStatus]) {
           filters[scLabProjectStatus] = {
@@ -369,7 +369,7 @@ export const getStaticProps = async ({ locale }) => {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       ...(await serverSideTranslations(locale, ["common"])),
-      experimentData: experimentsData.scLabsProjectv1List,
+      experimentData: experimentsData.sCLabsProjectList,
       pageData: pageData.scLabsPagev1ByPath,
       filters,
     },
