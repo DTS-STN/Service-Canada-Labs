@@ -1998,7 +1998,7 @@
     prop-types "^15.7.2"
     regenerator-runtime "^0.13.7"
 
-"@storybook/addons@6.5.14", "@storybook/addons@^6.5.10":
+"@storybook/addons@6.5.14", "@storybook/addons@^6.5.13":
   version "6.5.14"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-6.5.14.tgz#855ddd85533ffa596b7684f3df7b91b833fdf3f7"
   integrity sha512-8wVy1eDKipj+dmWpVmmPa1p2jYVqDvrkWll4IsP/KU7AYFCiyCiVAd1ZPDv9EhDnwArfYYjrdJjAl6gmP0UMag==
@@ -2124,7 +2124,7 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/client-api@6.5.14", "@storybook/client-api@^6.5.10":
+"@storybook/client-api@6.5.14", "@storybook/client-api@^6.5.13":
   version "6.5.14"
   resolved "https://registry.yarnpkg.com/@storybook/client-api/-/client-api-6.5.14.tgz#57a660810165126cdf3380cd04bf6c5f027eab5c"
   integrity sha512-G5mBQCKn8/VqE9XDCL19ixcvu8YhaQZ0AE+EXGYXUsvPpyQ43oGoGJry5IqOzeRlc7dbglFWpMkB6PeeUD7aCw==
@@ -3037,7 +3037,7 @@
   dependencies:
     "@types/react" "^17"
 
-"@types/react@*", "@types/react@^18.0.25":
+"@types/react@*", "@types/react@^18.0.19":
   version "18.0.26"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.26.tgz#8ad59fc01fef8eaf5c74f4ea392621749f0b7917"
   integrity sha512-hCR3PJQsAIXyxhTNSiDFY//LhnMZWpNNr5etoCqx/iUfGc5gXWtQR2Phl908jVR6uPXacojQWTg4qRpkxTuGug==
