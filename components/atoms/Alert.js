@@ -28,9 +28,9 @@ export function Alert(props) {
           )}
         </span>
         <div className="ml-6">
-          <p className="text-h3 font-display pb-4">
-            <b>{props.title}</b>
-          </p>
+          <h3 className="text-h3 font-display">
+            <>{props.title}</>
+          </h3>
           <p className="text-p">{props.text}</p>
         </div>
       </div>

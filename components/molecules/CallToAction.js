@@ -23,7 +23,9 @@ export function CallToAction(props) {
                 size="xl"
                 className="pt-2"
               />
-              <h2 className="text-h3 lg:text-h1 ml-2">{props.title}</h2>
+              <h3 className="lg:text-h1 ml-2">
+                <>{props.title}</>
+              </h3>
             </div>
             <aside className="pt-3 border-l-2 ml-2 lg:ml-3.5 border-custom-blue-blue xl:w-3/4">
               {props.description ? (
