@@ -32,8 +32,8 @@ export default function Signup(props) {
 
   const [formField] = useState(
     props.locale === "en"
-      ? pageData.scFragments[0].formFields.en
-      : pageData.scFragments[0].formFields.fr
+      ? pageData.scFragments[0].scLabFormFields.en
+      : pageData.scFragments[0].scLabFormFields.fr
   );
 
   // get the options for the year of birth ranges
@@ -1196,7 +1196,7 @@ export const getStaticProps = async ({ locale }) => {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       ...(await serverSideTranslations(locale, ["common"])),
-      pageData: data.sCLabsPageByPath,
+      pageData: data.scLabsPagev1ByPath,
     },
   };
 };

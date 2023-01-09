@@ -564,9 +564,9 @@ export const error404Page = {
 
 export const signupPage = {
   data: {
-    sCLabsPageByPath: {
+    scLabsPagev1ByPath: {
       item: {
-        scId: "sclabs-signup-page",
+        scId: "SCLABS-SIGNUP-PAGE",
         scPageNameEn: "/signup",
         scPageNameFr: "/fr/inscription",
         scTitleEn: "Sign up to get invited to research sessions (Step 1 of 2)",
@@ -585,7 +585,7 @@ export const signupPage = {
         scKeywordsFr: null,
         scContentType: null,
         scOwner: null,
-        scDateModifiedOverwrite: null,
+        scDateModifiedOverwrite: "2022-12-10",
         scAudience: null,
         scRegion: null,
         scSocialMediaImageEn: null,
@@ -596,7 +596,7 @@ export const signupPage = {
         scNoFollow: false,
         scFragments: [
           {
-            formFields: {
+            scLabFormFields: {
               en: {
                 label: {
                   email: "Email",
@@ -700,6 +700,7 @@ export const signupPage = {
                 privacy: "Read the full privacy policy",
                 privacyLink: "/signup/privacy",
                 submit: "Submit",
+                back: "Back",
                 clearForm: "Clear my information from this form",
               },
               fr: {
@@ -813,6 +814,7 @@ export const signupPage = {
                 privacyLink:
                   "/fr/inscription/protection-renseignements-personnels",
                 submit: "Soumettre",
+                back: "Retourner",
                 clearForm: "Effacer mes renseignements du formulaire",
               },
             },
@@ -4005,9 +4007,9 @@ export const projectUpdates = {
 };
 export const signupInfoPageData = {
   data: {
-    sCLabsPageByPath: {
+    scLabsPagev1ByPath: {
       item: {
-        scId: "signup-info-page",
+        scId: "SIGNUP-INFO-PAGE",
         scPageNameEn: "/signup-info",
         scPageNameFr: "/fr/inscription-info",
         scTitleEn: "Sign up to be a voice in tomorrow's services",
@@ -4026,7 +4028,7 @@ export const signupInfoPageData = {
         scKeywordsFr: null,
         scContentType: null,
         scOwner: null,
-        scDateModifiedOverwrite: "2022-07-11",
+        scDateModifiedOverwrite: "2022-12-12",
         scAudience: null,
         scRegion: null,
         scSocialMediaImageEn: null,
@@ -4038,10 +4040,20 @@ export const signupInfoPageData = {
         scFragments: [
           {
             _path:
-              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/signup-info---main-content",
-            scId: "signup-info-main-content",
+              "/content/dam/decd-endc/content-fragments/sclabs/components/content/signup-info---main-content",
+            scId: "SIGNUP-INFO-MAIN-CONTENT",
             scContentEn: {
               json: [
+                {
+                  nodeType: "header",
+                  style: "h1",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Sign up to be a voice in tomorrow's services",
+                    },
+                  ],
+                },
                 {
                   nodeType: "header",
                   style: "h2",
@@ -4403,6 +4415,17 @@ export const signupInfoPageData = {
               json: [
                 {
                   nodeType: "header",
+                  style: "h1",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "S’inscrire pour participer à l’élaboration des services de demain",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
                   style: "h2",
                   content: [
                     {
@@ -4761,12 +4784,12 @@ export const signupInfoPageData = {
             },
           },
           {
-            scId: "signup-info-continue",
+            scId: "CONTINUE",
             scTitleEn: "Continue",
             scTitleFr: "Continuer",
             scDestinationURLEn: "/signup",
             scDestinationURLFr: "/fr/inscription",
-            scButtonType: null,
+            scButtonType: ["gc:custom/decd-endc/button-type/primary"],
           },
         ],
       },
@@ -4775,9 +4798,9 @@ export const signupInfoPageData = {
 };
 export const privacyPageData = {
   data: {
-    sCLabsPageByPath: {
+    scLabsPagev1ByPath: {
       item: {
-        scId: "sclabs-privacy-policy-page",
+        scId: "SCLABS-PRIVACY-POLICY-PAGE",
         scPageNameEn: "/signup/privacy",
         scPageNameFr: "/fr/inscription/protection-renseignements-personnels",
         scTitleEn: "Privacy Policy",
@@ -4796,7 +4819,7 @@ export const privacyPageData = {
         scKeywordsFr: null,
         scContentType: null,
         scOwner: null,
-        scDateModifiedOverwrite: "2022-07-14",
+        scDateModifiedOverwrite: "2022-12-11",
         scAudience: null,
         scRegion: null,
         scSocialMediaImageEn: null,
@@ -4808,10 +4831,20 @@ export const privacyPageData = {
         scFragments: [
           {
             _path:
-              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/privacy-policy---main-content",
-            scId: "sclabs-privacy-policy-main-content",
+              "/content/dam/decd-endc/content-fragments/sclabs/components/content/privacy-policy---main-content",
+            scId: "SCLABS-PRIVACY-POLICY-MAIN-CONTENT",
             scContentEn: {
               json: [
+                {
+                  nodeType: "header",
+                  style: "h1",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Privacy Policy",
+                    },
+                  ],
+                },
                 {
                   nodeType: "paragraph",
                   content: [
@@ -5218,6 +5251,17 @@ export const privacyPageData = {
             scContentFr: {
               json: [
                 {
+                  nodeType: "header",
+                  style: "h1",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Politique en matière de protection des renseignements personnels",
+                    },
+                  ],
+                },
+                {
                   nodeType: "paragraph",
                   content: [
                     {
@@ -5623,6 +5667,115 @@ export const privacyPageData = {
                 },
               ],
             },
+          },
+          {
+            scId: "SIGN-UP-TO-GET-INVITED-TO-RESEARCH-SESSIONS-LONG-VERSION",
+            scTitleEn: "Sign up to get invited to research sessions",
+            scTitleFr: "S’inscrire pour être invité aux séances de recherche",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "You’re invited to fill out quick surveys or take part in research sessions to make Service Canada better for everyone. Your feedback helps us make our services simple and easy to use.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Your participation will not affect your access to government services. Participation is voluntary and you can opt out at any time.",
+                    },
+                    {
+                      nodeType: "line-break",
+                      content: [],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "link",
+                      data: {
+                        href: "/signup/privacy.html",
+                      },
+                      value: "Review the privacy policy",
+                    },
+                    {
+                      nodeType: "line-break",
+                      content: [],
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Nous vous invitons à remplir des enquêtes rapides ou à participer à des séances de recherche afin d'améliorer Service Canada pour tous. Vos commentaires nous aident à rendre nos services simples et faciles à utiliser.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Votre participation n'affectera pas votre accès aux services gouvernementaux. La participation est volontaire et vous pouvez vous retirer à tout moment.",
+                    },
+                    {
+                      nodeType: "line-break",
+                      content: [],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "link",
+                      data: {
+                        href: "/fr/inscription/protection-renseignements-personnels.html",
+                      },
+                      value:
+                        "Lire la politique en matière de protection des renseignements personnels",
+                    },
+                    {
+                      nodeType: "line-break",
+                      content: [],
+                    },
+                  ],
+                },
+              ],
+            },
+            scImageEn: null,
+            scImageFr: null,
+            scImageAltTextEn: null,
+            scImageAltTextFr: null,
+            scLabsButton: [
+              {
+                scId: "SIGN-UP-FOR-RESEARCH-SESSION-INVITES",
+                scTitleEn: "Sign up for research session invites",
+                scTitleFr:
+                  "Inscrivez-vous pour recevoir les invitations aux sessions de recherche",
+                scDestinationURLEn: "/en/signup-info",
+                scDestinationURLFr: "/fr/inscription-info",
+                scButtonType: ["gc:custom/decd-endc/button-type/primary"],
+              },
+            ],
           },
         ],
       },

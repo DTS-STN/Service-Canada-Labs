@@ -18,8 +18,8 @@ export default function SignupReview(props) {
   const [formData, setFormData] = useState({});
   const [formFields] = useState(
     props.locale === "en"
-      ? formFieldData.scFragments[0].formFields.en
-      : formFieldData.scFragments[0].formFields.fr
+      ? formFieldData.scFragments[0].scLabFormFields.en
+      : formFieldData.scFragments[0].scLabFormFields.fr
   );
 
   const provinceDictionary = {
@@ -474,8 +474,8 @@ export const getStaticProps = async ({ locale }) => {
     return result;
   });
 
-  const data = res.data.sCLabsPageByPath;
-  const formFieldData = res2.data.sCLabsPageByPath;
+  const data = res.data.scLabsPagev1ByPath;
+  const formFieldData = res2.data.scLabsPagev1ByPath;
   return {
     props: {
       pageData: data,

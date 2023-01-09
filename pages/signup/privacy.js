@@ -138,13 +138,13 @@ export default function Privacy(props) {
             <Alert
               title={
                 props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[0].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[0].content[0].value
+                  ? pageData.scFragments[0].scContentEn.json[1].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[1].content[0].value
               }
               text={
                 props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[1].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[1].content[0].value
+                  ? pageData.scFragments[0].scContentEn.json[2].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[2].content[0].value
               }
             />
           </div>
@@ -155,196 +155,196 @@ export default function Privacy(props) {
           <div className="xl:w-2/3">
             <h2 id="what-we-collect" className="mb-4 pt-6 font-bold leading-10">
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[2].content[0].value
-                : pageData.scFragments[0].scContentFr.json[2].content[0].value}
+                ? pageData.scFragments[0].scContentEn.json[3].content[0].value
+                : pageData.scFragments[0].scContentFr.json[3].content[0].value}
             </h2>
             <p className="mb-4">
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[3].content[0].value
-                : pageData.scFragments[0].scContentFr.json[3].content[0].value}
+                ? pageData.scFragments[0].scContentEn.json[4].content[0].value
+                : pageData.scFragments[0].scContentFr.json[4].content[0].value}
             </p>
             <ul className="ml-9 mb-4 text-p list-disc">
               {(props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[4].content
-                : pageData.scFragments[0].scContentFr.json[4].content
+                ? pageData.scFragments[0].scContentEn.json[5].content
+                : pageData.scFragments[0].scContentFr.json[5].content
               ).map((item) => (
                 <li key={item.content[0].value}>{item.content[0].value}</li>
               ))}
             </ul>
             <p className="mb-4">
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[5].content[0].value
-                : pageData.scFragments[0].scContentFr.json[5].content[0].value}
+                ? pageData.scFragments[0].scContentEn.json[6].content[0].value
+                : pageData.scFragments[0].scContentFr.json[6].content[0].value}
             </p>
             <ul className="ml-9 mb-4 text-p list-disc">
               {(props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[6].content
-                : pageData.scFragments[0].scContentFr.json[6].content
+                ? pageData.scFragments[0].scContentEn.json[7].content
+                : pageData.scFragments[0].scContentFr.json[7].content
               ).map((item) => (
                 <li key={item.content[0].value}>{item.content[0].value}</li>
               ))}
             </ul>
             <p className="mb-4">
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[7].content[0].value
-                : pageData.scFragments[0].scContentFr.json[7].content[0].value}
+                ? pageData.scFragments[0].scContentEn.json[8].content[0].value
+                : pageData.scFragments[0].scContentFr.json[8].content[0].value}
               <span>
                 {" "}
                 <i>
                   {props.locale === "en"
-                    ? pageData.scFragments[0].scContentEn.json[7].content[1]
+                    ? pageData.scFragments[0].scContentEn.json[8].content[1]
                         .value
-                    : pageData.scFragments[0].scContentFr.json[7].content[1]
+                    : pageData.scFragments[0].scContentFr.json[8].content[1]
                         .value}
                 </i>{" "}
                 {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[7].content[2].value
-                  : pageData.scFragments[0].scContentFr.json[7].content[2]
+                  ? pageData.scFragments[0].scContentEn.json[8].content[2].value
+                  : pageData.scFragments[0].scContentFr.json[8].content[2]
                       .value}
                 <i>
                   {props.locale === "en"
-                    ? pageData.scFragments[0].scContentEn.json[7].content[3]
+                    ? pageData.scFragments[0].scContentEn.json[8].content[3]
                         .value
-                    : pageData.scFragments[0].scContentFr.json[7].content[3]
+                    : pageData.scFragments[0].scContentFr.json[8].content[3]
                         .value}
                 </i>
                 {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[7].content[4].value
-                  : pageData.scFragments[0].scContentFr.json[7].content[4]
+                  ? pageData.scFragments[0].scContentEn.json[8].content[4].value
+                  : pageData.scFragments[0].scContentFr.json[8].content[4]
                       .value}
               </span>
             </p>
             <p className="mb-8">
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[8].content[0].value
-                : pageData.scFragments[0].scContentFr.json[8].content[0].value}
+                ? pageData.scFragments[0].scContentEn.json[9].content[0].value
+                : pageData.scFragments[0].scContentFr.json[9].content[0].value}
             </p>
             <h2 id="how-we-use" className="mb-4 font-bold leading-10">
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[9].content[0].value
-                : pageData.scFragments[0].scContentFr.json[9].content[0].value}
-            </h2>
-            <p className="mb-4">
-              {props.locale === "en"
                 ? pageData.scFragments[0].scContentEn.json[10].content[0].value
                 : pageData.scFragments[0].scContentFr.json[10].content[0].value}
-            </p>
+            </h2>
             <p className="mb-4">
               {props.locale === "en"
                 ? pageData.scFragments[0].scContentEn.json[11].content[0].value
                 : pageData.scFragments[0].scContentFr.json[11].content[0].value}
             </p>
-            <p className="mb-8">
+            <p className="mb-4">
               {props.locale === "en"
                 ? pageData.scFragments[0].scContentEn.json[12].content[0].value
                 : pageData.scFragments[0].scContentFr.json[12].content[0].value}
             </p>
-            <h2 id="how-to-withdraw" className="mb-4 font-bold leading-10">
+            <p className="mb-8">
               {props.locale === "en"
                 ? pageData.scFragments[0].scContentEn.json[13].content[0].value
                 : pageData.scFragments[0].scContentFr.json[13].content[0].value}
-            </h2>
-            <p className="mb-8">
+            </p>
+            <h2 id="how-to-withdraw" className="mb-4 font-bold leading-10">
               {props.locale === "en"
                 ? pageData.scFragments[0].scContentEn.json[14].content[0].value
                 : pageData.scFragments[0].scContentFr.json[14].content[0].value}
+            </h2>
+            <p className="mb-8">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[15].content[0].value
+                : pageData.scFragments[0].scContentFr.json[15].content[0].value}
               <a
                 href={
                   props.locale === "en"
-                    ? pageData.scFragments[0].scContentEn.json[14].content[1]
+                    ? pageData.scFragments[0].scContentEn.json[15].content[1]
                         .data.href
-                    : pageData.scFragments[0].scContentFr.json[14].content[1]
+                    : pageData.scFragments[0].scContentFr.json[15].content[1]
                         .data.href
                 }
                 className="text-custom-blue-link underline"
               >
                 {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[14].content[1]
+                  ? pageData.scFragments[0].scContentEn.json[15].content[1]
                       .value
-                  : pageData.scFragments[0].scContentFr.json[14].content[1]
+                  : pageData.scFragments[0].scContentFr.json[15].content[1]
                       .value}
               </a>
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[14].content[2].value
-                : pageData.scFragments[0].scContentFr.json[14].content[2].value}
+                ? pageData.scFragments[0].scContentEn.json[15].content[2].value
+                : pageData.scFragments[0].scContentFr.json[15].content[2].value}
             </p>
             <h2 id="who-we-are" className="mb-4 font-bold leading-10">
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[15].content[0].value
-                : pageData.scFragments[0].scContentFr.json[15].content[0].value}
-            </h2>
-            <p className="mb-4">
-              {props.locale === "en"
                 ? pageData.scFragments[0].scContentEn.json[16].content[0].value
                 : pageData.scFragments[0].scContentFr.json[16].content[0].value}
-            </p>
+            </h2>
             <p className="mb-4">
               {props.locale === "en"
                 ? pageData.scFragments[0].scContentEn.json[17].content[0].value
                 : pageData.scFragments[0].scContentFr.json[17].content[0].value}
-              <span>
-                <i>
-                  {props.locale === "en"
-                    ? pageData.scFragments[0].scContentEn.json[17].content[1]
-                        .value
-                    : pageData.scFragments[0].scContentFr.json[17].content[1]
-                        .value}
-                </i>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[17].content[2]
-                      .value
-                  : pageData.scFragments[0].scContentFr.json[17].content[2]
-                      .value}
-                <i>
-                  {" "}
-                  {props.locale === "en"
-                    ? pageData.scFragments[0].scContentEn.json[17].content[3]
-                        .value
-                    : pageData.scFragments[0].scContentFr.json[17].content[3]
-                        .value}
-                </i>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[17].content[4]
-                      .value
-                  : pageData.scFragments[0].scContentFr.json[17].content[4]
-                      .value}
-                <i>
-                  {props.locale === "en"
-                    ? pageData.scFragments[0].scContentEn.json[17].content[5]
-                        .value
-                    : pageData.scFragments[0].scContentFr.json[17].content[5]
-                        .value}
-                </i>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[17].content[6]
-                      .value
-                  : pageData.scFragments[0].scContentFr.json[17].content[6]
-                      .value}
-              </span>
             </p>
             <p className="mb-4">
               {props.locale === "en"
                 ? pageData.scFragments[0].scContentEn.json[18].content[0].value
                 : pageData.scFragments[0].scContentFr.json[18].content[0].value}
+              <span>
+                <i>
+                  {props.locale === "en"
+                    ? pageData.scFragments[0].scContentEn.json[18].content[1]
+                        .value
+                    : pageData.scFragments[0].scContentFr.json[18].content[1]
+                        .value}
+                </i>
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[18].content[2]
+                      .value
+                  : pageData.scFragments[0].scContentFr.json[18].content[2]
+                      .value}
+                <i>
+                  {" "}
+                  {props.locale === "en"
+                    ? pageData.scFragments[0].scContentEn.json[18].content[3]
+                        .value
+                    : pageData.scFragments[0].scContentFr.json[18].content[3]
+                        .value}
+                </i>
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[18].content[4]
+                      .value
+                  : pageData.scFragments[0].scContentFr.json[18].content[4]
+                      .value}
+                <i>
+                  {props.locale === "en"
+                    ? pageData.scFragments[0].scContentEn.json[18].content[5]
+                        .value
+                    : pageData.scFragments[0].scContentFr.json[18].content[5]
+                        .value}
+                </i>
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[18].content[6]
+                      .value
+                  : pageData.scFragments[0].scContentFr.json[18].content[6]
+                      .value}
+              </span>
             </p>
             <p className="mb-4">
               {props.locale === "en"
                 ? pageData.scFragments[0].scContentEn.json[19].content[0].value
                 : pageData.scFragments[0].scContentFr.json[19].content[0].value}
+            </p>
+            <p className="mb-4">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[20].content[0].value
+                : pageData.scFragments[0].scContentFr.json[20].content[0].value}
               <a
                 href={
                   props.locale === "en"
-                    ? pageData.scFragments[0].scContentEn.json[19].content[1]
+                    ? pageData.scFragments[0].scContentEn.json[20].content[1]
                         .data.href
-                    : pageData.scFragments[0].scContentFr.json[19].content[1]
+                    : pageData.scFragments[0].scContentFr.json[20].content[1]
                         .data.href
                 }
                 className="text-custom-blue-link underline"
               >
                 {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[19].content[1]
+                  ? pageData.scFragments[0].scContentEn.json[20].content[1]
                       .value
-                  : pageData.scFragments[0].scContentFr.json[19].content[1]
+                  : pageData.scFragments[0].scContentFr.json[20].content[1]
                       .value}
               </a>
               {"."}
@@ -352,61 +352,81 @@ export default function Privacy(props) {
             <p className="mb-8">
               <i>
                 {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[20].content[0]
+                  ? pageData.scFragments[0].scContentEn.json[21].content[0]
                       .value
-                  : pageData.scFragments[0].scContentFr.json[20].content[0]
+                  : pageData.scFragments[0].scContentFr.json[21].content[0]
                       .value}
               </i>
               <span>
                 {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[20].content[1]
+                  ? pageData.scFragments[0].scContentEn.json[21].content[1]
                       .value
-                  : pageData.scFragments[0].scContentFr.json[20].content[1]
+                  : pageData.scFragments[0].scContentFr.json[21].content[1]
                       .value}
               </span>
             </p>
             <h2 id="legal-rights" className="mb-4 font-bold leading-10">
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[21].content[0].value
-                : pageData.scFragments[0].scContentFr.json[21].content[0].value}
+                ? pageData.scFragments[0].scContentEn.json[22].content[0].value
+                : pageData.scFragments[0].scContentFr.json[22].content[0].value}
             </h2>
             <p className="mb-4">
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[22].content[0].value
-                : pageData.scFragments[0].scContentFr.json[22].content[0].value}
+                ? pageData.scFragments[0].scContentEn.json[23].content[0].value
+                : pageData.scFragments[0].scContentFr.json[23].content[0].value}
               <a
                 href={
                   props.locale === "en"
-                    ? pageData.scFragments[0].scContentEn.json[22].content[1]
+                    ? pageData.scFragments[0].scContentEn.json[23].content[1]
                         .data.href
-                    : pageData.scFragments[0].scContentFr.json[22].content[1]
+                    : pageData.scFragments[0].scContentFr.json[23].content[1]
                         .data.href
                 }
                 className="text-custom-blue-link underline"
               >
                 {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[22].content[1]
+                  ? pageData.scFragments[0].scContentEn.json[23].content[1]
                       .value
-                  : pageData.scFragments[0].scContentFr.json[22].content[1]
+                  : pageData.scFragments[0].scContentFr.json[23].content[1]
                       .value}
               </a>
               <span>
                 {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[22].content[2]
+                  ? pageData.scFragments[0].scContentEn.json[23].content[2]
                       .value
-                  : pageData.scFragments[0].scContentFr.json[22].content[2]
+                  : pageData.scFragments[0].scContentFr.json[23].content[2]
                       .value}
               </span>
             </p>
           </div>
         </section>
         <CallToAction
-          title={t("signupHomeButton")}
-          description={t("signupBannerDescription")}
-          disclaimer={t("signupBannerDisclaimer")}
+          title={
+            props.locale === "en"
+              ? pageData.scFragments[1].scTitleEn
+              : pageData.scFragments[1].scTitleFr
+          }
+          description={
+            props.locale === "en"
+              ? pageData.scFragments[1].scContentEn.json[0].content[0].value
+              : pageData.scFragments[1].scContentFr.json[0].content[0].value
+          }
+          disclaimer={
+            props.locale === "en"
+              ? pageData.scFragments[1].scContentEn.json[1].content[0].value
+              : pageData.scFragments[1].scContentFr.json[1].content[0].value
+          }
           lang={props.locale}
-          href={t("signupInfoRedirect")}
-          hrefText={t("signupBannerBtnText")}
+          href={
+            props.locale === "en"
+              ? pageData.scFragments[1].scLabsButton[0].scDestinationURLEn
+              : pageData.scFragments[1].scLabsButton[0].scDestinationURLFr
+          }
+          hrefText={
+            props.locale === "en"
+              ? pageData.scFragments[1].scLabsButton[0].scTitleEn
+              : pageData.scFragments[1].scLabsButton[0].scTitleFr
+          }
         />
       </Layout>
       {props.adobeAnalyticsUrl ? (
@@ -424,7 +444,7 @@ export const getStaticProps = async ({ locale }) => {
     props: {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
-      pageData: data.sCLabsPageByPath,
+      pageData: data.scLabsPagev1ByPath,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };

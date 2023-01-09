@@ -250,7 +250,7 @@ export const getStaticProps = async ({ locale }) => {
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       ...(await serverSideTranslations("en", ["common"])),
       ...(await serverSideTranslations("fr", ["common"])),
-      pageData: data.scLabsErrorPageByPath,
+      pageData: data.scLabsErrorPagev1ByPath,
     },
   };
 };

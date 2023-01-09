@@ -1,6 +1,6 @@
 query getsignupInfoPage {
-  sCLabsPageByPath(
-    _path: "/content/dam/decd-endc/content-fragments/alpha/sclabs/pages/signup-info"
+  scLabsPagev1ByPath(
+    _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/signup-info"
   ) {
     item {
       scId
@@ -45,7 +45,7 @@ query getsignupInfoPage {
       scNoIndex
       scNoFollow
       scFragments {
-        ... on SCLabsContentModel {
+        ... on SCLabsContentv1Model {
           _path
           scId
           scContentEn {
@@ -55,7 +55,7 @@ query getsignupInfoPage {
             json
           }
         }
-        ... on SCLabsButtonModel {
+        ... on SCLabsButtonv1Model {
           scId
           scTitleEn
           scTitleFr
@@ -63,7 +63,7 @@ query getsignupInfoPage {
           scDestinationURLFr
           scButtonType
         }
-        ... on SCLabsFeatureModel {
+        ... on SCLabsFeaturev1Model {
           scId
           scTitleEn
           scTitleFr

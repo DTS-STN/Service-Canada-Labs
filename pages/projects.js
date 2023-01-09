@@ -199,38 +199,38 @@ export default function Projects(props) {
           <Alert
             title={
               props.locale === "en"
-                ? pageData.scFragments[4].scTitleEn
-                : pageData.scFragments[4].scTitleFr
+                ? pageData.scFragments[3].scTitleEn
+                : pageData.scFragments[3].scTitleFr
             }
             text={
               props.locale === "en" ? (
                 <>
-                  {pageData.scFragments[4].scContentEn.json[0].content[0].value}
+                  {pageData.scFragments[3].scContentEn.json[0].content[0].value}
                   <a
                     className="underline text-canada-footer-font hover:text-canada-footer-hover-font-blue"
                     href={
-                      pageData.scFragments[4].scContentEn.json[0].content[1]
+                      pageData.scFragments[3].scContentEn.json[0].content[1]
                         .data.href
                     }
                   >
                     {
-                      pageData.scFragments[4].scContentEn.json[0].content[1]
+                      pageData.scFragments[3].scContentEn.json[0].content[1]
                         .value
                     }
                   </a>
                 </>
               ) : (
                 <>
-                  {pageData.scFragments[4].scContentFr.json[0].content[0].value}
+                  {pageData.scFragments[3].scContentFr.json[0].content[0].value}
                   <a
                     className="underline text-canada-footer-font hover:text-canada-footer-hover-font-blue"
                     href={
-                      pageData.scFragments[4].scContentFr.json[0].content[1]
+                      pageData.scFragments[3].scContentFr.json[0].content[1]
                         .data.href
                     }
                   >
                     {
-                      pageData.scFragments[4].scContentFr.json[0].content[1]
+                      pageData.scFragments[3].scContentFr.json[0].content[1]
                         .value
                     }
                   </a>
@@ -298,11 +298,11 @@ export default function Projects(props) {
                   //Eventually this alt text will change as we provide unique images for each project
                   imgAlt="placeholder"
                   //Manually entered width and height for now, will eventually take these values from AEM image data
-                  icon={pageData.scFragments[3].scImageEn._publishUrl}
+                  icon={pageData.scFragments[2].scImageEn._publishUrl}
                   iconAlt={
                     props.locale === "en"
-                      ? pageData.scFragments[3].scImageAltTextEn
-                      : pageData.scFragments[3].scImageAltTextFr
+                      ? pageData.scFragments[2].scImageAltTextEn
+                      : pageData.scFragments[2].scImageAltTextFr
                   }
                   priority
                 />
@@ -311,12 +311,32 @@ export default function Projects(props) {
           </ul>
         </section>
         <CallToAction
-          title={t("signupHomeButton")}
-          description={t("signupBannerDescription")}
-          disclaimer={t("signupBannerDisclaimer")}
+          title={
+            props.locale === "en"
+              ? pageData.scFragments[4].scTitleEn
+              : pageData.scFragments[4].scTitleFr
+          }
+          description={
+            props.locale === "en"
+              ? pageData.scFragments[4].scContentEn.json[0].content[0].value
+              : pageData.scFragments[4].scContentFr.json[0].content[0].value
+          }
+          disclaimer={
+            props.locale === "en"
+              ? pageData.scFragments[4].scContentEn.json[1].content[0].value
+              : pageData.scFragments[4].scContentFr.json[1].content[0].value
+          }
           lang={props.locale}
-          href={t("signupInfoRedirect")}
-          hrefText={t("signupBannerBtnText")}
+          href={
+            props.locale === "en"
+              ? pageData.scFragments[4].scLabsButton[0].scDestinationURLEn
+              : pageData.scFragments[4].scLabsButton[0].scDestinationURLFr
+          }
+          hrefText={
+            props.locale === "en"
+              ? pageData.scFragments[4].scLabsButton[0].scTitleEn
+              : pageData.scFragments[4].scLabsButton[0].scTitleFr
+          }
         />
       </Layout>
       {props.adobeAnalyticsUrl ? (
