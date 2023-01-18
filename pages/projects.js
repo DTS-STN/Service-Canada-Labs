@@ -283,14 +283,15 @@ export default function Projects(props) {
                       : "past_projects"
                   )}
                   description={
+                    // Use description from metadata on page model
                     props.locale === "en"
-                      ? experiment.scContentEn.json[0].content[0].value
-                      : experiment.scContentFr.json[0].content[0].value
+                      ? experiment.scDescriptionEn.json[0].content[0].value
+                      : experiment.scDescriptionFr.json[0].content[0].value
                   }
                   href={
                     props.locale === "en"
-                      ? experiment.scDestinationURLEn
-                      : experiment.scDestinationURLFr
+                      ? experiment.scPageNameEn
+                      : experiment.scPageNameFr
                   }
                   dataTestId={`${experiment.scId}`}
                   dataCy={`${experiment.scId}`}
@@ -335,8 +336,9 @@ export const getStaticProps = async ({ locale }) => {
   const { data: pageData } = await aemServiceInstance.getFragment(
     "projectsPageQuery"
   );
+  console.log(experimentsData.scLabsPagev1List.items);
   const filters = Object.values(
-    experimentsData.sCLabsProjectList.items.reduce(
+    experimentsData.scLabsPagev1List.items.reduce(
       (filters, { scLabProjectStatus }) => {
         if (!filters[scLabProjectStatus]) {
           filters[scLabProjectStatus] = {
@@ -369,7 +371,7 @@ export const getStaticProps = async ({ locale }) => {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       ...(await serverSideTranslations(locale, ["common"])),
-      experimentData: experimentsData.sCLabsProjectList,
+      experimentData: experimentsData.scLabsPagev1List,
       pageData: pageData.scLabsPagev1ByPath,
       filters,
     },
