@@ -12,11 +12,11 @@ export function ProjectInfo(props) {
   return (
     <>
       <div className="grid grid-cols-4 gap-x-4 text-[20px]">
-        <strong className="col-span-1">{t("started")}</strong>
+        <strong className="col-span-1">{props.termStarted}</strong>
         <p className="col-span-3">{props.dateStarted.substring(0, 10)}</p>
-        <strong className="col-span-1">{t("ended")}</strong>
+        <strong className="col-span-1">{props.termEnded}</strong>
         <p className="col-span-3">{props.dateEnded.substring(0, 10)}</p>
-        <strong className="col-span-1">{t("stage")}</strong>
+        <strong className="col-span-1">{props.termStage}</strong>
         <div className="info col-span-3">
           <p className="shrink-0">
             {props.stage}
@@ -50,8 +50,8 @@ export function ProjectInfo(props) {
                 >
                   {
                     <p tabIndex={0}>
-                      <strong>{props.stageInfo}</strong>
-                      {props.info}
+                      <strong>{props.term}</strong>
+                      {props.definition}
                     </p>
                   }
                 </div>
@@ -59,8 +59,8 @@ export function ProjectInfo(props) {
             </FocusTrap>
           ) : undefined}
         </div>
-        <strong className="col-span-1">{t("status")}</strong>
-        <p className="col-span-3">{props.status}</p>
+        <strong className="col-span-1">{props.termSummary}</strong>
+        <p className="col-span-3">{props.summary}</p>
       </div>
     </>
   );
@@ -69,8 +69,7 @@ export function ProjectInfo(props) {
 ProjectInfo.propTypes = {
   dateStarted: PropTypes.string,
   dateEnded: PropTypes.string,
-  projectStage: PropTypes.string,
   stage: PropTypes.string,
-  status: PropTypes.string,
+  summary: PropTypes.string,
   info: PropTypes.string,
 };

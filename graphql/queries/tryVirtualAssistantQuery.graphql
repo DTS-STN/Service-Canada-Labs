@@ -1,6 +1,6 @@
 query getVATryItOutPage {
   scLabsPagev1ByPath(
-    _path: "/content/dam/decd-endc/content-fragments/alpha/sclabs/pages/projects/virtual-assistant-try-it-out-page"
+    _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/virtual-assistant/try-it-out"
   ) {
     item {
       scId
@@ -88,11 +88,11 @@ query getVATryItOutPage {
             }
           }
           scLabsButton {
-              scId
-              scTitleEn
-              scTitleFr
-              scDestinationURLEn
-              scDestinationURLFr
+            scId
+            scTitleEn
+            scTitleFr
+            scDestinationURLEn
+            scDestinationURLFr
           }
         }
       }

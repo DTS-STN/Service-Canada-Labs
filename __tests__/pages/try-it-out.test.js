@@ -16,7 +16,7 @@ describe("Virtual Assistant", () => {
     );
     expect(
       screen.getByRole("heading", {
-        name: "Assistant Virtuel",
+        name: "Découvrez l'assistant virtuel",
       })
     ).toBeInTheDocument();
   });
