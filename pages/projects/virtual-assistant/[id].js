@@ -134,24 +134,22 @@ export default function VAUpdatePage(props) {
           <div className="mt-40">
             <h2>
               {props.locale === "en"
-                ? actionButtonData.scFragments[0].scContentEn.json[2].content[0]
-                    .value
-                : actionButtonData.scFragments[0].scContentFr.json[2].content[0]
-                    .value}
+                ? actionButtonData.scFragments[3].scTitleEn
+                : actionButtonData.scFragments[3].scTitleFr}
             </h2>
             <Alert
               triangle
               title={
                 props.locale === "en"
-                  ? actionButtonData.scFragments[3].scTitleEn
-                  : actionButtonData.scFragments[3].scTitleFr
+                  ? actionButtonData.scFragments[3].scFragments[0].scTitleEn
+                  : actionButtonData.scFragments[3].scFragments[0].scTitleFr
               }
               text={
                 props.locale === "en"
-                  ? actionButtonData.scFragments[3].scContentEn.json[0]
-                      .content[0].value
-                  : actionButtonData.scFragments[3].scContentFr.json[0]
-                      .content[0].value
+                  ? actionButtonData.scFragments[3].scFragments[0].scContentEn
+                      .json[0].content[0].value
+                  : actionButtonData.scFragments[3].scFragments[0].scContentFr
+                      .json[0].content[0].value
               }
             />
             <p className="flex mb-4 text-center">
@@ -161,13 +159,15 @@ export default function VAUpdatePage(props) {
                 className=""
                 href={
                   props.locale === "en"
-                    ? actionButtonData.scFragments[4].scDestinationURLEn
-                    : actionButtonData.scFragments[4].scDestinationURLFr
+                    ? actionButtonData.scFragments[3].scLabsButton[0]
+                        .scDestinationURLEn
+                    : actionButtonData.scFragments[3].scLabsButton[0]
+                        .scDestinationURLFr
                 }
                 text={
                   props.locale === "en"
-                    ? actionButtonData.scFragments[4].scTitleEn
-                    : actionButtonData.scFragments[4].scTitleFr
+                    ? actionButtonData.scFragments[3].scLabsButton[0].scTitleEn
+                    : actionButtonData.scFragments[3].scLabsButton[0].scTitleFr
                 }
                 ariaExpanded={props.ariaExpanded}
               />
@@ -215,7 +215,7 @@ export const getStaticProps = async ({ locale, params }) => {
     props: {
       locale: locale,
       pageData: pageData[0],
-      actionButtonData: actionButtonData.data.sCLabsPageByPath.item,
+      actionButtonData: actionButtonData.data.scLabsPagev1ByPath.item,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       ...(await serverSideTranslations(locale, ["common", "vc"])),
     },

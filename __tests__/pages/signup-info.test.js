@@ -7,7 +7,9 @@ import { signupInfoPageData } from "../../__mocks__/mockStore";
 
 describe("Signup Info", () => {
   it("renders without crashing", () => {
-    render(<SignupInfo pageData={signupInfoPageData.data.sCLabsPageByPath} />);
+    render(
+      <SignupInfo pageData={signupInfoPageData.data.scLabsPagev1ByPath} />
+    );
     expect(
       screen.getByRole("heading", {
         name: "S’inscrire pour participer à l’élaboration des services de demain",

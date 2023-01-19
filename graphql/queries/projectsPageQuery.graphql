@@ -1,6 +1,6 @@
 query getProjectsPage {
   scLabsPagev1ByPath(
-    _path: "/content/dam/decd-endc/content-fragments/alpha/sclabs/pages/projects-page"
+    _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects-page"
   ) {
     item {
       scId
