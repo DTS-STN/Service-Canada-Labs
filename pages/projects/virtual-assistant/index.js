@@ -229,10 +229,8 @@ export default function Home(props) {
               datePosted={projectUpdates.scDateModifiedOverwrite}
               title={
                 props.locale === "en"
-                  ? projectUpdates.scFragments[0].scContentEn.json[0].content[0]
-                      .value
-                  : projectUpdates.scFragments[0].scContentEn.json[0].content[0]
-                      .value
+                  ? projectUpdates.scTitleEn
+                  : projectUpdates.scTitleFr
               }
               description={
                 props.locale === "en"
@@ -245,10 +243,8 @@ export default function Home(props) {
               // managers won't need to concern themselves with multi-part URLs
               href={
                 props.locale === "en"
-                  ? projectUpdates.scFragments[1].scLabsButton[0]
-                      .scDestinationURLEn
-                  : projectUpdates.scFragments[1].scLabsButton[0]
-                      .scDestinationURLFr
+                  ? projectUpdates.scPageNameEn
+                  : projectUpdates.scPageNameFr
               }
               blog
             />
