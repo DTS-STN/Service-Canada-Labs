@@ -49,8 +49,26 @@ export default function DigitalCenter(props) {
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
         breadcrumbItems={[
-          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
-          { text: t("menuLink1"), link: t("breadCrumbsHref2") },
+          {
+            text:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[0].scTitleEn
+                : pageData.scBreadcrumbParentPages[0].scTitleFr,
+            link:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[0].scPageNameEn
+                : pageData.scBreadcrumbParentPages[0].scPageNameFr,
+          },
+          {
+            text:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[1].scTitleEn
+                : pageData.scBreadcrumbParentPages[1].scTitleFr,
+            link:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[1].scPageNameEn
+                : pageData.scBreadcrumbParentPages[1].scPageNameFr,
+          },
         ]}
         projectName={t("dc:OverviewTitle")}
       >

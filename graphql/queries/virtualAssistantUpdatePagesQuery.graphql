@@ -1,14 +1,9 @@
 query getVirtualAssistantUpdatePages {
-    scLabsBlogv1List(filter: {
-      scProject: {
-        _expressions: [
-          {
-            value: "va"
-            _operator: EQUALS
-          }
-        ]
-      }
-    }) {
+  scLabsPagev1List(
+    filter: {
+      scProject: { _expressions: [{ value: "va", _operator: EQUALS }] }
+    }
+  ) {
     items {
       scId
       scPageNameEn
@@ -23,9 +18,16 @@ query getVirtualAssistantUpdatePages {
       scDescriptionFr {
         json
       }
+      scBreadcrumbParentPages {
+        ... on SCLabsPagev1Model {
+          scTitleEn
+          scTitleFr
+          scPageNameEn
+          scPageNameFr
+        }
+      }
       scSubject
       scProject
-      scProjectPhase
       scKeywordsEn
       scKeywordsFr
       scContentType

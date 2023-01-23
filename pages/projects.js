@@ -56,7 +56,16 @@ export default function Projects(props) {
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
         breadcrumbItems={[
-          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
+          {
+            text:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[0].scTitleEn
+                : pageData.scBreadcrumbParentPages[0].scTitleFr,
+            link:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[0].scPageNameEn
+                : pageData.scBreadcrumbParentPages[0].scPageNameFr,
+          },
         ]}
       >
         <Head>
