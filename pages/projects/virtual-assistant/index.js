@@ -39,8 +39,26 @@ export default function Home(props) {
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
         breadcrumbItems={[
-          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
-          { text: t("menuLink1"), link: t("breadCrumbsHref2") },
+          {
+            text:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[0].scTitleEn
+                : pageData.scBreadcrumbParentPages[0].scTitleFr,
+            link:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[0].scPageNameEn
+                : pageData.scBreadcrumbParentPages[0].scPageNameFr,
+          },
+          {
+            text:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[1].scTitleEn
+                : pageData.scBreadcrumbParentPages[1].scTitleFr,
+            link:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[1].scPageNameEn
+                : pageData.scBreadcrumbParentPages[1].scPageNameFr,
+          },
         ]}
       >
         <Head>
@@ -243,8 +261,8 @@ export default function Home(props) {
               // managers won't need to concern themselves with multi-part URLs
               href={
                 props.locale === "en"
-                  ? projectUpdates.scPageNameEn
-                  : projectUpdates.scPageNameFr
+                  ? `/projects/virtual-assistant/${projectUpdates.scPageNameEn}`
+                  : `/projets/assistant-virtuel/${projectUpdates.scPageNameFr}`
               }
               blog
             />

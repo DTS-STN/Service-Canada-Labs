@@ -580,6 +580,21 @@ export const signupPage = {
         scDescriptionFr: {
           json: null,
         },
+        scBreadcrumbParentPages: [
+          {
+            scTitleEn: "Service Canada Labs",
+            scTitleFr: "Laboratoires de Service Canada",
+            scPageNameEn: "/en/home",
+            scPageNameFr: "/fr/accueil",
+          },
+          {
+            scTitleEn: "Sign up to be a voice in tomorrow's services",
+            scTitleFr:
+              "S’inscrire pour participer à l’élaboration des services de demain",
+            scPageNameEn: "/signup-info",
+            scPageNameFr: "/fr/inscription-info",
+          },
+        ],
         scSubject: null,
         scKeywordsEn: null,
         scKeywordsFr: null,
@@ -843,6 +858,14 @@ export const signupInfoPageData = {
         scDescriptionFr: {
           json: null,
         },
+        scBreadcrumbParentPages: [
+          {
+            scTitleEn: "Service Canada Labs",
+            scTitleFr: "Laboratoires de Service Canada",
+            scPageNameEn: "/en/home",
+            scPageNameFr: "/fr/accueil",
+          },
+        ],
         scSubject: null,
         scKeywordsEn: null,
         scKeywordsFr: null,
@@ -1983,6 +2006,20 @@ export const digitalCentrePageData = {
             },
           ],
         },
+        scBreadcrumbParentPages: [
+          {
+            scTitleEn: "Service Canada Labs",
+            scTitleFr: "Laboratoires de Service Canada",
+            scPageNameEn: "/en/home",
+            scPageNameFr: "/fr/accueil",
+          },
+          {
+            scTitleEn: "Explore our projects",
+            scTitleFr: "Explorer nos projets",
+            scPageNameEn: "/en/projects",
+            scPageNameFr: "/fr/projets",
+          },
+        ],
         scSubject: null,
         scKeywordsEn: null,
         scKeywordsFr: null,
@@ -4080,6 +4117,20 @@ export const havingAChildPageData = {
             },
           ],
         },
+        scBreadcrumbParentPages: [
+          {
+            scTitleEn: "Service Canada Labs",
+            scTitleFr: "Laboratoires de Service Canada",
+            scPageNameEn: "/en/home",
+            scPageNameFr: "/fr/accueil",
+          },
+          {
+            scTitleEn: "Explore our projects",
+            scTitleFr: "Explorer nos projets",
+            scPageNameEn: "/en/projects",
+            scPageNameFr: "/fr/projets",
+          },
+        ],
         scSubject: null,
         scKeywordsEn: null,
         scKeywordsFr: null,
@@ -4964,6 +5015,20 @@ export const virtualAssistantPageData = {
             },
           ],
         },
+        scBreadcrumbParentPages: [
+          {
+            scTitleEn: "Service Canada Labs",
+            scTitleFr: "Laboratoires de Service Canada",
+            scPageNameEn: "/en/home",
+            scPageNameFr: "/fr/accueil",
+          },
+          {
+            scTitleEn: "Explore our projects",
+            scTitleFr: "Explorer nos projets",
+            scPageNameEn: "/en/projects",
+            scPageNameFr: "/fr/projets",
+          },
+        ],
         scSubject: null,
         scKeywordsEn: null,
         scKeywordsFr: null,
@@ -5855,6 +5920,21 @@ export const privacyPageData = {
         scDescriptionFr: {
           json: null,
         },
+        scBreadcrumbParentPages: [
+          {
+            scTitleEn: "Service Canada Labs",
+            scTitleFr: "Laboratoires de Service Canada",
+            scPageNameEn: "/en/home",
+            scPageNameFr: "/fr/accueil",
+          },
+          {
+            scTitleEn: "Sign up to be a voice in tomorrow's services",
+            scTitleFr:
+              "S’inscrire pour participer à l’élaboration des services de demain",
+            scPageNameEn: "/signup-info",
+            scPageNameFr: "/fr/inscription-info",
+          },
+        ],
         scSubject: null,
         scKeywordsEn: null,
         scKeywordsFr: null,
@@ -6841,6 +6921,26 @@ export const tryVirtualAssistantPageData = {
         scDescriptionFr: {
           json: null,
         },
+        scBreadcrumbParentPages: [
+          {
+            scTitleEn: "Service Canada Labs",
+            scTitleFr: "Laboratoires de Service Canada",
+            scPageNameEn: "/en/home",
+            scPageNameFr: "/fr/accueil",
+          },
+          {
+            scTitleEn: "Explore our projects",
+            scTitleFr: "Explorer nos projets",
+            scPageNameEn: "/en/projects",
+            scPageNameFr: "/fr/projets",
+          },
+          {
+            scTitleEn: "Virtual Assistant",
+            scTitleFr: "Assistant virtuel",
+            scPageNameEn: "/en/projects/virtual-assistant",
+            scPageNameFr: "/fr/projets/assistant-virtuel",
+          },
+        ],
         scSubject: null,
         scKeywordsEn: null,
         scKeywordsFr: null,

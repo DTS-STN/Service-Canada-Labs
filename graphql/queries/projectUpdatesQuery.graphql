@@ -16,6 +16,12 @@ query getProjectUpdates {
       scDescriptionFr {
         json
       }
+      scBreadcrumbParentPages {
+        ... on SCLabsPagev1Model {
+          scPageNameEn
+          scPageNameFr
+        }
+      }
       scSubject
       scKeywordsEn
       scKeywordsFr

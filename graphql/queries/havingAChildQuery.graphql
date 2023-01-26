@@ -16,6 +16,14 @@ query getHavingAChildPage {
       scDescriptionFr {
         json
       }
+      scBreadcrumbParentPages {
+        ... on SCLabsPagev1Model {
+          scTitleEn
+          scTitleFr
+          scPageNameEn
+          scPageNameFr
+        }
+      }
       scSubject
       scKeywordsEn
       scKeywordsFr
