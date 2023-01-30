@@ -295,7 +295,11 @@ export default function Projects(props) {
                   }
                   dataTestId={`${experiment.scId}`}
                   dataCy={`${experiment.scId}`}
-                  imgSrc="/placeholder.png"
+                  imgSrc={
+                    props.locale === "en"
+                      ? `https://canada.ca${experiment.scSocialMediaImageEn._path}`
+                      : `https://canada.ca${experiment.scSocialMediaImageFr._path}`
+                  }
                   //Eventually this alt text will change as we provide unique images for each project
                   imgAlt="placeholder"
                   //Manually entered width and height for now, will eventually take these values from AEM image data
