@@ -1,11 +1,18 @@
 query getAllProjects {
   scLabsPagev1List(filter: {
     scLabProjectStatus: {
+      _logOp: OR
       _expressions: [
           {
-              value: null
-              _operator: EQUALS_NOT
-          }
+              value: "gc:custom/decd-endc/project-status/past"
+          },
+          {
+              value: "gc:custom/decd-endc/project-status/current"
+          },
+          {
+              value: "gc:custom/decd-endc/project-status/upcoming"
+          },
+
       ]
     }
   }) {
