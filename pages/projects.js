@@ -301,7 +301,11 @@ export default function Projects(props) {
                       : `https://www.canada.ca${experiment.scSocialMediaImageFr._path}`
                   }
                   //Eventually this alt text will change as we provide unique images for each project
-                  imgAlt="placeholder"
+                  imgAlt={
+                    props.locale === "en"
+                      ? experiment.scSocialMediaImageAltTextEn
+                      : experiment.scSocialMediaImageAltTextFr
+                  }
                   //Manually entered width and height for now, will eventually take these values from AEM image data
                   icon={pageData.scFragments[3].scImageEn._publishUrl}
                   iconAlt={
