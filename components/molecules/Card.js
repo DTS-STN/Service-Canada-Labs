@@ -23,21 +23,21 @@ export const Card = (props) => {
       data-testid={props.dataTestId}
       data-cy={props.dataCy}
     >
-      <div className="relative h-80">
-        {props.showImage ? (
+      {props.showImage ? (
+        <div className="relative h-80">
           <Image
             src={props.imgSrc}
             alt={props.imgAlt}
             layout="fill"
             sizes="(max-width: 768px) 100vw,
-          (max-width: 1200px) 50vw,
-          33vw"
+            (max-width: 1200px) 50vw,
+            33vw"
             className="mb-4 object-contain"
           />
-        ) : (
-          ""
-        )}
-      </div>
+        </div>
+      ) : (
+        ""
+      )}
       <h2>
         <Link href={props.href}>
           <a
