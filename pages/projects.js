@@ -297,8 +297,8 @@ export default function Projects(props) {
                   dataCy={`${experiment.scId}`}
                   imgSrc={
                     props.locale === "en"
-                      ? `https://canada.ca${experiment.scSocialMediaImageEn._path}`
-                      : `https://canada.ca${experiment.scSocialMediaImageFr._path}`
+                      ? `https://www.canada.ca${experiment.scSocialMediaImageEn._path}`
+                      : `https://www.canada.ca${experiment.scSocialMediaImageFr._path}`
                   }
                   //Eventually this alt text will change as we provide unique images for each project
                   imgAlt="placeholder"
