@@ -28,7 +28,7 @@ export const Card = (props) => {
           <img
             src={props.imgSrc}
             alt={props.imgAlt}
-            className="mt-4 mb-4 object-cover"
+            className="mt-4 mb-4 object-cover rounded-md"
           />
         </div>
       ) : (
