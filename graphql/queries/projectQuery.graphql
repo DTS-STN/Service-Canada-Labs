@@ -131,7 +131,6 @@ query getAllProjects {
       scLabProjectSummaryFr {
           json
       }
-      scLabProjectStatus
     }
   }
 }
