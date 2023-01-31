@@ -191,7 +191,7 @@ export default function Projects(props) {
               />
             </span>
           </div>
-          <h2 className="mt-8">
+          <h2 className="mt-8 lg:mt-0">
             {props.locale === "en"
               ? pageData.scFragments[1].scContentEn.json[0].content[0].value
               : pageData.scFragments[1].scContentFr.json[0].content[0].value}
@@ -340,7 +340,6 @@ export const getStaticProps = async ({ locale }) => {
   const { data: pageData } = await aemServiceInstance.getFragment(
     "projectsPageQuery"
   );
-  console.log(experimentsData.scLabsPagev1List.items);
   const filters = Object.values(
     experimentsData.scLabsPagev1List.items.reduce(
       (filters, { scLabProjectStatus }) => {
