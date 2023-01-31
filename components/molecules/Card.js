@@ -24,15 +24,11 @@ export const Card = (props) => {
       data-cy={props.dataCy}
     >
       {props.showImage ? (
-        <div className="relative h-80">
-          <Image
+        <div className="h-80 flex justify-center">
+          <img
             src={props.imgSrc}
             alt={props.imgAlt}
-            layout="fill"
-            sizes="(max-width: 768px) 100vw,
-            (max-width: 1200px) 50vw,
-            33vw"
-            className="mb-4 object-contain"
+            className="mt-4 mb-4 object-cover"
           />
         </div>
       ) : (
