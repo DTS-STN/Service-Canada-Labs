@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 import { ActionButton } from "../atoms/ActionButton";
+import Image from "next/image";
 
 /**
  * Displays an experiment card on the page
@@ -22,11 +23,21 @@ export const Card = (props) => {
       data-testid={props.dataTestId}
       data-cy={props.dataCy}
     >
-      {props.showImage ? (
-        <img src={props.imgSrc} alt={props.imgAlt} className="mb-4 w-full" />
-      ) : (
-        ""
-      )}
+      <div className="relative h-80">
+        {props.showImage ? (
+          <Image
+            src={props.imgSrc}
+            alt={props.imgAlt}
+            layout="fill"
+            sizes="(max-width: 768px) 100vw,
+          (max-width: 1200px) 50vw,
+          33vw"
+            className="mb-4 object-contain"
+          />
+        ) : (
+          ""
+        )}
+      </div>
       <h2>
         <Link href={props.href}>
           <a
