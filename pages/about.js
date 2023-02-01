@@ -2,12 +2,14 @@ import { Layout } from "../components/organisms/Layout";
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import { List } from "../components/molecules/List";
 import { CallToAction } from "../components/molecules/CallToAction";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Alert } from "../components/atoms/Alert";
+import aemServiceInstance from "../services/aemServiceInstance";
 
 export default function About(props) {
   const { t } = useTranslation("common");
+  const [pageData] = useState(props.pageData.item);
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
@@ -114,51 +116,163 @@ export default function About(props) {
           <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <section className="layout-container relative mb-10">
-          <h1 id="pageMainTitle" className="mb-10 text-h1l" tabIndex="-1">
-            {t("aboutTitle")}
+          <h1 id="pageMainTitle" tabIndex="-1" className="flex-wrap mb-2">
+            {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
           </h1>
-          <div className="xl:w-2/3">
-            <p className="mb-4">{t("aboutThisSiteContent1")}</p>
-            <p className="mb-4">{t("aboutThisSiteContent2")}</p>
-            <p className="mb-4">{t("aboutThisSiteContent3")}</p>
-            <p className="mb-4">{t("projectsDisclaimerBody")}</p>
+          <div className="lg:flex">
+            <span className="w-full py-4">
+              <p>
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[1].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[1].content[0]
+                      .value}
+              </p>
+              <p className="my-4">
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[2].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[2].content[0]
+                      .value}
+              </p>
+            </span>
+            <span
+              className="block mt-4 lg:ml-8 lg:w-3/4"
+              style={{ maxWidth: "453px" }}
+              role="presentation"
+            >
+              <img
+                src={pageData.scFragments[2].scImageEn._publishUrl}
+                alt=""
+                height={
+                  props.locale === "en"
+                    ? pageData.scFragments[2].scImageEn.height
+                    : pageData.scFragments[2].scImageFr.height
+                }
+                width={
+                  props.locale === "en"
+                    ? pageData.scFragments[2].scImageEn.width
+                    : pageData.scFragments[2].scImageFr.width
+                }
+              />
+            </span>
           </div>
         </section>
-        <section className="bg-gray-light-200 pb-14">
-          <div className="layout-container">
-            <h2 className="mb-5 pt-10 text-h1l">{t("howWeWork")}</h2>
-            <div className="flex flex-col-reverse pt-8 xl:grid xl:grid-cols-2 xl:gap-8">
-              <List
-                items={[
-                  t("circleTxt1/4"),
-                  t("circleTxt2/4"),
-                  t("circleTxt3/4"),
-                  t("circleTxt4/4"),
-                ]}
-              />
-            </div>
-          </div>
+        <section className="layout-container relative mb-10">
+          <h2 className="mb-5 text-h3 lg:text-h2">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[3].content[0].value
+              : pageData.scFragments[0].scContentFr.json[3].content[0].value}
+          </h2>
+          <p className="my-4">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[4].content[0].value
+              : pageData.scFragments[0].scContentFr.json[4].content[0].value}
+          </p>
+          <ul className="list-disc list-outside pl-4 mb-10 text-sm lg:text-p ml-6">
+            <li className="whitespace-pre-line mb-3">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[5].content[0]
+                    .content[0].value
+                : pageData.scFragments[0].scContentFr.json[5].content[0]
+                    .content[0].value}
+            </li>
+            <li className="whitespace-pre-line mb-3">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[5].content[1]
+                    .content[0].value
+                : pageData.scFragments[0].scContentFr.json[5].content[1]
+                    .content[0].value}
+            </li>
+            <li className="whitespace-pre-line mb-3">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[5].content[2]
+                    .content[0].value
+                : pageData.scFragments[0].scContentFr.json[5].content[2]
+                    .content[0].value}
+            </li>
+            <li className="whitespace-pre-line mb-3">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[5].content[3]
+                    .content[0].value
+                : pageData.scFragments[0].scContentFr.json[5].content[3]
+                    .content[0].value}
+            </li>
+          </ul>
         </section>
         <section className="layout-container" id="contact-us">
-          <h2 className="mb-5 pt-10 text-h1l">{t("contactUsHeading")}</h2>
-          <p className="mb-8 mt-10 xl:w-2/3">
-            {t("getInTouch")}&nbsp;
-            <a
-              className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font break-words"
-              href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
-            >
-              {process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}
-            </a>
-            .
+          <h2 className="mb-5 text-h3 lg:text-h2">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[6].content[0].value
+              : pageData.scFragments[0].scContentFr.json[6].content[0].value}
+          </h2>
+          <p className="my-4">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[7].content[0].value
+              : pageData.scFragments[0].scContentFr.json[7].content[0].value}
           </p>
-          <p className="mb-12 xl:w-2/3">{t("contactUsResponse")}</p>
         </section>
+        <Alert
+          title={
+            props.locale === "en"
+              ? pageData.scFragments[1].scTitleEn
+              : pageData.scFragments[1].scTitleFr
+          }
+          text={
+            props.locale === "en" ? (
+              <>
+                {pageData.scFragments[1].scContentEn.json[0].content[0].value}
+                <a
+                  className="underline text-canada-footer-font hover:text-canada-footer-hover-font-blue"
+                  href={
+                    pageData.scFragments[1].scContentEn.json[0].content[1].data
+                      .href
+                  }
+                >
+                  {pageData.scFragments[1].scContentEn.json[0].content[1].value}
+                </a>
+              </>
+            ) : (
+              <>
+                {pageData.scFragments[1].scContentFr.json[0].content[0].value}
+                <a
+                  className="underline text-canada-footer-font hover:text-canada-footer-hover-font-blue"
+                  href={
+                    pageData.scFragments[1].scContentFr.json[0].content[1].data
+                      .href
+                  }
+                >
+                  {pageData.scFragments[1].scContentFr.json[0].content[1].value}
+                </a>
+              </>
+            )
+          }
+        />
         <CallToAction
-          title={t("signupTitleCallToAction")}
-          html={t("becomeAParticipantDescription")}
+          title={
+            props.locale === "en"
+              ? pageData.scFragments[3].scTitleEn
+              : pageData.scFragments[3].scTitleFr
+          }
+          description={
+            props.locale === "en"
+              ? pageData.scFragments[3].scContentEn.json[0].content[0].value
+              : pageData.scFragments[3].scContentFr.json[0].content[0].value
+          }
+          disclaimer={
+            props.locale === "en"
+              ? pageData.scFragments[3].scContentEn.json[1].content[0].value
+              : pageData.scFragments[3].scContentFr.json[1].content[0].value
+          }
           lang={props.locale}
-          href={t("signupInfoRedirect")}
-          hrefText={t("signupBtn")}
+          href={
+            props.locale === "en"
+              ? pageData.scFragments[3].scLabsButton[0].scDestinationURLEn
+              : pageData.scFragments[3].scLabsButton[0].scDestinationURLFr
+          }
+          hrefText={
+            props.locale === "en"
+              ? pageData.scFragments[3].scLabsButton[0].scTitleEn
+              : pageData.scFragments[3].scLabsButton[0].scTitleFr
+          }
         />
       </Layout>
       {props.adobeAnalyticsUrl ? (
@@ -171,10 +285,13 @@ export default function About(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
+  const { data } = await aemServiceInstance.getFragment("aboutPageQuery");
+
   return {
     props: {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+      pageData: data.scLabsPagev1ByPath,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };
