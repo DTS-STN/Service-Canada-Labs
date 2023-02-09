@@ -64,7 +64,7 @@ export function CallToAction(props) {
                     ariaExpanded={props.ariaExpanded}
                   />
                 </p>
-                <p>
+                {/* <p>
                   {props.feedbackActive ? undefined : (
                     <Link href={t("privacyRedirect")} locale={props.lang}>
                       <a className="text-base lg:text-p underline flex xl:inline lg:mr-10">
@@ -72,7 +72,7 @@ export function CallToAction(props) {
                       </a>
                     </Link>
                   )}
-                </p>
+                </p> */}
               </div>
             </aside>
           </div>

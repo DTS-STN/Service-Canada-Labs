@@ -13,12 +13,16 @@ export function ProjectInfo(props) {
     <>
       <div className="grid grid-cols-4 gap-x-4 text-[20px]">
         <strong className="col-span-1">{props.termStarted}</strong>
-        <p className="col-span-3">{props.dateStarted.substring(0, 10)}</p>
+        <p className="col-span-3">
+          {!props.dateStarted ? undefined : props.dateStarted.substring(0, 10)}
+        </p>
         <strong className="col-span-1">{props.termEnded}</strong>
-        <p className="col-span-3">{props.dateEnded.substring(0, 10)}</p>
+        <p className="col-span-3">
+          {!props.dateEnded ? undefined : props.dateEnded.substring(0, 10)}
+        </p>
         <strong className="col-span-1">{props.termStage}</strong>
         <div className="info col-span-3">
-          <p className="shrink-0">
+          <p className="shrink-0 flex items-center">
             {props.stage}
             <button
               onClick={() => setShowInfo(!showInfo)}
@@ -29,8 +33,16 @@ export function ProjectInfo(props) {
                 icon={faCircleInfo}
                 color={"#269ABC"}
                 size="lg"
-                className="px-2 mr-2"
+                className="px-2"
               />
+            </button>
+            <button
+              className="text-xs text-[#284162] underline mr-2"
+              onClick={() => setShowInfo(!showInfo)}
+              aria-label="project stage detail"
+              aria-expanded={showInfo}
+            >
+              {props.information}
             </button>
           </p>
           {showInfo ? (

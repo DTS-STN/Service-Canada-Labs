@@ -53,6 +53,10 @@ const REWRITES = [
     source: "/projets/assistant-virtuel/:slug",
     destination: "/projects/virtual-assistant/:slug",
   },
+  {
+    source: "/projets/estimateur-prestations-sv",
+    destination: "/projects/oas-benefits-estimator",
+  },
 ];
 
 securityHeaders = [
