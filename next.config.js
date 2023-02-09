@@ -122,7 +122,7 @@ module.exports = {
     NEXT_PUBLIC_VERSION: "1.1.3",
   },
   images: {
-    domains: ["www.canada.ca"],
+    domains: ["canada.ca", "www.canada.ca"],
   },
   poweredByHeader: false,
   async headers() {

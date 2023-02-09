@@ -87,6 +87,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated images to use <img> tags instead of Next.js' <Image> component due to issues with image load time
 - Updated virtual assistant overview page to match Figma mockup
 - Updated cta banner on digital centre page and removed feedback reference
+- Project cards get their images and content from v1 Page fragments associated with a given project
 
 ## Fixed
 
