@@ -391,7 +391,7 @@ export default function oasBenefitsEstimator(props) {
           //       ? pageData.scFragments[5].scLabsButton[0].scDestinationURLEn
           //       : pageData.scFragments[5].scLabsButton[0].scDestinationURLFr
           //   }
-          href="/"
+          href={props.locale === "en" ? "/home" : "/accueil"}
           hrefText={
             props.locale === "en"
               ? pageData.scFragments[5].scLabsButton[0].scTitleEn
