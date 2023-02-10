@@ -386,12 +386,11 @@ export default function oasBenefitsEstimator(props) {
               : pageData.scFragments[5].scContentFr.json[0].content[0].value
           }
           lang={props.locale}
-          //   href={
-          //     props.locale === "en"
-          //       ? pageData.scFragments[5].scLabsButton[0].scDestinationURLEn
-          //       : pageData.scFragments[5].scLabsButton[0].scDestinationURLFr
-          //   }
-          href={props.locale === "en" ? "/home" : "/accueil"}
+          href={
+            props.locale === "en"
+              ? pageData.scFragments[5].scLabsButton[0].scDestinationURLEn
+              : pageData.scFragments[5].scLabsButton[0].scDestinationURLFr
+          }
           hrefText={
             props.locale === "en"
               ? pageData.scFragments[5].scLabsButton[0].scTitleEn
