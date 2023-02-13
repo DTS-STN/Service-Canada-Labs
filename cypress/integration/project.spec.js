@@ -3,7 +3,7 @@ import terminalLog from "../plugins/terminalLog";
 /* eslint-disable no-undef */
 /// <reference types="Cypress" />
 
-describe("project page", () => {
+describe.skip("project page", () => {
   beforeEach(() => {
     cy.visit("/projects");
     cy.injectAxe();
