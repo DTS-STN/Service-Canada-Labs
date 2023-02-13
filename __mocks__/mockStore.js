@@ -7952,3 +7952,705 @@ export const dictionaryData = {
     },
   },
 };
+export const oasBenefitsEstimatorData = {
+  data: {
+    scLabsPagev1ByPath: {
+      item: {
+        scId: "OAS-BENEFITS-ESTIMATOR-OVERVIEW",
+        scPageNameEn: "/en/projects/oas-benefits-estimator",
+        scPageNameFr: "/fr/projets/estimateur-prestations-sv",
+        scTitleEn: "Old Age Security Benefits Estimator",
+        scTitleFr: "Estimateur des prestations de la Sécurité de la vieillesse",
+        scShortTitleEn: null,
+        scShortTitleFr: null,
+        scDescriptionEn: {
+          json: [
+            {
+              nodeType: "paragraph",
+              content: [
+                {
+                  nodeType: "text",
+                  value:
+                    "Whether you’re about to retire or preparing for the future, this tool helps you understand and navigate Old Age Security benefits.",
+                },
+              ],
+            },
+          ],
+        },
+        scDescriptionFr: {
+          json: [
+            {
+              nodeType: "paragraph",
+              content: [
+                {
+                  nodeType: "text",
+                  value:
+                    "Si vous prenez bientôt votre retraite ou si vous vous préparez pour l'avenir, cet outil vous aide à comprendre les prestations de la Sécurité de la vieillesse et à mieux vous y orienter.",
+                },
+              ],
+            },
+          ],
+        },
+        scBreadcrumbParentPages: [
+          {
+            scTitleEn: "Service Canada Labs",
+            scTitleFr: "Laboratoires de Service Canada",
+            scPageNameEn: "/en/home",
+            scPageNameFr: "/fr/accueil",
+          },
+        ],
+        scSubject: null,
+        scKeywordsEn: null,
+        scKeywordsFr: null,
+        scContentType: null,
+        scOwner: null,
+        scDateModifiedOverwrite: "2023-01-19",
+        scAudience: null,
+        scRegion: null,
+        scSocialMediaImageEn: {
+          _path:
+            "/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/overview.jpg",
+        },
+        scSocialMediaImageFr: {
+          _path:
+            "/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/overview.jpg",
+        },
+        scSocialMediaImageAltTextEn:
+          "Shows a piggy bank, a calculator, a pen and a pencil",
+        scSocialMediaImageAltTextFr:
+          "Montre une tirelire, une calculatrice, un stylo et un crayon",
+        scNoIndex: false,
+        scNoFollow: false,
+        scFragments: [
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/oas-benefits-estimator/main-content",
+            scId: "OAS-BENEFITS-ESTIMATOR-MAIN-CONTENT",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h1",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Old Age Security Benefits Estimator",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "This estimator helps you find the Old Age Security (OAS) benefits you're eligible for and estimates your monthly payments.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "2021-10",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Beta",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "We’re gathering feedback on the estimator to make it as useful as possible for Canadian seniors.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Explore the Old Age Security Benefits Estimator",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Whether you’re about to retire or preparing for the future, this tool helps you understand and navigate Old Age Security benefits. You don’t even have to sign in.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "The estimator has 3 parts:",
+                    },
+                    {
+                      nodeType: "line-break",
+                      content: [],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "an overview of the Old Age Security benefits and what to expect",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "a series of questions",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "personalized results and clear next steps to get the benefits you’re eligible for",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Try it out and let us know what you think!",
+                      format: {
+                        variants: ["strong"],
+                      },
+                    },
+                    {
+                      nodeType: "line-break",
+                      content: [],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Discover the Old Age Security benefits",
+                    },
+                    {
+                      nodeType: "line-break",
+                      content: [],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Over 6 million Canadians get Old Age Security benefits. This means that most Canadians will, in their lifetimes:",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "learn about these benefits",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "find out how much money they can receive",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "decide when to apply",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "By launching the Old Age Security Benefits Estimator, we want to simplify these steps and make access to benefits easier, from the discovery to the application process.",
+                    },
+                    {
+                      nodeType: "line-break",
+                      content: [],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "The Old Age Security Benefits Estimator will let you know if you’re eligible and when you can apply. ",
+                    },
+                    {
+                      nodeType: "line-break",
+                      content: [],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Share your feedback",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "We’re working to make discovering benefits easier. To create an estimator that meets your needs, we need your input. Complete our feedback survey to let us know how we can improve the estimator. ",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h1",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Estimateur des prestations de la Sécurité de la vieillesse",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Cet estimateur vous aide à trouver les prestations de la Sécurité de la vieillesse (SV) auxquelles vous êtes admissible et estime vos paiements mensuels.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "2021-10",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Bêta",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Nous recueillons des commentaires sur l'estimateur afin de le rendre aussi utile que possible pour les aînés canadiens.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Explorez l’Estimateur des prestations de la Sécurité de la vieillesse",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Si vous prenez bientôt votre retraite ou si vous vous préparez pour l'avenir, cet outil vous aide à comprendre les prestations de la Sécurité de la vieillesse et à mieux vous y orienter. Vous n'avez même pas besoin d'ouvrir une session. ",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "L'estimateur a 3 parties :",
+                    },
+                    {
+                      nodeType: "line-break",
+                      content: [],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "un aperçu des prestations de la Sécurité de la vieillesse et de ce à quoi vous attendre;",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "une série de questions;",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "des résultats personnalisés et des étapes claires pour obtenir les prestations auxquelles vous êtes admissible.",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Essayez-le et dites-nous ce que vous en pensez!",
+                      format: {
+                        variants: ["strong"],
+                      },
+                    },
+                    {
+                      nodeType: "line-break",
+                      content: [],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Découvrez les prestations de la Sécurité de la vieillesse ",
+                    },
+                    {
+                      nodeType: "line-break",
+                      content: [],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Plus de 6 millions de Canadiens reçoivent des prestations de la Sécurité de la vieillesse. Cela signifie que la plupart des Canadiens devront, au cours de leur vie :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "s'informer sur ces prestations;",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "découvrir combien d'argent ils peuvent recevoir;",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "décider quand présenter leur demande.",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "En lançant l'Estimateur des prestations de la Sécurité de la vieillesse, nous voulons simplifier ces étapes et faciliter l'accès aux prestations, du processus de découverte à celui de la demande.",
+                    },
+                    {
+                      nodeType: "line-break",
+                      content: [],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "L'Estimateur des prestations de la Sécurité de la vieillesse vous permettra de savoir si vous êtes admissible et quand vous pouvez présenter votre demande. ",
+                    },
+                    {
+                      nodeType: "line-break",
+                      content: [],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Partagez votre avis",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Nous travaillons dans le but de rendre les prestations faciles à découvrir. Pour créer un estimateur qui répond à vos besoins, nous avons besoin de vos commentaires. Répondez à notre sondage de rétroaction pour nous dire comment nous pouvons améliorer l’estimateur. ",
+                    },
+                    {
+                      nodeType: "line-break",
+                      content: [],
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            scId: "OVERVIEW",
+            scImageEn: {
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/overview.jpg",
+              width: 2018,
+              height: 2044,
+            },
+            scImageFr: {
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/overview.jpg",
+              width: 2018,
+              height: 2044,
+            },
+            scImageMobileEn: null,
+            scImageMobileFr: null,
+            scImageAltTextEn: null,
+            scImageAltTextFr: null,
+            scImageCaptionEn: {
+              json: null,
+            },
+            scImageCaptionFr: {
+              json: null,
+            },
+          },
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/beta-definition",
+            scId: "BETA-DEFINITION",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Beta: ",
+                      format: {
+                        variants: ["strong"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        "Building an almost fully functional version of a tool or service, testing it in public and preparing to launch it.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Bêta :",
+                      format: {
+                        variants: ["strong"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        " Construire une version presque entièrement fonctionnelle d'un outil ou d'un service, la tester auprès du public et préparer son lancement.",
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            scId: "TRY-THE-ESTIMATOR",
+            scTitleEn: "Try the estimator",
+            scTitleFr: "Essayer l'estimateur",
+            scDestinationURLEn: null,
+            scDestinationURLFr: null,
+            scButtonType: ["gc:custom/decd-endc/button-type/primary"],
+          },
+          {
+            scId: "GIVE-FEEDBACK-OAS-ESTIMATOR",
+            scTitleEn: "Give feedback",
+            scTitleFr: "Fournir des commentaires",
+            scDestinationURLEn: null,
+            scDestinationURLFr: null,
+            scButtonType: ["gc:custom/decd-endc/button-type/secondary"],
+          },
+          {
+            scId: "SIGN-UP-FOR-RESEARCH-SESSIONS-OAS-ESTIMATOR",
+            scTitleEn: "Sign up for research sessions",
+            scTitleFr: "Inscrivez-vous à des séances de recherche",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "If you want to get more involved, fill out our sign up form to let us know you’d like to get invited to our research sessions. We’d love to hear how you think we could improve this tool!",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Si vous aimeriez vous impliquer davantage, remplissez notre formulaire d’inscription pour nous indiquer que vous aimeriez vous faire inviter à des séances de recherche. Nous aimerions savoir comment, selon vous, nous pourrions améliorer cet outil!",
+                    },
+                  ],
+                },
+              ],
+            },
+            scImageEn: null,
+            scImageFr: null,
+            scFragments: [],
+            scImageAltTextEn: null,
+            scImageAltTextFr: null,
+            scLabsButton: [
+              {
+                scId: "SIGN-UP-FOR-RESEARCH-SESSIONS-OAS-ESTIMATOR",
+                scTitleEn: "Sign up",
+                scTitleFr: "S'inscrire",
+                scDestinationURLEn: null,
+                scDestinationURLFr: null,
+                scButtonType: ["gc:custom/decd-endc/button-type/primary"],
+              },
+            ],
+          },
+        ],
+      },
+    },
+  },
+};

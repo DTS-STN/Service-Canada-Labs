@@ -20,7 +20,6 @@ describe("CallToAction", () => {
     screen.getByText(Primary.args.title);
     screen.getByText(Primary.args.description);
     screen.getByText(Primary.args.hrefText);
-    screen.getByText("privacyLinkText");
   });
 
   it("renders the html content with some text", () => {
@@ -29,7 +28,6 @@ describe("CallToAction", () => {
     screen.getByText("Title");
     screen.getByText("Text");
     screen.getByText(Secondary.args.hrefText);
-    screen.getByText("privacyLinkText");
   });
 
   it("has no accessibility violations", async () => {
