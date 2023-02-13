@@ -2,7 +2,6 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
-import { ActionButton } from "../components/atoms/ActionButton";
 import { useEffect, useState } from "react";
 import Card from "../components/molecules/Card";
 import aemServiceInstance from "../services/aemServiceInstance";
@@ -10,6 +9,7 @@ import aemServiceInstance from "../services/aemServiceInstance";
 export default function Home(props) {
   const { t } = useTranslation("common");
   const [pageData] = useState(props.pageData.item);
+  const [experimentsData] = useState(props.experimentsData);
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
@@ -111,61 +111,34 @@ export default function Home(props) {
           <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
         <section className="layout-container mb-12 mt-8">
-          <h1
-            className="font-display pb-4 text-h1xl font-bold"
-            tabIndex="-1"
-            id="pageMainTitle"
-          >
-            {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[0].content[0].value
-              : pageData.scFragments[0].scContentFr.json[0].content[0].value}
-          </h1>
-          <p className="font-body">
-            {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[1].content[0].value
-              : pageData.scFragments[0].scContentFr.json[1].content[0].value}
-          </p>
-          <div className="flex pt-8">
-            <div>
-              <h2 className="mt-4 text-h1l">
+          <div className="flex">
+            <div id="header-text">
+              <h1
+                className="font-display pb-6 text-h1xl font-bold"
+                tabIndex="-1"
+                id="pageMainTitle"
+              >
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[0].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[0].content[0]
+                      .value}
+              </h1>
+              <p className="font-body">
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[1].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[1].content[0]
+                      .value}
+              </p>
+              <p className="font-body pt-6">
                 {props.locale === "en"
                   ? pageData.scFragments[0].scContentEn.json[2].content[0].value
                   : pageData.scFragments[0].scContentFr.json[2].content[0]
                       .value}
-              </h2>
-              <div className="mb-20 lg:flex">
-                <span className="w-full">
-                  <p className="mt-4">
-                    {props.locale === "en"
-                      ? pageData.scFragments[0].scContentEn.json[3].content[0]
-                          .value
-                      : pageData.scFragments[0].scContentFr.json[3].content[0]
-                          .value}{" "}
-                  </p>
-                  <br />
-                  <span className="flex pt-2">
-                    <ActionButton
-                      className="bg-[#26374A] text-[20px]"
-                      href={
-                        props.locale === "en"
-                          ? pageData.scFragments[2].scDestinationURLEn
-                          : pageData.scFragments[2].scDestinationURLFr
-                      }
-                      text={
-                        props.locale === "en"
-                          ? pageData.scFragments[2].scTitleEn
-                          : pageData.scFragments[2].scTitleFr
-                      }
-                      id={pageData.scFragments[2].scId}
-                      dataCy="AboutButton"
-                    />
-                  </span>
-                </span>
-              </div>
+              </p>
             </div>
             <span
-              className="hidden xl:flex w-full mt-4 lg:ml-8"
-              style={{ height: "347px", width: "500px", minWidth: "500px" }}
+              className="hidden xl:flex w-full lg:ml-8"
+              style={{ height: "320px", width: "500px", minWidth: "500px" }}
               role="presentation"
             >
               <img
@@ -178,54 +151,75 @@ export default function Home(props) {
               />
             </span>
           </div>
+          <div className="mb-10 lg:flex">
+            <span className="w-full">
+              <h2 className="mt-8 mb-8 text-h1l">
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[3].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[3].content[0]
+                      .value}{" "}
+              </h2>
+              <p className="font-body">
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[4].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[4].content[0]
+                      .value}{" "}
+              </p>
+              <ul>
+                <li>
+                  <p className="font-body">
+                    {props.locale === "en"
+                      ? pageData.scFragments[0].scContentEn.json[5].content[0]
+                          .content[0].value
+                      : pageData.scFragments[0].scContentFr.json[5].content[0]
+                          .content[0].value}{" "}
+                  </p>
+                </li>
+                <li>
+                  <p className="font-body">
+                    {props.locale === "en"
+                      ? pageData.scFragments[0].scContentEn.json[5].content[1]
+                          .content[0].value
+                      : pageData.scFragments[0].scContentFr.json[5].content[1]
+                          .content[0].value}{" "}
+                  </p>
+                </li>
+              </ul>
+            </span>
+          </div>
+          <h2 className="text-h1l pb-6">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[6].content[0].value
+              : pageData.scFragments[0].scContentFr.json[6].content[0]
+                  .value}{" "}
+          </h2>
           <div className="grid lg:grid-cols-2 gap-x-8 lg:gap-y-12">
             <Card
               showImage
               imgSrc={
                 props.locale === "en"
-                  ? pageData.scFragments[3].scImageEn._publishUrl
-                  : pageData.scFragments[3].scImageFr._publishUrl
+                  ? `https://www.canada.ca${experimentsData.scSocialMediaImageEn._path}`
+                  : `https://www.canada.ca${experimentsData.scSocialMediaImageFr._path}`
               }
-              imgAlt=""
+              imgAlt={
+                props.locale === "en"
+                  ? experimentsData.scSocialMediaImageAltTextEn
+                  : experimentsData.scSocialMediaImageAltTextFr
+              }
               title={
                 props.locale === "en"
-                  ? pageData.scFragments[3].scTitleEn
-                  : pageData.scFragments[3].scTitleFr
+                  ? experimentsData.scTitleEn
+                  : experimentsData.scTitleFr
               }
               href={
                 props.locale === "en"
-                  ? pageData.scFragments[3].scLabsButton[0].scDestinationURLEn
-                  : pageData.scFragments[3].scLabsButton[0].scDestinationURLFr
+                  ? experimentsData.scPageNameEn
+                  : experimentsData.scPageNameFr
               }
               description={
                 props.locale === "en"
-                  ? pageData.scFragments[3].scContentEn.json[0].content[0].value
-                  : pageData.scFragments[3].scContentFr.json[0].content[0].value
-              }
-              btnId={pageData.scFragments[3].scLabsButton[0].scId}
-            />
-            <Card
-              showImage
-              imgSrc={
-                props.locale === "en"
-                  ? pageData.scFragments[4].scImageEn._publishUrl
-                  : pageData.scFragments[4].scImageFr._publishUrl
-              }
-              imgAlt=""
-              title={
-                props.locale === "en"
-                  ? pageData.scFragments[4].scTitleEn
-                  : pageData.scFragments[4].scTitleFr
-              }
-              href={
-                props.locale === "en"
-                  ? pageData.scFragments[4].scLabsButton[0].scDestinationURLEn
-                  : pageData.scFragments[4].scLabsButton[0].scDestinationURLFr
-              }
-              description={
-                props.locale === "en"
-                  ? pageData.scFragments[4].scContentEn.json[0].content[0].value
-                  : pageData.scFragments[4].scContentFr.json[0].content[0].value
+                  ? experimentsData.scDescriptionEn.json[0].content[0].value
+                  : experimentsData.scDescriptionFr.json[0].content[0].value
               }
             />
           </div>
@@ -241,13 +235,20 @@ export default function Home(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  const { data } = await aemServiceInstance.getFragment("homePageQuery");
+  const { data: pageData } = await aemServiceInstance.getFragment(
+    "homePageQuery"
+  );
+  const { data: experimentsData } = await aemServiceInstance.getFragment(
+    "projectQuery"
+  );
+  console.log(experimentsData.scLabsPagev1List.items[2]);
 
   return {
     props: {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
-      pageData: data.scLabsPagev1ByPath,
+      pageData: pageData.scLabsPagev1ByPath,
+      experimentsData: experimentsData.scLabsPagev1List.items[2],
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };
