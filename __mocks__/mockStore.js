@@ -1642,49 +1642,28 @@ export const signupInfoPageData = {
 
 export const homePageData = {
   data: {
-    sCLabsPageByPath: {
+    scLabsPagev1ByPath: {
       item: {
-        scId: "sclabs-homepage",
-        scPageNameEn: "/home",
+        scId: "SCLABS-HOME-PAGE",
+        scPageNameEn: "/en/home",
         scPageNameFr: "/fr/accueil",
-        scTitleEn: "Your feedback can shape tomorrow’s services",
-        scTitleFr: null,
-        scShortTitleEn: "Home - Service Canada Labs",
-        scShortTitleFr: "Accueil - Laboratoires de Service Canada",
+        scTitleEn: "Service Canada Labs",
+        scTitleFr: "Laboratoires de Service Canada",
+        scShortTitleEn: null,
+        scShortTitleFr: null,
         scDescriptionEn: {
-          json: [
-            {
-              nodeType: "paragraph",
-              content: [
-                {
-                  nodeType: "text",
-                  value:
-                    "An early look at what Service Canada is up to. Explore our projects. Share your feedback. Sign-up to get notified of ways to support the future of digital government.",
-                },
-              ],
-            },
-          ],
+          json: null,
         },
         scDescriptionFr: {
-          json: [
-            {
-              nodeType: "paragraph",
-              content: [
-                {
-                  nodeType: "text",
-                  value:
-                    "Un aperçu des activités de Service Canada. Explorez nos projets. Faites-nous part de vos commentaires. Inscrivez-vous pour être informé des façons de soutenir l'avenir du gouvernement numérique.",
-                },
-              ],
-            },
-          ],
+          json: null,
         },
+        scBreadcrumbParentPages: [],
         scSubject: null,
-        scKeywordsEn: "digital services",
-        scKeywordsFr: "services numériques",
+        scKeywordsEn: null,
+        scKeywordsFr: null,
         scContentType: null,
         scOwner: null,
-        scDateModifiedOverwrite: "2022-06-27",
+        scDateModifiedOverwrite: "2022-12-12",
         scAudience: null,
         scRegion: null,
         scSocialMediaImageEn: null,
@@ -1696,8 +1675,8 @@ export const homePageData = {
         scFragments: [
           {
             _path:
-              "/content/dam/decd-endc/content-fragments/alpha/dev/sclabs/components/content/home---main-content",
-            scId: "HOME-MAIN-CONTENT",
+              "/content/dam/decd-endc/content-fragments/sclabs/components/content/home---main-content",
+            scId: "SCLABS-HOMEPAGE-MAIN-CONTENT",
             scContentEn: {
               json: [
                 {
@@ -1718,9 +1697,15 @@ export const homePageData = {
                       value:
                         "Help us make government digital services simple and easy to use.",
                     },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
                     {
-                      nodeType: "line-break",
-                      content: [],
+                      nodeType: "text",
+                      value:
+                        "Service Canada Labs is an experimental corner of Canada.ca where we work on new ways of serving you. Here, you can explore projects in their early stages and help us improve them. We might even stop working on some ideas if we learn they’re not adding value and not meeting people’s needs. ",
                     },
                   ],
                 },
@@ -1730,7 +1715,7 @@ export const homePageData = {
                   content: [
                     {
                       nodeType: "text",
-                      value: "Your feedback can shape tomorrow’s services.",
+                      value: "Your feedback can shape tomorrow’s services",
                     },
                   ],
                 },
@@ -1739,8 +1724,40 @@ export const homePageData = {
                   content: [
                     {
                       nodeType: "text",
-                      value:
-                        "Service Canada Labs is an experimental corner of Canada.ca. Here, you can explore projects in their early stages and help us improve them. We might even stop working on some ideas if we learn they are not adding value and not meeting people’s needs.",
+                      value: "Here is how you can help:",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "try out our projects",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "give your feedback",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Explore our projects",
                     },
                   ],
                 },
@@ -1754,7 +1771,7 @@ export const homePageData = {
                   content: [
                     {
                       nodeType: "text",
-                      value: "Service Canada Labs(FR)",
+                      value: "Laboratoires de Service Canada",
                     },
                   ],
                 },
@@ -1764,11 +1781,17 @@ export const homePageData = {
                     {
                       nodeType: "text",
                       value:
-                        "Help us make government digital services simple and easy to use. (FR)",
+                        "Aidez-nous à rendre les services numériques gouvernementaux plus simples et faciles à utiliser.",
                     },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
                     {
-                      nodeType: "line-break",
-                      content: [],
+                      nodeType: "text",
+                      value:
+                        "Les laboratoires de Service Canada sont un espace expérimental de Canada.ca où nous travaillons sur de nouvelles façons de vous servir. Vous pouvez y explorer des projets à leur stade initial et nous aider à les améliorer. Nous pourrions cesser de travailler sur certaines idées si nous découvrons qu'elles n'apportent pas de valeur ajoutée et ne répondent pas aux besoins des gens.",
                     },
                   ],
                 },
@@ -1779,7 +1802,7 @@ export const homePageData = {
                     {
                       nodeType: "text",
                       value:
-                        "Your feedback can shape tomorrow’s services. (FR)",
+                        "Vos commentaires peuvent façonner les services de demain",
                     },
                   ],
                 },
@@ -1788,8 +1811,40 @@ export const homePageData = {
                   content: [
                     {
                       nodeType: "text",
-                      value:
-                        "Service Canada Labs is an experimental corner of Canada.ca. Here, you can explore projects in their early stages and help us improve them. We might even stop working on some ideas if we learn they are not adding value and not meeting people’s needs. (FR)",
+                      value: "Comment participer :",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "unordered-list",
+                  content: [
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "essayer nos projets",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "list-item",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "donner vos commentaires",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Explorez nos projets",
                     },
                   ],
                 },
@@ -1797,38 +1852,34 @@ export const homePageData = {
             },
           },
           {
-            scId: "HOMEPAGE-MAIN-IMAGE",
+            scId: "SCLABS-HOMEPAGE-IMAGE",
             scImageEn: {
               _publishUrl:
                 "https://www.canada.ca/content/dam/decd-endc/images/sclabs/homePage_image1.png",
-              width: 452,
-              height: 316,
+              width: 2932,
+              height: 2078,
             },
             scImageFr: {
               _publishUrl:
                 "https://www.canada.ca/content/dam/decd-endc/images/sclabs/homePage_image1.png",
-              width: 452,
-              height: 316,
+              width: 2932,
+              height: 2078,
             },
             scImageMobileEn: null,
             scImageMobileFr: null,
-            scImageAltTextEn: "Placeholder",
-            scImageAltTextFr: "Placeholder(FR)",
-            scImageCaptionEn: null,
-            scImageCaptionFr: null,
+            scImageAltTextEn: null,
+            scImageAltTextFr: null,
+            scImageCaptionEn: {
+              json: null,
+            },
+            scImageCaptionFr: {
+              json: null,
+            },
           },
           {
-            scId: "sclabs-homepage-button-about",
-            scTitleEn: "About Service Canada Labs",
-            scTitleFr: null,
-            scDestinationURLEn: "/about",
-            scDestinationURLFr: "/fr/a-propos",
-            scButtonType: null,
-          },
-          {
-            scId: "HOMEPAGE-VIEW-PROJECTS",
-            scTitleEn: "Try out current projects",
-            scTitleFr: null,
+            scId: "SITE-FEATURES-WORKS-IN-PROGRESS",
+            scTitleEn: "This site features works in progress",
+            scTitleFr: "Ce site présente des travaux en cours",
             scContentEn: {
               json: [
                 {
@@ -1837,132 +1888,447 @@ export const homePageData = {
                     {
                       nodeType: "text",
                       value:
-                        "Explore projects that are works in progress and let us know what you think by sharing anonymous feedback.",
-                    },
-                  ],
-                },
-              ],
-            },
-            scContentFr: {
-              json: [
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "Explore projects that are works in progress and let us know what you think by sharing anonymous feedback. (FR)",
-                    },
-                  ],
-                },
-              ],
-            },
-            scImageEn: {
-              _publishUrl:
-                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/homePage_image2.png",
-              width: 547,
-              height: 326,
-            },
-            scImageFr: {
-              _publishUrl:
-                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/homePage_image2.png",
-              width: 547,
-              height: 326,
-            },
-            scImageAltTextEn: "Placeholder",
-            scImageAltTextFr: "Placeholder(FR)",
-            scLabsButton: [
-              {
-                scId: "sclabs-homepage-button-projects",
-                scTitleEn: "View projects",
-                scTitleFr: null,
-                scDestinationURLEn: "/projects",
-                scDestinationURLFr: "/fr/projets",
-                scButtonType: null,
-              },
-            ],
-          },
-          {
-            scId: "SIGN-UP-TO-GET-INVITED-TO-RESEARCH-SESSIONS",
-            scTitleEn: "Sign up to participate in user research",
-            scTitleFr:
-              "Inscrivez-vous pour être invité aux séances de recherche",
-            scContentEn: {
-              json: [
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "Receive invitations to fill out quick surveys or take part in user research sessions. Participation is always voluntary and you can opt out at any time.",
-                    },
-                  ],
-                },
-              ],
-            },
-            scContentFr: {
-              json: [
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "Nous vous invitons à analyser nos idées expérimentales et à participer à des entretiens de recherche afin d’améliorer Service Canada au bénéfice de tous. Chaque commentaire nous aide à nous assurer que nos services sont simples et faciles à utiliser.",
-                    },
-                  ],
-                },
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "Votre participation n’aura aucune conséquence sur votre accès aux services gouvernementaux. Vous pouvez vous ",
+                        "You can't actually apply for benefits or services through this experimental website. To apply for benefits and services, visit ",
                     },
                     {
                       nodeType: "link",
                       data: {
-                        href: "https://alpha.service.canada.ca/fr/desabonnement",
+                        href: "https://www.canada.ca/en/employment-social-development/corporate/portfolio/service-canada.html",
                       },
-                      value: "désabonner",
+                      value: "Service Canada",
                     },
                     {
                       nodeType: "text",
-                      value: " à tout moment.",
+                      value: ".",
                     },
                   ],
                 },
               ],
             },
-            scImageEn: {
-              _publishUrl:
-                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/homePage_image3.png",
-              width: 549,
-              height: 326,
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Vous ne pouvez pas demander des services ou des prestations ici. Pour demander des prestations ou des services, visitez le site de ",
+                    },
+                    {
+                      nodeType: "link",
+                      data: {
+                        href: "https://www.canada.ca/fr/emploi-developpement-social/ministere/portefeuille/service-canada.html",
+                      },
+                      value: "Service Canada",
+                    },
+                    {
+                      nodeType: "text",
+                      value: ".",
+                    },
+                  ],
+                },
+              ],
             },
-            scImageFr: {
-              _publishUrl:
-                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/homePage_image3.png",
-              width: 549,
-              height: 326,
-            },
-            scImageAltTextEn: "Placeholder",
-            scImageAltTextFr: "Placeholder(FR)",
-            scLabsButton: [
-              {
-                scId: "sclabs-homepage-button-signup",
-                scTitleEn: "Sign up to participate in user research",
-                scTitleFr: null,
-                scDestinationURLEn: "/signup-info",
-                scDestinationURLFr: "/fr/inscription-info",
-                scButtonType: null,
-              },
-            ],
           },
         ],
       },
+    },
+  },
+};
+
+export const experimentsData = {
+  data: {
+    scLabsPagev1List: {
+      items: [
+        {
+          _path:
+            "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/digital-centre",
+          scId: "SCLABS-DIGITAL-CENTRE",
+          scTitleEn: "Service Canada Digital Centre Overview",
+          scTitleFr: "Aperçu du Centre numérique de Service Canada",
+          scPageNameEn: "/en/projects/digital-centre",
+          scPageNameFr: "/fr/projets/centre-numerique",
+          scBreadcrumbParentPages: [
+            {
+              scTitleEn: "Service Canada Labs",
+              scTitleFr: "Laboratoires de Service Canada",
+              scPageNameEn: "/en/home",
+              scPageNameFr: "/fr/accueil",
+            },
+            {
+              scTitleEn: "Explore our projects",
+              scTitleFr: "Explorer nos projets",
+              scPageNameEn: "/en/projects",
+              scPageNameFr: "/fr/projets",
+            },
+          ],
+          scShortTitleEn: null,
+          scShortTitleFr: null,
+          scDescriptionEn: {
+            json: [
+              {
+                nodeType: "paragraph",
+                content: [
+                  {
+                    nodeType: "text",
+                    value:
+                      "Our service will allow you to discover and manage your benefits. You will be able to use it while you are logged in or not. By sharing your preferences with our staff, you will only need to tell us who you are and what you need once.",
+                  },
+                ],
+              },
+            ],
+          },
+          scDescriptionFr: {
+            json: [
+              {
+                nodeType: "paragraph",
+                content: [
+                  {
+                    nodeType: "text",
+                    value:
+                      "Notre service vous permettra de découvrir et gérer vos prestations. Vous pourrez l'utiliser en y étant connecté ou pas. En partageant vos préférences avec notre personnel, vous n'aurez à nous dire qu'une seule fois qui vous êtes et vos besoins.",
+                  },
+                ],
+              },
+            ],
+          },
+          scSubject: null,
+          scKeywordsEn: null,
+          scKeywordsFr: null,
+          scContentType: null,
+          scOwner: null,
+          scDateModifiedOverwrite: "2022-12-06",
+          scAudience: null,
+          scRegion: null,
+          scSocialMediaImageEn: {
+            _path:
+              "/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/overview.jpg",
+            width: 2018,
+          },
+          scSocialMediaImageFr: {
+            _path:
+              "/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/overview.jpg",
+            width: 2018,
+          },
+          scSocialMediaImageAltTextEn: "oas benefits estimator",
+          scSocialMediaImageAltTextFr: "estimateur des prestations de la sv",
+          scNoIndex: false,
+          scNoFollow: false,
+          scFragments: [],
+          scLabProjectStatus: ["gc:custom/decd-endc/project-status/upcoming"],
+          scLabProjectStage: [""],
+          scDateStarted: "2023-01-16",
+          scDatePaused: "2023-01-16",
+          scDateEnded: "2023-01-16",
+          scLabProjectSummaryEn: {
+            json: null,
+          },
+          scLabProjectSummaryFr: {
+            json: null,
+          },
+        },
+        {
+          _path:
+            "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/having-a-child",
+          scId: "SCLABS-HAVING-A-CHILD",
+          scTitleEn: "Having a Child",
+          scTitleFr: "Avoir un enfant",
+          scPageNameEn: "/en/projects/life-journeys",
+          scPageNameFr: "/fr/projects/life-journeys",
+          scBreadcrumbParentPages: [
+            {
+              scTitleEn: "Service Canada Labs",
+              scTitleFr: "Laboratoires de Service Canada",
+              scPageNameEn: "/en/home",
+              scPageNameFr: "/fr/accueil",
+            },
+            {
+              scTitleEn: "Explore our projects",
+              scTitleFr: "Explorer nos projets",
+              scPageNameEn: "/en/projects",
+              scPageNameFr: "/fr/projets",
+            },
+          ],
+          scShortTitleEn: "Having a Child",
+          scShortTitleFr: "Avoir un enfant",
+          scDescriptionEn: {
+            json: [
+              {
+                nodeType: "paragraph",
+                content: [
+                  {
+                    nodeType: "text",
+                    value:
+                      "Major life events like having a baby can be complicated because there are so many things to know. Our service supports you by connecting you to guidance to help you make the right decision for you. Come explore this early version of our New Child Journey Information Service.",
+                  },
+                ],
+              },
+            ],
+          },
+          scDescriptionFr: {
+            json: [
+              {
+                nodeType: "paragraph",
+                content: [
+                  {
+                    nodeType: "text",
+                    value:
+                      "Les événements importants de la vie, comme avoir un bébé, peuvent être compliqués car il y a plusieurs choses à savoir. Notre service vous aide en mettant à votre disposition des conseils pour vous aider à prendre les bonnes décisions pour vous. Venez explorer cette première version du service d'information sur le parcours de l'arrivée d'un nouvel enfant.",
+                  },
+                ],
+              },
+            ],
+          },
+          scSubject: null,
+          scKeywordsEn: null,
+          scKeywordsFr: null,
+          scContentType: null,
+          scOwner: null,
+          scDateModifiedOverwrite: "2022-12-06",
+          scAudience: null,
+          scRegion: null,
+          scSocialMediaImageEn: {
+            _path:
+              "/content/dam/decd-endc/images/sclabs/life-journeys/having-a-child-baby.jpg",
+            width: 1740,
+          },
+          scSocialMediaImageFr: {
+            _path:
+              "/content/dam/decd-endc/images/sclabs/life-journeys/having-a-child-baby.jpg",
+            width: 1740,
+          },
+          scSocialMediaImageAltTextEn: "having a child life journey",
+          scSocialMediaImageAltTextFr: "parcours de vie d'avoir un enfant",
+          scNoIndex: false,
+          scNoFollow: false,
+          scFragments: [],
+          scLabProjectStatus: ["gc:custom/decd-endc/project-status/past"],
+          scLabProjectStage: [""],
+          scDateStarted: "2023-01-16",
+          scDatePaused: "2023-01-16",
+          scDateEnded: "2023-01-16",
+          scLabProjectSummaryEn: {
+            json: null,
+          },
+          scLabProjectSummaryFr: {
+            json: null,
+          },
+        },
+        {
+          _path:
+            "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/oas-benefits-estimator/overview",
+          scId: "OAS-BENEFITS-ESTIMATOR-OVERVIEW",
+          scTitleEn: "Old Age Security Benefits Estimator",
+          scTitleFr:
+            "Estimateur des prestations de la Sécurité de la vieillesse",
+          scPageNameEn: "/en/projects/oas-benefits-estimator",
+          scPageNameFr: "/fr/projets/estimateur-prestations-sv",
+          scBreadcrumbParentPages: [
+            {
+              scTitleEn: "Service Canada Labs",
+              scTitleFr: "Laboratoires de Service Canada",
+              scPageNameEn: "/en/home",
+              scPageNameFr: "/fr/accueil",
+            },
+          ],
+          scShortTitleEn: null,
+          scShortTitleFr: null,
+          scDescriptionEn: {
+            json: [
+              {
+                nodeType: "paragraph",
+                content: [
+                  {
+                    nodeType: "text",
+                    value:
+                      "Whether you’re about to retire or preparing for the future, this tool helps you understand and navigate Old Age Security benefits.",
+                  },
+                ],
+              },
+            ],
+          },
+          scDescriptionFr: {
+            json: [
+              {
+                nodeType: "paragraph",
+                content: [
+                  {
+                    nodeType: "text",
+                    value:
+                      "Si vous prenez bientôt votre retraite ou si vous vous préparez pour l'avenir, cet outil vous aide à comprendre les prestations de la Sécurité de la vieillesse et à mieux vous y orienter.",
+                  },
+                ],
+              },
+            ],
+          },
+          scSubject: null,
+          scKeywordsEn: null,
+          scKeywordsFr: null,
+          scContentType: null,
+          scOwner: null,
+          scDateModifiedOverwrite: "2023-01-19",
+          scAudience: null,
+          scRegion: null,
+          scSocialMediaImageEn: {
+            _path:
+              "/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/overview.jpg",
+            width: 2018,
+          },
+          scSocialMediaImageFr: {
+            _path:
+              "/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/overview.jpg",
+            width: 2018,
+          },
+          scSocialMediaImageAltTextEn:
+            "Shows a piggy bank, a calculator, a pen and a pencil",
+          scSocialMediaImageAltTextFr:
+            "Montre une tirelire, une calculatrice, un stylo et un crayon",
+          scNoIndex: false,
+          scNoFollow: false,
+          scFragments: [],
+          scLabProjectStatus: ["gc:custom/decd-endc/project-status/current"],
+          scLabProjectStage: ["gc:custom/decd-endc/project-stage/beta"],
+          scDateStarted: "2021-09-30",
+          scDatePaused: "2023-02-08",
+          scDateEnded: "2023-02-08",
+          scLabProjectSummaryEn: {
+            json: [
+              {
+                nodeType: "paragraph",
+                content: [
+                  {
+                    nodeType: "text",
+                    value:
+                      "We’re gathering feedback on the estimator to make it as useful as possible for Canadian seniors. ",
+                  },
+                ],
+              },
+            ],
+          },
+          scLabProjectSummaryFr: {
+            json: [
+              {
+                nodeType: "paragraph",
+                content: [
+                  {
+                    nodeType: "text",
+                    value:
+                      "Nous recueillons des commentaires sur l'estimateur afin de le rendre aussi utile que possible pour les aînés canadiens.",
+                  },
+                ],
+              },
+            ],
+          },
+        },
+        {
+          _path:
+            "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/virtual-assistant/overview",
+          scId: "VIRTUAL-ASSISTANT-OVERVIEW",
+          scTitleEn: "Virtual Assistant",
+          scTitleFr: "Assistant virtuel",
+          scPageNameEn: "/en/projects/virtual-assistant",
+          scPageNameFr: "/fr/projets/assistant-virtuel",
+          scBreadcrumbParentPages: [
+            {
+              scTitleEn: "Service Canada Labs",
+              scTitleFr: "Laboratoires de Service Canada",
+              scPageNameEn: "/en/home",
+              scPageNameFr: "/fr/accueil",
+            },
+            {
+              scTitleEn: "Explore our projects",
+              scTitleFr: "Explorer nos projets",
+              scPageNameEn: "/en/projects",
+              scPageNameFr: "/fr/projets",
+            },
+          ],
+          scShortTitleEn: null,
+          scShortTitleFr: null,
+          scDescriptionEn: {
+            json: [
+              {
+                nodeType: "paragraph",
+                content: [
+                  {
+                    nodeType: "text",
+                    value:
+                      "The Service Canada Virtual Assistant is a conversational chatbot. It is designed to help you overcome common obstacles you may face when applying for a benefit.",
+                  },
+                ],
+              },
+            ],
+          },
+          scDescriptionFr: {
+            json: [
+              {
+                nodeType: "paragraph",
+                content: [
+                  {
+                    nodeType: "text",
+                    value:
+                      "L'assistant virtuel de Service Canada est un robot conversationnel. Il est conçu pour vous aider à surmonter les obstacles fréquents que vous pourriez rencontrer lorsque vous faites une demande de prestations.",
+                  },
+                ],
+              },
+            ],
+          },
+          scSubject: null,
+          scKeywordsEn: null,
+          scKeywordsFr: null,
+          scContentType: null,
+          scOwner: null,
+          scDateModifiedOverwrite: "2022-12-06",
+          scAudience: null,
+          scRegion: null,
+          scSocialMediaImageEn: {
+            _path: "/content/dam/decd-endc/images/sclabs/virtual-assistant.png",
+            width: 1950,
+          },
+          scSocialMediaImageFr: {
+            _path: "/content/dam/decd-endc/images/sclabs/virtual-assistant.png",
+            width: 1950,
+          },
+          scSocialMediaImageAltTextEn: "virtual concierge",
+          scSocialMediaImageAltTextFr: "concierge virtuel",
+          scNoIndex: false,
+          scNoFollow: false,
+          scFragments: [],
+          scLabProjectStatus: ["gc:custom/decd-endc/project-status/past"],
+          scLabProjectStage: ["gc:custom/decd-endc/project-stage/alpha"],
+          scDateStarted: "2021-12-29",
+          scDatePaused: "2022-03-28",
+          scDateEnded: "2022-12-18",
+          scLabProjectSummaryEn: {
+            json: [
+              {
+                nodeType: "paragraph",
+                content: [
+                  {
+                    nodeType: "text",
+                    value:
+                      "We've paused work on the Virtual Assistant due to lack of funding and resources needed to address significant technical barriers to implementation.",
+                  },
+                ],
+              },
+            ],
+          },
+          scLabProjectSummaryFr: {
+            json: [
+              {
+                nodeType: "paragraph",
+                content: [
+                  {
+                    nodeType: "text",
+                    value:
+                      "Nous avons interrompu le travail sur l'assistant virtuel en raison du manque de financement et de ressources nécessaires pour surmonter les importants obstacles techniques à la mise en œuvre.",
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
     },
   },
 };
