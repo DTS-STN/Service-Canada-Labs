@@ -1,19 +1,136 @@
 query getAllProjects {
-  sCLabsProjectList {
+  scLabsPagev1List(filter: {
+    scLabProjectStatus: {
+      _logOp: OR
+      _expressions: [
+          {
+              value: "gc:custom/decd-endc/project-status/past"
+          },
+          {
+              value: "gc:custom/decd-endc/project-status/current"
+          },
+          {
+              value: "gc:custom/decd-endc/project-status/upcoming"
+          },
+
+      ]
+    }
+  }) {
     items {
       _path
       scId
       scTitleEn
       scTitleFr
-      scDestinationURLEn
-      scDestinationURLFr
-      scContentEn {
-        json
+      scPageNameEn
+      scPageNameFr
+      scBreadcrumbParentPages {
+          scTitleEn
+          scTitleFr
+          scPageNameEn
+          scPageNameFr
       }
-      scContentFr {
-        json
+      scShortTitleEn
+      scShortTitleFr
+      scDescriptionEn {
+          json
+      }
+      scDescriptionFr {
+          json
+      }
+      scSubject
+      scKeywordsEn
+      scKeywordsFr
+      scContentType
+      scOwner
+      scDateModifiedOverwrite
+      scAudience
+      scRegion
+      scSocialMediaImageEn {
+        ... on ImageRef {
+          _path
+          width
+        }
+        ... on MultimediaRef {
+          _path
+          size
+        }
+      }
+      scSocialMediaImageFr {
+        ... on ImageRef {
+          _path
+          width
+        }
+        ... on MultimediaRef {
+          _path
+          size
+        }          
+      }
+      scSocialMediaImageAltTextEn
+      scSocialMediaImageAltTextFr
+      scNoIndex
+      scNoFollow
+      scFragments {
+        ... on SCLabsContentModel {
+          _path
+          scId
+          scContentEn {
+            json
+          }
+          scContentFr {
+            json
+          }
+        }
+        ... on SCLabsImageModel {
+          scId
+          scImageEn {
+            ... on ImageRef {
+              _path
+            }
+            ... on DocumentRef {
+              _path
+            }
+          }
+          scImageFr {
+            ... on ImageRef {
+              _path
+            }
+            ... on DocumentRef {
+              _path
+            }
+          }
+          scImageMobileEn {
+            ... on ImageRef {
+              _path
+            }
+            ... on DocumentRef {
+              _path
+            }
+          }
+          scImageMobileFr {
+            ... on ImageRef {
+              _path
+            }
+            ... on DocumentRef {
+              _path
+            }
+          }
+          scImageAltTextEn
+          scImageAltTextFr
+          scImageCaptionEn
+          scImageCaptionFr
+        }
       }
       scLabProjectStatus
+      scLabProjectStage
+      scDateStarted
+      scDatePaused
+      scDateEnded
+      scLabProjectSummaryEn {
+          json
+      }
+      scLabProjectSummaryFr {
+          json
+      }
     }
   }
 }
