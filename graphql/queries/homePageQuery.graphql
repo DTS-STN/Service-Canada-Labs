@@ -167,6 +167,17 @@ query getHomePage {
             scButtonType
           }
         }
+        ... on SCLabsAlertv1Model {
+          scId
+          scTitleEn
+          scTitleFr
+          scContentEn {
+            json
+          }
+          scContentFr {
+            json
+          }
+        }
       }
     }
   }
