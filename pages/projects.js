@@ -200,7 +200,7 @@ export default function Projects(props) {
               />
             </span>
           </div>
-          <h2 className="mt-8">
+          <h2 className="mt-8 lg:mt-0">
             {props.locale === "en"
               ? pageData.scFragments[1].scContentEn.json[0].content[0].value
               : pageData.scFragments[1].scContentFr.json[0].content[0].value}
@@ -292,20 +292,29 @@ export default function Projects(props) {
                       : "past_projects"
                   )}
                   description={
+                    // Use description from metadata on page model
                     props.locale === "en"
-                      ? experiment.scContentEn.json[0].content[0].value
-                      : experiment.scContentFr.json[0].content[0].value
+                      ? experiment.scDescriptionEn.json[0].content[0].value
+                      : experiment.scDescriptionFr.json[0].content[0].value
                   }
                   href={
                     props.locale === "en"
-                      ? experiment.scDestinationURLEn
-                      : experiment.scDestinationURLFr
+                      ? experiment.scPageNameEn
+                      : experiment.scPageNameFr
                   }
                   dataTestId={`${experiment.scId}`}
                   dataCy={`${experiment.scId}`}
-                  imgSrc="/placeholder.png"
+                  imgSrc={
+                    props.locale === "en"
+                      ? `https://www.canada.ca${experiment.scSocialMediaImageEn._path}`
+                      : `https://www.canada.ca${experiment.scSocialMediaImageFr._path}`
+                  }
                   //Eventually this alt text will change as we provide unique images for each project
-                  imgAlt="placeholder"
+                  imgAlt={
+                    props.locale === "en"
+                      ? experiment.scSocialMediaImageAltTextEn
+                      : experiment.scSocialMediaImageAltTextFr
+                  }
                   //Manually entered width and height for now, will eventually take these values from AEM image data
                   icon={pageData.scFragments[2].scImageEn._publishUrl}
                   iconAlt={
@@ -365,7 +374,7 @@ export const getStaticProps = async ({ locale }) => {
     "projectsPageQuery"
   );
   const filters = Object.values(
-    experimentsData.sCLabsProjectList.items.reduce(
+    experimentsData.scLabsPagev1List.items.reduce(
       (filters, { scLabProjectStatus }) => {
         if (!filters[scLabProjectStatus]) {
           filters[scLabProjectStatus] = {
@@ -398,7 +407,7 @@ export const getStaticProps = async ({ locale }) => {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       ...(await serverSideTranslations(locale, ["common"])),
-      experimentData: experimentsData.sCLabsProjectList,
+      experimentData: experimentsData.scLabsPagev1List,
       pageData: pageData.scLabsPagev1ByPath,
       filters,
     },
