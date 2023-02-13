@@ -1,27 +1,106 @@
 query getProjectUpdates {
-  sCLabsProjectUpdateList {
-    items {
-      _path
+  scLabsPagev1ByPath(
+    _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/virtual-assistant/project-updates/what-we-learned-building-the-service-canada-virtual-assistant"
+  ) {
+    item {
       scId
+      scPageNameEn
+      scPageNameFr
       scTitleEn
       scTitleFr
-      datePosted
-      scProject
-      scProjectPhase
+      scShortTitleEn
+      scShortTitleFr
       scDescriptionEn {
         json
       }
       scDescriptionFr {
         json
       }
+      scBreadcrumbParentPages {
+        ... on SCLabsPagev1Model {
+          scPageNameEn
+          scPageNameFr
+        }
+      }
+      scSubject
+      scKeywordsEn
+      scKeywordsFr
+      scContentType
+      scOwner
+      scDateModifiedOverwrite
+      scAudience
+      scRegion
+      scSocialMediaImageEn {
+        ... on ImageRef {
+          _path
+        }
+        ... on DocumentRef {
+          _path
+        }
+      }
+      scSocialMediaImageFr {
+        ... on ImageRef {
+          _path
+        }
+        ... on DocumentRef {
+          _path
+        }
+      }
+      scSocialMediaImageAltTextEn
+      scSocialMediaImageAltTextFr
+      scNoIndex
+      scNoFollow
       scFragments {
-        ... on SCLabsButtonv1Model {
+        ... on SCLabsContentv1Model {
+          _path
+          scId
+          scContentEn {
+            json
+          }
+          scContentFr {
+            json
+          }
+        }
+        ... on SCLabsFeaturev1Model {
           scId
           scTitleEn
           scTitleFr
-          scDestinationURLEn
-          scDestinationURLFr
-          scButtonType
+          scContentEn {
+            json
+          }
+          scContentFr {
+            json
+          }
+          scImageEn {
+            ... on ImageRef {
+              _publishUrl
+              width
+              height
+            }
+            ... on DocumentRef {
+              _publishUrl
+            }
+          }
+          scImageFr {
+            ... on ImageRef {
+              _publishUrl
+              width
+              height
+            }
+            ... on DocumentRef {
+              _publishUrl
+            }
+          }
+          scImageAltTextEn
+          scImageAltTextFr
+          scLabsButton {
+            scId
+            scTitleEn
+            scTitleFr
+            scDestinationURLEn
+            scDestinationURLFr
+            scButtonType
+          }
         }
       }
     }

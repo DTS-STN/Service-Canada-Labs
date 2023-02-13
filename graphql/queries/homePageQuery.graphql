@@ -1,6 +1,6 @@
 query getHomePage {
   scLabsPagev1ByPath(
-    _path: "/content/dam/decd-endc/content-fragments/alpha/sclabs/pages/home-page"
+    _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/home-page"
   ) {
     item {
       scId
@@ -15,6 +15,14 @@ query getHomePage {
       }
       scDescriptionFr {
         json
+      }
+      scBreadcrumbParentPages {
+        ... on SCLabsPagev1Model {
+          scTitleEn
+          scTitleFr
+          scPageNameEn
+          scPageNameFr
+        }
       }
       scSubject
       scKeywordsEn
@@ -157,6 +165,17 @@ query getHomePage {
             scDestinationURLEn
             scDestinationURLFr
             scButtonType
+          }
+        }
+        ... on SCLabsAlertv1Model {
+          scId
+          scTitleEn
+          scTitleFr
+          scContentEn {
+            json
+          }
+          scContentFr {
+            json
           }
         }
       }

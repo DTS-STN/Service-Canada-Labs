@@ -49,8 +49,26 @@ export default function DigitalCenter(props) {
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
         breadcrumbItems={[
-          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
-          { text: t("menuLink1"), link: t("breadCrumbsHref2") },
+          {
+            text:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[0].scTitleEn
+                : pageData.scBreadcrumbParentPages[0].scTitleFr,
+            link:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[0].scPageNameEn
+                : pageData.scBreadcrumbParentPages[0].scPageNameFr,
+          },
+          {
+            text:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[1].scTitleEn
+                : pageData.scBreadcrumbParentPages[1].scTitleFr,
+            link:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[1].scPageNameEn
+                : pageData.scBreadcrumbParentPages[1].scPageNameFr,
+          },
         ]}
         projectName={t("dc:OverviewTitle")}
       >
@@ -809,12 +827,32 @@ export default function DigitalCenter(props) {
         </section>
 
         <CallToAction
-          title={t("signupHomeButton")}
-          description={t("signupBannerDescription")}
-          disclaimer={t("signupBannerDisclaimer")}
+          title={
+            props.locale === "en"
+              ? pageData.scFragments[22].scTitleEn
+              : pageData.scFragments[22].scTitleFr
+          }
+          description={
+            props.locale === "en"
+              ? pageData.scFragments[22].scContentEn.json[0].content[0].value
+              : pageData.scFragments[22].scContentFr.json[0].content[0].value
+          }
+          disclaimer={
+            props.locale === "en"
+              ? pageData.scFragments[22].scContentEn.json[1].content[0].value
+              : pageData.scFragments[22].scContentFr.json[1].content[0].value
+          }
           lang={props.locale}
-          href={t("signupInfoRedirect")}
-          hrefText={t("signupBannerBtnText")}
+          href={
+            props.locale === "en"
+              ? pageData.scFragments[22].scLabsButton[0].scDestinationURLEn
+              : pageData.scFragments[22].scLabsButton[0].scDestinationURLFr
+          }
+          hrefText={
+            props.locale === "en"
+              ? pageData.scFragments[22].scLabsButton[0].scTitleEn
+              : pageData.scFragments[22].scLabsButton[0].scTitleFr
+          }
         />
       </Layout>
       {props.adobeAnalyticsUrl ? (
@@ -831,7 +869,7 @@ export const getStaticProps = async ({ locale }) => {
   return {
     props: {
       locale: locale,
-      pageData: data.sCLabsPageByPath,
+      pageData: data.scLabsPagev1ByPath,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       ...(await serverSideTranslations(locale, ["common"])),
     },

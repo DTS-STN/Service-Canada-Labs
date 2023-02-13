@@ -56,7 +56,16 @@ export default function Projects(props) {
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
         breadcrumbItems={[
-          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
+          {
+            text:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[0].scTitleEn
+                : pageData.scBreadcrumbParentPages[0].scTitleFr,
+            link:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[0].scPageNameEn
+                : pageData.scBreadcrumbParentPages[0].scPageNameFr,
+          },
         ]}
       >
         <Head>
@@ -191,7 +200,7 @@ export default function Projects(props) {
               />
             </span>
           </div>
-          <h2 className="mt-8">
+          <h2 className="mt-8 lg:mt-0">
             {props.locale === "en"
               ? pageData.scFragments[1].scContentEn.json[0].content[0].value
               : pageData.scFragments[1].scContentFr.json[0].content[0].value}
@@ -199,38 +208,38 @@ export default function Projects(props) {
           <Alert
             title={
               props.locale === "en"
-                ? pageData.scFragments[4].scTitleEn
-                : pageData.scFragments[4].scTitleFr
+                ? pageData.scFragments[3].scTitleEn
+                : pageData.scFragments[3].scTitleFr
             }
             text={
               props.locale === "en" ? (
                 <>
-                  {pageData.scFragments[4].scContentEn.json[0].content[0].value}
+                  {pageData.scFragments[3].scContentEn.json[0].content[0].value}
                   <a
                     className="underline text-canada-footer-font hover:text-canada-footer-hover-font-blue"
                     href={
-                      pageData.scFragments[4].scContentEn.json[0].content[1]
+                      pageData.scFragments[3].scContentEn.json[0].content[1]
                         .data.href
                     }
                   >
                     {
-                      pageData.scFragments[4].scContentEn.json[0].content[1]
+                      pageData.scFragments[3].scContentEn.json[0].content[1]
                         .value
                     }
                   </a>
                 </>
               ) : (
                 <>
-                  {pageData.scFragments[4].scContentFr.json[0].content[0].value}
+                  {pageData.scFragments[3].scContentFr.json[0].content[0].value}
                   <a
                     className="underline text-canada-footer-font hover:text-canada-footer-hover-font-blue"
                     href={
-                      pageData.scFragments[4].scContentFr.json[0].content[1]
+                      pageData.scFragments[3].scContentFr.json[0].content[1]
                         .data.href
                     }
                   >
                     {
-                      pageData.scFragments[4].scContentFr.json[0].content[1]
+                      pageData.scFragments[3].scContentFr.json[0].content[1]
                         .value
                     }
                   </a>
@@ -283,26 +292,35 @@ export default function Projects(props) {
                       : "past_projects"
                   )}
                   description={
+                    // Use description from metadata on page model
                     props.locale === "en"
-                      ? experiment.scContentEn.json[0].content[0].value
-                      : experiment.scContentFr.json[0].content[0].value
+                      ? experiment.scDescriptionEn.json[0].content[0].value
+                      : experiment.scDescriptionFr.json[0].content[0].value
                   }
                   href={
                     props.locale === "en"
-                      ? experiment.scDestinationURLEn
-                      : experiment.scDestinationURLFr
+                      ? experiment.scPageNameEn
+                      : experiment.scPageNameFr
                   }
                   dataTestId={`${experiment.scId}`}
                   dataCy={`${experiment.scId}`}
-                  imgSrc="/placeholder.png"
+                  imgSrc={
+                    props.locale === "en"
+                      ? `https://www.canada.ca${experiment.scSocialMediaImageEn._path}`
+                      : `https://www.canada.ca${experiment.scSocialMediaImageFr._path}`
+                  }
                   //Eventually this alt text will change as we provide unique images for each project
-                  imgAlt="placeholder"
+                  imgAlt={
+                    props.locale === "en"
+                      ? experiment.scSocialMediaImageAltTextEn
+                      : experiment.scSocialMediaImageAltTextFr
+                  }
                   //Manually entered width and height for now, will eventually take these values from AEM image data
-                  icon={pageData.scFragments[3].scImageEn._publishUrl}
+                  icon={pageData.scFragments[2].scImageEn._publishUrl}
                   iconAlt={
                     props.locale === "en"
-                      ? pageData.scFragments[3].scImageAltTextEn
-                      : pageData.scFragments[3].scImageAltTextFr
+                      ? pageData.scFragments[2].scImageAltTextEn
+                      : pageData.scFragments[2].scImageAltTextFr
                   }
                   priority
                 />
@@ -311,12 +329,32 @@ export default function Projects(props) {
           </ul>
         </section>
         <CallToAction
-          title={t("signupHomeButton")}
-          description={t("signupBannerDescription")}
-          disclaimer={t("signupBannerDisclaimer")}
+          title={
+            props.locale === "en"
+              ? pageData.scFragments[4].scTitleEn
+              : pageData.scFragments[4].scTitleFr
+          }
+          description={
+            props.locale === "en"
+              ? pageData.scFragments[4].scContentEn.json[0].content[0].value
+              : pageData.scFragments[4].scContentFr.json[0].content[0].value
+          }
+          disclaimer={
+            props.locale === "en"
+              ? pageData.scFragments[4].scContentEn.json[1].content[0].value
+              : pageData.scFragments[4].scContentFr.json[1].content[0].value
+          }
           lang={props.locale}
-          href={t("signupInfoRedirect")}
-          hrefText={t("signupBannerBtnText")}
+          href={
+            props.locale === "en"
+              ? pageData.scFragments[4].scLabsButton[0].scDestinationURLEn
+              : pageData.scFragments[4].scLabsButton[0].scDestinationURLFr
+          }
+          hrefText={
+            props.locale === "en"
+              ? pageData.scFragments[4].scLabsButton[0].scTitleEn
+              : pageData.scFragments[4].scLabsButton[0].scTitleFr
+          }
         />
       </Layout>
       {props.adobeAnalyticsUrl ? (
@@ -336,7 +374,7 @@ export const getStaticProps = async ({ locale }) => {
     "projectsPageQuery"
   );
   const filters = Object.values(
-    experimentsData.sCLabsProjectList.items.reduce(
+    experimentsData.scLabsPagev1List.items.reduce(
       (filters, { scLabProjectStatus }) => {
         if (!filters[scLabProjectStatus]) {
           filters[scLabProjectStatus] = {
@@ -369,7 +407,7 @@ export const getStaticProps = async ({ locale }) => {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       ...(await serverSideTranslations(locale, ["common"])),
-      experimentData: experimentsData.sCLabsProjectList,
+      experimentData: experimentsData.scLabsPagev1List,
       pageData: pageData.scLabsPagev1ByPath,
       filters,
     },

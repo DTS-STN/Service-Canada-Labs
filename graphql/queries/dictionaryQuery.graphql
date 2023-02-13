@@ -1,0 +1,10 @@
+query getAllProjects {
+  dictionaryV1List {
+    items {
+      _path
+      scId
+      scTermEn
+      scTermFr
+    }
+  }
+}

@@ -32,8 +32,8 @@ export default function Signup(props) {
 
   const [formField] = useState(
     props.locale === "en"
-      ? pageData.scFragments[0].formFields.en
-      : pageData.scFragments[0].formFields.fr
+      ? pageData.scFragments[0].scLabFormFields.en
+      : pageData.scFragments[0].scLabFormFields.fr
   );
 
   // get the options for the year of birth ranges
@@ -441,8 +441,26 @@ export default function Signup(props) {
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
         breadcrumbItems={[
-          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
-          { text: t("signupInfoTitle"), link: t("breadCrumbsHref4") },
+          {
+            text:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[0].scTitleEn
+                : pageData.scBreadcrumbParentPages[0].scTitleFr,
+            link:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[0].scPageNameEn
+                : pageData.scBreadcrumbParentPages[0].scPageNameFr,
+          },
+          {
+            text:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[1].scTitleEn
+                : pageData.scBreadcrumbParentPages[1].scTitleFr,
+            link:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[1].scPageNameEn
+                : pageData.scBreadcrumbParentPages[1].scPageNameFr,
+          },
         ]}
       >
         <Head>
@@ -1196,7 +1214,7 @@ export const getStaticProps = async ({ locale }) => {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       ...(await serverSideTranslations(locale, ["common"])),
-      pageData: data.sCLabsPageByPath,
+      pageData: data.scLabsPagev1ByPath,
     },
   };
 };

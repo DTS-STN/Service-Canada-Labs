@@ -9,14 +9,20 @@ import Card from "../../../components/molecules/Card";
 import { Alert } from "../../../components/atoms/Alert";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
 import { CallToAction } from "../../../components/molecules/CallToAction";
-//  On hold for now
-//  import { VirtualConcierge } from "../../../components/organisms/VirtualConcierge";
-// import { CallToAction } from "../../../components/molecules/CallToAction";
 
 export default function Home(props) {
   const { t } = useTranslation(["common", "vc"]);
   const [pageData] = useState(props.pageData.item);
-  const [projectUpdates] = useState(props.projectUpdates.items);
+  const [projectUpdates] = useState(props.projectUpdates.item);
+  const [filteredDictionary] = useState(
+    props.dictionary.items.filter(
+      (item) =>
+        item.scId === "STARTED" ||
+        item.scId === "ENDED" ||
+        item.scId === "PROJECT-STAGE" ||
+        item.scId === "SUMMARY"
+    )
+  );
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
@@ -33,8 +39,26 @@ export default function Home(props) {
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
         breadcrumbItems={[
-          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
-          { text: t("menuLink1"), link: t("breadCrumbsHref2") },
+          {
+            text:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[0].scTitleEn
+                : pageData.scBreadcrumbParentPages[0].scTitleFr,
+            link:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[0].scPageNameEn
+                : pageData.scBreadcrumbParentPages[0].scPageNameFr,
+          },
+          {
+            text:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[1].scTitleEn
+                : pageData.scBreadcrumbParentPages[1].scTitleFr,
+            link:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[1].scPageNameEn
+                : pageData.scBreadcrumbParentPages[1].scPageNameFr,
+          },
         ]}
       >
         <Head>
@@ -119,8 +143,8 @@ export default function Home(props) {
             property="twitter:description"
             content={
               props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[0].content[0].value
-                : pageData.scFragments[0].scContentFr.json[0].content[0].value
+                ? pageData.scFragments[0].scContentEn.json[1].content[0].value
+                : pageData.scFragments[0].scContentFr.json[1].content[0].value
             }
           />
           <meta property="twitter:image" content={t("metaImage")} />
@@ -158,41 +182,56 @@ export default function Home(props) {
               </div>
               <p className="font-body text-lg">
                 {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[0].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[0].content[0]
+                  ? pageData.scFragments[0].scContentEn.json[1].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[1].content[0]
                       .value}
               </p>
               <ProjectInfo
+                termStarted={
+                  props.locale === "en"
+                    ? filteredDictionary[2].scTermEn
+                    : filteredDictionary[2].scTermFr
+                }
+                termEnded={
+                  props.locale === "en"
+                    ? filteredDictionary[0].scTermEn
+                    : filteredDictionary[0].scTermFr
+                }
+                termStage={
+                  props.locale === "en"
+                    ? filteredDictionary[1].scTermEn
+                    : filteredDictionary[1].scTermFr
+                }
+                termSummary={
+                  props.locale === "en"
+                    ? filteredDictionary[3].scTermEn
+                    : filteredDictionary[3].scTermFr
+                }
                 stage={
-                  props.locale === "en"
-                    ? pageData.scFragments[1].projectStageEn
-                    : pageData.scFragments[1].projectStageFr
+                  pageData.scFragments[0].scContentEn.json[4].content[0].value
                 }
-                stageInfo={
+                dateStarted={
+                  pageData.scFragments[0].scContentEn.json[2].content[0].value
+                }
+                dateEnded={
+                  pageData.scFragments[0].scContentEn.json[3].content[0].value
+                }
+                term={
+                  pageData.scFragments[1].scContentEn.json[0].content[0].value
+                }
+                definition={
                   props.locale === "en"
-                    ? pageData.scFragments[5].scContentEn.json[0].content[0]
+                    ? pageData.scFragments[1].scContentEn.json[0].content[1]
                         .value
-                    : pageData.scFragments[5].scContentFr.json[0].content[0]
+                    : pageData.scFragments[1].scContentEn.json[0].content[1]
                         .value
                 }
-                info={
+                summary={
                   props.locale === "en"
-                    ? pageData.scFragments[5].scContentEn.json[0].content[1]
+                    ? pageData.scFragments[0].scContentEn.json[5].content[0]
                         .value
-                    : pageData.scFragments[5].scContentFr.json[0].content[1]
+                    : pageData.scFragments[0].scContentFr.json[5].content[0]
                         .value
-                }
-                dateStarted={pageData.scFragments[1].dateStarted}
-                dateEnded={pageData.scFragments[1].dateEnded}
-                projectStage={
-                  props.locale === "en"
-                    ? pageData.scFragments[1].projectStageEn
-                    : pageData.scFragments[1].projectStageFr
-                }
-                status={
-                  props.locale === "en"
-                    ? pageData.scFragments[1].statusEn
-                    : pageData.scFragments[1].statusFr
                 }
               />
             </div>
@@ -200,48 +239,53 @@ export default function Home(props) {
           <div className="my-8">
             <h2>
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[1].content[0].value
-                : pageData.scFragments[0].scContentFr.json[1].content[0].value}
+                ? pageData.scFragments[0].scContentEn.json[6].content[0].value
+                : pageData.scFragments[0].scContentFr.json[6].content[0].value}
             </h2>
-            {projectUpdates.map((data, index) => (
-              <Card
-                showDate
-                key={index}
-                title={props.locale === "en" ? data.scTitleEn : data.scTitleFr}
-                datePosted={data.datePosted}
-                description={
-                  props.locale === "en"
-                    ? data.scDescriptionEn.json[0].content[0].value
-                    : data.scDescriptionFr.json[0].content[0].value
-                }
-                // TODO: Maybe move the full path URL in AEM to the application level that way content
-                // managers won't need to concern themselves with multi-part URLs
-                href={
-                  props.locale === "en"
-                    ? data.scFragments.scDestinationURLEn
-                    : data.scFragments.scDestinationURLFr
-                }
-                blog
-              />
-            ))}
+            <Card
+              showDate
+              datePosted={projectUpdates.scDateModifiedOverwrite}
+              title={
+                props.locale === "en"
+                  ? projectUpdates.scTitleEn
+                  : projectUpdates.scTitleFr
+              }
+              description={
+                props.locale === "en"
+                  ? projectUpdates.scFragments[0].scContentEn.json[3].content[0]
+                      .value
+                  : projectUpdates.scFragments[0].scContentFr.json[3].content[0]
+                      .value
+              }
+              // TODO: Maybe move the full path URL in AEM to the application level that way content
+              // managers won't need to concern themselves with multi-part URLs
+              href={
+                props.locale === "en"
+                  ? `/projects/virtual-assistant/${projectUpdates.scPageNameEn}`
+                  : `/projets/assistant-virtuel/${projectUpdates.scPageNameFr}`
+              }
+              blog
+            />
           </div>
           <div>
             <h2>
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[2].content[0].value
-                : pageData.scFragments[0].scContentFr.json[2].content[0].value}
+                ? pageData.scFragments[3].scTitleEn
+                : pageData.scFragments[3].scTitleFr}
             </h2>
             <Alert
               triangle
               title={
                 props.locale === "en"
-                  ? pageData.scFragments[3].scTitleEn
-                  : pageData.scFragments[3].scTitleFr
+                  ? pageData.scFragments[3].scFragments[0].scTitleEn
+                  : pageData.scFragments[3].scFragments[0].scTitleFr
               }
               text={
                 props.locale === "en"
-                  ? pageData.scFragments[3].scContentEn.json[0].content[0].value
-                  : pageData.scFragments[3].scContentFr.json[0].content[0].value
+                  ? pageData.scFragments[3].scFragments[0].scContentEn.json[0]
+                      .content[0].value
+                  : pageData.scFragments[3].scFragments[0].scContentFr.json[0]
+                      .content[0].value
               }
             />
             <p className="flex mb-4 text-center">
@@ -251,13 +295,13 @@ export default function Home(props) {
                 className=""
                 href={
                   props.locale === "en"
-                    ? pageData.scFragments[4].scDestinationURLEn
-                    : pageData.scFragments[4].scDestinationURLFr
+                    ? pageData.scFragments[3].scLabsButton[0].scDestinationURLEn
+                    : pageData.scFragments[3].scLabsButton[0].scDestinationURLFr
                 }
                 text={
                   props.locale === "en"
-                    ? pageData.scFragments[4].scTitleEn
-                    : pageData.scFragments[4].scTitleFr
+                    ? pageData.scFragments[3].scLabsButton[0].scTitleEn
+                    : pageData.scFragments[3].scLabsButton[0].scTitleFr
                 }
                 ariaExpanded={props.ariaExpanded}
               />
@@ -267,12 +311,32 @@ export default function Home(props) {
         {/* END Virtual Assistant Demo section end for working prototype */}
 
         <CallToAction
-          title={t("signupHomeButton")}
-          description={t("signupBannerDescription")}
-          disclaimer={t("signupBannerDisclaimer")}
+          title={
+            props.locale === "en"
+              ? pageData.scFragments[4].scTitleEn
+              : pageData.scFragments[4].scTitleFr
+          }
+          description={
+            props.locale === "en"
+              ? pageData.scFragments[4].scContentEn.json[0].content[0].value
+              : pageData.scFragments[4].scContentFr.json[0].content[0].value
+          }
+          disclaimer={
+            props.locale === "en"
+              ? pageData.scFragments[4].scContentEn.json[1].content[0].value
+              : pageData.scFragments[4].scContentFr.json[1].content[0].value
+          }
           lang={props.locale}
-          href={t("signupInfoRedirect")}
-          hrefText={t("signupBannerBtnText")}
+          href={
+            props.locale === "en"
+              ? pageData.scFragments[4].scLabsButton[0].scDestinationURLEn
+              : pageData.scFragments[4].scLabsButton[0].scDestinationURLFr
+          }
+          hrefText={
+            props.locale === "en"
+              ? pageData.scFragments[4].scLabsButton[0].scTitleEn
+              : pageData.scFragments[4].scLabsButton[0].scTitleFr
+          }
         />
       </Layout>
       {props.adobeAnalyticsUrl ? (
@@ -293,13 +357,18 @@ export const getStaticProps = async ({ locale }) => {
   const { data: projectUpdates } = await aemServiceInstance.getFragment(
     "projectUpdatesQuery"
   );
+  // get dictionary
+  const { data: dictionary } = await aemServiceInstance.getFragment(
+    "dictionaryQuery"
+  );
 
   return {
     props: {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
-      pageData: pageData.sCLabsPageByPath,
-      projectUpdates: projectUpdates.sCLabsProjectUpdateList,
+      pageData: pageData.scLabsPagev1ByPath,
+      projectUpdates: projectUpdates.scLabsPagev1ByPath,
+      dictionary: dictionary.dictionaryV1List,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };

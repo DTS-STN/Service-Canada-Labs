@@ -1,6 +1,6 @@
 query getDigitalCentrePage {
-  sCLabsPageByPath(
-    _path: "/content/dam/decd-endc/content-fragments/alpha/sclabs/pages/projects/digital-centre"
+  scLabsPagev1ByPath(
+    _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/digital-centre"
   ) {
     item {
       scId
@@ -15,6 +15,14 @@ query getDigitalCentrePage {
       }
       scDescriptionFr {
         json
+      }
+      scBreadcrumbParentPages {
+        ... on SCLabsPagev1Model {
+          scTitleEn
+          scTitleFr
+          scPageNameEn
+          scPageNameFr
+        }
       }
       scSubject
       scKeywordsEn
@@ -45,7 +53,7 @@ query getDigitalCentrePage {
       scNoIndex
       scNoFollow
       scFragments {
-        ... on SCLabsContentModel {
+        ... on SCLabsContentv1Model {
           _path
           scId
           scContentEn {
@@ -55,7 +63,7 @@ query getDigitalCentrePage {
             json
           }
         }
-        ... on SCLabsImageModel {
+        ... on SCLabsImagev1Model {
           scId
           scImageEn {
             ... on ImageRef {
@@ -91,8 +99,53 @@ query getDigitalCentrePage {
           }
           scImageAltTextEn
           scImageAltTextFr
-          scImageCaptionEn
-          scImageCaptionFr
+          scImageCaptionEn {
+            json
+          }
+          scImageCaptionFr {
+            json
+          }
+        }
+        ... on SCLabsFeaturev1Model {
+          scId
+          scTitleEn
+          scTitleFr
+          scContentEn {
+            json
+          }
+          scContentFr {
+            json
+          }
+          scImageEn {
+            ... on ImageRef {
+              _publishUrl
+              width
+              height
+            }
+            ... on DocumentRef {
+              _publishUrl
+            }
+          }
+          scImageFr {
+            ... on ImageRef {
+              _publishUrl
+              width
+              height
+            }
+            ... on DocumentRef {
+              _publishUrl
+            }
+          }
+          scImageAltTextEn
+          scImageAltTextFr
+          scLabsButton {
+            scId
+            scTitleEn
+            scTitleFr
+            scDestinationURLEn
+            scDestinationURLFr
+            scButtonType
+          }
         }
       }
     }

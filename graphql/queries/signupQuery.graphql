@@ -1,6 +1,6 @@
 query getSignupPage {
-  sCLabsPageByPath(
-    _path: "/content/dam/decd-endc/content-fragments/alpha/sclabs/pages/signup-page"
+  scLabsPagev1ByPath(
+    _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/signup-page"
   ) {
     item {
       scId
@@ -15,6 +15,14 @@ query getSignupPage {
       }
       scDescriptionFr {
         json
+      }
+      scBreadcrumbParentPages {
+        ... on SCLabsPagev1Model {
+          scTitleEn
+          scTitleFr
+          scPageNameEn
+          scPageNameFr
+        }
       }
       scSubject
       scKeywordsEn
@@ -45,8 +53,8 @@ query getSignupPage {
       scNoIndex
       scNoFollow
       scFragments {
-        ... on SclabsFormModel {
-          formFields
+        ... on SclabsFormv1Model {
+          scLabFormFields
         }
       }
     }

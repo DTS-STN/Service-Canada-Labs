@@ -25,8 +25,26 @@ export default function LifeJourneys(props) {
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
         breadcrumbItems={[
-          { text: t("siteTitle"), link: t("breadCrumbsHref1") },
-          { text: t("menuLink1"), link: t("breadCrumbsHref2") },
+          {
+            text:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[0].scTitleEn
+                : pageData.scBreadcrumbParentPages[0].scTitleFr,
+            link:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[0].scPageNameEn
+                : pageData.scBreadcrumbParentPages[0].scPageNameFr,
+          },
+          {
+            text:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[1].scTitleEn
+                : pageData.scBreadcrumbParentPages[1].scTitleFr,
+            link:
+              props.locale === "en"
+                ? pageData.scBreadcrumbParentPages[1].scPageNameEn
+                : pageData.scBreadcrumbParentPages[1].scPageNameFr,
+          },
         ]}
       >
         <Head>
@@ -125,14 +143,9 @@ export default function LifeJourneys(props) {
           </h1>
           <h2 className="mb-6 leading-10">
             {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[0].content[0].value
-              : pageData.scFragments[0].scContentFr.json[0].content[0].value}
-          </h2>
-          <p className="mb-6">
-            {props.locale === "en"
               ? pageData.scFragments[0].scContentEn.json[1].content[0].value
               : pageData.scFragments[0].scContentFr.json[1].content[0].value}
-          </p>
+          </h2>
           <p className="mb-6">
             {props.locale === "en"
               ? pageData.scFragments[0].scContentEn.json[2].content[0].value
@@ -148,10 +161,15 @@ export default function LifeJourneys(props) {
               ? pageData.scFragments[0].scContentEn.json[4].content[0].value
               : pageData.scFragments[0].scContentFr.json[4].content[0].value}
           </p>
-          <h2 className="mb-6 leading-10">
+          <p className="mb-6">
             {props.locale === "en"
               ? pageData.scFragments[0].scContentEn.json[5].content[0].value
               : pageData.scFragments[0].scContentFr.json[5].content[0].value}
+          </p>
+          <h2 className="mb-6 leading-10">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[6].content[0].value
+              : pageData.scFragments[0].scContentFr.json[6].content[0].value}
           </h2>
           <figure className="mb-6 lg:w-2/3 border shadow-experiment-shadow">
             <img
@@ -168,15 +186,12 @@ export default function LifeJourneys(props) {
             />
             <figcaption className="p-6 text-sm font-display border-t">
               {props.locale === "en"
-                ? pageData.scFragments[1].scImageCaptionEn
-                : pageData.scFragments[1].scImageCaptionFr}
+                ? pageData.scFragments[1].scImageCaptionEn.json[0].content[0]
+                    .value
+                : pageData.scFragments[1].scImageCaptionFr.json[0].content[0]
+                    .value}
             </figcaption>
           </figure>
-          <p className="mb-6">
-            {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[6].content[0].value
-              : pageData.scFragments[0].scContentFr.json[6].content[0].value}
-          </p>
           <p className="mb-6">
             {props.locale === "en"
               ? pageData.scFragments[0].scContentEn.json[7].content[0].value
@@ -187,45 +202,50 @@ export default function LifeJourneys(props) {
               ? pageData.scFragments[0].scContentEn.json[8].content[0].value
               : pageData.scFragments[0].scContentFr.json[8].content[0].value}
           </p>
-          <p>
+          <p className="mb-6">
             {props.locale === "en"
               ? pageData.scFragments[0].scContentEn.json[9].content[0].value
               : pageData.scFragments[0].scContentFr.json[9].content[0].value}
           </p>
+          <p>
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[10].content[0].value
+              : pageData.scFragments[0].scContentFr.json[10].content[0].value}
+          </p>
           <ol className="ml-8 text-lg">
             <li>
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[10].content[0]
+                ? pageData.scFragments[0].scContentEn.json[11].content[0]
                     .content[0].value
-                : pageData.scFragments[0].scContentFr.json[10].content[0]
+                : pageData.scFragments[0].scContentFr.json[11].content[0]
                     .content[0].value}
             </li>
             <li>
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[10].content[1]
+                ? pageData.scFragments[0].scContentEn.json[11].content[1]
                     .content[0].value
-                : pageData.scFragments[0].scContentFr.json[10].content[1]
+                : pageData.scFragments[0].scContentFr.json[11].content[1]
                     .content[0].value}
             </li>
             <li>
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[10].content[2]
+                ? pageData.scFragments[0].scContentEn.json[11].content[2]
                     .content[0].value
-                : pageData.scFragments[0].scContentFr.json[10].content[2]
+                : pageData.scFragments[0].scContentFr.json[11].content[2]
                     .content[0].value}
             </li>
             <li>
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[10].content[3]
+                ? pageData.scFragments[0].scContentEn.json[11].content[3]
                     .content[0].value
-                : pageData.scFragments[0].scContentFr.json[10].content[3]
+                : pageData.scFragments[0].scContentFr.json[11].content[3]
                     .content[0].value}
             </li>
           </ol>
           <h2 className="mb-6 leading-10">
             {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[11].content[0].value
-              : pageData.scFragments[0].scContentFr.json[11].content[0].value}
+              ? pageData.scFragments[0].scContentEn.json[12].content[0].value
+              : pageData.scFragments[0].scContentFr.json[12].content[0].value}
           </h2>
           <figure className="mb-6 lg:w-2/3 border shadow-experiment-shadow">
             <img
@@ -242,15 +262,12 @@ export default function LifeJourneys(props) {
             />
             <figcaption className="p-6 text-sm font-display border-t">
               {props.locale === "en"
-                ? pageData.scFragments[2].scImageCaptionEn
-                : pageData.scFragments[2].scImageCaptionFr}
+                ? pageData.scFragments[2].scImageCaptionEn.json[0].content[0]
+                    .value
+                : pageData.scFragments[2].scImageCaptionFr.json[0].content[0]
+                    .value}
             </figcaption>
           </figure>
-          <p className="mb-6">
-            {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[12].content[0].value
-              : pageData.scFragments[0].scContentFr.json[12].content[0].value}
-          </p>
           <p className="mb-6">
             {props.locale === "en"
               ? pageData.scFragments[0].scContentEn.json[13].content[0].value
@@ -261,78 +278,103 @@ export default function LifeJourneys(props) {
               ? pageData.scFragments[0].scContentEn.json[14].content[0].value
               : pageData.scFragments[0].scContentFr.json[14].content[0].value}
           </p>
-          <p>
+          <p className="mb-6">
             {props.locale === "en"
               ? pageData.scFragments[0].scContentEn.json[15].content[0].value
               : pageData.scFragments[0].scContentFr.json[15].content[0].value}
           </p>
+          <p>
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[16].content[0].value
+              : pageData.scFragments[0].scContentFr.json[16].content[0].value}
+          </p>
           <ol className="ml-8 text-lg">
             <li>
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[16].content[0]
+                ? pageData.scFragments[0].scContentEn.json[17].content[0]
                     .content[0].value
-                : pageData.scFragments[0].scContentFr.json[16].content[0]
+                : pageData.scFragments[0].scContentFr.json[17].content[0]
                     .content[0].value}
             </li>
             <li>
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[16].content[1]
+                ? pageData.scFragments[0].scContentEn.json[17].content[1]
                     .content[0].value
-                : pageData.scFragments[0].scContentFr.json[16].content[1]
+                : pageData.scFragments[0].scContentFr.json[17].content[1]
                     .content[0].value}
             </li>
             <li>
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[16].content[2]
+                ? pageData.scFragments[0].scContentEn.json[17].content[2]
                     .content[0].value
-                : pageData.scFragments[0].scContentFr.json[16].content[2]
+                : pageData.scFragments[0].scContentFr.json[17].content[2]
                     .content[0].value}
             </li>
             <li>
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[16].content[3]
+                ? pageData.scFragments[0].scContentEn.json[17].content[3]
                     .content[0].value
-                : pageData.scFragments[0].scContentFr.json[16].content[3]
+                : pageData.scFragments[0].scContentFr.json[17].content[3]
                     .content[0].value}
             </li>
             <li>
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[16].content[4]
+                ? pageData.scFragments[0].scContentEn.json[17].content[4]
                     .content[0].value
-                : pageData.scFragments[0].scContentFr.json[16].content[4]
+                : pageData.scFragments[0].scContentFr.json[17].content[4]
                     .content[0].value}
             </li>
           </ol>
           <p className="mb-6">
             {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[17].content[0].value
-              : pageData.scFragments[0].scContentFr.json[17].content[0].value}
+              ? pageData.scFragments[0].scContentEn.json[18].content[0].value
+              : pageData.scFragments[0].scContentFr.json[18].content[0].value}
           </p>
           <h2 className="mb-6 leading-10">
             {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[18].content[0].value
-              : pageData.scFragments[0].scContentFr.json[18].content[0].value}
+              ? pageData.scFragments[0].scContentEn.json[19].content[0].value
+              : pageData.scFragments[0].scContentFr.json[19].content[0].value}
           </h2>
           <p className="mb-6">
             {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[19].content[0].value
-              : pageData.scFragments[0].scContentFr.json[19].content[0].value}
+              ? pageData.scFragments[0].scContentEn.json[20].content[0].value
+              : pageData.scFragments[0].scContentFr.json[20].content[0].value}
           </p>
           <p className="my-6">
             <strong>
               {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[20].content[0].value
-                : pageData.scFragments[0].scContentFr.json[20].content[0].value}
+                ? pageData.scFragments[3].scContentEn.json[0].content[0].value
+                : pageData.scFragments[3].scContentFr.json[0].content[0].value}
             </strong>
           </p>
         </section>
         <CallToAction
-          title={t("signupHomeButton")}
-          description={t("signupBannerDescription")}
-          disclaimer={t("signupBannerDisclaimer")}
+          title={
+            props.locale === "en"
+              ? pageData.scFragments[4].scTitleEn
+              : pageData.scFragments[4].scTitleFr
+          }
+          description={
+            props.locale === "en"
+              ? pageData.scFragments[4].scContentEn.json[0].content[0].value
+              : pageData.scFragments[4].scContentFr.json[0].content[0].value
+          }
+          disclaimer={
+            props.locale === "en"
+              ? pageData.scFragments[4].scContentEn.json[1].content[0].value
+              : pageData.scFragments[4].scContentFr.json[1].content[0].value
+          }
           lang={props.locale}
-          href={t("signupInfoRedirect")}
-          hrefText={t("signupBannerBtnText")}
+          href={
+            props.locale === "en"
+              ? pageData.scFragments[4].scLabsButton[0].scDestinationURLEn
+              : pageData.scFragments[4].scLabsButton[0].scDestinationURLFr
+          }
+          hrefText={
+            props.locale === "en"
+              ? pageData.scFragments[4].scLabsButton[0].scTitleEn
+              : pageData.scFragments[4].scLabsButton[0].scTitleFr
+          }
         />
       </Layout>
       {props.adobeAnalyticsUrl ? (
@@ -349,7 +391,7 @@ export const getStaticProps = async ({ locale }) => {
   return {
     props: {
       locale: locale,
-      pageData: data.sCLabsPageByPath,
+      pageData: data.scLabsPagev1ByPath,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       ...(await serverSideTranslations(locale, ["common"])),
     },
