@@ -111,7 +111,7 @@ export default function Home(props) {
           <meta property="twitter:image" content={`${t("metaImage")}`} />
           <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
-        <section className="layout-container mb-12 mt-8">
+        <section className="layout-container mb-24 mt-8">
           <div className="flex">
             <div id="header-text">
               <h1
