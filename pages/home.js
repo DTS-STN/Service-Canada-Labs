@@ -4,6 +4,7 @@ import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
 import { useEffect, useState } from "react";
 import Card from "../components/molecules/Card";
+import { Alert } from "../components/atoms/Alert";
 import aemServiceInstance from "../services/aemServiceInstance";
 
 export default function Home(props) {
@@ -223,6 +224,48 @@ export default function Home(props) {
               }
             />
           </div>
+          <Alert
+            title={
+              props.locale === "en"
+                ? pageData.scFragments[2].scTitleEn
+                : pageData.scFragments[2].scTitleFr
+            }
+            text={
+              props.locale === "en" ? (
+                <>
+                  {pageData.scFragments[2].scContentEn.json[0].content[0].value}
+                  <a
+                    className="underline text-canada-footer-font hover:text-canada-footer-hover-font-blue"
+                    href={
+                      pageData.scFragments[2].scContentEn.json[0].content[1]
+                        .data.href
+                    }
+                  >
+                    {
+                      pageData.scFragments[2].scContentEn.json[0].content[1]
+                        .value
+                    }
+                  </a>
+                </>
+              ) : (
+                <>
+                  {pageData.scFragments[2].scContentFr.json[0].content[0].value}
+                  <a
+                    className="underline text-canada-footer-font hover:text-canada-footer-hover-font-blue"
+                    href={
+                      pageData.scFragments[2].scContentFr.json[0].content[1]
+                        .data.href
+                    }
+                  >
+                    {
+                      pageData.scFragments[2].scContentFr.json[0].content[1]
+                        .value
+                    }
+                  </a>
+                </>
+              )
+            }
+          />
         </section>
       </Layout>
       {props.adobeAnalyticsUrl ? (
@@ -241,7 +284,6 @@ export const getStaticProps = async ({ locale }) => {
   const { data: experimentsData } = await aemServiceInstance.getFragment(
     "projectQuery"
   );
-  console.log(experimentsData.scLabsPagev1List.items[2]);
 
   return {
     props: {
