@@ -246,6 +246,7 @@ export default function Home(props) {
                         .value
                     }
                   </a>
+                  {pageData.scFragments[2].scContentEn.json[0].content[2].value}
                 </>
               ) : (
                 <>
@@ -262,6 +263,7 @@ export default function Home(props) {
                         .value
                     }
                   </a>
+                  {pageData.scFragments[2].scContentEn.json[0].content[2].value}
                 </>
               )
             }
