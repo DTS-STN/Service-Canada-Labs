@@ -10,6 +10,7 @@ query getOASBenefitsEstimatorPage {
       scTitleFr
       scShortTitleEn
       scShortTitleFr
+      scLabProjectStage
       scDescriptionEn {
         json
       }
@@ -176,6 +177,18 @@ query getOASBenefitsEstimatorPage {
             scDestinationURLEn
             scDestinationURLFr
             scButtonType
+          }
+        }
+        ... on Tooltipv1Model {
+          _path
+          scId
+          scTitleEn
+          scTitleFr
+          scContentEn {
+            json
+          }
+          scContentFr {
+            json
           }
         }
       }
