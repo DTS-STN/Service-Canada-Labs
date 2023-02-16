@@ -287,13 +287,13 @@ export default function oasBenefitsEstimator(props) {
                 className=""
                 href={
                   props.locale === "en"
-                    ? pageData.scFragments[3].scDestinationURLEn
-                    : pageData.scFragments[3].scDestinationURLFr
+                    ? pageData.scFragments[4].scDestinationURLEn
+                    : pageData.scFragments[4].scDestinationURLFr
                 }
                 text={
                   props.locale === "en"
-                    ? pageData.scFragments[3].scTitleEn
-                    : pageData.scFragments[3].scTitleFr
+                    ? pageData.scFragments[4].scTitleEn
+                    : pageData.scFragments[4].scTitleFr
                 }
                 ariaExpanded={props.ariaExpanded}
               />
@@ -303,13 +303,13 @@ export default function oasBenefitsEstimator(props) {
                 className=""
                 href={
                   props.locale === "en"
-                    ? pageData.scFragments[4].scDestinationURLEn
-                    : pageData.scFragments[4].scDestinationURLFr
+                    ? pageData.scFragments[5].scDestinationURLEn
+                    : pageData.scFragments[5].scDestinationURLFr
                 }
                 text={
                   props.locale === "en"
-                    ? pageData.scFragments[4].scTitleEn
-                    : pageData.scFragments[4].scTitleFr
+                    ? pageData.scFragments[5].scTitleEn
+                    : pageData.scFragments[5].scTitleFr
                 }
                 ariaExpanded={props.ariaExpanded}
               />
