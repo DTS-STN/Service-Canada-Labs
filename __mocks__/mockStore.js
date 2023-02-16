@@ -7963,6 +7963,7 @@ export const oasBenefitsEstimatorData = {
         scTitleFr: "Estimateur des prestations de la Sécurité de la vieillesse",
         scShortTitleEn: null,
         scShortTitleFr: null,
+        scLabProjectStage: ["gc:custom/decd-endc/project-stage/alpha"],
         scDescriptionEn: {
           json: [
             {
@@ -8004,7 +8005,7 @@ export const oasBenefitsEstimatorData = {
         scKeywordsFr: null,
         scContentType: null,
         scOwner: null,
-        scDateModifiedOverwrite: "2023-01-19",
+        scDateModifiedOverwrite: "2023-01-17",
         scAudience: null,
         scRegion: null,
         scSocialMediaImageEn: {
@@ -8062,7 +8063,7 @@ export const oasBenefitsEstimatorData = {
                   content: [
                     {
                       nodeType: "text",
-                      value: "Beta",
+                      value: "Alpha",
                     },
                   ],
                 },
@@ -8302,7 +8303,7 @@ export const oasBenefitsEstimatorData = {
                   content: [
                     {
                       nodeType: "text",
-                      value: "Bêta",
+                      value: "Alpha",
                     },
                   ],
                 },
@@ -8540,8 +8541,10 @@ export const oasBenefitsEstimatorData = {
           },
           {
             _path:
-              "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/beta-definition",
-            scId: "BETA-DEFINITION",
+              "/content/dam/decd-endc/content-fragments/sclabs/components/tooltips/information-alpha",
+            scId: "INFORMATION-ALPHA-SCLABS",
+            scTitleEn: "Information",
+            scTitleFr: "Information",
             scContentEn: {
               json: [
                 {
@@ -8549,7 +8552,7 @@ export const oasBenefitsEstimatorData = {
                   content: [
                     {
                       nodeType: "text",
-                      value: "Beta: ",
+                      value: "Alpha:",
                       format: {
                         variants: ["strong"],
                       },
@@ -8557,7 +8560,7 @@ export const oasBenefitsEstimatorData = {
                     {
                       nodeType: "text",
                       value:
-                        "Building an almost fully functional version of a tool or service, testing it in public and preparing to launch it.",
+                        ' Building a "proof of concept" tool or service to meet user needs and testing it with users.',
                     },
                   ],
                 },
@@ -8570,7 +8573,7 @@ export const oasBenefitsEstimatorData = {
                   content: [
                     {
                       nodeType: "text",
-                      value: "Bêta :",
+                      value: "Alpha : ",
                       format: {
                         variants: ["strong"],
                       },
@@ -8578,7 +8581,54 @@ export const oasBenefitsEstimatorData = {
                     {
                       nodeType: "text",
                       value:
-                        " Construire une version presque entièrement fonctionnelle d'un outil ou d'un service, la tester auprès du public et préparer son lancement.",
+                        "Construction d'un outil ou d'un service comme « preuve de concept » répondant aux besoins des utilisateurs et testé par ces derniers.",
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/alpha-definition",
+            scId: "ALPHA-DEFINITION",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Alpha:",
+                      format: {
+                        variants: ["strong"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        ' Building a "proof of concept" tool or service to meet user needs and testing it with users.',
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Alpha :",
+                      format: {
+                        variants: ["strong"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        " Construction d'un outil ou d'un service comme « preuve de concept » répondant aux besoins des utilisateurs et testé par ces derniers.",
                     },
                   ],
                 },
