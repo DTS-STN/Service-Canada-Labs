@@ -61,10 +61,15 @@ export function ProjectInfo(props) {
                   className="absolute border rounded-md px-4 py-2 my-2"
                 >
                   {
-                    <p tabIndex={0}>
-                      <strong>{props.term}</strong>
-                      {props.definition}
-                    </p>
+                    <>
+                      <p tabIndex={0} className="inline">
+                        <strong>{props.term}</strong>
+                      </p>
+                      <p
+                        className="inline"
+                        dangerouslySetInnerHTML={{ __html: props.definition }}
+                      ></p>
+                    </>
                   }
                 </div>
               </div>
