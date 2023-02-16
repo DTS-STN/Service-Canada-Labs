@@ -20,6 +20,16 @@ export default function oasBenefitsEstimator(props) {
         item.scId === "SUMMARY"
     )
   );
+  const stageDictionary = {
+    en: {
+      "gc:custom/decd-endc/project-stage/alpha": "Alpha",
+      "gc:custom/decd-endc/project-stage/beta": "Beta",
+    },
+    fr: {
+      "gc:custom/decd-endc/project-stage/alpha": "Alpha",
+      "gc:custom/decd-endc/project-stage/beta": "Bêta",
+    },
+  };
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
@@ -206,13 +216,15 @@ export default function oasBenefitsEstimator(props) {
                     : pageData.scFragments[2].scContentFr.json[0].content[1]
                         .value
                 }
-                information="information"
+                information={
+                  props.locale === "en"
+                    ? pageData.scFragments[2].scTitleEn
+                    : pageData.scFragments[2].scTitleFr
+                }
                 stage={
                   props.locale === "en"
-                    ? pageData.scFragments[0].scContentEn.json[3].content[0]
-                        .value
-                    : pageData.scFragments[0].scContentFr.json[3].content[0]
-                        .value
+                    ? stageDictionary.en[pageData.scLabProjectStage]
+                    : stageDictionary.fr[pageData.scLabProjectStage]
                 }
                 summary={
                   props.locale === "en"
@@ -382,19 +394,19 @@ export default function oasBenefitsEstimator(props) {
           }
           description={
             props.locale === "en"
-              ? pageData.scFragments[5].scContentEn.json[0].content[0].value
-              : pageData.scFragments[5].scContentFr.json[0].content[0].value
+              ? pageData.scFragments[6].scContentEn.json[0].content[0].value
+              : pageData.scFragments[6].scContentFr.json[0].content[0].value
           }
           lang={props.locale}
           href={
             props.locale === "en"
-              ? pageData.scFragments[5].scLabsButton[0].scDestinationURLEn
-              : pageData.scFragments[5].scLabsButton[0].scDestinationURLFr
+              ? pageData.scFragments[6].scLabsButton[0].scDestinationURLEn
+              : pageData.scFragments[6].scLabsButton[0].scDestinationURLFr
           }
           hrefText={
             props.locale === "en"
-              ? pageData.scFragments[5].scLabsButton[0].scTitleEn
-              : pageData.scFragments[5].scLabsButton[0].scTitleFr
+              ? pageData.scFragments[6].scLabsButton[0].scTitleEn
+              : pageData.scFragments[6].scLabsButton[0].scTitleFr
           }
         />
       </Layout>
