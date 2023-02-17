@@ -11548,10 +11548,10 @@ rehype-react@^6.0.0:
     "@mapbox/hast-util-table-cell-style" "^0.2.0"
     hast-to-hyperscript "^9.0.0"
 
-rehype-react@^7.1.1:
-  version "7.1.1"
-  resolved "https://registry.npmjs.org/rehype-react/-/rehype-react-7.1.1.tgz"
-  integrity sha512-6yaitxM95JFsuTA74OH54OyvTAeRqR4/A6f45S2sEk2FEG04iGgsObcmEIFQRsjK9pfAhc74lR4iGf/W2G/sBw==
+rehype-react@^7.1.2:
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/rehype-react/-/rehype-react-7.1.2.tgz#dc21498f40fafcad1484b28fbeaae2dbe43ddc62"
+  integrity sha512-IWsFMS2M4NTbvWzumBBKhdb39ElV+r5YQHA2HafDDRrH84bEryJA2YPPNbF9he4QzAFOssaMJ9buSC6cDcJTLw==
   dependencies:
     "@mapbox/hast-util-table-cell-style" "^0.2.0"
     "@types/hast" "^2.0.0"
