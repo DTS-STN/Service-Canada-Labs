@@ -74,7 +74,7 @@ module.exports = {
         "custom-blue": {
           blue: "#1D5B90",
           lighter: "#E8F2F4",
-          light: "#1F809A",
+          light: "#1C578A",
           dark: "#26374a",
           darker: "#083C6C",
           link: "#0535d2",
