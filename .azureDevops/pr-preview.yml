@@ -1,0 +1,44 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+pr:
+- main
+
+variables:
+  webapp.name: 'alphasite-appservice-dev'
+  webapp.resourceGroup: 'AlphasiteAppserviceRG'
+  azureContainerregistry.name: 'alphasiteCRdev'
+  azureContainerRegistry.domain: 'alphasitecrdev.azurecr.io'
+ 
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: Docker@2
+  inputs:
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    buildContext: '**'
+    containerRegistry: $(azureContainerregistry.name)
+    tags: preview-$(Build.SourceVersion)
+  
+- task: AzureCLI@2
+  displayName: 'Create PR preview slot in App Service'
+  inputs:
+    azureSubscription: $(DECD_DEV_SUBSCRIPTION)
+    scriptType: 'Bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az webapp deployment slot create \
+      --name $(webapp.name) \
+      --resource-group $(webapp.resourceGroup)\
+      --slot pr-preview-$(System.PullRequest.PullRequestNumber)
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    appType: 'webApp'
+    WebAppName: 
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
