@@ -53,7 +53,7 @@ steps:
 - task: AzureCLI@2
   displayName: 'Create PR preview slot in App Service'
   inputs:
-    azureSubscription: $(DECD_DEV_SUBSCRIPTION)
+    azureSubscription: 'SCLabsDev'
     scriptType: 'Bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
@@ -64,15 +64,15 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: $(DECD_DEV_SUBSCRIPTION)
+    azureSubscription: 'SCLabsDev'
     appType: 'webAppContainer'
+    WebAppName: '$(webapp.name)'
     deployToSlotOrASE: true
-    ResourceGroupName: $(webapp.resourceGroup)
-    WebAppName: $(webapp.name)
-    SlotName: $(webapp.slotName)
+    ResourceGroupName: '$(webapp.resourceGroup)'
+    SlotName: '$(webapp.slotName)'
     DockerNamespace: '$(azureContainerregistry.name)'
-    DockerRepository: $(azureContainerregistry.repository)
-    DockerImageTag: $(azureContainerRegistry.tag)
+    DockerRepository: '$(azureContainerregistry.repository)'
+    DockerImageTag: '$(azureContainerRegistry.tag)'
 # TODO: Update comment vs make new comment
 - task: GitHubComment@0
   displayName: "add the webapp link to the PR via GitHub Comments"
@@ -85,7 +85,7 @@ steps:
   displayName: 'Delete preview slot in App Service once the PR is closed'
   condition: and(succeeded(), startsWith(variables['Build.SourceVersionMessage'], 'Merged PR '))
   inputs:
-    azureSubscription: $(DECD_DEV_SUBSCRIPTION)
+    azureSubscription: 'SCLabsDev'
     scriptType: 'Bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
