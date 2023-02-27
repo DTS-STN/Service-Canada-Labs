@@ -29,13 +29,11 @@ steps:
     comment: 'A pull request preview is being generated. Hold tight!'
 - task: Docker@2
   inputs:
+    containerRegistry: '$(azureContainerRegistry.name)'
+    repository: '$(azureContainerRegistry.repository)'
     command: 'build'
-    Dockerfile: '**/Dockerfile'
-    buildContext: '**'
-    containerRegistry: $(azureContainerRegistry.name)
-    repository: $(azureContainerRegistry.repository)
-    tags: $(azureContainerRegistry.tag)
-    # TODO: make this into an env file
+    Dockerfile: '../Dockerfile'
+    tags: '$(azureContainerRegistry.tag)'
     arguments: |
       --build-arg TC_BUILD=$(ADO_BUILD) \
       --build-arg MONGO_DB=$(MONGO_DB) \
