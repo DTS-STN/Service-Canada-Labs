@@ -13,7 +13,7 @@ variables:
   azureContainerRegistry.repository: 'alphasite'
   azureContainerRegistry.domain: 'alphasitecrdev.azurecr.io'
   azureContainerRegistry.tag: 'preview-$(Build.SourceVersion)'
-  github.repositoryName: 'Service-Canada-Labs'
+  System.Debug: true
 
 steps:
 - task: GitHubComment@0
