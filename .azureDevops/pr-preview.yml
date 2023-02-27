@@ -56,9 +56,9 @@ steps:
     scriptType: 'Bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az webapp deployment slot create \
-      --name $(webapp.name) \
-      --resource-group $(webapp.resourceGroup)\
+      az webapp deployment slot create 
+      --name $(webapp.name) 
+      --resource-group $(webapp.resourceGroup)
       --slot $(webapp.slotName)
 - task: AzureRmWebAppDeployment@4
   inputs:
@@ -87,7 +87,7 @@ steps:
     scriptType: 'Bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az webapp deployment slot delete \
-      --name $(webapp.name) \
-      --resource-group $(webapp.resourceGroup)\
+      az webapp deployment slot delete 
+      --name $(webapp.name) 
+      --resource-group $(webapp.resourceGroup)
       --slot $(webapp.slotName)
