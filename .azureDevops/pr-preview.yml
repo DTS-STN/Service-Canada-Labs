@@ -32,7 +32,7 @@ steps:
     containerRegistry: '$(azureContainerRegistry.name)'
     repository: '$(azureContainerRegistry.repository)'
     command: 'build'
-    Dockerfile: '../Dockerfile'
+    Dockerfile: '**/Dockerfile'
     tags: '$(azureContainerRegistry.tag)'
     arguments: |
       --build-arg TC_BUILD=$(ADO_BUILD) \
