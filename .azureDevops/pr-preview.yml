@@ -55,8 +55,7 @@ steps:
     azureSubscription: 'SCLabsDev'
     scriptType: 'Bash'
     scriptLocation: 'inlineScript'
-    inlineScript: |
-      az webapp deployment slot create --name $(webapp.name) --resource-group $(webapp.resourceGroup) --slot $(webapp.slotName)
+    inlineScript: az webapp deployment slot create --name $(webapp.name) --resource-group $(webapp.resourceGroup) --slot $(webapp.slotName)
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
