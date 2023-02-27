@@ -1,8 +1,3 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 pr:
 - main
 - azure-pipelines
@@ -27,28 +22,29 @@ steps:
     gitHubConnection: 'andr0272'
     repositoryName: $(github.repositoryName)
     comment: 'A pull request preview is being generated. Hold tight!'
-# - task: Docker@2
-#   inputs:
-#     containerRegistry: '$(azureContainerRegistry.name)'
-#     repository: '$(azureContainerRegistry.repository)'
-#     command: 'build'
-#     Dockerfile: '**/Dockerfile'
-#     tags: '$(azureContainerRegistry.tag)'
-#     arguments: |
-#       --build-arg TC_BUILD=$(ADO_BUILD) 
-#       --build-arg MONGO_DB=$(MONGO_DB) 
-#       --build-arg ADOBE_ANALYTICS_URL=$(ADOBE_ANALYTICS_URL) 
-#       --build-arg NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL=$(NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL) 
-#       --build-arg THANK_YOU_EMAIL=$(THANK_YOU_EMAIL) 
-#       --build-arg AEM_GRAPHQL_ENDPOINT=$(AEM_GRAPHQL_ENDPOINT) 
-#       --build-arg REVALIDATION_TOKEN=$(REVALIDATION_TOKEN) 
-#       --build-arg GIT_SHA=$(GIT_SHA)
-# - task: Docker@2
-#   inputs:
-#     command: 'push'
-#     containerRegistry: $(azureContainerRegistry.name)
-#     repository: $(azureContainerRegistry.repository)
-#     tags: $(azureContainerRegistry.tag)
+# TODO: This Dockerfile needs optomization. 10 minute builds defeat the purpose of PR previews
+- task: Docker@2
+  inputs:
+    containerRegistry: '$(azureContainerRegistry.name)'
+    repository: '$(azureContainerRegistry.repository)'
+    command: 'build'
+    Dockerfile: '**/Dockerfile'
+    tags: '$(azureContainerRegistry.tag)'
+    arguments: |
+      --build-arg TC_BUILD=$(ADO_BUILD) 
+      --build-arg MONGO_DB=$(MONGO_DB) 
+      --build-arg ADOBE_ANALYTICS_URL=$(ADOBE_ANALYTICS_URL) 
+      --build-arg NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL=$(NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL) 
+      --build-arg THANK_YOU_EMAIL=$(THANK_YOU_EMAIL) 
+      --build-arg AEM_GRAPHQL_ENDPOINT=$(AEM_GRAPHQL_ENDPOINT) 
+      --build-arg REVALIDATION_TOKEN=$(REVALIDATION_TOKEN) 
+      --build-arg GIT_SHA=$(GIT_SHA)
+- task: Docker@2
+  inputs:
+    command: 'push'
+    containerRegistry: $(azureContainerRegistry.name)
+    repository: $(azureContainerRegistry.repository)
+    tags: $(azureContainerRegistry.tag)
 - task: AzureCLI@2
   displayName: 'Create PR preview slot in App Service'
   inputs:
