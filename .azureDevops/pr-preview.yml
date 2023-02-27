@@ -25,7 +25,6 @@ steps:
   inputs:
     gitHubConnection: 'andr0272'
     repositoryName: 'service-canada'
-    id: 'DTS-STN/Service-Canada-Labs'
     comment: 'A pull request preview is being generated. Hold tight!'
 - task: Docker@2
   inputs:
