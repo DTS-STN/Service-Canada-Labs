@@ -6,6 +6,9 @@
 pr:
 - main
 
+pool:
+  vmImage: ubuntu-latest
+
 variables:
   webapp.name: 'alphasite-appservice-dev'
   webapp.resourceGroup: 'AlphasiteAppserviceRG'
@@ -13,12 +16,16 @@ variables:
   azureContainerregistry.name: 'alphasiteCRdev'
   azureContainerregistry.repository: 'alphasite'
   azureContainerRegistry.domain: 'alphasitecrdev.azurecr.io'
- 
-
-pool:
-  vmImage: ubuntu-latest
+  azureContainerRegistry.tag: 'preview-$(Build.SourceVersion)'
 
 steps:
+- task: GitHubComment@0
+  displayName: "Let the requester know a preview is being dispatched via GitHub Comments"
+  inputs:
+    gitHubConnection: 'andr0272'
+    repositoryName: 'service-canada'
+    id: 'DTS-STN/Service-Canada-Labs'
+    comment: 'A pull request preview is being generated. Hold tight!'
 - task: Docker@2
   inputs:
     command: 'build'
@@ -26,7 +33,7 @@ steps:
     buildContext: '**'
     containerRegistry: $(azureContainerregistry.name)
     repository: $(azureContainerregistry.repository)
-    tags: preview-$(Build.SourceVersion)
+    tags: $(azureContainerRegistry.tag)
     # TODO: make this into an env file
     arguments: |
       --build-arg TC_BUILD=$(ADO_BUILD) \
@@ -42,7 +49,7 @@ steps:
     command: 'push'
     containerRegistry: $(azureContainerregistry.name)
     repository: $(azureContainerregistry.repository)
-    tags: preview-$(Build.SourceVersion)
+    tags: $(azureContainerRegistry.tag)
 - task: AzureCLI@2
   displayName: 'Create PR preview slot in App Service'
   inputs:
@@ -54,25 +61,19 @@ steps:
       --name $(webapp.name) \
       --resource-group $(webapp.resourceGroup)\
       --slot $(webapp.slotName)
-- task: GitHubComment@0
-  displayName: "Let the requester know a preview is being dispatched via GitHub Comments"
-  inputs:
-    gitHubConnection: 'andr0272'
-    repositoryName: 'service-canada'
-    id: 'DTS-STN/Service-Canada-Labs'
-    comment: 'A staging slot is being generated for this PR. Hold tight!'
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
+    azureSubscription: $(DECD_DEV_SUBSCRIPTION)
     appType: 'webAppContainer'
-    WebAppName: 'alphasite-appservice-dev'
     deployToSlotOrASE: true
-    ResourceGroupName: 'AlphasiteAppserviceRG'
-    SlotName: 'pr-preview-$(System.PullRequest.PullRequestNumber)'
+    ResourceGroupName: $(webapp.resourceGroup)
+    WebAppName: $(webapp.name)
+    SlotName: $(webapp.slotName)
     DockerNamespace: '$(azureContainerregistry.name)'
-    DockerRepository: 'alphasite'
-    DockerImageTag: 'preview-$(Build.SourceVersion)'
-# TODO: Update comment with URL
+    DockerRepository: $(azureContainerregistry.repository)
+    DockerImageTag: $(azureContainerRegistry.tag)
+# TODO: Update comment vs make new comment
 - task: GitHubComment@0
   displayName: "add the webapp link to the PR via GitHub Comments"
   inputs:
@@ -80,7 +81,6 @@ steps:
     repositoryName: 'service-canada'
     id: 'DTS-STN/Service-Canada-Labs'
     comment: "Check out a preview of your pull request here: https://$(webapp.name)-$(webapp.slotName).azurewebsites.net"
-# TODO: Close PR on merge
 - task: AzureCLI@2
   displayName: 'Delete preview slot in App Service once the PR is closed'
   condition: and(succeeded(), startsWith(variables['Build.SourceVersionMessage'], 'Merged PR '))
