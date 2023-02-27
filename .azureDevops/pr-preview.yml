@@ -20,7 +20,7 @@ steps:
   displayName: "Let the requester know a preview is being dispatched via GitHub Comments"
   inputs:
     gitHubConnection: 'andr0272'
-    repositoryName: $(github.repositoryName)
+    repositoryName: '$(Build.Repository.Name)'
     comment: 'A pull request preview is being generated. Hold tight!'
 # TODO: This Dockerfile needs optomization. 10 minute builds defeat the purpose of PR previews
 - task: Docker@2
