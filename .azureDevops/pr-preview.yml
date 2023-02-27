@@ -13,7 +13,7 @@ pool:
 variables:
   webapp.name: 'alphasite-appservice-dev'
   webapp.resourceGroup: 'AlphasiteAppserviceRG'
-  webapp.slotName: 'pr-preview-$(System.PullRequest.PullRequestNumber)'
+  webapp.slotName: 'pr-preview-$(System.PullRequest.PullRequestId)'
   azureContainerRegistry.name: 'alphasiteCRdev'
   azureContainerRegistry.repository: 'alphasite'
   azureContainerRegistry.domain: 'alphasitecrdev.azurecr.io'
