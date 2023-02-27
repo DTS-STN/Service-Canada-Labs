@@ -14,8 +14,8 @@ variables:
   webapp.name: 'alphasite-appservice-dev'
   webapp.resourceGroup: 'AlphasiteAppserviceRG'
   webapp.slotName: 'pr-preview-$(System.PullRequest.PullRequestNumber)'
-  azureContainerregistry.name: 'alphasiteCRdev'
-  azureContainerregistry.repository: 'alphasite'
+  azureContainerRegistry.name: 'alphasiteCRdev'
+  azureContainerRegistry.repository: 'alphasite'
   azureContainerRegistry.domain: 'alphasitecrdev.azurecr.io'
   azureContainerRegistry.tag: 'preview-$(Build.SourceVersion)'
   github.repositoryName: 'Service-Canada-Labs'
@@ -32,8 +32,8 @@ steps:
     command: 'build'
     Dockerfile: '**/Dockerfile'
     buildContext: '**'
-    containerRegistry: $(azureContainerregistry.name)
-    repository: $(azureContainerregistry.repository)
+    containerRegistry: $(azureContainerRegistry.name)
+    repository: $(azureContainerRegistry.repository)
     tags: $(azureContainerRegistry.tag)
     # TODO: make this into an env file
     arguments: |
@@ -48,8 +48,8 @@ steps:
 - task: Docker@2
   inputs:
     command: 'push'
-    containerRegistry: $(azureContainerregistry.name)
-    repository: $(azureContainerregistry.repository)
+    containerRegistry: $(azureContainerRegistry.name)
+    repository: $(azureContainerRegistry.repository)
     tags: $(azureContainerRegistry.tag)
 - task: AzureCLI@2
   displayName: 'Create PR preview slot in App Service'
@@ -71,8 +71,8 @@ steps:
     deployToSlotOrASE: true
     ResourceGroupName: '$(webapp.resourceGroup)'
     SlotName: '$(webapp.slotName)'
-    DockerNamespace: '$(azureContainerregistry.name)'
-    DockerRepository: '$(azureContainerregistry.repository)'
+    DockerNamespace: '$(azureContainerRegistry.name)'
+    DockerRepository: '$(azureContainerRegistry.repository)'
     DockerImageTag: '$(azureContainerRegistry.tag)'
 # TODO: Update comment vs make new comment
 - task: GitHubComment@0
