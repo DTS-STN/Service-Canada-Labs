@@ -18,13 +18,14 @@ variables:
   azureContainerregistry.repository: 'alphasite'
   azureContainerRegistry.domain: 'alphasitecrdev.azurecr.io'
   azureContainerRegistry.tag: 'preview-$(Build.SourceVersion)'
+  github.repositoryName: 'Service-Canada-Labs'
 
 steps:
 - task: GitHubComment@0
   displayName: "Let the requester know a preview is being dispatched via GitHub Comments"
   inputs:
     gitHubConnection: 'andr0272'
-    repositoryName: 'service-canada'
+    repositoryName: $(github.repositoryName)
     comment: 'A pull request preview is being generated. Hold tight!'
 - task: Docker@2
   inputs:
@@ -78,8 +79,7 @@ steps:
   displayName: "add the webapp link to the PR via GitHub Comments"
   inputs:
     gitHubConnection: 'andr0272'
-    repositoryName: 'service-canada'
-    id: 'DTS-STN/Service-Canada-Labs'
+    repositoryName: $(github.repositoryName)
     comment: "Check out a preview of your pull request here: https://$(webapp.name)-$(webapp.slotName).azurewebsites.net"
 - task: AzureCLI@2
   displayName: 'Delete preview slot in App Service once the PR is closed'
