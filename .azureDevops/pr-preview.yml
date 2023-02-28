@@ -19,12 +19,15 @@ steps:
 # TODO: Use a generic service principle for comments (not andr0272 / a PAT)
 - task: GitHubComment@0
   displayName: "Let the requester know a preview is being dispatched via GitHub Comments"
+  condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
     gitHubConnection: 'andr0272'
     repositoryName: '$(Build.Repository.Name)'
     comment: 'A pull request preview is being generated. Hold tight!'
 # TODO: This Dockerfile needs optomization. 10 minute builds defeat the purpose of PR previews
 - task: Docker@2
+  displayName: "Build image"
+  condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
     containerRegistry: '$(azureContainerRegistry.name)'
     repository: '$(azureContainerRegistry.repository)'
@@ -41,19 +44,25 @@ steps:
       --build-arg REVALIDATION_TOKEN=$(REVALIDATION_TOKEN) 
       --build-arg GIT_SHA=$(GIT_SHA)
 - task: Docker@2
+  displayName: "Push image"
+  condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
     command: 'push'
     containerRegistry: $(azureContainerRegistry.name)
     repository: $(azureContainerRegistry.repository)
     tags: $(azureContainerRegistry.tag)
+# TODO: Standard SKU for appservice caps at 5 dep slots, can't have more than 3 concurrent PRs at the moment. 
 - task: AzureCLI@2
-  displayName: 'Create PR preview slot in App Service'
+  displayName: 'Create new slot in App Service'
+  condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
     azureSubscription: 'SCLabsDev'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: 'az webapp deployment slot create --name $(webapp.name) --resource-group $(webapp.resourceGroup) --slot $(webapp.slotName)'
 - task: AzureRmWebAppDeployment@4
+  displayName: "Deploy to new slot in App Service"
+  condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
     ConnectionType: 'AzureRM'
     azureSubscription: 'SCLabsDev'
@@ -68,13 +77,15 @@ steps:
 # TODO: Update comment vs make new comment
 - task: GitHubComment@0
   displayName: "add the webapp link to the PR via GitHub Comments"
+  condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
     gitHubConnection: 'andr0272'
     repositoryName: '$(Build.Repository.Name)'
     comment: "Check out a preview of your pull request here: https://$(webapp.name)-$(webapp.slotName).azurewebsites.net"
+# This job only runs if the job was triggered outside of a pull request (PR Merged or Closed)
 - task: AzureCLI@2
   displayName: 'Delete preview slot in App Service once the PR is closed'
-  condition: and(succeeded(), startsWith(variables['Build.SourceVersionMessage'], 'Merged PR '))
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
   inputs:
     azureSubscription: 'SCLabsDev'
     scriptType: 'Bash'
