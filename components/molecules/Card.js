@@ -16,28 +16,28 @@ export const Card = (props) => {
   };
 
   return (
-    <div
-      className={`card-shadow border border-custom-gray-border rounded-md pb-4 ${
-        "border-" + (tagColours[props.tag] || "gray-experiment")
-      }`}
-      data-testid={props.dataTestId}
-      data-cy={props.dataCy}
-    >
-      {props.showImage ? (
-        <div className="h-80 flex justify-center">
-          <img
-            src={props.imgSrc}
-            alt={props.imgAlt}
-            className="xxl:mt-4 mb-4 object-cover rounded-md"
-          />
-        </div>
-      ) : (
-        ""
-      )}
-      <h2>
-        <Link href={props.href}>
+    <Link href={props.href}>
+      <div
+        className={`group card-shadow border border-custom-gray-border rounded-md pb-4 hover:cursor-pointer ${
+          "border-" + (tagColours[props.tag] || "gray-experiment")
+        }`}
+        data-testid={props.dataTestId}
+        data-cy={props.dataCy}
+      >
+        {props.showImage ? (
+          <div className="h-80 flex justify-center">
+            <img
+              src={props.imgSrc}
+              alt={props.imgAlt}
+              className="xxl:mt-4 mb-4 object-cover rounded-md"
+            />
+          </div>
+        ) : (
+          ""
+        )}
+        <h2>
           <a
-            className="flex block text-p mt-4 text-canada-footer-font text-lg text-custom-blue-projects-link underline hover:opacity-70 px-4 items-center"
+            className="block mt-4 text-lg text-custom-blue-projects-link underline px-4 items-center group-hover:no-underline group-hover:text-custom-blue-projects-link-hover"
             tabIndex="0"
           >
             {props.title}
@@ -53,43 +53,45 @@ export const Card = (props) => {
               ""
             )}
           </a>
-        </Link>
-        {props.showDate ? (
-          <p className="ml-4 text-base text-custom-gray-date">
-            {"Posted: " + props.datePosted.substring(0, 10)}
-          </p>
+          {props.showDate ? (
+            <p className="ml-4 text-base text-custom-gray-date">
+              {"Posted: " + props.datePosted.substring(0, 10)}
+            </p>
+          ) : (
+            ""
+          )}
+        </h2>
+        {props.showTag ? (
+          <span
+            className={`block w-max py-2 px-2 my-4 font-body font-bold border-l-4 ml-4 ${
+              "border-" +
+              (tagColours[props.tag] || "gray-experiment") +
+              "-darker"
+            } ${
+              "bg-" + (tagColours[props.tag] || "gray-experiment") + "-lighter"
+            }`}
+          >
+            {props.tagLabel}
+          </span>
         ) : (
           ""
         )}
-      </h2>
-      {props.showTag ? (
-        <span
-          className={`block w-max py-2 px-2 my-4 font-body font-bold border-l-4 ml-4 ${
-            "border-" + (tagColours[props.tag] || "gray-experiment") + "-darker"
-          } ${
-            "bg-" + (tagColours[props.tag] || "gray-experiment") + "-lighter"
-          }`}
-        >
-          {props.tagLabel}
-        </span>
-      ) : (
-        ""
-      )}
-      <p className="text-custom-gray-text mx-4 leading-30px text-lg">
-        {props.description}
-      </p>
-      {props.showButton ? (
-        <ActionButton
-          href={props.btnHref}
-          text={props.btnText}
-          id={props.btnId}
-          dataCy={props.btnId}
-          className="flex mt-6 mb-2 ml-4 rounded xxs:w-full xs:w-fit py-2 bg-[#EAEBED] text-custom-blue-text focus:ring-inset focus:ring-2 focus:ring-black hover:bg-details-button-hover-gray text-center border border-details-button-gray"
-        />
-      ) : (
-        ""
-      )}
-    </div>
+        <p className="text-custom-gray-text mx-4 leading-30px text-lg">
+          {props.description}
+        </p>
+        {props.showButton ? (
+          <ActionButton
+            href={props.btnHref}
+            text={props.btnText}
+            id={props.btnId}
+            dataCy={props.btnId}
+            className="flex mt-6 mb-2 ml-4 rounded xxs:w-full xs:w-fit py-2 bg-[#EAEBED] text-custom-blue-text focus:ring-inset focus:ring-2 focus:ring-black hover:bg-details-button-hover-gray text-center border border-details-button-gray"
+          />
+        ) : (
+          ""
+        )}
+      </div>
+    </Link>
   );
 };
 

@@ -82,6 +82,7 @@ module.exports = {
           hover: "#083DCA",
           "experiment-blue": "#004986",
           "projects-link": "#2B4380",
+          "projects-link-hover": "#0535d2",
         },
         "custom-green": {
           lighter: "#D8EECA",
