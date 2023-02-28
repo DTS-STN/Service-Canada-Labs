@@ -91,6 +91,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Home page updated to new design for EE launch
 - Changed button hover-state colour from #1F809A to #1C578A to align with Design System
 - Updated Storybook from 6.4 to 7.0 prerelease
+- Changed projects card to clickable components
 
 ## Fixed
 
