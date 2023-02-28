@@ -221,7 +221,9 @@
 <a name='L156'></a><a href='#L156'>156</a>
 <a name='L157'></a><a href='#L157'>157</a>
 <a name='L158'></a><a href='#L158'>158</a>
-<a name='L159'></a><a href='#L159'>159</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a>
+<a name='L161'></a><a href='#L161'>161</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -239,6 +241,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -397,28 +401,28 @@ export const Card = (props) =&gt; {
   };
 &nbsp;
   return (
-    &lt;div
-      className={`card-shadow border border-custom-gray-border rounded-md pb-4 ${
-        "border-" + (tagColours[props.tag] || "gray-experiment")
-      }`}
-      data-testid={props.dataTestId}
-      data-cy={props.dataCy}
-    &gt;
-      {props.showImage ? (
-        &lt;div className="h-80 flex justify-center"&gt;
-          &lt;img
-            src={props.imgSrc}
-            alt={props.imgAlt}
-            className="xxl:mt-4 mb-4 object-cover rounded-md"
-          /&gt;
-        &lt;/div&gt;
-      ) : (
-        ""
-      )}
-      &lt;h2&gt;
-        &lt;Link href={props.href}&gt;
+    &lt;Link href={props.href}&gt;
+      &lt;div
+        className={`group card-shadow border border-custom-gray-border rounded-md pb-4 hover:cursor-pointer ${
+          "border-" + (tagColours[props.tag] || "gray-experiment")
+        }`}
+        data-testid={props.dataTestId}
+        data-cy={props.dataCy}
+      &gt;
+        {props.showImage ? (
+          &lt;div className="h-80 flex justify-center"&gt;
+            &lt;img
+              src={props.imgSrc}
+              alt={props.imgAlt}
+              className="xxl:mt-4 mb-4 object-cover rounded-md"
+            /&gt;
+          &lt;/div&gt;
+        ) : (
+          ""
+        )}
+        &lt;h2&gt;
           &lt;a
-            className="flex block text-p mt-4 text-canada-footer-font text-lg text-custom-blue-projects-link underline hover:opacity-70 px-4 items-center"
+            className="block mt-4 text-lg text-custom-blue-projects-link underline px-4 items-center group-hover:no-underline group-hover:text-custom-blue-projects-link-hover"
             tabIndex="0"
           &gt;
             {props.title}
@@ -434,43 +438,45 @@ export const Card = (props) =&gt; {
               ""
             )}
           &lt;/a&gt;
-        &lt;/Link&gt;
-        {props.showDate ? (
-          &lt;p className="ml-4 text-base text-custom-gray-date"&gt;
-            {"Posted: " + props.datePosted.substring(0, 10)}
-          &lt;/p&gt;
+          {props.showDate ? (
+            &lt;p className="ml-4 text-base text-custom-gray-date"&gt;
+              {"Posted: " + props.datePosted.substring(0, 10)}
+            &lt;/p&gt;
+          ) : (
+            ""
+          )}
+        &lt;/h2&gt;
+        {props.showTag ? (
+          &lt;span
+            className={`block w-max py-2 px-2 my-4 font-body font-bold border-l-4 ml-4 ${
+              "border-" +
+              (tagColours[props.tag] || "gray-experiment") +
+              "-darker"
+            } ${
+              "bg-" + (tagColours[props.tag] || "gray-experiment") + "-lighter"
+            }`}
+          &gt;
+            {props.tagLabel}
+          &lt;/span&gt;
         ) : (
           ""
         )}
-      &lt;/h2&gt;
-      {props.showTag ? (
-        &lt;span
-          className={`block w-max py-2 px-2 my-4 font-body font-bold border-l-4 ml-4 ${
-            "border-" + (tagColours[props.tag] || "gray-experiment") + "-darker"
-          } ${
-            "bg-" + (tagColours[props.tag] || "gray-experiment") + "-lighter"
-          }`}
-        &gt;
-          {props.tagLabel}
-        &lt;/span&gt;
-      ) : (
-        ""
-      )}
-      &lt;p className="text-custom-gray-text mx-4 leading-30px text-lg"&gt;
-        {props.description}
-      &lt;/p&gt;
-      {props.showButton ? (
-<span class="branch-0 cbranch-no" title="branch not covered" >        &lt;ActionButton</span>
-          href={props.btnHref}
-          text={props.btnText}
-          id={props.btnId}
-          dataCy={props.btnId}
-          className="flex mt-6 mb-2 ml-4 rounded xxs:w-full xs:w-fit py-2 bg-[#EAEBED] text-custom-blue-text focus:ring-inset focus:ring-2 focus:ring-black hover:bg-details-button-hover-gray text-center border border-details-button-gray"
-        /&gt;
-      ) : (
-        ""
-      )}
-    &lt;/div&gt;
+        &lt;p className="text-custom-gray-text mx-4 leading-30px text-lg"&gt;
+          {props.description}
+        &lt;/p&gt;
+        {props.showButton ? (
+<span class="branch-0 cbranch-no" title="branch not covered" >          &lt;ActionButton</span>
+            href={props.btnHref}
+            text={props.btnText}
+            id={props.btnId}
+            dataCy={props.btnId}
+            className="flex mt-6 mb-2 ml-4 rounded xxs:w-full xs:w-fit py-2 bg-[#EAEBED] text-custom-blue-text focus:ring-inset focus:ring-2 focus:ring-black hover:bg-details-button-hover-gray text-center border border-details-button-gray"
+          /&gt;
+        ) : (
+          ""
+        )}
+      &lt;/div&gt;
+    &lt;/Link&gt;
   );
 };
 &nbsp;
@@ -544,7 +550,7 @@ export default Card;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-02-23T17:01:06.004Z
+                at 2023-02-28T16:21:40.432Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
