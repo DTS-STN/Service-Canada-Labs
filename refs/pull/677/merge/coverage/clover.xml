@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1676657547970" clover="3.2.0">
-  <project timestamp="1676657547970" name="All files">
+<coverage generated="1677592569086" clover="3.2.0">
+  <project timestamp="1677592569086" name="All files">
     <metrics statements="1092" coveredstatements="714" conditionals="1795" coveredconditionals="841" methods="251" coveredmethods="167" elements="3138" coveredelements="1722" complexity="0" loc="1092" ncloc="1092" packages="16" files="112" classes="112"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -303,7 +303,7 @@
         <line num="11" count="3" type="stmt"/>
         <line num="12" count="7" type="stmt"/>
         <line num="18" count="7" type="stmt"/>
-        <line num="101" count="3" type="stmt"/>
+        <line num="98" count="3" type="stmt"/>
       </file>
       <file name="Card.stories.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/molecules/Card.stories.js">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
