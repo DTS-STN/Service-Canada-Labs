@@ -95,10 +95,10 @@ steps:
       sourceVersionMessage="$(Build.SourceVersionMessage)"
       echo 'build source version message: ' $sourceVersionMessage
       # Get the PR number from the above commit message
-      prNumber=$(echo $sourceVersionMessage| sed -r 's/^([^.]+).*$/\1/; s/^[^0-9]*([0-9]+).*$/\1/')
+      prNumber=$(echo $sourceVersionMessage | sed -r 's/^([^.]+).*$/\1/; s/^[^0-9]*([0-9]+).*$/\1/')
       echo 'prNumber: ' $prNumber
       # See if there is a staging slot open related to that PR, and close it
-      if [ -z "$prNumber" ]
+      if [[ $prNumber =~ '^[0-9]+$' ]]
       then
         echo 'no PR number found in last commit message'
         echo 'exiting'
