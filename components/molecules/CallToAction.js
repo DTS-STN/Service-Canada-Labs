@@ -15,7 +15,7 @@ export function CallToAction(props) {
           <div className="flex flex-col">
             <div className="flex -my-2">
               <img
-                className="px-2 mb-2 -ml-4"
+                className="mb-2 -ml-4"
                 src="/cta_icon.svg"
                 alt=""
                 width="60"
