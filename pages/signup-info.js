@@ -282,14 +282,11 @@ export default function SignupInfo(props) {
                       .href
               }
               locale={props.locale}
+              className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-10 text-sm lg:text-p"
             >
-              <a className="block font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font underline mb-10 text-sm lg:text-p">
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[12].content[0]
-                      .value
-                  : pageData.scFragments[0].scContentFr.json[12].content[0]
-                      .value}
-              </a>
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[12].content[0].value
+                : pageData.scFragments[0].scContentFr.json[12].content[0].value}
             </Link>
 
             <h2 className="mb-5 text-h3 lg:text-h2">
