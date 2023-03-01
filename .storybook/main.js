@@ -1,9 +1,8 @@
 var webpack = require("webpack");
 var path = require("path");
-
 module.exports = {
   stories: [
-    "../stories/**/*.stories.mdx",
+    "../stories/**/*.mdx",
     "../stories/**/*.stories.@(js|jsx|ts|tsx)",
     "../components/**/*/*.stories.@(js|jsx|ts|tsx)",
   ],
@@ -19,7 +18,7 @@ module.exports = {
         },
       },
     },
-    "storybook-addon-next-router",
+    "@storybook/addon-mdx-gfm",
   ],
   webpackFinal: (config) => {
     // useTranslation() hook in next-i18next is looking for a server environment and storybooks
@@ -29,5 +28,12 @@ module.exports = {
       "next-i18next": "react-i18next",
     };
     return config;
+  },
+  framework: {
+    name: "@storybook/nextjs",
+    options: {},
+  },
+  docs: {
+    autodocs: true,
   },
 };
