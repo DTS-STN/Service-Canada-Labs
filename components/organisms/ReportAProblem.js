@@ -136,10 +136,11 @@ export function ReportAProblem(props) {
                   lng: props.language,
                 })}
               </b>{" "}
-              <Link href="/signup/privacy">
-                <a className="underline text-xs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                  {t("reportAProblemPrivacyStatement")}
-                </a>
+              <Link
+                href="/signup/privacy"
+                className="underline text-xs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+              >
+                {t("reportAProblemPrivacyStatement")}
               </Link>
             </li>
           </ul>
