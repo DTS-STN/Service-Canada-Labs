@@ -90,4 +90,5 @@ steps:
     azureSubscription: 'SCLabsDev'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az webapp deployment slot delete --name $(webapp.name) --resource-group $(webapp.resourceGroup) --slot $(webapp.slotName)'
+    inlineScript: |
+      az webapp deployment slot delete --name $(webapp.name) --resource-group $(webapp.resourceGroup) --slot $(webapp.slotName)
