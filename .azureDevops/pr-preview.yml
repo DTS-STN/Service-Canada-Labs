@@ -8,7 +8,7 @@ pool:
 variables:
   webapp.name: 'alphasite-appservice-dev'
   webapp.resourceGroup: 'AlphasiteAppserviceRG'
-  webapp.slotName: 'pr-preview-$(Build.BuildId)'
+  webapp.slotName: 'pr-preview-$(System.PullRequest.PullRequestId)'
   azureContainerRegistry.name: 'alphasiteCRdev'
   azureContainerRegistry.repository: 'alphasite'
   azureContainerRegistry.domain: 'alphasitecrdev.azurecr.io'
@@ -91,4 +91,18 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az webapp deployment slot delete --name $(webapp.name) --resource-group $(webapp.resourceGroup) --slot $(webapp.slotName)
+      # Get the commit message from the branch that triggered this run
+      sourceVersionMessage="$(Build.SourceVersionMessage)"
+      echo 'build source version message: ' $sourceVersionMessage
+      # Get the PR number from the above commit message
+      prNumber=$(echo $sourceVersionMessage| sed -r 's/^([^.]+).*$/\1/; s/^[^0-9]*([0-9]+).*$/\1/')
+      echo 'prNumber: ' $prNumber
+      # See if there is a staging slot open related to that PR, and close it
+      if [ -z "$prNumber" ]
+      then
+        echo 'no PR number found in last commit message'
+        echo 'exiting'
+        exit
+      else
+        az webapp deployment slot delete --name $(webapp.name) --resource-group $(webapp.resourceGroup) --slot pr-preview-$prNumber
+      fi
