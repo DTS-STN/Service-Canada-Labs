@@ -98,12 +98,12 @@ steps:
       prNumber=$(echo $sourceVersionMessage | grep -Po "\(#\d*\)$" | grep -Po "\d+" )
       echo 'prNumber: ' $prNumber
       # See if there is a staging slot open related to that PR, and close it
-      if [[ $prNumber =~ '^[0-9]+$' ]]
+      if ! [[ $prNumber =~ '^[0-9]+$' ]]; 
       then
-        echo 'deleting staging slot pr-preview-'$prNumber
-        az webapp deployment slot delete --name $(webapp.name) --resource-group $(webapp.resourceGroup) --slot pr-preview-$prNumber
-      else
         echo 'no PR number found in last commit message'
         echo 'exiting'
         exit
+      else
+        echo 'deleting staging slot pr-preview-'$prNumber
+        az webapp deployment slot delete --name $(webapp.name) --resource-group $(webapp.resourceGroup) --slot pr-preview-$prNumber
       fi
