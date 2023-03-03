@@ -6,7 +6,7 @@ import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
-import { CallToAction } from "../../../components/molecules/CallToAction";
+import { CTA } from "@dts-stn/service-canada-design-system";
 
 export default function oasBenefitsEstimator(props) {
   const { t } = useTranslation(["common", "vc"]);
@@ -386,28 +386,31 @@ export default function oasBenefitsEstimator(props) {
           />
         </section>
 
-        <CallToAction
-          title={
+        <CTA
+          heading={
             props.locale === "en"
               ? pageData.scFragments[6].scTitleEn
               : pageData.scFragments[6].scTitleFr
           }
-          description={
+          body={
             props.locale === "en"
               ? pageData.scFragments[6].scContentEn.json[0].content[0].value
               : pageData.scFragments[6].scContentFr.json[0].content[0].value
           }
-          lang={props.locale}
-          href={
-            props.locale === "en"
-              ? pageData.scFragments[6].scLabsButton[0].scDestinationURLEn
-              : pageData.scFragments[6].scLabsButton[0].scDestinationURLFr
-          }
-          hrefText={
-            props.locale === "en"
-              ? pageData.scFragments[6].scLabsButton[0].scTitleEn
-              : pageData.scFragments[6].scLabsButton[0].scTitleFr
-          }
+          ButtonProps={{
+            id: "cta-btn",
+            text:
+              props.locale === "en"
+                ? pageData.scFragments[6].scLabsButton[0].scTitleEn
+                : pageData.scFragments[6].scLabsButton[0].scTitleFr,
+            href:
+              props.locale === "en"
+                ? pageData.scFragments[6].scLabsButton[0].scDestinationURLEn
+                : pageData.scFragments[6].scLabsButton[0].scDestinationURLFr,
+            className:
+              "w-fit bg-[#26374A] mt-2 text-white visited:text-white hover:bg-[#1C578A] hover:no-underline hover:text-white active:bg-[#16446C]",
+          }}
+          containerClass="layout-container my-4"
         />
       </Layout>
       {props.adobeAnalyticsUrl ? (
