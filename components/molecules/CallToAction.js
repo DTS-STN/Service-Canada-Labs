@@ -2,8 +2,6 @@ import PropTypes from "prop-types";
 import { ActionButton } from "../atoms/ActionButton";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-regular-svg-icons";
 
 /**
  * A section that will have a title, small description, and a link to some action we want to user to make
@@ -16,12 +14,12 @@ export function CallToAction(props) {
         <div>
           <div className="flex flex-col">
             <div className="flex -my-2">
-              <FontAwesomeIcon
-                icon={faUser}
-                color={"#1d5b90"}
-                fixedWidth
-                size="xl"
-                className="pt-2"
+              <img
+                className="mb-2 -ml-4"
+                src="/cta_icon.svg"
+                alt=""
+                width="60"
+                height="53"
               />
               <h3 className="lg:text-h1 ml-2">
                 <>{props.title}</>
@@ -29,7 +27,7 @@ export function CallToAction(props) {
             </div>
             <aside className="pt-3 border-l-2 ml-2 lg:ml-3.5 border-custom-blue-blue xl:w-3/4">
               {props.description ? (
-                <div>
+                <div className="pl-4">
                   <p className="text-base lg:text-p ml-6 pb-3 whitespace-pre-line">
                     {props.description}
                   </p>
@@ -44,7 +42,7 @@ export function CallToAction(props) {
                 />
               )}
               <div className="ml-6">
-                <p className="flex mb-4 text-center">
+                <p className="flex mb-4 pl-4 text-center">
                   <ActionButton
                     id="become-a-participant-btn"
                     custom={`py-1.5 px-3 rounded text-white text-base lg:text-p font-display bg-custom-blue-dark hover:bg-custom-blue-light border border-custom-blue-darker active:bg-custom-blue-darker hover:ring-2 hover:ring-white`}
@@ -64,15 +62,13 @@ export function CallToAction(props) {
                     ariaExpanded={props.ariaExpanded}
                   />
                 </p>
-                {/* <p>
-                  {props.feedbackActive ? undefined : (
-                    <Link href={t("privacyRedirect")} locale={props.lang}>
-                      <a className="text-base lg:text-p underline flex xl:inline lg:mr-10">
-                        {t("privacyLinkText")}
-                      </a>
-                    </Link>
-                  )}
-                </p> */}
+                {props.showPrivacyLink && (
+                  <Link href={t("privacyRedirect")} locale={props.lang}>
+                    <a className="pl-4 text-base lg:text-p underline flex xl:inline lg:mr-10">
+                      {t("privacyLinkText")}
+                    </a>
+                  </Link>
+                )}
               </div>
             </aside>
           </div>
@@ -111,8 +107,14 @@ CallToAction.propTypes = {
    * url text to be displayed
    */
   hrefText: PropTypes.string.isRequired,
+
   /**
    * Aria expanded state
    */
   ariaExpanded: PropTypes.string,
+
+  /**
+   * Show or hide privacy link
+   */
+  showPrivacyLink: PropTypes.bool,
 };

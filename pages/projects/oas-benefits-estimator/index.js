@@ -6,7 +6,7 @@ import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
-import { CallToAction } from "../../../components/molecules/CallToAction";
+import { CTA } from "@dts-stn/service-canada-design-system";
 
 export default function OasBenefitsEstimator(props) {
   const { t } = useTranslation(["common", "vc"]);
@@ -368,46 +368,51 @@ export default function OasBenefitsEstimator(props) {
               ? pageData.scFragments[0].scContentEn.json[16].content[0].value
               : pageData.scFragments[0].scContentFr.json[16].content[0].value}
           </p>
-          <ActionButton
-            id="signup-btn"
-            custom={`py-1.5 px-3 mt-4 md:mt-0 rounded text-[#335075] text-base lg:text-p font-display bg-[#EAEBED] hover:bg-[#CFD1D5] focus:bg-[#CFD1D5] focus:ring-2 focus:ring-[#0E62C9]`}
-            className=""
-            href={
-              props.locale === "en"
-                ? pageData.scFragments[5].scDestinationURLEn
-                : pageData.scFragments[5].scDestinationURLFr
-            }
-            text={
-              props.locale === "en"
-                ? pageData.scFragments[5].scTitleEn
-                : pageData.scFragments[5].scTitleFr
-            }
-            ariaExpanded={props.ariaExpanded}
-          />
+          <div className="md:flex">
+            <ActionButton
+              id="signup-btn"
+              custom={`py-1.5 px-3 mt-4 md:mt-0 rounded text-[#335075] text-base lg:text-p font-display bg-[#EAEBED] hover:bg-[#CFD1D5] focus:bg-[#CFD1D5] focus:ring-2 focus:ring-[#0E62C9]`}
+              className=""
+              href={
+                props.locale === "en"
+                  ? pageData.scFragments[5].scDestinationURLEn
+                  : pageData.scFragments[5].scDestinationURLFr
+              }
+              text={
+                props.locale === "en"
+                  ? pageData.scFragments[5].scTitleEn
+                  : pageData.scFragments[5].scTitleFr
+              }
+              ariaExpanded={props.ariaExpanded}
+            />
+          </div>
         </section>
 
-        <CallToAction
-          title={
+        <CTA
+          heading={
             props.locale === "en"
               ? pageData.scFragments[6].scTitleEn
               : pageData.scFragments[6].scTitleFr
           }
-          description={
+          body={
             props.locale === "en"
               ? pageData.scFragments[6].scContentEn.json[0].content[0].value
               : pageData.scFragments[6].scContentFr.json[0].content[0].value
           }
-          lang={props.locale}
-          href={
-            props.locale === "en"
-              ? pageData.scFragments[6].scLabsButton[0].scDestinationURLEn
-              : pageData.scFragments[6].scLabsButton[0].scDestinationURLFr
-          }
-          hrefText={
-            props.locale === "en"
-              ? pageData.scFragments[6].scLabsButton[0].scTitleEn
-              : pageData.scFragments[6].scLabsButton[0].scTitleFr
-          }
+          ButtonProps={{
+            id: "cta-btn",
+            text:
+              props.locale === "en"
+                ? pageData.scFragments[6].scLabsButton[0].scTitleEn
+                : pageData.scFragments[6].scLabsButton[0].scTitleFr,
+            href:
+              props.locale === "en"
+                ? pageData.scFragments[6].scLabsButton[0].scDestinationURLEn
+                : pageData.scFragments[6].scLabsButton[0].scDestinationURLFr,
+            className:
+              "w-fit bg-[#26374A] mt-2 text-white visited:text-white hover:bg-[#1C578A] hover:no-underline hover:text-white active:bg-[#16446C]",
+          }}
+          containerClass="layout-container my-4"
         />
       </Layout>
       {props.adobeAnalyticsUrl ? (
