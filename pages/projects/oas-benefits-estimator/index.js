@@ -368,22 +368,24 @@ export default function oasBenefitsEstimator(props) {
               ? pageData.scFragments[0].scContentEn.json[16].content[0].value
               : pageData.scFragments[0].scContentFr.json[16].content[0].value}
           </p>
-          <ActionButton
-            id="signup-btn"
-            custom={`py-1.5 px-3 mt-4 md:mt-0 rounded text-[#335075] text-base lg:text-p font-display bg-[#EAEBED] hover:bg-[#CFD1D5] focus:bg-[#CFD1D5] focus:ring-2 focus:ring-[#0E62C9]`}
-            className=""
-            href={
-              props.locale === "en"
-                ? pageData.scFragments[5].scDestinationURLEn
-                : pageData.scFragments[5].scDestinationURLFr
-            }
-            text={
-              props.locale === "en"
-                ? pageData.scFragments[5].scTitleEn
-                : pageData.scFragments[5].scTitleFr
-            }
-            ariaExpanded={props.ariaExpanded}
-          />
+          <div className="md:flex">
+            <ActionButton
+              id="signup-btn"
+              custom={`py-1.5 px-3 mt-4 md:mt-0 rounded text-[#335075] text-base lg:text-p font-display bg-[#EAEBED] hover:bg-[#CFD1D5] focus:bg-[#CFD1D5] focus:ring-2 focus:ring-[#0E62C9]`}
+              className=""
+              href={
+                props.locale === "en"
+                  ? pageData.scFragments[5].scDestinationURLEn
+                  : pageData.scFragments[5].scDestinationURLFr
+              }
+              text={
+                props.locale === "en"
+                  ? pageData.scFragments[5].scTitleEn
+                  : pageData.scFragments[5].scTitleFr
+              }
+              ariaExpanded={props.ariaExpanded}
+            />
+          </div>
         </section>
 
         <CTA
