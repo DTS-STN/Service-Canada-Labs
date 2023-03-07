@@ -12,10 +12,13 @@ import { ActionButton } from "../components/atoms/ActionButton";
 import { TextField } from "../components/atoms/TextField";
 import { maskEmail } from "../lib/utils/maskEmail";
 import { useEffect } from "react";
+import React from "react";
 
 export default function Unsubscribe(props) {
   const { t } = useTranslation("common");
   const { push } = useRouter();
+  // ref for error box
+  let errorRef = React.useRef();
 
   // Joi form validation schema. Only required fields are validated
   const formSchema = Joi.object({
@@ -123,7 +126,8 @@ export default function Unsubscribe(props) {
       await setErrorBoxText(
         `${t("errorSubmit1")} ${errorsList.length} ${t("errorSubmit2")}`
       );
-      document.getElementById("error-box").scrollIntoView({
+      if (!errorRef.current) return;
+      errorRef.current.scrollIntoView({
         behavior: "smooth",
       });
       document.querySelector(`#error-box-items > li > button`).focus();
@@ -282,6 +286,7 @@ export default function Unsubscribe(props) {
         <section className="layout-container">
           {errorBoxText ? (
             <ErrorBox
+              ref={errorRef}
               text={errorBoxText}
               errors={errorBoxErrors}
               onClick={handleScrollToError}

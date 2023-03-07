@@ -71,18 +71,17 @@ export function Menu(props) {
               role="menuitem"
               aria-current={exactURL ? "page" : null}
             >
-              <Link href={item.link}>
-                <a
-                  className={`font-body text-base ${
-                    includesURL
-                      ? router.pathname !== "/signup/privacy"
-                        ? "activePage"
-                        : "menuLink underline"
+              <Link
+                href={item.link}
+                className={`font-body text-base ${
+                  includesURL
+                    ? router.pathname !== "/signup/privacy"
+                      ? "activePage"
                       : "menuLink underline"
-                  }`}
-                >
-                  {item.text}
-                </a>
+                    : "menuLink underline"
+                }`}
+              >
+                {item.text}
               </Link>
             </li>
           );

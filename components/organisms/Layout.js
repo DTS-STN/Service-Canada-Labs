@@ -81,10 +81,9 @@ export const Layout = ({
               href={langUrl}
               locale={language}
               data-testid="languageLink1"
+              className="visible lg:invisible ml-6 sm:ml-16 underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue"
             >
-              <a className="visible lg:invisible ml-6 sm:ml-16 underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue">
-                {language === "en" ? "EN" : "FR"}
-              </a>
+              {language === "en" ? "EN" : "FR"}
             </Link>
           </div>
           <div className="flex-col flex">
@@ -92,16 +91,12 @@ export const Layout = ({
               key={language}
               href={langUrl}
               locale={language}
-              data-testid="languageLink2"
+              data-testid="languageLink3"
+              className="lg:visible invisible pb-0 lg:pb-2 self-end underline font-body text-canada-footer-font hover:text-canada-footer-hover-font-blue"
+              data-cy="toggle-language-link"
+              lang={language}
             >
-              <a
-                className="lg:visible invisible pb-0 lg:pb-2 self-end underline font-body text-canada-footer-font hover:text-canada-footer-hover-font-blue"
-                data-cy="toggle-language-link"
-                data-testid="languageLink3"
-                lang={language}
-              >
-                {language === "en" ? "English" : "Français"}
-              </a>
+              {language === "en" ? "English" : "Français"}
             </Link>
           </div>
         </div>

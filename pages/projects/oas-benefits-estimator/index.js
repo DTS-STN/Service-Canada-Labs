@@ -8,7 +8,7 @@ import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
 import { CTA } from "@dts-stn/service-canada-design-system";
 
-export default function oasBenefitsEstimator(props) {
+export default function OasBenefitsEstimator(props) {
   const { t } = useTranslation(["common", "vc"]);
   const [pageData] = useState(props.pageData.item);
   const [filteredDictionary] = useState(

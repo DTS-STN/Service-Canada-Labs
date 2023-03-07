@@ -151,10 +151,9 @@ export default function error404(props) {
                     {pageData.scContentEn.json[3].content[0].value}
                     <Link
                       href={pageData.scContentEn.json[3].content[1].data.href}
+                      className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                     >
-                      <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                        {pageData.scContentEn.json[3].content[1].value}
-                      </a>
+                      {pageData.scContentEn.json[3].content[1].value}
                     </Link>
                   </p>
                 </div>
@@ -193,10 +192,9 @@ export default function error404(props) {
                     {pageData.scContentFr.json[3].content[0].value}
                     <Link
                       href={pageData.scContentFr.json[3].content[1].data.href}
+                      className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                     >
-                      <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                        {pageData.scContentFr.json[3].content[1].value}
-                      </a>
+                      {pageData.scContentFr.json[3].content[1].value}
                     </Link>
                   </p>
                 </div>

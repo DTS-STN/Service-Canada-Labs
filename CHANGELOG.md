@@ -92,6 +92,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Changed button hover-state colour from #1F809A to #1C578A to align with Design System
 - Updated Storybook from 6.4 to 7.0 prerelease
 - Changed projects card to clickable components
+- Updated to Next 13
 
 ## Fixed
 
@@ -106,6 +107,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Fixed email and close button focus on the feedback widget
 - Moved content security policy entries from `_document` to `next.config.js` so there is a single source of truth (and also added a few other security headers)
 - Fixed issue with our `Next/Image` implementation within our `Card` component and with the image on the `/projects` page
+- Fixed issue where OasBenefitsEstimator page would force full reload in dev
 
 ## [v1.1.3] - 2021-10-27
 
