@@ -154,8 +154,9 @@ export default function OasBenefitsEstimator(props) {
             <div className="flex flex-col break-words lg:grid lg:grid-cols-2 gap-4 lg:gap-6">
               <h1 className="text-h1 border-h1-red-bar" id="pageMainTitle">
                 {props.locale === "en"
-                  ? pageData.scTitleEn
-                  : pageData.scTitleFr}
+                  ? pageData.scFragments[0].scContentEn.json[0].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[0].content[0]
+                      .value}
               </h1>
               <div className="row-span-4 p-0 mx-4">
                 <div className="flex justify-center">
@@ -442,5 +443,6 @@ export const getStaticProps = async ({ locale }) => {
       dictionary: dictionary.dictionaryV1List,
       ...(await serverSideTranslations(locale, ["common"])),
     },
+    revalidate: 10,
   };
 };
