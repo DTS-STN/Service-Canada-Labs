@@ -58,7 +58,7 @@ export function ProjectInfo(props) {
                     background: "#E8F2F4",
                     borderColor: "#269ABC",
                   }}
-                  className="absolute border rounded-md px-4 py-2 my-2"
+                  className="absolute -top-8 border rounded-md px-4 py-2 my-2"
                 >
                   {
                     <>
