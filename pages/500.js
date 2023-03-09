@@ -120,7 +120,7 @@ export default function error500(props) {
           <meta
             property="og:title"
             content="The web site has reported an error (500) | Le site Web a signalé une
-            erreur (500)"
+          erreur (500)"
           />
           <meta
             property="og:description"
@@ -184,10 +184,9 @@ export default function error500(props) {
                     {pageData.scContentEn.json[3].content[0].value}
                     <Link
                       href={pageData.scContentEn.json[3].content[1].data.href}
+                      className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                     >
-                      <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                        {pageData.scContentEn.json[3].content[1].value}
-                      </a>
+                      {pageData.scContentEn.json[3].content[1].value}
                     </Link>
                   </p>
                 </div>
@@ -226,10 +225,9 @@ export default function error500(props) {
                     {pageData.scContentFr.json[3].content[0].value}
                     <Link
                       href={pageData.scContentFr.json[3].content[1].data.href}
+                      className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                     >
-                      <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                        {pageData.scContentFr.json[3].content[1].value}
-                      </a>
+                      {pageData.scContentFr.json[3].content[1].value}
                     </Link>
                   </p>
                 </div>

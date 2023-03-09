@@ -9,12 +9,6 @@ import Cookies from "js-cookie";
 
 expect.extend(toHaveNoViolations);
 
-jest.mock("next/link", () => {
-  return ({ children }) => {
-    return children;
-  };
-});
-
 describe("Layout", () => {
   it("renders without the banner", () => {
     render(<NoBanner {...NoBanner.args} />);

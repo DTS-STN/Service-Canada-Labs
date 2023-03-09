@@ -32,41 +32,37 @@ export function ActionButton(props) {
   });
 
   return props.href ? (
-    <Link href={props.href}>
-      <a
-        aria-label={`${props.ariaLabel ? props.ariaLabel : undefined}`}
-        className={`${basicStyle}
-        ${
-          !props.secondary &&
-          !props.tertiary &&
-          !props.disabled &&
-          !props.custom
-            ? defaultStyle
-            : props.className
-        }
-        ${props.secondary && !props.disabled ? secondaryStyle : props.className}
-        ${props.tertiary && !props.disabled ? tertiaryStyle : props.className}
-        ${props.custom && !props.tertiary ? props.custom : ""}
-        ${props.disabled ? disabledStyle : props.className}`}
-        onClick={props.onClick}
-        id={props.id}
-        data-testid={props.dataTestId}
-        data-cy={props.dataCy || props.id}
-        data-cy-button={props.dataCyButton}
-        disabled={props.disabled}
-        role="button"
-        draggable="false"
-        lang={props.lang}
-      >
-        {props.icon && !props.iconEnd ? (
-          <span className={props.icon} data-testid={props.dataTestId} />
-        ) : undefined}
-        {props.text}
-        {props.children}
-        {props.icon && props.iconEnd ? (
-          <span className={props.icon} data-testid={props.dataTestId} />
-        ) : undefined}
-      </a>
+    <Link
+      href={props.href}
+      aria-label={`${props.ariaLabel ? props.ariaLabel : undefined}`}
+      className={`${basicStyle}
+      ${
+        !props.secondary && !props.tertiary && !props.disabled && !props.custom
+          ? defaultStyle
+          : props.className
+      }
+      ${props.secondary && !props.disabled ? secondaryStyle : props.className}
+      ${props.tertiary && !props.disabled ? tertiaryStyle : props.className}
+      ${props.custom && !props.tertiary ? props.custom : ""}
+      ${props.disabled ? disabledStyle : props.className}`}
+      onClick={props.onClick}
+      id={props.id}
+      data-testid={props.dataTestId}
+      data-cy={props.dataCy || props.id}
+      data-cy-button={props.dataCyButton}
+      disabled={props.disabled}
+      role="button"
+      draggable="false"
+      lang={props.lang}
+    >
+      {props.icon && !props.iconEnd ? (
+        <span className={props.icon} data-testid={props.dataTestId} />
+      ) : undefined}
+      {props.text}
+      {props.children}
+      {props.icon && props.iconEnd ? (
+        <span className={props.icon} data-testid={props.dataTestId} />
+      ) : undefined}
     </Link>
   ) : (
     <button
