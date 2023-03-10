@@ -21,8 +21,8 @@ export function ProjectInfo(props) {
           {!props.dateEnded ? undefined : props.dateEnded.substring(0, 10)}
         </p>
         <strong className="col-span-1">{props.termStage}</strong>
-        <div className="info col-span-3">
-          <p className="shrink-0 flex items-center">
+        <div className="flex col-span-3 items-end">
+          <p className="shrink-0 flex">
             {props.stage}
             <button
               onClick={() => setShowInfo(!showInfo)}
@@ -58,7 +58,7 @@ export function ProjectInfo(props) {
                     background: "#E8F2F4",
                     borderColor: "#269ABC",
                   }}
-                  className="absolute border rounded-md px-4 py-2 my-2"
+                  className="absolute -top-8 border rounded-md px-4 py-2 my-2"
                 >
                   {
                     <>
