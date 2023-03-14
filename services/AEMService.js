@@ -1,32 +1,29 @@
-const fs = require('fs')
-const path = require('path')
-
-const cacheFilePath = path.resolve('.', 'graphql', '.cache')
+// const cacheFilePath = path.resolve('.', 'graphql', '.cache')
 
 class AEMService {
   constructor(baseUrl, cacheBust) {
-    this.cacheBustString = !!cacheBust?.trim?.()
-      ? cacheBust
-      : new Date().toLocaleDateString("en-CA");
+    // this.cacheBustString = !!cacheBust?.trim?.()
+    //   ? cacheBust
+    //   : new Date().toLocaleDateString("en-CA");
     this.baseUrl = baseUrl;
-    fs.mkdirSync(cacheFilePath, { recursive: true })
-    this.flush()
+    // fs.mkdirSync(cacheFilePath, { recursive: true })
+    // this.flush()
   }
 
   async getFragment(fragId) {
     if (!fragId?.trim?.()) return;
 
-    try {
-      const fileContents = fs.readFileSync(path.resolve(cacheFilePath, `${fragId}.json`))
-      if (fileContents) {
-        const data = JSON.parse(fileContents)
-        console.error("FRAG from cache", fragId)
-        return { data, error: null };
-      }
-    } catch (e) {
-      // console.error(e)
-      console.log(`no cache file for ${fragId}`)
-    }
+    // try {
+    //   const fileContents = fs.readFileSync(path.resolve(cacheFilePath, `${fragId}.json`))
+    //   if (fileContents) {
+    //     const data = JSON.parse(fileContents)
+    //     console.error("FRAG from cache", fragId)
+    //     return { data, error: null };
+    //   }
+    // } catch (e) {
+    //   // console.error(e)
+    //   console.log(`no cache file for ${fragId}`)
+    // }
 
     let headers = new Headers()
     headers.append("Content-Type", "application/json")
@@ -51,18 +48,18 @@ class AEMService {
     }
 
     // if there's no error, store for memoization
-    if (!error && data) {
-      console.log("storing", fragId, "in cache")
-      fs.writeFileSync(path.resolve(cacheFilePath, `${fragId}.json`), JSON.stringify(data));
-    }
+    // if (!error && data) {
+    //   console.log("storing", fragId, "in cache")
+    //   fs.writeFileSync(path.resolve(cacheFilePath, `${fragId}.json`), JSON.stringify(data));
+    // }
 
     return { data, error };
   }
 
-  flush(){
-    fs.rmSync(cacheFilePath, { recursive: true, force: true });
-    fs.mkdirSync(cacheFilePath, { recursive: true })
-  }
+  // flush(){
+  //   fs.rmSync(cacheFilePath, { recursive: true, force: true });
+  //   fs.mkdirSync(cacheFilePath, { recursive: true })
+  // }
 }
 
 module.exports = AEMService;
