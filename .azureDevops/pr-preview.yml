@@ -71,7 +71,7 @@ steps:
     deployToSlotOrASE: true
     ResourceGroupName: '$(webapp.resourceGroup)'
     SlotName: '$(webapp.slotName)'
-    DockerNamespace: '$(azureContainerRegistry.name)'
+    DockerNamespace: '$(azureContainerRegistry.domain)'
     DockerRepository: '$(azureContainerRegistry.repository)'
     DockerImageTag: '$(azureContainerRegistry.tag)'
 # TODO: Update comment vs make new comment
