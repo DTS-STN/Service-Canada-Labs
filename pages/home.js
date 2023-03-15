@@ -295,5 +295,6 @@ export const getStaticProps = async ({ locale }) => {
       experimentsData: experimentsData.scLabsPagev1List.items[2],
       ...(await serverSideTranslations(locale, ["common"])),
     },
+    revalidate: 10,
   };
 };
