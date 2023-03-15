@@ -4,10 +4,10 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.7.5",
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-regular-svg-icons": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@dts-stn/service-canada-design-system": "^1.57.0",
-    "@fortawesome/fontawesome-svg-core": "^6.2.1",
-    "@fortawesome/free-regular-svg-icons": "^6.2.1",
-    "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@lottiefiles/react-lottie-player": "^3.5.2",
     "@storybook/addons": "^7.0.0-beta.55",
