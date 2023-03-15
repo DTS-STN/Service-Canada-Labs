@@ -6,7 +6,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  azure.servicePrincipal: 'EsDBDMDECDSub(19bddd49-8e73-4699-930d-74baa7e5751e)'
+  azure.servicePrincipal: 'SCLabsDev'
   webapp.name: 'alphasite-appservice-dev'
   webapp.resourceGroup: 'AlphasiteAppserviceRG'
   webapp.slotName: 'pr-preview-$(System.PullRequest.PullRequestId)'
