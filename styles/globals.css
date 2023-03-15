@@ -315,10 +315,6 @@ li {
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.info {
-  display: flex;
-}
-
 @media (max-width: 640px) {
   .splash-bg {
     background-size: 100%;
@@ -329,9 +325,6 @@ li {
   .splash-image {
     background-position: 50% 75%; 
     background-size: 500px 380px
-  }
-  .info {
-    display: block;
   }
 }
 

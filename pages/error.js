@@ -259,10 +259,9 @@ export default function ErrorPage(props) {
                                 pageData.scContentEn.json[9].content[0].data
                                   .href
                               }
+                              className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                             >
-                              <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                                {pageData.scContentEn.json[9].content[0].value}
-                              </a>
+                              {pageData.scContentEn.json[9].content[0].value}
                             </Link>{" "}
                             {pageData.scContentEn.json[9].content[1].value}
                           </p>
@@ -282,10 +281,9 @@ export default function ErrorPage(props) {
                           href={
                             pageData.scContentEn.json[10].content[1].data.href
                           }
+                          className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                         >
-                          <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                            {pageData.scContentEn.json[10].content[1].value}
-                          </a>
+                          {pageData.scContentEn.json[10].content[1].value}
                         </Link>
                       </p>
                     </div>
@@ -383,10 +381,9 @@ export default function ErrorPage(props) {
                                 pageData.scContentFr.json[9].content[0].data
                                   .href
                               }
+                              className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                             >
-                              <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                                {pageData.scContentFr.json[9].content[0].value}
-                              </a>
+                              {pageData.scContentFr.json[9].content[0].value}
                             </Link>{" "}
                             {pageData.scContentFr.json[9].content[1].value}
                           </p>
@@ -406,10 +403,9 @@ export default function ErrorPage(props) {
                           href={
                             pageData.scContentFr.json[10].content[1].data.href
                           }
+                          className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                         >
-                          <a className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font">
-                            {pageData.scContentFr.json[10].content[1].value}
-                          </a>
+                          {pageData.scContentFr.json[10].content[1].value}
                         </Link>
                       </p>
                     </div>

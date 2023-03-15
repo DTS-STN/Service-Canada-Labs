@@ -145,7 +145,7 @@ export default function Index(props) {
                 id="english-button"
                 text="English"
                 lang="en"
-                className="text-center text-sm w-7.5rem xl:w-138px mr-6 rounded"
+                className="text-center w-7.5rem xl:w-138px text-sm py-3.5 rounded mr-6"
                 href="/en/home"
               />
               <ActionButton
@@ -159,18 +159,18 @@ export default function Index(props) {
           </div>
           <div className="relative py-7 bg-splash-page-bottom text-p h-auto min-w-300px w-300px flex justify-between container p-6 xl:w-500px xl:items-center">
             <div className="w-28 text-base xl:text-p xl:w-max font-body">
-              <Link href="https://www.canada.ca/en/transparency/terms.html">
-                <a className="inline-block w-28 xl:w-max mr-0 hover:text-canada-footer-hover-font-blue text-canada-footer-font splash-link">
-                  Terms & conditions
-                </a>
+              <Link
+                href="https://www.canada.ca/en/transparency/terms.html"
+                className="inline-block w-28 xl:w-max mr-0 hover:text-canada-footer-hover-font-blue text-canada-footer-font splash-link"
+              >
+                Terms & conditions
               </Link>
-              <Link href="https://www.canada.ca/fr/transparence/avis.html">
-                <a
-                  className="inline-block hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-                  lang="fr"
-                >
-                  Avis
-                </a>
+              <Link
+                href="https://www.canada.ca/fr/transparence/avis.html"
+                className="inline-block hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+                lang="fr"
+              >
+                Avis
               </Link>
             </div>
             <img

@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 import { ActionButton } from "../atoms/ActionButton";
-import Image from "next/image";
 
 /**
  * Displays an experiment card on the page
@@ -16,7 +15,7 @@ export const Card = (props) => {
   };
 
   return (
-    <Link href={props.href}>
+    <Link href={props.href} legacyBehavior>
       <div
         className={`group card-shadow border border-custom-gray-border rounded-md pb-4 hover:cursor-pointer ${
           "border-" + (tagColours[props.tag] || "gray-experiment")
