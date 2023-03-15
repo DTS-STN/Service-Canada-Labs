@@ -80,10 +80,10 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az webapp config container set 
-      --docker-custom-image-name $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(azureContainerRegistry.tag) 
-      --docker-registry-server-url $(azureContainerRegistry.domain) 
-      --name $(webapp.name) 
+      az webapp config container set \
+      --docker-custom-image-name $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(azureContainerRegistry.tag) \
+      --docker-registry-server-url $(azureContainerRegistry.domain) \
+      --name $(webapp.name) \
       --resource-group $(webapp.resourceGroup)
 # TODO: Update comment vs make new comment
 - task: GitHubComment@0
