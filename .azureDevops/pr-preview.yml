@@ -60,20 +60,14 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: 'az webapp deployment slot create --name $(webapp.name) --resource-group $(webapp.resourceGroup) --slot $(webapp.slotName)'
-- task: AzureRmWebAppDeployment@4
+- task: AzureCLI@2
   displayName: "Deploy to new slot in App Service"
   condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
-    ConnectionType: 'AzureRM'
     azureSubscription: 'SCLabsDev'
-    appType: 'webAppContainer'
-    WebAppName: '$(webapp.name)'
-    deployToSlotOrASE: true
-    ResourceGroupName: '$(webapp.resourceGroup)'
-    SlotName: '$(webapp.slotName)'
-    DockerNamespace: '$(azureContainerRegistry.domain)'
-    DockerRepository: '$(azureContainerRegistry.repository)'
-    DockerImageTag: '$(azureContainerRegistry.tag)'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az webapp config container set --docker-custom-image-name $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(azureContainerRegistry.tag) --docker-registry-server-url $(azureContainerRegistry.domain) --name $(webapp.name) --slot $(webapp.slotName) --resource-group $(webapp.resourceGroup)'
 # TODO: Update comment vs make new comment
 - task: GitHubComment@0
   displayName: "add the webapp link to the PR via GitHub Comments"
