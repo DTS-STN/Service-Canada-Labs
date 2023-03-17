@@ -85,7 +85,7 @@ steps:
       --docker-custom-image-name $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(azureContainerRegistry.tag) \
       --docker-registry-server-url $(azureContainerRegistry.domain) \
       --name $(webapp.name) \
-      --slot $(webapp.slotName)
+      --slot $(webapp.slotName) \
       --resource-group $(webapp.resourceGroup)
 
 # TODO: Update comment vs make new comment
