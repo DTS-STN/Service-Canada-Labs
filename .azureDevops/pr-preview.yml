@@ -82,7 +82,7 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       az webapp config container set \
-      --docker-custom-image-name $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(azureContainerRegistry.tag) \
+      --docker-custom-image-name $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):pr-preview-$(System.PullRequest.PullRequestId) \
       --docker-registry-server-url $(azureContainerRegistry.domain) \
       --name $(webapp.name) \
       --slot $(webapp.slotName) \
