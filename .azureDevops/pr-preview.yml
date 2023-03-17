@@ -20,7 +20,8 @@ steps:
 - task: Docker@2
   condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
-    containerRegistry: '$(azureContainerRegistry.domain)'
+    containerRegistry: '$(azureContainerRegistry.name)'
+    repository: '$(azureContainerRegistry.repository)'
     command: 'login'
 - script: "docker pull alphasitecrdev.azurecr.io/$(azureContainerRegistry.repository):latest"
   condition: eq(variables['Build.Reason'], 'PullRequest')
