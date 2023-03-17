@@ -17,6 +17,15 @@ variables:
   System.Debug: true
 
 steps:
+- task: Docker@2
+  condition: eq(variables['Build.Reason'], 'PullRequest')
+  inputs:
+    containerRegistry: '$(azureContainerRegistry.domain)'
+    command: 'login'
+- script: "docker pull alphasitecrdev.azurecr.io/$(azureContainerRegistry.repository):latest"
+  condition: eq(variables['Build.Reason'], 'PullRequest')
+  displayName: Pull latest for layer caching
+  continueOnError: true # for first build, no cache
 # TODO: Use a generic service principle for comments (not andr0272 / a PAT)
 - task: GitHubComment@0
   displayName: "Let the requester know a preview is being dispatched via GitHub Comments"
@@ -38,6 +47,7 @@ steps:
       $(azureContainerRegistry.tag)
       latest
     arguments: |
+      --cache-from alphasitecrdev.azurecr.io/$(azureContainerRegistry.repository):latest
       --build-arg TC_BUILD=$(ADO_BUILD) 
       --build-arg MONGO_DB=$(MONGO_DB) 
       --build-arg ADOBE_ANALYTICS_URL=$(ADOBE_ANALYTICS_URL) 
@@ -63,20 +73,6 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: 'az webapp deployment slot create --name $(webapp.name) --resource-group $(webapp.resourceGroup) --slot $(webapp.slotName)'
-# - task: AzureRmWebAppDeployment@4
-#   displayName: "Deploy to new slot in App Service"
-#   condition: eq(variables['Build.Reason'], 'PullRequest')
-#   inputs:
-#     ConnectionType: 'AzureRM'
-#     azureSubscription: $(azure.servicePrincipal)
-#     appType: 'webAppContainer'
-#     WebAppName: '$(webapp.name)'
-#     deployToSlotOrASE: true
-#     ResourceGroupName: '$(webapp.resourceGroup)'
-#     SlotName: '$(webapp.slotName)'
-#     DockerNamespace: '$(azureContainerRegistry.domain)'
-#     DockerRepository: '$(azureContainerRegistry.repository)'
-#     DockerImageTag: '$(azureContainerRegistry.tag)'
 - task: AzureCLI@2
   inputs:
     azureSubscription: $(azure.servicePrincipal)
