@@ -61,10 +61,12 @@ steps:
   displayName: "Push image"
   condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
+    containerRegistry: '$(azureContainerRegistry.name)'
+    repository: '$(azureContainerRegistry.repository)'
     command: 'push'
-    containerRegistry: $(azureContainerRegistry.name)
-    repository: $(azureContainerRegistry.repository)
-    tags: $(azureContainerRegistry.tag)
+    tags: |
+      $(azureContainerRegistry.tag)
+      latest
 # TODO: Standard SKU for appservice caps at 5 dep slots, can't have more than 3 concurrent PRs at the moment. 
 - task: AzureCLI@2
   displayName: 'Create new slot in App Service'
