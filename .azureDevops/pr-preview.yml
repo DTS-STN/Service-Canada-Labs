@@ -34,7 +34,9 @@ steps:
     repository: '$(azureContainerRegistry.repository)'
     command: 'build'
     Dockerfile: '**/Dockerfile'
-    tags: '$(azureContainerRegistry.tag)'
+    tags: |
+      $(azureContainerRegistry.tag)
+      latest
     arguments: |
       --build-arg TC_BUILD=$(ADO_BUILD) 
       --build-arg MONGO_DB=$(MONGO_DB) 
@@ -82,7 +84,7 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       az webapp config container set \
-      --docker-custom-image-name $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):pr-preview-$(System.PullRequest.PullRequestId) \
+      --docker-custom-image-name alphasitecrdev.azurecr.io/$(azureContainerRegistry.repository):pr-preview-$(System.PullRequest.PullRequestId) \
       --docker-registry-server-url $(azureContainerRegistry.domain) \
       --docker-registry-server-user $(azureContainerRegistry.name) \
       --docker-registry-server-password $(DOCKER_REGISTRY_SERVER_PASSWORD) \
