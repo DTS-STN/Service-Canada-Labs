@@ -77,6 +77,8 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: 'az webapp deployment slot create --name $(webapp.name) --resource-group $(webapp.resourceGroup) --slot $(webapp.slotName)'
 - task: AzureCLI@2
+  displayName: 'Deploy pr image to new slot'
+  condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
     azureSubscription: $(azure.servicePrincipal)
     scriptType: 'bash'
