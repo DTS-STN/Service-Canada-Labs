@@ -37,7 +37,7 @@ export function ProjectInfo(props) {
               />
             </button>
             <button
-              className="text-xs text-[#284162] underline mr-2"
+              className="text-xs text-[#284162] underline mr-2 hover:text-custom-blue-link"
               onClick={() => setShowInfo(!showInfo)}
               aria-label="project stage detail"
               aria-expanded={showInfo}
