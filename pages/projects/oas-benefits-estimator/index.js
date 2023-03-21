@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
 import { Layout } from "../../../components/organisms/Layout";
 import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect, useState } from "react";
@@ -9,7 +8,6 @@ import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
 import { CTA } from "@dts-stn/service-canada-design-system";
 
 export default function OasBenefitsEstimator(props) {
-  const { t } = useTranslation(["common", "vc"]);
   const [pageData] = useState(props.pageData.item);
   const [filteredDictionary] = useState(
     props.dictionary.items.filter(
@@ -66,22 +64,50 @@ export default function OasBenefitsEstimator(props) {
           )}
 
           {/* Primary HTML Meta Tags */}
-          <title>{`${
-            props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
-          } — ${t("siteTitle")}`}</title>
-          <meta name="description" content={`${t("vc:metaDescription")}`} />
+          <title>
+            {props.locale === "en"
+              ? pageData.scShortTitleEn
+              : pageData.scShortTitleFr}
+          </title>
+          <meta
+            name="description"
+            content={
+              props.locale === "en"
+                ? pageData.scDescriptionEn.json[0].content[0].value
+                : pageData.scDescriptionFr.json[0].content[0].value
+            }
+          />
           <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
-          <link rel="canonical" href={t("vc:canonicalURL")} />
+          <link
+            rel="canonical"
+            href={
+              "https://alpha.service.canada.ca" +
+              `${
+                props.locale === "en"
+                  ? pageData.scPageNameEn
+                  : pageData.scPageNameFr
+              }`
+            }
+          />
           <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
-          <meta name="keywords" content={t("vc:keywords")} />
+          <meta
+            name="keywords"
+            content={
+              props.locale === "en"
+                ? pageData.scKeywordsEn
+                : pageData.scKeywordsFr
+            }
+          />
 
           {/* DCMI Meta Tags */}
           <meta
             name="dcterms.title"
-            content={`${
-              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
-            } — ${t("siteTitle")}`}
+            content={
+              props.locale === "en"
+                ? pageData.scShortTitleEn
+                : pageData.scShortTitleFr
+            }
           />
           <meta
             name="dcterms.language"
@@ -97,23 +123,42 @@ export default function OasBenefitsEstimator(props) {
           <meta name="dcterms.issued" title="W3CDTF" content="2021-07-20" />
 
           <meta name="dcterms.modified" title="W3CDTF" content="2021-12-16" />
-          <meta name="dcterms.description" content={t("vc:metaDescription")} />
+          <meta
+            name="dcterms.description"
+            content={
+              props.locale === "en"
+                ? pageData.scDescriptionEn.json[0].content[0].value
+                : pageData.scDescriptionFr.json[0].content[0].value
+            }
+          />
           <meta
             name="dcterms.subject"
             title="gccore"
-            content={`${t("vc:metaSubject")}`}
+            content={pageData.scSubject}
           />
           <meta name="dcterms.spatial" content="Canada" />
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
           <meta property="og:locale" content={props.locale} />
-          <meta property="og:url" content={t("vc:canonicalURL")} />
+          <meta
+            property="og:url"
+            content={
+              "https://alpha.service.canada.ca" +
+              `${
+                props.locale === "en"
+                  ? pageData.scPageNameEn
+                  : pageData.scPageNameFr
+              }`
+            }
+          />
           <meta
             property="og:title"
-            content={`${
-              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
-            } — ${t("siteTitle")}`}
+            content={
+              props.locale === "en"
+                ? pageData.scShortTitleEn
+                : pageData.scShortTitleFr
+            }
           />
           <meta
             property="og:description"
@@ -123,17 +168,37 @@ export default function OasBenefitsEstimator(props) {
                 : pageData.scFragments[0].scContentFr.json[0].content[0].value
             }
           />
-          <meta property="og:image" content={t("metaImage")} />
-          <meta property="og:image:alt" content={t("siteTitle")} />
+          <meta
+            property="og:image"
+            content={pageData.scSocialMediaImageEn._publishUrl}
+          />
+          <meta
+            property="og:image:alt"
+            content={
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+            }
+          />
 
           {/* Twitter */}
           <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:url" content={t("vc:canonicalURL")} />
+          <meta
+            property="twitter:url"
+            content={
+              "https://alpha.service.canada.ca" +
+              `${
+                props.locale === "en"
+                  ? pageData.scPageNameEn
+                  : pageData.scPageNameFr
+              }`
+            }
+          />
           <meta
             property="twitter:title"
-            content={`${
-              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
-            } — ${t("siteTitle")}`}
+            content={
+              props.locale === "en"
+                ? pageData.scShortTitleEn
+                : pageData.scShortTitleFr
+            }
           />
           <meta name="twitter:creator" content="Service Canada" />
           <meta
@@ -144,8 +209,16 @@ export default function OasBenefitsEstimator(props) {
                 : pageData.scFragments[0].scContentFr.json[1].content[0].value
             }
           />
-          <meta property="twitter:image" content={t("metaImage")} />
-          <meta property="twitter:image:alt" content={t("siteTitle")} />
+          <meta
+            property="twitter:image"
+            content={pageData.scSocialMediaImageEn._publishUrl}
+          />
+          <meta
+            property="twitter:image:alt"
+            content={
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+            }
+          />
         </Head>
 
         {/* Virtual Assitant Demo section start -  with link to working prototype */}
@@ -301,7 +374,6 @@ export default function OasBenefitsEstimator(props) {
               <ActionButton
                 id="signup-btn"
                 custom={`py-1.5 px-3 mt-4 md:mt-0 rounded text-[#335075] text-base lg:text-p font-display bg-[#EAEBED] hover:bg-[#CFD1D5] focus:bg-[#CFD1D5] focus:ring-2 focus:ring-[#0E62C9]`}
-                className=""
                 href={
                   props.locale === "en"
                     ? pageData.scFragments[5].scDestinationURLEn

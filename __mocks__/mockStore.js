@@ -1649,25 +1649,59 @@ export const homePageData = {
         scPageNameFr: "/fr/accueil",
         scTitleEn: "Service Canada Labs",
         scTitleFr: "Laboratoires de Service Canada",
-        scShortTitleEn: null,
-        scShortTitleFr: null,
+        scShortTitleEn: "Home - Service Canada Labs",
+        scShortTitleFr: "Accueil - Laboratoires de Service Canada",
         scDescriptionEn: {
-          json: null,
+          json: [
+            {
+              nodeType: "paragraph",
+              content: [
+                {
+                  nodeType: "text",
+                  value:
+                    "An early look at what Service Canada is up to. Explore our projects. Share your feedback. Sign-up to get notified of ways to support the future of digital government.",
+                },
+              ],
+            },
+          ],
         },
         scDescriptionFr: {
-          json: null,
+          json: [
+            {
+              nodeType: "paragraph",
+              content: [
+                {
+                  nodeType: "text",
+                  value:
+                    "Un aperçu des activités de Service Canada. Explorez nos projets. Faites-nous part de vos commentaires. Inscrivez-vous pour être informé des façons de soutenir l'avenir du gouvernement numérique.",
+                },
+              ],
+            },
+          ],
         },
         scBreadcrumbParentPages: [],
-        scSubject: null,
-        scKeywordsEn: null,
-        scKeywordsFr: null,
+        scSubject: [
+          "gc:subjects/gv-government-and-politics/government-services",
+        ],
+        scKeywordsEn: "digital services",
+        scKeywordsFr: "services numériques",
         scContentType: null,
         scOwner: null,
-        scDateModifiedOverwrite: "2022-12-12",
+        scDateModifiedOverwrite: "2022-12-11",
         scAudience: null,
         scRegion: null,
-        scSocialMediaImageEn: null,
-        scSocialMediaImageFr: null,
+        scSocialMediaImageEn: {
+          _publishUrl:
+            "https://www.canada.ca/content/dam/decd-endc/images/sclabs/homePage_image1.png",
+          width: 2932,
+          height: 2078,
+        },
+        scSocialMediaImageFr: {
+          _publishUrl:
+            "https://www.canada.ca/content/dam/decd-endc/images/sclabs/homePage_image1.png",
+          width: 2932,
+          height: 2078,
+        },
         scSocialMediaImageAltTextEn: null,
         scSocialMediaImageAltTextFr: null,
         scNoIndex: false,

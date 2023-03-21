@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
 import { Layout } from "../components/organisms/Layout";
 import { useEffect, useState } from "react";
 import Card from "../components/molecules/Card";
@@ -8,7 +7,6 @@ import { Alert } from "../components/atoms/Alert";
 import aemServiceInstance from "../services/aemServiceInstance";
 
 export default function Home(props) {
-  const { t } = useTranslation("common");
   const [pageData] = useState(props.pageData.item);
   const [experimentsData] = useState(props.experimentsData);
 
@@ -23,7 +21,9 @@ export default function Home(props) {
     <>
       <Layout
         locale={props.locale}
-        langUrl={t("homePath")}
+        langUrl={
+          props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
+        }
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
       >
         <Head>
@@ -34,28 +34,57 @@ export default function Home(props) {
           )}
 
           {/* Primary HTML Meta Tags */}
-          <title>{`${t("scLabsHome")} — ${t("siteTitle")}`}</title>
-          <meta name="description" content={`${t("homeMetaDescription")}`} />
+          <title>
+            {props.locale === "en"
+              ? pageData.scShortTitleEn
+              : pageData.scShortTitleFr}
+          </title>
+          <meta
+            name="description"
+            content={
+              props.locale === "en"
+                ? pageData.scDescriptionEn.json[0].content[0].value
+                : pageData.scDescriptionFr.json[0].content[0].value
+            }
+          />
           <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
           <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
-          <meta name="keywords" content={t("homeKeywords")} />
+          <meta
+            name="keywords"
+            content={
+              props.locale === "en"
+                ? pageData.scKeywordsEn
+                : pageData.scKeywordsFr
+            }
+          />
 
           {/* DCMI Meta Tags */}
           <meta
             name="dcterms.title"
-            content={`${t("scLabsHome")} — ${t("siteTitle")}`}
+            content={
+              props.locale === "en"
+                ? pageData.scShortTitleEn
+                : pageData.scShortTitleFr
+            }
           />
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}
             title="ISO639-2/T"
           />
-          <meta name="dcterms.description" content={t("homeMetaDescription")} />
+          <meta
+            name="dcterms.description"
+            content={
+              props.locale === "en"
+                ? pageData.scDescriptionEn.json[0].content[0].value
+                : pageData.scDescriptionFr.json[0].content[0].value
+            }
+          />
           <meta
             name="dcterms.subject"
             title="gccore"
-            content={t("metaSubject")}
+            content={pageData.scSubject}
           />
           <meta name="dcterms.creator" content="Service Canada" />
           <meta name="dcterms.accessRights" content="2" />
@@ -73,43 +102,81 @@ export default function Home(props) {
           <meta
             property="og:url"
             content={
-              "https://alpha.service.canada.ca/" +
-              `${props.locale}` +
-              `${t("homeMetaPath")}`
+              "https://alpha.service.canada.ca" +
+              `${
+                props.locale === "en"
+                  ? pageData.scPageNameEn
+                  : pageData.scPageNameFr
+              }`
             }
           />
           <meta
             property="og:title"
-            content={`${t("scLabsHome")} — ${t("siteTitle")}`}
+            content={
+              props.locale === "en"
+                ? pageData.scShortTitleEn
+                : pageData.scShortTitleFr
+            }
           />
           <meta
             property="og:description"
-            content={`${t("homeMetaDescription")}`}
+            content={
+              props.locale === "en"
+                ? pageData.scDescriptionEn.json[0].content[0].value
+                : pageData.scDescriptionFr.json[0].content[0].value
+            }
           />
-          <meta property="og:image" content={`${t("metaImage")}`} />
-          <meta property="og:image:alt" content={`${t("siteTitle")}`} />
+          <meta
+            property="og:image"
+            content={pageData.scSocialMediaImageEn._publishUrl}
+          />
+          <meta
+            property="og:image:alt"
+            content={
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+            }
+          />
 
           {/* Twitter */}
           <meta property="twitter:card" content="summary_large_image" />
           <meta
             property="twitter:url"
             content={
-              "https://alpha.service.canada.ca/" +
-              `${props.locale}` +
-              `${t("homeMetaPath")}`
+              "https://alpha.service.canada.ca" +
+              `${
+                props.locale === "en"
+                  ? pageData.scPageNameEn
+                  : pageData.scPageNameFr
+              }`
             }
           />
           <meta
             property="twitter:title"
-            content={`${t("scLabsHome")} — ${t("siteTitle")}`}
+            content={
+              props.locale === "en"
+                ? pageData.scShortTitleEn
+                : pageData.scShortTitleFr
+            }
           />
           <meta name="twitter:creator" content="Service Canada" />
           <meta
             property="twitter:description"
-            content={`${t("homeMetaDescription")}`}
+            content={
+              props.locale === "en"
+                ? pageData.scDescriptionEn.json[0].content[0].value
+                : pageData.scDescriptionFr.json[0].content[0].value
+            }
           />
-          <meta property="twitter:image" content={`${t("metaImage")}`} />
-          <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
+          <meta
+            property="twitter:image"
+            content={pageData.scSocialMediaImageEn._publishUrl}
+          />
+          <meta
+            property="twitter:image:alt"
+            content={
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+            }
+          />
         </Head>
         <section className="layout-container mb-24 mt-8">
           <div className="flex">
