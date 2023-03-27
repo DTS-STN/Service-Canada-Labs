@@ -39,6 +39,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Added `/signup-review` page where users can review their signup information before final submission for registration
 - Added `check-email` API endpoint for checking if a user exists
 - Added Update/Blog page for Virtual Assistant project updates
+- Added /api/healthcheck endpoint
 
 ## Changed
 
