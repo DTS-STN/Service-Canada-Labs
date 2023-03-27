@@ -354,11 +354,11 @@ export default function OasBenefitsEstimator(props) {
                 ? pageData.scFragments[0].scContentEn.json[9].content[0].value
                 : pageData.scFragments[0].scContentFr.json[9].content[0].value}
             </h3>
-            <div className="md:flex">
+            <div className="grid md:flex">
               <ActionButton
                 id="signup-btn"
-                custom={`py-1.5 px-3 mr-8 rounded text-white text-base lg:text-p font-display bg-custom-blue-dark hover:bg-custom-blue-light border border-custom-blue-darker active:bg-custom-blue-darker hover:ring-2 hover:ring-white`}
-                className=""
+                custom={`py-1.5 px-3 md:mr-8 rounded text-white text-base lg:text-p font-display bg-custom-blue-dark hover:bg-custom-blue-light border border-custom-blue-darker active:bg-custom-blue-darker hover:ring-2 hover:ring-white`}
+                className="text-center"
                 href={
                   props.locale === "en"
                     ? pageData.scFragments[4].scDestinationURLEn
@@ -374,6 +374,7 @@ export default function OasBenefitsEstimator(props) {
               <ActionButton
                 id="signup-btn"
                 custom={`py-1.5 px-3 mt-4 md:mt-0 rounded text-[#335075] text-base lg:text-p font-display bg-[#EAEBED] hover:bg-[#CFD1D5] focus:bg-[#CFD1D5] focus:ring-2 focus:ring-[#0E62C9]`}
+                className="text-center"
                 href={
                   props.locale === "en"
                     ? pageData.scFragments[5].scDestinationURLEn
