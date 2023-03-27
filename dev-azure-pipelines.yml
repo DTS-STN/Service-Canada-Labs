@@ -40,18 +40,20 @@ stages:
               tags: |
                 $(tag)
                 release-candidate
+                
+# using App Service's continuous deployment feature, the staging env will automatically pull the container tagged as "release-candidate"
 
-  - stage: Deploy
-    displayName: Deploy Container to App Service
-    jobs:
-      - job: Deploy
-        displayName: Deploy Container
-        pool:
-          vmImage: $(vmImageName)
-        steps:
-          - task: AzureCLI@2
-            inputs:
-              azureSubscription: $(DECD_DEV_SUBSCRIPTION)
-              scriptType: 'bash'
-              scriptLocation: 'inlineScript'
-              inlineScript: 'az webapp config container set --docker-custom-image-name $(ACR_DOMAIN)/$(imageRepository):$(tag) --docker-registry-server-url $(ACR_DOMAIN) --name $(ALPHASITE_APPSERVICE) --resource-group $(RESOURCE_GROUP)'
+  # - stage: Deploy
+  #   displayName: Deploy Container to App Service
+  #   jobs:
+  #     - job: Deploy
+  #       displayName: Deploy Container
+  #       pool:
+  #         vmImage: $(vmImageName)
+  #       steps:
+  #         - task: AzureCLI@2
+  #           inputs:
+  #             azureSubscription: $(DECD_DEV_SUBSCRIPTION)
+  #             scriptType: 'bash'
+  #             scriptLocation: 'inlineScript'
+  #             inlineScript: 'az webapp config container set --docker-custom-image-name $(ACR_DOMAIN)/$(imageRepository):$(tag) --docker-registry-server-url $(ACR_DOMAIN) --name $(ALPHASITE_APPSERVICE) --resource-group $(RESOURCE_GROUP)'
