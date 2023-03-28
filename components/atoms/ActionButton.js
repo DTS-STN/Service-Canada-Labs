@@ -18,6 +18,11 @@ export function ActionButton(props) {
   const disabledStyle =
     "py-2 px-4 bg-gray-light text-gray-600 border border-gray-md";
 
+  const primary =
+    "text-multi-neutrals-white bg-multi-blue-blue70 hover:bg-multi-blue-blue60g active:bg-multi-blue-blue60g";
+  const secondary = "";
+  const supertask = "";
+
   //Activate Links with spacebar
   useEffect(() => {
     let link = document.getElementById(props.id);
