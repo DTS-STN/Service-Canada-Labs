@@ -30,4 +30,4 @@ Get the acceptance criteria for the story and/or task you are working on and put
 
 ## Product and Sprint Backlog
 
-[Jira](https://jira-dev.bdm-dev.dts-stn.com/secure/RapidBoard.jspa?rapidView=96&projectKey=SCL)
+[ADO](https://dev.azure.com/VP-BD/DECD/_boards/board/t/Service%20Canada%20Labs/Stories%20and%20Activities)
