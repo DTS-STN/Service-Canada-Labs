@@ -7,46 +7,42 @@ export default {
 
 const Template = (args) => <ActionButton {...args} />;
 
-export const Default = Template.bind({});
+export const Primary = Template.bind({});
 export const Secondary = Template.bind({});
-export const Tertiary = Template.bind({});
-export const Disabled = Template.bind({});
+export const Supertask = Template.bind({});
+export const Danger = Template.bind({});
 export const Link = Template.bind({});
 
-Default.args = {
-  id: "default",
-  className:
-    "bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light",
-  text: "Default button 🚀",
+Primary.args = {
+  id: "primary",
+  style: "primary",
+  text: "Primary",
 };
 
 Secondary.args = {
   id: "secondary",
-  text: "Secondary button 🚀",
-  className:
-    "bg-white text-custom-blue-blue border border-custom-blue-blue active:bg-gray-400 hover:bg-gray-200",
+  text: "Secondary",
+  style: "secondary",
   secondary: true,
 };
 
-Tertiary.args = {
-  id: "tertiary",
-  text: "Tertiary Button 🚀",
-  className:
-    "underline hover:text-canada-footer-hover-font-blue text-canada-footer-font",
+Supertask.args = {
+  id: "supertask",
+  text: "Supertask",
+  style: "supertask",
   tertiary: true,
 };
 
-Disabled.args = {
-  id: "disabled",
-  text: "Disabled Button 🚀",
-  className: "bg-gray-light text-gray-600 border border-gray-md",
+Danger.args = {
+  id: "danger",
+  text: "Danger",
+  style: "danger",
   disabled: true,
 };
 
 Link.args = {
   id: "link",
-  text: "Link Button 🚀",
-  className:
-    "bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light",
+  text: "Link",
+  style: "link",
   href: "/",
 };

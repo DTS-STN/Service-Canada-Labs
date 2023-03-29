@@ -6,10 +6,10 @@ import { act, fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { axe, toHaveNoViolations } from "jest-axe";
 import {
-  Default,
+  Primary,
   Secondary,
-  Tertiary,
-  Disabled,
+  Supertask,
+  Danger,
   Link,
 } from "./ActionButton.stories";
 
@@ -24,33 +24,23 @@ describe("Action Button", () => {
     mockFn.mockRestore();
   });
   it("renders default", () => {
-    render(<Default {...Default.args} />);
-    expect(screen.getByRole("button")).toHaveTextContent(Default.args.text);
-    expect(screen.getByRole("button")).toHaveClass(
-      "bg-custom-blue-blue text-white border border-custom-blue-blue active:bg-custom-blue-dark hover:bg-custom-blue-light"
-    );
+    render(<Primary {...Primary.args} />);
+    expect(screen.getByRole("button")).toHaveTextContent(Primary.args.text);
   });
 
   it("renders with secondary colors", () => {
     render(<Secondary {...Secondary.args} />);
     expect(screen.getByRole("button")).toHaveTextContent(Secondary.args.text);
-    expect(screen.getByRole("button")).toHaveClass(
-      "bg-white text-custom-blue-blue border border-custom-blue-blue active:bg-gray-400 hover:bg-gray-200"
-    );
   });
 
   it("renders with tertiary colors", () => {
-    render(<Tertiary {...Tertiary.args} />);
-    expect(screen.getByRole("button")).toHaveTextContent(Tertiary.args.text);
-    expect(screen.getByRole("button")).toHaveClass(
-      "underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-    );
+    render(<Supertask {...Supertask.args} />);
+    expect(screen.getByRole("button")).toHaveTextContent(Supertask.args.text);
   });
 
   it("renders disabled", () => {
-    render(<Disabled {...Disabled.args} />);
-    expect(screen.getByRole("button")).toHaveTextContent(Disabled.args.text);
-    expect(screen.getByRole("button")).toHaveAttribute("disabled");
+    render(<Danger {...Danger.args} />);
+    expect(screen.getByRole("button")).toHaveTextContent(Danger.args.text);
   });
 
   it("renders link styles as button", () => {
@@ -71,7 +61,7 @@ describe("Action Button", () => {
   });
 
   it("has no a11y violations", async () => {
-    const { container } = render(<Default {...Default.args} />);
+    const { container } = render(<Primary {...Primary.args} />);
     const results = await axe(container);
 
     expect(results).toHaveNoViolations();

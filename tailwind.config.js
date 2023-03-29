@@ -130,6 +130,40 @@ module.exports = {
             green0: "#F9FFF5",
           },
         },
+        specific: {
+          red: {
+            red100: "#3B100F",
+            red100a: "#060202",
+            red90: "#77201F",
+            red90a: "#6B1D1C",
+            red70: "#942826",
+            red50: "#BC3331",
+            red50b: "#D3080C",
+            red2: "#F3E9E8",
+          },
+          green: {
+            green90: "#102900",
+            green90a: "#192F20",
+            green70: "#1D4D00",
+            green70a: "#305A3E",
+            green50: "#318000",
+            green50a: "#278400",
+            green50b: "#458259",
+            green5: "#D8EECA",
+          },
+          orange: {
+            orange50: "#EE7100",
+            orange5: "#F9F4D4",
+          },
+          cyan: {
+            cyan50: "#269ABC",
+            cyan10: "#D7FAFF",
+            cyan5: "#E8F2F4",
+          },
+          purple: {
+            purple50: "#7834BC",
+          },
+        },
         "custom-blue": {
           blue: "#1D5B90",
           lighter: "#E8F2F4",
