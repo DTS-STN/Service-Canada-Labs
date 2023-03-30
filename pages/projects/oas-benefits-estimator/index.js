@@ -354,7 +354,7 @@ export default function OasBenefitsEstimator(props) {
                 ? pageData.scFragments[0].scContentEn.json[9].content[0].value
                 : pageData.scFragments[0].scContentFr.json[9].content[0].value}
             </h3>
-            <div className="md:flex">
+            <div className="grid md:flex">
               <ActionButton
                 id="try-btn"
                 style="primary"
