@@ -1,8 +1,12 @@
 import PropTypes from "prop-types";
-import React, { useEffect } from "react";
 import Link from "next/link";
+import { useEffect } from "react";
 
+/**
+ * Button component
+ */
 export function ActionButton(props) {
+  //Styling for buttons and links
   const PRIMARY =
     "text-multi-neutrals-white bg-multi-blue-blue70 hover:bg-multi-blue-blue60g focus:bg-multi-blue-blue60g";
   const SECONDARY =
@@ -27,7 +31,7 @@ export function ActionButton(props) {
       ? LINK
       : "";
 
-  // Activate Links with spacebar
+  //Activate Links with spacebar
   useEffect(() => {
     let link = document.getElementById(props.id);
     if (link) {
@@ -40,60 +44,121 @@ export function ActionButton(props) {
     }
   });
 
-  return !props.href ? (
+  return props.href ? (
+    <Link
+      href={props.href}
+      aria-label={`${props.ariaLabel ? props.ariaLabel : undefined}`}
+      className={`flex flex-row ${style} focus:ring focus:ring-offset-4 ring-multi-blue-blue60f py-2 px-4 rounded-sm w-fit text-base font-display ${props.custom}`}
+      onClick={props.onClick}
+      id={props.id}
+      data-testid={props.dataTestId}
+      data-cy={props.dataCy || props.id}
+      data-cy-button={props.dataCyButton}
+      disabled={props.disabled}
+      role="button"
+      draggable="false"
+      lang={props.lang}
+    >
+      {props.icon && !props.iconEnd ? (
+        <span className={props.icon} data-testid={props.dataTestId} />
+      ) : undefined}
+      {props.text}
+      {props.children}
+      {props.icon && props.iconEnd ? (
+        <span className={props.icon} data-testid={props.dataTestId} />
+      ) : undefined}
+    </Link>
+  ) : (
     <button
-      className={`flex flex-row ${style} focus:ring focus:ring-offset-4 ring-multi-blue-blue60f py-2 px-4 rounded-sm w-fit text-base font-display ${props.custom} `}
+      aria-expanded={`${props.ariaExpanded ? props.ariaExpanded : undefined}`}
+      aria-label={`${props.ariaLabel ? props.ariaLabel : undefined}`}
+      className={`flex flex-row ${style} focus:ring focus:ring-offset-4 ring-multi-blue-blue60f py-2 px-4 rounded-sm w-fit text-base font-display ${props.custom}`}
       onClick={props.onClick}
       type={props.type}
       id={props.id}
+      data-testid={props.dataTestId}
+      data-cy={props.dataCy || props.id}
+      data-cy-button={props.dataCyButton}
       disabled={props.disabled}
-      {...props.attributes}
+      data-gc-analytics-submit={props.analyticsTracking ? "submit" : undefined}
     >
       {props.icon && !props.iconEnd ? (
-        <span className="grid place-items-center h-8 w-8">
-          <img className="pr-2" src={props.icon} alt={props.iconAltText} />
-        </span>
+        <span className={props.icon} data-testid={props.dataTestId} />
       ) : undefined}
-      {props.text}
+      {props.imageSource && props.imageAlt ? (
+        <>
+          <img src={props.imageSource} alt={props.imageAlt} />
+          <span className={props.imageSpanClass} data-testid={props.dataTestId}>
+            {props.imageSpanText}
+          </span>
+        </>
+      ) : undefined}
+      <span className="flex">
+        {props.text}
+        {props.expandIcon}
+      </span>
       {props.children}
       {props.icon && props.iconEnd ? (
-        <span className="grid place-items-center h-8 w-8">
-          <img className="pl-2" src={props.icon} alt={props.iconAltText} />
-        </span>
+        <span className={props.icon} data-testid={props.dataTestId} />
       ) : undefined}
     </button>
-  ) : (
-    <Link
-      href={props.href}
-      className={`flex flex-row ${style} focus:ring focus:ring-offset-4 ring-multi-blue-blue60f py-2 px-4 rounded-sm w-fit text-base font-display ${props.custom} `}
-      onClick={props.onClick}
-      id={props.id}
-      disabled={props.disabled}
-      role="button"
-    >
-      {props.icon && !props.iconEnd ? (
-        <img
-          className="h-8 w-8 pr-2"
-          src={props.icon}
-          alt={props.iconAltText}
-        />
-      ) : undefined}
-      {props.text}
-      {props.children}
-      {props.icon && props.iconEnd ? (
-        <div className="grid place-items-center h-8 w-8">
-          <img className="pl-5 pb-3" src={props.icon} alt={props.iconAltText} />
-        </div>
-      ) : undefined}
-    </Link>
   );
 }
 
 ActionButton.propTypes = {
   /**
+   * This will add an icon inside the button when needed
+   */
+  icon: PropTypes.string,
+
+  /**
+   * This is for placing an icon at the end of the component
+   */
+  iconEnd: PropTypes.bool,
+
+  /**
+   * The text that the button will display
+   */
+  text: PropTypes.string,
+
+  /**
+   * Style link as a button when there's a href
+   */
+  href: PropTypes.string,
+
+  /**
    * Identify which button being clicked
    */
   id: PropTypes.string.isRequired,
+
+  /**
+   * Lang attribute for links that do not match the language of the top level document
+   */
+  lang: PropTypes.string,
+  /**
+   * the type of the button
+   */
+  type: PropTypes.oneOf(["submit", "reset"]),
+
+  /**
+   * Secondary color styling option
+   */
+  secondary: PropTypes.bool,
+
+  /**
+   * Tertiary color styling option
+   */
+  tertiary: PropTypes.bool,
+
+  /**
+   * Custom button styling option
+   */
+  custom: PropTypes.string,
+
+  /**
+   * Callback for a click event on the button
+   */
+  onClick: PropTypes.func,
 
   /**
    * User must input one of the follow button styles to apply
@@ -109,57 +174,6 @@ ActionButton.propTypes = {
   ]),
 
   /**
-   * The text that the button will display
-   */
-  text: PropTypes.string.isRequired,
-
-  /**
-   * This will add a img inside the button when needed
-   */
-  icon: PropTypes.string,
-
-  /**
-   * Alt text for icon added to button
-   */
-  iconAltText: PropTypes.string,
-
-  /**
-   * This is for placing an icon at the end of the component
-   */
-  iconEnd: PropTypes.bool,
-
-  /**
-   * Use when button redirects to a new page.
-   * Automatically applies the Link styling
-   */
-  href: PropTypes.string,
-
-  /**
-   * the type of the button
-   */
-  type: PropTypes.oneOf(["submit", "reset", "button"]),
-
-  /**
-   * Callback for a click event on the button
-   */
-  onClick: PropTypes.func,
-
-  /**
-   * bool to disable a button
-   */
-  disabled: PropTypes.bool,
-
-  /**
-   * css overrides for button
-   */
-  custom: PropTypes.string,
-
-  /**
-   * additional attributes for button
-   */
-  attributes: PropTypes.object,
-
-  /**
    * any other elements you want to add to the button
    */
   children: PropTypes.oneOfType([
@@ -167,4 +181,52 @@ ActionButton.propTypes = {
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
   ]),
+  /**
+   * Test id for unit test
+   */
+  dataTestId: PropTypes.string,
+  /**
+   * Test id for e2e test
+   */
+  dataCy: PropTypes.string,
+  /**
+   * Test id for e2e test
+   */
+  dataCyButton: PropTypes.string,
+  /**
+   * Enabled or disabled the button
+   */
+  disabled: PropTypes.bool,
+  /**
+   * For tracking reset or submit on forms for analytics
+   */
+  analyticsTracking: PropTypes.bool,
+  /**
+   * Expand icon that will show the Feedback as popup
+   */
+  expandIcon: PropTypes.object,
+  /**
+   * Aria expanded state
+   */
+  ariaExpanded: PropTypes.string,
+  /**
+   * Aria label
+   */
+  ariaLabel: PropTypes.string,
+  /**
+   * Image source
+   */
+  imageSource: PropTypes.string,
+  /**
+   * Image alt
+   */
+  imageAlt: PropTypes.string,
+  /**
+   * Image span text
+   */
+  imageSpanText: PropTypes.string,
+  /**
+   * Image span classname
+   */
+  imageSpanClass: PropTypes.string,
 };

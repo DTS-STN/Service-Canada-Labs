@@ -143,17 +143,19 @@ export default function Index(props) {
             <div className="flex w-max container pb-6 mx-auto font-display">
               <ActionButton
                 id="english-button"
+                style="primary"
                 text="English"
                 lang="en"
-                className="text-center w-7.5rem xl:w-138px text-sm py-3.5 rounded mr-6"
+                custom="justify-center w-7.5rem xl:w-138px mr-6"
                 href="/en/home"
               />
               <ActionButton
                 id="french-button"
+                style="primary"
                 text="Français"
-                className="text-center w-7.5rem xl:w-138px text-sm py-3.5 rounded"
                 href="/fr/accueil"
                 lang="fr"
+                custom="justify-center w-7.5rem xl:w-138px"
               />
             </div>
           </div>
