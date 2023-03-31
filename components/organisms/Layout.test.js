@@ -5,7 +5,6 @@ import { act, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { axe, toHaveNoViolations } from "jest-axe";
 import { NoBanner, WithBanner } from "./Layout.stories";
-import Cookies from "js-cookie";
 
 expect.extend(toHaveNoViolations);
 

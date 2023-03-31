@@ -7,16 +7,29 @@ import { useEffect } from "react";
  */
 export function ActionButton(props) {
   //Styling for buttons and links
-  const basicStyle =
-    "rounded focus:ring-1 focus:ring-black focus:ring-offset-2";
-  const defaultStyle =
-    "py-2 px-4 active:bg-custom-blue-blue text-white border border-custom-blue-blue bg-custom-blue-dark hover:bg-custom-blue-light";
-  const secondaryStyle =
-    "py-2 px-4 bg-white text-custom-blue-blue border border-custom-blue-blue active:bg-gray-400 hover:bg-gray-200";
-  const tertiaryStyle =
-    "py-2 underline hover:text-canada-footer-hover-font-blue text-canada-footer-font";
-  const disabledStyle =
-    "py-2 px-4 bg-gray-light text-gray-600 border border-gray-md";
+  const PRIMARY =
+    "text-multi-neutrals-white bg-multi-blue-blue70 hover:bg-multi-blue-blue60g focus:bg-multi-blue-blue60g";
+  const SECONDARY =
+    "text-multi-blue-blue60b bg-multi-neutrals-grey30a hover:bg-multi-neutrals-grey50a focus:bg-multi-neutrals-grey60";
+  const SUPERTASK =
+    "text-multi-neutrals-white bg-specific-green-green50 hover:bg-specific-green-green70 focus:bg-sepcific-green-green70";
+  const DANGER =
+    "text-multi-neutrals-white bg-specific-red-red50 hover:bg-specific-red-red70 focus:bg-specific-red-red70";
+  const LINK =
+    "text-multi-blue-blue60c hover:text-multi-blue-blue50b focus:text-multi-blue-blue60f";
+
+  const style =
+    props.style === "primary"
+      ? PRIMARY
+      : props.style === "secondary"
+      ? SECONDARY
+      : props.style === "supertask"
+      ? SUPERTASK
+      : props.style === "danger"
+      ? DANGER
+      : props.style === "link"
+      ? LINK
+      : "";
 
   //Activate Links with spacebar
   useEffect(() => {
@@ -35,16 +48,7 @@ export function ActionButton(props) {
     <Link
       href={props.href}
       aria-label={`${props.ariaLabel ? props.ariaLabel : undefined}`}
-      className={`${basicStyle}
-      ${
-        !props.secondary && !props.tertiary && !props.disabled && !props.custom
-          ? defaultStyle
-          : props.className
-      }
-      ${props.secondary && !props.disabled ? secondaryStyle : props.className}
-      ${props.tertiary && !props.disabled ? tertiaryStyle : props.className}
-      ${props.custom && !props.tertiary ? props.custom : ""}
-      ${props.disabled ? disabledStyle : props.className}`}
+      className={`flex flex-row ${style} focus:ring focus:ring-offset-4 ring-multi-blue-blue60f py-2 px-4 rounded-sm w-fit text-base font-display ${props.custom}`}
       onClick={props.onClick}
       id={props.id}
       data-testid={props.dataTestId}
@@ -68,16 +72,7 @@ export function ActionButton(props) {
     <button
       aria-expanded={`${props.ariaExpanded ? props.ariaExpanded : undefined}`}
       aria-label={`${props.ariaLabel ? props.ariaLabel : undefined}`}
-      className={`${basicStyle}
-      ${
-        !props.secondary && !props.tertiary && !props.disabled && !props.custom
-          ? defaultStyle
-          : props.className
-      }
-      ${props.secondary && !props.disabled ? secondaryStyle : props.className}
-      ${props.tertiary && !props.disabled ? tertiaryStyle : props.className}
-      ${props.custom && !props.tertiary ? props.custom : ""}
-      ${props.disabled ? disabledStyle : props.className}`}
+      className={`flex flex-row ${style} focus:ring focus:ring-offset-4 ring-multi-blue-blue60f py-2 px-4 rounded-sm w-fit text-base font-display ${props.custom}`}
       onClick={props.onClick}
       type={props.type}
       id={props.id}
@@ -166,9 +161,17 @@ ActionButton.propTypes = {
   onClick: PropTypes.func,
 
   /**
-   * css overrides for button
+   * User must input one of the follow button styles to apply
+   * to their button. To apply the link style, the user must
+   * also add a value to the href prop
    */
-  className: PropTypes.string,
+  style: PropTypes.oneOf([
+    "supertask",
+    "primary",
+    "secondary",
+    "danger",
+    "link",
+  ]),
 
   /**
    * any other elements you want to add to the button
