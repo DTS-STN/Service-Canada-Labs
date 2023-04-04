@@ -19,7 +19,7 @@
     "graphql": "^16.6.0",
     "i18next": "^20.6.1",
     "i18next-http-backend": "^1.4.5",
-    "joi": "^17.7.0",
+    "joi": "^17.8.4",
     "js-cookie": "^3.0.1",
     "json2csv": "^5.0.6",
     "mongodb": "^3.7.3",
