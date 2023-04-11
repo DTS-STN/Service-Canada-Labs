@@ -9,7 +9,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@dts-stn/service-canada-design-system": "^1.57.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@lottiefiles/react-lottie-player": "^3.5.2",
+    "@lottiefiles/react-lottie-player": "^3.5.3",
     "@storybook/addons": "^7.0.0-beta.55",
     "@storybook/client-api": "^7.0.0-beta.55",
     "@types/react": "^18.0.27",
