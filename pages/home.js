@@ -182,7 +182,7 @@ export default function Home(props) {
           <div className="flex">
             <div id="header-text">
               <h1
-                className="font-display pb-6 text-h1xl font-bold"
+                className="font-display pb-6 text-h1 font-bold"
                 tabIndex="-1"
                 id="pageMainTitle"
               >
