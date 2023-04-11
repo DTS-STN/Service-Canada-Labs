@@ -2,6 +2,7 @@
  * @jest-environment jsdom
  */
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 import { axe, toHaveNoViolations } from "jest-axe";
 import { Primary } from "./ReportAProblem.stories";
@@ -19,17 +20,15 @@ describe("Report A Problem", () => {
   afterEach(() => {
     fetchMock.restore();
   });
-  it("displays error message after submit button is pressed and form is empty", () => {
+  it("displays error message after submit button is pressed and form is empty", async () => {
     render(<Primary {...Primary.args} />);
-    const submitButton = screen.getByTestId("report-a-problem-submit");
-    submitButton.click();
+    await userEvent.click(screen.getByTestId("report-a-problem-submit"));
     expect(screen.getByText("reportAProblemError")).toBeTruthy();
   });
-  it("displays thank you message after submit button is pressed and form isn't empty", () => {
+  it("displays thank you message after submit button is pressed and form isn't empty", async () => {
     render(<Primary {...Primary.args} />);
-    const submitButton = screen.getByTestId("report-a-problem-submit");
-    screen.getByTestId("unclearInformation-checkbox").click();
-    submitButton.click();
+    await userEvent.click(screen.getByTestId("unclearInformation-checkbox"));
+    await userEvent.click(screen.getByTestId("report-a-problem-submit"));
     expect(screen.getByText("reportAProblemThankYouForYourHelp")).toBeTruthy();
   });
   it("renders an empty status div before submitting the form", () => {
