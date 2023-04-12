@@ -11,6 +11,20 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Added
 
+## Changed
+
+## Fixed
+
+## [v1.5.1] - 2023-04-12
+
+## Added
+
+- Add dateModifiedOverride to oas-benefits-estimator/index.js
+
+## [v1.5.0] - 2023-04-12
+
+## Added
+
 - Added a button to resend email after user signup
 - Added OWASP ZAP testing to github action
 - Added copied state for IE error
