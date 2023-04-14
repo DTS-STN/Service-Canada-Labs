@@ -2949,21 +2949,7 @@
     lodash.merge "^4.6.2"
     postcss-selector-parser "6.0.10"
 
-"@testing-library/dom@^8.1.0":
-  version "8.20.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-8.20.0.tgz#914aa862cef0f5e89b98cc48e3445c4c921010f6"
-  integrity sha512-d9ULIT+a4EXLX3UU8FBjauG9NnsZHkHztXoIcTsOKoOw030fyjheN9svkTULjJxtYag9DZz5Jz5qkWZDPxTFwA==
-  dependencies:
-    "@babel/code-frame" "^7.10.4"
-    "@babel/runtime" "^7.12.5"
-    "@types/aria-query" "^5.0.1"
-    aria-query "^5.0.0"
-    chalk "^4.1.0"
-    dom-accessibility-api "^0.5.9"
-    lz-string "^1.4.4"
-    pretty-format "^27.0.2"
-
-"@testing-library/dom@^9.0.0":
+"@testing-library/dom@^9.0.0", "@testing-library/dom@^9.2.0":
   version "9.2.0"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-9.2.0.tgz#0e1f45e956f2a16f471559c06edd8827c4832f04"
   integrity sha512-xTEnpUKiV/bMyEsE5bT4oYA0x0Z/colMtxzUY8bKyPXBNLn/e0V4ZjBZkEhms0xE4pv9QsPfSRu9AWS4y5wGvA==
@@ -9040,11 +9026,6 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
-lz-string@^1.4.4:
-  version "1.4.4"
-  resolved "https://registry.yarnpkg.com/lz-string/-/lz-string-1.4.4.tgz#c0d8eaf36059f705796e1e344811cf4c498d3a26"
-  integrity sha512-0ckx7ZHRPqb0oUm8zNr+90mtf9DQB60H1wMCjBtfi62Kl3a7JbHob6gA2bC+xRvZoOL+1hzUK8jeuEIQE8svEQ==
-
 lz-string@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/lz-string/-/lz-string-1.5.0.tgz#c1ab50f77887b712621201ba9fd4e3a6ed099941"
@@ -9976,10 +9957,10 @@ next-page-tester@^0.32.0:
     stealthy-require "^1.1.1"
     tiny-glob "^0.2.9"
 
-next-router-mock@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/next-router-mock/-/next-router-mock-0.1.4.tgz#65ccb177d6c2dc201b9732754fc2248827a24ccf"
-  integrity sha512-oMYbd72iIm0Vj4WFQVJJLVeLQ7PiT9jJZiVIpBigiW/E9zZpMTAoHNu08ZSU5OX0vZubYy3ZhJpIfgNqAPsyZA==
+next-router-mock@^0.9.3:
+  version "0.9.3"
+  resolved "https://registry.yarnpkg.com/next-router-mock/-/next-router-mock-0.9.3.tgz#8287e96d76d4c7b3720bc9078b148c2b352f1567"
+  integrity sha512-jl8eFe71LpMVGeBMpoxILkGfEgGY7IfLy8XPyv05/o61p5oQRNpoMmk46VMxRIpt0fI8XcvznBZKpDK6vbYQcQ==
 
 next@^13.2.3:
   version "13.2.3"

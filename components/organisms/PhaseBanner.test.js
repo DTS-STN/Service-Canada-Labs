@@ -1,10 +1,11 @@
 /**
  * @jest-environment jsdom
  */
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { act } from "react-dom/test-utils";
 import "@testing-library/jest-dom/extend-expect";
-import { axe, toHaveNoViolations } from "jest-axe";
+import { toHaveNoViolations } from "jest-axe";
 import { Primary, WithFeedback } from "./PhaseBanner.stories";
 
 expect.extend(toHaveNoViolations);
