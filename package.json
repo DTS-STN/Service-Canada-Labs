@@ -48,7 +48,7 @@
     "lint:test": "prettier --check \"pages/**/*.{js,jsx,ts,tsx,json,md}\" --check \"components/**/*.{js,jsx,ts,tsx,json,md}\" --check \"lib/**/*.{js,jsx,ts,tsx,json,md}\" --check \"tailwind.config.js\" --check \"middlewares/**/*.{js,jsx,ts,tsx,json,md}\"",
     "storybook": "storybook dev -s ./public -p 6006",
     "build-storybook": "storybook build",
-    "test:unit": "jest --forceExit",
+    "test:unit": "jest --forceExit --detectOpenHandles",
     "test:coverage": "jest --coverage --forceExit",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
