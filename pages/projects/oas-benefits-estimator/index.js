@@ -43,6 +43,7 @@ export default function OasBenefitsEstimator(props) {
         langUrl={
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
+        dateModifiedOverride={pageData.scDateModifiedOverwrite}
         breadcrumbItems={[
           {
             text:
