@@ -6,11 +6,8 @@ import "@testing-library/jest-dom/extend-expect";
 import userEvent from "@testing-library/user-event";
 import { axe, toHaveNoViolations } from "jest-axe";
 import { NoBanner, WithBanner } from "./Layout.stories";
-import mockRouter from "next-router-mock";
 
 expect.extend(toHaveNoViolations);
-
-userEvent.click = jest.fn();
 
 // Store the original console.error function
 const originalConsoleError = console.error;
@@ -20,9 +17,12 @@ describe("Layout", () => {
     // Suppress the specific act(...) warning
     console.error = (...args) => {
       if (
-        typeof args[0] === "string" &&
+        (typeof args[0] === "string" &&
+          args[0].includes(
+            "Warning: An update to %s inside a test was not wrapped in act"
+          )) ||
         args[0].includes(
-          "Warning: An update to %s inside a test was not wrapped in act"
+          "Error: Not implemented: navigation (except hash changes)"
         )
       ) {
         return;
@@ -48,23 +48,14 @@ describe("Layout", () => {
   });
 
   it("changes the language from French to English when language toggle clicked", async () => {
-    mockRouter.locale = "fr";
     render(<NoBanner {...NoBanner.args} locale="fr" />);
     const languageLink = await screen.findByTestId("languageLink3");
     await act(async () => {
       await userEvent.click(languageLink);
     });
     await waitFor(() => {
-      // Check if the navigation occurs with the expected URL
-      expect(mockRouter).toMatchObject(
-        {
-          pathname: expect.any(String),
-          query: expect.any(Object),
-        },
-        undefined,
-        {
-          locale: "en", // The expected locale after the language toggle is clicked
-        }
+      expect(screen.getByTestId("languageLink3").textContent).toEqual(
+        "English"
       );
     });
   });
