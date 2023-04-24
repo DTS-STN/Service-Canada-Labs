@@ -23,7 +23,7 @@ describe("robots api", () => {
     });
     await handler(req, res);
     expect(res._getData()).toBe(
-      "User-agent: *\nDisallow: /api\nDisallow: /projects/*\nDisallow: /confirmation.js\nDisallow: /thankyou.js\nDisallow: /notsupported.js\n"
+      "User-agent: *\nDisallow: /api\nDisallow: /projects/*\nDisallow: /confirmation.js\nDisallow: /thankyou.js\nDisallow: /notsupported.js\nDisallow: /about.js\n"
     );
   });
 });
