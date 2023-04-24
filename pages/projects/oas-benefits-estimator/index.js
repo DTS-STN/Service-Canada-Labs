@@ -327,9 +327,9 @@ export default function OasBenefitsEstimator(props) {
                 ? pageData.scFragments[0].scContentEn.json[7].content[0].value
                 : pageData.scFragments[0].scContentFr.json[7].content[0].value}
             </p>
-            <ul className="list-disc list-outside pl-2">
+            <ul className="list-disc list-outside pl-2 font-body">
               <li>
-                <p className="font-body">
+                <p>
                   {props.locale === "en"
                     ? pageData.scFragments[0].scContentEn.json[8].content[0]
                         .content[0].value
@@ -338,7 +338,7 @@ export default function OasBenefitsEstimator(props) {
                 </p>
               </li>
               <li>
-                <p className="font-body">
+                <p>
                   {props.locale === "en"
                     ? pageData.scFragments[0].scContentEn.json[8].content[1]
                         .content[0].value
@@ -347,7 +347,7 @@ export default function OasBenefitsEstimator(props) {
                 </p>
               </li>
               <li>
-                <p className="font-body">
+                <p>
                   {props.locale === "en"
                     ? pageData.scFragments[0].scContentEn.json[8].content[2]
                         .content[0].value
@@ -405,9 +405,9 @@ export default function OasBenefitsEstimator(props) {
               ? pageData.scFragments[0].scContentEn.json[11].content[0].value
               : pageData.scFragments[0].scContentFr.json[11].content[0].value}
           </p>
-          <ul className="list-disc list-outside pl-2 text-sm lg:text-p">
+          <ul className="list-disc list-outside pl-2 text-sm lg:text-p font-body">
             <li>
-              <p className="font-body">
+              <p>
                 {props.locale === "en"
                   ? pageData.scFragments[0].scContentEn.json[12].content[0]
                       .content[0].value
@@ -416,7 +416,7 @@ export default function OasBenefitsEstimator(props) {
               </p>
             </li>
             <li>
-              <p className="font-body">
+              <p>
                 {props.locale === "en"
                   ? pageData.scFragments[0].scContentEn.json[12].content[1]
                       .content[0].value
@@ -425,7 +425,7 @@ export default function OasBenefitsEstimator(props) {
               </p>
             </li>
             <li>
-              <p className="font-body">
+              <p>
                 {props.locale === "en"
                   ? pageData.scFragments[0].scContentEn.json[12].content[2]
                       .content[0].value
