@@ -327,7 +327,7 @@ export default function OasBenefitsEstimator(props) {
                 ? pageData.scFragments[0].scContentEn.json[7].content[0].value
                 : pageData.scFragments[0].scContentFr.json[7].content[0].value}
             </p>
-            <ul className="list-disc list-outside pl-2 font-body">
+            <ul className="list-disc list-outside pl-2">
               <li>
                 <p>
                   {props.locale === "en"
@@ -405,7 +405,7 @@ export default function OasBenefitsEstimator(props) {
               ? pageData.scFragments[0].scContentEn.json[11].content[0].value
               : pageData.scFragments[0].scContentFr.json[11].content[0].value}
           </p>
-          <ul className="list-disc list-outside pl-2 text-sm lg:text-p font-body">
+          <ul className="list-disc list-outside pl-2">
             <li>
               <p>
                 {props.locale === "en"
