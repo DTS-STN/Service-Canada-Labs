@@ -13,6 +13,7 @@ describe("csv api", () => {
   });
 
   beforeEach(async () => {
+    jest.spyOn(console, "log").mockImplementation(() => {});
     submitEmailWithAttachment.mockRestore();
     process.env.USER_CSV_TEMPLATE_ID = "csv";
     process.env.MONGO_DB = "testdbuservalidate";

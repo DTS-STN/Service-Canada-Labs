@@ -3,6 +3,8 @@
  */
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
+import userEvent from "@testing-library/user-event";
+import { act } from "react-dom/test-utils";
 import { axe, toHaveNoViolations } from "jest-axe";
 import { UnControlled, MultiText, Radio } from "./OptionalTextField.stories";
 
@@ -22,8 +24,10 @@ describe("OptionalTextField", () => {
 
   it("opens and closes text field", async () => {
     const { container } = render(<UnControlled {...UnControlled.args} />);
-    let checkBox = screen.getByTestId("uncontrolled-check-1");
-    checkBox.click();
+    const checkBox = screen.getByTestId("uncontrolled-check-1");
+    await act(async () => {
+      await userEvent.click(screen.getByTestId("uncontrolled-check-1"));
+    });
     expect(checkBox).toBeChecked();
     expect(screen.getByTestId("uncontrolled-text-1")).toBeTruthy();
     const results = await axe(container);
@@ -38,8 +42,10 @@ describe("OptionalTextField", () => {
 
   it("renders multitext field when specified", async () => {
     const { container } = render(<MultiText {...MultiText.args} />);
-    let checkBox = screen.getByTestId("multitext-check-1");
-    checkBox.click();
+    const checkBox = screen.getByTestId("multitext-check-1");
+    await act(async () => {
+      await userEvent.click(screen.getByTestId("multitext-check-1"));
+    });
     expect(checkBox).toBeChecked();
     let elem = screen.getByTestId("multitext-text-1");
     expect(elem.tagName).toEqual("TEXTAREA");

@@ -10,19 +10,19 @@ import { WithTag } from "./Card.stories";
 expect.extend(toHaveNoViolations);
 
 describe("Card tests", () => {
-  it("renders Card in its primary state", () => {
+  it("renders Card in its primary state", async () => {
     render(<Primary {...Primary.args} />);
-    const titleElement = screen.getByText("Title");
-    const descriptionElement = screen.getByText("Description");
+    const titleElement = screen.findByText("Title");
+    const descriptionElement = screen.findByText("Description");
     expect(titleElement).toBeTruthy();
     expect(descriptionElement).toBeTruthy();
   });
 
-  it("renders Card with tag", () => {
+  it("renders Card with tag", async () => {
     render(<WithTag {...WithTag.args} />);
-    const titleElement = screen.getByText("Title");
-    const tagElement = screen.getByText("Experiment tag");
-    const descriptionElement = screen.getByText("Description");
+    const titleElement = await screen.findByText("Title");
+    const tagElement = await screen.findByText("Experiment tag");
+    const descriptionElement = await screen.findByText("Description");
     expect(titleElement).toBeTruthy();
     expect(tagElement).toBeTruthy();
     expect(descriptionElement).toBeTruthy();
