@@ -7,11 +7,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
-## [v1.5.0] - 2023-04-12
-
 ## Added
 
 ## Changed
+
+- ProjectInfo.js now displays labels and their content in a single column
+- ProjectInfo.js FocusTrap now behaves like an accordion, pushing proceeding content beneath it rather than displaying overtop of it
 
 ## Fixed
 
@@ -214,8 +215,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Updated robots.txt so that subdirectories of `/projects` won't be indexed by search engines
 - Updated dockerfile to include --legacy-peer-deps on npm installs and rebuilt package-lock.json
-- ProjectInfo.js now displays labels and their content in a single column
-- ProjectInfo.js FocusTrap now behaves like an accordion, pushing proceeding content beneath it rather than displaying overtop of it
 
 ## [v1.0.4] - 2021-08-04
 
