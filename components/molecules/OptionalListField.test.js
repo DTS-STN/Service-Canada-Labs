@@ -3,6 +3,8 @@
  */
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
+import { act } from "react-dom/test-utils";
+import userEvent from "@testing-library/user-event";
 import { axe, toHaveNoViolations } from "jest-axe";
 import {
   UnControlled,
@@ -27,8 +29,10 @@ describe("OptionalListField", () => {
 
   it("opens and closes list field", async () => {
     const { container } = render(<UnControlled {...UnControlled.args} />);
-    let checkBox = screen.getByTestId("uncontrolled-check-1");
-    checkBox.click();
+    const checkBox = screen.getByTestId("uncontrolled-check-1");
+    await act(async () => {
+      await userEvent.click(screen.getByTestId("uncontrolled-check-1"));
+    });
     expect(checkBox).toBeChecked();
     expect(screen.getByTestId("reasons-dislike")).toBeTruthy();
     expect(screen.getByTestId("reasons-poor-choice")).toBeTruthy();

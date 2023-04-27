@@ -60,7 +60,7 @@ describe("unsubscribe api", () => {
     });
 
     await unsubscribeHandler(req, res);
-    console.log(submitEmail.mock.calls);
+    // console.log(submitEmail.mock.calls);
     expect(res._getStatusCode()).toBe(201);
     expect(res._getData()).toBe("USER UNSUBSCRIBE EMAIL SENT");
     expect(submitEmail.mock.calls[0]).toContainEqual({
