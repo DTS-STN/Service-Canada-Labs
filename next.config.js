@@ -243,11 +243,6 @@ module.exports = {
         permanent: false,
       },
       {
-        source: "/projects",
-        destination: "/home",
-        permanent: false,
-      },
-      {
         source: "/signup",
         has: [
           {
@@ -353,6 +348,16 @@ module.exports = {
           },
         ],
         destination: "/notsupported",
+        permanent: false,
+      },
+      {
+        source: "/projects",
+        destination: "/home",
+        permanent: false,
+      },
+      {
+        source: "/projets",
+        destination: "/home",
         permanent: false,
       },
     ];
