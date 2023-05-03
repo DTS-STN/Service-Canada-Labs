@@ -7,11 +7,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
-## [v1.5.0] - 2023-04-12
-
 ## Added
 
 ## Changed
+
+- Hid project pages without links on the main page
 
 ## Fixed
 
