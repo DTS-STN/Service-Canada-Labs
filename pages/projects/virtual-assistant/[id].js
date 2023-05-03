@@ -238,6 +238,12 @@ export const getStaticProps = async ({ locale, params }) => {
   const pageData = pages.filter((page) => {
     return page.scPageNameEn === params.id || page.scPageNameFr === params.id;
   });
+  // In production, redirect this page to a 404
+  if (process.env.ENVIRONMENT === "production") {
+    return {
+      notFound: true,
+    };
+  }
   return {
     props: {
       locale: locale,

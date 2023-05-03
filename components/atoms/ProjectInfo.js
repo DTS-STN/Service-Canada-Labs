@@ -11,7 +11,7 @@ export function ProjectInfo(props) {
 
   return (
     <>
-      <div className="grid grid-cols-4 gap-x-4 text-[20px]">
+      <div className="grid grid-cols-1 xl:grid-cols-4 gap-x-4 text-[20px]">
         <strong className="col-span-1">{props.termStarted}</strong>
         <p className="col-span-3">
           {!props.dateStarted ? undefined : props.dateStarted.substring(0, 10)}
@@ -45,20 +45,22 @@ export function ProjectInfo(props) {
               {props.information}
             </button>
           </p>
-          {showInfo ? (
+        </div>
+        {showInfo ? (
+          <div className="col-span-3 xl:col-span-4">
             <FocusTrap
               focusTrapOptions={{
                 initialFocus: false,
                 allowOutsideClick: true,
               }}
             >
-              <div className="relative w-full">
+              <div className="w-full">
                 <div
                   style={{
                     background: "#E8F2F4",
                     borderColor: "#269ABC",
                   }}
-                  className="absolute -top-8 border rounded-md px-4 py-2 my-2"
+                  className="border rounded-md px-4 py-2 my-2"
                 >
                   {
                     <>
@@ -74,8 +76,8 @@ export function ProjectInfo(props) {
                 </div>
               </div>
             </FocusTrap>
-          ) : undefined}
-        </div>
+          </div>
+        ) : undefined}
         <strong className="col-span-1">{props.termSummary}</strong>
         <p className="col-span-3">{props.summary}</p>
       </div>
