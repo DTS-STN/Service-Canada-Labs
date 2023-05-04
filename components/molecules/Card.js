@@ -35,8 +35,8 @@ export const Card = (props) => {
           ""
         )}
         <h2>
-          <a
-            className="block mt-4 text-lg text-custom-blue-projects-link underline px-4 items-center group-hover:no-underline group-hover:text-custom-blue-projects-link-hover"
+          <p
+            className="block mt-4 font-display text-lg text-custom-blue-projects-link underline px-4 items-center group-hover:no-underline group-hover:text-custom-blue-projects-link-hover"
             tabIndex="0"
           >
             {props.title}
@@ -51,7 +51,7 @@ export const Card = (props) => {
             ) : (
               ""
             )}
-          </a>
+          </p>
           {props.showDate ? (
             <p className="ml-4 text-base text-custom-gray-date">
               {"Posted: " + props.datePosted.substring(0, 10)}

@@ -16,6 +16,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Hid project pages without links on the main page
 - Right-clicking anywhere on Card.js allows to open the link in a new tab
 - Project pages now display a question mark for information instead of an "i"
+- Remove `<a>` tag nested in another `<a>` from Card.js
 
 ## Fixed
 
