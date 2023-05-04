@@ -15,7 +15,7 @@ export const Card = (props) => {
   };
 
   return (
-    <Link href={props.href} legacyBehavior>
+    <Link href={props.href}>
       <div
         className={`group card-shadow border border-custom-gray-border rounded-md pb-4 hover:cursor-pointer ${
           "border-" + (tagColours[props.tag] || "gray-experiment")
