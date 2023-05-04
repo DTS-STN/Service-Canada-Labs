@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+import { faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "next-i18next";
 import { useState } from "react";
 import FocusTrap from "focus-trap-react";
@@ -30,7 +30,7 @@ export function ProjectInfo(props) {
               aria-expanded={showInfo}
             >
               <FontAwesomeIcon
-                icon={faCircleInfo}
+                icon={faCircleQuestion}
                 color={"#269ABC"}
                 size="lg"
                 className="px-2"
