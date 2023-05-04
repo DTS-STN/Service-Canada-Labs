@@ -14,6 +14,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - ProjectInfo.js now displays labels and their content in a single column
 - ProjectInfo.js FocusTrap now behaves like an accordion, pushing proceeding content beneath it rather than displaying overtop of it
 - Hid project pages without links on the main page
+- Right-clicking anywhere on Card.js allows to open the link in a new tab
 
 ## Fixed
 
