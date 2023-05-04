@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1683225615582" clover="3.2.0">
-  <project timestamp="1683225615582" name="All files">
+<coverage generated="1683228217088" clover="3.2.0">
+  <project timestamp="1683228217088" name="All files">
     <metrics statements="1103" coveredstatements="714" conditionals="1821" coveredconditionals="838" methods="252" coveredmethods="167" elements="3176" coveredelements="1719" complexity="0" loc="1103" ncloc="1103" packages="16" files="113" classes="113"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -302,13 +302,13 @@
       <file name="Card.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/molecules/Card.js">
         <metrics statements="4" coveredstatements="4" conditionals="18" coveredconditionals="14" methods="1" coveredmethods="1"/>
         <line num="10" count="3" type="stmt"/>
-        <line num="11" count="9" type="stmt"/>
-        <line num="17" count="9" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
         <line num="97" count="3" type="stmt"/>
       </file>
       <file name="Card.stories.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/molecules/Card.stories.js">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="10" count="4" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
@@ -898,7 +898,7 @@
       </file>
       <file name="home.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/home.js">
         <metrics statements="11" coveredstatements="6" conditionals="70" coveredconditionals="34" methods="3" coveredmethods="2"/>
-        <line num="10" count="2" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="cond" truecount="1" falsecount="1"/>
@@ -1434,7 +1434,7 @@
       </file>
       <file name="index.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/projects/virtual-assistant/index.js">
         <metrics statements="17" coveredstatements="9" conditionals="86" coveredconditionals="43" methods="4" coveredmethods="3"/>
-        <line num="14" count="2" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
