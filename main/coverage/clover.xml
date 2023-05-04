@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1683228560873" clover="3.2.0">
-  <project timestamp="1683228560873" name="All files">
-    <metrics statements="1103" coveredstatements="714" conditionals="1821" coveredconditionals="838" methods="252" coveredmethods="167" elements="3176" coveredelements="1719" complexity="0" loc="1103" ncloc="1103" packages="16" files="113" classes="113"/>
+<coverage generated="1683228861042" clover="3.2.0">
+  <project timestamp="1683228861042" name="All files">
+    <metrics statements="1107" coveredstatements="714" conditionals="1825" coveredconditionals="838" methods="252" coveredmethods="167" elements="3184" coveredelements="1719" complexity="0" loc="1107" ncloc="1107" packages="16" files="113" classes="113"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/index.js">
@@ -790,7 +790,7 @@
       </file>
     </package>
     <package name="pages">
-      <metrics statements="280" coveredstatements="73" conditionals="604" coveredconditionals="165" methods="61" coveredmethods="18"/>
+      <metrics statements="284" coveredstatements="73" conditionals="608" coveredconditionals="165" methods="61" coveredmethods="18"/>
       <file name="404.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/404.js">
         <metrics statements="17" coveredstatements="12" conditionals="24" coveredconditionals="12" methods="3" coveredmethods="2"/>
         <line num="12" count="2" type="stmt"/>
@@ -971,7 +971,7 @@
         <line num="405" count="0" type="stmt"/>
       </file>
       <file name="signup-info.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/signup-info.js">
-        <metrics statements="10" coveredstatements="6" conditionals="92" coveredconditionals="45" methods="3" coveredmethods="2"/>
+        <metrics statements="12" coveredstatements="6" conditionals="94" coveredconditionals="45" methods="3" coveredmethods="2"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
@@ -981,10 +981,12 @@
         <line num="22" count="1" type="stmt"/>
         <line num="405" count="1" type="stmt"/>
         <line num="406" count="0" type="stmt"/>
-        <line num="407" count="0" type="stmt"/>
+        <line num="409" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="410" count="0" type="stmt"/>
+        <line num="415" count="0" type="stmt"/>
       </file>
       <file name="signup-review.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/signup-review.js">
-        <metrics statements="104" coveredstatements="0" conditionals="126" coveredconditionals="0" methods="15" coveredmethods="0"/>
+        <metrics statements="106" coveredstatements="0" conditionals="128" coveredconditionals="0" methods="15" coveredmethods="0"/>
         <line num="14" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
@@ -1088,7 +1090,9 @@
         <line num="501" count="0" type="stmt"/>
         <line num="504" count="0" type="stmt"/>
         <line num="505" count="0" type="stmt"/>
-        <line num="506" count="0" type="stmt"/>
+        <line num="508" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="509" count="0" type="stmt"/>
+        <line num="514" count="0" type="stmt"/>
       </file>
       <file name="thankyou.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/thankyou.js">
         <metrics statements="20" coveredstatements="12" conditionals="40" coveredconditionals="17" methods="4" coveredmethods="2"/>
