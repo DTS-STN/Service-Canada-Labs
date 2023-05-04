@@ -404,6 +404,14 @@ export default function SignupInfo(props) {
 
 export const getStaticProps = async ({ locale }) => {
   const { data } = await aemServiceInstance.getFragment("signupInfoQuery");
+
+  // In production, redirect this page to a 404
+  if (process.env.ENVIRONMENT === "production") {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       pageData: data.scLabsPagev1ByPath,
