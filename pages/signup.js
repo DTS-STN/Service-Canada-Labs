@@ -1211,6 +1211,13 @@ export default function Signup(props) {
 export const getStaticProps = async ({ locale }) => {
   const { data } = await aemServiceInstance.getFragment("signupQuery");
 
+  // In production, redirect this page to a 404
+  if (process.env.ENVIRONMENT === "production") {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       locale: locale,
