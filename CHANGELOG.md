@@ -11,6 +11,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Changed
 
+## Fixed
+
+## [v1.5.2] - 2023-05-09
+
+## Changed
+
 - ProjectInfo.js now displays labels and their content in a single column
 - ProjectInfo.js FocusTrap now behaves like an accordion, pushing proceeding content beneath it rather than displaying overtop of it
 - Hid project pages without links on the main page
@@ -18,8 +24,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Project pages now display a question mark for information instead of an "i"
 - Signup pages return 404 in production
 - Remove `<a>` tag nested in another `<a>` from Card.js
-
-## Fixed
 
 ## [v1.5.1] - 2023-04-12
 
