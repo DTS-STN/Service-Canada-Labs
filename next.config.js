@@ -97,7 +97,7 @@ securityHeaders = [
   },
   {
     key: "Content-Security-Policy",
-    value: `default-src 'self' dts-stn.com *.dts-stn.com *.adobe.com *.omniture.com *.2o7.net; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; connect-src 'self' *.demdex.net *.omtrdc.net cm.everesttech.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com data:; img-src 'self' data: *.omtrdc.net *.demdex.net cm.everesttech.net assets.adobedtm.com https://www.canada.ca; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; frame-src 'self' *.demdex.net; script-src 'self' 'unsafe-inline' ${
+    value: `default-src 'self' dts-stn.com *.dts-stn.com *.adobe.com *.omniture.com *.2o7.net; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; connect-src 'self' *.adobe.com *.demdex.net *.omtrdc.net cm.everesttech.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com data:; img-src 'self' data: *.omtrdc.net *.demdex.net cm.everesttech.net assets.adobedtm.com https://www.canada.ca; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; frame-src 'self' *.adobe.com *.demdex.net; script-src 'self' 'unsafe-inline' *.adobe.com ${
       process.env.CI === "true"
         ? "'unsafe-eval'"
         : process.env.NODE_ENV === "development"
