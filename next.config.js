@@ -97,7 +97,7 @@ securityHeaders = [
   },
   {
     key: "Content-Security-Policy",
-    value: `default-src 'self' dts-stn.com *.dts-stn.com https://assets.adobedtm.com *.omniture.com *.2o7.net; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; connect-src 'self' https://assets.adobedtm.com *.demdex.net *.omtrdc.net cm.everesttech.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com data:; img-src 'self' data: *.omtrdc.net *.demdex.net cm.everesttech.net https://assets.adobedtm.com https://www.canada.ca; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; frame-src 'self' https://assets.adobedtm.com *.demdex.net; script-src-elem https://assets.adobedtm.com; script-src 'self' 'unsafe-inline' ${
+    value: `default-src 'self' dts-stn.com *.dts-stn.com *.adobe.com https://assets.adobedtm.com *.omniture.com *.2o7.net; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; connect-src 'self' *.adobe.com https://assets.adobedtm.com *.demdex.net *.omtrdc.net cm.everesttech.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com data:; img-src 'self' data: *.omtrdc.net *.demdex.net cm.everesttech.net https://assets.adobedtm.com https://www.canada.ca; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; frame-src 'self' *.adobe.com https://assets.adobedtm.com *.demdex.net; script-src-elem https://assets.adobedtm.com; script-src 'self' 'unsafe-inline' ${
       process.env.CI === "true"
         ? "'unsafe-eval'"
         : process.env.NODE_ENV === "development"
