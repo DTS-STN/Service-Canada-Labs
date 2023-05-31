@@ -3,7 +3,7 @@
   "version": "1.5.2",
   "private": true,
   "dependencies": {
-    "@apollo/client": "^3.7.10",
+    "@apollo/client": "^3.7.13",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
