@@ -8,9 +8,9 @@ The pipeline architecture includes the following key components:
 
 1. Source Control Repository: The codebase is stored in a GitHub repository. The main branch serves as the primary branch for the codebase.
 
-2. Build and Tagging Stage: The pipeline is triggered on every merge to the main branch. It fetches the latest code changes and performs the build process, generating acontainer image. The pipeline then tags the artifact with a unique build ID, ensuring traceability and versioning.
+2. Build and Tagging Stage: The pipeline is triggered on every merge to the main branch. It fetches the latest code changes and performs the build process, generating a container image. The pipeline then tags the image with a unique build ID, ensuring traceability and versioning.
 
-3. Container Registry: The tagged artifact is pushed to an Azure Container Registry. The container registry serves as a centralized repository for storing container images.
+3. Container Registry: The tagged image is pushed to an Azure Container Registry. The container registry serves as a centralized repository for storing container images.
 
 4. Azure AppService: The Azure AppService is configured with continuous deployment capabilities. It continuously monitors the container registry for new image availability. Upon detecting a new image with the "release-candidate" tag, it automatically deploys the image to the development environment. This environment serves as the testing and validation environment for the latest code changes.
 
@@ -29,7 +29,7 @@ The pipeline architecture includes the following key components:
 
 2. Build and Tagging Stage:
     The pipeline performs the build process with the fetched code changes.
-    It generates acontainer image and tags it with a unique build ID as well as "release-candidate", signifying that this image can be deployed to review environments.
+    It generates a container image and tags it with a unique build ID as well as "release-candidate", signifying that this image can be deployed to review environments.
 
 3. Push to Container Registry:
     The tagged image is pushed to the ACR.
