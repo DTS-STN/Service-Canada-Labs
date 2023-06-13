@@ -16,7 +16,7 @@ The pipeline architecture includes the following key components:
 
 ## Pipeline Configuration
 
-[Pipeline file](../dev-azure-pipelines.yml)
+[Pipeline file](./dev-alphasite.md)
 
 [Link to ADO](https://dev.azure.com/VP-BD/ENDC-DECD-Builds/_build?definitionId=60)
 

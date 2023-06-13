@@ -1,0 +1,59 @@
+name: $(Date:yyyyMMdd)
+
+trigger:
+  - main
+
+pr: none
+
+variables:
+  imageRepository: 'alphasite'
+  ADO_BUILD: $(Build.BuildId)
+  BUILD_DATE: $(Build.BuildNumber)
+  tag: 'ADO-$(ADO_BUILD)'
+  vmImageName: 'ubuntu-latest'
+  GIT_SHA: $(Build.SourceVersion)
+
+stages:
+  - stage: Build
+    displayName: Build and Push to ACR
+    jobs:
+      - job: Build
+        displayName: Build and Push Container
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+          - task: Docker@2
+            inputs:
+              containerRegistry: '$(ACR_NAME)'
+              repository: '$(imageRepository)'
+              command: 'build'
+              Dockerfile: './Dockerfile'
+              tags: |
+                $(tag)
+                release-candidate
+              arguments: '--pull --build-arg TC_BUILD=$(ADO_BUILD) --build-arg BUILD_DATE=$(BUILD_DATE) --build-arg MONGO_DB=$(MONGO_DB) --build-arg ADOBE_ANALYTICS_URL=$(ADOBE_ANALYTICS_URL) --build-arg NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL=$(NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL) --build-arg ISR_ENABLED=$(ISR_ENABLED) --build-arg THANK_YOU_EMAIL=$(THANK_YOU_EMAIL) --build-arg AEM_GRAPHQL_ENDPOINT=$(AEM_GRAPHQL_ENDPOINT) --build-arg REVALIDATION_TOKEN=$(REVALIDATION_TOKEN) --build-arg GIT_SHA=$(GIT_SHA)'
+          - task: Docker@2
+            inputs:
+              containerRegistry: '$(ACR_NAME)'
+              repository: '$(imageRepository)'
+              command: 'push'
+              tags: |
+                $(tag)
+                release-candidate
+                
+# using App Service's continuous deployment feature, the staging env will automatically pull the container tagged as "release-candidate"
+
+  # - stage: Deploy
+  #   displayName: Deploy Container to App Service
+  #   jobs:
+  #     - job: Deploy
+  #       displayName: Deploy Container
+  #       pool:
+  #         vmImage: $(vmImageName)
+  #       steps:
+  #         - task: AzureCLI@2
+  #           inputs:
+  #             azureSubscription: $(DECD_DEV_SUBSCRIPTION)
+  #             scriptType: 'bash'
+  #             scriptLocation: 'inlineScript'
+  #             inlineScript: 'az webapp config container set --docker-custom-image-name $(ACR_DOMAIN)/$(imageRepository):$(tag) --docker-registry-server-url $(ACR_DOMAIN) --name $(ALPHASITE_APPSERVICE) --resource-group $(RESOURCE_GROUP)'
