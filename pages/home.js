@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Card from "../components/molecules/Card";
 import { Alert } from "../components/atoms/Alert";
 import aemServiceInstance from "../services/aemServiceInstance";
+import { Heading } from "@dts-stn/service-canada-design-system";
 
 export default function Home(props) {
   const [pageData] = useState(props.pageData.item);
@@ -181,16 +182,18 @@ export default function Home(props) {
         <section className="layout-container mb-24 mt-8">
           <div className="flex">
             <div id="header-text">
-              <h1
-                className="font-display pb-6 text-h1 font-bold"
+              <Heading
+                className="mb-8"
                 tabIndex="-1"
                 id="pageMainTitle"
-              >
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[0].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[0].content[0]
-                      .value}
-              </h1>
+                title={
+                  props.locale === "en"
+                    ? pageData.scFragments[0].scContentEn.json[0].content[0]
+                        .value
+                    : pageData.scFragments[0].scContentFr.json[0].content[0]
+                        .value
+                }
+              />
               <p className="font-body">
                 {props.locale === "en"
                   ? pageData.scFragments[0].scContentEn.json[1].content[0].value
