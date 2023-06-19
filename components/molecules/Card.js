@@ -28,7 +28,7 @@ export const Card = (props) => {
             <img
               src={props.imgSrc}
               alt={props.imgAlt}
-              className="xxl:mt-4 mb-4 object-cover rounded-md"
+              className="object-cover rounded-md"
             />
           </div>
         ) : (
@@ -36,7 +36,7 @@ export const Card = (props) => {
         )}
         <h2>
           <p
-            className="block mt-4 font-display text-lg text-custom-blue-projects-link underline px-4 items-center group-hover:no-underline group-hover:text-custom-blue-projects-link-hover"
+            className="block font-display text-lg text-custom-blue-projects-link underline underline-offset-4 mt-2 px-6 items-center group-hover:no-underline group-hover:text-custom-blue-projects-link-hover"
             tabIndex="0"
           >
             {props.title}
@@ -53,7 +53,7 @@ export const Card = (props) => {
             )}
           </p>
           {props.showDate ? (
-            <p className="ml-4 text-base text-custom-gray-date">
+            <p className="ml-6 text-base text-custom-gray-date">
               {"Posted: " + props.datePosted.substring(0, 10)}
             </p>
           ) : (
@@ -62,7 +62,7 @@ export const Card = (props) => {
         </h2>
         {props.showTag ? (
           <span
-            className={`block w-max py-2 px-2 my-4 font-body font-bold border-l-4 ml-4 ${
+            className={`block w-max py-2 px-2 my-4 font-body font-bold border-l-4 ml-6 ${
               "border-" +
               (tagColours[props.tag] || "gray-experiment") +
               "-darker"
@@ -75,7 +75,7 @@ export const Card = (props) => {
         ) : (
           ""
         )}
-        <p className="text-custom-gray-text mx-4 leading-30px text-lg">
+        <p className="text-custom-gray-text mx-6 leading-30px text-lg">
           {props.description}
         </p>
         {props.showButton ? (
