@@ -28,7 +28,7 @@ export const Card = (props) => {
             <img
               src={props.imgSrc}
               alt={props.imgAlt}
-              className="xxl:mt-4 mb-4 object-cover rounded-md"
+              className="object-cover rounded-md"
             />
           </div>
         ) : (
@@ -36,7 +36,7 @@ export const Card = (props) => {
         )}
         <h2>
           <p
-            className="block mt-4 font-display text-lg text-custom-blue-projects-link underline px-4 items-center group-hover:no-underline group-hover:text-custom-blue-projects-link-hover"
+            className="block font-display text-lg text-custom-blue-projects-link underline underline-offset-4 px-4 items-center group-hover:no-underline group-hover:text-custom-blue-projects-link-hover"
             tabIndex="0"
           >
             {props.title}
