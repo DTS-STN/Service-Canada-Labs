@@ -264,7 +264,10 @@ export default function Home(props) {
           </h2>
           <div className="mb-8">
             <ContextualAlert
+              id="info-alert"
               type="info"
+              alert_icon_alt_text="info icon"
+              alert_icon_id="info icon"
               message_heading={
                 props.locale === "en"
                   ? pageData.scFragments[2].scTitleEn
