@@ -11,6 +11,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Changed
 
+- Deprecate use of Alert and replaced with SCDS ContextualAlert
+- Repositioned homepage Alert
+
 ## Fixed
 
 ## [v1.5.2] - 2023-05-09
