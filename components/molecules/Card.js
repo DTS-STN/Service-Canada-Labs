@@ -36,7 +36,7 @@ export const Card = (props) => {
         )}
         <h2>
           <p
-            className="block font-display text-lg text-custom-blue-projects-link underline underline-offset-4 mt-2 px-4 items-center group-hover:no-underline group-hover:text-custom-blue-projects-link-hover"
+            className="block font-display text-lg text-custom-blue-projects-link underline underline-offset-4 mt-2 px-6 items-center group-hover:no-underline group-hover:text-custom-blue-projects-link-hover"
             tabIndex="0"
           >
             {props.title}
@@ -75,7 +75,7 @@ export const Card = (props) => {
         ) : (
           ""
         )}
-        <p className="text-custom-gray-text mx-4 leading-30px text-lg">
+        <p className="text-custom-gray-text mx-6 leading-30px text-lg">
           {props.description}
         </p>
         {props.showButton ? (
