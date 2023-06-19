@@ -53,7 +53,7 @@ export const Card = (props) => {
             )}
           </p>
           {props.showDate ? (
-            <p className="ml-4 text-base text-custom-gray-date">
+            <p className="ml-6 text-base text-custom-gray-date">
               {"Posted: " + props.datePosted.substring(0, 10)}
             </p>
           ) : (
@@ -62,7 +62,7 @@ export const Card = (props) => {
         </h2>
         {props.showTag ? (
           <span
-            className={`block w-max py-2 px-2 my-4 font-body font-bold border-l-4 ml-4 ${
+            className={`block w-max py-2 px-2 my-4 font-body font-bold border-l-4 ml-6 ${
               "border-" +
               (tagColours[props.tag] || "gray-experiment") +
               "-darker"
