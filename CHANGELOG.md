@@ -11,6 +11,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Changed
 
+- Change heading in home.js to use SCDS Heading component
+
 ## Fixed
 
 ## [v1.5.2] - 2023-05-09
