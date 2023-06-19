@@ -3,7 +3,6 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../components/organisms/Layout";
 import { useEffect, useState } from "react";
 import Card from "../components/molecules/Card";
-// import { Alert } from "../components/atoms/Alert";
 import { ContextualAlert } from "@dts-stn/service-canada-design-system";
 import aemServiceInstance from "../services/aemServiceInstance";
 
