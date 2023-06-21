@@ -12,6 +12,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## Changed
 
 - Increased paragraph tag line-height to 33px
+- Update font colour across the site to #333333
 - Small changes to Card.js
 
 ## Fixed
