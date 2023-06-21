@@ -395,7 +395,7 @@ export default function OasBenefitsEstimator(props) {
               />
             </div>
           </div>
-          <h2 className="my-8">
+          <h2 className="mt-12">
             {props.locale === "en"
               ? pageData.scFragments[0].scContentEn.json[10].content[0].value
               : pageData.scFragments[0].scContentFr.json[10].content[0].value}
@@ -444,7 +444,7 @@ export default function OasBenefitsEstimator(props) {
               ? pageData.scFragments[0].scContentEn.json[14].content[0].value
               : pageData.scFragments[0].scContentFr.json[14].content[0].value}
           </p>
-          <h2 className="my-8">
+          <h2 className="mt-12">
             {props.locale === "en"
               ? pageData.scFragments[0].scContentEn.json[15].content[0].value
               : pageData.scFragments[0].scContentFr.json[15].content[0].value}
