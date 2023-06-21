@@ -16,6 +16,7 @@ html {
   h4,
   h5 {
     @apply font-display font-semibold;
+    margin-bottom: 24px;
   }
   h6 {
     @apply font-display;
@@ -92,11 +93,11 @@ html {
   }
 
   .textbuttonField > h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  .textbuttonField > h2,
+  .textbuttonField > h3,
+  .textbuttonField > h4,
+  .textbuttonField > h5,
+  .textbuttonField > h6 {
     @apply mb-4;
   }
 
