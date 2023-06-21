@@ -9,6 +9,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Added
 
+- margin-bottom: 24px to headings h1 through h5
+
 ## Changed
 
 - Update font colour across the site to #333333
