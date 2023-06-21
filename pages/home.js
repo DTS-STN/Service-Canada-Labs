@@ -3,7 +3,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../components/organisms/Layout";
 import { useEffect, useState } from "react";
 import Card from "../components/molecules/Card";
-import { Alert } from "../components/atoms/Alert";
+import { ContextualAlert } from "@dts-stn/service-canada-design-system";
 import aemServiceInstance from "../services/aemServiceInstance";
 import { Heading } from "@dts-stn/service-canada-design-system";
 
@@ -224,7 +224,7 @@ export default function Home(props) {
           </div>
           <div className="lg:flex">
             <span className="w-full">
-              <h2 className="mt-12 text-h1l">
+              <h2 className="mt-12">
                 {props.locale === "en"
                   ? pageData.scFragments[0].scContentEn.json[3].content[0].value
                   : pageData.scFragments[0].scContentFr.json[3].content[0]
@@ -258,12 +258,74 @@ export default function Home(props) {
               </ul>
             </span>
           </div>
-          <h2 className="text-h1l mt-12">
+          <h2 className="mt-12">
             {props.locale === "en"
               ? pageData.scFragments[0].scContentEn.json[6].content[0].value
               : pageData.scFragments[0].scContentFr.json[6].content[0]
                   .value}{" "}
           </h2>
+          <div className="mb-8">
+            <ContextualAlert
+              id="info-alert"
+              type="info"
+              alert_icon_alt_text="info icon"
+              alert_icon_id="info icon"
+              message_heading={
+                props.locale === "en"
+                  ? pageData.scFragments[2].scTitleEn
+                  : pageData.scFragments[2].scTitleFr
+              }
+              message_body={
+                props.locale === "en" ? (
+                  <>
+                    {
+                      pageData.scFragments[2].scContentEn.json[0].content[0]
+                        .value
+                    }
+                    <a
+                      className="underline text-canada-footer-font hover:text-canada-footer-hover-font-blue"
+                      href={
+                        pageData.scFragments[2].scContentEn.json[0].content[1]
+                          .data.href
+                      }
+                    >
+                      {
+                        pageData.scFragments[2].scContentEn.json[0].content[1]
+                          .value
+                      }
+                    </a>
+                    {
+                      pageData.scFragments[2].scContentEn.json[0].content[2]
+                        .value
+                    }
+                  </>
+                ) : (
+                  <>
+                    {
+                      pageData.scFragments[2].scContentFr.json[0].content[0]
+                        .value
+                    }
+                    <a
+                      className="underline text-canada-footer-font hover:text-canada-footer-hover-font-blue"
+                      href={
+                        pageData.scFragments[2].scContentFr.json[0].content[1]
+                          .data.href
+                      }
+                    >
+                      {
+                        pageData.scFragments[2].scContentFr.json[0].content[1]
+                          .value
+                      }
+                    </a>
+                    {
+                      pageData.scFragments[2].scContentEn.json[0].content[2]
+                        .value
+                    }
+                  </>
+                )
+              }
+            />
+          </div>
           <div className="grid lg:grid-cols-2 gap-x-8 lg:gap-y-12">
             <Card
               showImage
@@ -294,50 +356,6 @@ export default function Home(props) {
               }
             />
           </div>
-          <Alert
-            title={
-              props.locale === "en"
-                ? pageData.scFragments[2].scTitleEn
-                : pageData.scFragments[2].scTitleFr
-            }
-            text={
-              props.locale === "en" ? (
-                <>
-                  {pageData.scFragments[2].scContentEn.json[0].content[0].value}
-                  <a
-                    className="underline text-canada-footer-font hover:text-canada-footer-hover-font-blue"
-                    href={
-                      pageData.scFragments[2].scContentEn.json[0].content[1]
-                        .data.href
-                    }
-                  >
-                    {
-                      pageData.scFragments[2].scContentEn.json[0].content[1]
-                        .value
-                    }
-                  </a>
-                  {pageData.scFragments[2].scContentEn.json[0].content[2].value}
-                </>
-              ) : (
-                <>
-                  {pageData.scFragments[2].scContentFr.json[0].content[0].value}
-                  <a
-                    className="underline text-canada-footer-font hover:text-canada-footer-hover-font-blue"
-                    href={
-                      pageData.scFragments[2].scContentFr.json[0].content[1]
-                        .data.href
-                    }
-                  >
-                    {
-                      pageData.scFragments[2].scContentFr.json[0].content[1]
-                        .value
-                    }
-                  </a>
-                  {pageData.scFragments[2].scContentEn.json[0].content[2].value}
-                </>
-              )
-            }
-          />
         </section>
       </Layout>
       {props.adobeAnalyticsUrl ? (
