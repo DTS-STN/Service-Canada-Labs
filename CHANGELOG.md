@@ -9,9 +9,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Added
 
+- margin-bottom: 24px to headings h1 through h5
+
 ## Changed
 
 - Change heading in home.js to use SCDS Heading component
+- Update font colour across the site to #333333
 - Small changes to Card.js
 
 ## Fixed
