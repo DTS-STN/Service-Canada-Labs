@@ -182,7 +182,7 @@ export default function Home(props) {
           <div className="flex">
             <div id="header-text">
               <h1
-                className="font-display pb-6 text-h1 font-bold"
+                className="font-display text-h1 font-bold"
                 tabIndex="-1"
                 id="pageMainTitle"
               >
@@ -219,9 +219,9 @@ export default function Home(props) {
               />
             </span>
           </div>
-          <div className="mb-10 lg:flex">
+          <div className="lg:flex">
             <span className="w-full">
-              <h2 className="mt-8 mb-8 text-h1l">
+              <h2 className="mt-12">
                 {props.locale === "en"
                   ? pageData.scFragments[0].scContentEn.json[3].content[0].value
                   : pageData.scFragments[0].scContentFr.json[3].content[0]
@@ -255,7 +255,7 @@ export default function Home(props) {
               </ul>
             </span>
           </div>
-          <h2 className="text-h1l pb-2">
+          <h2 className="mt-12">
             {props.locale === "en"
               ? pageData.scFragments[0].scContentEn.json[6].content[0].value
               : pageData.scFragments[0].scContentFr.json[6].content[0]

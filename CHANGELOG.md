@@ -9,10 +9,13 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Added
 
+- margin-bottom: 24px to headings h1 through h5
+
 ## Changed
 
 - Deprecate use of Alert and replaced with SCDS ContextualAlert
 - Repositioned homepage Alert
+- Update font colour across the site to #333333
 - Small changes to Card.js
 
 ## Fixed
