@@ -9,10 +9,13 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Added
 
+- margin-bottom: 24px to headings h1 through h5
+
 ## Changed
 
 - Changed h2 font size 36px line height 56px
 - Changed h1 font size 38px line height 59px
+- Update font colour across the site to #333333
 - Small changes to Card.js
 
 ## Fixed
