@@ -36,7 +36,6 @@ module.exports = {
       display: ["Lato"],
       body: ["Noto sans"],
     },
-    // Second value is line-height, to calculate based on leading: fontsize + (leading / 2) = lineheight
     fontSize: {
       xxs: ["12px", "16px"],
       xs: ["14px", "16px"],
