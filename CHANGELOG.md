@@ -11,6 +11,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Changed
 
+- Update font colour across the site to #333333
 - Small changes to Card.js
 
 ## Fixed
