@@ -239,7 +239,7 @@ export default function OasBenefitsEstimator(props) {
                 }
               />
               <div className="row-span-4 p-0 mx-4">
-                <div className="flex justify-center">
+                <div className="flex justify-center lg:mt-14">
                   <div className="object-fill h-auto w-auto max-w-450px">
                     <img
                       src={

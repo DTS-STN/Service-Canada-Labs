@@ -207,7 +207,7 @@ export default function Home(props) {
               </p>
             </div>
             <span
-              className="hidden xl:flex w-full lg:ml-8"
+              className="hidden xl:flex w-full lg:ml-8 mt-auto"
               style={{ height: "300px", width: "431px", minWidth: "431px" }}
               role="presentation"
             >
