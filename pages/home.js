@@ -209,7 +209,7 @@ export default function Home(props) {
             </div>
             <span
               className="hidden xl:flex w-full lg:ml-8"
-              style={{ height: "320px", width: "500px", minWidth: "500px" }}
+              style={{ height: "300px", width: "431px", minWidth: "431px" }}
               role="presentation"
             >
               <img

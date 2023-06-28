@@ -42,7 +42,7 @@ module.exports = {
       sm: ["16px", "22px"],
       base: ["18px", "28px"],
       lg: ["20px", "32px"],
-      p: ["20px", "30px"],
+      p: ["20px", "33px"],
       h4: ["22px", "20px"],
       h3: ["24px", "24.3px"],
       h2: ["36px", "40px"],
