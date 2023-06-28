@@ -12,13 +12,15 @@ html {
 @layer base {
   /* Font families */
   h1,
-  h2,
+  h2 {
+    @apply font-display font-semibold;
+    margin-top: 48px;
+    margin-bottom: 24px;
+  }
   h3,
   h4,
   h5 {
     @apply font-display font-semibold;
-    margin-top: 48px;
-    margin-bottom: 24px;
   }
   h6 {
     @apply font-display;
