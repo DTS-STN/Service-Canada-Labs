@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
 import { CTA } from "@dts-stn/service-canada-design-system";
+import { Heading } from "@dts-stn/service-canada-design-system";
 
 export default function OasBenefitsEstimator(props) {
   const [pageData] = useState(props.pageData.item);
@@ -223,15 +224,20 @@ export default function OasBenefitsEstimator(props) {
         </Head>
 
         {/* Virtual Assitant Demo section start -  with link to working prototype */}
-        <section className="layout-container my-8">
+        <section className="layout-container">
           <main aria-labelledby="pageMainTitle">
-            <div className="flex flex-col break-words lg:grid lg:grid-cols-2 gap-4 lg:gap-6">
-              <h1 className="text-h1 border-h1-red-bar" id="pageMainTitle">
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[0].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[0].content[0]
-                      .value}
-              </h1>
+            <div className="flex flex-col break-words lg:grid lg:grid-cols-2">
+              <Heading
+                tabIndex="-1"
+                id="pageMainTitle"
+                title={
+                  props.locale === "en"
+                    ? pageData.scFragments[0].scContentEn.json[0].content[0]
+                        .value
+                    : pageData.scFragments[0].scContentFr.json[0].content[0]
+                        .value
+                }
+              />
               <div className="row-span-4 p-0 mx-4">
                 <div className="flex justify-center">
                   <div className="object-fill h-auto w-auto max-w-450px">
@@ -252,7 +258,7 @@ export default function OasBenefitsEstimator(props) {
                   </div>
                 </div>
               </div>
-              <p className="font-body text-lg">
+              <p className="font-body text-lg mb-4">
                 {props.locale === "en"
                   ? pageData.scFragments[0].scContentEn.json[1].content[0].value
                   : pageData.scFragments[0].scContentFr.json[1].content[0]
@@ -311,7 +317,7 @@ export default function OasBenefitsEstimator(props) {
               />
             </div>
           </main>
-          <h2 className="mt-12">
+          <h2>
             {props.locale === "en"
               ? pageData.scFragments[0].scContentEn.json[5].content[0].value
               : pageData.scFragments[0].scContentFr.json[5].content[0].value}
@@ -393,7 +399,7 @@ export default function OasBenefitsEstimator(props) {
               ariaExpanded={props.ariaExpanded}
             />
           </div>
-          <h2 className="mt-12">
+          <h2>
             {props.locale === "en"
               ? pageData.scFragments[0].scContentEn.json[10].content[0].value
               : pageData.scFragments[0].scContentFr.json[10].content[0].value}
@@ -442,17 +448,17 @@ export default function OasBenefitsEstimator(props) {
               ? pageData.scFragments[0].scContentEn.json[14].content[0].value
               : pageData.scFragments[0].scContentFr.json[14].content[0].value}
           </p>
-          <h2 className="mt-12">
+          <h2>
             {props.locale === "en"
               ? pageData.scFragments[0].scContentEn.json[15].content[0].value
               : pageData.scFragments[0].scContentFr.json[15].content[0].value}
           </h2>
-          <p className="my-8">
+          <p className="mb-8">
             {props.locale === "en"
               ? pageData.scFragments[0].scContentEn.json[16].content[0].value
               : pageData.scFragments[0].scContentFr.json[16].content[0].value}
           </p>
-          <div className="md:flex">
+          <div className="md:flex mb-12">
             <ActionButton
               id="feedback-btn-2"
               style="secondary"
