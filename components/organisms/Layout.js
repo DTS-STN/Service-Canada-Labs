@@ -101,8 +101,8 @@ export const Layout = ({
           </div>
         </div>
 
-        <div className="mb-2 border-t pb-2 mt-4">
-          <div className="layout-container mt-10 mb-12">
+        <div className="border-t pb-2 mt-4">
+          <div className="layout-container mt-10 mb-2">
             <Breadcrumb items={breadcrumbItems} />
           </div>
         </div>
@@ -115,7 +115,7 @@ export const Layout = ({
         <div>{children}</div>
       </main>
 
-      <footer>
+      <footer className="mt-12">
         <h2 className="sr-only">{t("siteFooter")}</h2>
         <div className="layout-container mt-5">
           <ReportAProblem />
