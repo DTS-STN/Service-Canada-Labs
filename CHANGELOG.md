@@ -13,6 +13,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Changed
 
+- Change heading in home.js to use SCDS Heading component
 - Deprecate use of Alert and replaced with SCDS ContextualAlert
 - Repositioned homepage Alert
 - Update font colour across the site to #333333
