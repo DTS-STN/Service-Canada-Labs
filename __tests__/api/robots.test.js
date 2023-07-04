@@ -4,11 +4,11 @@ import validateHandler from "../../pages/api/validate";
 
 describe("robots api", () => {
   afterEach(async () => {
-    delete process.env.ENVIRONMENT;
+    delete process.env.NODE_ENV;
   });
 
   it("renders the development robots.txt", async () => {
-    process.env.ENVIRONMENT = "development";
+    process.env.NODE_ENV = "development";
     const { req, res } = createMocks({
       method: "GET",
     });
@@ -17,7 +17,7 @@ describe("robots api", () => {
   });
 
   it("renders the production robots.txt", async () => {
-    process.env.ENVIRONMENT = "production";
+    process.env.NODE_ENV = "production";
     const { req, res } = createMocks({
       method: "GET",
     });

@@ -505,7 +505,7 @@ export const getStaticProps = async ({ locale }) => {
   const formFieldData = res2.data.scLabsPagev1ByPath;
 
   // In production, redirect this page to a 404
-  if (process.env.ENVIRONMENT === "production") {
+  if (process.env.NODE_ENV === "production") {
     return {
       notFound: true,
     };

@@ -31,7 +31,7 @@ stages:
               tags: |
                 $(tag)
                 release-candidate
-              arguments: '--pull --build-arg TC_BUILD=$(ADO_BUILD) --build-arg BUILD_DATE=$(BUILD_DATE) --build-arg MONGO_DB=$(MONGO_DB) --build-arg ADOBE_ANALYTICS_URL=$(ADOBE_ANALYTICS_URL) --build-arg NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL=$(NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL) --build-arg ISR_ENABLED=$(ISR_ENABLED) --build-arg THANK_YOU_EMAIL=$(THANK_YOU_EMAIL) --build-arg AEM_GRAPHQL_ENDPOINT=$(AEM_GRAPHQL_ENDPOINT) --build-arg REVALIDATION_TOKEN=$(REVALIDATION_TOKEN) --build-arg GIT_SHA=$(GIT_SHA)'
+              arguments: '--pull --build-arg NEXT_PUBLIC_BUILD_ID=$(ADO_BUILD) --build-arg NEXT_PUBLIC_BUILD_DATE=$(BUILD_DATE) --build-arg MONGO_DB=$(MONGO_DB) --build-arg ADOBE_ANALYTICS_URL=$(ADOBE_ANALYTICS_URL) --build-arg NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL=$(NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL) --build-arg ISR_ENABLED=$(ISR_ENABLED) --build-arg THANK_YOU_EMAIL=$(THANK_YOU_EMAIL) --build-arg AEM_GRAPHQL_ENDPOINT=$(AEM_GRAPHQL_ENDPOINT) --build-arg REVALIDATION_TOKEN=$(REVALIDATION_TOKEN) --build-arg GIT_SHA=$(GIT_SHA)'
           - task: Docker@2
             inputs:
               containerRegistry: '$(ACR_NAME)'

@@ -406,7 +406,7 @@ export const getStaticProps = async ({ locale }) => {
   const { data } = await aemServiceInstance.getFragment("signupInfoQuery");
 
   // In production, redirect this page to a 404
-  if (process.env.ENVIRONMENT === "production") {
+  if (process.env.NODE_ENV === "production") {
     return {
       notFound: true,
     };

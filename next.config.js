@@ -108,6 +108,7 @@ securityHeaders = [
 ];
 
 module.exports = {
+  output: 'standalone',
   swcMinify: true,
   i18n,
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
@@ -122,8 +123,7 @@ module.exports = {
   },
   env: {
     NEXT_PUBLIC_BUILD_DATE: process.env.NEXT_PUBLIC_BUILD_DATE,
-    NEXT_PUBLIC_TC_BUILD: process.env.NEXT_PUBLIC_TC_BUILD,
-    NEXT_PUBLIC_VERSION: "1.1.3",
+    NEXT_PUBLIC_BUILD_ID: process.env.NEXT_PUBLIC_BUILD_ID,
   },
   images: {
     domains: ["canada.ca", "www.canada.ca"],

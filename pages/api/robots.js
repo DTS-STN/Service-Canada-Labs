@@ -5,7 +5,7 @@
  * @returns {Promise<void>}
  */
 export default async function handler(req, res) {
-  if (process.env.ENVIRONMENT === "production") {
+  if (process.env.NODE_ENV === "production") {
     res.write("User-agent: *\n");
     res.write("Disallow: /api\n");
     res.write("Disallow: /projects/*\n");
