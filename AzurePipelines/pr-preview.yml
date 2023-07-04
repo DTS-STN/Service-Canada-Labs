@@ -49,7 +49,8 @@ steps:
       latest
     arguments: |
       --cache-from alphasitecrdev.azurecr.io/$(azureContainerRegistry.repository):latest
-      --build-arg TC_BUILD=$(ADO_BUILD) 
+      --build-arg NEXT_PUBLIC_BUILD_ID=$(ADO_BUILD) 
+      --build-arg NEXT_PUBLIC_BUILD_DATE=$(BUILD_DATE)
       --build-arg MONGO_DB=$(MONGO_DB) 
       --build-arg ADOBE_ANALYTICS_URL=$(ADOBE_ANALYTICS_URL) 
       --build-arg NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL=$(NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL) 
