@@ -96,13 +96,8 @@ html {
     @apply text-sm leading-normal font-normal font-body py-4;
   }
 
-  .textbuttonField > h1,
-  .textbuttonField > h2,
-  .textbuttonField > h3,
-  .textbuttonField > h4,
-  .textbuttonField > h5,
-  .textbuttonField > h6 {
-    @apply mb-4;
+  .textbuttonField > h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
   }
 
   .border-outset {
