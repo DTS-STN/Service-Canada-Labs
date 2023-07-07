@@ -12,7 +12,7 @@
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@storybook/addons": "^7.0.2",
     "@storybook/client-api": "^7.0.2",
-    "@types/react": "^18.0.34",
+    "@types/react": "^18.2.12",
     "cors": "^2.8.5",
     "cuid": "^2.1.8",
     "focus-trap-react": "^8.11.2",
