@@ -499,7 +499,7 @@ export default function OasBenefitsEstimator(props) {
                 ? pageData.scFragments[6].scLabsButton[0].scDestinationURLEn
                 : pageData.scFragments[6].scLabsButton[0].scDestinationURLFr,
             className:
-              "w-fit bg-[#26374A] mt-2 text-white visited:text-white hover:bg-[#1C578A] hover:no-underline hover:text-white active:bg-[#16446C]",
+              "w-fit bg-[#26374A] mt-4 text-white visited:text-white hover:bg-[#1C578A] hover:no-underline hover:text-white active:bg-[#16446C]",
           }}
           containerClass="layout-container my-4"
         />

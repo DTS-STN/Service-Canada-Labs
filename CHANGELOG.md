@@ -18,6 +18,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Repositioned homepage Alert
 - Update font colour across the site to #333333
 - Small changes to Card.js
+- Increased h3 line-height
+- Removed class overriding default border colour on Card.js
 
 ## Fixed
 
