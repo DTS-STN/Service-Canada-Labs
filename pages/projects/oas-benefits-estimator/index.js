@@ -227,19 +227,21 @@ export default function OasBenefitsEstimator(props) {
         <section className="layout-container">
           <main aria-labelledby="pageMainTitle">
             <div className="flex flex-col break-words lg:grid lg:grid-cols-2">
-              <Heading
-                tabIndex="-1"
-                id="pageMainTitle"
-                title={
-                  props.locale === "en"
-                    ? pageData.scFragments[0].scContentEn.json[0].content[0]
-                        .value
-                    : pageData.scFragments[0].scContentFr.json[0].content[0]
-                        .value
-                }
-              />
-              <div className="row-span-4 p-0 mx-4">
-                <div className="flex justify-center lg:mt-14">
+              <div className="col-span-2">
+                <Heading
+                  tabIndex="-1"
+                  id="pageMainTitle"
+                  title={
+                    props.locale === "en"
+                      ? pageData.scFragments[0].scContentEn.json[0].content[0]
+                          .value
+                      : pageData.scFragments[0].scContentFr.json[0].content[0]
+                          .value
+                  }
+                />
+              </div>
+              <div className="row-span-2 row-start-2 col-start-2 p-0 mx-4">
+                <div className="flex justify-center">
                   <div className="object-fill h-auto w-auto max-w-450px">
                     <img
                       src={
@@ -258,63 +260,65 @@ export default function OasBenefitsEstimator(props) {
                   </div>
                 </div>
               </div>
-              <p className="font-body text-lg mb-4">
+              <p className="row-start-2 font-body text-lg mb-4">
                 {props.locale === "en"
                   ? pageData.scFragments[0].scContentEn.json[1].content[0].value
                   : pageData.scFragments[0].scContentFr.json[1].content[0]
                       .value}
               </p>
-              <ProjectInfo
-                termStarted={
-                  props.locale === "en"
-                    ? filteredDictionary[2].scTermEn
-                    : filteredDictionary[2].scTermFr
-                }
-                termStage={
-                  props.locale === "en"
-                    ? filteredDictionary[1].scTermEn
-                    : filteredDictionary[1].scTermFr
-                }
-                termSummary={
-                  props.locale === "en"
-                    ? filteredDictionary[3].scTermEn
-                    : filteredDictionary[3].scTermFr
-                }
-                dateStarted={
-                  pageData.scFragments[0].scContentEn.json[2].content[0].value
-                }
-                term={
-                  props.locale === "en"
-                    ? pageData.scFragments[2].scContentEn.json[0].content[0]
-                        .value
-                    : pageData.scFragments[2].scContentFr.json[0].content[0]
-                        .value
-                }
-                definition={
-                  props.locale === "en"
-                    ? pageData.scFragments[2].scContentEn.json[0].content[1]
-                        .value
-                    : pageData.scFragments[2].scContentFr.json[0].content[1]
-                        .value
-                }
-                information={
-                  props.locale === "en"
-                    ? pageData.scFragments[2].scTitleEn
-                    : pageData.scFragments[2].scTitleFr
-                }
-                stage={
-                  props.locale === "en"
-                    ? stageDictionary.en[pageData.scLabProjectStage]
-                    : stageDictionary.fr[pageData.scLabProjectStage]
-                }
-                summary={
-                  props.locale === "en"
-                    ? pageData.scFragments[0].scContentEn.json[4].content[0]
-                        .value
-                    : pageData.scFragments[0].scContentFr.json[4].content[0]
-                        .value
-                }
-              />
+              <div className="row-start-3">
+                <ProjectInfo
+                  termStarted={
+                    props.locale === "en"
+                      ? filteredDictionary[2].scTermEn
+                      : filteredDictionary[2].scTermFr
+                  }
+                  termStage={
+                    props.locale === "en"
+                      ? filteredDictionary[1].scTermEn
+                      : filteredDictionary[1].scTermFr
+                  }
+                  termSummary={
+                    props.locale === "en"
+                      ? filteredDictionary[3].scTermEn
+                      : filteredDictionary[3].scTermFr
+                  }
+                  dateStarted={
+                    pageData.scFragments[0].scContentEn.json[2].content[0].value
+                  }
+                  term={
+                    props.locale === "en"
+                      ? pageData.scFragments[2].scContentEn.json[0].content[0]
+                          .value
+                      : pageData.scFragments[2].scContentFr.json[0].content[0]
+                          .value
+                  }
+                  definition={
+                    props.locale === "en"
+                      ? pageData.scFragments[2].scContentEn.json[0].content[1]
+                          .value
+                      : pageData.scFragments[2].scContentFr.json[0].content[1]
+                          .value
+                  }
+                  information={
+                    props.locale === "en"
+                      ? pageData.scFragments[2].scTitleEn
+                      : pageData.scFragments[2].scTitleFr
+                  }
+                  stage={
+                    props.locale === "en"
+                      ? stageDictionary.en[pageData.scLabProjectStage]
+                      : stageDictionary.fr[pageData.scLabProjectStage]
+                  }
+                  summary={
+                    props.locale === "en"
+                      ? pageData.scFragments[0].scContentEn.json[4].content[0]
+                          .value
+                      : pageData.scFragments[0].scContentFr.json[4].content[0]
+                          .value
+                  }
+                />
+              </div>
             </div>
           </main>
           <h2>
