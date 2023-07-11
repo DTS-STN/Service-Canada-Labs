@@ -180,8 +180,8 @@ export default function Home(props) {
           />
         </Head>
         <section className="layout-container">
-          <div className="flex">
-            <div id="header-text">
+          <div className="grid grid-cols-4">
+            <div className="col-span-4">
               <Heading
                 tabIndex="-1"
                 id="pageMainTitle"
@@ -193,33 +193,35 @@ export default function Home(props) {
                         .value
                 }
               />
-              <p className="font-body">
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[1].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[1].content[0]
-                      .value}
-              </p>
-              <p className="font-body pt-6">
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[2].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[2].content[0]
-                      .value}
-              </p>
             </div>
-            <span
-              className="hidden xl:flex w-full lg:ml-8 mt-auto"
-              style={{ height: "300px", width: "431px", minWidth: "431px" }}
-              role="presentation"
-            >
-              <img
-                src={
-                  props.locale === "en"
-                    ? pageData.scFragments[1].scImageEn._publishUrl
-                    : pageData.scFragments[1].scImageFr._publishUrl
-                }
-                alt=""
-              />
-            </span>
+            <p className="font-body col-span-4 xl:col-span-2 row-start-2">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[1].content[0].value
+                : pageData.scFragments[0].scContentFr.json[1].content[0].value}
+            </p>
+            <p className="font-body col-span-4 xl:col-span-2 row-start-3 pt-4 xxl:pt-0">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[2].content[0].value
+                : pageData.scFragments[0].scContentFr.json[2].content[0].value}
+            </p>
+            <div className="hidden xl:grid col-span-2 col-start-3 row-start-2 row-span-2">
+              <div className="flex justify-center">
+                <span
+                  className="w-full"
+                  style={{ height: "260px", width: "380px", minWidth: "380px" }}
+                  role="presentation"
+                >
+                  <img
+                    src={
+                      props.locale === "en"
+                        ? pageData.scFragments[1].scImageEn._publishUrl
+                        : pageData.scFragments[1].scImageFr._publishUrl
+                    }
+                    alt=""
+                  />
+                </span>
+              </div>
+            </div>
           </div>
           <div className="lg:flex">
             <span className="w-full">
