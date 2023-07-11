@@ -10,7 +10,7 @@ variables:
   webapp.name: 'alphasite-appservice-dev'
   webapp.resourceGroup: 'AlphasiteAppserviceRG'
   webapp.slotName: 'pr-preview-$(System.PullRequest.PullRequestId)'
-  azureContainerRegistry.name: 'alphasiteCRdev'
+  azureContainerRegistry.name: 'alphasiteCRdev-7/10/2023'
   azureContainerRegistry.repository: 'alphasite'
   azureContainerRegistry.domain: 'alphasitecrdev.azurecr.io'
   azureContainerRegistry.tag: 'preview-$(Build.SourceVersion)'
