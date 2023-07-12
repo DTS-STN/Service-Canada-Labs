@@ -55,6 +55,14 @@ html {
   h1:focus {
     @apply ring-1;
   }
+  @screen lg {
+    h1 {
+      @apply text-h1l
+    }
+    h2 {
+      @apply text-h2l
+    }
+  }
 }
 
 @layer utilities {
