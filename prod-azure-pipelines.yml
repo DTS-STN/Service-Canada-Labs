@@ -8,7 +8,7 @@ trigger:
 pr: none
 
 variables:
-  azureContainerRegistry.name: 'alphasiteCRdev-7/10/2023'
+  azureContainerRegistry.name: $(ACR_DOMAIN)
   imageRepository: 'alphasite'
   ADO_BUILD: $(Build.BuildId)
   BUILD_DATE: $(Build.BuildNumber)
