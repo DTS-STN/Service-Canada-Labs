@@ -27,14 +27,6 @@ steps:
   condition: eq(variables['Build.Reason'], 'PullRequest')
   displayName: Pull latest for layer caching
   continueOnError: true # for first build, no cache
-# TODO: Use a generic service principle for comments (not andr0272 / a PAT)
-- task: GitHubComment@0
-  displayName: "Let the requester know a preview is being dispatched via GitHub Comments"
-  condition: eq(variables['Build.Reason'], 'PullRequest')
-  inputs:
-    gitHubConnection: 'andr0272'
-    repositoryName: '$(Build.Repository.Name)'
-    comment: 'A pull request preview is being generated. Hold tight!'
 # TODO: This Dockerfile needs optomization. 10 minute builds defeat the purpose of PR previews
 - task: Docker@2
   displayName: "Build image"
@@ -94,7 +86,7 @@ steps:
       --slot $(webapp.slotName) \
       --resource-group $(webapp.resourceGroup)
 
-# TODO: Update comment vs make new comment
+# TODO: Use a generic service principle for comments (not andr0272 / a PAT)
 - task: GitHubComment@0
   displayName: "add the webapp link to the PR via GitHub Comments"
   condition: eq(variables['Build.Reason'], 'PullRequest')
