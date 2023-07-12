@@ -9,6 +9,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Added
 
+## Changed
+
+## Fixed
+
+## [v1.6.0] - 2023-07-12
+
+## Added
+
 - margin-bottom: 24px to headings h1 through h5
 
 ## Changed
