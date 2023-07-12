@@ -21,6 +21,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Increased h3 line-height
 - Removed class overriding default border colour on Card.js
 - Updated headings sections to match new design with image under main H1
+- Modify font-sizes to align with SCDS responsive sizing
 
 ## Fixed
 
