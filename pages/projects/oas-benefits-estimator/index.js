@@ -535,6 +535,6 @@ export const getStaticProps = async ({ locale }) => {
       dictionary: dictionary.dictionaryV1List,
       ...(await serverSideTranslations(locale, ["common"])),
     },
-    revalidate: 10,
+    // revalidate: 10,
   };
 };
