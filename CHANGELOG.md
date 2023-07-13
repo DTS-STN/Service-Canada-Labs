@@ -13,7 +13,15 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Fixed
 
-- Fixed issue with tooltip shifting content at some display sizes
+## [v1.6.1] - 2023-07-13
+
+## Added
+
+## Changed
+
+## Fixed
+
+- Fixed issue with ProjectInfo tooltip shifting content at some display sizes
 
 ## [v1.6.0] - 2023-07-12
 
