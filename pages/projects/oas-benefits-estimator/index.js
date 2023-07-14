@@ -320,21 +320,23 @@ export default function OasBenefitsEstimator(props) {
               </div>
             </div>
           </section>
-          <h2>
-            {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[5].content[0].value
-              : pageData.scFragments[0].scContentFr.json[5].content[0].value}
-          </h2>
-          <p>
-            {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[6].content[0].value
-              : pageData.scFragments[0].scContentFr.json[6].content[0].value}
-          </p>
-          <p className="my-4">
-            {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[7].content[0].value
-              : pageData.scFragments[0].scContentFr.json[7].content[0].value}
-          </p>
+          <div className="grid grid-cols-12">
+            <h2 className="col-span-12">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[5].content[0].value
+                : pageData.scFragments[0].scContentFr.json[5].content[0].value}
+            </h2>
+            <p className="col-span-12 xl:col-span-8">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[6].content[0].value
+                : pageData.scFragments[0].scContentFr.json[6].content[0].value}
+            </p>
+            <p className="col-span-12 xl:col-span-8 pt-6">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[7].content[0].value
+                : pageData.scFragments[0].scContentFr.json[7].content[0].value}
+            </p>
+          </div>
           <ul className="list-disc list-outside pl-2">
             <li>
               <p>
@@ -402,16 +404,18 @@ export default function OasBenefitsEstimator(props) {
               ariaExpanded={props.ariaExpanded}
             />
           </div>
-          <h2>
-            {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[10].content[0].value
-              : pageData.scFragments[0].scContentFr.json[10].content[0].value}
-          </h2>
-          <p className="my-4">
-            {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[11].content[0].value
-              : pageData.scFragments[0].scContentFr.json[11].content[0].value}
-          </p>
+          <div className="grid grid-cols-12">
+            <h2 className="col-span-12">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[10].content[0].value
+                : pageData.scFragments[0].scContentFr.json[10].content[0].value}
+            </h2>
+            <p className="col-span-12 xl:col-span-8">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[11].content[0].value
+                : pageData.scFragments[0].scContentFr.json[11].content[0].value}
+            </p>
+          </div>
           <ul className="list-disc list-outside pl-2">
             <li>
               <p>
@@ -441,26 +445,28 @@ export default function OasBenefitsEstimator(props) {
               </p>
             </li>
           </ul>
-          <p className="my-8">
-            {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[13].content[0].value
-              : pageData.scFragments[0].scContentFr.json[13].content[0].value}
-          </p>
-          <p className="my-8">
-            {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[14].content[0].value
-              : pageData.scFragments[0].scContentFr.json[14].content[0].value}
-          </p>
-          <h2>
-            {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[15].content[0].value
-              : pageData.scFragments[0].scContentFr.json[15].content[0].value}
-          </h2>
-          <p className="mb-8">
-            {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[16].content[0].value
-              : pageData.scFragments[0].scContentFr.json[16].content[0].value}
-          </p>
+          <div className="grid grid-cols-12">
+            <p className="col-span-12 xl:col-span-8">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[13].content[0].value
+                : pageData.scFragments[0].scContentFr.json[13].content[0].value}
+            </p>
+            <p className="col-span-12 xl:col-span-8 pt-6">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[14].content[0].value
+                : pageData.scFragments[0].scContentFr.json[14].content[0].value}
+            </p>
+            <h2 className="col-span-12">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[15].content[0].value
+                : pageData.scFragments[0].scContentFr.json[15].content[0].value}
+            </h2>
+            <p className="col-span-12 xl:col-span-8 pb-8">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[16].content[0].value
+                : pageData.scFragments[0].scContentFr.json[16].content[0].value}
+            </p>
+          </div>
           <div className="md:flex mb-12">
             <ActionButton
               id="feedback-btn-2"
