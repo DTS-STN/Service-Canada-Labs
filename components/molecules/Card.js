@@ -28,7 +28,7 @@ export const Card = (props) => {
             <img
               src={props.imgSrc}
               alt={props.imgAlt}
-              className="object-cover rounded-md"
+              className="object-contain rounded-md"
             />
           </div>
         ) : (
