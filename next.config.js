@@ -57,6 +57,10 @@ const REWRITES = [
     source: "/projets/estimateur-prestations-sv",
     destination: "/projects/oas-benefits-estimator",
   },
+  {
+    source: "/projets/tableau-de-bord",
+    destination: "/projects/dashboard"
+  }
 ];
 
 securityHeaders = [
