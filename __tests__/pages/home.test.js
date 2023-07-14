@@ -11,7 +11,7 @@ describe("Home", () => {
     render(
       <Home
         pageData={homePageData.data.scLabsPagev1ByPath}
-        experimentsData={experimentsData.data.scLabsPagev1List.items[2]}
+        experimentsData={experimentsData.data.scLabsPagev1List.items}
       />
     );
     expect(

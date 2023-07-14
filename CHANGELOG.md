@@ -9,7 +9,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Added
 
+- SCCH page
+- Filter for projects with status of "current" on the home page
+
 ## Changed
+
+- Card.js now uses object-contain for images
 
 ## Fixed
 
