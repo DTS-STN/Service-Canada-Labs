@@ -223,9 +223,8 @@ export default function OasBenefitsEstimator(props) {
           />
         </Head>
 
-        {/* Virtual Assitant Demo section start -  with link to working prototype */}
-        <section className="layout-container">
-          <main aria-labelledby="pageMainTitle">
+        <div className="layout-container">
+          <section aria-labelledby="pageMainTitle">
             <div className="flex flex-col break-words lg:grid lg:grid-cols-2">
               <div className="col-span-2">
                 <Heading
@@ -240,7 +239,7 @@ export default function OasBenefitsEstimator(props) {
                   }
                 />
               </div>
-              <div className="row-span-2 row-start-2 col-start-2 p-0 mx-4">
+              <div className="hidden lg:grid row-span-2 row-start-2 col-start-2 p-0 mx-4">
                 <div className="flex justify-center">
                   <div className="object-fill h-auto w-auto max-w-450px">
                     <img
@@ -320,7 +319,7 @@ export default function OasBenefitsEstimator(props) {
                 />
               </div>
             </div>
-          </main>
+          </section>
           <h2>
             {props.locale === "en"
               ? pageData.scFragments[0].scContentEn.json[5].content[0].value
@@ -479,7 +478,7 @@ export default function OasBenefitsEstimator(props) {
               ariaExpanded={props.ariaExpanded}
             />
           </div>
-        </section>
+        </div>
 
         <CTA
           heading={
