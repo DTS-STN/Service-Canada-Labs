@@ -67,9 +67,7 @@ export default function MscaDashboard(props) {
 
           {/* Primary HTML Meta Tags */}
           <title>
-            {props.locale === "en"
-              ? pageData.scShortTitleEn
-              : pageData.scShortTitleFr}
+            {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
           </title>
           <meta
             name="description"
@@ -237,7 +235,7 @@ export default function MscaDashboard(props) {
                   }
                 />
               </div>
-              <div className="row-span-2 row-start-2 col-start-2 p-0 mx-4">
+              <div className="hidden lg:grid row-span-2 row-start-2 col-start-2 p-0 mx-4">
                 <div className="flex justify-center">
                   <div className="object-fill h-auto w-auto max-w-450px">
                     <img
@@ -318,12 +316,104 @@ export default function MscaDashboard(props) {
               </div>
             </div>
           </section>
-          <h2>
-            {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[5].content[0].value
-              : pageData.scFragments[0].scContentFr.json[5].content[0].value}
-          </h2>
+          <section id="pageMainContent">
+            <div className="grid grid-cols-12">
+              <h2 className="col-span-12">
+                {props.locale === "en"
+                  ? pageData.scFragments[3].scContentEn.json[0].content[0].value
+                  : pageData.scFragments[3].scContentFr.json[0].content[0]
+                      .value}
+              </h2>
+              <p className="col-span-12 xl:col-span-8">
+                {props.locale === "en"
+                  ? pageData.scFragments[3].scContentEn.json[1].content[0].value
+                  : pageData.scFragments[3].scContentFr.json[1].content[0]
+                      .value}
+              </p>
+              <h2 className="col-span-12">
+                {props.locale === "en"
+                  ? pageData.scFragments[3].scContentEn.json[2].content[0].value
+                  : pageData.scFragments[3].scContentFr.json[2].content[0]
+                      .value}
+              </h2>
+              <p className="col-span-12 xl:col-span-8">
+                {props.locale === "en"
+                  ? pageData.scFragments[3].scContentEn.json[3].content[0].value
+                  : pageData.scFragments[3].scContentFr.json[3].content[0]
+                      .value}
+              </p>
+              <p className="col-span-12 xl:col-span-8 pt-8">
+                {props.locale === "en"
+                  ? pageData.scFragments[3].scContentEn.json[4].content[0].value
+                  : pageData.scFragments[3].scContentFr.json[4].content[0]
+                      .value}
+              </p>
+              <p className="col-span-12 xl:col-span-8 pt-8">
+                {props.locale === "en"
+                  ? pageData.scFragments[3].scContentEn.json[5].content[0].value
+                  : pageData.scFragments[3].scContentFr.json[5].content[0]
+                      .value}
+              </p>
+              <p className="col-span-12 xl:col-span-8 pt-8">
+                {props.locale === "en"
+                  ? pageData.scFragments[3].scContentEn.json[6].content[0].value
+                  : pageData.scFragments[3].scContentFr.json[6].content[0]
+                      .value}
+              </p>
+              <h2 className="col-span-12">
+                {props.locale === "en"
+                  ? pageData.scFragments[3].scContentEn.json[7].content[0].value
+                  : pageData.scFragments[3].scContentFr.json[7].content[0]
+                      .value}
+              </h2>
+              <p className="col-span-12 xl:col-span-8">
+                {props.locale === "en"
+                  ? pageData.scFragments[3].scContentEn.json[8].content[0].value
+                  : pageData.scFragments[3].scContentFr.json[8].content[0]
+                      .value}
+              </p>
+              <p className="col-span-12 xl:col-span-8 pt-8">
+                {props.locale === "en"
+                  ? pageData.scFragments[3].scContentEn.json[9].content[0].value
+                  : pageData.scFragments[3].scContentFr.json[9].content[0]
+                      .value}
+              </p>
+              <p className="col-span-12 xl:col-span-8 pt-8">
+                {props.locale === "en"
+                  ? pageData.scFragments[3].scContentEn.json[10].content[0]
+                      .value
+                  : pageData.scFragments[3].scContentFr.json[10].content[0]
+                      .value}
+              </p>
+            </div>
+          </section>
         </div>
+        {/* <CTA
+          heading={
+            props.locale === "en"
+              ? pageData.scFragments[6].scTitleEn
+              : pageData.scFragments[6].scTitleFr
+          }
+          body={
+            props.locale === "en"
+              ? pageData.scFragments[6].scContentEn.json[0].content[0].value
+              : pageData.scFragments[6].scContentFr.json[0].content[0].value
+          }
+          ButtonProps={{
+            id: "cta-btn",
+            text:
+              props.locale === "en"
+                ? pageData.scFragments[6].scLabsButton[0].scTitleEn
+                : pageData.scFragments[6].scLabsButton[0].scTitleFr,
+            href:
+              props.locale === "en"
+                ? pageData.scFragments[6].scLabsButton[0].scDestinationURLEn
+                : pageData.scFragments[6].scLabsButton[0].scDestinationURLFr,
+            className:
+              "w-fit bg-[#26374A] mt-4 text-white visited:text-white hover:bg-[#1C578A] hover:no-underline hover:text-white active:bg-[#16446C]",
+          }}
+          containerClass="layout-container my-4"
+        /> */}
       </Layout>
       {props.adobeAnalyticsUrl ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
