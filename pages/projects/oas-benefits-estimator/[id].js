@@ -133,7 +133,11 @@ export default function OASUpdatePage(props) {
             }
           />
           <div id="postedOnUpdatedOnSection" className="grid grid-cols-12">
-            <p className="col-span-6 sm:col-span-4 lg:col-span-3 font-bold">
+            <p
+              className={`col-span-6 sm:col-span-4 ${
+                props.locale === "en" ? "lg:col-span-2" : "lg:col-span-3"
+              } font-bold`}
+            >
               {props.locale === "en"
                 ? dictionary[9].scTermEn
                 : dictionary[9].scTermFr}
@@ -141,7 +145,11 @@ export default function OASUpdatePage(props) {
             <p className="col-span-6 col-start-7 sm:col-start-5 lg:col-span-2 md:col-start-5">
               {pageData.scDateModifiedOverwrite}
             </p>
-            <p className="row-start-2 col-span-6 sm:col-span-4 lg:col-span-3 font-bold">
+            <p
+              className={`row-start-2 col-span-6 sm:col-span-4 ${
+                props.locale === "en" ? "lg:col-span-2" : "lg:col-span-3"
+              } font-bold`}
+            >
               {props.locale === "en"
                 ? dictionary[4].scTermEn
                 : dictionary[4].scTermFr}
