@@ -48,11 +48,11 @@ export default function OasBenefitsEstimator(props) {
         }
         title={props.locale === "en" ? update.scTitleEn : update.scTitleFr}
         href={props.locale === "en" ? update.scPageNameEn : update.scPageNameFr}
-        description={
+        description={`${
           props.locale === "en"
             ? props.dictionary.items[9].scTermEn
             : props.dictionary.items[9].scTermFr
-        }
+        } ${update.scDateModifiedOverwrite}`}
       />
     </li>
   ));
