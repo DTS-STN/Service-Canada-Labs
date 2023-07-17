@@ -58,7 +58,6 @@ export default function OasBenefitsEstimator(props) {
   ));
 
   useEffect(() => {
-    console.log(props.dictionary);
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
