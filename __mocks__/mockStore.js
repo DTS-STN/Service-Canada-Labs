@@ -8738,3 +8738,859 @@ export const oasBenefitsEstimatorData = {
     },
   },
 };
+
+export const oasUpdatesData = [
+  {
+      "_path": "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/oas-benefits-estimator/project-updates/what-we-learned",
+      "scId": "WHAT-WE-LEARNED",
+      "scPageNameEn": "/en/projects/oas-benefits-estimator/what-we-learned",
+      "scPageNameFr": "/fr/projets/estimateur-prestations-sv/ce-que-nous-avons-appris",
+      "scTitleEn": "What we learned on Service Canada Labs before going live on Canada.ca",
+      "scTitleFr": "Ce que nous avons appris dans les laboratoires avant notre lancement sur Canada.ca",
+      "scShortTitleEn": null,
+      "scShortTitleFr": null,
+      "scBreadcrumbParentPages": [
+          {
+              "scTitleEn": "Service Canada Labs",
+              "scTitleFr": "Laboratoires de Service Canada",
+              "scPageNameEn": "/en/home",
+              "scPageNameFr": "/fr/accueil"
+          }
+      ],
+      "scSubject": null,
+      "scKeywordsEn": null,
+      "scKeywordsFr": null,
+      "scContentType": null,
+      "scOwner": null,
+      "scDateModifiedOverwrite": "2023-07-07",
+      "scAudience": null,
+      "scRegion": null,
+      "scSocialMediaImageEn": {
+          "_path": "/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/what-we-learned.png"
+      },
+      "scSocialMediaImageFr": {
+          "_path": "/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/what-we-learned.png"
+      },
+      "scSocialMediaImageAltTextEn": null,
+      "scSocialMediaImageAltTextFr": null,
+      "scNoIndex": false,
+      "scNoFollow": false,
+      "scFragments": [
+          {
+              "scId": "WHAT-WE-LEARNED",
+              "scImageEn": {
+                  "_publishUrl": "https://www.canada.ca/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/what-we-learned.png",
+                  "width": 318,
+                  "height": 263
+              },
+              "scImageFr": {
+                  "_publishUrl": "https://www.canada.ca/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/what-we-learned.png",
+                  "width": 318,
+                  "height": 263
+              },
+              "scImageMobileEn": null,
+              "scImageMobileFr": null,
+              "scImageAltTextEn": "Illustration of two people discussing data",
+              "scImageAltTextFr": " Illustration de deux personnes qui discutent de données",
+              "scImageCaptionEn": {
+                  "json": null
+              },
+              "scImageCaptionFr": {
+                  "json": null
+              }
+          },
+          {
+              "_path": "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/oas-benefits-estimator/project-updates/what-we-learned",
+              "scId": "OAS-BENEFITS-ESTIMATOR-WHAT-WE-LEARNED",
+              "scContentEn": {
+                  "json": [
+                      {
+                          "nodeType": "header",
+                          "style": "h1",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "What we learned on Service Canada Labs before going live on Canada.ca"
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "On April 12, 2023, we released an alpha version of the Old Age Security Benefits Estimator to the public. The tool was still in an early development phase, but it was working. We knew the earlier we let everyone use it, the earlier we'd get real feedback. "
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Since then, over 4,000 people tried it out, and around 200 provided feedback. Here’s what we learned from the feedback collected in our alpha phase, how it’s helping us improve our tool and what’s next for our beta phase. "
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "header",
+                          "style": "h2",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Asking experts what they think "
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Ideally, the estimator could save someone a trip or a call to Service Canada. That's why we wanted to know if it answered the most common questions about Old Age Security benefits. To find out, we asked Service Canada employees. "
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "They confirmed that the estimator was able to give answers to common questions about: "
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "unordered-list",
+                          "content": [
+                              {
+                                  "nodeType": "list-item",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "who these benefits are for "
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "list-item",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "how much they can expect to receive "
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "list-item",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "when they can expect to receive a letter from Service Canada "
+                                      }
+                                  ]
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "They told us about other questions they get often, and if they found any missing information. Some even gave us ideas to make this tool even more useful for Canadians. We'll be assessing these during our beta phase and will use this information to continuously improve the estimator. "
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "header",
+                          "style": "h2",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Using data to improve questions "
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "We were lucky enough to be able to use data from a similar tool while we were on Service Canada Labs. This helped us gather information about the questions we were asking. "
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "In alpha, entering an income in the estimator was optional. We wanted to give clients a choice. However, we realized, through our survey, that people were looking for a precise amount in the results. Only providing the maximum income to receive a benefit wasn’t enough. "
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "The other tool required clients to enter an income. So, we looked at their data. There was nothing to indicate that people didn’t want to do this. The question didn’t stop them from using the tool. "
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "To give better results, we decided to require income in our beta estimator. This way, we can provide an amount to everyone whose income qualifies, while being confident that the tool is just as easy to use. "
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "header",
+                          "style": "h2",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Making improvements based on client feedback "
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Our main goal for the alpha phase was to get people using the tool and get as much feedback as possible. Anyone who used our tool during our alpha phase could give us their thoughts through an anonymous feedback survey. "
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "We read all the comments and ratings and found it very valuable. Through our survey, we found out that: "
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "unordered-list",
+                          "content": [
+                              {
+                                  "nodeType": "list-item",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "90% thought the tool was easy to use "
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "list-item",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "73% were more aware of the benefits available to them "
+                                      }
+                                  ]
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Some were satisfied, some had questions, and others wanted to see different features. From the survey responses, we’ve identified the main improvements clients want to see. Many wanted: "
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "unordered-list",
+                          "content": [
+                              {
+                                  "nodeType": "list-item",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "the ability to get an estimate from a younger age "
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "list-item",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "more clarity about which types of income affect benefits "
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "list-item",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "to have more information about their partner’s results "
+                                      }
+                                  ]
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "We’ve already started working on these features and other adjustments. For example, in the beta version now on Canada.ca, we’ve added more detailed and visible results for partners. We’re looking forward to having this improvement and other tweaks make the tool better for Canadians. "
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "header",
+                          "style": "h2",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Share your feedback "
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "We’re still collecting and addressing feedback! The estimator is still in active development and will be evolving to better meet your needs throughout the beta. Expect to see some changes! "
+                              }
+                          ]
+                      }
+                  ]
+              },
+              "scContentFr": {
+                  "json": [
+                      {
+                          "nodeType": "header",
+                          "style": "h1",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Ce que nous avons appris dans les laboratoires avant notre lancement sur Canada.ca "
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Le "
+                              },
+                              {
+                                  "nodeType": "span",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "12 avril"
+                                      }
+                                  ],
+                                  "data": {
+                                      "class": "nowrap"
+                                  }
+                              },
+                              {
+                                  "nodeType": "text",
+                                  "value": " 2023, nous avons publié une version alpha de l’Estimateur des prestations de la Sécurité de la vieillesse. L’outil était encore dans une phase de développement préliminaire, mais il fonctionnait. Nous savions que nous pourrions obtenir de la véritable rétroaction plus tôt si nous permettions à tout le monde de l’utiliser. "
+                              },
+                              {
+                                  "nodeType": "line-break",
+                                  "content": []
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Depuis, plus de "
+                              },
+                              {
+                                  "nodeType": "span",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "4 000"
+                                      }
+                                  ],
+                                  "data": {
+                                      "class": "nowrap"
+                                  }
+                              },
+                              {
+                                  "nodeType": "text",
+                                  "value": " personnes l’ont essayé et environ 200 ont donné leur rétroaction. Voici ce que nous avons appris des avis recueillis au cours de notre phase alpha, comment ils nous aident à améliorer notre outil et ce qui nous attend pour notre phase bêta. "
+                              },
+                              {
+                                  "nodeType": "line-break",
+                                  "content": []
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "header",
+                          "style": "h2",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Demander aux experts ce qu’ils en pensent "
+                              },
+                              {
+                                  "nodeType": "line-break",
+                                  "content": []
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Idéalement, l’estimateur pourrait épargner à quelqu’un un voyage ou un appel à Service Canada. Voilà pourquoi nous voulions savoir s’il répondait aux questions les plus fréquentes sur les prestations de la Sécurité de la vieillesse. Pour le savoir, nous avons consulté les employés de Service Canada. "
+                              },
+                              {
+                                  "nodeType": "line-break",
+                                  "content": []
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Ils ont confirmé que l’estimateur répondait aux questions les plus courantes concernan"
+                              },
+                              {
+                                  "nodeType": "span",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "t : "
+                                      }
+                                  ],
+                                  "data": {
+                                      "class": "nowrap"
+                                  }
+                              },
+                              {
+                                  "nodeType": "line-break",
+                                  "content": []
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "unordered-list",
+                          "content": [
+                              {
+                                  "nodeType": "list-item",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "à qui s’adressent ces prestations; "
+                                      },
+                                      {
+                                          "nodeType": "line-break",
+                                          "content": []
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "list-item",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "le montant qu’ils peuvent s’attendre à recevoir; "
+                                      },
+                                      {
+                                          "nodeType": "line-break",
+                                          "content": []
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "list-item",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "quand ils peuvent s’attendre à recevoir une lettre de Service Canada. "
+                                      },
+                                      {
+                                          "nodeType": "line-break",
+                                          "content": []
+                                      }
+                                  ]
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Ils nous ont fait part d’autres questions qui leur sont souvent posées et nous ont dit s’ils avaient trouvé des informations manquantes. Certains nous ont même donné des idées pour rendre cet outil encore plus utile pour la population canadienne. Nous évaluerons ces idées au cours de notre phase bêta et nous utiliserons ces informations pour continuer à améliorer l’estimateur. "
+                              },
+                              {
+                                  "nodeType": "line-break",
+                                  "content": []
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "header",
+                          "style": "h2",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Utiliser des données pour améliorer les questions "
+                              },
+                              {
+                                  "nodeType": "line-break",
+                                  "content": []
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Nous avions la chance de pouvoir utiliser les données d’un outil similaire lorsque nous étions sur les laboratoires de Service Canada. Cela nous a permis de recueillir des informations sur nos questions. "
+                              },
+                              {
+                                  "nodeType": "line-break",
+                                  "content": []
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Dans la version alpha, il était facultatif de saisir un revenu dans I’estimateur. Nous voulions donner le choix aux clients. Cependant, nous nous sommes rendu compte, grâce à notre sondage, que les gens recherchaient un montant précis dans les résultats. Indiquer le revenu maximum pour recevoir une prestation n’était pas suffisant. "
+                              },
+                              {
+                                  "nodeType": "line-break",
+                                  "content": []
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "L’autre outil exigeait que les clients entrent un revenu. Nous avons donc examiné leurs données. Rien n’indiquait que les gens ne voulaient pas remplir ce champ. La question ne les empêchait pas d’utiliser l’outil. "
+                              },
+                              {
+                                  "nodeType": "line-break",
+                                  "content": []
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Pour fournir de meilleurs résultats, nous avons décidé d’exiger un revenu dans notre estimateur bêta. De cette manière, nous pouvons fournir un montant à toutes les personnes dont le revenu est admissible, tout en étant assurés que l’outil est tout aussi facile à utiliser. "
+                              },
+                              {
+                                  "nodeType": "line-break",
+                                  "content": []
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "header",
+                          "style": "h2",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Apporter des améliorations à partir de la rétroaction des clients "
+                              },
+                              {
+                                  "nodeType": "line-break",
+                                  "content": []
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Notre objectif principal pour la phase alpha était d’amener les gens à utiliser l’outil et de recevoir le plus de rétroaction possible. Toute personne ayant utilisé notre outil pendant la phase alpha pouvait nous faire part de ses impressions en répondant à un sondage anonyme. "
+                              },
+                              {
+                                  "nodeType": "line-break",
+                                  "content": []
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Nous avons lu tous les commentaires et évaluations et les avons trouvés très utiles. Notre sondage nous a permis de constater qu"
+                              },
+                              {
+                                  "nodeType": "span",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "e :"
+                                      }
+                                  ],
+                                  "data": {
+                                      "class": "nowrap"
+                                  }
+                              },
+                              {
+                                  "nodeType": "line-break",
+                                  "content": []
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "unordered-list",
+                          "content": [
+                              {
+                                  "nodeType": "list-item",
+                                  "content": [
+                                      {
+                                          "nodeType": "span",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "90 %"
+                                              }
+                                          ],
+                                          "data": {
+                                              "class": "nowrap"
+                                          }
+                                      },
+                                      {
+                                          "nodeType": "text",
+                                          "value": " ont trouvé que l’outil était facile à utiliser; "
+                                      },
+                                      {
+                                          "nodeType": "line-break",
+                                          "content": []
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "list-item",
+                                  "content": [
+                                      {
+                                          "nodeType": "span",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "73 %"
+                                              }
+                                          ],
+                                          "data": {
+                                              "class": "nowrap"
+                                          }
+                                      },
+                                      {
+                                          "nodeType": "text",
+                                          "value": " étaient plus conscients des prestations qui leur étaient offertes. "
+                                      },
+                                      {
+                                          "nodeType": "line-break",
+                                          "content": []
+                                      }
+                                  ]
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Certains étaient satisfaits, certains avaient des questions et d’autres voulaient voir d’autres fonctionnalités. À partir des réponses au sondage, nous avons identifié les principales améliorations souhaitées par les clients. De nombreuses personnes voulaien"
+                              },
+                              {
+                                  "nodeType": "span",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "t :"
+                                      }
+                                  ],
+                                  "data": {
+                                      "class": "nowrap"
+                                  }
+                              },
+                              {
+                                  "nodeType": "line-break",
+                                  "content": []
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "unordered-list",
+                          "content": [
+                              {
+                                  "nodeType": "list-item",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "pouvoir obtenir une estimation d’un plus jeune âge;   "
+                                      },
+                                      {
+                                          "nodeType": "line-break",
+                                          "content": []
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "list-item",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "plus de clarté sur les types de revenus qui affectent les prestations;  "
+                                      },
+                                      {
+                                          "nodeType": "line-break",
+                                          "content": []
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "list-item",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "avoir plus d’information sur les résultats de leur partenaire.   "
+                                      },
+                                      {
+                                          "nodeType": "line-break",
+                                          "content": []
+                                      }
+                                  ]
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Nous avons déjà commencé à travailler sur ces fonctionnalités et sur d’autres ajustements. Par exemple, dans la version bêta actuellement disponible sur Canada.ca, nous avons ajouté des résultats plus détaillés et plus visibles pour les partenaires. Nous avons hâte de voir cette amélioration et d’autres mises à jour améliorer l’outil pour tous. "
+                              },
+                              {
+                                  "nodeType": "line-break",
+                                  "content": []
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "header",
+                          "style": "h2",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Partagez votre avis "
+                              },
+                              {
+                                  "nodeType": "line-break",
+                                  "content": []
+                              }
+                          ]
+                      },
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Nous continuons à recueillir et à intégrer la rétroaction! L’estimateur est encore en développement actif et évoluera pour mieux répondre à vos besoins tout au long de la version bêta. Attendez-vous à voir des changements! "
+                              },
+                              {
+                                  "nodeType": "line-break",
+                                  "content": []
+                              }
+                          ]
+                      }
+                  ]
+              }
+          },
+          {
+              "scId": "GIVE-FEEDBACK-OAS-ESTIMATOR",
+              "scTitleEn": "Give feedback",
+              "scTitleFr": "Fournir des commentaires",
+              "scDestinationURLEn": "https://srv217.services.gc.ca/ihst4/Intro.aspx?cid=74938e05-8e91-42a9-8e9d-29daf79f6fe0&lc=eng",
+              "scDestinationURLFr": "https://srv217.services.gc.ca/ihst4/Intro.aspx?cid=74938e05-8e91-42a9-8e9d-29daf79f6fe0&lc=fra",
+              "scButtonType": [
+                  "gc:custom/decd-endc/button-type/secondary"
+              ]
+          },
+          {
+              "scId": "SIGN-UP-FOR-RESEARCH-SESSIONS-OAS-ESTIMATOR",
+              "scTitleEn": "Sign up for research sessions",
+              "scTitleFr": "Inscrivez-vous à des séances de recherche",
+              "scContentEn": {
+                  "json": [
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "If you want to get more involved, fill out our sign up form to let us know you’d like to get invited to our research sessions. We’d love to hear how you think we could improve this tool!"
+                              }
+                          ]
+                      }
+                  ]
+              },
+              "scContentFr": {
+                  "json": [
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Si vous aimeriez vous impliquer davantage, remplissez notre formulaire d’inscription pour nous indiquer que vous aimeriez vous faire inviter à des séances de recherche. Nous aimerions savoir comment, selon vous, nous pourrions améliorer cet outil!"
+                              }
+                          ]
+                      }
+                  ]
+              },
+              "scImageEn": null,
+              "scImageFr": null,
+              "scFragments": [],
+              "scImageAltTextEn": null,
+              "scImageAltTextFr": null,
+              "scLabsButton": [
+                  {
+                      "scId": "SIGN-UP-FOR-RESEARCH-SESSIONS-OAS-ESTIMATOR",
+                      "scTitleEn": "Sign up",
+                      "scTitleFr": "S'inscrire",
+                      "scDestinationURLEn": "https://srv217.services.gc.ca/ihst4/Intro.aspx?cid=ce6dd922-5429-40f4-8619-a4994701f608&lc=eng",
+                      "scDestinationURLFr": "https://srv217.services.gc.ca/ihst4/Intro.aspx?cid=ce6dd922-5429-40f4-8619-a4994701f608&lc=fra",
+                      "scButtonType": [
+                          "gc:custom/decd-endc/button-type/primary"
+                      ]
+                  }
+              ]
+          }
+      ]
+  }
+]
