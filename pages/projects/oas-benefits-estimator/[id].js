@@ -14,8 +14,6 @@ export default function OASUpdatePage(props) {
   const [dictionary] = useState(props.dictionary.items);
 
   useEffect(() => {
-    console.log(pageData);
-    console.log(dictionary);
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
@@ -51,30 +49,40 @@ export default function OASUpdatePage(props) {
           )}
 
           {/* Primary HTML Meta Tags */}
-          <title>{`${
-            props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
-          } — ${t("siteTitle")}`}</title>
-          <meta name="description" content={`${t("vc:metaDescription")}`} />
+          <title>
+            {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
+          </title>
+          <meta
+            name="description"
+            content={
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+            }
+          />
           <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
           <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
-          <meta name="keywords" content={t("vc:keywords")} />
+          <meta
+            name="keywords"
+            content={
+              props.locale === "en"
+                ? pageData.scKeywordsEn
+                : pageData.scKeywordsFr
+            }
+          />
 
           {/* DCMI Meta Tags */}
           <meta
             name="dcterms.title"
-            content={`${t("vc:virtualAssistantTitle")} — ${t("siteTitle")}`}
+            content={
+              props.locale === "en"
+                ? pageData.scShortTitleEn
+                : pageData.scShortTitleFr
+            }
           />
           <meta
             name="dcterms.language"
             content={props.locale === "en" ? "eng" : "fra"}
             title="ISO639-2/T"
-          />
-          <meta name="dcterms.description" content={t("homeMetaDescription")} />
-          <meta
-            name="dcterms.subject"
-            title="gccore"
-            content={t("metaSubject")}
           />
           <meta name="dcterms.creator" content="Service Canada" />
           <meta name="dcterms.accessRights" content="2" />
@@ -82,45 +90,103 @@ export default function OASUpdatePage(props) {
             name="dcterms.service"
             content="ESDC-EDSC_SCLabs-LaboratoireSC"
           />
-          <meta name="dcterms.modified" title="W3CDTF" content="2022-10-05" />
-          <meta name="dcterms.description" content={t("vc:metaDescription")} />
+          <meta name="dcterms.issued" title="W3CDTF" content="2023-07-07" />
+
+          <meta name="dcterms.modified" title="W3CDTF" content="2023-07-07" />
+          <meta
+            name="dcterms.description"
+            content={
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+            }
+          />
           <meta
             name="dcterms.subject"
             title="gccore"
-            content={`${t("vc:metaSubject")}`}
+            content={pageData.scSubject}
           />
+          <meta name="dcterms.spatial" content="Canada" />
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
           <meta property="og:locale" content={props.locale} />
-          <meta property="og:url" content={t("vc:canonicalURL")} />
+          <meta
+            property="og:url"
+            content={
+              "https://alpha.service.canada.ca" +
+              `${
+                props.locale === "en"
+                  ? pageData.scPageNameEn
+                  : pageData.scPageNameFr
+              }`
+            }
+          />
           <meta
             property="og:title"
-            content={`${t("vc:virtualAssistantTitle")} — ${t("siteTitle")}`}
+            content={
+              props.locale === "en"
+                ? pageData.scShortTitleEn
+                : pageData.scShortTitleFr
+            }
           />
           <meta
             property="og:description"
-            content={t("vc:virtualAssistantBioBody")}
+            content={
+              props.locale === "en"
+                ? pageData.scFragments[1].scContentEn.json[1].content[0].value
+                : pageData.scFragments[1].scContentFr.json[1].content[0].value
+            }
           />
-          <meta property="og:image" content={t("metaImage")} />
-          <meta property="og:image:alt" content={t("siteTitle")} />
+          <meta
+            property="og:image"
+            content={pageData.scSocialMediaImageEn._publishUrl}
+          />
+          <meta
+            property="og:image:alt"
+            content={
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+            }
+          />
 
           {/* Twitter */}
           <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:url" content={t("vc:canonicalURL")} />
+          <meta
+            property="twitter:url"
+            content={
+              "https://alpha.service.canada.ca" +
+              `${
+                props.locale === "en"
+                  ? pageData.scPageNameEn
+                  : pageData.scPageNameFr
+              }`
+            }
+          />
           <meta
             property="twitter:title"
             content={
-              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+              props.locale === "en"
+                ? pageData.scShortTitleEn
+                : pageData.scShortTitleFr
             }
           />
           <meta name="twitter:creator" content="Service Canada" />
           <meta
             property="twitter:description"
-            content={t("vc:virtualAssistantBioBody")}
+            content={
+              props.locale === "en"
+                ? pageData.scFragments[1].scContentEn.json[1].content[0].value
+                : pageData.scFragments[1].scContentFr.json[1].content[0].value
+            }
           />
-          <meta property="twitter:image" content={t("metaImage")} />
-          <meta property="twitter:image:alt" content={t("siteTitle")} />
+          <meta
+            property="twitter:image"
+            content={pageData.scSocialMediaImageEn._publishUrl}
+          />
+          <meta
+            property="twitter:image:alt"
+            content={
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+            }
+          />
         </Head>
         <section className="layout-container mb-12">
           <Heading
