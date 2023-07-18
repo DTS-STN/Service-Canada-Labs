@@ -34,45 +34,49 @@ export const Card = (props) => {
         ) : (
           ""
         )}
-        <p
-          className="block font-display text-lg text-custom-blue-projects-link font-bold underline underline-offset-4 my-1 py-2 px-6 items-center group-hover:no-underline group-hover:text-custom-blue-projects-link-hover"
-          tabIndex="0"
-        >
-          {props.title}
-          {props.showIcon ? (
-            props.href.substring(0, 8) === "https://" ? (
-              <div className="h-4 w-4 ml-1 mt-1 relative">
-                <img src={props.icon} alt={props.iconAlt} />
-              </div>
+        <div className="flex">
+          <p
+            className="block font-display text-lg text-custom-blue-projects-link font-bold underline underline-offset-4 my-1 py-2 px-6 items-center group-hover:no-underline group-hover:text-custom-blue-projects-link-hover"
+            tabIndex="0"
+          >
+            {props.title}
+            {props.showIcon ? (
+              props.href.substring(0, 8) === "https://" ? (
+                <div className="h-4 w-4 ml-1 mt-1 relative">
+                  <img src={props.icon} alt={props.iconAlt} />
+                </div>
+              ) : (
+                ""
+              )
             ) : (
               ""
-            )
+            )}
+          </p>
+          {props.showDate ? (
+            <p className="ml-6 text-base text-custom-gray-date">
+              {"Posted: " + props.datePosted.substring(0, 10)}
+            </p>
           ) : (
             ""
           )}
-        </p>
-        {props.showDate ? (
-          <p className="ml-6 text-base text-custom-gray-date">
-            {"Posted: " + props.datePosted.substring(0, 10)}
-          </p>
-        ) : (
-          ""
-        )}
-        {props.showTag ? (
-          <span
-            className={`block w-max py-2 px-2 my-4 font-body font-bold border-l-4 ml-6 ${
-              "border-" +
-              (tagColours[props.tag] || "gray-experiment") +
-              "-darker"
-            } ${
-              "bg-" + (tagColours[props.tag] || "gray-experiment") + "-lighter"
-            }`}
-          >
-            {props.tagLabel}
-          </span>
-        ) : (
-          ""
-        )}
+          {props.showTag ? (
+            <span
+              className={`block w-max py-2 px-2 font-body font-bold border-l-4 mr-6 mt-auto mb-auto ${
+                "border-" +
+                (tagColours[props.tag] || "gray-experiment") +
+                "-darker"
+              } ${
+                "bg-" +
+                (tagColours[props.tag] || "gray-experiment") +
+                "-lighter"
+              }`}
+            >
+              {props.tagLabel}
+            </span>
+          ) : (
+            ""
+          )}
+        </div>
         <p className="text-custom-gray-text mx-6 leading-30px text-lg">
           {props.description}
         </p>
