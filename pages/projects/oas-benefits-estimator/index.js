@@ -7,9 +7,11 @@ import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
 import { CTA } from "@dts-stn/service-canada-design-system";
 import { Heading } from "@dts-stn/service-canada-design-system";
+import Card from "../../../components/molecules/Card";
 
 export default function OasBenefitsEstimator(props) {
   const [pageData] = useState(props.pageData.item);
+  const [updatesData] = useState(props.updatesData);
   const [filteredDictionary] = useState(
     props.dictionary.items.filter(
       (item) =>
@@ -29,6 +31,31 @@ export default function OasBenefitsEstimator(props) {
       "gc:custom/decd-endc/project-stage/beta": "Bêta",
     },
   };
+
+  const displayProjectUpdates = updatesData.map((update) => (
+    <li key={update.scId} className="list-none ml-0 col-span-12 lg:col-span-4">
+      <Card
+        showImage
+        imgSrc={
+          props.locale === "en"
+            ? `https://www.canada.ca${update.scSocialMediaImageEn._path}`
+            : `https://www.canada.ca${update.scSocialMediaImageFr._path}`
+        }
+        imgAlt={
+          props.locale === "en"
+            ? update.scSocialMediaImageAltTextEn
+            : update.scSocialMediaImageAltTextFr
+        }
+        title={props.locale === "en" ? update.scTitleEn : update.scTitleFr}
+        href={props.locale === "en" ? update.scPageNameEn : update.scPageNameFr}
+        description={`${
+          props.locale === "en"
+            ? props.dictionary.items[9].scTermEn
+            : props.dictionary.items[9].scTermFr
+        } ${update.scDateModifiedOverwrite}`}
+      />
+    </li>
+  ));
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
@@ -320,62 +347,16 @@ export default function OasBenefitsEstimator(props) {
               </div>
             </div>
           </section>
-          <div className="grid grid-cols-12">
-            <h2 className="col-span-12">
+          <div className="grid grid-cols-12 pt-12">
+            <h3 className="col-span-12 text-[20px]">
               {props.locale === "en"
                 ? pageData.scFragments[0].scContentEn.json[5].content[0].value
                 : pageData.scFragments[0].scContentFr.json[5].content[0].value}
-            </h2>
-            <p className="col-span-12 xl:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[6].content[0].value
-                : pageData.scFragments[0].scContentFr.json[6].content[0].value}
-            </p>
-            <p className="col-span-12 xl:col-span-8 pt-6">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[7].content[0].value
-                : pageData.scFragments[0].scContentFr.json[7].content[0].value}
-            </p>
-          </div>
-          <ul className="list-disc list-outside pl-2">
-            <li>
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[8].content[0]
-                      .content[0].value
-                  : pageData.scFragments[0].scContentFr.json[8].content[0]
-                      .content[0].value}
-              </p>
-            </li>
-            <li>
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[8].content[1]
-                      .content[0].value
-                  : pageData.scFragments[0].scContentFr.json[8].content[1]
-                      .content[0].value}
-              </p>
-            </li>
-            <li>
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[8].content[2]
-                      .content[0].value
-                  : pageData.scFragments[0].scContentFr.json[8].content[2]
-                      .content[0].value}
-              </p>
-            </li>
-          </ul>
-          <h3 className="my-4 mt-8 text-[20px]">
-            {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[9].content[0].value
-              : pageData.scFragments[0].scContentFr.json[9].content[0].value}
-          </h3>
-          <div className="grid md:flex">
+            </h3>
             <ActionButton
               id="try-btn"
               style="primary"
-              custom="mb-4 md:mb-0 md:mr-8"
+              custom="col-span-12"
               href={
                 props.locale === "en"
                   ? pageData.scFragments[4].scDestinationURLEn
@@ -388,6 +369,33 @@ export default function OasBenefitsEstimator(props) {
               }
               ariaExpanded={props.ariaExpanded}
             />
+            <h2 className="col-span-12">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[6].content[0].value
+                : pageData.scFragments[0].scContentFr.json[6].content[0].value}
+            </h2>
+            <p className="col-span-12 xl:col-span-8">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[7].content[0].value
+                : pageData.scFragments[0].scContentFr.json[7].content[0].value}
+            </p>
+            <p className="col-span-12 xl:col-span-8 pt-8">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[8].content[0].value
+                : pageData.scFragments[0].scContentFr.json[8].content[0].value}
+            </p>
+            <p className="col-span-12 xl:col-span-8 pt-8">
+              {props.locale === "en"
+                ? pageData.scFragments[0].scContentEn.json[9].content[0].value
+                : pageData.scFragments[0].scContentFr.json[9].content[0].value}
+            </p>
+          </div>
+          <h3 className="pb-8 pt-10 text-[20px]">
+            {props.locale === "en"
+              ? pageData.scFragments[0].scContentEn.json[10].content[0].value
+              : pageData.scFragments[0].scContentFr.json[10].content[0].value}
+          </h3>
+          <div className="grid md:flex">
             <ActionButton
               id="feedback-btn-2"
               style="secondary"
@@ -404,86 +412,14 @@ export default function OasBenefitsEstimator(props) {
               ariaExpanded={props.ariaExpanded}
             />
           </div>
-          <div className="grid grid-cols-12">
-            <h2 className="col-span-12">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[10].content[0].value
-                : pageData.scFragments[0].scContentFr.json[10].content[0].value}
-            </h2>
-            <p className="col-span-12 xl:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[11].content[0].value
-                : pageData.scFragments[0].scContentFr.json[11].content[0].value}
-            </p>
-          </div>
-          <ul className="list-disc list-outside pl-2">
-            <li>
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[12].content[0]
-                      .content[0].value
-                  : pageData.scFragments[0].scContentFr.json[12].content[0]
-                      .content[0].value}
-              </p>
-            </li>
-            <li>
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[12].content[1]
-                      .content[0].value
-                  : pageData.scFragments[0].scContentFr.json[12].content[1]
-                      .content[0].value}
-              </p>
-            </li>
-            <li>
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[12].content[2]
-                      .content[0].value
-                  : pageData.scFragments[0].scContentFr.json[12].content[2]
-                      .content[0].value}
-              </p>
-            </li>
+          <h2>
+            {props.locale === "en"
+              ? props.dictionary.items[11].scTermEn
+              : props.dictionary.items[11].scTermFr}
+          </h2>
+          <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0">
+            {displayProjectUpdates}
           </ul>
-          <div className="grid grid-cols-12">
-            <p className="col-span-12 xl:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[13].content[0].value
-                : pageData.scFragments[0].scContentFr.json[13].content[0].value}
-            </p>
-            <p className="col-span-12 xl:col-span-8 pt-6">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[14].content[0].value
-                : pageData.scFragments[0].scContentFr.json[14].content[0].value}
-            </p>
-            <h2 className="col-span-12">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[15].content[0].value
-                : pageData.scFragments[0].scContentFr.json[15].content[0].value}
-            </h2>
-            <p className="col-span-12 xl:col-span-8 pb-8">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[16].content[0].value
-                : pageData.scFragments[0].scContentFr.json[16].content[0].value}
-            </p>
-          </div>
-          <div className="md:flex mb-12">
-            <ActionButton
-              id="feedback-btn-2"
-              style="secondary"
-              href={
-                props.locale === "en"
-                  ? pageData.scFragments[5].scDestinationURLEn
-                  : pageData.scFragments[5].scDestinationURLFr
-              }
-              text={
-                props.locale === "en"
-                  ? pageData.scFragments[5].scTitleEn
-                  : pageData.scFragments[5].scTitleFr
-              }
-              ariaExpanded={props.ariaExpanded}
-            />
-          </div>
         </div>
 
         <CTA
@@ -537,6 +473,7 @@ export const getStaticProps = async ({ locale }) => {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       pageData: pageData.scLabsPagev1ByPath,
+      updatesData: pageData.scLabsPagev1ByPath.item.scLabProjectUpdates,
       dictionary: dictionary.dictionaryV1List,
       ...(await serverSideTranslations(locale, ["common"])),
     },

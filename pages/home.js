@@ -23,6 +23,13 @@ export default function Home(props) {
     <li key={project.scId} className="list-none">
       <Card
         showImage
+        showTag={
+          project.scTitleEn === "Old Age Security Benefits Estimator"
+            ? true
+            : false
+        }
+        tagLabel={props.locale === "en" ? "New Update" : "Nouvelle mise à jour"}
+        tag="current_projects"
         imgSrc={
           props.locale === "en"
             ? `https://www.canada.ca${project.scSocialMediaImageEn._path}`

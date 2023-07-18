@@ -6,6 +6,7 @@ import OasBenefitsEstimator from "../../pages/projects/oas-benefits-estimator/in
 import {
   dictionaryData,
   oasBenefitsEstimatorData,
+  oasUpdatesData,
 } from "../../__mocks__/mockStore";
 
 describe("OAS Benefits Estimator", () => {
@@ -13,6 +14,7 @@ describe("OAS Benefits Estimator", () => {
     render(
       <OasBenefitsEstimator
         pageData={oasBenefitsEstimatorData.data.scLabsPagev1ByPath}
+        updatesData={oasUpdatesData}
         dictionary={dictionaryData.data.dictionaryV1List}
       />
     );

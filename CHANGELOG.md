@@ -9,7 +9,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Added
 
+- Added OAS update page
+
 ## Changed
+
+- Modified OAS overview page design
+- Added update/blog cards to OAS overview page
 
 ## Fixed
 
