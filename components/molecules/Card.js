@@ -52,13 +52,6 @@ export const Card = (props) => {
               ""
             )}
           </p>
-          {props.showDate ? (
-            <p className="ml-6 text-base text-custom-gray-date">
-              {"Posted: " + props.datePosted.substring(0, 10)}
-            </p>
-          ) : (
-            ""
-          )}
           {props.showTag ? (
             <span
               className={`block w-max py-2 px-2 font-body font-bold border-l-4 mr-6 mt-auto mb-auto ${
@@ -77,6 +70,13 @@ export const Card = (props) => {
             ""
           )}
         </div>
+        {props.showDate ? (
+          <p className="ml-6 text-base text-custom-gray-date">
+            {"Posted: " + props.datePosted.substring(0, 10)}
+          </p>
+        ) : (
+          ""
+        )}
         <p className="text-custom-gray-text mx-6 leading-30px text-lg">
           {props.description}
         </p>
