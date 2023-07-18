@@ -11,6 +11,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Changed
 
+- Moved tag element in Card.js to the right of the title element
+
 ## Fixed
 
 ## [v1.8.0] - 2023-07-18
