@@ -274,21 +274,21 @@ export default function OASUpdatePage(props) {
                 : pageData.scFragments[1].scContentFr.json[5].content[0].value}
             </p>
             <ul className="col-span-12 lg:col-span-8">
-              <li className="text-[20px]">
+              <li>
                 {props.locale === "en"
                   ? pageData.scFragments[1].scContentEn.json[6].content[0]
                       .content[0].value
                   : pageData.scFragments[1].scContentFr.json[6].content[0]
                       .content[0].value}
               </li>
-              <li className="text-[20px]">
+              <li>
                 {props.locale === "en"
                   ? pageData.scFragments[1].scContentEn.json[6].content[1]
                       .content[0].value
                   : pageData.scFragments[1].scContentFr.json[6].content[1]
                       .content[0].value}
               </li>
-              <li className="text-[20px]">
+              <li>
                 {props.locale === "en"
                   ? pageData.scFragments[1].scContentEn.json[6].content[2]
                       .content[0].value
