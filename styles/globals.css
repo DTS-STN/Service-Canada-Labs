@@ -295,9 +295,12 @@ html {
   filter: brightness(0) invert(1);
 }
 
-ul,
+ul {
+  @apply ml-4 mb-4;
+}
 li {
   @apply list-disc my-4 ml-4;
+  @apply text-[20px]
 }
 
 .footer-logo {
