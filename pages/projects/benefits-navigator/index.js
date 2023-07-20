@@ -42,12 +42,20 @@ export default function OasBenefitsEstimator(props) {
         );
       } else if (item.nodeType === "unordered-list") {
         const listItems = item.content.map((listItem, index) => (
-          <li key={index}>{generateReactElements(listItem.content)}</li>
+          <li key={index} className="my-0">
+            {generateReactElements(listItem.content)}
+          </li>
         ));
-        elements.push(<ul key={elements.length}>{listItems}</ul>);
+        elements.push(
+          <ul key={elements.length} className="mb-0 ml-6">
+            {listItems}
+          </ul>
+        );
       } else if (item.nodeType === "list-item") {
         elements.push(
-          <li key={elements.length}>{generateReactElements(item.content)}</li>
+          <li key={elements.length} className="my-0">
+            {generateReactElements(item.content)}
+          </li>
         );
       } else if (item.nodeType === "text") {
         elements.push(item.value);
