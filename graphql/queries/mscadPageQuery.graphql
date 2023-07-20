@@ -1,4 +1,4 @@
-query getOASBenefitsEstimatorPage {
+query getMscadPage {
   scLabsPagev1ByPath(
     _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/client-hub/dashboard-overview"
   ) {
