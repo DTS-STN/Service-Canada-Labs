@@ -5,7 +5,7 @@ import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
-import { CTA } from "@dts-stn/service-canada-design-system";
+import { CTA, Collapse } from "@dts-stn/service-canada-design-system";
 import { Heading } from "@dts-stn/service-canada-design-system";
 import Card from "../../../components/molecules/Card";
 
@@ -31,6 +31,31 @@ export default function OasBenefitsEstimator(props) {
       "gc:custom/decd-endc/project-stage/beta": "Bêta",
     },
   };
+
+  function generateReactElements(json) {
+    const elements = [];
+
+    for (const item of json) {
+      if (item.nodeType === "paragraph") {
+        elements.push(
+          <p key={elements.length}>{generateReactElements(item.content)}</p>
+        );
+      } else if (item.nodeType === "unordered-list") {
+        const listItems = item.content.map((listItem, index) => (
+          <li key={index}>{generateReactElements(listItem.content)}</li>
+        ));
+        elements.push(<ul key={elements.length}>{listItems}</ul>);
+      } else if (item.nodeType === "list-item") {
+        elements.push(
+          <li key={elements.length}>{generateReactElements(item.content)}</li>
+        );
+      } else if (item.nodeType === "text") {
+        elements.push(item.value);
+      }
+    }
+
+    return elements;
+  }
 
   const displayProjectUpdates = updatesData.map((update) => (
     <li key={update.scId} className="list-none ml-0 col-span-12 lg:col-span-4">
@@ -395,34 +420,105 @@ export default function OasBenefitsEstimator(props) {
                 ? pageData.scFragments[3].scContentEn.json[4].content[0].value
                 : pageData.scFragments[3].scContentFr.json[4].content[0].value}
             </p>
-            <div id="feature-section" className="grid grid-cols-12 col-span-12">
+            <div id="feature-section" className="col-span-12">
               <h2 className="col-span-12">
                 {props.locale === "en"
                   ? pageData.scFragments[4].scContentEn.json[0].content[0].value
                   : pageData.scFragments[4].scContentFr.json[0].content[0]
                       .value}
               </h2>
-              <div
-                id="image-container"
-                className="object-fill col-span-12 xl:col-span-8"
-              >
-                <img
-                  src={
-                    props.locale === "en"
-                      ? pageData.scFragments[4].scFragments[0].scFragments[0]
-                          .scImageEn._publishUrl
-                      : pageData.scFragments[4].scFragments[0].scFragments[0]
-                          .scImageFr._publishUrl
-                  }
-                  alt={
-                    props.locale === "en"
-                      ? pageData.scFragments[4].scFragments[0].scFragments[0]
-                          .scImageAltTextEn
-                      : pageData.scFragments[4].scFragments[0].scFragments[0]
-                          .scImageAltTextFr
-                  }
-                  className="w-full"
-                />
+              <div id="feature-1" className="grid grid-cols-12 gap-x-6">
+                <div
+                  id="image-container"
+                  className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8"
+                >
+                  <img
+                    src={
+                      props.locale === "en"
+                        ? pageData.scFragments[4].scFragments[0].scFragments[0]
+                            .scImageEn._publishUrl
+                        : pageData.scFragments[4].scFragments[0].scFragments[0]
+                            .scImageFr._publishUrl
+                    }
+                    alt={
+                      props.locale === "en"
+                        ? pageData.scFragments[4].scFragments[0].scFragments[0]
+                            .scImageAltTextEn
+                        : pageData.scFragments[4].scFragments[0].scFragments[0]
+                            .scImageAltTextFr
+                    }
+                    className="w-full"
+                  />
+                </div>
+                <div
+                  id="feature-breakdown"
+                  className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1"
+                >
+                  <div
+                    id="feature-breakdown-content"
+                    className="p-4 border-l-4 border-multi-blue-blue60f"
+                  >
+                    <h3 className="mb-2">
+                      {props.locale === "en"
+                        ? pageData.scFragments[4].scFragments[0].scContentEn
+                            .json[0].content[0].value
+                        : pageData.scFragments[4].scFragments[0].scContentFr
+                            .json[0].content[0].value}
+                    </h3>
+                    <p>
+                      {props.locale === "en"
+                        ? pageData.scFragments[4].scFragments[0].scContentEn
+                            .json[1].content[0].value
+                        : pageData.scFragments[4].scFragments[0].scContentFr
+                            .json[1].content[0].value}
+                    </p>
+                    <ul>
+                      <li>
+                        {props.locale === "en"
+                          ? pageData.scFragments[4].scFragments[0].scContentEn
+                              .json[2].content[0].content[0].value
+                          : pageData.scFragments[4].scFragments[0].scContentFr
+                              .json[2].content[0].content[0].value}
+                      </li>
+                      <li>
+                        {props.locale === "en"
+                          ? pageData.scFragments[4].scFragments[0].scContentEn
+                              .json[2].content[1].content[0].value
+                          : pageData.scFragments[4].scFragments[0].scContentFr
+                              .json[2].content[1].content[0].value}
+                      </li>
+                      <li>
+                        {props.locale === "en"
+                          ? pageData.scFragments[4].scFragments[0].scContentEn
+                              .json[2].content[2].content[0].value
+                          : pageData.scFragments[4].scFragments[0].scContentFr
+                              .json[2].content[2].content[0].value}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  id="image-text-version"
+                  className="mb-6 col-span-12 row-start-2 xl:row-start-2"
+                >
+                  <Collapse
+                    id="image-text-collapse-1"
+                    title={
+                      props.locale === "en"
+                        ? pageData.scFragments[4].scFragments[0].scFragments[0]
+                            .scLongDescHeadingEn
+                        : pageData.scFragments[4].scFragments[0].scFragments[0]
+                            .scLongDescHeadingFr
+                    }
+                    children={generateReactElements(
+                      props.locale === "en"
+                        ? pageData.scFragments[4].scFragments[0].scFragments[0]
+                            .scLongDescEn.json
+                        : pageData.scFragments[4].scFragments[0].scFragments[0]
+                            .scLongDescFr.json
+                    )}
+                  />
+                </div>
               </div>
             </div>
           </div>
