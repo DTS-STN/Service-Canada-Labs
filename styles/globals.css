@@ -296,11 +296,21 @@ html {
 }
 
 ul {
-  @apply ml-4 mb-4;
+  @apply ml-4;
 }
 li {
-  @apply list-disc my-4 ml-4;
+  @apply list-disc ml-4;
   @apply text-[20px]
+}
+ol > li {
+  @apply list-decimal
+}
+
+p + p {
+  margin-top: 2rem;
+}
+ul + p {
+  margin-top: 2rem;
 }
 
 .footer-logo {
