@@ -51,6 +51,17 @@ export default function OasBenefitsEstimator(props) {
             {listItems}
           </ul>
         );
+      } else if (item.nodeType === "ordered-list") {
+        const listItems = item.content.map((listItem, index) => (
+          <li key={index} className="my-0">
+            {generateReactElements(listItem.content)}
+          </li>
+        ));
+        elements.push(
+          <ol key={elements.length} className="mb-0 ml-6">
+            {listItems}
+          </ol>
+        );
       } else if (item.nodeType === "list-item") {
         elements.push(
           <li key={elements.length} className="my-0">
@@ -384,7 +395,7 @@ export default function OasBenefitsEstimator(props) {
               </div>
             </div>
           </section>
-          <div className="grid grid-cols-12 pt-12">
+          <div className="grid grid-cols-12">
             <h2 className="col-span-12">
               {props.locale === "en"
                 ? pageData.scFragments[3].scContentEn.json[0].content[0].value
@@ -395,7 +406,7 @@ export default function OasBenefitsEstimator(props) {
                 ? pageData.scFragments[3].scContentEn.json[1].content[0].value
                 : pageData.scFragments[3].scContentFr.json[1].content[0].value}
             </p>
-            <p className="col-span-12 xl:col-span-8 pt-8">
+            <p className="col-span-12 xl:col-span-8">
               {props.locale === "en"
                 ? pageData.scFragments[3].scContentEn.json[2].content[0].value
                 : pageData.scFragments[3].scContentFr.json[2].content[0].value}
@@ -435,7 +446,7 @@ export default function OasBenefitsEstimator(props) {
                   : pageData.scFragments[4].scContentFr.json[0].content[0]
                       .value}
               </h2>
-              <div id="feature-1" className="grid grid-cols-12 gap-x-6">
+              <div id="feature-1" className="grid grid-cols-12 gap-x-6 mb-9">
                 <div
                   id="image-container"
                   className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8"
@@ -464,7 +475,7 @@ export default function OasBenefitsEstimator(props) {
                 >
                   <div
                     id="feature-breakdown-content"
-                    className="p-4 border-l-4 border-multi-blue-blue60f"
+                    className="py-4 pl-4 border-l-4 border-multi-blue-blue60f"
                   >
                     <h3 className="mb-2">
                       {props.locale === "en"
@@ -528,7 +539,236 @@ export default function OasBenefitsEstimator(props) {
                   />
                 </div>
               </div>
+              <div id="feature-2" className="grid grid-cols-12 gap-x-6 mb-9">
+                <div
+                  id="image-container"
+                  className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8"
+                >
+                  <img
+                    src={
+                      props.locale === "en"
+                        ? pageData.scFragments[4].scFragments[1].scFragments[0]
+                            .scImageEn._publishUrl
+                        : pageData.scFragments[4].scFragments[1].scFragments[0]
+                            .scImageFr._publishUrl
+                    }
+                    alt={
+                      props.locale === "en"
+                        ? pageData.scFragments[4].scFragments[1].scFragments[0]
+                            .scImageAltTextEn
+                        : pageData.scFragments[4].scFragments[1].scFragments[0]
+                            .scImageAltTextFr
+                    }
+                    className="w-full"
+                  />
+                </div>
+                <div
+                  id="feature-breakdown"
+                  className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1"
+                >
+                  <div
+                    id="feature-breakdown-content"
+                    className="p-4 border-l-4 border-multi-blue-blue60f"
+                  >
+                    <h3 className="mb-2">
+                      {props.locale === "en"
+                        ? pageData.scFragments[4].scFragments[1].scContentEn
+                            .json[0].content[0].value
+                        : pageData.scFragments[4].scFragments[1].scContentFr
+                            .json[0].content[0].value}
+                    </h3>
+                    <p>
+                      {props.locale === "en"
+                        ? pageData.scFragments[4].scFragments[1].scContentEn
+                            .json[1].content[0].value
+                        : pageData.scFragments[4].scFragments[1].scContentFr
+                            .json[1].content[0].value}
+                    </p>
+                    <ul>
+                      <li>
+                        {props.locale === "en"
+                          ? pageData.scFragments[4].scFragments[1].scContentEn
+                              .json[2].content[0].content[0].value
+                          : pageData.scFragments[4].scFragments[1].scContentFr
+                              .json[2].content[0].content[0].value}
+                      </li>
+                      <li>
+                        {props.locale === "en"
+                          ? pageData.scFragments[4].scFragments[0].scContentEn
+                              .json[2].content[1].content[0].value
+                          : pageData.scFragments[4].scFragments[0].scContentFr
+                              .json[2].content[1].content[0].value}
+                      </li>
+                      <li>
+                        {props.locale === "en"
+                          ? pageData.scFragments[4].scFragments[1].scContentEn
+                              .json[2].content[2].content[0].value
+                          : pageData.scFragments[4].scFragments[1].scContentFr
+                              .json[2].content[2].content[0].value}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  id="image-text-version"
+                  className="mb-6 col-span-12 row-start-2 xl:row-start-2"
+                >
+                  <Collapse
+                    id="image-text-collapse-1"
+                    title={
+                      props.locale === "en"
+                        ? pageData.scFragments[4].scFragments[1].scFragments[0]
+                            .scLongDescHeadingEn
+                        : pageData.scFragments[4].scFragments[1].scFragments[0]
+                            .scLongDescHeadingFr
+                    }
+                    children={generateReactElements(
+                      props.locale === "en"
+                        ? pageData.scFragments[4].scFragments[1].scFragments[0]
+                            .scLongDescEn.json
+                        : pageData.scFragments[4].scFragments[1].scFragments[0]
+                            .scLongDescFr.json
+                    )}
+                  />
+                </div>
+              </div>
+              <div id="feature-3" className="grid grid-cols-12 gap-x-6">
+                <div
+                  id="image-container"
+                  className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8"
+                >
+                  <img
+                    src={
+                      props.locale === "en"
+                        ? pageData.scFragments[4].scFragments[2].scFragments[0]
+                            .scImageEn._publishUrl
+                        : pageData.scFragments[4].scFragments[2].scFragments[0]
+                            .scImageFr._publishUrl
+                    }
+                    alt={
+                      props.locale === "en"
+                        ? pageData.scFragments[4].scFragments[2].scFragments[0]
+                            .scImageAltTextEn
+                        : pageData.scFragments[4].scFragments[2].scFragments[0]
+                            .scImageAltTextFr
+                    }
+                    className="w-full"
+                  />
+                </div>
+                <div
+                  id="feature-breakdown"
+                  className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1"
+                >
+                  <div
+                    id="feature-breakdown-content"
+                    className="p-4 border-l-4 border-multi-blue-blue60f"
+                  >
+                    <h3 className="mb-2">
+                      {props.locale === "en"
+                        ? pageData.scFragments[4].scFragments[2].scContentEn
+                            .json[0].content[0].value
+                        : pageData.scFragments[4].scFragments[2].scContentFr
+                            .json[0].content[0].value}
+                    </h3>
+                    <p>
+                      {props.locale === "en"
+                        ? pageData.scFragments[4].scFragments[2].scContentEn
+                            .json[1].content[0].value
+                        : pageData.scFragments[4].scFragments[2].scContentFr
+                            .json[1].content[0].value}
+                    </p>
+                    <ul>
+                      <li>
+                        {props.locale === "en"
+                          ? pageData.scFragments[4].scFragments[2].scContentEn
+                              .json[2].content[0].content[0].value
+                          : pageData.scFragments[4].scFragments[2].scContentFr
+                              .json[2].content[0].content[0].value}
+                      </li>
+                      <li>
+                        {props.locale === "en"
+                          ? pageData.scFragments[4].scFragments[2].scContentEn
+                              .json[2].content[1].content[0].value
+                          : pageData.scFragments[4].scFragments[2].scContentFr
+                              .json[2].content[1].content[0].value}
+                      </li>
+                      <li>
+                        {props.locale === "en"
+                          ? pageData.scFragments[4].scFragments[2].scContentEn
+                              .json[2].content[2].content[0].value
+                          : pageData.scFragments[4].scFragments[2].scContentFr
+                              .json[2].content[2].content[0].value}
+                      </li>
+                      <li>
+                        {props.locale === "en"
+                          ? pageData.scFragments[4].scFragments[2].scContentEn
+                              .json[2].content[3].content[0].value
+                          : pageData.scFragments[4].scFragments[2].scContentFr
+                              .json[2].content[3].content[0].value}
+                      </li>
+                      <li>
+                        {props.locale === "en"
+                          ? pageData.scFragments[4].scFragments[2].scContentEn
+                              .json[2].content[4].content[0].value
+                          : pageData.scFragments[4].scFragments[2].scContentFr
+                              .json[2].content[4].content[0].value}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  id="image-text-version"
+                  className="mb-6 col-span-12 row-start-2 xl:row-start-2"
+                >
+                  <Collapse
+                    id="image-text-collapse-1"
+                    title={
+                      props.locale === "en"
+                        ? pageData.scFragments[4].scFragments[2].scFragments[0]
+                            .scLongDescHeadingEn
+                        : pageData.scFragments[4].scFragments[2].scFragments[0]
+                            .scLongDescHeadingFr
+                    }
+                    children={generateReactElements(
+                      props.locale === "en"
+                        ? pageData.scFragments[4].scFragments[2].scFragments[0]
+                            .scLongDescEn.json
+                        : pageData.scFragments[4].scFragments[2].scFragments[0]
+                            .scLongDescFr.json
+                    )}
+                  />
+                </div>
+              </div>
             </div>
+            <section
+              id="BENEFITS-NAVIGATOR-HELP-DESIGN"
+              className="grid grid-cols-12 col-span-12"
+            >
+              <h2 className="col-span-12">
+                {props.locale === "en"
+                  ? pageData.scFragments[5].scContentEn.json[0].content[0].value
+                  : pageData.scFragments[5].scContentFr.json[0].content[0]
+                      .value}
+              </h2>
+              <p className="col-span-12 xl:col-span-8">
+                {props.locale === "en"
+                  ? pageData.scFragments[5].scContentEn.json[1].content[0].value
+                  : pageData.scFragments[5].scContentFr.json[1].content[0]
+                      .value}
+              </p>
+              <p className="col-span-12 xl:col-span-8">
+                {props.locale === "en"
+                  ? pageData.scFragments[5].scContentEn.json[2].content[0].value
+                  : pageData.scFragments[5].scContentFr.json[2].content[0]
+                      .value}
+              </p>
+              <p className="col-span-12 xl:col-span-8">
+                {props.locale === "en"
+                  ? pageData.scFragments[5].scContentEn.json[3].content[0].value
+                  : pageData.scFragments[5].scContentFr.json[3].content[0]
+                      .value}
+              </p>
+            </section>
           </div>
           {/* <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0">
             {displayProjectUpdates}
