@@ -1,21 +1,16 @@
 query getAllProjects {
-  scLabsPagev1List(filter: {
-    scLabProjectStatus: {
-      _logOp: OR
-      _expressions: [
-          {
-              value: "gc:custom/decd-endc/project-status/past"
-          },
-          {
-              value: "gc:custom/decd-endc/project-status/current"
-          },
-          {
-              value: "gc:custom/decd-endc/project-status/upcoming"
-          },
-
-      ]
+  scLabsPagev1List(
+    filter: {
+      scLabProjectStatus: {
+        _logOp: OR
+        _expressions: [
+          { value: "gc:custom/decd-endc/project-status/past" }
+          { value: "gc:custom/decd-endc/project-status/current" }
+          { value: "gc:custom/decd-endc/project-status/upcoming" }
+        ]
+      }
     }
-  }) {
+  ) {
     items {
       _path
       scId
@@ -24,18 +19,18 @@ query getAllProjects {
       scPageNameEn
       scPageNameFr
       scBreadcrumbParentPages {
-          scTitleEn
-          scTitleFr
-          scPageNameEn
-          scPageNameFr
+        scTitleEn
+        scTitleFr
+        scPageNameEn
+        scPageNameFr
       }
       scShortTitleEn
       scShortTitleFr
       scDescriptionEn {
-          json
+        json
       }
       scDescriptionFr {
-          json
+        json
       }
       scSubject
       scKeywordsEn
@@ -63,14 +58,14 @@ query getAllProjects {
         ... on MultimediaRef {
           _path
           size
-        }          
+        }
       }
       scSocialMediaImageAltTextEn
       scSocialMediaImageAltTextFr
       scNoIndex
       scNoFollow
       scFragments {
-        ... on SCLabsContentModel {
+        ... on SCLabsContentv1Model {
           _path
           scId
           scContentEn {
@@ -80,44 +75,132 @@ query getAllProjects {
             json
           }
         }
-        ... on SCLabsImageModel {
+        ... on SCLabsImagev1Model {
           scId
           scImageEn {
             ... on ImageRef {
-              _path
+              _publishUrl
+              width
+              height
             }
             ... on DocumentRef {
-              _path
+              _publishUrl
             }
           }
           scImageFr {
             ... on ImageRef {
-              _path
+              _publishUrl
+              width
+              height
             }
             ... on DocumentRef {
-              _path
+              _publishUrl
             }
           }
           scImageMobileEn {
             ... on ImageRef {
-              _path
+              _publishUrl
+              width
+              height
             }
             ... on DocumentRef {
-              _path
+              _publishUrl
             }
           }
           scImageMobileFr {
             ... on ImageRef {
-              _path
+              _publishUrl
+              width
+              height
             }
             ... on DocumentRef {
-              _path
+              _publishUrl
             }
           }
           scImageAltTextEn
           scImageAltTextFr
-          scImageCaptionEn
-          scImageCaptionFr
+          scImageCaptionEn {
+            json
+          }
+          scImageCaptionFr {
+            json
+          }
+        }
+        ... on SCLabsButtonv1Model {
+          scId
+          scTitleEn
+          scTitleFr
+          scDestinationURLEn
+          scDestinationURLFr
+          scButtonType
+        }
+        ... on SCLabsFeaturev1Model {
+          scId
+          scTitleEn
+          scTitleFr
+          scContentEn {
+            json
+          }
+          scContentFr {
+            json
+          }
+          scImageEn {
+            ... on ImageRef {
+              _publishUrl
+              width
+              height
+            }
+            ... on DocumentRef {
+              _publishUrl
+            }
+          }
+          scImageFr {
+            ... on ImageRef {
+              _publishUrl
+              width
+              height
+            }
+            ... on DocumentRef {
+              _publishUrl
+            }
+          }
+          scFragments {
+            ... on SCLabsAlertv1Model {
+              _path
+              scId
+              scTitleEn
+              scTitleFr
+              scContentEn {
+                json
+              }
+              scContentFr {
+                json
+              }
+              scAlertType
+            }
+          }
+          scImageAltTextEn
+          scImageAltTextFr
+          scLabsButton {
+            scId
+            scTitleEn
+            scTitleFr
+            scDestinationURLEn
+            scDestinationURLFr
+            scButtonType
+          }
+        }
+        ... on Tooltipv1Model {
+          _path
+          scId
+          scTitleEn
+          scTitleFr
+          scContentEn {
+            json
+          }
+          scContentFr {
+            json
+          }
         }
       }
       scLabProjectStatus
@@ -126,10 +209,10 @@ query getAllProjects {
       scDatePaused
       scDateEnded
       scLabProjectSummaryEn {
-          json
+        json
       }
       scLabProjectSummaryFr {
-          json
+        json
       }
     }
   }
