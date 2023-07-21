@@ -342,19 +342,19 @@ export default function MscaDashboard(props) {
                   : pageData.scFragments[3].scContentFr.json[3].content[0]
                       .value}
               </p>
-              <p className="col-span-12 xl:col-span-8 pt-8">
+              <p className="col-span-12 xl:col-span-8">
                 {props.locale === "en"
                   ? pageData.scFragments[3].scContentEn.json[4].content[0].value
                   : pageData.scFragments[3].scContentFr.json[4].content[0]
                       .value}
               </p>
-              <p className="col-span-12 xl:col-span-8 pt-8">
+              <p className="col-span-12 xl:col-span-8">
                 {props.locale === "en"
                   ? pageData.scFragments[3].scContentEn.json[5].content[0].value
                   : pageData.scFragments[3].scContentFr.json[5].content[0]
                       .value}
               </p>
-              <p className="col-span-12 xl:col-span-8 pt-8">
+              <p className="col-span-12 xl:col-span-8">
                 {props.locale === "en"
                   ? pageData.scFragments[3].scContentEn.json[6].content[0].value
                   : pageData.scFragments[3].scContentFr.json[6].content[0]
@@ -372,13 +372,13 @@ export default function MscaDashboard(props) {
                   : pageData.scFragments[3].scContentFr.json[8].content[0]
                       .value}
               </p>
-              <p className="col-span-12 xl:col-span-8 pt-8">
+              <p className="col-span-12 xl:col-span-8">
                 {props.locale === "en"
                   ? pageData.scFragments[3].scContentEn.json[9].content[0].value
                   : pageData.scFragments[3].scContentFr.json[9].content[0]
                       .value}
               </p>
-              <p className="col-span-12 xl:col-span-8 pt-8">
+              <p className="col-span-12 xl:col-span-8">
                 {props.locale === "en"
                   ? pageData.scFragments[3].scContentEn.json[10].content[0]
                       .value
