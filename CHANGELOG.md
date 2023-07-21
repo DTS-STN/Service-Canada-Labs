@@ -9,6 +9,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Added
 
+- Benefits Navigator page
+
 ## Changed
 
 - Moved tag element in Card.js to the right of the title element
