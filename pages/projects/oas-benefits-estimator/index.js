@@ -379,12 +379,12 @@ export default function OasBenefitsEstimator(props) {
                 ? pageData.scFragments[0].scContentEn.json[7].content[0].value
                 : pageData.scFragments[0].scContentFr.json[7].content[0].value}
             </p>
-            <p className="col-span-12 xl:col-span-8 pt-8">
+            <p className="col-span-12 xl:col-span-8">
               {props.locale === "en"
                 ? pageData.scFragments[0].scContentEn.json[8].content[0].value
                 : pageData.scFragments[0].scContentFr.json[8].content[0].value}
             </p>
-            <p className="col-span-12 xl:col-span-8 pt-8">
+            <p className="col-span-12 xl:col-span-8">
               {props.locale === "en"
                 ? pageData.scFragments[0].scContentEn.json[9].content[0].value
                 : pageData.scFragments[0].scContentFr.json[9].content[0].value}
