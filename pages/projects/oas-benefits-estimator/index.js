@@ -95,8 +95,8 @@ export default function OasBenefitsEstimator(props) {
           {/* Primary HTML Meta Tags */}
           <title>
             {props.locale === "en"
-              ? pageData.scShortTitleEn
-              : pageData.scShortTitleFr}
+              ? `${pageData.scTitleEn} - Service Canada Labs`
+              : `${pageData.scTitleFr} - Laboratoires de Service Canada`}
           </title>
           <meta
             name="description"
@@ -417,7 +417,7 @@ export default function OasBenefitsEstimator(props) {
               ? props.dictionary.items[11].scTermEn
               : props.dictionary.items[11].scTermFr}
           </h2>
-          <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0">
+          <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0 mb-12">
             {displayProjectUpdates}
           </ul>
         </div>
