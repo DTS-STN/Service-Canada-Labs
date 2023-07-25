@@ -10,6 +10,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## Added
 
 - Benefits Navigator page
+- Breadcrumb data for pages is passed through new util function to avoid hardcoding
 
 ## Changed
 

@@ -8,6 +8,7 @@ import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
 import { CTA, Collapse } from "@dts-stn/service-canada-design-system";
 import { Heading } from "@dts-stn/service-canada-design-system";
 import Card from "../../../components/molecules/Card";
+import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 
 export default function OasBenefitsEstimator(props) {
   const [pageData] = useState(props.pageData.item);
@@ -116,18 +117,10 @@ export default function OasBenefitsEstimator(props) {
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
-        breadcrumbItems={[
-          {
-            text:
-              props.locale === "en"
-                ? pageData.scBreadcrumbParentPages[0].scTitleEn
-                : pageData.scBreadcrumbParentPages[0].scTitleFr,
-            link:
-              props.locale === "en"
-                ? pageData.scBreadcrumbParentPages[0].scPageNameEn
-                : pageData.scBreadcrumbParentPages[0].scPageNameFr,
-          },
-        ]}
+        breadcrumbItems={createBreadcrumbs(
+          pageData.scBreadcrumbParentPages,
+          props.locale
+        )}
       >
         <Head>
           {props.adobeAnalyticsUrl ? (
