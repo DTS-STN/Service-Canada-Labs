@@ -11,6 +11,52 @@ export default function Home(props) {
   const [pageData] = useState(props.pageData.item);
   const [experimentsData] = useState(props.experimentsData);
 
+  const currentProjects = experimentsData.filter((project) => {
+    return (
+      project.scLabProjectStatus[0] ===
+      "gc:custom/decd-endc/project-status/current"
+    );
+  });
+
+  const displayCurrentProjects = currentProjects.map((project) => (
+    <li key={project.scId} className="list-none">
+      <Card
+        showImage
+        showTag={
+          project.scTitleEn === "Old Age Security Benefits Estimator"
+            ? true
+            : false
+        }
+        tagLabel={props.locale === "en" ? "New Update" : "Nouvelle mise à jour"}
+        tag="current_projects"
+        imgSrc={
+          // TODO images should always be fetched from the same place in the response data i.e. using the socialMediaImage field
+          project.scId === "BENEFITS-NAVIGATOR-OVERVIEW"
+            ? props.locale === "en"
+              ? `${project.scFragments[0].scImageEn._publishUrl}`
+              : `${project.scFragments[0].scImageFr._publishUrl}`
+            : props.locale === "en"
+            ? `https://www.canada.ca${project.scSocialMediaImageEn._path}`
+            : `https://www.canada.ca${project.scSocialMediaImageFr._path}`
+        }
+        imgAlt={
+          props.locale === "en"
+            ? project.scSocialMediaImageAltTextEn
+            : project.scSocialMediaImageAltTextFr
+        }
+        title={props.locale === "en" ? project.scTitleEn : project.scTitleFr}
+        href={
+          props.locale === "en" ? project.scPageNameEn : project.scPageNameFr
+        }
+        description={
+          props.locale === "en"
+            ? project.scDescriptionEn.json[0].content[0].value
+            : project.scDescriptionFr.json[0].content[0].value
+        }
+      />
+    </li>
+  ));
+
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
@@ -327,36 +373,9 @@ export default function Home(props) {
               }
             />
           </div>
-          <div className="grid lg:grid-cols-2 gap-x-8 lg:gap-y-12">
-            <Card
-              showImage
-              imgSrc={
-                props.locale === "en"
-                  ? `https://www.canada.ca${experimentsData.scSocialMediaImageEn._path}`
-                  : `https://www.canada.ca${experimentsData.scSocialMediaImageFr._path}`
-              }
-              imgAlt={
-                props.locale === "en"
-                  ? experimentsData.scSocialMediaImageAltTextEn
-                  : experimentsData.scSocialMediaImageAltTextFr
-              }
-              title={
-                props.locale === "en"
-                  ? experimentsData.scTitleEn
-                  : experimentsData.scTitleFr
-              }
-              href={
-                props.locale === "en"
-                  ? experimentsData.scPageNameEn
-                  : experimentsData.scPageNameFr
-              }
-              description={
-                props.locale === "en"
-                  ? experimentsData.scDescriptionEn.json[0].content[0].value
-                  : experimentsData.scDescriptionFr.json[0].content[0].value
-              }
-            />
-          </div>
+          <ul className="grid lg:grid-cols-2 gap-x-4 lg:gap-y-12 list-none ml-0">
+            {displayCurrentProjects}
+          </ul>
         </section>
       </Layout>
       {props.adobeAnalyticsUrl ? (
@@ -381,7 +400,7 @@ export const getStaticProps = async ({ locale }) => {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       pageData: pageData.scLabsPagev1ByPath,
-      experimentsData: experimentsData.scLabsPagev1List.items[2],
+      experimentsData: experimentsData.scLabsPagev1List.items,
       ...(await serverSideTranslations(locale, ["common"])),
     },
     revalidate: 10,

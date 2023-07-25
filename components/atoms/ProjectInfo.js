@@ -47,7 +47,7 @@ export function ProjectInfo(props) {
           </p>
         </div>
         {showInfo ? (
-          <div className="col-span-3 xl:col-span-4">
+          <div className="col-span-1 xl:col-span-3">
             <FocusTrap
               focusTrapOptions={{
                 initialFocus: false,
@@ -78,7 +78,9 @@ export function ProjectInfo(props) {
             </FocusTrap>
           </div>
         ) : undefined}
-        <strong className="font-body col-span-1">{props.termSummary}</strong>
+        <strong className="font-body col-span-1 col-start-1">
+          {props.termSummary}
+        </strong>
         <p className="col-span-2">{props.summary}</p>
       </div>
     </>
