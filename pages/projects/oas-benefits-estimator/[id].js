@@ -50,7 +50,9 @@ export default function OASUpdatePage(props) {
 
           {/* Primary HTML Meta Tags */}
           <title>
-            {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
+            {props.locale === "en"
+              ? `${pageData.scTitleEn} - Service Canada Labs`
+              : `${pageData.scTitleFr} - Laboratoires de Service Canada`}
           </title>
           <meta
             name="description"
