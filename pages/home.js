@@ -27,7 +27,7 @@ export default function Home(props) {
             ? true
             : false
         }
-        tagLabel={props.locale === "en" ? "New Update" : "Nouvelle mise à jour"}
+        tagLabel={props.locale === "en" ? "New update" : "Nouvelle mise à jour"}
         tag="current_projects"
         imgSrc={
           // TODO images should always be fetched from the same place in the response data i.e. using the socialMediaImage field
