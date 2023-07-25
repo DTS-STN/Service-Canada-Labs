@@ -55,6 +55,14 @@ html {
   h1:focus {
     @apply ring-1;
   }
+  @screen lg {
+    h1 {
+      @apply text-h1l
+    }
+    h2 {
+      @apply text-h2l
+    }
+  }
 }
 
 @layer utilities {
@@ -287,9 +295,22 @@ html {
   filter: brightness(0) invert(1);
 }
 
-ul,
+ul {
+  @apply ml-4;
+}
 li {
-  @apply list-disc my-4 ml-4;
+  @apply list-disc ml-4;
+  @apply text-[20px]
+}
+ol > li {
+  @apply list-decimal
+}
+
+p + p {
+  margin-top: 2rem;
+}
+ul + p {
+  margin-top: 2rem;
 }
 
 .footer-logo {

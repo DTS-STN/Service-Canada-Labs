@@ -1,6 +1,6 @@
-query getOASBenefitsEstimatorPage {
+query getBenefitsNavigatorPage {
   scLabsPagev1ByPath(
-    _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/oas-benefits-estimator/overview"
+    _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/benefits-navigator/overview"
   ) {
     item {
       scId
@@ -255,6 +255,79 @@ query getOASBenefitsEstimatorPage {
           }
           scContentFr {
             json
+          }
+          scFragments {
+            ... on SCLabsContentv1Model {
+              _path
+              scId
+              scContentEn {
+                json
+              }
+              scContentFr {
+                json
+              }
+              scFragments {
+                ... on SCLabsImagev1Model {
+                  scId
+                  scImageEn {
+                    ... on ImageRef {
+                      _publishUrl
+                      width
+                      height
+                    }
+                    ... on DocumentRef {
+                      _publishUrl
+                    }
+                  }
+                  scImageFr {
+                    ... on ImageRef {
+                      _publishUrl
+                      width
+                      height
+                    }
+                    ... on DocumentRef {
+                      _publishUrl
+                    }
+                  }
+                  scImageMobileEn {
+                    ... on ImageRef {
+                      _publishUrl
+                      width
+                      height
+                    }
+                    ... on DocumentRef {
+                      _publishUrl
+                    }
+                  }
+                  scImageMobileFr {
+                    ... on ImageRef {
+                      _publishUrl
+                      width
+                      height
+                    }
+                    ... on DocumentRef {
+                      _publishUrl
+                    }
+                  }
+                  scImageAltTextEn
+                  scImageAltTextFr
+                  scImageCaptionEn {
+                    json
+                  }
+                  scImageCaptionFr {
+                    json
+                  }
+                  scLongDescHeadingEn
+                  scLongDescHeadingFr
+                  scLongDescEn {
+                      json
+                  }
+                  scLongDescFr {
+                      json
+                  }
+                }
+              }
+            }
           }
         }
         ... on SCLabsImagev1Model {

@@ -11,17 +11,17 @@ export function ProjectInfo(props) {
 
   return (
     <>
-      <div className="grid grid-cols-1 xl:grid-cols-4 gap-x-4 text-[20px]">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-x-2 text-[20px]">
         <strong className="font-body col-span-1">{props.termStarted}</strong>
-        <p className="col-span-3">
+        <p className="col-span-2">
           {!props.dateStarted ? undefined : props.dateStarted.substring(0, 10)}
         </p>
         <strong className="font-body col-span-1">{props.termEnded}</strong>
-        <p className="col-span-3">
+        <p className="col-span-2">
           {!props.dateEnded ? undefined : props.dateEnded.substring(0, 10)}
         </p>
         <strong className="font-body col-span-1">{props.termStage}</strong>
-        <div className="flex col-span-3 items-end">
+        <div className="flex col-span-2 items-end">
           <p className="shrink-0 flex">
             {props.stage}
             <button
@@ -47,7 +47,7 @@ export function ProjectInfo(props) {
           </p>
         </div>
         {showInfo ? (
-          <div className="col-span-3 xl:col-span-4">
+          <div className="col-span-1 xl:col-span-3">
             <FocusTrap
               focusTrapOptions={{
                 initialFocus: false,
@@ -78,8 +78,10 @@ export function ProjectInfo(props) {
             </FocusTrap>
           </div>
         ) : undefined}
-        <strong className="font-body col-span-1">{props.termSummary}</strong>
-        <p className="col-span-3">{props.summary}</p>
+        <strong className="font-body col-span-1 col-start-1">
+          {props.termSummary}
+        </strong>
+        <p className="col-span-2">{props.summary}</p>
       </div>
     </>
   );

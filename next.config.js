@@ -57,6 +57,18 @@ const REWRITES = [
     source: "/projets/estimateur-prestations-sv",
     destination: "/projects/oas-benefits-estimator",
   },
+  {
+    source: "/projets/estimateur-prestations-sv/:slug",
+    destination: "/projects/oas-benefits-estimator/:slug"
+  },
+  {
+    source: "/projets/tableau-de-bord",
+    destination: "/projects/dashboard"
+  },
+  {
+    source: "/projets/navigateur-prestations",
+    destination: "/projects/benefits-navigator"
+  }
 ];
 
 securityHeaders = [

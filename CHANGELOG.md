@@ -9,6 +9,54 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Added
 
+- Benefits Navigator page
+
+## Changed
+
+- Moved tag element in Card.js to the right of the title element
+
+## Fixed
+
+## [v1.8.0] - 2023-07-18
+
+## Added
+
+- Added OAS update page
+
+## Changed
+
+- Modified OAS overview page design
+- Added update/blog cards to OAS overview page
+
+## Fixed
+
+## [v1.7.0] - 2023-07-14
+
+## Added
+
+- SCCH page
+- Filter for projects with status of "current" on the home page
+
+## Changed
+
+- Card.js now uses object-contain for images
+
+## Fixed
+
+## [v1.6.1] - 2023-07-13
+
+## Added
+
+## Changed
+
+## Fixed
+
+- Fixed issue with ProjectInfo tooltip shifting content at some display sizes
+
+## [v1.6.0] - 2023-07-12
+
+## Added
+
 - margin-bottom: 24px to headings h1 through h5
 
 ## Changed
@@ -20,6 +68,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Small changes to Card.js
 - Increased h3 line-height
 - Removed class overriding default border colour on Card.js
+- Updated headings sections to match new design with image under main H1
+- Modify font-sizes to align with SCDS responsive sizing
 
 ## Fixed
 
