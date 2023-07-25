@@ -139,8 +139,8 @@ export default function OasBenefitsEstimator(props) {
           {/* Primary HTML Meta Tags */}
           <title>
             {props.locale === "en"
-              ? pageData.scShortTitleEn
-              : pageData.scShortTitleFr}
+              ? `${pageData.scTitleEn} - Service Canada Labs`
+              : `${pageData.scTitleFr} - Laboratoires de Service Canada`}
           </title>
           <meta
             name="description"
