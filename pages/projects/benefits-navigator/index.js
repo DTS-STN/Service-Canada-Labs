@@ -761,6 +761,12 @@ export default function OasBenefitsEstimator(props) {
                   ? pageData.scFragments[5].scContentEn.json[2].content[0].value
                   : pageData.scFragments[5].scContentFr.json[2].content[0]
                       .value}
+                <a
+                  className="underline underline-offset-4"
+                  href={`mailto:${pageData.scFragments[5].scContentEn.json[2].content[1].value}`}
+                >
+                  {pageData.scFragments[5].scContentEn.json[2].content[1].value}
+                </a>
               </p>
               <p className="col-span-12 xl:col-span-8">
                 {props.locale === "en"
