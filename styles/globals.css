@@ -6,7 +6,7 @@
 html {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  @apply text-multi-neutrals-grey100
+  @apply text-multi-neutrals-grey100;
 }
 
 @layer base {
@@ -21,6 +21,7 @@ html {
   h4,
   h5 {
     @apply font-display font-semibold;
+    margin-bottom: 16px;
   }
   h6 {
     @apply font-display;
@@ -53,6 +54,14 @@ html {
   /*Focused*/
   h1:focus {
     @apply ring-1;
+  }
+  @screen lg {
+    h1 {
+      @apply text-h1l
+    }
+    h2 {
+      @apply text-h2l
+    }
   }
 }
 
@@ -96,13 +105,20 @@ html {
     @apply text-sm leading-normal font-normal font-body py-4;
   }
 
-  .textbuttonField > h1,
-  .textbuttonField > h2,
-  .textbuttonField > h3,
-  .textbuttonField > h4,
-  .textbuttonField > h5,
+  .textbuttonField > h1 {
+    margin-bottom: 1rem;
+  }
+  .textbuttonField > h2 {
+    margin-bottom: 1rem;
+  }
+  .textbuttonField > h3 {
+    margin-bottom: 1rem;
+  }
+  .textbuttonField > h5 {
+    margin-bottom: 1rem;
+  }
   .textbuttonField > h6 {
-    @apply mb-4;
+    margin-bottom: 1rem;
   }
 
   .border-outset {
@@ -223,7 +239,7 @@ html {
     box-shadow: 0 0 0 1pt black;
   }
   .ieButton:hover {
-    background-color: #1C578A;
+    background-color: #1c578a;
   }
   .ieButton:active {
     background-color: #26374a;
@@ -279,9 +295,22 @@ html {
   filter: brightness(0) invert(1);
 }
 
-ul,
+ul {
+  @apply ml-4;
+}
 li {
-  @apply list-disc my-4 ml-4;
+  @apply list-disc ml-4;
+  @apply text-[20px]
+}
+ol > li {
+  @apply list-decimal
+}
+
+p + p {
+  margin-top: 2rem;
+}
+ul + p {
+  margin-top: 2rem;
 }
 
 .footer-logo {
@@ -301,7 +330,7 @@ li {
 
 .splash-image {
   background-attachment: fixed;
-  background-position: 50% 85%; 
+  background-position: 50% 85%;
   background-size: 750px 450px;
 }
 
@@ -328,15 +357,15 @@ li {
 
 @media (max-width: 990px) {
   .splash-image {
-    background-position: 50% 75%; 
-    background-size: 500px 380px
+    background-position: 50% 75%;
+    background-size: 500px 380px;
   }
 }
 
 @media (max-width: 420px) {
   .splash-image {
-    background-position: bottom; 
-    background-size: 370px 250px
+    background-position: bottom;
+    background-size: 370px 250px;
   }
   .splash-cta {
     position: fixed;
@@ -356,7 +385,7 @@ li {
 @media (max-width: 1200px) {
   .lightbulb {
     width: 48px;
-    height: 70px
+    height: 70px;
   }
   .lightbulb-bg {
     width: 109px;

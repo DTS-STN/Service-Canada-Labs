@@ -1,36 +1,29 @@
-query getAllProjects {
-  scLabsPagev1List(
-    filter: {
-      scLabProjectStatus: {
-        _logOp: OR
-        _expressions: [
-          { value: "gc:custom/decd-endc/project-status/past" }
-          { value: "gc:custom/decd-endc/project-status/current" }
-          { value: "gc:custom/decd-endc/project-status/upcoming" }
-        ]
-      }
-    }
+query getMscadPage {
+  scLabsPagev1ByPath(
+    _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/client-hub/dashboard-overview"
   ) {
-    items {
-      _path
+    item {
       scId
-      scTitleEn
-      scTitleFr
       scPageNameEn
       scPageNameFr
-      scBreadcrumbParentPages {
-        scTitleEn
-        scTitleFr
-        scPageNameEn
-        scPageNameFr
-      }
+      scTitleEn
+      scTitleFr
       scShortTitleEn
       scShortTitleFr
+      scLabProjectStage
       scDescriptionEn {
         json
       }
       scDescriptionFr {
         json
+      }
+      scBreadcrumbParentPages {
+        ... on SCLabsPagev1Model {
+          scTitleEn
+          scTitleFr
+          scPageNameEn
+          scPageNameFr
+        }
       }
       scSubject
       scKeywordsEn
@@ -43,21 +36,17 @@ query getAllProjects {
       scSocialMediaImageEn {
         ... on ImageRef {
           _path
-          width
         }
-        ... on MultimediaRef {
+        ... on DocumentRef {
           _path
-          size
         }
       }
       scSocialMediaImageFr {
         ... on ImageRef {
           _path
-          width
         }
-        ... on MultimediaRef {
+        ... on DocumentRef {
           _path
-          size
         }
       }
       scSocialMediaImageAltTextEn
@@ -202,17 +191,6 @@ query getAllProjects {
             json
           }
         }
-      }
-      scLabProjectStatus
-      scLabProjectStage
-      scDateStarted
-      scDatePaused
-      scDateEnded
-      scLabProjectSummaryEn {
-        json
-      }
-      scLabProjectSummaryFr {
-        json
       }
     }
   }
