@@ -362,9 +362,9 @@ export default function OasBenefitsEstimator(props) {
                   }
                   definition={
                     props.locale === "en"
-                      ? pageData.scFragments[2].scContentEn.json[4].content[0]
+                      ? pageData.scFragments[1].scContentEn.json[0].content[1]
                           .value
-                      : pageData.scFragments[2].scContentFr.json[4].content[0]
+                      : pageData.scFragments[1].scContentFr.json[0].content[1]
                           .value
                   }
                   information={
