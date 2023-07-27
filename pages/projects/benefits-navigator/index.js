@@ -511,7 +511,7 @@ export default function OasBenefitsEstimator(props) {
                 </div>
                 <div
                   id="image-text-version"
-                  className="mb-6 col-span-12 row-start-2 xl:row-start-2"
+                  className="mb-6 col-span-12 xl:col-span-8 row-start-2 xl:row-start-2"
                 >
                   <Collapse
                     id="image-text-collapse-1"
@@ -604,7 +604,7 @@ export default function OasBenefitsEstimator(props) {
                 </div>
                 <div
                   id="image-text-version"
-                  className="mb-6 col-span-12 row-start-2 xl:row-start-2"
+                  className="mb-6 col-span-12 xl:col-span-8 row-start-2 xl:row-start-2"
                 >
                   <Collapse
                     id="image-text-collapse-1"
@@ -711,7 +711,7 @@ export default function OasBenefitsEstimator(props) {
                 </div>
                 <div
                   id="image-text-version"
-                  className="mb-6 col-span-12 row-start-2 xl:row-start-2"
+                  className="mb-6 col-span-12 xl:col-span-8 row-start-2 xl:row-start-2"
                 >
                   <Collapse
                     id="image-text-collapse-1"
