@@ -31,6 +31,7 @@ module.exports = {
     "border-custom-gray-lighter",
     "border-custom-gray-darker",
   ],
+  darkMode: "class",
   theme: {
     fontFamily: {
       display: ["Lato"],
