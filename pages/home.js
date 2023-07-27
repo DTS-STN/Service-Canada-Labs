@@ -14,8 +14,7 @@ export default function Home(props) {
   const currentProjects = experimentsData.filter((project) => {
     return (
       project.scLabProjectStatus[0] ===
-        "gc:custom/decd-endc/project-status/current" &&
-      project.scId !== "BENEFITS-NAVIGATOR-OVERVIEW"
+      "gc:custom/decd-endc/project-status/current"
     );
   });
 
@@ -28,10 +27,15 @@ export default function Home(props) {
             ? true
             : false
         }
-        tagLabel={props.locale === "en" ? "New Update" : "Nouvelle mise à jour"}
+        tagLabel={props.locale === "en" ? "New update" : "Nouvelle mise à jour"}
         tag="current_projects"
         imgSrc={
-          props.locale === "en"
+          // TODO images should always be fetched from the same place in the response data i.e. using the socialMediaImage field
+          project.scId === "BENEFITS-NAVIGATOR-OVERVIEW"
+            ? props.locale === "en"
+              ? `${project.scFragments[0].scImageEn._publishUrl}`
+              : `${project.scFragments[0].scImageFr._publishUrl}`
+            : props.locale === "en"
             ? `https://www.canada.ca${project.scSocialMediaImageEn._path}`
             : `https://www.canada.ca${project.scSocialMediaImageFr._path}`
         }

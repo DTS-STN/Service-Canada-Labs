@@ -65,6 +65,10 @@ const REWRITES = [
     source: "/projets/tableau-de-bord",
     destination: "/projects/dashboard"
   },
+  {
+    source: "/projets/navigateur-prestations",
+    destination: "/projects/benefits-navigator"
+  }
 ];
 
 securityHeaders = [

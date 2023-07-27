@@ -1,0 +1,463 @@
+query getBenefitsNavigatorPage {
+  scLabsPagev1ByPath(
+    _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/benefits-navigator/overview"
+  ) {
+    item {
+      scId
+      scPageNameEn
+      scPageNameFr
+      scTitleEn
+      scTitleFr
+      scShortTitleEn
+      scShortTitleFr
+      scLabProjectStage
+      scLabProjectSummaryEn {
+        json
+      }
+      scLabProjectSummaryFr {
+        json
+      }
+      scDescriptionEn {
+        json
+      }
+      scDescriptionFr {
+        json
+      }
+      scLabProjectUpdates {
+        ... on SCLabsPagev1Model {
+          _path
+          scId
+          scPageNameEn
+          scPageNameFr
+          scTitleEn
+          scTitleFr
+          scShortTitleEn
+          scShortTitleFr
+          scBreadcrumbParentPages {
+            ... on SCLabsPagev1Model {
+              scTitleEn
+              scTitleFr
+              scPageNameEn
+              scPageNameFr
+            }
+          }
+          scSubject
+          scKeywordsEn
+          scKeywordsFr
+          scContentType
+          scOwner
+          scDateModifiedOverwrite
+          scAudience
+          scRegion
+          scSocialMediaImageEn {
+            ... on ImageRef {
+              _path
+            }
+            ... on DocumentRef {
+              _path
+            }
+          }
+          scSocialMediaImageFr {
+            ... on ImageRef {
+              _path
+            }
+            ... on DocumentRef {
+              _path
+            }
+          }
+          scSocialMediaImageAltTextEn
+          scSocialMediaImageAltTextFr
+          scNoIndex
+          scNoFollow
+          scFragments {
+            ... on SCLabsContentv1Model {
+              _path
+              scId
+              scContentEn {
+                json
+              }
+              scContentFr {
+                json
+              }
+            }
+            ... on SCLabsImagev1Model {
+              scId
+              scImageEn {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageFr {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageMobileEn {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageMobileFr {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageAltTextEn
+              scImageAltTextFr
+              scImageCaptionEn {
+                json
+              }
+              scImageCaptionFr {
+                json
+              }
+            }
+            ... on SCLabsButtonv1Model {
+              scId
+              scTitleEn
+              scTitleFr
+              scDestinationURLEn
+              scDestinationURLFr
+              scButtonType
+            }
+            ... on SCLabsFeaturev1Model {
+              scId
+              scTitleEn
+              scTitleFr
+              scContentEn {
+                json
+              }
+              scContentFr {
+                json
+              }
+              scImageEn {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageFr {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scFragments {
+                ... on SCLabsAlertv1Model {
+                  _path
+                  scId
+                  scTitleEn
+                  scTitleFr
+                  scContentEn {
+                    json
+                  }
+                  scContentFr {
+                    json
+                  }
+                  scAlertType
+                }
+              }
+              scImageAltTextEn
+              scImageAltTextFr
+              scLabsButton {
+                scId
+                scTitleEn
+                scTitleFr
+                scDestinationURLEn
+                scDestinationURLFr
+                scButtonType
+              }
+            }
+            ... on Tooltipv1Model {
+              _path
+              scId
+              scTitleEn
+              scTitleFr
+              scContentEn {
+                json
+              }
+              scContentFr {
+                json
+              }
+            }
+          }
+        }
+      }
+      scBreadcrumbParentPages {
+        ... on SCLabsPagev1Model {
+          scTitleEn
+          scTitleFr
+          scPageNameEn
+          scPageNameFr
+        }
+      }
+      scSubject
+      scKeywordsEn
+      scKeywordsFr
+      scContentType
+      scOwner
+      scDateModifiedOverwrite
+      scAudience
+      scRegion
+      scSocialMediaImageEn {
+        ... on ImageRef {
+          _path
+        }
+        ... on DocumentRef {
+          _path
+        }
+      }
+      scSocialMediaImageFr {
+        ... on ImageRef {
+          _path
+        }
+        ... on DocumentRef {
+          _path
+        }
+      }
+      scSocialMediaImageAltTextEn
+      scSocialMediaImageAltTextFr
+      scNoIndex
+      scNoFollow
+      scFragments {
+        ... on SCLabsContentv1Model {
+          _path
+          scId
+          scContentEn {
+            json
+          }
+          scContentFr {
+            json
+          }
+          scFragments {
+            ... on SCLabsContentv1Model {
+              _path
+              scId
+              scContentEn {
+                json
+              }
+              scContentFr {
+                json
+              }
+              scFragments {
+                ... on SCLabsImagev1Model {
+                  scId
+                  scImageEn {
+                    ... on ImageRef {
+                      _publishUrl
+                      width
+                      height
+                    }
+                    ... on DocumentRef {
+                      _publishUrl
+                    }
+                  }
+                  scImageFr {
+                    ... on ImageRef {
+                      _publishUrl
+                      width
+                      height
+                    }
+                    ... on DocumentRef {
+                      _publishUrl
+                    }
+                  }
+                  scImageMobileEn {
+                    ... on ImageRef {
+                      _publishUrl
+                      width
+                      height
+                    }
+                    ... on DocumentRef {
+                      _publishUrl
+                    }
+                  }
+                  scImageMobileFr {
+                    ... on ImageRef {
+                      _publishUrl
+                      width
+                      height
+                    }
+                    ... on DocumentRef {
+                      _publishUrl
+                    }
+                  }
+                  scImageAltTextEn
+                  scImageAltTextFr
+                  scImageCaptionEn {
+                    json
+                  }
+                  scImageCaptionFr {
+                    json
+                  }
+                  scLongDescHeadingEn
+                  scLongDescHeadingFr
+                  scLongDescEn {
+                      json
+                  }
+                  scLongDescFr {
+                      json
+                  }
+                }
+              }
+            }
+          }
+        }
+        ... on SCLabsImagev1Model {
+          scId
+          scImageEn {
+            ... on ImageRef {
+              _publishUrl
+              width
+              height
+            }
+            ... on DocumentRef {
+              _publishUrl
+            }
+          }
+          scImageFr {
+            ... on ImageRef {
+              _publishUrl
+              width
+              height
+            }
+            ... on DocumentRef {
+              _publishUrl
+            }
+          }
+          scImageMobileEn {
+            ... on ImageRef {
+              _publishUrl
+              width
+              height
+            }
+            ... on DocumentRef {
+              _publishUrl
+            }
+          }
+          scImageMobileFr {
+            ... on ImageRef {
+              _publishUrl
+              width
+              height
+            }
+            ... on DocumentRef {
+              _publishUrl
+            }
+          }
+          scImageAltTextEn
+          scImageAltTextFr
+          scImageCaptionEn {
+            json
+          }
+          scImageCaptionFr {
+            json
+          }
+        }
+        ... on SCLabsButtonv1Model {
+          scId
+          scTitleEn
+          scTitleFr
+          scDestinationURLEn
+          scDestinationURLFr
+          scButtonType
+        }
+        ... on SCLabsFeaturev1Model {
+          scId
+          scTitleEn
+          scTitleFr
+          scContentEn {
+            json
+          }
+          scContentFr {
+            json
+          }
+          scImageEn {
+            ... on ImageRef {
+              _publishUrl
+              width
+              height
+            }
+            ... on DocumentRef {
+              _publishUrl
+            }
+          }
+          scImageFr {
+            ... on ImageRef {
+              _publishUrl
+              width
+              height
+            }
+            ... on DocumentRef {
+              _publishUrl
+            }
+          }
+          scFragments {
+            ... on SCLabsAlertv1Model {
+              _path
+              scId
+              scTitleEn
+              scTitleFr
+              scContentEn {
+                json
+              }
+              scContentFr {
+                json
+              }
+              scAlertType
+            }
+          }
+          scImageAltTextEn
+          scImageAltTextFr
+          scLabsButton {
+            scId
+            scTitleEn
+            scTitleFr
+            scDestinationURLEn
+            scDestinationURLFr
+            scButtonType
+          }
+        }
+        ... on Tooltipv1Model {
+          _path
+          scId
+          scTitleEn
+          scTitleFr
+          scContentEn {
+            json
+          }
+          scContentFr {
+            json
+          }
+        }
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
 import { CTA, Heading } from "@dts-stn/service-canada-design-system";
+import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 
 export default function OASUpdatePage(props) {
   const { t } = useTranslation("common", "vc");
@@ -28,18 +29,10 @@ export default function OASUpdatePage(props) {
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
-        breadcrumbItems={[
-          {
-            text:
-              props.locale === "en"
-                ? pageData.scBreadcrumbParentPages[0].scTitleEn
-                : pageData.scBreadcrumbParentPages[0].scTitleFr,
-            link:
-              props.locale === "en"
-                ? pageData.scBreadcrumbParentPages[0].scPageNameEn
-                : pageData.scBreadcrumbParentPages[0].scPageNameFr,
-          },
-        ]}
+        breadcrumbItems={createBreadcrumbs(
+          pageData.scBreadcrumbParentPages,
+          props.locale
+        )}
       >
         <Head>
           {props.adobeAnalyticsUrl ? (
@@ -50,7 +43,9 @@ export default function OASUpdatePage(props) {
 
           {/* Primary HTML Meta Tags */}
           <title>
-            {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
+            {props.locale === "en"
+              ? `${pageData.scTitleEn} - Service Canada Labs`
+              : `${pageData.scTitleFr} - Laboratoires de Service Canada`}
           </title>
           <meta
             name="description"
@@ -208,11 +203,11 @@ export default function OASUpdatePage(props) {
                 ? dictionary[9].scTermEn
                 : dictionary[9].scTermFr}
             </p>
-            <p className="col-span-6 col-start-7 sm:col-start-5 lg:col-span-2 md:col-start-5">
+            <p className="col-span-6 col-start-7 sm:col-start-5 lg:col-span-2 md:col-start-5 mt-0">
               {pageData.scDateModifiedOverwrite}
             </p>
             <p
-              className={`row-start-2 col-span-6 sm:col-span-4 ${
+              className={`row-start-2 col-span-6 sm:col-span-4 mt-0 ${
                 props.locale === "en" ? "lg:col-span-2" : "lg:col-span-3"
               } font-bold`}
             >
@@ -233,7 +228,7 @@ export default function OASUpdatePage(props) {
                 ? pageData.scFragments[1].scContentEn.json[1].content[0].value
                 : pageData.scFragments[1].scContentFr.json[1].content[0].value}
             </p>
-            <p className="col-span-12 lg:col-span-8 pt-8 xxl:pt-0">
+            <p className="col-span-12 lg:col-span-8">
               {props.locale === "en"
                 ? pageData.scFragments[1].scContentEn.json[2].content[0].value
                 : pageData.scFragments[1].scContentFr.json[2].content[0].value}
@@ -268,27 +263,27 @@ export default function OASUpdatePage(props) {
                 ? pageData.scFragments[1].scContentEn.json[4].content[0].value
                 : pageData.scFragments[1].scContentFr.json[4].content[0].value}
             </p>
-            <p className="col-span-12 lg:col-span-8 pt-8">
+            <p className="col-span-12 lg:col-span-8">
               {props.locale === "en"
                 ? pageData.scFragments[1].scContentEn.json[5].content[0].value
                 : pageData.scFragments[1].scContentFr.json[5].content[0].value}
             </p>
             <ul className="col-span-12 lg:col-span-8">
-              <li className="text-[20px]">
+              <li>
                 {props.locale === "en"
                   ? pageData.scFragments[1].scContentEn.json[6].content[0]
                       .content[0].value
                   : pageData.scFragments[1].scContentFr.json[6].content[0]
                       .content[0].value}
               </li>
-              <li className="text-[20px]">
+              <li>
                 {props.locale === "en"
                   ? pageData.scFragments[1].scContentEn.json[6].content[1]
                       .content[0].value
                   : pageData.scFragments[1].scContentFr.json[6].content[1]
                       .content[0].value}
               </li>
-              <li className="text-[20px]">
+              <li>
                 {props.locale === "en"
                   ? pageData.scFragments[1].scContentEn.json[6].content[2]
                       .content[0].value
@@ -311,17 +306,17 @@ export default function OASUpdatePage(props) {
                 ? pageData.scFragments[1].scContentEn.json[9].content[0].value
                 : pageData.scFragments[1].scContentFr.json[9].content[0].value}
             </p>
-            <p className="col-span-12 lg:col-span-8 pt-8">
+            <p className="col-span-12 lg:col-span-8">
               {props.locale === "en"
                 ? pageData.scFragments[1].scContentEn.json[10].content[0].value
                 : pageData.scFragments[1].scContentFr.json[10].content[0].value}
             </p>
-            <p className="col-span-12 lg:col-span-8 pt-8">
+            <p className="col-span-12 lg:col-span-8">
               {props.locale === "en"
                 ? pageData.scFragments[1].scContentEn.json[11].content[0].value
                 : pageData.scFragments[1].scContentFr.json[11].content[0].value}
             </p>
-            <p className="col-span-12 lg:col-span-8 pt-8">
+            <p className="col-span-12 lg:col-span-8">
               {props.locale === "en"
                 ? pageData.scFragments[1].scContentEn.json[12].content[0].value
                 : pageData.scFragments[1].scContentFr.json[12].content[0].value}
@@ -336,7 +331,7 @@ export default function OASUpdatePage(props) {
                 ? pageData.scFragments[1].scContentEn.json[14].content[0].value
                 : pageData.scFragments[1].scContentFr.json[14].content[0].value}
             </p>
-            <p className="col-span-12 lg:col-span-8 pt-8">
+            <p className="col-span-12 lg:col-span-8">
               {props.locale === "en"
                 ? pageData.scFragments[1].scContentEn.json[15].content[0].value
                 : pageData.scFragments[1].scContentFr.json[15].content[0].value}

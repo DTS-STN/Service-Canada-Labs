@@ -11,7 +11,19 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Changed
 
+## Fixed
+
+## [v1.9.0] - 2023-07-25
+
+## Added
+
+- Benefits Navigator page
+- Breadcrumb data for pages is passed through new util function to avoid hardcoding
+
+## Changed
+
 - Moved tag element in Card.js to the right of the title element
+- Various fixes to address alignment with design
 
 ## Fixed
 

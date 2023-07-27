@@ -7,6 +7,7 @@ import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
 import { CTA } from "@dts-stn/service-canada-design-system";
 import { Heading } from "@dts-stn/service-canada-design-system";
+import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 
 export default function MscaDashboard(props) {
   const [pageData] = useState(props.pageData.item);
@@ -45,18 +46,10 @@ export default function MscaDashboard(props) {
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
-        breadcrumbItems={[
-          {
-            text:
-              props.locale === "en"
-                ? pageData.scBreadcrumbParentPages[0].scTitleEn
-                : pageData.scBreadcrumbParentPages[0].scTitleFr,
-            link:
-              props.locale === "en"
-                ? pageData.scBreadcrumbParentPages[0].scPageNameEn
-                : pageData.scBreadcrumbParentPages[0].scPageNameFr,
-          },
-        ]}
+        breadcrumbItems={createBreadcrumbs(
+          pageData.scBreadcrumbParentPages,
+          props.locale
+        )}
       >
         <Head>
           {props.adobeAnalyticsUrl ? (
@@ -67,7 +60,9 @@ export default function MscaDashboard(props) {
 
           {/* Primary HTML Meta Tags */}
           <title>
-            {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
+            {props.locale === "en"
+              ? `${pageData.scTitleEn} - Service Canada Labs`
+              : `${pageData.scTitleFr} - Laboratoires de Service Canada`}
           </title>
           <meta
             name="description"
@@ -342,19 +337,19 @@ export default function MscaDashboard(props) {
                   : pageData.scFragments[3].scContentFr.json[3].content[0]
                       .value}
               </p>
-              <p className="col-span-12 xl:col-span-8 pt-8">
+              <p className="col-span-12 xl:col-span-8">
                 {props.locale === "en"
                   ? pageData.scFragments[3].scContentEn.json[4].content[0].value
                   : pageData.scFragments[3].scContentFr.json[4].content[0]
                       .value}
               </p>
-              <p className="col-span-12 xl:col-span-8 pt-8">
+              <p className="col-span-12 xl:col-span-8">
                 {props.locale === "en"
                   ? pageData.scFragments[3].scContentEn.json[5].content[0].value
                   : pageData.scFragments[3].scContentFr.json[5].content[0]
                       .value}
               </p>
-              <p className="col-span-12 xl:col-span-8 pt-8">
+              <p className="col-span-12 xl:col-span-8">
                 {props.locale === "en"
                   ? pageData.scFragments[3].scContentEn.json[6].content[0].value
                   : pageData.scFragments[3].scContentFr.json[6].content[0]
@@ -372,13 +367,13 @@ export default function MscaDashboard(props) {
                   : pageData.scFragments[3].scContentFr.json[8].content[0]
                       .value}
               </p>
-              <p className="col-span-12 xl:col-span-8 pt-8">
+              <p className="col-span-12 xl:col-span-8">
                 {props.locale === "en"
                   ? pageData.scFragments[3].scContentEn.json[9].content[0].value
                   : pageData.scFragments[3].scContentFr.json[9].content[0]
                       .value}
               </p>
-              <p className="col-span-12 xl:col-span-8 pt-8">
+              <p className="col-span-12 xl:col-span-8">
                 {props.locale === "en"
                   ? pageData.scFragments[3].scContentEn.json[10].content[0]
                       .value
