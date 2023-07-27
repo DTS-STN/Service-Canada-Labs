@@ -19,7 +19,7 @@ export default function Home(props) {
   });
 
   const displayCurrentProjects = currentProjects.map((project) => (
-    <li key={project.scId} className="list-none">
+    <li key={project.scId} className="list-none ml-0">
       <Card
         showImage
         showTag={
@@ -373,7 +373,7 @@ export default function Home(props) {
               }
             />
           </div>
-          <ul className="grid lg:grid-cols-2 gap-x-4 lg:gap-y-12 list-none ml-0">
+          <ul className="grid lg:grid-cols-2 gap-x-4 gap-y-4 list-none ml-0">
             {displayCurrentProjects}
           </ul>
         </section>
