@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Banner } from "../atoms/Banner";
-import { Footer } from "./Footer";
+import { Footer } from "@dts-stn/service-canada-design-system";
 import { PhaseBanner } from "./PhaseBanner";
 import { ReportAProblem } from "./ReportAProblem";
 import Link from "next/link";
@@ -124,6 +124,33 @@ export const Layout = ({
           <DateModified date={dateModifiedOverride} />
         </div>
         <Footer
+          id="footer"
+          lang={locale}
+          btnLink={"#"}
+          brandLinks={[
+            {
+              id: "link1",
+              text: t("footerSocialMedia"),
+              href: t("footerSocialMediaURL"),
+            },
+            {
+              id: "link2",
+              text: t("footerMobileApp"),
+              href: t("footerMobileAppURL"),
+            },
+            {
+              id: "link3",
+              text: t("footerTermsAndCondition"),
+              href: t("footerTermsAndConditionURL"),
+            },
+            {
+              id: "link4",
+              text: t("footerPrivacy"),
+              href: t("footerPrivacyURL"),
+            },
+          ]}
+        />
+        {/* <Footer
           footerLogoAltText={t("symbol2")}
           footerLogoImage="/wmms-blk.svg"
           footerNav1={t("aboutGovernment")}
@@ -186,7 +213,7 @@ export const Layout = ({
             },
           ]}
           topOfPage={t("topOfPage")}
-        />
+        /> */}
       </footer>
     </div>
   );
