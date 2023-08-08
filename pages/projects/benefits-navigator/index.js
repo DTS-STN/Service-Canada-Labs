@@ -440,10 +440,7 @@ export default function OasBenefitsEstimator(props) {
                       .value}
               </h2>
               <div id="feature-1" className="grid grid-cols-12 gap-x-6 mb-9">
-                <div
-                  id="image-container"
-                  className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8"
-                >
+                <div className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8">
                   <img
                     src={
                       props.locale === "en"
@@ -462,14 +459,8 @@ export default function OasBenefitsEstimator(props) {
                     className="w-full"
                   />
                 </div>
-                <div
-                  id="feature-breakdown"
-                  className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1"
-                >
-                  <div
-                    id="feature-breakdown-content"
-                    className="py-4 pl-4 border-l-4 border-multi-blue-blue60f"
-                  >
+                <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
+                  <div className="py-4 pl-4 border-l-4 border-multi-blue-blue60f">
                     <h3 className="mb-2">
                       {props.locale === "en"
                         ? pageData.scFragments[4].scFragments[0].scContentEn
@@ -509,10 +500,7 @@ export default function OasBenefitsEstimator(props) {
                     </ul>
                   </div>
                 </div>
-                <div
-                  id="image-text-version"
-                  className="mb-6 col-span-12 xl:col-span-8 row-start-2 xl:row-start-2"
-                >
+                <div className="mb-6 col-span-12 xl:col-span-8 row-start-2 xl:row-start-2">
                   <Collapse
                     id="image-text-collapse-1"
                     title={
@@ -533,10 +521,7 @@ export default function OasBenefitsEstimator(props) {
                 </div>
               </div>
               <div id="feature-2" className="grid grid-cols-12 gap-x-6 mb-9">
-                <div
-                  id="image-container"
-                  className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8"
-                >
+                <div className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8">
                   <img
                     src={
                       props.locale === "en"
@@ -555,14 +540,8 @@ export default function OasBenefitsEstimator(props) {
                     className="w-full"
                   />
                 </div>
-                <div
-                  id="feature-breakdown"
-                  className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1"
-                >
-                  <div
-                    id="feature-breakdown-content"
-                    className="p-4 border-l-4 border-multi-blue-blue60f"
-                  >
+                <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
+                  <div className="p-4 border-l-4 border-multi-blue-blue60f">
                     <h3 className="mb-2">
                       {props.locale === "en"
                         ? pageData.scFragments[4].scFragments[1].scContentEn
@@ -602,12 +581,9 @@ export default function OasBenefitsEstimator(props) {
                     </ul>
                   </div>
                 </div>
-                <div
-                  id="image-text-version"
-                  className="mb-6 col-span-12 xl:col-span-8 row-start-2 xl:row-start-2"
-                >
+                <div className="mb-6 col-span-12 xl:col-span-8 row-start-2 xl:row-start-2">
                   <Collapse
-                    id="image-text-collapse-1"
+                    id="image-text-collapse-2"
                     title={
                       props.locale === "en"
                         ? pageData.scFragments[4].scFragments[1].scFragments[0]
@@ -626,10 +602,7 @@ export default function OasBenefitsEstimator(props) {
                 </div>
               </div>
               <div id="feature-3" className="grid grid-cols-12 gap-x-6">
-                <div
-                  id="image-container"
-                  className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8"
-                >
+                <div className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8">
                   <img
                     src={
                       props.locale === "en"
@@ -648,14 +621,8 @@ export default function OasBenefitsEstimator(props) {
                     className="w-full"
                   />
                 </div>
-                <div
-                  id="feature-breakdown"
-                  className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1"
-                >
-                  <div
-                    id="feature-breakdown-content"
-                    className="p-4 border-l-4 border-multi-blue-blue60f"
-                  >
+                <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
+                  <div className="p-4 border-l-4 border-multi-blue-blue60f">
                     <h3 className="mb-2">
                       {props.locale === "en"
                         ? pageData.scFragments[4].scFragments[2].scContentEn
@@ -709,12 +676,9 @@ export default function OasBenefitsEstimator(props) {
                     </ul>
                   </div>
                 </div>
-                <div
-                  id="image-text-version"
-                  className="mb-6 col-span-12 xl:col-span-8 row-start-2 xl:row-start-2"
-                >
+                <div className="mb-6 col-span-12 xl:col-span-8 row-start-2 xl:row-start-2">
                   <Collapse
-                    id="image-text-collapse-1"
+                    id="image-text-collapse-3"
                     title={
                       props.locale === "en"
                         ? pageData.scFragments[4].scFragments[2].scFragments[0]

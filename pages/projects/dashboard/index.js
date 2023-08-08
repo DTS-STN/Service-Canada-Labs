@@ -240,9 +240,9 @@ export default function MscaDashboard(props) {
                           : pageData.scFragments[1].scImageFr._publishUrl
                       }
                       alt={
-                        props.locale === "en"
+                        (props.locale === "en"
                           ? pageData.scFragments[1].scImageAltTextEn
-                          : pageData.scFragments[1].scImageAltTextFr
+                          : pageData.scFragments[1].scImageAltTextFr) ?? ""
                       }
                       width={468}
                       height={462}
