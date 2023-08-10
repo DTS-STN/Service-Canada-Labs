@@ -13,6 +13,7 @@ export default function Index(props) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
+    document.documentElement.lang = "en";
   }, []);
 
   return (
@@ -193,11 +194,10 @@ export default function Index(props) {
   );
 }
 
-export const getStaticProps = async ({ locale }) => ({
+export const getServerSideProps = async ({ locale }) => ({
   props: {
-    locale: locale,
-    adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+    locale: locale ?? "en",
+    adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? "",
     ...(await serverSideTranslations(locale, ["common"])),
   },
-  revalidate: 10,
 });
