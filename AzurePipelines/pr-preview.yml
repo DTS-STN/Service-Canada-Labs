@@ -9,7 +9,8 @@ variables:
   azure.servicePrincipal: 'SCLabsDev'
   webapp.name: 'alphasite-appservice-dev'
   webapp.resourceGroup: 'AlphasiteAppserviceRG'
-  webapp.slotName: 'pr-preview-$(System.PullRequest.PullRequestId)'
+  webapp.slotName: null
+  # webapp.slotName: 'pr-preview-$(System.PullRequest.PullRequestId)'
   azureContainerRegistry.name: 'alphasiteCRdev-7/10/2023'
   azureContainerRegistry.repository: 'alphasite'
   azureContainerRegistry.domain: 'alphasitecrdev.azurecr.io'
@@ -60,7 +61,15 @@ steps:
     tags: |
       $(azureContainerRegistry.tag)
       latest
-# TODO: Standard SKU for appservice caps at 5 dep slots, can't have more than 3 concurrent PRs at the moment. 
+# TODO: Standard SKU for appservice caps at 5 dep slots, can't have more than 4 concurrent PRs at the moment. 
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      #! /bin/bash
+      # Decide which slot to deploy to based on PR number
+            x="$(expr $(System.PullRequest.PullRequestNumber) % 4)""
+            echo "##vso[task.setvariable variable=webapp.slotName;isOutput=true]$x"
 - task: AzureCLI@2
   displayName: 'Create new slot in App Service'
   condition: eq(variables['Build.Reason'], 'PullRequest')
@@ -68,7 +77,7 @@ steps:
     azureSubscription: $(azure.servicePrincipal)
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az webapp deployment slot create --name $(webapp.name) --resource-group $(webapp.resourceGroup) --slot $(webapp.slotName)'
+    inlineScript: 'az webapp deployment slot create --name pr-preview-$(webapp.name) --resource-group $(webapp.resourceGroup) --slot $(webapp.slotName)'
 - task: AzureCLI@2
   displayName: 'Deploy pr image to new slot'
   condition: eq(variables['Build.Reason'], 'PullRequest')
@@ -82,7 +91,7 @@ steps:
       --docker-registry-server-url $(azureContainerRegistry.domain) \
       --docker-registry-server-user $(azureContainerRegistry.name) \
       --docker-registry-server-password $(DOCKER_REGISTRY_SERVER_PASSWORD) \
-      --name $(webapp.name) \
+      --name pr-preview-$(webapp.name) \
       --slot $(webapp.slotName) \
       --resource-group $(webapp.resourceGroup)
 
