@@ -61,18 +61,13 @@ steps:
     tags: |
       $(azureContainerRegistry.tag)
       latest
-# TODO: Standard SKU for appservice caps at 5 dep slots, can't have more than 4 concurrent PRs at the moment. 
-- task: Bash@3
-  env: 
-      PULLREQUESTID: $(System.PullRequest.PullRequestId)
+# TODO: Standard SKU for appservice caps at 5 dep slots, can't have more than 4 concurrent PRs at the moment.
+- task: PowerShell@2
   inputs:
     targetType: 'inline'
     script: |
-      #! /bin/bash
-      # Decide which slot to deploy to based on PR number
-            x=$(($PULLREQUESTID % 4))
-            echo $x
-            echo "##vso[task.setvariable variable=webapp.slotName;isOutput=true]$x"
+      [int] $slotnumber = $(System.PullRequest.PullRequestId)%4
+      Write-Host "##vso[webapp.slotName]$slotnumber"
 - task: AzureCLI@2
   displayName: 'Create new slot in App Service'
   condition: eq(variables['Build.Reason'], 'PullRequest')
