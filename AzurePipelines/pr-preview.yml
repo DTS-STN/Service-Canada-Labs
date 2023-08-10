@@ -66,8 +66,9 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      [int] $slotnumber = $System.PullRequest.PullRequestId%4
-      Write-Host "##vso[webapp.slotName]$slotnumber"
+      [int] $slotNumber = $System.PullRequest.PullRequestId%4
+      Write-Host "$slotNumber"
+      Write-Host "##vso[webapp.slotName]$slotNumber"
 - task: AzureCLI@2
   displayName: 'Create new slot in App Service'
   condition: eq(variables['Build.Reason'], 'PullRequest')
