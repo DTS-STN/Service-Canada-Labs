@@ -68,7 +68,7 @@ steps:
     script: |
       #! /bin/bash
       # Decide which slot to deploy to based on PR number
-            x=(($SYSTEM_PULLREQUEST_PULLREQUESTNUMBER % 4))
+            x=$(($SYSTEM_PULLREQUEST_PULLREQUESTNUMBER % 4))
             echo $x
             echo "##vso[task.setvariable variable=webapp.slotName;isOutput=true]$x"
 - task: AzureCLI@2
