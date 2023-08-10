@@ -68,7 +68,7 @@ steps:
     script: |
       #! /bin/bash
       # Decide which slot to deploy to based on PR number
-            x=$($(System.PullRequest.PullRequestNumber) % 4)
+            x=(($SYSTEM_PULLREQUEST_PULLREQUESTNUMBER % 4))
             echo "##vso[task.setvariable variable=webapp.slotName;isOutput=true]$x"
 - task: AzureCLI@2
   displayName: 'Create new slot in App Service'
