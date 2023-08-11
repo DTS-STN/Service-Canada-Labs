@@ -8,6 +8,7 @@ import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
 import { CTA } from "@dts-stn/service-canada-design-system";
 import { Heading } from "@dts-stn/service-canada-design-system";
 import Card from "../../../components/molecules/Card";
+import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 
 export default function OasBenefitsEstimator(props) {
   const [pageData] = useState(props.pageData.item);
@@ -72,18 +73,10 @@ export default function OasBenefitsEstimator(props) {
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
-        breadcrumbItems={[
-          {
-            text:
-              props.locale === "en"
-                ? pageData.scBreadcrumbParentPages[0].scTitleEn
-                : pageData.scBreadcrumbParentPages[0].scTitleFr,
-            link:
-              props.locale === "en"
-                ? pageData.scBreadcrumbParentPages[0].scPageNameEn
-                : pageData.scBreadcrumbParentPages[0].scPageNameFr,
-          },
-        ]}
+        breadcrumbItems={createBreadcrumbs(
+          pageData.scBreadcrumbParentPages,
+          props.locale
+        )}
       >
         <Head>
           {props.adobeAnalyticsUrl ? (
@@ -95,8 +88,8 @@ export default function OasBenefitsEstimator(props) {
           {/* Primary HTML Meta Tags */}
           <title>
             {props.locale === "en"
-              ? pageData.scShortTitleEn
-              : pageData.scShortTitleFr}
+              ? `${pageData.scTitleEn} - Service Canada Labs`
+              : `${pageData.scTitleFr} - Laboratoires de Service Canada`}
           </title>
           <meta
             name="description"
@@ -417,7 +410,7 @@ export default function OasBenefitsEstimator(props) {
               ? props.dictionary.items[11].scTermEn
               : props.dictionary.items[11].scTermFr}
           </h2>
-          <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0">
+          <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0 mb-12">
             {displayProjectUpdates}
           </ul>
         </div>

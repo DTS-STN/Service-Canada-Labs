@@ -23,7 +23,7 @@ export function Footer(props) {
               return (
                 <li
                   key={index}
-                  className="text-white w-64 md:w-56 lg:w-80 my-2.5 hover:underline list-none"
+                  className="text-xs text-white w-64 lg:w-80 my-2.5 hover:underline list-none"
                 >
                   <a className="font-body" href={value.footerBoxlink}>
                     {value.footerBoxLinkText}

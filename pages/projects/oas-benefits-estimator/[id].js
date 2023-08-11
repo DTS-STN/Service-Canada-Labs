@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
 import { CTA, Heading } from "@dts-stn/service-canada-design-system";
+import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 
 export default function OASUpdatePage(props) {
   const { t } = useTranslation("common", "vc");
@@ -28,18 +29,10 @@ export default function OASUpdatePage(props) {
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
-        breadcrumbItems={[
-          {
-            text:
-              props.locale === "en"
-                ? pageData.scBreadcrumbParentPages[0].scTitleEn
-                : pageData.scBreadcrumbParentPages[0].scTitleFr,
-            link:
-              props.locale === "en"
-                ? pageData.scBreadcrumbParentPages[0].scPageNameEn
-                : pageData.scBreadcrumbParentPages[0].scPageNameFr,
-          },
-        ]}
+        breadcrumbItems={createBreadcrumbs(
+          pageData.scBreadcrumbParentPages,
+          props.locale
+        )}
       >
         <Head>
           {props.adobeAnalyticsUrl ? (
@@ -50,7 +43,9 @@ export default function OASUpdatePage(props) {
 
           {/* Primary HTML Meta Tags */}
           <title>
-            {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
+            {props.locale === "en"
+              ? `${pageData.scTitleEn} - Service Canada Labs`
+              : `${pageData.scTitleFr} - Laboratoires de Service Canada`}
           </title>
           <meta
             name="description"

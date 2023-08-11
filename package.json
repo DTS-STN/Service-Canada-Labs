@@ -1,6 +1,6 @@
 {
   "name": "service-canada-labs",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.7.15",
@@ -22,7 +22,7 @@
     "joi": "^17.9.1",
     "js-cookie": "^3.0.5",
     "json2csv": "^5.0.6",
-    "mongodb": "^3.7.3",
+    "mongodb": "^3.7.4",
     "next": "^13.2.3",
     "next-i18next": "^8.10.0",
     "prop-types": "^15.8.1",
