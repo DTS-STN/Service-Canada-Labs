@@ -77,7 +77,7 @@ steps:
     azureSubscription: $(azure.servicePrincipal)
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az webapp deployment slot create --name pr-preview-$(webapp.name) --resource-group $(webapp.resourceGroup) --slot $(webapp.slotName)'
+    inlineScript: 'az webapp deployment slot create --name $(webapp.name) --resource-group $(webapp.resourceGroup) --slot pr-preview-$(webapp.slotName)'
 - task: AzureCLI@2
   displayName: 'Deploy pr image to new slot'
   condition: eq(variables['Build.Reason'], 'PullRequest')
@@ -91,18 +91,18 @@ steps:
       --docker-registry-server-url $(azureContainerRegistry.domain) \
       --docker-registry-server-user $(azureContainerRegistry.name) \
       --docker-registry-server-password $(DOCKER_REGISTRY_SERVER_PASSWORD) \
-      --name pr-preview-$(webapp.name) \
-      --slot $(webapp.slotName) \
+      --name $(webapp.name) \
+      --slot pr-preview-$(webapp.slotName) \
       --resource-group $(webapp.resourceGroup)
 
 # TODO: Use a generic service principle for comments (not andr0272 / a PAT)
 - task: GitHubComment@0
-  displayName: "add the webapp link to the PR via GitHub Comments"
+  displayName: "Post a comment with a link to the new PR preview"
   condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
-    gitHubConnection: 'andr0272'
+    gitHubConnection: 'GitHub-8/11/2023'
     repositoryName: '$(Build.Repository.Name)'
-    comment: "Check out a preview of your pull request here: https://$(webapp.name)-$(webapp.slotName).azurewebsites.net"
+    comment: 'Check out a preview of your pull request here: https://$(webapp.name)-$(webapp.slotName).azurewebsites.net'
 # This job only runs if the job was triggered outside of a pull request (PR Merged or Closed)
 - task: AzureCLI@2
   displayName: 'Delete preview slot in App Service once the PR is closed'
