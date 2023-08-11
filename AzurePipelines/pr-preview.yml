@@ -61,8 +61,9 @@ steps:
     tags: |
       $(azureContainerRegistry.tag)
       latest
-# TODO: Standard SKU for appservice caps at 5 dep slots, can't have more than 4 concurrent PRs at the moment.
 - task: PowerShell@2
+  displayName: 'Decide which AppService slot to put this preview in'
+  condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
     targetType: 'inline'
     script: |
