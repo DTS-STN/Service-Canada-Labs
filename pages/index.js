@@ -147,7 +147,7 @@ export default function Index(props) {
                 style="primary"
                 text="English"
                 lang="en"
-                custom="justify-center w-7.5rem xl:w-138px mr-6"
+                custom="justify-center w-7.5rem xl:w-138px mr-6 text-lg"
                 href="/en/home"
               />
               <ActionButton
@@ -156,7 +156,7 @@ export default function Index(props) {
                 text="Français"
                 href="/fr/accueil"
                 lang="fr"
-                custom="justify-center w-7.5rem xl:w-138px"
+                custom="justify-center w-7.5rem xl:w-138px text-lg"
               />
             </div>
           </div>
