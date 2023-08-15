@@ -43,9 +43,9 @@ export default function OasBenefitsEstimator(props) {
             : `https://www.canada.ca${update.scSocialMediaImageFr._path}`
         }
         imgAlt={
-          props.locale === "en"
+          (props.locale === "en"
             ? update.scSocialMediaImageAltTextEn
-            : update.scSocialMediaImageAltTextFr
+            : update.scSocialMediaImageAltTextFr) ?? ""
         }
         title={props.locale === "en" ? update.scTitleEn : update.scTitleFr}
         href={props.locale === "en" ? update.scPageNameEn : update.scPageNameFr}
@@ -269,9 +269,9 @@ export default function OasBenefitsEstimator(props) {
                           : pageData.scFragments[1].scImageFr._publishUrl
                       }
                       alt={
-                        props.locale === "en"
+                        (props.locale === "en"
                           ? pageData.scFragments[1].scImageAltTextEn
-                          : pageData.scFragments[1].scImageAltTextFr
+                          : pageData.scFragments[1].scImageAltTextFr) ?? ""
                       }
                       width={468}
                       height={462}
@@ -340,12 +340,12 @@ export default function OasBenefitsEstimator(props) {
               </div>
             </div>
           </section>
-          <div className="grid grid-cols-12 pt-12">
-            <h3 className="col-span-12 text-[20px]">
+          <div className="grid grid-cols-12">
+            <h2 className="col-span-12 text-[20px]">
               {props.locale === "en"
                 ? pageData.scFragments[0].scContentEn.json[5].content[0].value
                 : pageData.scFragments[0].scContentFr.json[5].content[0].value}
-            </h3>
+            </h2>
             <ActionButton
               id="try-btn"
               style="primary"

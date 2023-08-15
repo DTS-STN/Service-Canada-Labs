@@ -13,11 +13,12 @@ export default function Index(props) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
+    document.documentElement.lang = "en";
   }, []);
 
   return (
     <>
-      <div className="splash-bg splash-image bg-splash-img-mobile xs:bg-splash-img bg-no-repeat h-screen min-w-300px min-h-screen" />
+      <div className="splash-bg splash-image bg-splash-img-mobile xs:bg-splash-img bg-no-repeat fixed left-0 top-0 w-full h-full -z-1" />
       <Head>
         {props.adobeAnalyticsUrl ? (
           <script src={props.adobeAnalyticsUrl} />
@@ -119,7 +120,7 @@ export default function Index(props) {
       </Head>
       <main className="h-full flex justify-center">
         <div className="splash-cta fixed flex flex-col sm:justify-center sm:items-center">
-          <div className="z-10 bg-white h-auto min-w-300px w-300px xl:w-500px bg-custom-gray-index">
+          <div className="z-10 bg-white h-auto min-w-300px w-300px xl:w-500px">
             <h1 className="sr-only">alpha.service.canada.ca</h1>
             <div className="p-4">
               <img
@@ -146,7 +147,7 @@ export default function Index(props) {
                 style="primary"
                 text="English"
                 lang="en"
-                custom="justify-center w-7.5rem xl:w-138px mr-6"
+                custom="justify-center w-7.5rem xl:w-138px mr-6 text-lg"
                 href="/en/home"
               />
               <ActionButton
@@ -155,7 +156,7 @@ export default function Index(props) {
                 text="Français"
                 href="/fr/accueil"
                 lang="fr"
-                custom="justify-center w-7.5rem xl:w-138px"
+                custom="justify-center w-7.5rem xl:w-138px text-lg"
               />
             </div>
           </div>
@@ -193,11 +194,10 @@ export default function Index(props) {
   );
 }
 
-export const getStaticProps = async ({ locale }) => ({
+export const getServerSideProps = async ({ locale }) => ({
   props: {
-    locale: locale,
-    adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+    locale: locale ?? "en",
+    adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? "",
     ...(await serverSideTranslations(locale, ["common"])),
   },
-  revalidate: 10,
 });

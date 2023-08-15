@@ -1,10 +1,10 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 
 //regex to check if there's an extension in the path, ie .jpg
 const PUBLIC_FILE = /\.(.*)$/;
 
-export async function middleware(req: NextRequest) {
+export async function middleware(req) {
   if (
     req.nextUrl.pathname.startsWith("/_next") ||
     req.nextUrl.pathname.includes("/api/") ||

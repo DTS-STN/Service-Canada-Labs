@@ -9,7 +9,8 @@ variables:
   azure.servicePrincipal: 'SCLabsDev'
   webapp.name: 'alphasite-appservice-dev'
   webapp.resourceGroup: 'AlphasiteAppserviceRG'
-  webapp.slotName: 'pr-preview-$(System.PullRequest.PullRequestId)'
+  webapp.slotName: null
+  # webapp.slotName: 'pr-preview-$(System.PullRequest.PullRequestId)'
   azureContainerRegistry.name: 'alphasiteCRdev-7/10/2023'
   azureContainerRegistry.repository: 'alphasite'
   azureContainerRegistry.domain: 'alphasitecrdev.azurecr.io'
@@ -27,7 +28,6 @@ steps:
   condition: eq(variables['Build.Reason'], 'PullRequest')
   displayName: Pull latest for layer caching
   continueOnError: true # for first build, no cache
-# TODO: This Dockerfile needs optomization. 10 minute builds defeat the purpose of PR previews
 - task: Docker@2
   displayName: "Build image"
   condition: eq(variables['Build.Reason'], 'PullRequest')
@@ -60,7 +60,15 @@ steps:
     tags: |
       $(azureContainerRegistry.tag)
       latest
-# TODO: Standard SKU for appservice caps at 5 dep slots, can't have more than 3 concurrent PRs at the moment. 
+- task: PowerShell@2
+  displayName: 'Decide which AppService slot to put this preview in'
+  condition: eq(variables['Build.Reason'], 'PullRequest')
+  inputs:
+    targetType: 'inline'
+    script: |
+      [int] $slotNumber = $System.PullRequest.PullRequestId%4
+      Write-Host "$slotNumber"
+      Write-Host "##vso[task.setvariable variable=webapp.slotName]$slotNumber"
 - task: AzureCLI@2
   displayName: 'Create new slot in App Service'
   condition: eq(variables['Build.Reason'], 'PullRequest')
@@ -68,7 +76,7 @@ steps:
     azureSubscription: $(azure.servicePrincipal)
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az webapp deployment slot create --name $(webapp.name) --resource-group $(webapp.resourceGroup) --slot $(webapp.slotName)'
+    inlineScript: 'az webapp deployment slot create --name $(webapp.name) --resource-group $(webapp.resourceGroup) --slot pr-preview-$(webapp.slotName)'
 - task: AzureCLI@2
   displayName: 'Deploy pr image to new slot'
   condition: eq(variables['Build.Reason'], 'PullRequest')
@@ -83,18 +91,16 @@ steps:
       --docker-registry-server-user $(azureContainerRegistry.name) \
       --docker-registry-server-password $(DOCKER_REGISTRY_SERVER_PASSWORD) \
       --name $(webapp.name) \
-      --slot $(webapp.slotName) \
+      --slot pr-preview-$(webapp.slotName) \
       --resource-group $(webapp.resourceGroup)
 
-# TODO: Use a generic service principle for comments (not andr0272 / a PAT)
 - task: GitHubComment@0
-  displayName: "add the webapp link to the PR via GitHub Comments"
+  displayName: "Post a comment with a link to the new PR preview"
   condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
-    gitHubConnection: 'andr0272'
+    gitHubConnection: 'GitHub-8/11/2023'
     repositoryName: '$(Build.Repository.Name)'
-    comment: "Check out a preview of your pull request here: https://$(webapp.name)-$(webapp.slotName).azurewebsites.net"
-# This job only runs if the job was triggered outside of a pull request (PR Merged or Closed)
+    comment: 'Check out a preview of your pull request here: https://$(webapp.name)-$(webapp.slotName).azurewebsites.net'
 - task: AzureCLI@2
   displayName: 'Delete preview slot in App Service once the PR is closed'
   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
