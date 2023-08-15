@@ -18,7 +18,7 @@ export default function Index(props) {
 
   return (
     <>
-      <div className="splash-bg splash-image bg-splash-img-mobile xs:bg-splash-img bg-no-repeat h-screen min-w-300px min-h-screen" />
+      <div className="splash-bg splash-image bg-splash-img-mobile xs:bg-splash-img bg-no-repeat fixed left-0 top-0 w-full h-full -z-1" />
       <Head>
         {props.adobeAnalyticsUrl ? (
           <script src={props.adobeAnalyticsUrl} />
@@ -120,7 +120,7 @@ export default function Index(props) {
       </Head>
       <main className="h-full flex justify-center">
         <div className="splash-cta fixed flex flex-col sm:justify-center sm:items-center">
-          <div className="z-10 bg-white h-auto min-w-300px w-300px xl:w-500px bg-custom-gray-index">
+          <div className="z-10 bg-white h-auto min-w-300px w-300px xl:w-500px">
             <h1 className="sr-only">alpha.service.canada.ca</h1>
             <div className="p-4">
               <img
