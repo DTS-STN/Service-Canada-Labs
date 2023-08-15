@@ -48,7 +48,7 @@ export default function OasBenefitsEstimator(props) {
           </li>
         ));
         elements.push(
-          <ul key={elements.length} className="mb-0 ml-6">
+          <ul key={elements.length} className="mb-0">
             {listItems}
           </ul>
         );
@@ -59,7 +59,7 @@ export default function OasBenefitsEstimator(props) {
           </li>
         ));
         elements.push(
-          <ol key={elements.length} className="mb-0 ml-6">
+          <ol key={elements.length} className="mb-0">
             {listItems}
           </ol>
         );
@@ -335,6 +335,7 @@ export default function OasBenefitsEstimator(props) {
               </p>
               <div className="row-start-3">
                 <ProjectInfo
+                  locale={props.locale}
                   termStarted={
                     props.locale === "en"
                       ? filteredDictionary[2].scTermEn
