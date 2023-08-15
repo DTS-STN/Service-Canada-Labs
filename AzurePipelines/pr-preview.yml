@@ -88,7 +88,7 @@ steps:
       az webapp config container set \
       --docker-custom-image-name alphasitecrdev.azurecr.io/$(azureContainerRegistry.repository):$(azureContainerRegistry.tag) \
       --docker-registry-server-url $(azureContainerRegistry.domain) \
-      --docker-registry-server-user $(azureContainerRegistry.name) \
+      --docker-registry-server-user alphasiteCRdev \
       --docker-registry-server-password $(DOCKER_REGISTRY_SERVER_PASSWORD) \
       --name $(webapp.name) \
       --slot pr-preview-$(webapp.slotName) \
@@ -98,7 +98,7 @@ steps:
   displayName: "Post a comment with a link to the new PR preview"
   condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
-    gitHubConnection: 'GitHub-8/11/2023'
+    gitHubConnection: 'Adam''sGitHub-9/15/2023'
     repositoryName: '$(Build.Repository.Name)'
     comment: 'Check out a preview of your pull request here: https://$(webapp.name)-$(webapp.slotName).azurewebsites.net'
 - task: AzureCLI@2
