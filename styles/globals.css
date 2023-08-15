@@ -14,14 +14,11 @@ html {
   h1,
   h2 {
     @apply font-display font-semibold;
-    margin-top: 48px;
-    margin-bottom: 24px;
   }
   h3,
   h4,
   h5 {
     @apply font-display font-semibold;
-    margin-bottom: 16px;
   }
   h6 {
     @apply font-display;
@@ -31,6 +28,7 @@ html {
   button {
     @apply font-body;
   }
+
   /* Font sizes */
   h1 {
     @apply text-h1;
@@ -51,17 +49,50 @@ html {
   h6 {
     @apply text-base;
   }
+
   /*Focused*/
   h1:focus {
     @apply ring-1;
   }
   @screen lg {
     h1 {
-      @apply text-h1l
+      @apply text-h1l;
     }
     h2 {
-      @apply text-h2l
+      @apply text-h2l;
     }
+  }
+
+  /* Lists */
+  ul {
+    @apply ml-6;
+    @apply list-disc;
+  }
+  li {
+    @apply ml-4;
+    @apply text-[20px];
+  }
+  ol > li {
+    @apply ml-6;
+    @apply list-decimal;
+  }
+
+  /* Content Element Styles */
+  h1,
+  h2 {
+    margin-top: 48px;
+    margin-bottom: 24px;
+  }
+  h3,
+  h4,
+  h5 {
+    margin-bottom: 16px;
+  }
+  p + p {
+    margin-top: 2rem;
+  }
+  ul + p {
+    margin-top: 2rem;
   }
 }
 
@@ -99,26 +130,6 @@ html {
     width: 218px;
     height: 218px;
     background-color: #eeeeee;
-  }
-
-  .textbuttonField > p {
-    @apply text-sm leading-normal font-normal font-body py-4;
-  }
-
-  .textbuttonField > h1 {
-    margin-bottom: 1rem;
-  }
-  .textbuttonField > h2 {
-    margin-bottom: 1rem;
-  }
-  .textbuttonField > h3 {
-    margin-bottom: 1rem;
-  }
-  .textbuttonField > h5 {
-    margin-bottom: 1rem;
-  }
-  .textbuttonField > h6 {
-    margin-bottom: 1rem;
   }
 
   .border-outset {
@@ -293,24 +304,6 @@ html {
 
 .svg {
   filter: brightness(0) invert(1);
-}
-
-ul {
-  @apply ml-4;
-}
-li {
-  @apply list-disc ml-4;
-  @apply text-[20px]
-}
-ol > li {
-  @apply list-decimal
-}
-
-p + p {
-  margin-top: 2rem;
-}
-ul + p {
-  margin-top: 2rem;
 }
 
 .footer-logo {
