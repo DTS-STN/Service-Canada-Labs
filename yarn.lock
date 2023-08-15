@@ -1194,31 +1194,31 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@dts-stn/service-canada-design-system@1.67.3":
-  version "1.67.3"
-  resolved "https://registry.yarnpkg.com/@dts-stn/service-canada-design-system/-/service-canada-design-system-1.67.3.tgz#20e9d4915ef9047344f9b992a1ac1431045b230a"
-  integrity sha512-NwMJ9Sw4mQfqThIw8tOlMjiV7P7/VJNIn2XjHog+B/Tm9vPqGGAPmzFwgs4/88jx4cdhKVn1ZeGFpCFP89s/MA==
+"@dts-stn/service-canada-design-system@1.67.9-dev.a73980918":
+  version "1.67.9-dev.a73980918"
+  resolved "https://registry.yarnpkg.com/@dts-stn/service-canada-design-system/-/service-canada-design-system-1.67.9-dev.a73980918.tgz#b52f9f769586bc4fedbee0058d0a922afb63bbe6"
+  integrity sha512-I6sqrKBQ1CuDHOC76Bsp4rUYF0yMHzg0KgeMhvMuog7yayp8pWS4U3nHrLJl5U+Q9vdgOXx20vF+9VHR+RW2+w==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^6.4.0"
     "@fortawesome/free-regular-svg-icons" "^6.4.0"
     "@fortawesome/free-solid-svg-icons" "^6.4.0"
     "@fortawesome/react-fontawesome" "^0.2.0"
     classnames "^2.3.2"
-    focus-trap-react "^10.1.1"
-    git-conventional-commits "^2.6.3"
+    focus-trap-react "^10.2.1"
+    git-conventional-commits "^2.6.5"
     identity-obj-proxy "^3.0.0"
     prop-types "^15.7.2"
     react-app-polyfill "^3.0.0"
-    react-bootstrap "^2.7.4"
+    react-bootstrap "^2.8.0"
     react-full-screen "^1.1.1"
     react-player "^2.12.0"
     react-select "^5.7.3"
     react-syntax-highlighter "^15.5.0"
     release-please "^14.17.3"
-    sass "^1.62.1"
+    sass "^1.63.6"
     sass-loader "^10.4.1"
     shelljs "^0.8.5"
-    ts-jest "^29.1.0"
+    ts-jest "^29.1.1"
     user "^0.0.0"
 
 "@emotion/babel-plugin@^11.11.0":
@@ -6881,7 +6881,7 @@ flow-parser@0.*:
   resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.201.0.tgz#d2005d4dae6fddf60d30f9ae0fb49a13c9c51cfe"
   integrity sha512-G4oeDNpNGyIrweF9EnoHatncAihMT0tQgV6NMdyM5I7fhrz9Pr13PJ2KLQ673O4wj9KooTdBpeeYHdDNAQoyyw==
 
-focus-trap-react@^10.1.1:
+focus-trap-react@^10.2.1:
   version "10.2.1"
   resolved "https://registry.yarnpkg.com/focus-trap-react/-/focus-trap-react-10.2.1.tgz#3f72c9c018885e089806346966c59303eb6e32ef"
   integrity sha512-UrAKOn52lvfHF6lkUMfFhlQxFgahyNW5i6FpHWkDxAeD4FSk3iwx9n4UEA4Sims0G5WiGIi0fAyoq3/UVeNCYA==
@@ -7208,7 +7208,7 @@ giget@^1.0.0:
     pathe "^1.1.0"
     tar "^6.1.13"
 
-git-conventional-commits@^2.6.3:
+git-conventional-commits@^2.6.5:
   version "2.6.5"
   resolved "https://registry.yarnpkg.com/git-conventional-commits/-/git-conventional-commits-2.6.5.tgz#8665bf548a666998d0228527b5e213cd967995bc"
   integrity sha512-HbtKUnZ3CciI8CVUcnGOXb/bKN0cuXZLjHie/JxlIaCkHr0l38kUtfewoRACp+SJirOzjBtejAwoaQ4hStHfLg==
@@ -11699,7 +11699,7 @@ react-app-polyfill@^3.0.0:
     regenerator-runtime "^0.13.9"
     whatwg-fetch "^3.6.2"
 
-react-bootstrap@^2.7.4:
+react-bootstrap@^2.8.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-2.8.0.tgz#781f254b33090c1d50ed521b40697727267c6add"
   integrity sha512-e/aNtxl0Z2ozrIaR82jr6Zz7ss9GSoaXpQaxmvtDUsTZIq/XalkduR/ZXP6vbQHz2T4syvjA+4FbtwELxxmpww==
@@ -12537,10 +12537,10 @@ sass-loader@^12.4.0:
     klona "^2.0.4"
     neo-async "^2.6.2"
 
-sass@^1.62.1:
-  version "1.64.2"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.64.2.tgz#0d9805ad6acf31c59c3acc725fcfb91b7fcc6909"
-  integrity sha512-TnDlfc+CRnUAgLO9D8cQLFu/GIjJIzJCGkE7o4ekIGQOH7T3GetiRR/PsTWJUHhkzcSPrARkPI+gNWn5alCzDg==
+sass@^1.63.6:
+  version "1.65.1"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.65.1.tgz#8f283b0c26335a88246a448d22e1342ba2ea1432"
+  integrity sha512-9DINwtHmA41SEd36eVPQ9BJKpn7eKDQmUHmpI0y5Zv2Rcorrh0zS+cFrt050hdNbmmCNKTW3hV5mWfuegNRsEA==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
@@ -13554,7 +13554,7 @@ ts-invariant@^0.10.3:
   dependencies:
     tslib "^2.1.0"
 
-ts-jest@^29.1.0:
+ts-jest@^29.1.1:
   version "29.1.1"
   resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-29.1.1.tgz#f58fe62c63caf7bfcc5cc6472082f79180f0815b"
   integrity sha512-D6xjnnbP17cC85nliwGiL+tpoKN0StpgE0TeOjXQTU6MVCfsB4v7aW05CgQ/1OywGb0x/oy9hHFnN+sczTiRaA==
