@@ -1,6 +1,7 @@
-pr:
+trigger:
+- none
+pr: 
 - main
-- azure-pipelines
 
 pool:
   vmImage: ubuntu-latest
@@ -10,27 +11,24 @@ variables:
   webapp.name: 'alphasite-appservice-dev'
   webapp.resourceGroup: 'AlphasiteAppserviceRG'
   webapp.slotName: null
-  # webapp.slotName: 'pr-preview-$(System.PullRequest.PullRequestId)'
   azureContainerRegistry.name: 'alphasiteCRdev-7/10/2023'
   azureContainerRegistry.repository: 'alphasite'
   azureContainerRegistry.domain: 'alphasitecrdev.azurecr.io'
   azureContainerRegistry.tag: 'preview-$(Build.SourceVersion)'
-  System.Debug: true
+  System.Debug: false
 
 steps:
 - task: Docker@2
-  condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
     containerRegistry: '$(azureContainerRegistry.name)'
     repository: '$(azureContainerRegistry.repository)'
     command: 'login'
 - script: "docker pull alphasitecrdev.azurecr.io/$(azureContainerRegistry.repository):latest"
-  condition: eq(variables['Build.Reason'], 'PullRequest')
   displayName: Pull latest for layer caching
-  continueOnError: true # for first build, no cache
+  continueOnError: true
+
 - task: Docker@2
   displayName: "Build image"
-  condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
     containerRegistry: '$(azureContainerRegistry.name)'
     repository: '$(azureContainerRegistry.repository)'
@@ -50,9 +48,9 @@ steps:
       --build-arg AEM_GRAPHQL_ENDPOINT=$(AEM_GRAPHQL_ENDPOINT) 
       --build-arg REVALIDATION_TOKEN=$(REVALIDATION_TOKEN) 
       --build-arg GIT_SHA=$(GIT_SHA)
+
 - task: Docker@2
   displayName: "Push image"
-  condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
     containerRegistry: '$(azureContainerRegistry.name)'
     repository: '$(azureContainerRegistry.repository)'
@@ -60,26 +58,26 @@ steps:
     tags: |
       $(azureContainerRegistry.tag)
       latest
+
 - task: PowerShell@2
   displayName: 'Decide which AppService slot to put this preview in'
-  condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
     targetType: 'inline'
     script: |
       [int] $slotNumber = $System.PullRequest.PullRequestId%4
       Write-Host "$slotNumber"
       Write-Host "##vso[task.setvariable variable=webapp.slotName]$slotNumber"
+
 - task: AzureCLI@2
   displayName: 'Create new slot in App Service'
-  condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
     azureSubscription: $(azure.servicePrincipal)
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: 'az webapp deployment slot create --name $(webapp.name) --resource-group $(webapp.resourceGroup) --slot pr-preview-$(webapp.slotName)'
+
 - task: AzureCLI@2
   displayName: 'Deploy pr image to new slot'
-  condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
     azureSubscription: $(azure.servicePrincipal)
     scriptType: 'bash'
@@ -96,33 +94,7 @@ steps:
 
 - task: GitHubComment@0
   displayName: "Post a comment with a link to the new PR preview"
-  condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
     gitHubConnection: 'Adam''sGitHub-9/15/2023'
     repositoryName: '$(Build.Repository.Name)'
     comment: 'Check out a preview of your pull request here: https://$(webapp.name)-$(webapp.slotName).azurewebsites.net'
-- task: AzureCLI@2
-  displayName: 'Delete preview slot in App Service once the PR is closed'
-  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
-  inputs:
-    azureSubscription: $(azure.servicePrincipal)
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      # Get the commit message from the branch that triggered this run
-      sourceVersionMessage="$(Build.SourceVersionMessage)"
-      echo 'build source version message: ' $sourceVersionMessage
-      # Get the PR number from the above commit message
-      prNumber=$(echo $sourceVersionMessage | grep -Po "\(#\d*\)$" | grep -Po "\d+" )
-      echo 'prNumber: ' $prNumber
-      # See if there is a staging slot open related to that PR, and close it
-      re='^[0-9]+$'
-      if ! [[ $prNumber =~ $re ]];
-      then
-        echo 'no PR number found in last commit message'
-        echo 'exiting'
-        exit
-      else
-        echo 'deleting staging slot pr-preview-'$prNumber
-        az webapp deployment slot delete --name $(webapp.name) --resource-group $(webapp.resourceGroup) --slot pr-preview-$prNumber
-      fi
