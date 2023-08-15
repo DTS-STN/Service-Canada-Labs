@@ -115,7 +115,7 @@ export const Layout = ({
         <div>{children}</div>
       </main>
 
-      <footer className="mt-12">
+      <div className="mt-12">
         <h2 className="sr-only">{t("siteFooter")}</h2>
         <div className="layout-container mt-5">
           <ReportAProblem />
@@ -214,7 +214,7 @@ export const Layout = ({
           ]}
           topOfPage={t("topOfPage")}
         /> */}
-      </footer>
+      </div>
     </div>
   );
 };
