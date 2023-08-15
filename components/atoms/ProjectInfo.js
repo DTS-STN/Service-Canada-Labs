@@ -1,9 +1,6 @@
 import PropTypes from "prop-types";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "next-i18next";
 import { useState } from "react";
-import FocusTrap from "focus-trap-react";
 import { HelpIcon } from "@dts-stn/service-canada-design-system";
 
 export function ProjectInfo(props) {
