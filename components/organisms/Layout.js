@@ -113,108 +113,44 @@ export const Layout = ({
           <Banner siteTitle={bannerTitle} headline={bannerText} />
         ) : null}
         <div>{children}</div>
+        <div className="mt-12">
+          <h2 className="sr-only">{t("siteFooter")}</h2>
+          <div className="layout-container mt-5">
+            <ReportAProblem />
+          </div>
+          <div className="layout-container mb-2">
+            <DateModified date={dateModifiedOverride} />
+          </div>
+        </div>
       </main>
 
-      <div className="mt-12">
-        <h2 className="sr-only">{t("siteFooter")}</h2>
-        <div className="layout-container mt-5">
-          <ReportAProblem />
-        </div>
-        <div className="layout-container mb-2">
-          <DateModified date={dateModifiedOverride} />
-        </div>
-        <Footer
-          id="footer"
-          lang={locale}
-          btnLink={"#"}
-          brandLinks={[
-            {
-              id: "link1",
-              text: t("footerSocialMedia"),
-              href: t("footerSocialMediaURL"),
-            },
-            {
-              id: "link2",
-              text: t("footerMobileApp"),
-              href: t("footerMobileAppURL"),
-            },
-            {
-              id: "link3",
-              text: t("footerTermsAndCondition"),
-              href: t("footerTermsAndConditionURL"),
-            },
-            {
-              id: "link4",
-              text: t("footerPrivacy"),
-              href: t("footerPrivacyURL"),
-            },
-          ]}
-        />
-        {/* <Footer
-          footerLogoAltText={t("symbol2")}
-          footerLogoImage="/wmms-blk.svg"
-          footerNav1={t("aboutGovernment")}
-          footerNav2={t("aboutThisSite")}
-          links={[
-            {
-              link: t("footerSocialMediaURL"),
-              linkText: t("footerSocialMedia"),
-            },
-            {
-              link: t("footerMobileAppURL"),
-              linkText: t("footerMobileApp"),
-            },
-            {
-              link: t("footerTermsAndConditionURL"),
-              linkText: t("footerTermsAndCondition"),
-            },
-            {
-              link: t("footerPrivacyURL"),
-              linkText: t("footerPrivacy"),
-            },
-          ]}
-          footerBoxLinks={[
-            {
-              footerBoxlink: t("footerContactUsURL"),
-              footerBoxLinkText: t("footerContactUs"),
-            },
-            {
-              footerBoxlink: t("footerNewsURL"),
-              footerBoxLinkText: t("footerNews"),
-            },
-            {
-              footerBoxlink: t("footerPmURL"),
-              footerBoxLinkText: t("footerPm"),
-            },
-            {
-              footerBoxlink: t("footerDepartmentAgenciesURL"),
-              footerBoxLinkText: t("footerDepartmentAgencies"),
-            },
-
-            {
-              footerBoxlink: t("footerTreatiesURL"),
-              footerBoxLinkText: t("footerTreaties"),
-            },
-            {
-              footerBoxlink: t("footerHowGovWorksURL"),
-              footerBoxLinkText: t("footerHowGovWorks"),
-            },
-            {
-              footerBoxlink: t("footerPublicServiceURL"),
-              footerBoxLinkText: t("footerPublicService"),
-            },
-            {
-              footerBoxlink: t("footerGovReportingURL"),
-              footerBoxLinkText: t("footerGovReporting"),
-            },
-            {
-              footerBoxlink: t("footerOpenGovURL"),
-              footerBoxLinkText: t("footerOpenGov"),
-            },
-          ]}
-          topOfPage={t("topOfPage")}
-        /> */}
-      </div>
+      <Footer
+        id="footer"
+        lang={locale}
+        btnLink={"#"}
+        brandLinks={[
+          {
+            id: "link1",
+            text: t("footerSocialMedia"),
+            href: t("footerSocialMediaURL"),
+          },
+          {
+            id: "link2",
+            text: t("footerMobileApp"),
+            href: t("footerMobileAppURL"),
+          },
+          {
+            id: "link3",
+            text: t("footerTermsAndCondition"),
+            href: t("footerTermsAndConditionURL"),
+          },
+          {
+            id: "link4",
+            text: t("footerPrivacy"),
+            href: t("footerPrivacyURL"),
+          },
+        ]}
+      />
     </div>
   );
 };
