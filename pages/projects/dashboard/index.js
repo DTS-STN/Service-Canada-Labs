@@ -258,6 +258,7 @@ export default function MscaDashboard(props) {
               </p>
               <div className="row-start-3">
                 <ProjectInfo
+                  locale={props.locale}
                   termStarted={
                     props.locale === "en"
                       ? filteredDictionary[2].scTermEn
