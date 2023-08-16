@@ -187,6 +187,7 @@ export default function Home(props) {
                       .value}
               </p>
               <ProjectInfo
+                locale={props.locale}
                 termStarted={
                   props.locale === "en"
                     ? filteredDictionary[2].scTermEn
