@@ -125,7 +125,9 @@ export function ReportAProblem(props) {
         ""
       ) : (
         <>
-          <h2 className="text-base font-body">{t("reportAProblemTitle")}</h2>
+          <h2 className="text-base font-body">
+            {t("reportAProblemTitle", { lng: props.language })}
+          </h2>
           <ul className="list-outside list-disc px-6 py-2">
             <li className="text-xs sm:text-sm font-body mb-4 leading-tight sm:leading-6">
               <b>{t("reportAProblemNoReply", { lng: props.language })}</b>
@@ -140,7 +142,7 @@ export function ReportAProblem(props) {
                 href="/signup/privacy"
                 className="underline text-xs sm:text-sm font-body hover:text-canada-footer-hover-font-blue text-canada-footer-font"
               >
-                {t("reportAProblemPrivacyStatement")}
+                {t("reportAProblemPrivacyStatement", { lng: props.language })}
               </Link>
             </li>
           </ul>
