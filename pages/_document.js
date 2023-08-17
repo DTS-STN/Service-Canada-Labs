@@ -7,12 +7,13 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
+    const lang = ctx.locale === "default" ? "en" : ctx.locale;
+    return { ...initialProps, lang };
   }
 
   render() {
     return (
-      <Html>
+      <Html lang={this.props.lang === "default" ? "en" : this.props.lang}>
         <Head>
           {/* Import fonts */}
           <link

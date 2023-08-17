@@ -18,10 +18,10 @@ describe("home page", () => {
   });
 
   it("Toggles content language when language button is clicked", () => {
-    cy.get('[data-cy="social-media-link"]').then(($link) => {
+    cy.get('[data-cy="toggle-language-link"]').then(($link) => {
       const txt = $link.text();
       cy.get('[data-cy="toggle-language-link"]').click();
-      cy.get('[data-cy="social-media-link"]').should(($link2) => {
+      cy.get('[data-cy="toggle-language-link"]').should(($link2) => {
         expect($link2.text()).not.to.eq(txt);
       });
     });
