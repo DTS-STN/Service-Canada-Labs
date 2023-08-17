@@ -1,13 +1,6 @@
-// const cacheFilePath = path.resolve('.', 'graphql', '.cache')
-
 class AEMService {
-  constructor(baseUrl, cacheBust) {
-    // this.cacheBustString = !!cacheBust?.trim?.()
-    //   ? cacheBust
-    //   : new Date().toLocaleDateString("en-CA");
+  constructor(baseUrl) {
     this.baseUrl = baseUrl;
-    // fs.mkdirSync(cacheFilePath, { recursive: true })
-    // this.flush()
   }
 
   async getFragment(fragId) {
