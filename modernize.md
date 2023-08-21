@@ -23,8 +23,8 @@
 - AEM stores content linearly
 - templating only gets you the same linear (top-to-bottom) output from the content inside of AEM
 - this means any customization of the style and layout still needs to be controlled by a developer
-- templates are only suitable for pages that need a common look and feel and that also conform and behave well to an expected schema in AEM (i.e. blog posts or simple unique and non-interactive pages)
-- templates are not suitable for anything that needs to be customized (which is virtually everything that's not a blog post).
+- templates are only suitable for pages that need a common look and feel and that also conform and behave well to an expected schema in AEM (i.e. blog posts)
+- templates are not suitable for anything that needs to be customized (which is virtually everything that's not a blog post or simple non-unique pages).
 
 ## Time estimate (new process): 
 
