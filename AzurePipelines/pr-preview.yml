@@ -68,7 +68,7 @@ steps:
       Write-Host "Generated slot number:"
       Write-Host "$slotNumber"
       Write-Host "From PRID"
-      Write-Host "$System.PullRequest.PullRequestId"
+      Write-Host "$(System.PullRequest.PullRequestId)"
       Write-Host "##vso[task.setvariable variable=webapp.slotName]$slotNumber"
 
 - task: AzureCLI@2
