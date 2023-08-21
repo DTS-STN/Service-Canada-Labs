@@ -1,6 +1,7 @@
 ## Do we need AEM?  
 - no, everything can be transferred to the github repository
 - but...the process already exists, so why fix what isn't broken
+- big question is: who owns the content?  What level of security is the content? 
 
 ## Current process (high level):
 - designer creates figma file
@@ -14,6 +15,7 @@
 - content changes are addressed via Pull Requests (PRs)
 - PRs are reviewed by a committee of our peers and merged if approved
 - github is the single source of truth
+- we request to the department to work in the open (project contingent)
 
 ## Rationale:
 - developer still needs to fetch content from AEM and recreate page to match figma
@@ -21,7 +23,7 @@
 - AEM stores content linearly
 - templating only gets you the same linear (top-to-bottom) output from the content inside of AEM
 - this means any customization of the style and layout still needs to be controlled by a developer
-- templates are only suitable for pages that need a common look and feel and that also conform and behave well to an expected schema in AEM (i.e. blog posts)
+- templates are only suitable for pages that need a common look and feel and that also conform and behave well to an expected schema in AEM (i.e. blog posts or simple unique and non-interactive pages)
 - templates are not suitable for anything that needs to be customized (which is virtually everything that's not a blog post).
 
 ## Time estimate (new process): 
@@ -44,10 +46,10 @@
 ### new page additions (developer):
 - ?? hard to say and it depends on the content inside of AEM
 - overall the time to create a page is likely 1-5 days (1 developer full capacity)
-- the returned data from AEM (JSON object) is incredibly difficult to visualize due to how deeply nested it is
+- the returned data from AEM (JSON object) is incredibly difficult to visualize due to how much data is returned (over 3000 lines on average) and how deeply nested it is
 - all references to content are hard-coded to the position (index) of where the content is in the returned data which is fetched by developers
 - this means developer mistakes are common due to hard coding
-- this means any changes to the content in AEM can break what's displayed in our app
+- this means any changes to the content in AEM can potentially break what's displayed in our app requiring developer intervention
 
 ## Differences:
 
@@ -67,5 +69,8 @@
 - everything is public
 
 ## Considerations
-- do we have the resources to commit?
-- do we care enough to change an existing and ingrained process?
+- do we have the resources to commit
+- do we care enough to change an existing and ingrained process
+- is it feasible or prudent enough to change and exisiting and reliable process
+- is the content unclassified, protected a, etc.
+- who does translations and the process to do them in the context of our application
