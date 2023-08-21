@@ -67,6 +67,5 @@
 - everything is public
 
 ## Considerations
-- does it make sense to modernize a dead or dying product?
 - do we have the resources to commit?
 - do we care enough to change an existing and ingrained process?
