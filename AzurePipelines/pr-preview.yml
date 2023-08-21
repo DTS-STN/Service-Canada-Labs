@@ -64,7 +64,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      [int] $slotNumber = $env:System.PullRequest.PullRequestId%4
+      [int] $slotNumber = $(System.PullRequest.PullRequestId) % 4
       Write-Host "Generated slot number:"
       Write-Host "$slotNumber"
       Write-Host "From PRID"
