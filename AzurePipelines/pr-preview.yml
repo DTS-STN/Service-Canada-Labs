@@ -100,4 +100,4 @@ steps:
   inputs:
     gitHubConnection: 'Adam''sGitHub-9/15/2023'
     repositoryName: '$(Build.Repository.Name)'
-    comment: 'Check out a preview of your pull request here: https://$(webapp.name)-$(webapp.slotName).azurewebsites.net'
+    comment: 'Check out a preview of your pull request here: https://$(webapp.name)-pr-preview-$(webapp.slotName).azurewebsites.net'
