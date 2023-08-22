@@ -734,9 +734,16 @@ export default function OasBenefitsEstimator(props) {
               </p>
             </section>
           </div>
-          {/* <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0">
+
+          {/* Todo: add locale files and use i18next for translations */}
+          <h2>
+            {props.locale === "en"
+              ? "Project updates"
+              : "Mises à jour du projet"}
+          </h2>
+          <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0">
             {displayProjectUpdates}
-          </ul> */}
+          </ul>
         </div>
 
         {/* <CTA
