@@ -240,7 +240,7 @@ export default function DynamicBenefitNavigatorPage(props) {
                   : pageData.scFragments[0].scContentFr.json[2].content[0]
                       .value}
                 <a
-                  className="underline text-inherit text-lg"
+                  className="underline underline-offset-4"
                   href={
                     props.locale === "en"
                       ? pageData.scFragments[0].scContentEn.json[2].content[1]

@@ -1,8 +1,5 @@
-import AEMService from './AEMService'
+import AEMService from "./AEMService";
 
-const aemServiceInstance = new AEMService(
-  process.env.AEM_GRAPHQL_ENDPOINT,
-  process.env.BUILD_DATE
-)
+const aemServiceInstance = new AEMService(process.env.AEM_GRAPHQL_ENDPOINT);
 
-export default aemServiceInstance
+export default aemServiceInstance;

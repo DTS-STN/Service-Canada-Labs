@@ -1,59 +1,57 @@
-FROM node:current-alpine3.15 AS base
-RUN apk add --no-cache python3 py3-pip make g++
-WORKDIR /base
-COPY package.json yarn.lock /
-RUN yarn install --frozen-lockfile
+# Based on the example found at https://github.com/vercel/next.js/blob/canary/examples/with-docker/Dockerfile
+FROM node:current-alpine3.18 AS base
 
-FROM base AS build
-# BUILDTIME VARIABLES
-ARG BUILD_DATE
-ARG TC_BUILD
-ARG GIT_SHA
+# Install dependencies only when needed
+FROM base AS deps
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+
+COPY package.json yarn.lock* ./
+RUN yarn --frozen-lockfile
+
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+
+ARG NEXT_PUBLIC_BUILD_DATE
+ARG NEXT_PUBLIC_BUILD_ID
 ARG AEM_GRAPHQL_ENDPOINT
-ARG ADOBE_ANALYTICS_URL
-ARG ISR_ENABLED
+ARG ADOBE_ANALYTICS_URL=""
 ARG THANK_YOU_EMAIL
-ARG REVALIDATION_TOKEN
 ARG NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL
 
-ENV NEXT_PUBLIC_BUILD_DATE=$BUILD_DATE
-ENV NEXT_PUBLIC_TC_BUILD=$TC_BUILD
-ENV AEM_GRAPHQL_ENDPOINT=$AEM_GRAPHQL_ENDPOINT
-ENV ADOBE_ANALYTICS_URL=$ADOBE_ANALYTICS_URL
-ENV NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL=$NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL
-ENV ISR_ENABLED=$ISR_ENABLED
-ENV THANK_YOU_EMAIL=$THANK_YOU_EMAIL
-ENV REVALIDATION_TOKEN=$REVALIDATION_TOKEN
-# END OF ENVIRONMENT VARIABLES
-ENV NODE_ENV=production
-ENV GIT_SHA=$GIT_SHA
-WORKDIR /build
-COPY --from=base /base ./
-RUN true
-COPY . .
-RUN yarn install --frozen-lockfile && yarn build
+RUN yarn build
 
-FROM node:current-alpine3.15 AS production
-ARG REVALIDATION_TOKEN
-ARG GIT_SHA
+
+# Production image, copy all the files and run next
+FROM base AS runner
+
+WORKDIR /app
+
 ENV NODE_ENV=production
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+COPY --from=builder /app/public ./public
+
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+
 ENV REPORT_A_PROBLEM_ENABLED=true
 ENV NOTIFY_BASE_API_URL=https://api.notification.canada.ca
-ENV MONGO_URL=""
-ENV MONGO_DB=""
-ENV NOTIFY_API_KEY=""
-ENV USER_SIGNUP_FRENCH_TEMPLATE_ID=""
-ENV USER_SIGNUP_ENGLISH_TEMPLATE_ID=""
-ENV NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID=""
-ENV REVALIDATION_TOKEN=$REVALIDATION_TOKEN
-ENV GIT_SHA=$GIT_SHA
-WORKDIR /app
-COPY --from=build /build/next.config.js ./
-COPY --from=build /build/next-i18next.config.js ./
-COPY --from=build /build/package.json yarn.lock ./
-COPY --from=build /build/.next ./.next
-COPY --from=build /build/public ./public
-COPY --from=build /build/node_modules ./node_modules/
+# Figure out best practice for passing variables not used during container build
+# ENV NOTIFY_API_KEY
+# ENV NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID
 
 EXPOSE 3000
-CMD yarn start
+
+# Update me if you change the port
+ENV PORT 3000
+
+CMD ["node", "server.js"]
