@@ -1,6 +1,5 @@
 import { createMocks } from "node-mocks-http";
 import handler from "../../pages/api/robots";
-import validateHandler from "../../pages/api/validate";
 
 describe("robots api", () => {
   afterEach(async () => {

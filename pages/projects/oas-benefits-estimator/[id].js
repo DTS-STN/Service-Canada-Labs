@@ -10,7 +10,7 @@ import { CTA, Heading } from "@dts-stn/service-canada-design-system";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 
 export default function OASUpdatePage(props) {
-  const { t } = useTranslation("common", "vc");
+  const { t } = useTranslation("common");
   const [pageData] = useState(props.pageData);
   const [dictionary] = useState(props.dictionary.items);
 
