@@ -68,7 +68,11 @@ const REWRITES = [
   {
     source: "/projets/navigateur-prestations",
     destination: "/projects/benefits-navigator"
-  }
+  },
+  {
+    source: "/projets/navigateur-prestations/:slug",
+    destination: "/projects/benefits-navigator/:slug"
+  },
 ];
 
 securityHeaders = [
