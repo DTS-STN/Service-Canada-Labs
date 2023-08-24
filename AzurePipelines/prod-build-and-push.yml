@@ -8,6 +8,7 @@ trigger:
 pr: none
 
 variables:
+  azureContainerRegistry.name: 'alphasiteACRprod-7/12/2023'
   imageRepository: 'alphasite'
   ADO_BUILD: $(Build.BuildId)
   BUILD_DATE: $(Build.BuildNumber)
@@ -26,17 +27,27 @@ stages:
     steps:
     - task: Docker@2
       inputs:
-        containerRegistry: '$(ACR_NAME)'
+        containerRegistry: '$(azureContainerRegistry.name)'
         repository: '$(imageRepository)'
         command: 'build'
         Dockerfile: './Dockerfile'
         tags: |
           $(tag)
           production-release
-        arguments: '--pull --build-arg TC_BUILD=$(ADO_BUILD) --build-arg MONGO_DB=$(MONGO_DB) --build-arg ADOBE_ANALYTICS_URL=$(ADOBE_ANALYTICS_URL) --build-arg NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL=$(NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL) --build-arg THANK_YOU_EMAIL=$(THANK_YOU_EMAIL) --build-arg AEM_GRAPHQL_ENDPOINT=$(AEM_GRAPHQL_ENDPOINT) --build-arg REVALIDATION_TOKEN=$(REVALIDATION_TOKEN) --build-arg GIT_SHA=$(GIT_SHA)'
+        arguments: |
+          --pull 
+          --build-arg NEXT_PUBLIC_BUILD_ID=$(ADO_BUILD) 
+          --build-arg NEXT_PUBLIC_BUILD_DATE=$(BUILD_DATE) 
+          --build-arg MONGO_DB=$(MONGO_DB) 
+          --build-arg ADOBE_ANALYTICS_URL=$(ADOBE_ANALYTICS_URL) 
+          --build-arg NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL=$(NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL) 
+          --build-arg THANK_YOU_EMAIL=$(THANK_YOU_EMAIL) 
+          --build-arg AEM_GRAPHQL_ENDPOINT=$(AEM_GRAPHQL_ENDPOINT) 
+          --build-arg REVALIDATION_TOKEN=$(REVALIDATION_TOKEN) 
+          --build-arg GIT_SHA=$(GIT_SHA)
     - task: Docker@2
       inputs:
-        containerRegistry: '$(ACR_NAME)'
+        containerRegistry: '$(azureContainerRegistry.name)'
         repository: '$(imageRepository)'
         command: 'push'
         tags: |
