@@ -177,9 +177,7 @@ export default function OasBenefitsEstimator(props) {
           <meta
             property="og:title"
             content={
-              props.locale === "en"
-                ? pageData.scShortTitleEn
-                : pageData.scShortTitleFr
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
             }
           />
           <meta
@@ -217,9 +215,7 @@ export default function OasBenefitsEstimator(props) {
           <meta
             property="twitter:title"
             content={
-              props.locale === "en"
-                ? pageData.scShortTitleEn
-                : pageData.scShortTitleFr
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
             }
           />
           <meta name="twitter:creator" content="Service Canada" />
