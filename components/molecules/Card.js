@@ -12,13 +12,16 @@ export const Card = (props) => {
     current_projects: "custom-green",
     past_projects: "custom-gray",
     upcoming_projects: "custom-blue",
+    new_update: "new-update",
   };
+
+  const tagColour = tagColours[props.tag] ?? "custom-gray";
 
   return (
     <Link href={props.href}>
       <div
         className={`group card-shadow border border-custom-gray-border rounded-md pb-4 hover:cursor-pointer ${
-          "border-" + tagColours[props.tag]
+          "border-" + tagColour
         }`}
         data-testid={props.dataTestId}
         data-cy={props.dataCy}
@@ -51,15 +54,8 @@ export const Card = (props) => {
           </p>
           {props.showTag ? (
             <span
-              className={`block w-max py-2 px-2 font-body font-bold border-l-4 mr-6 mt-auto mb-auto ${
-                "border-" +
-                (tagColours[props.tag] || "gray-experiment") +
-                "-darker"
-              } ${
-                "bg-" +
-                (tagColours[props.tag] || "gray-experiment") +
-                "-lighter"
-              }`}
+              className={`block w-max py-2 px-2 font-body font-bold border-l-4 mr-6 mt-auto mb-auto border-${tagColour}-darker bg-${tagColour}-lighter
+              `}
             >
               {props.tagLabel}
             </span>

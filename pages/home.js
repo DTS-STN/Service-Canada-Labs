@@ -28,7 +28,7 @@ export default function Home(props) {
             : false
         }
         tagLabel={props.locale === "en" ? "New update" : "Nouvelle mise à jour"}
-        tag="current_projects"
+        tag="new_update"
         imgSrc={
           // TODO images should always be fetched from the same place in the response data i.e. using the socialMediaImage field
           project.scId === "BENEFITS-NAVIGATOR-OVERVIEW"

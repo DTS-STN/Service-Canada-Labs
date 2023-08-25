@@ -30,6 +30,8 @@ module.exports = {
     "border-custom-green-darker",
     "border-custom-gray-lighter",
     "border-custom-gray-darker",
+    "border-new-update-darker",
+    "bg-new-update-lighter",
   ],
   darkMode: "class",
   theme: {
@@ -165,6 +167,10 @@ module.exports = {
           purple: {
             purple50: "#7834BC",
           },
+        },
+        "new-update": {
+          darker: "#269ABC",
+          lighter: "#D7FAFF",
         },
         "custom-blue": {
           blue: "#1D5B90",
