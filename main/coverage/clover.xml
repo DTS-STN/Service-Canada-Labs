@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1692905017881" clover="3.2.0">
-  <project timestamp="1692905017881" name="All files">
+<coverage generated="1692962097920" clover="3.2.0">
+  <project timestamp="1692962097920" name="All files">
     <metrics statements="719" coveredstatements="526" conditionals="1169" coveredconditionals="385" methods="191" coveredmethods="127" elements="2079" coveredelements="1038" complexity="0" loc="719" ncloc="719" packages="13" files="89" classes="89"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -795,10 +795,10 @@
       </file>
       <file name="_app.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/_app.js">
         <metrics statements="4" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="12" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
       </file>
       <file name="error.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/error.js">
         <metrics statements="16" coveredstatements="0" conditionals="48" coveredconditionals="0" methods="3" coveredmethods="0"/>
