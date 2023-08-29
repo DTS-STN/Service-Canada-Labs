@@ -1,6 +1,14 @@
 query getOASBenefitsEstimatorArticles {
   scLabsPagev1List(
     filter: {
+      scContentType: {
+        _expressions: [
+          {
+            value: "gc:content-types/promotional-material-featured-articles"
+            _operator: EQUALS
+          }
+        ]
+      }
       _path: {
         _expressions: [
           {
