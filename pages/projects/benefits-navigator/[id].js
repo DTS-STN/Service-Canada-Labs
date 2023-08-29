@@ -417,12 +417,10 @@ export default function DynamicBenefitNavigatorPage(props) {
 export async function getStaticPaths() {
   // Get pages data
   const { data } = await aemServiceInstance.getFragment(
-    "benefitsNavigatorQuery"
+    "benefitsNavigatorArticlesQuery"
   );
   // Get paths for dynamic routes from the page name data
-  const paths = getAllUpdateIds(
-    data.scLabsPagev1ByPath.item.scLabProjectUpdates
-  );
+  const paths = getAllUpdateIds(data.scLabsPagev1List.items);
   paths.map((path) => {
     path.locale === "en"
       ? (path.params.id = path.params.id.slice(32))
@@ -437,13 +435,13 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({ locale, params }) => {
   // Get pages data
   const { data } = await aemServiceInstance.getFragment(
-    "benefitsNavigatorQuery"
+    "benefitsNavigatorArticlesQuery"
   );
   // get dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
-  const pages = data.scLabsPagev1ByPath.item.scLabProjectUpdates;
+  const pages = data.scLabsPagev1List.items;
   // Return page data that matches the current page being built
   const pageData = pages.filter((page) => {
     return (
