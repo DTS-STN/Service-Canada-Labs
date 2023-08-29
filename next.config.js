@@ -119,7 +119,7 @@ module.exports = {
       // Note: pathmatch is removed because subpaths are in different languages, so subpath match doesn't work anymore.
       // Redirect to home page when user set prefered language
       {
-        source: "/:slug*",
+        source: "/",
         has: [
           {
             type: "header",
@@ -129,7 +129,19 @@ module.exports = {
         ],
         destination: "/notsupported",
         permanent: false,
-      }
+      },
+      {
+        source: "/:slug((?!notsupported$).*)",
+        has: [
+          {
+            type: "header",
+            key: "User-Agent",
+            value: "(.*Trident.*)",
+          },
+        ],
+        destination: "/notsupported",
+        permanent: false,
+      },
     ];
   },
 };
