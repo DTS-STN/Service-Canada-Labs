@@ -77,7 +77,12 @@ steps:
     azureSubscription: $(azure.servicePrincipal)
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az webapp deployment slot create --name $(webapp.name) --resource-group $(webapp.resourceGroup) --slot pr-preview-$(webapp.slotName)'
+    inlineScript: |
+      az webapp deployment slot create \
+      --name $(webapp.name) \
+      --resource-group $(webapp.resourceGroup) \
+      --slot pr-preview-$(webapp.slotName)  \
+      --configuration-source $(webapp.name)
 
 - task: AzureCLI@2
   displayName: 'Deploy pr image to new slot'
