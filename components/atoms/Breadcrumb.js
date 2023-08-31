@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 /**
  *  Breadcrumb component
@@ -24,7 +26,12 @@ export function Breadcrumb(props) {
                   key={key}
                   className="inline-block min-w-0 max-w-full truncate -my-4 px-1"
                 >
-                  <span className="inline-block align-middle text-gray-breadcrumb icon-cheveron-right mr-4" />
+                  <span className="inline-block mr-4">
+                    <FontAwesomeIcon
+                      icon={faChevronRight}
+                      className="text-xs text-gray-breadcrumb"
+                    />
+                  </span>
                   <Link
                     href={item.link}
                     className="text-sm hover:text-canada-footer-hover-font-blue text-canada-footer-font visited:text-purple-700 underline"
