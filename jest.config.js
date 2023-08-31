@@ -23,5 +23,4 @@ module.exports = {
     "!**/node_modules/**",
     "!**/vendor/**",
   ],
-  preset: "@shelf/jest-mongodb",
 };

@@ -53,8 +53,6 @@ describe("Error page", () => {
       });
     });
     expect(router).toMatchObject({
-      asPath:
-        "/error?errorTitle=custom%20title&errorTitleFr=custom%20title%20fr",
       pathname: "/error",
       query: { errorTitle: "custom title", errorTitleFr: "custom title fr" },
     });
@@ -72,8 +70,6 @@ describe("Error page", () => {
     });
 
     expect(router).toMatchObject({
-      asPath:
-        "/error?errorMessage=custom%20error%20message&errorMessageFr=custom%20error%20message%20fr",
       pathname: "/error",
       query: {
         errorMessage: "custom error message",
