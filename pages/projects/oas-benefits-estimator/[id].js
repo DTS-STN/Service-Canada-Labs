@@ -448,12 +448,10 @@ export default function OASUpdatePage(props) {
 export async function getStaticPaths() {
   // Get pages data
   const { data } = await aemServiceInstance.getFragment(
-    "oasBenefitsEstimatorQuery"
+    "oasBenefitsEstimatorArticlesQuery"
   );
   // Get paths for dynamic routes from the page name data
-  const paths = getAllUpdateIds(
-    data.scLabsPagev1ByPath.item.scLabProjectUpdates
-  );
+  const paths = getAllUpdateIds(data.scLabsPagev1List.items);
   // Remove characters preceding the page name itself i.e. change "/en/projects/oas-benefits-estimator/what-we-learned" to "what-we-learned"
   paths.map((path) => {
     path.locale === "en"
@@ -469,13 +467,13 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({ locale, params }) => {
   // Get pages data
   const { data } = await aemServiceInstance.getFragment(
-    "oasBenefitsEstimatorQuery"
+    "oasBenefitsEstimatorArticlesQuery"
   );
   // get dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
-  const pages = data.scLabsPagev1ByPath.item.scLabProjectUpdates;
+  const pages = data.scLabsPagev1List.items;
   // Return page data that matches the current page being built
   const pageData = pages.filter((page) => {
     return (
