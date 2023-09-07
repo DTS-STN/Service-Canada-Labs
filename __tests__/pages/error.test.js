@@ -1,10 +1,8 @@
 /**
  * @jest-environment jsdom
  */
-import React from "react";
 import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-// import { getPage } from "next-page-tester";
 import { act } from "react-dom/test-utils";
 
 import router from "next/router";

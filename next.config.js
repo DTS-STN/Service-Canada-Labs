@@ -15,19 +15,19 @@ const REWRITES = [
   },
   {
     source: "/projets/estimateur-prestations-sv/:slug",
-    destination: "/projects/oas-benefits-estimator/:slug"
+    destination: "/projects/oas-benefits-estimator/:slug",
   },
   {
     source: "/projets/tableau-de-bord",
-    destination: "/projects/dashboard"
+    destination: "/projects/dashboard",
   },
   {
     source: "/projets/navigateur-prestations",
-    destination: "/projects/benefits-navigator"
+    destination: "/projects/benefits-navigator",
   },
   {
     source: "/projets/navigateur-prestations/:slug",
-    destination: "/projects/benefits-navigator/:slug"
+    destination: "/projects/benefits-navigator/:slug",
   },
 ];
 
@@ -69,7 +69,7 @@ securityHeaders = [
   },
   {
     key: "Content-Security-Policy",
-    value: `default-src 'self' dts-stn.com *.dts-stn.com *.adobe.com https://assets.adobedtm.com *.omniture.com *.2o7.net; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; connect-src 'self' *.adobe.com https://assets.adobedtm.com *.demdex.net *.omtrdc.net cm.everesttech.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com data:; img-src 'self' data: *.omtrdc.net *.demdex.net cm.everesttech.net https://assets.adobedtm.com https://www.canada.ca; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; frame-src 'self' *.adobe.com https://assets.adobedtm.com *.demdex.net; script-src 'self' 'unsafe-inline' *.adobe.com *.omniture.com *.2o7.net https://*.demdex.net https://cm.everesttech.net ${
+    value: `default-src 'self' dts-stn.com *.dts-stn.com *.adobe.com https://assets.adobedtm.com *.omniture.com *.2o7.net; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; connect-src 'self' *.adobe.com https://assets.adobedtm.com *.demdex.net *.omtrdc.net cm.everesttech.net; style-src 'nonce' 'unsafe-inline' https://fonts.googleapis.com data:; img-src 'self' data: *.omtrdc.net *.demdex.net cm.everesttech.net https://assets.adobedtm.com https://www.canada.ca; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com data:; frame-src 'self' *.adobe.com https://assets.adobedtm.com *.demdex.net; script-src 'self' 'unsafe-inline' *.adobe.com *.omniture.com *.2o7.net https://*.demdex.net https://cm.everesttech.net ${
       process.env.CI === "true"
         ? "'unsafe-eval'"
         : process.env.NODE_ENV === "development"
@@ -80,7 +80,7 @@ securityHeaders = [
 ];
 
 module.exports = {
-  output: 'standalone',
+  output: "standalone",
   swcMinify: true,
   i18n,
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
