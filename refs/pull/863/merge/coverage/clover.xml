@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1693598839333" clover="3.2.0">
-  <project timestamp="1693598839333" name="All files">
-    <metrics statements="702" coveredstatements="515" conditionals="1155" coveredconditionals="377" methods="188" coveredmethods="125" elements="2045" coveredelements="1017" complexity="0" loc="702" ncloc="702" packages="12" files="88" classes="88"/>
+<coverage generated="1694087377238" clover="3.2.0">
+  <project timestamp="1694087377238" name="All files">
+    <metrics statements="700" coveredstatements="515" conditionals="1153" coveredconditionals="377" methods="188" coveredmethods="125" elements="2041" coveredelements="1017" complexity="0" loc="700" ncloc="700" packages="12" files="88" classes="88"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/index.js">
@@ -729,7 +729,7 @@
       </file>
     </package>
     <package name="pages">
-      <metrics statements="93" coveredstatements="48" conditionals="234" coveredconditionals="86" methods="23" coveredmethods="12"/>
+      <metrics statements="91" coveredstatements="48" conditionals="232" coveredconditionals="86" methods="23" coveredmethods="12"/>
       <file name="404.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/404.js">
         <metrics statements="17" coveredstatements="12" conditionals="24" coveredconditionals="12" methods="3" coveredmethods="2"/>
         <line num="12" count="2" type="stmt"/>
@@ -771,11 +771,9 @@
         <line num="278" count="0" type="stmt"/>
       </file>
       <file name="_app.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/_app.js">
-        <metrics statements="4" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="9" count="0" type="stmt"/>
-        <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="12" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
       </file>
       <file name="error.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/error.js">
         <metrics statements="16" coveredstatements="0" conditionals="48" coveredconditionals="0" methods="3" coveredmethods="0"/>
