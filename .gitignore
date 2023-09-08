@@ -80,10 +80,6 @@ terraform/variables.json
 .terraformrc
 terraform.rc
 
-
-# jest mongodb cache file
-globalConfig.json
-
 # IDE related files
 .vscode
 .idea
