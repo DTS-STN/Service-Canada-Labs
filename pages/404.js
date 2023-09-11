@@ -72,7 +72,14 @@ export default function error404(props) {
             title="gccore"
             content={t("metaSubject")}
           />
-          <meta name="dcterms.creator" content="Service Canada" />
+          <meta
+            name="dcterms.creator"
+            content={
+              props.locale === "en"
+                ? "Employment and Social Development Canada"
+                : "Emploi et Développement social Canada"
+            }
+          />
           <meta name="dcterms.accessRights" content="2" />
           <meta
             name="dcterms.service"
