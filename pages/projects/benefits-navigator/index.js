@@ -1,14 +1,13 @@
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../../../components/organisms/Layout";
-import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
-import { CTA, Collapse } from "@dts-stn/service-canada-design-system";
-import { Heading } from "@dts-stn/service-canada-design-system";
 import Card from "../../../components/molecules/Card";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
+import { Heading } from "../../../components/design-system/Heading";
+import { Collapse } from "../../../components/design-system/Collapse";
 
 export default function OasBenefitsEstimator(props) {
   const [pageData] = useState(props.pageData.item);

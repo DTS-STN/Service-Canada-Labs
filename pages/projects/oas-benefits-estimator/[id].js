@@ -6,8 +6,9 @@ import { ActionButton } from "../../../components/atoms/ActionButton";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
-import { CTA, Heading } from "@dts-stn/service-canada-design-system";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
+import { CTA } from "../../../components/design-system/CTA";
+import { Heading } from "../../../components/design-system/Heading";
 
 export default function OASUpdatePage(props) {
   const { t } = useTranslation("common");

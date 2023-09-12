@@ -1,13 +1,11 @@
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../../../components/organisms/Layout";
-import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
-import { CTA } from "@dts-stn/service-canada-design-system";
-import { Heading } from "@dts-stn/service-canada-design-system";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
+import { Heading } from "../../../components/design-system/Heading";
 
 export default function MscaDashboard(props) {
   const [pageData] = useState(props.pageData.item);
