@@ -68,9 +68,7 @@ export default function DynamicBenefitNavigatorPage(props) {
           <meta
             name="dcterms.title"
             content={
-              props.locale === "en"
-                ? pageData.scShortTitleEn
-                : pageData.scShortTitleFr
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
             }
           />
           <meta
@@ -78,7 +76,14 @@ export default function DynamicBenefitNavigatorPage(props) {
             content={props.locale === "en" ? "eng" : "fra"}
             title="ISO639-2/T"
           />
-          <meta name="dcterms.creator" content="Service Canada" />
+          <meta
+            name="dcterms.creator"
+            content={
+              props.locale === "en"
+                ? "Employment and Social Development Canada"
+                : "Emploi et Développement social Canada"
+            }
+          />
           <meta name="dcterms.accessRights" content="2" />
           <meta
             name="dcterms.service"

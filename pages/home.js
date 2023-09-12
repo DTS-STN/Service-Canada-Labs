@@ -110,9 +110,7 @@ export default function Home(props) {
           <meta
             name="dcterms.title"
             content={
-              props.locale === "en"
-                ? pageData.scShortTitleEn
-                : pageData.scShortTitleFr
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
             }
           />
           <meta
@@ -133,7 +131,14 @@ export default function Home(props) {
             title="gccore"
             content={pageData.scSubject}
           />
-          <meta name="dcterms.creator" content="Service Canada" />
+          <meta
+            name="dcterms.creator"
+            content={
+              props.locale === "en"
+                ? "Employment and Social Development Canada"
+                : "Emploi et Développement social Canada"
+            }
+          />
           <meta name="dcterms.accessRights" content="2" />
           <meta
             name="dcterms.service"
