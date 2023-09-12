@@ -7,7 +7,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  azure.servicePrincipal: 'SCLabsDev'
+  azure.servicePrincipal: 'EsDBDMDECD-SCLabs-9/12/2023'
   webapp.name: 'alphasite-appservice-dev'
   webapp.resourceGroup: 'AlphasiteAppserviceRG'
   webapp.slotName: null
