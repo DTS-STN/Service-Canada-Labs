@@ -1,4 +1,4 @@
-# Service Canada Labs / Alpha Site
+# Service Canada Labs / Alpha Site 
 
 Service Canada Labs is a product being built by the Digital Experience and Client Data (DECD) unit within Employment and
 Social Development Canada (ESDC) which is a department of the Government of Canada. This product is part of a larger
