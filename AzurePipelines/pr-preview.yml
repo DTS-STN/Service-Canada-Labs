@@ -94,7 +94,7 @@ steps:
       -g $(webapp.resourceGroup) \
       -n $(webapp.name) \
       --slot pr-preview-$(webapp.slotName) \
-      --identities ID-SCLabs-dev
+      --identities /subscriptions/19bddd49-8e73-4699-930d-74baa7e5751e/resourcegroups/AlphasiteAppserviceRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID-SCLabs-dev
       az webapp config container set \
       --docker-custom-image-name alphasitecrdev.azurecr.io/$(azureContainerRegistry.repository):$(azureContainerRegistry.tag) \
       --name $(webapp.name) \
