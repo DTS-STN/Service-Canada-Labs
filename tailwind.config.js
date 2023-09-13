@@ -67,11 +67,11 @@ module.exports = {
     },
     extend: {
       backgroundImage: (theme) => ({
-        "splash-img": "url('../public/splash-image.png')",
-        "splash-img-mobile": "url('../public/splash-mobile.png')",
-        "banner-img": "url('../public/bg-banner-v2.png')",
-        "banner-img-mobile": "url('../public/bg-banner-mobile.png')",
-        "footer-parliament-image": "url(../public/landscape.png)",
+        "splash-img": "url('/splash-image.png')",
+        "splash-img-mobile": "url('/splash-mobile.png')",
+        "banner-img": "url('/bg-banner-v2.png')",
+        "banner-img-mobile": "url('/bg-banner-mobile.png')",
+        "footer-parliament-image": "url(/landscape.png)",
       }),
       colors: {
         current: "currentColor",
