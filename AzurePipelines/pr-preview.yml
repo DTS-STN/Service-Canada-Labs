@@ -90,7 +90,11 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az webapp identity assign -g $(webapp.resourceGroup) -n $(webapp.name) --slot pr-preview-$(webapp.slotName) --identities ID-SCLabs-dev \
+      az webapp identity assign \
+      -g $(webapp.resourceGroup) \
+      -n $(webapp.name) \
+      --slot pr-preview-$(webapp.slotName) \
+      --identities ID-SCLabs-dev
       az webapp config container set \
       --docker-custom-image-name alphasitecrdev.azurecr.io/$(azureContainerRegistry.repository):$(azureContainerRegistry.tag) \
       --name $(webapp.name) \
