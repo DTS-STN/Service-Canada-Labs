@@ -98,8 +98,7 @@ steps:
       --docker-custom-image-name alphasitecrdev.azurecr.io/$(azureContainerRegistry.repository):$(azureContainerRegistry.tag) \
       --name $(webapp.name) \
       --slot pr-preview-$(webapp.slotName) \
-      --resource-group $(webapp.resourceGroup) \
-      --ids /subscriptions/19bddd49-8e73-4699-930d-74baa7e5751e/resourcegroups/AlphasiteAppserviceRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID-SCLabs-dev
+      --resource-group $(webapp.resourceGroup)
 
 - task: GitHubComment@0
   displayName: "Post a comment with a link to the new PR preview"
