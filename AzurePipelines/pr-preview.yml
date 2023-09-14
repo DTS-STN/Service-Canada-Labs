@@ -80,8 +80,12 @@ steps:
       az webapp deployment slot create \
       --name $(webapp.name) \
       --resource-group $(webapp.resourceGroup) \
-      --slot pr-preview-$(webapp.slotName)  \
-      --configuration-source $(webapp.name)
+      --slot pr-preview-$(webapp.slotName)
+      az webapp identity assign \
+      -g $(webapp.resourceGroup) \
+      -n $(webapp.name) \
+      --slot pr-preview-$(webapp.slotName) \
+      --identities /subscriptions/19bddd49-8e73-4699-930d-74baa7e5751e/resourcegroups/AlphasiteAppserviceRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID-SCLabs-dev
 
 - task: AzureCLI@2
   displayName: 'Deploy pr image to new slot'
@@ -90,11 +94,6 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az webapp identity assign \
-      -g $(webapp.resourceGroup) \
-      -n $(webapp.name) \
-      --slot pr-preview-$(webapp.slotName) \
-      --identities /subscriptions/19bddd49-8e73-4699-930d-74baa7e5751e/resourcegroups/AlphasiteAppserviceRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID-SCLabs-dev
       az webapp config container set \
       --docker-custom-image-name alphasitecrdev.azurecr.io/$(azureContainerRegistry.repository):$(azureContainerRegistry.tag) \
       --name $(webapp.name) \
