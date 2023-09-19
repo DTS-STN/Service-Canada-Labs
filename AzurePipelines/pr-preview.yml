@@ -7,7 +7,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  azure.servicePrincipal: 'SCLabsDev'
+  azure.servicePrincipal: 'EsDBDMDECD-SCLabs-9/12/2023'
   webapp.name: 'alphasite-appservice-dev'
   webapp.resourceGroup: 'AlphasiteAppserviceRG'
   webapp.slotName: null
@@ -41,7 +41,6 @@ steps:
       --cache-from alphasitecrdev.azurecr.io/$(azureContainerRegistry.repository):latest
       --build-arg NEXT_PUBLIC_BUILD_ID=$(ADO_BUILD) 
       --build-arg NEXT_PUBLIC_BUILD_DATE=$(BUILD_DATE)
-      --build-arg MONGO_DB=$(MONGO_DB) 
       --build-arg ADOBE_ANALYTICS_URL=$(ADOBE_ANALYTICS_URL) 
       --build-arg NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL=$(NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL) 
       --build-arg THANK_YOU_EMAIL=$(THANK_YOU_EMAIL) 
@@ -81,8 +80,12 @@ steps:
       az webapp deployment slot create \
       --name $(webapp.name) \
       --resource-group $(webapp.resourceGroup) \
-      --slot pr-preview-$(webapp.slotName)  \
-      --configuration-source $(webapp.name)
+      --slot pr-preview-$(webapp.slotName)
+      az webapp identity assign \
+      -g $(webapp.resourceGroup) \
+      -n $(webapp.name) \
+      --slot pr-preview-$(webapp.slotName) \
+      --identities /subscriptions/19bddd49-8e73-4699-930d-74baa7e5751e/resourcegroups/AlphasiteAppserviceRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID-SCLabs-dev
 
 - task: AzureCLI@2
   displayName: 'Deploy pr image to new slot'
@@ -93,9 +96,6 @@ steps:
     inlineScript: |
       az webapp config container set \
       --docker-custom-image-name alphasitecrdev.azurecr.io/$(azureContainerRegistry.repository):$(azureContainerRegistry.tag) \
-      --docker-registry-server-url $(azureContainerRegistry.domain) \
-      --docker-registry-server-user alphasiteCRdev \
-      --docker-registry-server-password $(DOCKER_REGISTRY_SERVER_PASSWORD) \
       --name $(webapp.name) \
       --slot pr-preview-$(webapp.slotName) \
       --resource-group $(webapp.resourceGroup)

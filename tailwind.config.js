@@ -36,6 +36,7 @@ module.exports = {
   darkMode: "class",
   theme: {
     fontFamily: {
+      header: ["Lato", "font-serif"],
       display: ["Lato"],
       body: ["Noto sans"],
     },
@@ -54,6 +55,32 @@ module.exports = {
       h1l: ["38px", "42px"],
       h1xl: ["45px", "54px"],
       h1xxl: ["70px", "84px"],
+
+      mobiledisplay: ["40px", "40px"],
+      mobileh1: ["34px", "37px"],
+      mobileh2: ["32px", "35px"],
+      mobileh3: ["24px", "26px"],
+      mobileh4: ["22px", "24px"],
+      mobileh5: ["20px", "22px"],
+      mobileh6: ["19px", "21px"],
+      mobilebody: ["20px", "33px"],
+      mobilebodybold: ["20px", "33px"],
+      datepicker: ["15px", "24px"],
+
+      browserdisplay: ["60px", "60px"],
+      browserh1: ["38px", "42px"],
+      browserh2: ["36px", "40px"],
+      browserh3: ["24px", "26px"],
+      browserh4: ["22px", "24px"],
+      browserh5: ["20px", "22px"],
+      browserh6: ["19px", "21px"],
+      browserh7: ["14px", "20px"],
+      browserh8: ["16px", "23px"],
+      browserh9: ["17px", "26px"],
+      browserbody: ["20px", "33px"],
+      browserbodybold: ["20px", "33px"],
+
+      btnother: ["20px", "23px"],
     },
     screens: {
       xxs: "280px",
@@ -67,11 +94,11 @@ module.exports = {
     },
     extend: {
       backgroundImage: (theme) => ({
-        "splash-img": "url('../public/splash-image.png')",
-        "splash-img-mobile": "url('../public/splash-mobile.png')",
-        "banner-img": "url('../public/bg-banner-v2.png')",
-        "banner-img-mobile": "url('../public/bg-banner-mobile.png')",
-        "footer-parliament-image": "url(../public/landscape.png)",
+        "splash-img": "url('/splash-image.png')",
+        "splash-img-mobile": "url('/splash-mobile.png')",
+        "banner-img": "url('/bg-banner-v2.png')",
+        "banner-img-mobile": "url('/bg-banner-mobile.png')",
+        "footer-parliament-image": "url(/landscape.png)",
       }),
       colors: {
         current: "currentColor",
@@ -307,6 +334,8 @@ module.exports = {
 
       lineHeight: {
         "30px": "30px",
+        heading1: "42px",
+        heading3: "26px",
       },
       outline: {
         "black-solid": ["2px solid #000", "1px"],

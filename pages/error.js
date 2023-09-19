@@ -100,7 +100,14 @@ export default function ErrorPage(props) {
             lang="fr"
             content="Message d’erreur indiquant que le site a signalé une erreur."
           />
-          <meta name="dcterms.creator" content={t("creator")} />
+          <meta
+            name="dcterms.creator"
+            content={
+              props.locale === "en"
+                ? "Employment and Social Development Canada"
+                : "Emploi et Développement social Canada"
+            }
+          />
 
           <meta name="dcterms.accessRights" content="2" />
           <meta

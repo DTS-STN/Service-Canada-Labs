@@ -3,9 +3,9 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../components/organisms/Layout";
 import { useEffect, useState } from "react";
 import Card from "../components/molecules/Card";
-import { ContextualAlert } from "@dts-stn/service-canada-design-system";
 import aemServiceInstance from "../services/aemServiceInstance";
-import { Heading } from "@dts-stn/service-canada-design-system";
+import { Heading } from "../components/design-system/Heading";
+import { ContextualAlert } from "../components/design-system/ContextualAlert";
 
 export default function Home(props) {
   const [pageData] = useState(props.pageData.item);
@@ -110,9 +110,7 @@ export default function Home(props) {
           <meta
             name="dcterms.title"
             content={
-              props.locale === "en"
-                ? pageData.scShortTitleEn
-                : pageData.scShortTitleFr
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
             }
           />
           <meta
@@ -133,7 +131,14 @@ export default function Home(props) {
             title="gccore"
             content={pageData.scSubject}
           />
-          <meta name="dcterms.creator" content="Service Canada" />
+          <meta
+            name="dcterms.creator"
+            content={
+              props.locale === "en"
+                ? "Employment and Social Development Canada"
+                : "Emploi et Développement social Canada"
+            }
+          />
           <meta name="dcterms.accessRights" content="2" />
           <meta
             name="dcterms.service"

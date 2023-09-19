@@ -1,13 +1,11 @@
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../../../components/organisms/Layout";
-import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
-import { CTA } from "@dts-stn/service-canada-design-system";
-import { Heading } from "@dts-stn/service-canada-design-system";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
+import { Heading } from "../../../components/design-system/Heading";
 
 export default function MscaDashboard(props) {
   const [pageData] = useState(props.pageData.item);
@@ -99,9 +97,7 @@ export default function MscaDashboard(props) {
           <meta
             name="dcterms.title"
             content={
-              props.locale === "en"
-                ? pageData.scShortTitleEn
-                : pageData.scShortTitleFr
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
             }
           />
           <meta
@@ -109,7 +105,14 @@ export default function MscaDashboard(props) {
             content={props.locale === "en" ? "eng" : "fra"}
             title="ISO639-2/T"
           />
-          <meta name="dcterms.creator" content="Service Canada" />
+          <meta
+            name="dcterms.creator"
+            content={
+              props.locale === "en"
+                ? "Employment and Social Development Canada"
+                : "Emploi et Développement social Canada"
+            }
+          />
           <meta name="dcterms.accessRights" content="2" />
           <meta
             name="dcterms.service"

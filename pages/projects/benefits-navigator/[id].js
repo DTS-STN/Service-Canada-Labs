@@ -4,9 +4,9 @@ import { Layout } from "../../../components/organisms/Layout";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
-import { Heading } from "@dts-stn/service-canada-design-system";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import Render from "../../../components/gql_node_renderer/Render";
+import { Heading } from "../../../components/design-system/Heading";
 
 export default function DynamicBenefitNavigatorPage(props) {
   const [pageData] = useState(props.pageData);
@@ -75,7 +75,14 @@ export default function DynamicBenefitNavigatorPage(props) {
             content={props.locale === "en" ? "eng" : "fra"}
             title="ISO639-2/T"
           />
-          <meta name="dcterms.creator" content="Service Canada" />
+          <meta
+            name="dcterms.creator"
+            content={
+              props.locale === "en"
+                ? "Employment and Social Development Canada"
+                : "Emploi et Développement social Canada"
+            }
+          />
           <meta name="dcterms.accessRights" content="2" />
           <meta
             name="dcterms.service"
