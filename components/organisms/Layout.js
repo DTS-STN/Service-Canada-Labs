@@ -1,12 +1,14 @@
 import PropTypes from "prop-types";
 import { Banner } from "../atoms/Banner";
-import { Footer } from "@dts-stn/service-canada-design-system";
+// import { Footer } from "@dts-stn/service-canada-design-system";
 import { PhaseBanner } from "./PhaseBanner";
 import { ReportAProblem } from "./ReportAProblem";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
 import { Breadcrumb } from "../atoms/Breadcrumb";
+
+import { Footer } from "../design-system/Footer";
 
 /**
  * Component which defines the layout of the page for all screen sizes
@@ -33,16 +35,15 @@ export const Layout = ({
 
   return (
     <div className="overflow-x-hidden">
-      <nav className="skip-main">
+      <nav className="skip-main" aria-label={t("skipToMainContentBtn")}>
         <a
           id="skipToMainContent"
           className="bg-white text-custom-blue-dark text-lg underline py-1 px-2 focus:outline-dark-goldenrod hover:bg-gray-dark"
           href="#pageMainTitle"
           data-cy-button={"skip-Content"}
           draggable="false"
-        >
-          {t("skipToMainContentBtn")}
-        </a>
+          aria-label={t("skipToMainContentBtn")}
+        ></a>
       </nav>
       <header>
         <h2 className="sr-only">{t("globalHeader")}</h2>

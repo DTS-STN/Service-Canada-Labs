@@ -3,9 +3,9 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../components/organisms/Layout";
 import { useEffect, useState } from "react";
 import Card from "../components/molecules/Card";
-import { ContextualAlert } from "@dts-stn/service-canada-design-system";
 import aemServiceInstance from "../services/aemServiceInstance";
-import { Heading } from "@dts-stn/service-canada-design-system";
+import { Heading } from "../components/design-system/Heading";
+import { ContextualAlert } from "../components/design-system/ContextualAlert";
 
 export default function Home(props) {
   const [pageData] = useState(props.pageData.item);
