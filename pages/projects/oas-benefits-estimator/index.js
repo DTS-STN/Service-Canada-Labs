@@ -5,10 +5,10 @@ import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
-import { CTA } from "@dts-stn/service-canada-design-system";
-import { Heading } from "@dts-stn/service-canada-design-system";
 import Card from "../../../components/molecules/Card";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
+import { CTA } from "../../../components/design-system/CTA";
+import { Heading } from "../../../components/design-system/Heading";
 
 export default function OasBenefitsEstimator(props) {
   const [pageData] = useState(props.pageData.item);
