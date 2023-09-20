@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
+import Render from "../../../components/gql_node_renderer/Render";
 import { Heading } from "../../../components/design-system/Heading";
 
 export default function DynamicBenefitNavigatorPage(props) {
@@ -123,14 +124,12 @@ export default function DynamicBenefitNavigatorPage(props) {
               props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
             }
           />
-          {/* <meta
+          <meta
             property="og:description"
             content={
-              props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[1].content[0].value
-                : pageData.scFragments[1].scContentFr.json[1].content[0].value
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
             }
-          /> */}
+          />
           <meta
             property="og:image"
             content={pageData.scSocialMediaImageEn._publishUrl}
@@ -162,14 +161,12 @@ export default function DynamicBenefitNavigatorPage(props) {
             }
           />
           <meta name="twitter:creator" content="Service Canada" />
-          {/* <meta
+          <meta
             property="twitter:description"
             content={
-              props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[1].content[0].value
-                : pageData.scFragments[1].scContentFr.json[1].content[0].value
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
             }
-          /> */}
+          />
           <meta
             property="twitter:image"
             content={pageData.scSocialMediaImageEn._publishUrl}
@@ -217,193 +214,33 @@ export default function DynamicBenefitNavigatorPage(props) {
           </div>
 
           {/* Main */}
-          <div id="mainContentSection" className="flex flex-row-reverse mt-12">
-            <div className="hidden md:block">
-              <img
-                src={pageData.scFragments[1].scImageEn._publishUrl}
-                alt=""
-                height={pageData.scFragments[1].scImageEn.height}
-                width={pageData.scFragments[1].scImageEn.width}
-              />
+          <div
+            id="mainContentSection"
+            className="grid grid-cols-12 gap-x-6 mt-12"
+          >
+            <div className="hidden lg:grid col-start-8 col-span-5 row-start-1 row-span-2">
+              <div className="flex justify-center">
+                <div className="h-auto">
+                  <img
+                    src={
+                      props.locale === "en"
+                        ? pageData.scFragments[1].scImageEn._publishUrl
+                        : pageData.scFragments[1].scImageFr._publishUrl
+                    }
+                    alt=""
+                  />
+                </div>
+              </div>
             </div>
-            <div className="w-[750px] grow">
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[1].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[1].content[0]
-                      .value}
-              </p>
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[2].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[2].content[0]
-                      .value}
-                <a
-                  className="underline underline-offset-4"
-                  href={
-                    props.locale === "en"
-                      ? pageData.scFragments[0].scContentEn.json[2].content[1]
-                          .data.href
-                      : pageData.scFragments[0].scContentFr.json[2].content[1]
-                          .data.href
-                  }
-                >
-                  {props.locale === "en"
-                    ? pageData.scFragments[0].scContentEn.json[2].content[1]
-                        .value
-                    : pageData.scFragments[0].scContentFr.json[2].content[1]
-                        .value}
-                </a>
-                <span className="text-lg pl-1">
-                  {props.locale === "en"
-                    ? pageData.scFragments[0].scContentEn.json[2].content[2]
-                        .value
-                    : pageData.scFragments[0].scContentFr.json[2].content[2]
-                        .value}
-                </span>
-              </p>
-
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[3].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[3].content[0]
-                      .value}
-              </p>
-
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[4].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[4].content[0]
-                      .value}
-              </p>
-
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[5].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[5].content[0]
-                      .value}
-              </p>
-
-              <h2>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[6].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[6].content[0]
-                      .value}
-              </h2>
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[7].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[7].content[0]
-                      .value}
-              </p>
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[8].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[8].content[0]
-                      .value}
-              </p>
-
-              <h2>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[9].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[9].content[0]
-                      .value}
-              </h2>
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[10].content[0]
-                      .value
-                  : pageData.scFragments[0].scContentFr.json[10].content[0]
-                      .value}
-              </p>
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[11].content[0]
-                      .value
-                  : pageData.scFragments[0].scContentFr.json[11].content[0]
-                      .value}
-              </p>
-
-              <h2>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[12].content[0]
-                      .value
-                  : pageData.scFragments[0].scContentFr.json[12].content[0]
-                      .value}
-              </h2>
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[13].content[0]
-                      .value
-                  : pageData.scFragments[0].scContentFr.json[13].content[0]
-                      .value}
-              </p>
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[14].content[0]
-                      .value
-                  : pageData.scFragments[0].scContentFr.json[14].content[0]
-                      .value}
-              </p>
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[15].content[0]
-                      .value
-                  : pageData.scFragments[0].scContentFr.json[15].content[0]
-                      .value}
-              </p>
-
-              <h2>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[16].content[0]
-                      .value
-                  : pageData.scFragments[0].scContentFr.json[16].content[0]
-                      .value}
-              </h2>
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[17].content[0]
-                      .value
-                  : pageData.scFragments[0].scContentFr.json[17].content[0]
-                      .value}
-              </p>
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[18].content[0]
-                      .value
-                  : pageData.scFragments[0].scContentFr.json[18].content[0]
-                      .value}
-              </p>
-              <ul>
-                <li>
-                  {props.locale === "en"
-                    ? pageData.scFragments[0].scContentEn.json[19].content[0]
-                        .content[0].value
-                    : pageData.scFragments[0].scContentFr.json[19].content[0]
-                        .content[0].value}
-                </li>
-                <li>
-                  {props.locale === "en"
-                    ? pageData.scFragments[0].scContentEn.json[19].content[1]
-                        .content[0].value
-                    : pageData.scFragments[0].scContentFr.json[19].content[1]
-                        .content[0].value}
-                </li>
-                <li>
-                  {props.locale === "en"
-                    ? pageData.scFragments[0].scContentEn.json[19].content[2]
-                        .content[0].value
-                    : pageData.scFragments[0].scContentFr.json[19].content[2]
-                        .content[0].value}
-                </li>
-              </ul>
-              <p>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[20].content[0]
-                      .value
-                  : pageData.scFragments[0].scContentFr.json[20].content[0]
-                      .value}
-              </p>
+            <div className="col-span-12 lg:col-span-7">
+              <Render
+                data={
+                  props.locale === "en"
+                    ? pageData.scFragments[0].scContentEn.json
+                    : pageData.scFragments[0].scContentFr.json
+                }
+                excludeH1={true}
+              />
             </div>
           </div>
         </section>
@@ -424,14 +261,10 @@ export async function getStaticPaths() {
   );
   // Get paths for dynamic routes from the page name data
   const paths = getAllUpdateIds(data.scLabsPagev1List.items);
-  paths.map((path) => {
-    path.locale === "en"
-      ? (path.params.id = path.params.id.slice(32))
-      : (path.params.id = path.params.id.slice(35));
-  });
+  paths.map((path) => (path.params.id = path.params.id.split("/").at(-1)));
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 }
 
@@ -448,8 +281,9 @@ export const getStaticProps = async ({ locale, params }) => {
   // Return page data that matches the current page being built
   const pageData = pages.filter((page) => {
     return (
-      page.scPageNameEn.slice(32) === params.id ||
-      page.scPageNameFr.slice(35) === params.id
+      (locale === "en" ? page.scPageNameEn : page.scPageNameFr)
+        .split("/")
+        .at(-1) === params.id
     );
   });
 
@@ -461,5 +295,6 @@ export const getStaticProps = async ({ locale, params }) => {
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       ...(await serverSideTranslations(locale, ["common", "vc"])),
     },
+    revalidate: process.env.ENVIRONMENT === "development" ? 10 : false,
   };
 };

@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
+import Render from "../../../components/gql_node_renderer/Render";
 import { CTA } from "../../../components/design-system/CTA";
 import { Heading } from "../../../components/design-system/Heading";
 
@@ -221,199 +222,54 @@ export default function OASUpdatePage(props) {
               {pageData.scDateModifiedOverwrite}
             </p>
           </div>
+
+          {/* Main */}
           <div
             id="mainContentSection"
-            className="grid grid-cols-12 pt-16 gap-x-2"
+            className="grid grid-cols-12 gap-x-6 mt-12"
           >
-            <p className="col-span-12 lg:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[1].content[0].value
-                : pageData.scFragments[1].scContentFr.json[1].content[0].value}
-            </p>
-            <p className="col-span-12 lg:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[2].content[0].value
-                : pageData.scFragments[1].scContentFr.json[2].content[0].value}
-            </p>
-            <div className="hidden lg:grid col-start-9 col-span-4 row-start-1 row-span-2">
+            <div className="hidden lg:grid col-start-8 col-span-5 row-start-1 row-span-2">
               <div className="flex justify-center">
-                <div className="h-auto max-w-xs">
+                <div className="h-auto">
                   <img
                     src={
                       props.locale === "en"
                         ? pageData.scFragments[0].scImageEn._publishUrl
                         : pageData.scFragments[0].scImageFr._publishUrl
                     }
-                    alt={
-                      props.locale === "en"
-                        ? pageData.scFragments[0].scImageAltTextEn
-                        : pageData.scFragments[0].scImageAltTextFr
-                    }
-                    width={468}
-                    height={462}
+                    alt=""
                   />
                 </div>
               </div>
             </div>
-            <h2 className="col-span-12">
-              {props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[3].content[0].value
-                : pageData.scFragments[1].scContentFr.json[3].content[0].value}
-            </h2>
-            <p className="col-span-12 lg:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[4].content[0].value
-                : pageData.scFragments[1].scContentFr.json[4].content[0].value}
-            </p>
-            <p className="col-span-12 lg:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[5].content[0].value
-                : pageData.scFragments[1].scContentFr.json[5].content[0].value}
-            </p>
-            <ul className="col-span-12 lg:col-span-8">
-              <li>
-                {props.locale === "en"
-                  ? pageData.scFragments[1].scContentEn.json[6].content[0]
-                      .content[0].value
-                  : pageData.scFragments[1].scContentFr.json[6].content[0]
-                      .content[0].value}
-              </li>
-              <li>
-                {props.locale === "en"
-                  ? pageData.scFragments[1].scContentEn.json[6].content[1]
-                      .content[0].value
-                  : pageData.scFragments[1].scContentFr.json[6].content[1]
-                      .content[0].value}
-              </li>
-              <li>
-                {props.locale === "en"
-                  ? pageData.scFragments[1].scContentEn.json[6].content[2]
-                      .content[0].value
-                  : pageData.scFragments[1].scContentFr.json[6].content[2]
-                      .content[0].value}
-              </li>
-            </ul>
-            <p className="col-span-12 lg:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[7].content[0].value
-                : pageData.scFragments[1].scContentFr.json[7].content[0].value}
-            </p>
-            <h2 className="col-span-12">
-              {props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[8].content[0].value
-                : pageData.scFragments[1].scContentFr.json[8].content[0].value}
-            </h2>
-            <p className="col-span-12 lg:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[9].content[0].value
-                : pageData.scFragments[1].scContentFr.json[9].content[0].value}
-            </p>
-            <p className="col-span-12 lg:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[10].content[0].value
-                : pageData.scFragments[1].scContentFr.json[10].content[0].value}
-            </p>
-            <p className="col-span-12 lg:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[11].content[0].value
-                : pageData.scFragments[1].scContentFr.json[11].content[0].value}
-            </p>
-            <p className="col-span-12 lg:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[12].content[0].value
-                : pageData.scFragments[1].scContentFr.json[12].content[0].value}
-            </p>
-            <h2 className="col-span-12">
-              {props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[13].content[0].value
-                : pageData.scFragments[1].scContentFr.json[13].content[0].value}
-            </h2>
-            <p className="col-span-12 lg:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[14].content[0].value
-                : pageData.scFragments[1].scContentFr.json[14].content[0].value}
-            </p>
-            <p className="col-span-12 lg:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[15].content[0].value
-                : pageData.scFragments[1].scContentFr.json[15].content[0].value}
-            </p>
-            <ul className="col-span-12 lg:col-span-8">
-              <li className="text-[20px]">
-                {props.locale === "en"
-                  ? pageData.scFragments[1].scContentEn.json[16].content[0]
-                      .content[0].value
-                  : pageData.scFragments[1].scContentFr.json[16].content[0]
-                      .content[0].value}
-              </li>
-              <li className="text-[20px]">
-                {props.locale === "en"
-                  ? pageData.scFragments[1].scContentEn.json[16].content[1]
-                      .content[0].value
-                  : pageData.scFragments[1].scContentFr.json[16].content[1]
-                      .content[0].value}
-              </li>
-            </ul>
-            <p className="col-span-12 lg:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[17].content[0].value
-                : pageData.scFragments[1].scContentFr.json[17].content[0].value}
-            </p>
-            <ul className="col-span-12 lg:col-span-8">
-              <li className="text-[20px]">
-                {props.locale === "en"
-                  ? pageData.scFragments[1].scContentEn.json[18].content[0]
-                      .content[0].value
-                  : pageData.scFragments[1].scContentFr.json[18].content[0]
-                      .content[0].value}
-              </li>
-              <li className="text-[20px]">
-                {props.locale === "en"
-                  ? pageData.scFragments[1].scContentEn.json[18].content[1]
-                      .content[0].value
-                  : pageData.scFragments[1].scContentFr.json[18].content[1]
-                      .content[0].value}
-              </li>
-              <li className="text-[20px]">
-                {props.locale === "en"
-                  ? pageData.scFragments[1].scContentEn.json[18].content[2]
-                      .content[0].value
-                  : pageData.scFragments[1].scContentFr.json[18].content[2]
-                      .content[0].value}
-              </li>
-            </ul>
-            <p className="col-span-12 lg:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[19].content[0].value
-                : pageData.scFragments[1].scContentFr.json[19].content[0].value}
-            </p>
-            <h2 className="col-span-12">
-              {props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[20].content[0].value
-                : pageData.scFragments[1].scContentFr.json[20].content[0].value}
-            </h2>
-            <p className="col-span-12 lg:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[21].content[0].value
-                : pageData.scFragments[1].scContentFr.json[21].content[0].value}
-            </p>
-            <ActionButton
-              id="feedback-btn"
-              style="secondary"
-              custom="col-span-12 mt-8"
-              href={
-                props.locale === "en"
-                  ? pageData.scFragments[2].scDestinationURLEn
-                  : pageData.scFragments[2].scDestinationURLFr
-              }
-              text={
-                props.locale === "en"
-                  ? pageData.scFragments[2].scTitleEn
-                  : pageData.scFragments[2].scTitleFr
-              }
-              ariaExpanded={props.ariaExpanded}
-            />
+            <div className="col-span-12 lg:col-span-7">
+              <Render
+                data={
+                  props.locale === "en"
+                    ? pageData.scFragments[1].scContentEn.json
+                    : pageData.scFragments[1].scContentFr.json
+                }
+                excludeH1={true}
+              />
+            </div>
           </div>
+
+          <ActionButton
+            id="feedback-btn"
+            style="secondary"
+            custom="col-span-12 mt-8"
+            href={
+              props.locale === "en"
+                ? pageData.scFragments[2].scDestinationURLEn
+                : pageData.scFragments[2].scDestinationURLFr
+            }
+            text={
+              props.locale === "en"
+                ? pageData.scFragments[2].scTitleEn
+                : pageData.scFragments[2].scTitleFr
+            }
+            ariaExpanded={props.ariaExpanded}
+          />
         </section>
         <CTA
           heading={
@@ -459,14 +315,10 @@ export async function getStaticPaths() {
   // Get paths for dynamic routes from the page name data
   const paths = getAllUpdateIds(data.scLabsPagev1List.items);
   // Remove characters preceding the page name itself i.e. change "/en/projects/oas-benefits-estimator/what-we-learned" to "what-we-learned"
-  paths.map((path) => {
-    path.locale === "en"
-      ? (path.params.id = path.params.id.slice(36))
-      : (path.params.id = path.params.id.slice(38));
-  });
+  paths.map((path) => (path.params.id = path.params.id.split("/").at(-1)));
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 }
 
@@ -483,8 +335,9 @@ export const getStaticProps = async ({ locale, params }) => {
   // Return page data that matches the current page being built
   const pageData = pages.filter((page) => {
     return (
-      page.scPageNameEn.slice(36) === params.id ||
-      page.scPageNameFr.slice(38) === params.id
+      (locale === "en" ? page.scPageNameEn : page.scPageNameFr)
+        .split("/")
+        .at(-1) === params.id
     );
   });
   return {
@@ -495,5 +348,6 @@ export const getStaticProps = async ({ locale, params }) => {
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       ...(await serverSideTranslations(locale, ["common", "vc"])),
     },
+    revalidate: process.env.ENVIRONMENT === "development" ? 10 : false,
   };
 };
