@@ -224,10 +224,13 @@ export default function OASUpdatePage(props) {
           </div>
 
           {/* Main */}
-          <div id="mainContentSection" className="grid grid-cols-12 mt-16">
-            <div className="hidden lg:grid col-start-9 col-span-4 row-start-1 row-span-2">
+          <div
+            id="mainContentSection"
+            className="grid grid-cols-12 gap-x-6 mt-12"
+          >
+            <div className="hidden lg:grid col-start-8 col-span-5 row-start-1 row-span-2">
               <div className="flex justify-center">
-                <div className="h-auto max-w-xs">
+                <div className="h-auto">
                   <img
                     src={
                       props.locale === "en"
@@ -235,13 +238,11 @@ export default function OASUpdatePage(props) {
                         : pageData.scFragments[0].scImageFr._publishUrl
                     }
                     alt=""
-                    width={468}
-                    height={462}
                   />
                 </div>
               </div>
             </div>
-            <div className="col-span-12 lg:col-span-8">
+            <div className="col-span-12 lg:col-span-7">
               <Render
                 data={
                   props.locale === "en"
