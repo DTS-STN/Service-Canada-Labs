@@ -214,16 +214,24 @@ export default function DynamicBenefitNavigatorPage(props) {
           </div>
 
           {/* Main */}
-          <div id="mainContentSection" className="flex flex-row-reverse mt-12">
-            <div className="hidden md:block">
-              <img
-                src={pageData.scFragments[1].scImageEn._publishUrl}
-                height={pageData.scFragments[1].scImageEn.height}
-                width={pageData.scFragments[1].scImageEn.width}
-                alt=""
-              />
+          <div id="mainContentSection" className="grid grid-cols-12 mt-16">
+            <div className="hidden lg:grid col-start-9 col-span-4 row-start-1 row-span-2">
+              <div className="flex justify-center">
+                <div className="h-auto max-w-xs">
+                  <img
+                    src={
+                      props.locale === "en"
+                        ? pageData.scFragments[1].scImageEn._publishUrl
+                        : pageData.scFragments[1].scImageFr._publishUrl
+                    }
+                    alt=""
+                    width={468}
+                    height={462}
+                  />
+                </div>
+              </div>
             </div>
-            <div className="w-[750px] grow">
+            <div className="col-span-12 lg:col-span-8">
               <Render
                 data={
                   props.locale === "en"
@@ -286,5 +294,6 @@ export const getStaticProps = async ({ locale, params }) => {
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       ...(await serverSideTranslations(locale, ["common", "vc"])),
     },
+    revalidate: process.env.ENVIRONMENT === "development" ? 10 : false,
   };
 };
