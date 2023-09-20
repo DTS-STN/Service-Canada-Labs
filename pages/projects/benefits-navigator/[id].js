@@ -1,13 +1,11 @@
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
 import { Layout } from "../../../components/organisms/Layout";
-import { ActionButton } from "../../../components/atoms/ActionButton";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
-import { CTA, Heading } from "@dts-stn/service-canada-design-system";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
+import { Heading } from "../../../components/design-system/Heading";
 
 export default function DynamicBenefitNavigatorPage(props) {
   const [pageData] = useState(props.pageData);

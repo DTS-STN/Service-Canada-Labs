@@ -1,22 +1,17 @@
 import PropTypes from "prop-types";
-import { useTranslation } from "next-i18next";
-import { useState } from "react";
-import { HelpIcon } from "@dts-stn/service-canada-design-system";
+import { HelpIcon } from "../design-system/HelpIcon";
 
 export function ProjectInfo(props) {
-  const { t } = useTranslation("common");
-  const [showInfo, setShowInfo] = useState(false);
-
   return (
     <>
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-x-2 text-[20px]">
         <strong className="font-body col-span-1">{props.termStarted}</strong>
         <p className="col-span-2">
-          {!props.dateStarted ? undefined : props.dateStarted.substring(0, 10)}
+          {props.dateStarted && props.dateStarted.substring(0, 10)}
         </p>
         <strong className="font-body col-span-1">{props.termEnded}</strong>
         <p className="col-span-2">
-          {!props.dateEnded ? undefined : props.dateEnded.substring(0, 10)}
+          {props.dateEnded && props.dateEnded.substring(0, 10)}
         </p>
         <strong className="font-body col-span-1 my-auto">
           {props.termStage}
