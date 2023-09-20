@@ -16,7 +16,7 @@
     "cuid": "^2.1.8",
     "focus-trap-react": "^8.11.2",
     "graphql": "^16.8.0",
-    "i18next": "^23.2.3",
+    "i18next": "^23.4.5",
     "i18next-http-backend": "^1.4.5",
     "joi": "^17.9.1",
     "js-cookie": "^3.0.5",
