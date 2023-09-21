@@ -33,6 +33,7 @@ stages:
                 release-candidate
               arguments: |
                 --pull 
+                --build-arg ENVIRONMENT=$(ENVIRONMENT)
                 --build-arg NEXT_PUBLIC_BUILD_ID=$(ADO_BUILD) 
                 --build-arg NEXT_PUBLIC_BUILD_DATE=$(BUILD_DATE) 
                 --build-arg ADOBE_ANALYTICS_URL=$(ADOBE_ANALYTICS_URL) 
