@@ -47,6 +47,7 @@ steps:
       --build-arg AEM_GRAPHQL_ENDPOINT=$(AEM_GRAPHQL_ENDPOINT) 
       --build-arg REVALIDATION_TOKEN=$(REVALIDATION_TOKEN) 
       --build-arg GIT_SHA=$(GIT_SHA)
+      --build-arg ENVIRONMENT=$(ENVIRONMENT)
 
 - task: Docker@2
   displayName: "Push image"
