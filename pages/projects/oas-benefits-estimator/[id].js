@@ -340,6 +340,13 @@ export const getStaticProps = async ({ locale, params }) => {
         .at(-1) === params.id
     );
   });
+
+  if (!pageData) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       locale: locale,
