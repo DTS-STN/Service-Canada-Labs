@@ -287,6 +287,12 @@ export const getStaticProps = async ({ locale, params }) => {
     );
   });
 
+  if (!pageData) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       locale: locale,
