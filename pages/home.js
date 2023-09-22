@@ -404,6 +404,6 @@ export const getStaticProps = async ({ locale }) => {
       experimentsData: experimentsData.scLabsPagev1List.items,
       ...(await serverSideTranslations(locale, ["common"])),
     },
-    revalidate: 10,
+    revalidate: process.env.ENVIRONMENT === "development" ? 10 : false,
   };
 };
