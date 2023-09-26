@@ -374,7 +374,7 @@ export default function Home(props) {
               }
             />
           </div>
-          <ul className="grid lg:grid-cols-2 gap-x-4 gap-y-4 list-none ml-0">
+          <ul className="grid lg:grid-cols-2 gap-4 list-none ml-0">
             {displayCurrentProjects}
           </ul>
         </section>
