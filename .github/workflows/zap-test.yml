@@ -17,6 +17,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           # docker_name: 'owasp/zap2docker-stable'
-          target: 'https://alphasite.dts-stn.com/'
+          target: 'https://alpha.service.canada.ca/'
           # rules_file_name: '.zap/rules.tsv'
           # cmd_options: '-a' 
