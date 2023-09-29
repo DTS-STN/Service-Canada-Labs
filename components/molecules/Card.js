@@ -38,7 +38,7 @@ export const Card = (props) => {
           ""
         )}
         <div className="flex">
-          <p className="block font-display text-lg text-custom-blue-projects-link font-bold underline underline-offset-4 my-1 py-2 px-6 items-center group-hover:no-underline group-hover:text-custom-blue-projects-link-hover">
+          <p className="block font-display text-lg text-custom-blue-projects-link font-bold underline underline-offset-[6px] my-1 py-2 px-6 items-center group-hover:text-custom-blue-projects-link-hover">
             {props.title}
             {props.showIcon ? (
               props.href.substring(0, 8) === "https://" ? (
