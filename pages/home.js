@@ -1,15 +1,15 @@
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../components/organisms/Layout";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Card from "../components/molecules/Card";
 import aemServiceInstance from "../services/aemServiceInstance";
 import { Heading } from "../components/design-system/Heading";
 import { ContextualAlert } from "../components/design-system/ContextualAlert";
 
 export default function Home(props) {
-  const [pageData] = useState(props.pageData.item);
-  const [experimentsData] = useState(props.experimentsData);
+  const pageData = props.pageData?.item;
+  const experimentsData = props.experimentsData;
 
   const currentProjects = experimentsData.filter((project) => {
     return (
@@ -23,9 +23,8 @@ export default function Home(props) {
       <Card
         showImage
         showTag={
-          project.scTitleEn === "Old Age Security Benefits Estimator"
-            ? true
-            : false
+          project.scLabsNewExpiryDate &&
+          Date.now() <= new Date(project.scLabsNewExpiryDate)
         }
         tagLabel={props.locale === "en" ? "New update" : "Nouvelle mise à jour"}
         tag="new_update"
