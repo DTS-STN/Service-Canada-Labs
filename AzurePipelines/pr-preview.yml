@@ -7,7 +7,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  azure.servicePrincipal: 'EsDBDMDECD-SCLabs-9/12/2023'
+  azure.servicePrincipal: 'rg-ServiceCanadaLabs-Dev-10/11/2023'
   webapp.name: 'app-servicecanadalabs-dev'
   webapp.resourceGroup: 'rg-servicecanadalabs-dev'
   webapp.slotName: null
@@ -86,7 +86,7 @@ steps:
       -g $(webapp.resourceGroup) \
       -n $(webapp.name) \
       --slot pr-preview-$(webapp.slotName) \
-      --identities /subscriptions/19bddd49-8e73-4699-930d-74baa7e5751e/resourcegroups/AlphasiteAppserviceRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID-SCLabs-dev
+      --identities /subscriptions/400c5730-25f5-4ee6-a933-8b289b9ccb0d/resourcegroups/rg-dts-id-shared/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-SCLabs-Shared
 
 - task: AzureCLI@2
   displayName: 'Deploy pr image to new slot'
