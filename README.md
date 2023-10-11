@@ -5,7 +5,7 @@ Social Development Canada (ESDC) which is a department of the Government of Cana
 project occurring within ESDC to modernize benefits delivery to Canadian citizens and residents aptly called Benefits
 Delivery Modernization (BDM) . The goal of this product is to be a digital platform where the general public is able to
 be see, test and provide feedback on projects at different stages of design and development by DECD and partners.
-This will allow early and rapid collection of user feedback which is vital in delivering useful products with excellent
+This will allow early and rapid collection of user feedback which is vital in delivering useful products with excellent 
 user experience.
 
 ## Getting Started
