@@ -11,9 +11,9 @@ variables:
   webapp.name: 'alphasite-appservice-dev'
   webapp.resourceGroup: 'AlphasiteAppserviceRG'
   webapp.slotName: null
-  azureContainerRegistry.name: 'alphasiteCRdev-7/10/2023'
+  azureContainerRegistry.name: 'DTS Shared Container Repo 10/11/2023'
   azureContainerRegistry.repository: 'alphasite'
-  azureContainerRegistry.domain: 'alphasitecrdev.azurecr.io'
+  azureContainerRegistry.domain: 'dtsshared.azurecr.io'
   azureContainerRegistry.tag: 'preview-$(Build.SourceVersion)'
   System.Debug: false
 
@@ -23,7 +23,7 @@ steps:
     containerRegistry: '$(azureContainerRegistry.name)'
     repository: '$(azureContainerRegistry.repository)'
     command: 'login'
-- script: "docker pull alphasitecrdev.azurecr.io/$(azureContainerRegistry.repository):latest"
+- script: "docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):latest"
   displayName: Pull latest for layer caching
   continueOnError: true
 
@@ -38,7 +38,7 @@ steps:
       $(azureContainerRegistry.tag)
       latest
     arguments: |
-      --cache-from alphasitecrdev.azurecr.io/$(azureContainerRegistry.repository):latest
+      --cache-from $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):latest
       --build-arg NEXT_PUBLIC_BUILD_ID=$(ADO_BUILD) 
       --build-arg NEXT_PUBLIC_BUILD_DATE=$(BUILD_DATE)
       --build-arg ADOBE_ANALYTICS_URL=$(ADOBE_ANALYTICS_URL) 
@@ -96,7 +96,7 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       az webapp config container set \
-      --docker-custom-image-name alphasitecrdev.azurecr.io/$(azureContainerRegistry.repository):$(azureContainerRegistry.tag) \
+      --docker-custom-image-name $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(azureContainerRegistry.tag) \
       --name $(webapp.name) \
       --slot pr-preview-$(webapp.slotName) \
       --resource-group $(webapp.resourceGroup)
