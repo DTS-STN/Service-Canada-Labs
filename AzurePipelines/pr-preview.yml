@@ -8,8 +8,8 @@ pool:
 
 variables:
   azure.servicePrincipal: 'EsDBDMDECD-SCLabs-9/12/2023'
-  webapp.name: 'alphasite-appservice-dev'
-  webapp.resourceGroup: 'AlphasiteAppserviceRG'
+  webapp.name: 'app-servicecanadalabs-dev'
+  webapp.resourceGroup: 'rg-servicecanadalabs-dev'
   webapp.slotName: null
   azureContainerRegistry.name: 'DTS Shared Container Repo 10/11/2023'
   azureContainerRegistry.repository: 'alphasite'
