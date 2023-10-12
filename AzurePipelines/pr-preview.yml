@@ -81,12 +81,13 @@ steps:
       az webapp deployment slot create \
       --name $(webapp.name) \
       --resource-group $(webapp.resourceGroup) \
-      --slot pr-preview-$(webapp.slotName)
-      az webapp identity assign \
-      -g $(webapp.resourceGroup) \
-      -n $(webapp.name) \
       --slot pr-preview-$(webapp.slotName) \
-      --identities /subscriptions/400c5730-25f5-4ee6-a933-8b289b9ccb0d/resourcegroups/rg-dts-id-shared/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-SCLabs-Shared
+      --configuration-source $(webapp.name)
+      # az webapp identity assign \
+      # -g $(webapp.resourceGroup) \
+      # -n $(webapp.name) \
+      # --slot pr-preview-$(webapp.slotName) \
+      # --identities /subscriptions/400c5730-25f5-4ee6-a933-8b289b9ccb0d/resourcegroups/rg-dts-id-shared/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-SCLabs-Shared
 
 - task: AzureCLI@2
   displayName: 'Deploy pr image to new slot'
