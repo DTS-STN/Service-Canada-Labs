@@ -37,7 +37,7 @@
     "remark-html": "^15.0.1",
     "remark-parse": "^10.0.2",
     "unified": "^10.1.2",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.1"
   },
   "scripts": {
     "dev": "next dev",
