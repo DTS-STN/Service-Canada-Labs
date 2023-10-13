@@ -125,7 +125,7 @@ export function ReportAProblem(props) {
         ""
       ) : (
         <>
-          <h2 className="text-base font-body">
+          <h2 className="text-base font-body mt-0">
             {t("reportAProblemTitle", { lng: props.language })}
           </h2>
           <ul className="list-outside list-disc px-6 py-2">
