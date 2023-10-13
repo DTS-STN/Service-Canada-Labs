@@ -6,12 +6,15 @@ trigger:
 pr: none
 
 variables:
-  imageRepository: 'alphasite'
-  ADO_BUILD: $(Build.BuildId)
-  BUILD_DATE: $(Build.BuildNumber)
-  tag: 'ADO-$(ADO_BUILD)'
+  azureContainerRegistry.repository: 'ServiceCanadaLabs'
+  azureContainerRegistry.name: 'DTS Shared Container Repo 10/11/2023'
+  azureContainerRegistry.domain: 'dtsshared.azurecr.io'
+  # imageRepository: 'ServiceCanadaLabs'
+  # ADO_BUILD: $(Build.BuildId)
+  # BUILD_DATE: $(Build.BuildNumber)
+  tag: 'ADO-$(Build.BuildId)'
   vmImageName: 'ubuntu-latest'
-  GIT_SHA: $(Build.SourceVersion)
+  # GIT_SHA: $(Build.SourceVersion)
 
 stages:
   - stage: Build
@@ -24,8 +27,16 @@ stages:
         steps:
           - task: Docker@2
             inputs:
-              containerRegistry: '$(ACR_NAME)'
-              repository: '$(imageRepository)'
+              containerRegistry: '$(azureContainerRegistry.name)'
+              repository: '$(azureContainerRegistry.repository)'
+              command: 'login'
+          - script: "docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):latest"
+            displayName: Pull latest for layer caching
+            continueOnError: true
+          - task: Docker@2
+            inputs:
+              containerRegistry: '$(azureContainerRegistry.name)'
+              repository: '$(azureContainerRegistry.repository)'
               command: 'build'
               Dockerfile: './Dockerfile'
               tags: |
@@ -41,13 +52,13 @@ stages:
                 --build-arg THANK_YOU_EMAIL=$(THANK_YOU_EMAIL) 
                 --build-arg AEM_GRAPHQL_ENDPOINT=$(AEM_GRAPHQL_ENDPOINT) 
                 --build-arg REVALIDATION_TOKEN=$(REVALIDATION_TOKEN) 
-                --build-arg GIT_SHA=$(GIT_SHA)
+                --build-arg GIT_SHA=$(Build.SourceVersion)
                 --build-arg ENVIRONMENT=$(ENVIRONMENT)
                 
           - task: Docker@2
             inputs:
-              containerRegistry: 'alphasiteCRdev-7/10/2023'
-              repository: '$(imageRepository)'
+              containerRegistry: '$(azureContainerRegistry.name)'
+              repository: '$(azureContainerRegistry.repository)'
               command: 'push'
               tags: |
                 $(tag)
