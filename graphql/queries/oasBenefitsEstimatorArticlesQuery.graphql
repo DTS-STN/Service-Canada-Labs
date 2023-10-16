@@ -1,5 +1,5 @@
 query getOASBenefitsEstimatorArticles {
-  scLabsPagev1List(
+  sclabsPageV1List (
     filter: {
       scContentType: {
         _expressions: [
@@ -29,7 +29,7 @@ query getOASBenefitsEstimatorArticles {
       scShortTitleEn
       scShortTitleFr
       scBreadcrumbParentPages {
-        ... on SCLabsPagev1Model {
+        ... on SclabsPageV1Model {
           scTitleEn
           scTitleFr
           scPageNameEn
@@ -65,7 +65,7 @@ query getOASBenefitsEstimatorArticles {
       scNoIndex
       scNoFollow
       scFragments {
-        ... on SCLabsContentv1Model {
+        ... on SclabsContentV1Model {
           _path
           scId
           scContentEn {
@@ -75,7 +75,7 @@ query getOASBenefitsEstimatorArticles {
             json
           }
         }
-        ... on SCLabsImagev1Model {
+        ... on SclabsImageV1Model {
           scId
           scImageEn {
             ... on ImageRef {
@@ -126,7 +126,7 @@ query getOASBenefitsEstimatorArticles {
             json
           }
         }
-        ... on SCLabsButtonv1Model {
+        ... on SclabsButtonV1Model {
           scId
           scTitleEn
           scTitleFr
@@ -134,7 +134,7 @@ query getOASBenefitsEstimatorArticles {
           scDestinationURLFr
           scButtonType
         }
-        ... on SCLabsFeaturev1Model {
+        ... on SclabsFeatureV1Model {
           scId
           scTitleEn
           scTitleFr
@@ -165,7 +165,7 @@ query getOASBenefitsEstimatorArticles {
             }
           }
           scFragments {
-            ... on SCLabsAlertv1Model {
+            ... on SclabsAlertV1Model {
               _path
               scId
               scTitleEn
@@ -190,7 +190,7 @@ query getOASBenefitsEstimatorArticles {
             scButtonType
           }
         }
-        ... on Tooltipv1Model {
+        ... on TooltipV1Model {
           _path
           scId
           scTitleEn

@@ -1,5 +1,5 @@
 query getHomePage {
-  scLabsPagev1ByPath(
+  sclabsPageV1ByPath(
     _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/home-page"
   ) {
     item {
@@ -17,7 +17,7 @@ query getHomePage {
         json
       }
       scBreadcrumbParentPages {
-        ... on SCLabsPagev1Model {
+        ... on SclabsPageV1Model {
           scTitleEn
           scTitleFr
           scPageNameEn
@@ -57,7 +57,7 @@ query getHomePage {
       scNoIndex
       scNoFollow
       scFragments {
-        ... on SCLabsContentv1Model {
+        ... on SclabsContentV1Model {
           _path
           scId
           scContentEn {
@@ -67,7 +67,7 @@ query getHomePage {
             json
           }
         }
-        ... on SCLabsImagev1Model {
+        ... on SclabsImageV1Model {
           scId
           scImageEn {
             ... on ImageRef {
@@ -118,7 +118,7 @@ query getHomePage {
             json
           }
         }
-        ... on SCLabsButtonv1Model {
+        ... on SclabsButtonV1Model {
           scId
           scTitleEn
           scTitleFr
@@ -126,7 +126,7 @@ query getHomePage {
           scDestinationURLFr
           scButtonType
         }
-        ... on SCLabsFeaturev1Model {
+        ... on SclabsFeatureV1Model {
           scId
           scTitleEn
           scTitleFr
@@ -167,7 +167,7 @@ query getHomePage {
             scButtonType
           }
         }
-        ... on SCLabsAlertv1Model {
+        ... on SclabsAlertV1Model {
           scId
           scTitleEn
           scTitleFr

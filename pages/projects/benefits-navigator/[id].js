@@ -260,7 +260,7 @@ export async function getStaticPaths() {
     "benefitsNavigatorArticlesQuery"
   );
   // Get paths for dynamic routes from the page name data
-  const paths = getAllUpdateIds(data.scLabsPagev1List.items);
+  const paths = getAllUpdateIds(data.sclabsPageV1List.items);
   paths.map((path) => (path.params.id = path.params.id.split("/").at(-1)));
   return {
     paths,
@@ -277,7 +277,7 @@ export const getStaticProps = async ({ locale, params }) => {
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
-  const pages = data.scLabsPagev1List.items;
+  const pages = data.sclabsPageV1List.items;
   // Return page data that matches the current page being built
   const pageData = pages.filter((page) => {
     return (

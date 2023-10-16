@@ -313,7 +313,7 @@ export async function getStaticPaths() {
     "oasBenefitsEstimatorArticlesQuery"
   );
   // Get paths for dynamic routes from the page name data
-  const paths = getAllUpdateIds(data.scLabsPagev1List.items);
+  const paths = getAllUpdateIds(data.sclabsPageV1List.items);
   // Remove characters preceding the page name itself i.e. change "/en/projects/oas-benefits-estimator/what-we-learned" to "what-we-learned"
   paths.map((path) => (path.params.id = path.params.id.split("/").at(-1)));
   return {
@@ -331,7 +331,7 @@ export const getStaticProps = async ({ locale, params }) => {
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
-  const pages = data.scLabsPagev1List.items;
+  const pages = data.sclabsPageV1List.items;
   // Return page data that matches the current page being built
   const pageData = pages.filter((page) => {
     return (

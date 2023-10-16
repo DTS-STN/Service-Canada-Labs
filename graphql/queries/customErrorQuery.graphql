@@ -1,10 +1,10 @@
 query getCustomErrorPage {
-  scLabsErrorPagev1ByPath(
+  sclabsErrorpageV1ByPath(
     _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/custom-error-page"
   ) {
     item {
       scGcImages {
-        ... on SCLabsImagev1Model {
+        ... on SclabsImageV1Model {
           scId
           scImageEn {
             ... on DocumentRef {
@@ -21,7 +21,7 @@ query getCustomErrorPage {
         }
       }
       scImageList {
-        ... on SCLabsImagev1Model {
+        ... on SclabsImageV1Model {
           scId
           scImageEn {
             ... on DocumentRef {

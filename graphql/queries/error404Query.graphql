@@ -1,10 +1,10 @@
 query get404Page {
-  scLabsErrorPagev1ByPath(
+  sclabsErrorpageV1ByPath(
     _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/404-error-page"
   ) {
     item {
       scGcImages {
-        ... on SCLabsImagev1Model {
+        ... on SclabsImageV1Model {
           scId
           scImageEn {
             ... on DocumentRef {
@@ -21,7 +21,7 @@ query get404Page {
         }
       }
       scImageList {
-        ... on SCLabsImagev1Model {
+        ... on SclabsImageV1Model {
           scId
           scImageEn {
             ... on DocumentRef {

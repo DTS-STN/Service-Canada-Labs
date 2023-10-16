@@ -1,5 +1,5 @@
 query getBenefitsNavigatorPage {
-  scLabsPagev1ByPath(
+  sclabsPageV1ByPath(
     _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/benefits-navigator/overview"
   ) {
     item {
@@ -24,7 +24,7 @@ query getBenefitsNavigatorPage {
         json
       }
       scLabProjectUpdates {
-        ... on SCLabsPagev1Model {
+        ... on SclabsPageV1Model {
           _path
           scId
           scPageNameEn
@@ -34,7 +34,7 @@ query getBenefitsNavigatorPage {
           scShortTitleEn
           scShortTitleFr
           scBreadcrumbParentPages {
-            ... on SCLabsPagev1Model {
+            ... on SclabsPageV1Model {
               scTitleEn
               scTitleFr
               scPageNameEn
@@ -70,7 +70,7 @@ query getBenefitsNavigatorPage {
           scNoIndex
           scNoFollow
           scFragments {
-            ... on SCLabsContentv1Model {
+            ... on SclabsContentV1Model {
               _path
               scId
               scContentEn {
@@ -80,7 +80,7 @@ query getBenefitsNavigatorPage {
                 json
               }
             }
-            ... on SCLabsImagev1Model {
+            ... on SclabsImageV1Model {
               scId
               scImageEn {
                 ... on ImageRef {
@@ -131,7 +131,7 @@ query getBenefitsNavigatorPage {
                 json
               }
             }
-            ... on SCLabsButtonv1Model {
+            ... on SclabsButtonV1Model {
               scId
               scTitleEn
               scTitleFr
@@ -139,7 +139,7 @@ query getBenefitsNavigatorPage {
               scDestinationURLFr
               scButtonType
             }
-            ... on SCLabsFeaturev1Model {
+            ... on SclabsFeatureV1Model {
               scId
               scTitleEn
               scTitleFr
@@ -170,7 +170,7 @@ query getBenefitsNavigatorPage {
                 }
               }
               scFragments {
-                ... on SCLabsAlertv1Model {
+                ... on SclabsAlertV1Model {
                   _path
                   scId
                   scTitleEn
@@ -195,7 +195,7 @@ query getBenefitsNavigatorPage {
                 scButtonType
               }
             }
-            ... on Tooltipv1Model {
+            ... on TooltipV1Model {
               _path
               scId
               scTitleEn
@@ -211,7 +211,7 @@ query getBenefitsNavigatorPage {
         }
       }
       scBreadcrumbParentPages {
-        ... on SCLabsPagev1Model {
+        ... on SclabsPageV1Model {
           scTitleEn
           scTitleFr
           scPageNameEn
@@ -247,7 +247,7 @@ query getBenefitsNavigatorPage {
       scNoIndex
       scNoFollow
       scFragments {
-        ... on SCLabsContentv1Model {
+        ... on SclabsContentV1Model {
           _path
           scId
           scContentEn {
@@ -257,7 +257,7 @@ query getBenefitsNavigatorPage {
             json
           }
           scFragments {
-            ... on SCLabsContentv1Model {
+            ... on SclabsContentV1Model {
               _path
               scId
               scContentEn {
@@ -267,7 +267,7 @@ query getBenefitsNavigatorPage {
                 json
               }
               scFragments {
-                ... on SCLabsImagev1Model {
+                ... on SclabsImageV1Model {
                   scId
                   scImageEn {
                     ... on ImageRef {
@@ -330,7 +330,7 @@ query getBenefitsNavigatorPage {
             }
           }
         }
-        ... on SCLabsImagev1Model {
+        ... on SclabsImageV1Model {
           scId
           scImageEn {
             ... on ImageRef {
@@ -381,7 +381,7 @@ query getBenefitsNavigatorPage {
             json
           }
         }
-        ... on SCLabsButtonv1Model {
+        ... on SclabsButtonV1Model {
           scId
           scTitleEn
           scTitleFr
@@ -389,7 +389,7 @@ query getBenefitsNavigatorPage {
           scDestinationURLFr
           scButtonType
         }
-        ... on SCLabsFeaturev1Model {
+        ... on SclabsFeatureV1Model {
           scId
           scTitleEn
           scTitleFr
@@ -420,7 +420,7 @@ query getBenefitsNavigatorPage {
             }
           }
           scFragments {
-            ... on SCLabsAlertv1Model {
+            ... on SclabsAlertV1Model {
               _path
               scId
               scTitleEn
@@ -445,7 +445,7 @@ query getBenefitsNavigatorPage {
             scButtonType
           }
         }
-        ... on Tooltipv1Model {
+        ... on TooltipV1Model {
           _path
           scId
           scTitleEn
