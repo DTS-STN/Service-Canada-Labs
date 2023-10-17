@@ -1,5 +1,5 @@
 query getProjectUpdates {
-  scLabsPagev1ByPath(
+  sclabsPageV1ByPath(
     _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/virtual-assistant/project-updates/what-we-learned-building-the-service-canada-virtual-assistant"
   ) {
     item {
@@ -17,7 +17,7 @@ query getProjectUpdates {
         json
       }
       scBreadcrumbParentPages {
-        ... on SCLabsPagev1Model {
+        ... on SclabsPageV1Model {
           scPageNameEn
           scPageNameFr
         }
@@ -51,7 +51,7 @@ query getProjectUpdates {
       scNoIndex
       scNoFollow
       scFragments {
-        ... on SCLabsContentv1Model {
+        ... on SclabsContentV1Model {
           _path
           scId
           scContentEn {
@@ -61,7 +61,7 @@ query getProjectUpdates {
             json
           }
         }
-        ... on SCLabsFeaturev1Model {
+        ... on SclabsFeatureV1Model {
           scId
           scTitleEn
           scTitleFr

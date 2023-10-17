@@ -1,5 +1,5 @@
 query getOASBenefitsEstimatorPage {
-  scLabsPagev1ByPath(
+  sclabsPageV1ByPath (
     _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/oas-benefits-estimator/overview"
   ) {
     item {
@@ -24,7 +24,7 @@ query getOASBenefitsEstimatorPage {
         json
       }
       scLabProjectUpdates {
-        ... on SCLabsPagev1Model {
+        ... on SclabsPageV1Model {
           _path
           scId
           scPageNameEn
@@ -34,7 +34,7 @@ query getOASBenefitsEstimatorPage {
           scShortTitleEn
           scShortTitleFr
           scBreadcrumbParentPages {
-            ... on SCLabsPagev1Model {
+            ... on SclabsPageV1Model {
               scTitleEn
               scTitleFr
               scPageNameEn
@@ -70,7 +70,7 @@ query getOASBenefitsEstimatorPage {
           scNoIndex
           scNoFollow
           scFragments {
-            ... on SCLabsContentv1Model {
+            ... on SclabsContentV1Model {
               _path
               scId
               scContentEn {
@@ -80,7 +80,7 @@ query getOASBenefitsEstimatorPage {
                 json
               }
             }
-            ... on SCLabsImagev1Model {
+            ... on SclabsImageV1Model {
               scId
               scImageEn {
                 ... on ImageRef {
@@ -131,7 +131,7 @@ query getOASBenefitsEstimatorPage {
                 json
               }
             }
-            ... on SCLabsButtonv1Model {
+            ... on SclabsButtonV1Model {
               scId
               scTitleEn
               scTitleFr
@@ -139,7 +139,7 @@ query getOASBenefitsEstimatorPage {
               scDestinationURLFr
               scButtonType
             }
-            ... on SCLabsFeaturev1Model {
+            ... on SclabsFeatureV1Model {
               scId
               scTitleEn
               scTitleFr
@@ -170,7 +170,7 @@ query getOASBenefitsEstimatorPage {
                 }
               }
               scFragments {
-                ... on SCLabsAlertv1Model {
+                ... on SclabsAlertV1Model {
                   _path
                   scId
                   scTitleEn
@@ -195,7 +195,7 @@ query getOASBenefitsEstimatorPage {
                 scButtonType
               }
             }
-            ... on Tooltipv1Model {
+            ... on TooltipV1Model {
               _path
               scId
               scTitleEn
@@ -211,7 +211,7 @@ query getOASBenefitsEstimatorPage {
         }
       }
       scBreadcrumbParentPages {
-        ... on SCLabsPagev1Model {
+        ... on SclabsPageV1Model {
           scTitleEn
           scTitleFr
           scPageNameEn
@@ -247,7 +247,7 @@ query getOASBenefitsEstimatorPage {
       scNoIndex
       scNoFollow
       scFragments {
-        ... on SCLabsContentv1Model {
+        ... on SclabsContentV1Model {
           _path
           scId
           scContentEn {
@@ -257,7 +257,7 @@ query getOASBenefitsEstimatorPage {
             json
           }
         }
-        ... on SCLabsImagev1Model {
+        ... on SclabsImageV1Model {
           scId
           scImageEn {
             ... on ImageRef {
@@ -308,7 +308,7 @@ query getOASBenefitsEstimatorPage {
             json
           }
         }
-        ... on SCLabsButtonv1Model {
+        ... on SclabsButtonV1Model {
           scId
           scTitleEn
           scTitleFr
@@ -316,7 +316,7 @@ query getOASBenefitsEstimatorPage {
           scDestinationURLFr
           scButtonType
         }
-        ... on SCLabsFeaturev1Model {
+        ... on SclabsFeatureV1Model {
           scId
           scTitleEn
           scTitleFr
@@ -347,7 +347,7 @@ query getOASBenefitsEstimatorPage {
             }
           }
           scFragments {
-            ... on SCLabsAlertv1Model {
+            ... on SclabsAlertV1Model {
               _path
               scId
               scTitleEn
@@ -372,7 +372,7 @@ query getOASBenefitsEstimatorPage {
             scButtonType
           }
         }
-        ... on Tooltipv1Model {
+        ... on TooltipV1Model {
           _path
           scId
           scTitleEn

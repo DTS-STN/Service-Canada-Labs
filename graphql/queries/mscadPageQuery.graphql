@@ -1,5 +1,5 @@
 query getMscadPage {
-  scLabsPagev1ByPath(
+  sclabsPageV1ByPath (
     _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/client-hub/dashboard-overview"
   ) {
     item {
@@ -18,7 +18,7 @@ query getMscadPage {
         json
       }
       scBreadcrumbParentPages {
-        ... on SCLabsPagev1Model {
+        ... on SclabsPageV1Model {
           scTitleEn
           scTitleFr
           scPageNameEn
@@ -54,7 +54,7 @@ query getMscadPage {
       scNoIndex
       scNoFollow
       scFragments {
-        ... on SCLabsContentv1Model {
+        ... on SclabsContentV1Model {
           _path
           scId
           scContentEn {
@@ -64,7 +64,7 @@ query getMscadPage {
             json
           }
         }
-        ... on SCLabsImagev1Model {
+        ... on SclabsImageV1Model {
           scId
           scImageEn {
             ... on ImageRef {
@@ -115,7 +115,7 @@ query getMscadPage {
             json
           }
         }
-        ... on SCLabsButtonv1Model {
+        ... on SclabsButtonV1Model {
           scId
           scTitleEn
           scTitleFr
@@ -123,7 +123,7 @@ query getMscadPage {
           scDestinationURLFr
           scButtonType
         }
-        ... on SCLabsFeaturev1Model {
+        ... on SclabsFeatureV1Model {
           scId
           scTitleEn
           scTitleFr
@@ -154,7 +154,7 @@ query getMscadPage {
             }
           }
           scFragments {
-            ... on SCLabsAlertv1Model {
+            ... on SclabsAlertV1Model {
               _path
               scId
               scTitleEn
@@ -179,7 +179,7 @@ query getMscadPage {
             scButtonType
           }
         }
-        ... on Tooltipv1Model {
+        ... on TooltipV1Model {
           _path
           scId
           scTitleEn

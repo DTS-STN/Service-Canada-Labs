@@ -1,10 +1,10 @@
 query getNotSupported {
-  scLabsErrorPagev1ByPath(
+  sclabsErrorpageV1ByPath(
     _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/browser-not-supported-page"
   ) {
     item {
       scGcImages {
-        ... on SCLabsImagev1Model {
+        ... on SclabsImageV1Model {
           scId
           scImageEn {
             ... on DocumentRef {
@@ -21,7 +21,7 @@ query getNotSupported {
         }
       }
       scImageList {
-        ... on SCLabsImagev1Model {
+        ... on SclabsImageV1Model {
           scId
           scImageEn {
             ... on ImageRef {
