@@ -68,16 +68,14 @@ html {
 
   /* Lists */
   ul {
-    @apply ml-6;
     @apply list-disc;
   }
-  li {
-    @apply ml-4;
-    @apply text-[20px];
-  }
-  ol > li {
-    @apply ml-6;
+  ol {
     @apply list-decimal;
+  }
+  li {
+    @apply ml-10;
+    @apply text-[20px];
   }
 
   /* Content Element Styles */
