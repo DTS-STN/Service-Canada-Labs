@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1698059812149" clover="3.2.0">
-  <project timestamp="1698059812149" name="All files">
-    <metrics statements="788" coveredstatements="559" conditionals="1203" coveredconditionals="421" methods="217" coveredmethods="137" elements="2208" coveredelements="1117" complexity="0" loc="788" ncloc="788" packages="15" files="109" classes="109"/>
+<coverage generated="1698432393730" clover="3.2.0">
+  <project timestamp="1698432393730" name="All files">
+    <metrics statements="805" coveredstatements="559" conditionals="1295" coveredconditionals="421" methods="220" coveredmethods="137" elements="2320" coveredelements="1117" complexity="0" loc="805" ncloc="805" packages="15" files="109" classes="109"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/index.js">
@@ -1098,22 +1098,39 @@
       </file>
     </package>
     <package name="pages.projects.dashboard">
-      <metrics statements="13" coveredstatements="0" conditionals="96" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <metrics statements="30" coveredstatements="0" conditionals="188" coveredconditionals="0" methods="7" coveredmethods="0"/>
       <file name="index.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/projects/dashboard/index.js">
-        <metrics statements="13" coveredstatements="0" conditionals="96" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="11" count="0" type="stmt"/>
+        <metrics statements="30" coveredstatements="0" conditionals="188" coveredconditionals="0" methods="7" coveredmethods="0"/>
         <line num="12" count="0" type="stmt"/>
-        <line num="15" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="422" count="0" type="stmt"/>
-        <line num="424" count="0" type="stmt"/>
-        <line num="428" count="0" type="stmt"/>
-        <line num="432" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="16" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="52" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="63" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="69" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="78" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="79" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="815" count="0" type="stmt"/>
+        <line num="817" count="0" type="stmt"/>
+        <line num="821" count="0" type="stmt"/>
+        <line num="825" count="0" type="stmt"/>
       </file>
     </package>
     <package name="pages.projects.oas-benefits-estimator">
