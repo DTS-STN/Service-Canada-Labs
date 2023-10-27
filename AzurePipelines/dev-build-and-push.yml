@@ -6,15 +6,11 @@ trigger:
 pr: none
 
 variables:
-  azureContainerRegistry.repository: 'ServiceCanadaLabs'
+  azureContainerRegistry.repository: 'servicecanadalabs'
   azureContainerRegistry.name: 'DTS Shared Container Repo 10/11/2023'
   azureContainerRegistry.domain: 'dtsshared.azurecr.io'
-  # imageRepository: 'ServiceCanadaLabs'
-  # ADO_BUILD: $(Build.BuildId)
-  # BUILD_DATE: $(Build.BuildNumber)
   tag: 'ADO-$(Build.BuildId)'
   vmImageName: 'ubuntu-latest'
-  # GIT_SHA: $(Build.SourceVersion)
 
 stages:
   - stage: Build
