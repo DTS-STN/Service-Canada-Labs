@@ -6,7 +6,7 @@ import "./fonts.css";
 
 import i18n from "./i18n.js";
 import { I18nProviderWrapper } from "./i18nextProviderWrapper";
-import { RouterContext } from "next/dist/shared/lib/router-context";
+import { RouterContext } from "next/dist/shared/lib/router-context.shared-runtime";
 
 export const globalTypes = {
   locale: {
