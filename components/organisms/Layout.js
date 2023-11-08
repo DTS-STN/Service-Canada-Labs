@@ -9,6 +9,7 @@ import { DateModified } from "../atoms/DateModified";
 import { Breadcrumb } from "../atoms/Breadcrumb";
 
 import { Footer } from "../design-system/Footer";
+import Feedback from "./Feedback";
 
 /**
  * Component which defines the layout of the page for all screen sizes
@@ -117,6 +118,7 @@ export const Layout = ({
         <div className="mt-12">
           <h2 className="sr-only">{t("siteFooter")}</h2>
           <div className="layout-container mt-5">
+            <Feedback />
             <ReportAProblem />
           </div>
           <div className="layout-container mb-2">
