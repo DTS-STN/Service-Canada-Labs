@@ -1,13 +1,16 @@
 # Based on the example found at https://github.com/vercel/next.js/blob/canary/examples/with-docker/Dockerfile
 FROM node:current-alpine3.18 AS base
 
+ENV YARN_VERSION 4.0.1
+
+RUN yarn policies set-version $YARN_VERSION
+
 # Install dependencies only when needed
 FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 COPY package.json yarn.lock* ./
-COPY .yarn ./.yarn
 RUN yarn install --frozen-lockfile
 
 FROM base AS builder
