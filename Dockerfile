@@ -11,7 +11,7 @@ ENV YARN_VERSION 4.0.1
 RUN yarn policies set-version $YARN_VERSION
 
 COPY package.json yarn.lock* .yarnrc.yml .yarn* ./
-RUN yarn install --frozen-lockfile
+RUN yarn install --immutable
 
 FROM base AS builder
 WORKDIR /app
