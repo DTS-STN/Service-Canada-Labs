@@ -37,6 +37,7 @@ stages:
               Dockerfile: './Dockerfile'
               tags: |
                 $(tag)
+                latest
                 release-candidate
               arguments: |
                 --pull 
@@ -58,4 +59,5 @@ stages:
               command: 'push'
               tags: |
                 $(tag)
+                latest
                 release-candidate
