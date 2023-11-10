@@ -1653,7 +1653,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.22.6, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.22.6, @babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4":
   version: 7.23.2
   resolution: "@babel/runtime@npm:7.23.2"
   dependencies:
@@ -10647,12 +10647,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^23.4.5":
-  version: 23.5.1
-  resolution: "i18next@npm:23.5.1"
+"i18next@npm:^23.6.0":
+  version: 23.7.1
+  resolution: "i18next@npm:23.7.1"
   dependencies:
-    "@babel/runtime": "npm:^7.22.5"
-  checksum: af49c399a90505ae26c1a022d06c4a11c4adcde6524b31c315dcaa43443c85892adef6de934b2af737abbdd2ffa66449d2854f135af8691223a8bb4ffaf6e1af
+    "@babel/runtime": "npm:^7.23.2"
+  checksum: cc7513c32eba4df86a6ccb79fc4572d4086ff767f54c090e56f2653f6861f5d827f855e5480ae5b13a6eab952a4145c7d60e485651856d5eece96fa6ec5237e6
   languageName: node
   linkType: hard
 
@@ -15611,9 +15611,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:^13.2.0":
-  version: 13.2.2
-  resolution: "react-i18next@npm:13.2.2"
+"react-i18next@npm:^13.3.0":
+  version: 13.3.2
+  resolution: "react-i18next@npm:13.3.2"
   dependencies:
     "@babel/runtime": "npm:^7.22.5"
     html-parse-stringify: "npm:^3.0.1"
@@ -15625,7 +15625,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: 846e73130414989304c395c247cec8371ec25b5a0284588c913542741ce0cc33b4681d573980c64320138601d08a2ddec5042dc6f841e48a575e3f11ab83a368
+  checksum: 38ad9daebb9d30d589d694a09e218d545b3bd4ef7deec302b141b964b9781e957e52b7b039647079dbdbd3bfbb74ade63c136524121ff5ed040e500a8a4ec24a
   languageName: node
   linkType: hard
 
@@ -16785,7 +16785,7 @@ __metadata:
     focus-trap-react: "npm:^8.11.2"
     graphql: "npm:^16.8.1"
     husky: "npm:^7.0.1"
-    i18next: "npm:^23.4.5"
+    i18next: "npm:^23.6.0"
     i18next-http-backend: "npm:^1.4.5"
     jest: "npm:^26.6.3"
     jest-axe: "npm:^5.0.1"
@@ -16806,7 +16806,7 @@ __metadata:
     react-bootstrap: "npm:^2.9.0"
     react-copy-to-clipboard: "npm:^5.1.0"
     react-dom: "npm:^18.2.0"
-    react-i18next: "npm:^13.2.0"
+    react-i18next: "npm:^13.3.0"
     react-lock-scroll: "npm:^0.1.8"
     react-markdown: "npm:^8.0.7"
     react-remark: "npm:^2.1.0"
