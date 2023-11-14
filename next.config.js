@@ -93,10 +93,6 @@ module.exports = {
 
     return config;
   },
-  env: {
-    NEXT_PUBLIC_BUILD_DATE: process.env.NEXT_PUBLIC_BUILD_DATE,
-    NEXT_PUBLIC_BUILD_ID: process.env.NEXT_PUBLIC_BUILD_ID,
-  },
   images: {
     domains: ["canada.ca", "www.canada.ca"],
   },

@@ -10,15 +10,7 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",
-    {
-      name: "@storybook/addon-postcss",
-      options: {
-        postcssLoaderOptions: {
-          implementation: require("postcss"),
-        },
-      },
-    },
-    "@storybook/addon-mdx-gfm",
+    "@storybook/addon-styling",
   ],
   webpackFinal: (config) => {
     // useTranslation() hook in next-i18next is looking for a server environment and storybooks
