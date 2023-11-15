@@ -102,7 +102,7 @@ export const Layout = ({
           </div>
         </div>
 
-        <div className="layout-container mt-20">
+        <div className="layout-container mt-4 lg:mt-20">
           <Breadcrumb items={breadcrumbItems} />
         </div>
       </header>
