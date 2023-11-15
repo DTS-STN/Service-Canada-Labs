@@ -59,7 +59,7 @@ export const Layout = ({
         ) : (
           ""
         )}
-        <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between  mt-2">
+        <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between mt-2">
           <div
             className="flex flex-row justify-between items-center lg:mt-7 mt-1.5"
             role="navigation"
@@ -102,10 +102,8 @@ export const Layout = ({
           </div>
         </div>
 
-        <div className="border-t pb-2 mt-4">
-          <div className="layout-container mt-10 mb-2">
-            <Breadcrumb items={breadcrumbItems} />
-          </div>
+        <div className="layout-container mt-4 lg:mt-20">
+          <Breadcrumb items={breadcrumbItems} />
         </div>
       </header>
 
