@@ -9,8 +9,8 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 export function Breadcrumb(props) {
   return (
     <nav aria-label="breadcrumbs">
-      <ul className="block text-custom-blue-dark text-base font-body -ml-4 -my-4 ">
-        <li className="inline-block min-w-0 max-w-full truncate px-1 -my-4">
+      <ul className="block text-custom-blue-dark text-base font-body">
+        <li className="inline-block min-w-0 max-w-full truncate px-1 ml-0">
           <Link
             href="https://www.canada.ca/"
             className="text-sm hover:text-custom-blue-link visited:text-purple-700 underline"
@@ -24,9 +24,9 @@ export function Breadcrumb(props) {
               return (
                 <li
                   key={key}
-                  className="inline-block min-w-0 max-w-full truncate -my-4 px-1"
+                  className="inline-block min-w-0 max-w-full truncate px-1 ml-4"
                 >
-                  <span className="inline-block mr-4">
+                  <span className="inline-block mr-6">
                     <FontAwesomeIcon
                       icon={faChevronRight}
                       className="text-xs text-gray-breadcrumb"
