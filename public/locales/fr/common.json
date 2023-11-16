@@ -492,5 +492,21 @@
   },
   "searchPlaceholderText": "Rechercher dans Canada.ca",
   "searchButtonHoverText": "Bouton du champ de recherche",
-  "monthDropdownPlaceholder": "Sélectionner le mois"
+  "monthDropdownPlaceholder": "Sélectionner le mois",
+
+  "feedback": {
+    "thank-you": "Merci de vos commentaires",
+    "what-was-wrong": "Qu'est-ce qui n'allait pas?",
+    "cant-find-info": "Je ne peux pas trouver l'information",
+    "hard-to-understand": "L'information est difficile à comprendre",
+    "there-was-an-error": "Il y avait une erreur / quelque chose ne fonctionnait pas",
+    "other-reason": "Autre raison",
+    "provide-more-details": "Veuillez fournir plus de détails",
+    "no-protected-info": "Vous ne recevrez aucune réponse. N'incluez pas de renseignements personnels (téléphone, courriel, NAS, renseignements financiers, médicaux ou professionnels)",
+    "maximum-characters": "Maximum de 300 caractères",
+    "submit": "Soumettre",
+    "did-you-find": "Avez-vous trouvé ce que vous cherchiez?",
+    "yes": "Oui",
+    "no": "Non"
+  }
 }

@@ -119,7 +119,6 @@ export const Layout = ({
           <h2 className="sr-only">{t("siteFooter")}</h2>
           <div className="layout-container mt-5">
             <Feedback />
-            <ReportAProblem />
           </div>
           <div className="layout-container mb-2">
             <DateModified date={dateModifiedOverride} />

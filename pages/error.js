@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Link from "next/link";
-import { ReportAProblem } from "../components/organisms/ReportAProblem";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
@@ -296,7 +295,6 @@ export default function ErrorPage(props) {
                     </div>
                   )}
                 </div>
-                <ReportAProblem language="en" />
               </div>
               <div className="flex items-center justify-center circle-background my-8 lg:mt-0 lightbulb-bg">
                 <span className="relative lightbulb">
@@ -418,7 +416,6 @@ export default function ErrorPage(props) {
                     </div>
                   )}
                 </div>
-                <ReportAProblem language="fr" />
               </div>
             </div>
           </section>

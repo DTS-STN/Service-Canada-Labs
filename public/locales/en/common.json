@@ -502,5 +502,21 @@
   },
   "searchPlaceholderText": "Search Canada.ca",
   "searchButtonHoverText": "Search bar button",
-  "monthDropdownPlaceholder": "Select month"
+  "monthDropdownPlaceholder": "Select month",
+
+  "feedback": {
+    "thank-you": "Thank you for your feedback.",
+    "what-was-wrong": "What was wrong?",
+    "cant-find-info": "I can't find the information",
+    "hard-to-understand": "The information is hard to understand",
+    "there-was-an-error": "There was an error or something didn't work",
+    "other-reason": "Other reason",
+    "provide-more-details": "Please provide more details",
+    "no-protected-info": "You will not receive a reply. Don't include personal information (telephone, email, SIN, financial, medical, or work details).",
+    "maximum-characters": "Maximum 300 characters",
+    "submit": "Submit",
+    "did-you-find": "Did you find what you're looking for?",
+    "yes": "Yes",
+    "no": "No"
+  }
 }

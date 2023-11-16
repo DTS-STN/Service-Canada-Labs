@@ -2,7 +2,6 @@ import Head from "next/head";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
-import { ReportAProblem } from "../components/organisms/ReportAProblem";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
@@ -165,7 +164,6 @@ export default function error404(props) {
                   </p>
                 </div>
               </div>
-              <ReportAProblem language={"en"} />
             </div>
             <div className="flex items-center justify-center circle-background my-8 mx-4 lg:mt-0 lightbulb-bg shrink-0">
               <span className="relative lightbulb">
@@ -206,7 +204,6 @@ export default function error404(props) {
                   </p>
                 </div>
               </div>
-              <ReportAProblem language="fr" />
             </div>
           </div>
         </section>
