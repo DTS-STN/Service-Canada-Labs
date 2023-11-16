@@ -1,0 +1,35 @@
+name: Broken Links Report
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'  # Schedule to run every Monday at midnight UTC
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.10  # Adjust the version as needed
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install bs4 requests
+
+    - name: Run Python script with secrets
+      run: |
+        python ../scripts/broken_links.py
+          --NOTIFY_BASE_API_URL ${{ secrets.NOTIFY_BASE_API_URL }}
+          --BROKEN_LINKS_API_KEY ${{ secrets.BROKEN_LINKS_API_KEY }}
+          --BROKEN_LINKS_EMAIL ${{ secrets.BROKEN_LINKS_EMAIL }}
+          --BROKEN_LINKS_TEMPLATE_ID ${{ secrets.BROKEN_LINKS_TEMPLATE_ID }}
+      env:
+        NOTIFY_BASE_API_URL: ${{ secrets.NOTIFY_BASE_API_URL }}
+        BROKEN_LINKS_API_KEY: ${{ secrets.BROKEN_LINKS_API_KEY }}
+        BROKEN_LINKS_EMAIL: ${{ secrets.BROKEN_LINKS_EMAIL }}
+        BROKEN_LINKS_TEMPLATE_ID: ${{ secrets.BROKEN_LINKS_TEMPLATE_ID }}
