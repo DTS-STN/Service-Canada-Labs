@@ -13,11 +13,6 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-          name="og:builddate"
-          content={process.env.NEXT_PUBLIC_BUILD_DATE}
-        />
-        <meta name="og:buildid" content={process.env.NEXT_PUBLIC_BUILD_ID} />
       </Head>
       <Component {...pageProps} />
     </>

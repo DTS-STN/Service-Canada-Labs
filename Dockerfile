@@ -6,8 +6,12 @@ FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-COPY package.json yarn.lock* ./
-RUN yarn --frozen-lockfile
+# Set yarn version
+ENV YARN_VERSION 4.0.1
+RUN yarn policies set-version $YARN_VERSION
+
+COPY package.json yarn.lock* .yarnrc.yml .yarn* ./
+RUN yarn install --immutable
 
 FROM base AS builder
 WORKDIR /app

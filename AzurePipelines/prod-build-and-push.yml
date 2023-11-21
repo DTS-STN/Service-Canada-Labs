@@ -8,8 +8,9 @@ trigger:
 pr: none
 
 variables:
-  azureContainerRegistry.name: 'alphasiteACRprod-7/12/2023'
-  imageRepository: 'alphasite'
+  azureContainerRegistry.repository: 'servicecanadalabs'
+  azureContainerRegistry.name: 'DTS Shared Container Repo 10/11/2023'
+  azureContainerRegistry.domain: 'dtsshared.azurecr.io'
   ADO_BUILD: $(Build.BuildId)
   BUILD_DATE: $(Build.BuildNumber)
   tag: 'ADO-$(ADO_BUILD)'
@@ -28,11 +29,20 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: '$(azureContainerRegistry.name)'
-        repository: '$(imageRepository)'
+        repository: '$(azureContainerRegistry.repository)'
+        command: 'login'
+    - script: "docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):latest"
+      displayName: Pull latest for layer caching
+      continueOnError: true
+    - task: Docker@2
+      inputs:
+        containerRegistry: '$(azureContainerRegistry.name)'
+        repository: '$(azureContainerRegistry.repository)'
         command: 'build'
         Dockerfile: './Dockerfile'
         tags: |
           $(tag)
+          latest
           production-release
         arguments: |
           --pull 
@@ -51,8 +61,9 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: '$(azureContainerRegistry.name)'
-        repository: '$(imageRepository)'
+        repository: '$(azureContainerRegistry.repository)'
         command: 'push'
         tags: |
           $(tag)
+          latest
           production-release
