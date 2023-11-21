@@ -191,9 +191,7 @@ export default function OASUpdatePage(props) {
             tabIndex="-1"
             id="pageMainTitle"
             title={
-              props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[0].content[0].value
-                : pageData.scFragments[1].scContentFr.json[0].content[0].value
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
             }
           />
           <div id="postedOnUpdatedOnSection" className="grid grid-cols-12">
