@@ -51,6 +51,8 @@ stages:
                 --build-arg REVALIDATION_TOKEN=$(REVALIDATION_TOKEN) 
                 --build-arg GIT_SHA=$(Build.SourceVersion)
                 --build-arg ENVIRONMENT=$(ENVIRONMENT)
+                --build-arg NOTIFY_API_KEY=$(NOTIFY_API_KEY)
+                --build-arg NOTIFY_FEEDBACK_TEMPLATE_ID=$(NOTIFY_FEEDBACK_TEMPLATE_ID)
                 
           - task: Docker@2
             inputs:
