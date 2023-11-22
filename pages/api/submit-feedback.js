@@ -15,6 +15,8 @@ export default async function handler(req, res) {
         throw new Exception("bad request");
       }
     } catch (e) {
+      console.log(process.env.NOTIFY_FEEDBACK_TEMPLATE_ID);
+      console.error(e);
       res.status(500).json({ message: "something went wrong" });
     }
   }
