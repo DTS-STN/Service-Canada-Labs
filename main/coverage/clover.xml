@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1700654193481" clover="3.2.0">
-  <project timestamp="1700654193481" name="All files">
-    <metrics statements="805" coveredstatements="556" conditionals="1277" coveredconditionals="410" methods="220" coveredmethods="135" elements="2302" coveredelements="1101" complexity="0" loc="805" ncloc="805" packages="15" files="109" classes="109"/>
+<coverage generated="1700655211210" clover="3.2.0">
+  <project timestamp="1700655211210" name="All files">
+    <metrics statements="826" coveredstatements="570" conditionals="1289" coveredconditionals="419" methods="226" coveredmethods="137" elements="2341" coveredelements="1126" complexity="0" loc="826" ncloc="826" packages="15" files="112" classes="112"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/index.js">
@@ -12,20 +12,20 @@
       <metrics statements="175" coveredstatements="167" conditionals="151" coveredconditionals="110" methods="53" coveredmethods="46"/>
       <file name="ActionButton.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/atoms/ActionButton.js">
         <metrics statements="15" coveredstatements="15" conditionals="50" coveredconditionals="42" methods="3" coveredmethods="3"/>
-        <line num="11" count="75" type="stmt"/>
-        <line num="13" count="75" type="stmt"/>
-        <line num="15" count="75" type="stmt"/>
-        <line num="17" count="75" type="stmt"/>
-        <line num="19" count="75" type="stmt"/>
-        <line num="22" count="75" type="cond" truecount="2" falsecount="0"/>
-        <line num="35" count="75" type="stmt"/>
-        <line num="36" count="75" type="stmt"/>
-        <line num="37" count="75" type="cond" truecount="2" falsecount="0"/>
-        <line num="38" count="67" type="stmt"/>
+        <line num="11" count="64" type="stmt"/>
+        <line num="13" count="64" type="stmt"/>
+        <line num="15" count="64" type="stmt"/>
+        <line num="17" count="64" type="stmt"/>
+        <line num="19" count="64" type="stmt"/>
+        <line num="22" count="64" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="64" type="stmt"/>
+        <line num="36" count="64" type="stmt"/>
+        <line num="37" count="64" type="cond" truecount="2" falsecount="0"/>
+        <line num="38" count="56" type="stmt"/>
         <line num="39" count="1" type="cond" truecount="2" falsecount="2"/>
         <line num="40" count="1" type="stmt"/>
         <line num="41" count="1" type="stmt"/>
-        <line num="47" count="75" type="cond" truecount="2" falsecount="0"/>
+        <line num="47" count="64" type="cond" truecount="2" falsecount="0"/>
         <line num="108" count="17" type="stmt"/>
       </file>
       <file name="ActionButton.stories.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/atoms/ActionButton.stories.js">
@@ -80,11 +80,11 @@
       </file>
       <file name="CheckBox.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/atoms/CheckBox.js">
         <metrics statements="5" coveredstatements="5" conditionals="14" coveredconditionals="10" methods="2" coveredmethods="2"/>
-        <line num="7" count="145" type="cond" truecount="2" falsecount="0"/>
-        <line num="12" count="145" type="stmt"/>
+        <line num="7" count="68" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="68" type="stmt"/>
         <line num="25" count="6" type="stmt"/>
-        <line num="54" count="9" type="stmt"/>
-        <line num="60" count="9" type="stmt"/>
+        <line num="54" count="7" type="stmt"/>
+        <line num="60" count="7" type="stmt"/>
       </file>
       <file name="CheckBox.stories.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/atoms/CheckBox.stories.js">
         <metrics statements="10" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
@@ -120,7 +120,7 @@
       <file name="ErrorLabel.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/atoms/ErrorLabel.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="7" count="5" type="stmt"/>
-        <line num="16" count="13" type="stmt"/>
+        <line num="16" count="11" type="stmt"/>
       </file>
       <file name="ErrorLabel.stories.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/atoms/ErrorLabel.stories.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -142,8 +142,8 @@
         <line num="9" count="4" type="stmt"/>
         <line num="11" count="4" type="stmt"/>
         <line num="41" count="1" type="stmt"/>
-        <line num="57" count="8" type="stmt"/>
-        <line num="62" count="8" type="stmt"/>
+        <line num="57" count="6" type="stmt"/>
+        <line num="62" count="6" type="stmt"/>
       </file>
       <file name="MultiTextField.stories.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/atoms/MultiTextField.stories.js">
         <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
@@ -200,8 +200,8 @@
         <line num="12" count="8" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
         <line num="42" count="0" type="stmt"/>
-        <line num="50" count="9" type="stmt"/>
-        <line num="55" count="9" type="stmt"/>
+        <line num="50" count="7" type="stmt"/>
+        <line num="55" count="7" type="stmt"/>
       </file>
       <file name="RadioField.stories.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/atoms/RadioField.stories.js">
         <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
@@ -264,8 +264,8 @@
         <line num="11" count="6" type="cond" truecount="2" falsecount="0"/>
         <line num="16" count="6" type="stmt"/>
         <line num="61" count="2" type="stmt"/>
-        <line num="71" count="8" type="stmt"/>
-        <line num="76" count="8" type="stmt"/>
+        <line num="71" count="6" type="stmt"/>
+        <line num="76" count="6" type="stmt"/>
       </file>
       <file name="TextField.stories.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/atoms/TextField.stories.js">
         <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
@@ -493,8 +493,8 @@
       </file>
       <file name="Details.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/molecules/Details.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="7" count="22" type="stmt"/>
-        <line num="19" count="7" type="stmt"/>
+        <line num="7" count="10" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
       </file>
       <file name="Details.stories.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/molecules/Details.stories.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -659,10 +659,10 @@
       </file>
       <file name="OptionalTextField.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/molecules/OptionalTextField.js">
         <metrics statements="14" coveredstatements="11" conditionals="21" coveredconditionals="17" methods="4" coveredmethods="2"/>
-        <line num="13" count="132" type="cond" truecount="2" falsecount="0"/>
-        <line num="14" count="132" type="stmt"/>
-        <line num="15" count="132" type="stmt"/>
-        <line num="16" count="132" type="stmt"/>
+        <line num="13" count="55" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="55" type="stmt"/>
+        <line num="15" count="55" type="stmt"/>
+        <line num="16" count="55" type="stmt"/>
         <line num="17" count="3" type="cond" truecount="1" falsecount="1"/>
         <line num="18" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
@@ -670,9 +670,9 @@
         <line num="22" count="3" type="stmt"/>
         <line num="25" count="3" type="cond" truecount="1" falsecount="1"/>
         <line num="26" count="0" type="stmt"/>
-        <line num="29" count="132" type="stmt"/>
-        <line num="106" count="7" type="stmt"/>
-        <line num="110" count="7" type="stmt"/>
+        <line num="29" count="55" type="stmt"/>
+        <line num="106" count="5" type="stmt"/>
+        <line num="110" count="5" type="stmt"/>
       </file>
       <file name="OptionalTextField.stories.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/molecules/OptionalTextField.stories.js">
         <metrics statements="12" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
@@ -721,7 +721,21 @@
       </file>
     </package>
     <package name="components.organisms">
-      <metrics statements="67" coveredstatements="64" conditionals="42" coveredconditionals="34" methods="14" coveredmethods="13"/>
+      <metrics statements="78" coveredstatements="69" conditionals="50" coveredconditionals="39" methods="18" coveredmethods="14"/>
+      <file name="Feedback.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/organisms/Feedback.js">
+        <metrics statements="11" coveredstatements="5" conditionals="8" coveredconditionals="5" methods="4" coveredmethods="1"/>
+        <line num="7" count="7" type="stmt"/>
+        <line num="8" count="7" type="stmt"/>
+        <line num="10" count="7" type="stmt"/>
+        <line num="11" count="7" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="28" count="7" type="stmt"/>
+        <line num="114" count="0" type="stmt"/>
+        <line num="120" count="0" type="stmt"/>
+      </file>
       <file name="Footer.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/organisms/Footer.js">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
         <line num="9" count="1" type="stmt"/>
@@ -737,12 +751,12 @@
       </file>
       <file name="Layout.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/organisms/Layout.js">
         <metrics statements="6" coveredstatements="6" conditionals="18" coveredconditionals="12" methods="1" coveredmethods="1"/>
-        <line num="16" count="3" type="stmt"/>
-        <line num="29" count="7" type="stmt"/>
-        <line num="30" count="7" type="cond" truecount="1" falsecount="1"/>
-        <line num="31" count="7" type="stmt"/>
-        <line num="36" count="7" type="stmt"/>
-        <line num="157" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="30" count="7" type="stmt"/>
+        <line num="31" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="32" count="7" type="stmt"/>
+        <line num="37" count="7" type="stmt"/>
+        <line num="158" count="3" type="stmt"/>
       </file>
       <file name="Layout.stories.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/organisms/Layout.stories.js">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -778,10 +792,10 @@
       </file>
       <file name="ReportAProblem.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/organisms/ReportAProblem.js">
         <metrics statements="29" coveredstatements="27" conditionals="14" coveredconditionals="13" methods="3" coveredmethods="2"/>
-        <line num="15" count="20" type="stmt"/>
-        <line num="16" count="19" type="stmt"/>
-        <line num="18" count="19" type="stmt"/>
-        <line num="20" count="19" type="stmt"/>
+        <line num="15" count="8" type="stmt"/>
+        <line num="16" count="8" type="stmt"/>
+        <line num="18" count="8" type="stmt"/>
+        <line num="20" count="8" type="stmt"/>
         <line num="22" count="3" type="stmt"/>
         <line num="25" count="3" type="stmt"/>
         <line num="26" count="3" type="stmt"/>
@@ -805,8 +819,8 @@
         <line num="91" count="3" type="cond" truecount="2" falsecount="0"/>
         <line num="92" count="1" type="stmt"/>
         <line num="95" count="3" type="stmt"/>
-        <line num="98" count="19" type="stmt"/>
-        <line num="373" count="6" type="stmt"/>
+        <line num="98" count="8" type="stmt"/>
+        <line num="373" count="4" type="stmt"/>
       </file>
       <file name="ReportAProblem.stories.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/organisms/ReportAProblem.stories.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -815,7 +829,11 @@
       </file>
     </package>
     <package name="lib.notify">
-      <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <metrics statements="7" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+      <file name="postFeedbackToGcNotify.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/lib/notify/postFeedbackToGcNotify.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+      </file>
       <file name="submitEmail.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/lib/notify/submitEmail.js">
         <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="3" count="2" type="stmt"/>
@@ -890,43 +908,43 @@
       <metrics statements="91" coveredstatements="48" conditionals="242" coveredconditionals="89" methods="23" coveredmethods="12"/>
       <file name="404.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/404.js">
         <metrics statements="17" coveredstatements="12" conditionals="26" coveredconditionals="13" methods="3" coveredmethods="2"/>
+        <line num="11" count="2" type="stmt"/>
         <line num="12" count="2" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="18" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="24" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-        <line num="32" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="249" count="1" type="stmt"/>
-        <line num="250" count="0" type="stmt"/>
-        <line num="252" count="0" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="31" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="246" count="1" type="stmt"/>
+        <line num="247" count="0" type="stmt"/>
+        <line num="249" count="0" type="stmt"/>
       </file>
       <file name="500.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/500.js">
         <metrics statements="17" coveredstatements="12" conditionals="24" coveredconditionals="12" methods="3" coveredmethods="2"/>
+        <line num="11" count="2" type="stmt"/>
         <line num="12" count="2" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="18" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="24" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-        <line num="32" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="275" count="1" type="stmt"/>
-        <line num="276" count="0" type="stmt"/>
-        <line num="278" count="0" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="31" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="272" count="1" type="stmt"/>
+        <line num="273" count="0" type="stmt"/>
+        <line num="275" count="0" type="stmt"/>
       </file>
       <file name="_app.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/_app.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -935,22 +953,22 @@
       </file>
       <file name="error.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/error.js">
         <metrics statements="16" coveredstatements="0" conditionals="50" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="11" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="26" count="0" type="stmt"/>
+        <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="459" count="0" type="stmt"/>
+        <line num="460" count="0" type="stmt"/>
         <line num="462" count="0" type="stmt"/>
-        <line num="463" count="0" type="stmt"/>
-        <line num="465" count="0" type="stmt"/>
       </file>
       <file name="home.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/home.js">
         <metrics statements="15" coveredstatements="10" conditionals="82" coveredconditionals="38" methods="5" coveredmethods="4"/>
@@ -1002,7 +1020,7 @@
       </file>
     </package>
     <package name="pages.api">
-      <metrics statements="22" coveredstatements="19" conditionals="12" coveredconditionals="10" methods="3" coveredmethods="2"/>
+      <metrics statements="31" coveredstatements="28" conditionals="16" coveredconditionals="14" methods="4" coveredmethods="3"/>
       <file name="healthcheck.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/api/healthcheck.js">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="3" count="0" type="stmt"/>
@@ -1033,6 +1051,18 @@
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="17" count="2" type="stmt"/>
+      </file>
+      <file name="submit-feedback.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/api/submit-feedback.js">
+        <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="6" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="12" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
       </file>
     </package>
     <package name="pages.projects.benefits-navigator">
