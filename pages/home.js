@@ -81,9 +81,7 @@ export default function Home(props) {
 
           {/* Primary HTML Meta Tags */}
           <title>
-            {props.locale === "en"
-              ? pageData.scShortTitleEn
-              : pageData.scShortTitleFr}
+            {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
           </title>
           <meta
             name="description"
@@ -233,10 +231,8 @@ export default function Home(props) {
                 id="pageMainTitle"
                 title={
                   props.locale === "en"
-                    ? pageData.scFragments[0].scContentEn.json[0].content[0]
-                        .value
-                    : pageData.scFragments[0].scContentFr.json[0].content[0]
-                        .value
+                    ? pageData.scTitleEn
+                    : pageData.scTitleFr
                 }
               />
             </div>

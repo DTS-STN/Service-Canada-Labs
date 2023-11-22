@@ -300,10 +300,8 @@ export default function BenefitsNavigatorOverview(props) {
                   id="pageMainTitle"
                   title={
                     props.locale === "en"
-                      ? pageData.scFragments[2].scContentEn.json[0].content[0]
-                          .value
-                      : pageData.scFragments[2].scContentFr.json[0].content[0]
-                          .value
+                      ? pageData.scTitleEn
+                      : pageData.scTitleFr
                   }
                 />
               </div>

@@ -253,10 +253,8 @@ export default function OasBenefitsEstimator(props) {
                   id="pageMainTitle"
                   title={
                     props.locale === "en"
-                      ? pageData.scFragments[0].scContentEn.json[0].content[0]
-                          .value
-                      : pageData.scFragments[0].scContentFr.json[0].content[0]
-                          .value
+                      ? pageData.scTitleEn
+                      : pageData.scTitleFr
                   }
                 />
               </div>
