@@ -8,11 +8,11 @@ export default async function handler(req, res) {
   } else {
     try {
       let r = await postFeedbackToGcNotify(data);
-
+      console.log(r);
       if (r.ok) {
         res.status(200).json(data);
       } else {
-        throw new Exception("bad request");
+        throw new Error("bad request");
       }
     } catch (e) {
       console.log(process.env.NOTIFY_FEEDBACK_TEMPLATE_ID);
