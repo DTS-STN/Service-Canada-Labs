@@ -11,7 +11,7 @@
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@storybook/addons": "^7.5.3",
     "@storybook/client-api": "^7.5.3",
-    "@types/react": "^18.2.22",
+    "@types/react": "^18.2.38",
     "cors": "^2.8.5",
     "cuid": "^2.1.8",
     "focus-trap-react": "^8.11.2",
@@ -58,7 +58,7 @@
     "pre-commit": "lint-staged"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.6",
+    "@babel/core": "^7.23.3",
     "@storybook/addon-a11y": "^7.5.3",
     "@storybook/addon-actions": "^7.5.3",
     "@storybook/addon-docs": "^7.5.3",
