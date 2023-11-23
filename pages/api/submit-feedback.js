@@ -2,7 +2,7 @@ import { postFeedbackToGcNotify } from "../../lib/notify/postFeedbackToGcNotify"
 
 export default async function handler(req, res) {
   const data = req.body;
-  console.log(process.env)
+  console.log(process.env);
   if (!data["what-was-wrong"]) {
     res.status(400).json({ message: "required field missing" });
   } else {
@@ -14,7 +14,7 @@ export default async function handler(req, res) {
         throw new Error("bad request");
       }
     } catch (e) {
-      console.error("Failed to post to GC Notify", e);
+      console.error("Failed to post to GC Notify");
       res.status(500).json({ message: "something went wrong" });
     }
   }
