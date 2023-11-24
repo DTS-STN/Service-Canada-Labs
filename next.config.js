@@ -29,6 +29,10 @@ const REWRITES = [
     source: "/projets/navigateur-prestations/:slug",
     destination: "/projects/benefits-navigator/:slug",
   },
+  {
+    source: "/projets/guide-normes-numeriques",
+    destination: "/projects/digital-standards-playbook",
+  },
 ];
 
 securityHeaders = [
