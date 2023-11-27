@@ -22,12 +22,7 @@ jobs:
         pip install bs4 requests
 
     - name: Run Python script with secrets
-      run: |
-        python .github/scripts/broken_links.py
-          --NOTIFY_BASE_API_URL ${{ secrets.NOTIFY_BASE_API_URL }}
-          --BROKEN_LINKS_API_KEY ${{ secrets.BROKEN_LINKS_API_KEY }}
-          --BROKEN_LINKS_EMAIL ${{ secrets.BROKEN_LINKS_EMAIL }}
-          --BROKEN_LINKS_TEMPLATE_ID ${{ secrets.BROKEN_LINKS_TEMPLATE_ID }}
+      run: python .github/scripts/broken_links.py
       env:
         NOTIFY_BASE_API_URL: ${{ secrets.NOTIFY_BASE_API_URL }}
         BROKEN_LINKS_API_KEY: ${{ secrets.BROKEN_LINKS_API_KEY }}
