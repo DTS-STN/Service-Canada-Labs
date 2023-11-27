@@ -2,7 +2,7 @@ name: Broken Links Report
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '0 0 * * 0'
 
 jobs:
   run-script:
