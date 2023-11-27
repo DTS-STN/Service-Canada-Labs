@@ -23,7 +23,7 @@ jobs:
 
     - name: Run Python script with secrets
       run: |
-        python ../scripts/broken_links.py
+        python .github/scripts/broken_links.py
           --NOTIFY_BASE_API_URL ${{ secrets.NOTIFY_BASE_API_URL }}
           --BROKEN_LINKS_API_KEY ${{ secrets.BROKEN_LINKS_API_KEY }}
           --BROKEN_LINKS_EMAIL ${{ secrets.BROKEN_LINKS_EMAIL }}
