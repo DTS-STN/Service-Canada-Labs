@@ -22,9 +22,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@apollo/client@npm:^3.8.5":
-  version: 3.8.6
-  resolution: "@apollo/client@npm:3.8.6"
+"@apollo/client@npm:^3.8.7":
+  version: 3.8.7
+  resolution: "@apollo/client@npm:3.8.7"
   dependencies:
     "@graphql-typed-document-node/core": "npm:^3.1.1"
     "@wry/context": "npm:^0.7.3"
@@ -54,7 +54,7 @@ __metadata:
       optional: true
     subscriptions-transport-ws:
       optional: true
-  checksum: 497aa3a49eb6377066492989ac7c21611fa512ee965af20d3d8307b13b96eabba14e8718d75c2aefa9457713cfdc72ed43c0b0e7890a777a57d9b5eff8712572
+  checksum: 143aeb8b045ea63eaff2a26a9e7f33074251bde0023cdab99ac708657179b28de4c6af3c7cffb468528c758867e5feb079dbac8923455c0588c29938876e244f
   languageName: node
   linkType: hard
 
@@ -16747,7 +16747,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "service-canada-labs@workspace:."
   dependencies:
-    "@apollo/client": "npm:^3.8.5"
+    "@apollo/client": "npm:^3.8.7"
     "@babel/core": "npm:^7.14.6"
     "@fortawesome/fontawesome-svg-core": "npm:^6.4.2"
     "@fortawesome/free-regular-svg-icons": "npm:^6.4.2"
