@@ -82,8 +82,8 @@ export default function BenefitsNavigatorOverview(props) {
         showImage
         imgSrc={
           props.locale === "en"
-            ? `https://www.canada.ca${update.scSocialMediaImageEn._path}`
-            : `https://www.canada.ca${update.scSocialMediaImageFr._path}`
+            ? `https://www.canada.ca${update.scSocialMediaImageEn?._path}`
+            : `https://www.canada.ca${update.scSocialMediaImageFr?._path}`
         }
         imgAlt={
           props.locale === "en"
