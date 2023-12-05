@@ -1,0 +1,26 @@
+import { v4 as uuid } from "uuid";
+import TextWithImage from "./fragment_components/TextWithImage";
+import TextContent from "./fragment_components/TextContent";
+import Button from "./fragment_components/Button";
+
+const FRAGMENTS = {
+  "SCLabs-Comp-Content-Image-v1": TextWithImage,
+  "SCLabs-Content-v1": TextContent,
+  "SCLabs-Button-v1": Button,
+};
+
+export default function FragmentRender(props) {
+  // Create and return array of elements corresponding to
+  // fragments
+  const pageFragments = props.fragments.map((fragment) => {
+    const Fragment = FRAGMENTS[fragment?._model.title];
+    if (!Fragment) {
+      return;
+    }
+    return (
+      <Fragment key={uuid()} fragmentData={fragment} locale={props.locale} />
+    );
+  });
+
+  return pageFragments;
+}
