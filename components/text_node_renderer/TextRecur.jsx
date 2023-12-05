@@ -21,7 +21,7 @@ const NODES = {
   "line-break": LineBreak,
 };
 
-export default function Recur(props) {
+export default function TextRecur(props) {
   const Node = NODES[props.node?.nodeType];
   let content = props.node?.content;
 
@@ -37,9 +37,9 @@ export default function Recur(props) {
   return (
     <>
       {content && content.length ? (
-        <Node key={uuid()} node={props.node}>
+        <Node key={uuid()} node={props.node} index={props.index}>
           {content.map((node) => (
-            <Recur key={uuid()} node={node} />
+            <TextRecur key={uuid()} node={node} />
           ))}
         </Node>
       ) : (
