@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
-import Render from "../../../components/gql_node_renderer/Render";
+import TextRender from "../../../components/text_node_renderer/TextRender";
 import { CTA } from "../../../components/design-system/CTA";
 import { Heading } from "../../../components/design-system/Heading";
 
@@ -241,7 +241,7 @@ export default function OASUpdatePage(props) {
               </div>
             </div>
             <div className="col-span-12 lg:col-span-7">
-              <Render
+              <TextRender
                 data={
                   props.locale === "en"
                     ? pageData.scFragments[1].scContentEn.json
