@@ -5,7 +5,6 @@ export default function TextRender(props) {
   return (
     <>
       {props.data.map((node, index) => {
-        console.log(node, index);
         return (
           <TextRecur
             key={uuid()}
