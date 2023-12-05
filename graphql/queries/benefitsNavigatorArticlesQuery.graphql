@@ -65,7 +65,83 @@ query getBenefitsNavigatorArticles {
       scNoIndex
       scNoFollow
       scFragments {
+        ... on SclabsCompContentImageV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
+          scId
+          scLabContent {
+            scId
+            scContentEn {
+              json
+            }
+            scContentFr {
+              json
+            }
+          }
+          scLabImage {
+            ... on SclabsImageV1Model {
+              scId
+              scImageEn {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageFr {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageMobileEn {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageMobileFr {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageAltTextEn
+              scImageAltTextFr
+              scImageCaptionEn {
+                json
+              }
+              scImageCaptionFr {
+                json
+              }
+            }
+          }
+          scLabLayout
+        }
         ... on SclabsContentV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
           _path
           scId
           scContentEn {
@@ -76,6 +152,11 @@ query getBenefitsNavigatorArticles {
           }
         }
         ... on SclabsImageV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
           scId
           scImageEn {
             ... on ImageRef {
@@ -127,6 +208,11 @@ query getBenefitsNavigatorArticles {
           }
         }
         ... on SclabsButtonV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
           scId
           scTitleEn
           scTitleFr
@@ -135,6 +221,11 @@ query getBenefitsNavigatorArticles {
           scButtonType
         }
         ... on SclabsFeatureV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
           scId
           scTitleEn
           scTitleFr
@@ -191,6 +282,11 @@ query getBenefitsNavigatorArticles {
           }
         }
         ... on TooltipV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
           _path
           scId
           scTitleEn
