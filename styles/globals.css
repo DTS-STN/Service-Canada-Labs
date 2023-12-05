@@ -87,6 +87,7 @@ html {
   h3,
   h4,
   h5 {
+    margin-top: 48px;
     margin-bottom: 16px;
   }
   p + p {
