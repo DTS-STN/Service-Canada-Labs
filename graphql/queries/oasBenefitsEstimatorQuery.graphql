@@ -55,7 +55,8 @@ query getOASBenefitsEstimatorPage {
               _publishUrl
             }
             ... on DocumentRef {
-              _path_publishUrl
+              _path
+              _publishUrl
             }
           }
           scSocialMediaImageFr {
