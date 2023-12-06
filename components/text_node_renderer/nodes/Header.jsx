@@ -9,20 +9,12 @@ export default function Header(props) {
         <h2 className={props.index === 0 ? "mt-0" : ""}>{props.children}</h2>
       );
     case "h3":
-      return (
-        <h3 className={props.index === 0 ? "mt-0" : ""}>{props.children}</h3>
-      );
+      return <h3>{props.children}</h3>;
     case "h4":
-      return (
-        <h4 className={props.index === 0 ? "mt-0" : ""}>{props.children}</h4>
-      );
+      return <h4>{props.children}</h4>;
     case "h5":
-      return (
-        <h5 className={props.index === 0 ? "mt-0" : ""}>{props.children}</h5>
-      );
+      return <h5>{props.children}</h5>;
     default:
-      return (
-        <h6 className={props.index === 0 ? "mt-0" : ""}>{props.children}</h6>
-      );
+      return <h6>{props.children}</h6>;
   }
 }
