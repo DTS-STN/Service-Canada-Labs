@@ -44,20 +44,24 @@ query getAllProjects {
       scSocialMediaImageEn {
         ... on ImageRef {
           _path
+          _publishUrl
           width
         }
         ... on MultimediaRef {
           _path
+          _publishUrl
           size
         }
       }
       scSocialMediaImageFr {
         ... on ImageRef {
           _path
+          _publishUrl
           width
         }
         ... on MultimediaRef {
           _path
+          _publishUrl
           size
         }
       }

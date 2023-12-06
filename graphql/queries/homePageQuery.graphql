@@ -34,21 +34,25 @@ query getHomePage {
       scRegion
       scSocialMediaImageEn {
         ... on ImageRef {
+          _path
           _publishUrl
           width
           height
         }
         ... on DocumentRef {
+          _path
           _publishUrl
         }
       }
       scSocialMediaImageFr {
         ... on ImageRef {
+          _path
           _publishUrl
           width
           height
         }
         ... on DocumentRef {
+          _path
           _publishUrl
         }
       }
