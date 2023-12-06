@@ -32,11 +32,11 @@ export default function Home(props) {
           // TODO images should always be fetched from the same place in the response data i.e. using the socialMediaImage field
           project.scId === "BENEFITS-NAVIGATOR-OVERVIEW"
             ? props.locale === "en"
-              ? `${project.scFragments[0].scImageEn._publishUrl}`
-              : `${project.scFragments[0].scImageFr._publishUrl}`
+              ? project.scFragments[0].scImageEn._publishUrl
+              : project.scFragments[0].scImageFr._publishUrl
             : props.locale === "en"
-            ? `https://www.canada.ca${project.scSocialMediaImageEn._path}`
-            : `https://www.canada.ca${project.scSocialMediaImageFr._path}`
+            ? project.scSocialMediaImageEn._publishUrl
+            : project.scSocialMediaImageFr._publishUrl
         }
         imgAlt={
           props.locale === "en"
