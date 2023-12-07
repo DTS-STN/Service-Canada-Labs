@@ -52,17 +52,21 @@ query getDigitalStandardsPlaybookPage {
           scSocialMediaImageEn {
             ... on ImageRef {
               _path
+              _publishUrl
             }
             ... on DocumentRef {
               _path
+              _publishUrl
             }
           }
           scSocialMediaImageFr {
             ... on ImageRef {
               _path
+              _publishUrl
             }
             ... on DocumentRef {
               _path
+              _publishUrl
             }
           }
           scSocialMediaImageAltTextEn
@@ -229,17 +233,21 @@ query getDigitalStandardsPlaybookPage {
       scSocialMediaImageEn {
         ... on ImageRef {
           _path
+          _publishUrl
         }
         ... on DocumentRef {
           _path
+          _publishUrl
         }
       }
       scSocialMediaImageFr {
         ... on ImageRef {
           _path
+          _publishUrl
         }
         ... on DocumentRef {
           _path
+          _publishUrl
         }
       }
       scSocialMediaImageAltTextEn

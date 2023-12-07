@@ -112,7 +112,7 @@ export const Layout = ({
         {bannerText && bannerTitle ? (
           <Banner siteTitle={bannerTitle} headline={bannerText} />
         ) : null}
-        <div>{children}</div>
+        {children}
         <div className="mt-12">
           <h2 className="sr-only">{t("siteFooter")}</h2>
           <div className="layout-container mt-5">
