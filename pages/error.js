@@ -31,7 +31,7 @@ export default function ErrorPage(props) {
 
   return (
     <>
-      <div className="min-h-screen relative">
+      <main className="min-h-screen relative">
         <Head>
           {props.adobeAnalyticsUrl ? (
             <script src={props.adobeAnalyticsUrl} />
@@ -97,7 +97,7 @@ export default function ErrorPage(props) {
           <meta
             property="dcterms:description"
             lang="fr"
-            content="Message d’erreur indiquant que le site a signalé une erreur."
+            content="Message d'erreur indiquant que le site a signalé une erreur."
           />
           <meta
             name="dcterms.creator"
@@ -171,7 +171,7 @@ export default function ErrorPage(props) {
           <meta property="twitter:image" content={`${t("metaImage")}`} />
           <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
         </Head>
-        <main>
+        <div>
           <section className="layout-container pb-44">
             <div className="pt-6">
               <img
@@ -261,10 +261,8 @@ export default function ErrorPage(props) {
                           <span className="error404-link" />
                           <p className="font-body text-sm leading-30px">
                             <Link
-                              href={
-                                pageData.scContentEn.json[9].content[0].data
-                                  .href
-                              }
+                              href="/en/home"
+                              locale={false}
                               className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                             >
                               {pageData.scContentEn.json[9].content[0].value}
@@ -284,9 +282,8 @@ export default function ErrorPage(props) {
                       <p className="font-body text-sm leading-30px">
                         {pageData.scContentEn.json[10].content[0].value}
                         <Link
-                          href={
-                            pageData.scContentEn.json[10].content[1].data.href
-                          }
+                          href="/en/home"
+                          locale={false}
                           className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                         >
                           {pageData.scContentEn.json[10].content[1].value}
@@ -382,14 +379,12 @@ export default function ErrorPage(props) {
                           <span className="error404-link" />
                           <p className="font-body text-sm leading-30px">
                             <Link
-                              href={
-                                pageData.scContentFr.json[9].content[0].data
-                                  .href
-                              }
+                              href="/fr/accueil"
+                              locale={false}
                               className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                             >
                               {pageData.scContentFr.json[9].content[0].value}
-                            </Link>{" "}
+                            </Link>
                             {pageData.scContentFr.json[9].content[1].value}
                           </p>
                         </li>
@@ -405,9 +400,8 @@ export default function ErrorPage(props) {
                       <p className="font-body text-sm leading-30px">
                         {pageData.scContentFr.json[10].content[0].value}
                         <Link
-                          href={
-                            pageData.scContentFr.json[10].content[1].data.href
-                          }
+                          href="/fr/accueil"
+                          locale={false}
                           className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                         >
                           {pageData.scContentFr.json[10].content[1].value}
@@ -419,7 +413,7 @@ export default function ErrorPage(props) {
               </div>
             </div>
           </section>
-        </main>
+        </div>
         <footer className="h-100px w-screen bg-footer-background-color absolute bottom-0">
           <div className="layout-container flex justify-between lg:flex-row-reverse pt-4 lg:pt-0 lg:mt-8">
             <ActionButton
@@ -446,7 +440,7 @@ export default function ErrorPage(props) {
             </span>
           </div>
         </footer>
-      </div>
+      </main>
       {props.adobeAnalyticsUrl ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
       ) : (

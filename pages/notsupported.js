@@ -31,7 +31,7 @@ export default function notSupported(props) {
   }
   return (
     <>
-      <div className="min-h-screen relative">
+      <main className="min-h-screen relative">
         <Head>
           {props.adobeAnalyticsUrl ? (
             <script src={props.adobeAnalyticsUrl} />
@@ -72,7 +72,7 @@ export default function notSupported(props) {
           <meta
             property="dcterms:description"
             lang="fr"
-            content="Message d’erreur indiquant que le site ne fonctionne pas avec Internet Explorer."
+            content="Message d'erreur indiquant que le site ne fonctionne pas avec Internet Explorer."
           />
           <meta
             name="dcterms.language"
@@ -471,7 +471,7 @@ export default function notSupported(props) {
             </span>
           </div>
         </footer>
-      </div>
+      </main>
       {props.adobeAnalyticsUrl ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
       ) : (

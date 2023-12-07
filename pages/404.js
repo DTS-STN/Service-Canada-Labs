@@ -34,7 +34,7 @@ export default function error404(props) {
 
   return (
     <>
-      <div className="min-h-screen relative">
+      <main className="min-h-screen relative">
         <Head>
           {props.adobeAnalyticsUrl ? (
             <script src={props.adobeAnalyticsUrl} />
@@ -156,7 +156,8 @@ export default function error404(props) {
                   <p className="font-body text-sm leading-30px">
                     {pageData.scContentEn.json[3].content[0].value}
                     <Link
-                      href={pageData.scContentEn.json[3].content[1].data.href}
+                      href="/en/home"
+                      locale={false}
                       className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                     >
                       {pageData.scContentEn.json[3].content[1].value}
@@ -196,7 +197,8 @@ export default function error404(props) {
                   <p className="font-body text-sm leading-30px">
                     {pageData.scContentFr.json[3].content[0].value}
                     <Link
-                      href={pageData.scContentFr.json[3].content[1].data.href}
+                      href="/fr/accueil"
+                      locale={false}
                       className="underline hover:text-canada-footer-hover-font-blue text-canada-footer-font"
                     >
                       {pageData.scContentFr.json[3].content[1].value}
@@ -233,7 +235,7 @@ export default function error404(props) {
             </span>
           </div>
         </footer>
-      </div>
+      </main>
       {props.adobeAnalyticsUrl ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
       ) : (

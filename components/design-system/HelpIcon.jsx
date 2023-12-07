@@ -29,10 +29,19 @@ export const HelpIcon = ({ title, body, lang }) => {
 
       {showModal && (
         <div className="modal-bg">
-          <Modal show={showModal} onHide={handleClose} className="modal">
+          <Modal
+            show={showModal}
+            onHide={handleClose}
+            className="modal"
+            aria-label={title}
+          >
             <Modal.Header className="modal-header">
               <h2 className="modal-title">{title}</h2>
-              <button onClick={handleClose} className="modal-exit">
+              <button
+                onClick={handleClose}
+                className="modal-exit"
+                aria-label={lang === "en" ? "Close" : "Fermer"}
+              >
                 <svg
                   width="17"
                   height="17"
