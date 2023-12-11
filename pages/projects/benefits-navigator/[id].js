@@ -37,39 +37,41 @@ export default function DynamicBenefitNavigatorPage(props) {
           adobeAnalyticsUrl={props.adobeAnalyticsUrl}
           locale={props.locale}
         />
-        <section className="layout-container mb-12">
-          <Heading
-            tabIndex="-1"
-            id="pageMainTitle"
-            title={
-              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
-            }
-          />
-          <div id="postedOnUpdatedOnSection" className="grid grid-cols-12">
-            <p
-              className={`col-span-6 sm:col-span-4 ${
-                props.locale === "en" ? "lg:col-span-2" : "lg:col-span-3"
-              } font-bold`}
-            >
-              {props.locale === "en"
-                ? dictionary[9].scTermEn
-                : dictionary[9].scTermFr}
-            </p>
-            <p className="col-span-6 col-start-7 sm:col-start-5 lg:col-span-2 md:col-start-5 mt-0">
-              {pageData.scDateModifiedOverwrite}
-            </p>
-            <p
-              className={`row-start-2 col-span-6 sm:col-span-4 mt-0 ${
-                props.locale === "en" ? "lg:col-span-2" : "lg:col-span-3"
-              } font-bold`}
-            >
-              {props.locale === "en"
-                ? dictionary[4].scTermEn
-                : dictionary[4].scTermFr}
-            </p>
-            <p className="row-start-2 col-span-6 col-start-7 sm:col-start-5 lg:col-span-2 md:col-start-5 mt-auto">
-              {pageData.scDateModifiedOverwrite}
-            </p>
+        <section className="mb-12">
+          <div className="layout-container">
+            <Heading
+              tabIndex="-1"
+              id="pageMainTitle"
+              title={
+                props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+              }
+            />
+            <div id="postedOnUpdatedOnSection" className="grid grid-cols-12">
+              <p
+                className={`col-span-6 sm:col-span-4 ${
+                  props.locale === "en" ? "lg:col-span-2" : "lg:col-span-3"
+                } font-bold`}
+              >
+                {props.locale === "en"
+                  ? dictionary[9].scTermEn
+                  : dictionary[9].scTermFr}
+              </p>
+              <p className="col-span-6 col-start-7 sm:col-start-5 lg:col-span-2 md:col-start-5 mt-0">
+                {pageData.scDateModifiedOverwrite}
+              </p>
+              <p
+                className={`row-start-2 col-span-6 sm:col-span-4 mt-0 ${
+                  props.locale === "en" ? "lg:col-span-2" : "lg:col-span-3"
+                } font-bold`}
+              >
+                {props.locale === "en"
+                  ? dictionary[4].scTermEn
+                  : dictionary[4].scTermFr}
+              </p>
+              <p className="row-start-2 col-span-6 col-start-7 sm:col-start-5 lg:col-span-2 md:col-start-5 mt-auto">
+                {pageData.scDateModifiedOverwrite}
+              </p>
+            </div>
           </div>
 
           {/* Main */}
