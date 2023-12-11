@@ -249,6 +249,7 @@ query getBenefitsNavigatorArticles {
               _publishUrl
             }
           }
+          scImageAltTextEn
           scImageFr {
             ... on ImageRef {
               _publishUrl
@@ -259,6 +260,7 @@ query getBenefitsNavigatorArticles {
               _publishUrl
             }
           }
+          scImageAltTextFr
           scFragments {
             ... on SclabsAlertV1Model {
               _path
