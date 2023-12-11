@@ -2,7 +2,6 @@ import { postFeedbackToGcNotify } from "../../lib/notify/postFeedbackToGcNotify"
 
 export default async function handler(req, res) {
   const data = req.body;
-  console.log(process.env);
   if (!data["what-was-wrong"]) {
     res.status(400).json({ message: "required field missing" });
   } else {
