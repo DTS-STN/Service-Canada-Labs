@@ -2,7 +2,6 @@ import { CTA } from "../../design-system/CTA";
 import TextRender from "../../text_node_renderer/TextRender";
 
 export default function ArticleCTA(props) {
-  console.log(props.fragmentData.scLabsButton.scTitleEn);
   return (
     <CTA
       heading={
