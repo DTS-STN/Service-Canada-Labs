@@ -13,9 +13,9 @@ export default function Button(props) {
       : "primary";
 
   return (
-    <div className="grid grid-cols-12 gap-x-6 my-12">
+    <div className="layout-container grid grid-cols-12 gap-x-6 my-12">
       <ActionButton
-        id={props.key}
+        id={props.fragmentData.scId}
         style={style}
         custom="col-span-12"
         href={

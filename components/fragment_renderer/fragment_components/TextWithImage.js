@@ -2,7 +2,7 @@ import TextRender from "../../text_node_renderer/TextRender";
 
 export default function TextWithImage(props) {
   return (
-    <div className="grid grid-cols-12 gap-x-6 my-12">
+    <div className="layout-container grid grid-cols-12 gap-x-6 my-12">
       <div className="hidden lg:grid col-start-8 col-span-5 row-start-1 row-span-2">
         <div className="flex justify-center">
           <div className="h-auto">

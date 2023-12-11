@@ -9,6 +9,9 @@ export function CTA({
   LinkProps,
   containerClass = "",
 }) {
+  // Check if body prop is HTML content
+  const isHTML = (str) => /<\/?[a-z][\s\S]*>/i.test(str);
+
   return (
     <div className="bg-multi-blue-blue2 p-3">
       <div className={`flex flex-row ${containerClass}`}>
@@ -23,7 +26,7 @@ export function CTA({
           <h3 className={`leading-[40px] text-multi-neutrals-grey100`}>
             {heading}
           </h3>
-          <p className="body">{body}</p>
+          {isHTML(body) ? body : <p className="body">{body}</p>}
           <Button
             styling="primary"
             className="my-3"

@@ -570,7 +570,7 @@ html {
 }
 
 .btn-primary {
-  @apply font-header font-normal text-multi-neutrals-white bg-multi-blue-blue70 rounded-[4px] px-[14px] py-[6px] text-btnother
+  @apply font-header font-normal text-multi-neutrals-white bg-multi-blue-blue70 px-[16px] py-[8px] text-btnother
 }
 
 .btn-link {
