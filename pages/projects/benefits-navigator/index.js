@@ -743,33 +743,6 @@ export default function BenefitsNavigatorOverview(props) {
             {displayProjectUpdates}
           </ul>
         </div>
-
-        {/* <CTA
-          heading={
-            props.locale === "en"
-              ? pageData.scFragments[6].scTitleEn
-              : pageData.scFragments[6].scTitleFr
-          }
-          body={
-            props.locale === "en"
-              ? pageData.scFragments[6].scContentEn.json[0].content[0].value
-              : pageData.scFragments[6].scContentFr.json[0].content[0].value
-          }
-          ButtonProps={{
-            id: "cta-btn",
-            text:
-              props.locale === "en"
-                ? pageData.scFragments[6].scLabsButton[0].scTitleEn
-                : pageData.scFragments[6].scLabsButton[0].scTitleFr,
-            href:
-              props.locale === "en"
-                ? pageData.scFragments[6].scLabsButton[0].scDestinationURLEn
-                : pageData.scFragments[6].scLabsButton[0].scDestinationURLFr,
-            className:
-              "w-fit bg-[#26374A] mt-4 text-white visited:text-white hover:bg-[#1C578A] hover:no-underline hover:text-white active:bg-[#16446C]",
-          }}
-          containerClass="layout-container my-4"
-        /> */}
       </Layout>
       {props.adobeAnalyticsUrl ? (
         <script type="text/javascript">_satellite.pageBottom()</script>
