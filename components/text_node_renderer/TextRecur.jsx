@@ -6,6 +6,7 @@ import ListItem from "./nodes/ListItem";
 import OrderedList from "./nodes/OrderedList";
 import Paragraph from "./nodes/Paragraph";
 import Text from "./nodes/Text";
+import Span from "./nodes/Span";
 import UnorderedList from "./nodes/UnorderedList";
 import Link from "./nodes/Link";
 
@@ -15,6 +16,7 @@ const NODES = {
   paragraph: Paragraph,
   link: Link,
   text: Text,
+  span: Span,
   "unordered-list": UnorderedList,
   "ordered-list": OrderedList,
   "list-item": ListItem,
