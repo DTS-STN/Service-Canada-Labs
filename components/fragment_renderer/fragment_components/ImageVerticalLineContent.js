@@ -1,6 +1,6 @@
 import TextRender from "../../text_node_renderer/TextRender";
 
-export default function FeedbackResponse(props) {
+export default function ImageVerticalLineContent(props) {
   return (
     <div className="layout-container grid grid-cols-12 gap-x-8 my-12">
       <div className="col-span-12 xl:col-span-3 ">
