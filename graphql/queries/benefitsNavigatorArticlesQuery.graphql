@@ -69,6 +69,25 @@ query getBenefitsNavigatorArticles {
       scNoIndex
       scNoFollow
       scFragments {
+        ... on SclabsCompContentV1Model {
+            _model {
+                ... on ModelInfo {
+                    title
+                }
+            }
+            scId
+            scLabContent {
+                ... on SclabsContentV1Model {
+                    scContentEn {
+                        json
+                    }
+                    scContentFr {
+                        json
+                    }
+                }
+            }
+            scLabLayout
+        }
         ... on SclabsCompContentImageV1Model {
           _model {
             ... on ModelInfo {
