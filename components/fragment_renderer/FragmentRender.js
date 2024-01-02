@@ -3,9 +3,11 @@ import TextWithImage from "./fragment_components/TextWithImage";
 import TextContent from "./fragment_components/TextContent";
 import Button from "./fragment_components/Button";
 import ArticleCTA from "./fragment_components/ArticleCTA";
+import QuoteVerticalLineContent from "./fragment_components/QuoteVerticalLineContent";
 
 const FRAGMENTS = {
   "SCLabs-Comp-Content-Image-v1": TextWithImage,
+  "SCLabs-Comp-Content-v1": QuoteVerticalLineContent,
   "SCLabs-Content-v1": TextContent,
   "SCLabs-Button-v1": Button,
   "SCLabs-Feature-v1": ArticleCTA,
