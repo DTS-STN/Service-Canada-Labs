@@ -15635,9 +15635,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:^13.3.0":
-  version: 13.3.2
-  resolution: "react-i18next@npm:13.3.2"
+"react-i18next@npm:^13.5.0":
+  version: 13.5.0
+  resolution: "react-i18next@npm:13.5.0"
   dependencies:
     "@babel/runtime": "npm:^7.22.5"
     html-parse-stringify: "npm:^3.0.1"
@@ -15649,7 +15649,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: 76c84ed4f85d8c35c2aa14fff5084adcbd308485887df912f931f4babca31ff6b1d47dbcbf2d23908da70e498316be6116e225cd9a4e8e69e1469ffd0e8ddb14
+  checksum: 903b486d112cd0aa40bdc3afaefd0c32b91c0a1e3e3561367c8d91ddc0fbad9945f1d630c3ddcd4764795fc00e0887252e2d337256a825caf3a86de038f6b2db
   languageName: node
   linkType: hard
 
@@ -16830,7 +16830,7 @@ __metadata:
     react-bootstrap: "npm:^2.9.1"
     react-copy-to-clipboard: "npm:^5.1.0"
     react-dom: "npm:^18.2.0"
-    react-i18next: "npm:^13.3.0"
+    react-i18next: "npm:^13.5.0"
     react-lock-scroll: "npm:^0.1.8"
     react-markdown: "npm:^8.0.7"
     react-remark: "npm:^2.1.0"
