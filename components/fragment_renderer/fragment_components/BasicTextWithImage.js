@@ -25,8 +25,8 @@ export default function BasicTextWithImage(props) {
         <TextRender
           data={
             props.locale === "en"
-              ? props.fragmentData.scLabContent.scContentEn.json
-              : props.fragmentData.scLabContent.scContentFr.json
+              ? props.fragmentData.scLabContent[0].scContentEn.json
+              : props.fragmentData.scLabContent[0].scContentFr.json
           }
           excludeH1={true}
         />
