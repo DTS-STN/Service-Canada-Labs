@@ -52,8 +52,8 @@
     "build-storybook": "storybook build",
     "test:unit": "jest --forceExit --detectOpenHandles",
     "test:coverage": "jest --coverage --forceExit",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
+    "cypress:open": "cypress open --config-file=cypress.config.js",
+    "cypress:run": "cypress run --config-file=cypress.config.js",
     "prepare": "husky install",
     "pre-commit": "lint-staged"
   },
