@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
-import { Button } from "./Button";
+import { DSButton } from "../atoms/DSButton";
 
 export const HelpIcon = ({ title, body, lang }) => {
   const [showModal, setShowModal] = useState(false);
@@ -61,7 +61,7 @@ export const HelpIcon = ({ title, body, lang }) => {
               />
             </Modal.Body>
             <Modal.Footer>
-              <Button
+              <DSButton
                 onClick={handleClose}
                 styling="primary"
                 text={lang === "en" ? "Close" : "Fermer"}

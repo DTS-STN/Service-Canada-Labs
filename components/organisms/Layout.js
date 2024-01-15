@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { Banner } from "../atoms/Banner";
-// import { Footer } from "@dts-stn/service-canada-design-system";
 import { PhaseBanner } from "./PhaseBanner";
 import { ReportAProblem } from "./ReportAProblem";
 import Link from "next/link";
@@ -8,7 +7,7 @@ import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
 import { Breadcrumb } from "../atoms/Breadcrumb";
 
-import { Footer } from "../design-system/Footer";
+import { Footer } from "../organisms/Footer";
 import Feedback from "./Feedback";
 
 /**

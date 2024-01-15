@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
 import { Image } from "./Image";
 
-export function Button(props) {
+// Button used in HelpIcon.js and CTA.js
+// Use ActionButton.js for all other buttons in the app
+export function DSButton(props) {
   const style = "btn-" + props.styling;
   return props.href === "no ref" ? (
     <button
@@ -59,14 +61,14 @@ export function Button(props) {
   );
 }
 
-Button.defaultProps = {
+DSButton.defaultProps = {
   id: "btn1",
   styling: "supertask",
   text: "default",
   href: "no ref",
 };
 
-Button.propTypes = {
+DSButton.propTypes = {
   /**
    * Identify which button being clicked
    */

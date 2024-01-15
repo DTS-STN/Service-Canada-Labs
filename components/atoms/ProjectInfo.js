@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { HelpIcon } from "../design-system/HelpIcon";
+import { HelpIcon } from "../organisms/HelpIcon";
 
 export function ProjectInfo(props) {
   return (

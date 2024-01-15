@@ -1,23 +1,41 @@
-/**
- * @jest-environment jsdom
- */
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
-import { Primary } from "./Footer.stories";
+import { Footer } from "./Footer";
+import { WithMainBandEn } from "./Footer.stories.js";
 
-it("renders Footer in its primary state", () => {
-  render(<Primary {...Primary.args} />);
+describe("Footer", () => {
+  const defaultProps = {
+    id: "footer",
+    lang: "en",
+    isAuthenticated: false,
+    contactLink: "https://www.canada.ca/en/contact.html",
+  };
 
-  expect(
-    screen.getByAltText("Symbol of the Government of Canada")
-  ).toBeTruthy();
+  test("renders Footer component with default props", () => {
+    render(<Footer {...WithMainBandEn.args} />);
 
-  Primary.args.footerBoxLinks.forEach((value) => {
-    screen.getByText(value.footerBoxLinkText);
+    expect(screen.getByTestId("footer")).toBeInTheDocument();
+    expect(
+      screen.getByAltText("Symbol of the Government of Canada")
+    ).toBeInTheDocument();
   });
 
-  Primary.args.links.forEach((value) => {
-    screen.getByText(value.linkText);
+  test("renders Footer component with custom brand links", () => {
+    const brandLinks = [
+      {
+        href: "https://example.com/link1",
+        text: "Link 1",
+      },
+      {
+        href: "https://example.com/link2",
+        text: "Link 2",
+      },
+    ];
+
+    render(<Footer {...WithMainBandEn.args} brandLinks={brandLinks} />);
+
+    expect(screen.getByTestId("footer")).toBeInTheDocument();
+    expect(screen.getByText("Link 1")).toBeInTheDocument();
+    expect(screen.getByText("Link 2")).toBeInTheDocument();
   });
 });

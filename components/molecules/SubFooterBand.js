@@ -1,5 +1,5 @@
-import { Link } from "./Link";
-import { Image } from "./Image";
+import { Link } from "../atoms/Link";
+import { Image } from "../atoms/Image";
 
 export function SubFooterBand(props) {
   return (

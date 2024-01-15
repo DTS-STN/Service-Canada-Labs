@@ -1,4 +1,4 @@
-import { Link } from "./Link";
+import { Link } from "../atoms/Link";
 import { useTranslation } from "next-i18next";
 
 export function MainBand(props) {
