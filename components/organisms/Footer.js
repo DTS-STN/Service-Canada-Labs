@@ -56,6 +56,28 @@ export const Footer = ({ error, id, brandLinks, target, onClick, btnLink }) => {
 Footer.defaultProps = {
   contactLink: "https://www.canada.ca/en/contact.html",
   withMainBand: true,
+  brandLinks: [
+    {
+      href: "https://www.canada.ca/en/social.html",
+      text: "Social media",
+    },
+    {
+      href: "https://www.canada.ca/en/mobile.html",
+      text: "Mobile applications",
+    },
+    {
+      href: "https://www.canada.ca/en/government/about.html",
+      text: "About Canada.ca",
+    },
+    {
+      href: "https://www.canada.ca/en/transparency/terms.html",
+      text: "Terms and conditions",
+    },
+    {
+      href: "https://www.canada.ca/en/transparency/privacy.html",
+      text: "Privacy",
+    },
+  ],
 };
 
 Footer.propTypes = {
