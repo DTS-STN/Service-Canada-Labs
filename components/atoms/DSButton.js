@@ -44,7 +44,13 @@ export function DSButton(props) {
           <Image className="pr-2" src={props.icon} alt={props.iconAltText} />
         </span>
       ) : undefined}
-      {props.text}
+      <span
+        className={`grid place-items-center ${
+          props.styling === "supertask" ? "h-8" : ""
+        }`}
+      >
+        {props.text}
+      </span>
       {props.children}
       {props.icon && props.iconEnd ? (
         <span className="grid place-items-center h-8 w-8">

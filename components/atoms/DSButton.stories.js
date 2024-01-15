@@ -1,5 +1,4 @@
 import { DSButton } from "./DSButton";
-import btnIcon from "../../public/plus.svg";
 
 export default {
   title: "Components/Atoms/DSButton",
@@ -26,7 +25,7 @@ SupertaskIcon.args = {
   id: "supertask_icon",
   styling: "supertask",
   text: "Supertask button",
-  icon: btnIcon,
+  icon: "plus.svg",
   iconAltText: "icon",
   iconEnd: false,
 };
