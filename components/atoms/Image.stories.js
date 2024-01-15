@@ -1,11 +1,11 @@
 import { Image } from "./Image";
 
 export default {
-  title: "Components/Image",
+  title: "Components/Atoms/Image",
   component: Image,
 };
-import imageFile from "../../assets/image1.png";
-import imageFile2 from "../../assets/image2.png";
+import imageFile from "../../public/image1.png";
+import imageFile2 from "../../public/image2.png";
 
 const Template = (args) => <Image {...args} />;
 

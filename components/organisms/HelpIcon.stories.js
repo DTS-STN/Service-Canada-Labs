@@ -2,7 +2,7 @@ import * as React from "react";
 import { HelpIcon } from "./HelpIcon";
 
 export default {
-  title: "Components/HelpIcon",
+  title: "Components/Organisms/HelpIcon",
   component: HelpIcon,
 };
 

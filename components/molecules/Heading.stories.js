@@ -1,7 +1,7 @@
 import { Heading } from "./Heading";
 
 export default {
-  title: "Components/Heading",
+  title: "Components/Molecules/Heading",
   component: Heading,
 };
 

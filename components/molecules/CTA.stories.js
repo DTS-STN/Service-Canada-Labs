@@ -1,7 +1,7 @@
 import * as React from "react";
 import { CTA } from "./CTA";
 export default {
-  title: "Components/CTA",
+  title: "Components/Molecules/CTA",
   component: CTA,
 };
 

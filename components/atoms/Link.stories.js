@@ -1,7 +1,7 @@
 import { Link } from "./Link";
 
 export default {
-  title: "Components/Link",
+  title: "Components/Atoms/Link",
   component: Link,
 };
 

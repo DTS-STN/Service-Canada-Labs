@@ -1,8 +1,8 @@
 import { DSButton } from "./DSButton";
-import btnIcon from "../../assets/plus.svg";
+import btnIcon from "../../public/plus.svg";
 
 export default {
-  title: "Components/DSButton",
+  title: "Components/Atoms/DSButton",
   component: DSButton,
 };
 

@@ -1,6 +1,6 @@
 import { ContextualAlert } from "./ContextualAlert";
 export default {
-  title: "Components/ContextualAlert",
+  title: "Components/Molecules/ContextualAlert",
   component: ContextualAlert,
 };
 
