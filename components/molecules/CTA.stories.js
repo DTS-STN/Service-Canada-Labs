@@ -15,6 +15,7 @@ Default.args = {
     text: "Action Button",
   },
   LinkProps: {
+    id: "privacy-policy",
     text: "Review the Privacy Policy",
   },
 };

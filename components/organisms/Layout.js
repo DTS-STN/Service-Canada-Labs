@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
 import { Breadcrumb } from "../atoms/Breadcrumb";
-
 import { Footer } from "../organisms/Footer";
 import Feedback from "./Feedback";
 
