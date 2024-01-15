@@ -4,10 +4,34 @@ import { Image } from "./Image";
 // Button used in HelpIcon.js and CTA.js
 // Use ActionButton.js for all other buttons in the app
 export function DSButton(props) {
-  const style = "btn-" + props.styling;
+  //Styling for buttons and links
+  const PRIMARY =
+    "text-multi-neutrals-white bg-multi-blue-blue70 hover:bg-multi-blue-blue60g focus:bg-multi-blue-blue60g";
+  const SECONDARY =
+    "text-multi-blue-blue60b bg-multi-neutrals-grey30a hover:bg-multi-neutrals-grey50a focus:bg-multi-neutrals-grey60";
+  const SUPERTASK =
+    "text-multi-neutrals-white bg-specific-green-green50 hover:bg-specific-green-green70 focus:bg-sepcific-green-green70";
+  const DANGER =
+    "text-multi-neutrals-white bg-specific-red-red50 hover:bg-specific-red-red70 focus:bg-specific-red-red70";
+  const LINK =
+    "text-multi-blue-blue60c hover:text-multi-blue-blue50b focus:text-multi-blue-blue60f";
+
+  const styling =
+    props.styling === "primary"
+      ? PRIMARY
+      : props.styling === "secondary"
+      ? SECONDARY
+      : props.styling === "supertask"
+      ? SUPERTASK
+      : props.styling === "danger"
+      ? DANGER
+      : props.styling === "link"
+      ? LINK
+      : "";
+
   return props.href === "no ref" ? (
     <button
-      className={`flex flex-row ${style} focus:ring focus:ring-offset-4 ${props.className} `}
+      className={`flex flex-row px-[16px] py-[8px] ${styling} rounded-sm focus:ring focus:ring-offset-4 ${props.className} `}
       onClick={props.onClick}
       type={props.type}
       id={props.id}
