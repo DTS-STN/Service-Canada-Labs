@@ -1,7 +1,32 @@
 import { Link } from "../atoms/Link";
 import { Image } from "../atoms/Image";
+import { useTranslation } from "next-i18next";
 
 export function SubFooterBand(props) {
+  const { t } = useTranslation("common");
+  const brandLinksDefault = [
+    {
+      id: "link1",
+      text: t("footerSocialMedia"),
+      href: t("footerSocialMediaURL"),
+    },
+    {
+      id: "link2",
+      text: t("footerMobileApp"),
+      href: t("footerMobileAppURL"),
+    },
+    {
+      id: "link3",
+      text: t("footerTermsAndCondition"),
+      href: t("footerTermsAndConditionURL"),
+    },
+    {
+      id: "link4",
+      text: t("footerPrivacy"),
+      href: t("footerPrivacyURL"),
+    },
+  ];
+
   return (
     <div className="bg-[#F8F8F8]">
       <div
@@ -31,7 +56,7 @@ export function SubFooterBand(props) {
                           key={index}
                           className={`${
                             index === 0 ? "" : "md:list-disc"
-                          } pr-4 mb-[17px] list-inside list-none text-xxs ml-0`}
+                          } pr-4 mb-[17px] list-inside list-none text-xxs ml-6`}
                         >
                           <Link
                             onClick={onClick ? onClick : undefined}
@@ -44,13 +69,13 @@ export function SubFooterBand(props) {
                         </li>
                       );
                     })
-                  : props.brandLinksDefault.map(({ href, text }, index) => {
+                  : brandLinksDefault.map(({ href, text }, index) => {
                       return (
                         <li
                           key={index}
                           className={`${
                             index === 0 ? "" : "md:list-disc"
-                          } pr-4 mb-[17px] list-inside list-none text-xxs`}
+                          } pr-4 mb-[17px] list-inside list-none text-xxs ml-6`}
                         >
                           <Link
                             onClick={props.onClick ? props.onClick : undefined}
