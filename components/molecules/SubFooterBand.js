@@ -1,32 +1,30 @@
 import { Link } from "../atoms/Link";
 import { Image } from "../atoms/Image";
-import { useTranslation } from "next-i18next";
+
+const brandLinksDefault = [
+  {
+    href: "https://www.canada.ca/en/social.html",
+    text: "Social media",
+  },
+  {
+    href: "https://www.canada.ca/en/mobile.html",
+    text: "Mobile applications",
+  },
+  {
+    href: "https://www.canada.ca/en/government/about.html",
+    text: "About Canada.ca",
+  },
+  {
+    href: "https://www.canada.ca/en/transparency/terms.html",
+    text: "Terms and conditions",
+  },
+  {
+    href: "https://www.canada.ca/en/transparency/privacy.html",
+    text: "Privacy",
+  },
+];
 
 export function SubFooterBand(props) {
-  const { t } = useTranslation("common");
-  const brandLinksDefault = [
-    {
-      id: "link1",
-      text: t("footerSocialMedia"),
-      href: t("footerSocialMediaURL"),
-    },
-    {
-      id: "link2",
-      text: t("footerMobileApp"),
-      href: t("footerMobileAppURL"),
-    },
-    {
-      id: "link3",
-      text: t("footerTermsAndCondition"),
-      href: t("footerTermsAndConditionURL"),
-    },
-    {
-      id: "link4",
-      text: t("footerPrivacy"),
-      href: t("footerPrivacyURL"),
-    },
-  ];
-
   return (
     <div className="bg-[#F8F8F8]">
       <div
