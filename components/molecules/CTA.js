@@ -1,6 +1,6 @@
-import { Button } from "./Button";
-import { Link } from "./Link";
-import { Image } from "./Image";
+import { DSButton } from "../atoms/DSButton";
+import { Link } from "../atoms/Link";
+import { Image } from "../atoms/Image";
 
 export function CTA({
   heading,
@@ -27,7 +27,7 @@ export function CTA({
             {heading}
           </h3>
           {isHTML(body) ? body : <p className="body">{body}</p>}
-          <Button
+          <DSButton
             styling="primary"
             className="my-3"
             type="button"

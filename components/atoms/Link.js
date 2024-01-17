@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import PropTypes from "prop-types";
 
+// Use this component for Footer link and use Next.js <Link>
+// for all links within the site
 export function Link(props) {
   //Styling for links based on Figma Design
   let basicStyle = "";

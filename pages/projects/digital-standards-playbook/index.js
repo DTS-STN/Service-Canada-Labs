@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
-import { Heading } from "../../../components/design-system/Heading";
+import { Heading } from "../../../components/molecules/Heading";
 import { ActionButton } from "../../../components/atoms/ActionButton";
 
 export default function DigitalStandardsPlaybookPage(props) {
