@@ -477,8 +477,6 @@ export const getStaticProps = async ({ locale }) => {
     "dictionaryQuery"
   );
 
-  console.log(updatesData.sclabsPageV1List.items);
-
   return {
     props: {
       locale: locale,

@@ -33,6 +33,10 @@ const REWRITES = [
     source: "/projets/guide-normes-numeriques",
     destination: "/projects/digital-standards-playbook",
   },
+  {
+    source: "/projets/guide-normes-numeriques/:slug",
+    destination: "/projects/digital-standards-playbook/:slug",
+  },
 ];
 
 securityHeaders = [
