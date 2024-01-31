@@ -12,7 +12,7 @@ query getDigitalStandardsPlaybookArticles {
       _path: {
         _expressions: [
           {
-            value: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/digital-standards-playbook/project-updates/"
+            value: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/digital-standards-playbook/updates/"
             _operator: STARTS_WITH
           }
         ]

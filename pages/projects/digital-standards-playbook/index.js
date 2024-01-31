@@ -1,15 +1,17 @@
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../../../components/organisms/Layout";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
+import Card from "../../../components/molecules/Card";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
 import { ActionButton } from "../../../components/atoms/ActionButton";
 
 export default function DigitalStandardsPlaybookPage(props) {
-  const pageData = props.pageData?.item;
+  const [pageData] = useState(props.pageData.item);
+  const [updatesData] = useState(props.updatesData);
 
   const filteredDictionary = props.dictionary?.items?.filter(
     (item) =>
@@ -440,9 +442,16 @@ export default function DigitalStandardsPlaybookPage(props) {
               </p>
             </div>
           </section>
-          <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0 mb-12">
-            {displayProjectUpdates}
-          </ul>
+          <section id="project-updates">
+            <h2>
+              {props.locale === "en"
+                ? props.dictionary.items[11].scTermEn
+                : props.dictionary.items[11].scTermFr}
+            </h2>
+            <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0 mb-12">
+              {displayProjectUpdates}
+            </ul>
+          </section>
         </div>
       </Layout>
       {props.adobeAnalyticsUrl ? (
@@ -467,6 +476,8 @@ export const getStaticProps = async ({ locale }) => {
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
+
+  console.log(updatesData.sclabsPageV1List.items);
 
   return {
     props: {
