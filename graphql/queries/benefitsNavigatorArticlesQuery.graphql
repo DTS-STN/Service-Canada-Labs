@@ -70,23 +70,23 @@ query getBenefitsNavigatorArticles {
       scNoFollow
       scFragments {
         ... on SclabsCompContentV1Model {
-            _model {
-                ... on ModelInfo {
-                    title
-                }
+          _model {
+            ... on ModelInfo {
+              title
             }
-            scId
-            scLabContent {
-                ... on SclabsContentV1Model {
-                    scContentEn {
-                        json
-                    }
-                    scContentFr {
-                        json
-                    }
-                }
+          }
+          scId
+          scLabContent {
+            ... on SclabsContentV1Model {
+              scContentEn {
+                json
+              }
+              scContentFr {
+                json
+              }
             }
-            scLabLayout
+          }
+          scLabLayout
         }
         ... on SclabsCompContentImageV1Model {
           _model {
@@ -180,6 +180,7 @@ query getBenefitsNavigatorArticles {
               title
             }
           }
+          _path
           scId
           scImageEn {
             ... on ImageRef {
@@ -227,6 +228,14 @@ query getBenefitsNavigatorArticles {
             json
           }
           scImageCaptionFr {
+            json
+          }
+          scLongDescHeadingEn
+          scLongDescHeadingFr
+          scLongDescEn {
+            json
+          }
+          scLongDescFr {
             json
           }
         }

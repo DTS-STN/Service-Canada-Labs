@@ -8,6 +8,7 @@ import Card from "../../../components/molecules/Card";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
 import { Collapse } from "../../../components/molecules/Collapse";
+import { generateCollapseElements } from "../../../lib/utils/generateCollapseElements";
 
 export default function BenefitsNavigatorOverview(props) {
   const [pageData] = useState(props.pageData.item);
@@ -31,50 +32,6 @@ export default function BenefitsNavigatorOverview(props) {
       "gc:custom/decd-endc/project-stage/beta": "Bêta",
     },
   };
-
-  function generateReactElements(json) {
-    const elements = [];
-
-    for (const item of json) {
-      if (item.nodeType === "paragraph") {
-        elements.push(
-          <p key={elements.length}>{generateReactElements(item.content)}</p>
-        );
-      } else if (item.nodeType === "unordered-list") {
-        const listItems = item.content.map((listItem, index) => (
-          <li key={index} className="my-0">
-            {generateReactElements(listItem.content)}
-          </li>
-        ));
-        elements.push(
-          <ul key={elements.length} className="mb-0">
-            {listItems}
-          </ul>
-        );
-      } else if (item.nodeType === "ordered-list") {
-        const listItems = item.content.map((listItem, index) => (
-          <li key={index} className="my-0">
-            {generateReactElements(listItem.content)}
-          </li>
-        ));
-        elements.push(
-          <ol key={elements.length} className="mb-0">
-            {listItems}
-          </ol>
-        );
-      } else if (item.nodeType === "list-item") {
-        elements.push(
-          <li key={elements.length} className="my-0">
-            {generateReactElements(item.content)}
-          </li>
-        );
-      } else if (item.nodeType === "text") {
-        elements.push(item.value);
-      }
-    }
-
-    return elements;
-  }
 
   const displayProjectUpdates = updatesData.map((update) => (
     <li key={update.scId} className="list-none ml-0 col-span-12 lg:col-span-4">
@@ -509,7 +466,7 @@ export default function BenefitsNavigatorOverview(props) {
                         : pageData.scFragments[4].scFragments[0].scFragments[0]
                             .scLongDescHeadingFr
                     }
-                    children={generateReactElements(
+                    children={generateCollapseElements(
                       props.locale === "en"
                         ? pageData.scFragments[4].scFragments[0].scFragments[0]
                             .scLongDescEn.json
@@ -590,7 +547,7 @@ export default function BenefitsNavigatorOverview(props) {
                         : pageData.scFragments[4].scFragments[1].scFragments[0]
                             .scLongDescHeadingFr
                     }
-                    children={generateReactElements(
+                    children={generateCollapseElements(
                       props.locale === "en"
                         ? pageData.scFragments[4].scFragments[1].scFragments[0]
                             .scLongDescEn.json
@@ -685,7 +642,7 @@ export default function BenefitsNavigatorOverview(props) {
                         : pageData.scFragments[4].scFragments[2].scFragments[0]
                             .scLongDescHeadingFr
                     }
-                    children={generateReactElements(
+                    children={generateCollapseElements(
                       props.locale === "en"
                         ? pageData.scFragments[4].scFragments[2].scFragments[0]
                             .scLongDescEn.json
