@@ -1,5 +1,28 @@
-import { Link } from "./Link";
-import { Image } from "./Image";
+import { Link } from "../atoms/Link";
+import { Image } from "../atoms/Image";
+
+const brandLinksDefault = [
+  {
+    href: "https://www.canada.ca/en/social.html",
+    text: "Social media",
+  },
+  {
+    href: "https://www.canada.ca/en/mobile.html",
+    text: "Mobile applications",
+  },
+  {
+    href: "https://www.canada.ca/en/government/about.html",
+    text: "About Canada.ca",
+  },
+  {
+    href: "https://www.canada.ca/en/transparency/terms.html",
+    text: "Terms and conditions",
+  },
+  {
+    href: "https://www.canada.ca/en/transparency/privacy.html",
+    text: "Privacy",
+  },
+];
 
 export function SubFooterBand(props) {
   return (
@@ -31,7 +54,7 @@ export function SubFooterBand(props) {
                           key={index}
                           className={`${
                             index === 0 ? "" : "md:list-disc"
-                          } pr-4 mb-[17px] list-inside list-none text-xxs ml-0`}
+                          } pr-4 mb-[17px] list-inside list-none text-xxs ml-6`}
                         >
                           <Link
                             onClick={onClick ? onClick : undefined}
@@ -44,13 +67,13 @@ export function SubFooterBand(props) {
                         </li>
                       );
                     })
-                  : props.brandLinksDefault.map(({ href, text }, index) => {
+                  : brandLinksDefault.map(({ href, text }, index) => {
                       return (
                         <li
                           key={index}
                           className={`${
                             index === 0 ? "" : "md:list-disc"
-                          } pr-4 mb-[17px] list-inside list-none text-xxs`}
+                          } pr-4 mb-[17px] list-inside list-none text-xxs ml-6`}
                         >
                           <Link
                             onClick={props.onClick ? props.onClick : undefined}

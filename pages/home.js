@@ -4,8 +4,8 @@ import { Layout } from "../components/organisms/Layout";
 import { useEffect } from "react";
 import Card from "../components/molecules/Card";
 import aemServiceInstance from "../services/aemServiceInstance";
-import { Heading } from "../components/design-system/Heading";
-import { ContextualAlert } from "../components/design-system/ContextualAlert";
+import { Heading } from "../components/molecules/Heading";
+import { ContextualAlert } from "../components/molecules/ContextualAlert";
 
 export default function Home(props) {
   const pageData = props.pageData?.item;

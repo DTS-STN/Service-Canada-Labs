@@ -5,8 +5,8 @@ import { useEffect } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
-import { Heading } from "../../../components/design-system/Heading";
-import { Collapse } from "../../../components/design-system/Collapse";
+import { Heading } from "../../../components/molecules/Heading";
+import { Collapse } from "../../../components/molecules/Collapse";
 
 export default function MscaDashboard(props) {
   const pageData = props.pageData?.item;

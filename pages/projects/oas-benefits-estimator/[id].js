@@ -7,7 +7,7 @@ import aemServiceInstance from "../../../services/aemServiceInstance";
 import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
-import { Heading } from "../../../components/design-system/Heading";
+import { Heading } from "../../../components/molecules/Heading";
 
 export default function OASUpdatePage(props) {
   const { t } = useTranslation("common");

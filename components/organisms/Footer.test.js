@@ -1,23 +1,28 @@
-/**
- * @jest-environment jsdom
- */
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
-import { Primary } from "./Footer.stories";
+import { Footer } from "./Footer";
+import { DefaultFooter } from "./Footer.stories.js";
+import { axe, toHaveNoViolations } from "jest-axe";
 
-it("renders Footer in its primary state", () => {
-  render(<Primary {...Primary.args} />);
+expect.extend(toHaveNoViolations);
 
-  expect(
-    screen.getByAltText("Symbol of the Government of Canada")
-  ).toBeTruthy();
-
-  Primary.args.footerBoxLinks.forEach((value) => {
-    screen.getByText(value.footerBoxLinkText);
+describe("Footer", () => {
+  test("renders Footer component with default props", async () => {
+    const { container } = render(<Footer {...DefaultFooter.args} />);
+    expect(screen.getByTestId("footer")).toBeInTheDocument();
+    expect(
+      screen.getByAltText("Symbol of the Government of Canada")
+    ).toBeInTheDocument();
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 
-  Primary.args.links.forEach((value) => {
-    screen.getByText(value.linkText);
+  test("renders Footer component with custom brand links", async () => {
+    const { container } = render(<Footer {...DefaultFooter.args} />);
+    expect(screen.getByTestId("footer")).toBeInTheDocument();
+    expect(screen.getByText("Social media")).toBeInTheDocument();
+    expect(screen.getByText("Mobile applications")).toBeInTheDocument();
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

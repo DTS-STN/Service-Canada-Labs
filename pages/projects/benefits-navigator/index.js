@@ -6,8 +6,8 @@ import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
 import Card from "../../../components/molecules/Card";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
-import { Heading } from "../../../components/design-system/Heading";
-import { Collapse } from "../../../components/design-system/Collapse";
+import { Heading } from "../../../components/molecules/Heading";
+import { Collapse } from "../../../components/molecules/Collapse";
 
 export default function BenefitsNavigatorOverview(props) {
   const [pageData] = useState(props.pageData.item);

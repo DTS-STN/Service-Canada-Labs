@@ -1,4 +1,4 @@
-import { CTA } from "../../design-system/CTA";
+import { CTA } from "../../molecules/CTA";
 import TextRender from "../../text_node_renderer/TextRender";
 
 export default function ArticleCTA(props) {
