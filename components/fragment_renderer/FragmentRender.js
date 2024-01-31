@@ -4,6 +4,7 @@ import TextContent from "./fragment_components/TextContent";
 import Button from "./fragment_components/Button";
 import ArticleCTA from "./fragment_components/ArticleCTA";
 import QuoteVerticalLineContent from "./fragment_components/QuoteVerticalLineContent";
+import Image from "./fragment_components/Image";
 
 const FRAGMENTS = {
   "SCLabs-Comp-Content-Image-v1": TextWithImage,
@@ -11,6 +12,7 @@ const FRAGMENTS = {
   "SCLabs-Content-v1": TextContent,
   "SCLabs-Button-v1": Button,
   "SCLabs-Feature-v1": ArticleCTA,
+  "SCLabs-Image-v1": Image,
 };
 
 export default function FragmentRender(props) {
