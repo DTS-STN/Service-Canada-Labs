@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1706720209744" clover="3.2.0">
-  <project timestamp="1706720209744" name="All files">
-    <metrics statements="948" coveredstatements="649" conditionals="1440" coveredconditionals="452" methods="252" coveredmethods="139" elements="2640" coveredelements="1240" complexity="0" loc="948" ncloc="948" packages="17" files="129" classes="129"/>
+<coverage generated="1706722548868" clover="3.2.0">
+  <project timestamp="1706722548868" name="All files">
+    <metrics statements="947" coveredstatements="649" conditionals="1440" coveredconditionals="452" methods="252" coveredmethods="139" elements="2639" coveredelements="1240" complexity="0" loc="947" ncloc="947" packages="17" files="129" classes="129"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/index.js">
@@ -1295,7 +1295,7 @@
       </file>
     </package>
     <package name="pages.projects.digital-standards-playbook">
-      <metrics statements="38" coveredstatements="0" conditionals="144" coveredconditionals="0" methods="11" coveredmethods="0"/>
+      <metrics statements="37" coveredstatements="0" conditionals="144" coveredconditionals="0" methods="11" coveredmethods="0"/>
       <file name="[id].js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/projects/digital-standards-playbook/[id].js">
         <metrics statements="21" coveredstatements="0" conditionals="24" coveredconditionals="0" methods="6" coveredmethods="0"/>
         <line num="13" count="0" type="stmt"/>
@@ -1321,7 +1321,7 @@
         <line num="137" count="0" type="stmt"/>
       </file>
       <file name="index.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/pages/projects/digital-standards-playbook/index.js">
-        <metrics statements="17" coveredstatements="0" conditionals="120" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <metrics statements="16" coveredstatements="0" conditionals="120" coveredconditionals="0" methods="5" coveredmethods="0"/>
         <line num="13" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
@@ -1338,7 +1338,6 @@
         <line num="472" count="0" type="stmt"/>
         <line num="476" count="0" type="stmt"/>
         <line num="480" count="0" type="stmt"/>
-        <line num="482" count="0" type="stmt"/>
       </file>
     </package>
     <package name="pages.projects.oas-benefits-estimator">
