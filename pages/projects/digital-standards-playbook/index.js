@@ -19,6 +19,31 @@ export default function DigitalStandardsPlaybookPage(props) {
       item.scId === "SUMMARY"
   );
 
+  const displayProjectUpdates = updatesData.map((update) => (
+    <li key={update.scId} className="list-none ml-0 col-span-12 lg:col-span-4">
+      <Card
+        showImage
+        imgSrc={
+          props.locale === "en"
+            ? `https://www.canada.ca${update.scSocialMediaImageEn?._path}`
+            : `https://www.canada.ca${update.scSocialMediaImageFr?._path}`
+        }
+        imgAlt={
+          props.locale === "en"
+            ? update.scSocialMediaImageAltTextEn
+            : update.scSocialMediaImageAltTextFr
+        }
+        title={props.locale === "en" ? update.scTitleEn : update.scTitleFr}
+        href={props.locale === "en" ? update.scPageNameEn : update.scPageNameFr}
+        description={`${
+          props.locale === "en"
+            ? props.dictionary.items[9].scTermEn
+            : props.dictionary.items[9].scTermFr
+        } ${update.scDateModifiedOverwrite}`}
+      />
+    </li>
+  ));
+
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
@@ -415,6 +440,9 @@ export default function DigitalStandardsPlaybookPage(props) {
               </p>
             </div>
           </section>
+          <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0 mb-12">
+            {displayProjectUpdates}
+          </ul>
         </div>
       </Layout>
       {props.adobeAnalyticsUrl ? (
@@ -431,6 +459,10 @@ export const getStaticProps = async ({ locale }) => {
   const { data: pageData } = await aemServiceInstance.getFragment(
     "getDigitalStandardsPlaybookPage"
   );
+  // Get updates/article data
+  const { data: updatesData } = await aemServiceInstance.getFragment(
+    "getDigitalStandardsPlaybookArticles"
+  );
   // get dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
@@ -441,6 +473,7 @@ export const getStaticProps = async ({ locale }) => {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       pageData: pageData.sclabsPageV1ByPath,
+      updatesData: updatesData.sclabsPageV1List.items,
       dictionary: dictionary.dictionaryV1List,
       ...(await serverSideTranslations(locale, ["common"])),
     },
