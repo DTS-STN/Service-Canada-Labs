@@ -9,7 +9,7 @@ import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
 import { Heading } from "../../../components/molecules/Heading";
 
-export default function OASUpdatePage(props) {
+export default function OASBenefitsEstimatorArticles(props) {
   const { t } = useTranslation("common");
   const [pageData] = useState(props.pageData);
   const [dictionary] = useState(props.dictionary.items);
@@ -128,7 +128,7 @@ export const getStaticProps = async ({ locale, params }) => {
     );
   });
 
-  if (!pageData) {
+  if (!pageData || !pageData.length) {
     return {
       notFound: true,
     };
