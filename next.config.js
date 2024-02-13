@@ -37,6 +37,14 @@ const REWRITES = [
     source: "/projets/guide-normes-numeriques/:slug",
     destination: "/projects/digital-standards-playbook/:slug",
   },
+  {
+    source: "/projets/faciliter-obtention-prestations",
+    destination: "/projects/making-easier-get-benefits",
+  },
+  {
+    source: "/projets/faciliter-obtention-prestations/:slug",
+    destination: "/projects/making-easier-get-benefits/:slug",
+  },
 ];
 
 securityHeaders = [

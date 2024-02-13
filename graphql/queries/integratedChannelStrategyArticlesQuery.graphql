@@ -1,8 +1,26 @@
-query getMscadPage {
-  sclabsPageV1ByPath (
-    _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/client-hub/dashboard-overview"
+query getIntegratedChannelStrategyArticles {
+  sclabsPageV1List(
+    filter: {
+      scContentType: {
+        _expressions: [
+          {
+            value: "gc:content-types/promotional-material-featured-articles"
+            _operator: EQUALS
+          }
+        ]
+      }
+      _path: {
+        _expressions: [
+          {
+            value: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/integrated-channel/updates/"
+            _operator: STARTS_WITH
+          }
+        ]
+      }
+    }
   ) {
-    item {
+    items {
+      _path
       scId
       scPageNameEn
       scPageNameFr
@@ -10,13 +28,6 @@ query getMscadPage {
       scTitleFr
       scShortTitleEn
       scShortTitleFr
-      scLabProjectStage
-      scDescriptionEn {
-        json
-      }
-      scDescriptionFr {
-        json
-      }
       scBreadcrumbParentPages {
         ... on SclabsPageV1Model {
           scTitleEn
@@ -58,7 +69,102 @@ query getMscadPage {
       scNoIndex
       scNoFollow
       scFragments {
+        ... on SclabsCompContentV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
+          scId
+          scLabContent {
+            ... on SclabsContentV1Model {
+              scContentEn {
+                json
+              }
+              scContentFr {
+                json
+              }
+            }
+          }
+          scLabLayout
+        }
+        ... on SclabsCompContentImageV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
+          scId
+          scLabContent {
+            scId
+            scContentEn {
+              json
+            }
+            scContentFr {
+              json
+            }
+          }
+          scLabImage {
+            ... on SclabsImageV1Model {
+              scId
+              scImageEn {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageFr {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageMobileEn {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageMobileFr {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageAltTextEn
+              scImageAltTextFr
+              scImageCaptionEn {
+                json
+              }
+              scImageCaptionFr {
+                json
+              }
+            }
+          }
+          scLabLayout
+        }
         ... on SclabsContentV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
           _path
           scId
           scContentEn {
@@ -69,6 +175,12 @@ query getMscadPage {
           }
         }
         ... on SclabsImageV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
+          _path
           scId
           scImageEn {
             ... on ImageRef {
@@ -118,8 +230,21 @@ query getMscadPage {
           scImageCaptionFr {
             json
           }
+          scLongDescHeadingEn
+          scLongDescHeadingFr
+          scLongDescEn {
+            json
+          }
+          scLongDescFr {
+            json
+          }
         }
         ... on SclabsButtonV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
           scId
           scTitleEn
           scTitleFr
@@ -128,6 +253,11 @@ query getMscadPage {
           scButtonType
         }
         ... on SclabsFeatureV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
           scId
           scTitleEn
           scTitleFr
@@ -147,6 +277,7 @@ query getMscadPage {
               _publishUrl
             }
           }
+          scImageAltTextEn
           scImageFr {
             ... on ImageRef {
               _publishUrl
@@ -157,6 +288,7 @@ query getMscadPage {
               _publishUrl
             }
           }
+          scImageAltTextFr
           scFragments {
             ... on SclabsAlertV1Model {
               _path
@@ -184,6 +316,11 @@ query getMscadPage {
           }
         }
         ... on TooltipV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
           _path
           scId
           scTitleEn
