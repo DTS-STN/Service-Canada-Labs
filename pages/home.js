@@ -18,43 +18,68 @@ export default function Home(props) {
     );
   });
 
-  const displayCurrentProjects = currentProjects.map((project) => (
-    <li key={project.scId} className="list-none ml-0">
-      <Card
-        showImage
-        showTag={
-          project.scLabsNewExpiryDate &&
-          Date.now() <= new Date(project.scLabsNewExpiryDate)
-        }
-        tagLabel={props.locale === "en" ? "New update" : "Nouvelle mise à jour"}
-        tag="new_update"
-        imgSrc={
-          // TODO images should always be fetched from the same place in the response data i.e. using the socialMediaImage field
-          project.scId === "BENEFITS-NAVIGATOR-OVERVIEW"
-            ? props.locale === "en"
-              ? project.scFragments[0].scImageEn._publishUrl
-              : project.scFragments[0].scImageFr._publishUrl
-            : props.locale === "en"
-            ? project.scSocialMediaImageEn._publishUrl
-            : project.scSocialMediaImageFr._publishUrl
-        }
-        imgAlt={
-          props.locale === "en"
-            ? project.scSocialMediaImageAltTextEn
-            : project.scSocialMediaImageAltTextFr
-        }
-        title={props.locale === "en" ? project.scTitleEn : project.scTitleFr}
-        href={
-          props.locale === "en" ? project.scPageNameEn : project.scPageNameFr
-        }
-        description={
-          props.locale === "en"
-            ? project.scDescriptionEn.json[0].content[0].value
-            : project.scDescriptionFr.json[0].content[0].value
-        }
-      />
-    </li>
-  ));
+  const sortedProjects = (objects) => {
+    // Order to sort the projects
+    const sortOrder = [
+      "Making it easier to get benefits",
+      "Digital Standards Playbook",
+      "My Service Canada Account dashboard",
+      "Benefits Navigator",
+      "Old Age Security Benefits Estimator",
+    ];
+    // Create a lookup for efficient ordering
+    const titleOrder = {};
+    for (let i = 0; i < sortOrder.length; i++) {
+      titleOrder[sortOrder[i]] = i;
+    }
+
+    // Sort the objects based on the lookup
+    return objects.sort((a, b) => {
+      return titleOrder[a.scTitleEn] - titleOrder[b.scTitleEn];
+    });
+  };
+
+  const displayCurrentProjects = sortedProjects(currentProjects).map(
+    (project) => (
+      <li key={project.scId} className="list-none ml-0">
+        <Card
+          showImage
+          showTag={
+            project.scLabsNewExpiryDate &&
+            Date.now() <= new Date(project.scLabsNewExpiryDate)
+          }
+          tagLabel={
+            props.locale === "en" ? "New update" : "Nouvelle mise à jour"
+          }
+          tag="new_update"
+          imgSrc={
+            // TODO images should always be fetched from the same place in the response data i.e. using the socialMediaImage field
+            project.scId === "BENEFITS-NAVIGATOR-OVERVIEW"
+              ? props.locale === "en"
+                ? project.scFragments[0].scImageEn._publishUrl
+                : project.scFragments[0].scImageFr._publishUrl
+              : props.locale === "en"
+              ? project.scSocialMediaImageEn._publishUrl
+              : project.scSocialMediaImageFr._publishUrl
+          }
+          imgAlt={
+            props.locale === "en"
+              ? project.scSocialMediaImageAltTextEn
+              : project.scSocialMediaImageAltTextFr
+          }
+          title={props.locale === "en" ? project.scTitleEn : project.scTitleFr}
+          href={
+            props.locale === "en" ? project.scPageNameEn : project.scPageNameFr
+          }
+          description={
+            props.locale === "en"
+              ? project.scDescriptionEn.json[0].content[0].value
+              : project.scDescriptionFr.json[0].content[0].value
+          }
+        />
+      </li>
+    )
+  );
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
