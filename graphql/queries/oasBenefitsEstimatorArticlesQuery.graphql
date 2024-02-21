@@ -48,6 +48,8 @@ query getOASBenefitsEstimatorArticles {
         ... on ImageRef {
           _path
           _publishUrl
+          width
+          height
         }
         ... on DocumentRef {
           _path
@@ -58,6 +60,8 @@ query getOASBenefitsEstimatorArticles {
         ... on ImageRef {
           _path
           _publishUrl
+          width
+          height
         }
         ... on DocumentRef {
           _path
