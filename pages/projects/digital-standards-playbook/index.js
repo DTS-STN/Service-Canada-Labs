@@ -35,6 +35,16 @@ export default function DigitalStandardsPlaybookPage(props) {
             ? update.scSocialMediaImageAltTextEn
             : update.scSocialMediaImageAltTextFr
         }
+        imgHeight={
+          update.scSocialMediaImageEn.height
+            ? update.scSocialMediaImageEn.height
+            : ""
+        }
+        imgWidth={
+          update.scSocialMediaImageEn.width
+            ? update.scSocialMediaImageEn.width
+            : ""
+        }
         title={props.locale === "en" ? update.scTitleEn : update.scTitleFr}
         href={props.locale === "en" ? update.scPageNameEn : update.scPageNameFr}
         description={`${
