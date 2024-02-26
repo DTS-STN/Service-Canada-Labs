@@ -53,6 +53,8 @@ query getOASBenefitsEstimatorPage {
             ... on ImageRef {
               _path
               _publishUrl
+              height
+              width
             }
             ... on DocumentRef {
               _path
@@ -63,6 +65,8 @@ query getOASBenefitsEstimatorPage {
             ... on ImageRef {
               _path
               _publishUrl
+              height
+              width
             }
             ... on DocumentRef {
               _path
@@ -234,6 +238,8 @@ query getOASBenefitsEstimatorPage {
         ... on ImageRef {
           _path
           _publishUrl
+          height
+          width
         }
         ... on DocumentRef {
           _path
@@ -244,6 +250,8 @@ query getOASBenefitsEstimatorPage {
         ... on ImageRef {
           _path
           _publishUrl
+          height
+          width
         }
         ... on DocumentRef {
           _path
