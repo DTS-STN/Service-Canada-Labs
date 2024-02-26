@@ -1,7 +1,9 @@
-export default function Image(props) {
+import Image from "../../../node_modules/next/image";
+
+export default function ImageFragment(props) {
   return (
     <div className="layout-container grid grid-cols-12 gap-x-6 my-12">
-      <img
+      <Image
         id={props.scId}
         src={
           props.locale === "en"
@@ -14,6 +16,8 @@ export default function Image(props) {
             : props.fragmentData.scImageAltTextFr
         }
         className="col-span-12 lg:col-span-10"
+        width={props.fragmentData.scImageEn.width}
+        height={props.fragmentData.scImageEn.height}
       />
       <p className="grid row-start-2 col-span-12 lg:col-span-10 justify-around">
         {props.locale === "en"

@@ -1,3 +1,4 @@
+import Image from "../../../node_modules/next/image";
 import TextRender from "../../text_node_renderer/TextRender";
 
 export default function BasicTextWithImage(props) {
@@ -6,7 +7,7 @@ export default function BasicTextWithImage(props) {
       <div className="hidden lg:grid col-start-8 col-span-5 row-start-1 row-span-2">
         <div className="flex justify-center">
           <div className="h-auto">
-            <img
+            <Image
               src={
                 props.locale === "en"
                   ? props.fragmentData.scLabImage.scImageEn._publishUrl
@@ -17,6 +18,8 @@ export default function BasicTextWithImage(props) {
                   ? props.fragmentData.scLabImage.scImageAltTextEn
                   : props.fragmentData.scLabImage.scImageAltTextFr
               }
+              width={props.fragmentData.scLabImage.scImageEn.width}
+              height={props.fragmentData.scLabImage.scImageEn.height}
             />
           </div>
         </div>
