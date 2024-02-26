@@ -13,10 +13,13 @@ export default function BasicTextWithImage(props) {
                   ? props.fragmentData.scLabImage.scImageEn._publishUrl
                   : props.fragmentData.scLabImage.scImageFr._publishUrl
               }
+              // If there is no alt text, set it to an empty string to prevent warnings
               alt={
-                props.locale === "en"
-                  ? props.fragmentData.scLabImage.scImageAltTextEn
-                  : props.fragmentData.scLabImage.scImageAltTextFr
+                props.fragmentData.scLabImage.scImageAltTextEn
+                  ? props.locale === "en"
+                    ? props.fragmentData.scLabImage.scImageAltTextEn
+                    : props.fragmentData.scLabImage.scImageAltTextFr
+                  : ""
               }
               width={props.fragmentData.scLabImage.scImageEn.width}
               height={props.fragmentData.scLabImage.scImageEn.height}
