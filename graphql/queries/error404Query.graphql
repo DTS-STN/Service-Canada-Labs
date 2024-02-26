@@ -29,6 +29,8 @@ query get404Page {
             }
             ... on ImageRef {
               _path
+              width
+              height
             }
           }
           scImageFr {
@@ -37,6 +39,8 @@ query get404Page {
             }
             ... on ImageRef {
               _path
+              width
+              height
             }
           }
         }

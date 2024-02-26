@@ -34,6 +34,8 @@ query getProjectUpdates {
         ... on ImageRef {
           _path
           _publishUrl
+          width
+          height
         }
         ... on DocumentRef {
           _path
@@ -44,6 +46,8 @@ query getProjectUpdates {
         ... on ImageRef {
           _path
           _publishUrl
+          width
+          height
         }
         ... on DocumentRef {
           _path

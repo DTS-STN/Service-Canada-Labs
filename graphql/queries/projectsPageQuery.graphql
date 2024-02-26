@@ -36,6 +36,8 @@ query getProjectsPage {
         ... on ImageRef {
           _path
           _publishUrl
+          width
+          height
         }
         ... on DocumentRef {
           _path
@@ -46,6 +48,8 @@ query getProjectsPage {
         ... on ImageRef {
           _path
           _publishUrl
+          width
+          height
         }
         ... on DocumentRef {
           _path
