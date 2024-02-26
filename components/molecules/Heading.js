@@ -5,12 +5,10 @@ export function Heading(props) {
 
   return (
     <>
-      <h1
-        className={`border-b-[1px] border-b-multi-red-red50a pb-2 leading-heading1 ${className}`}
-        id={id}
-      >
+      <h1 className={`mb-0 pb-2 leading-heading1 ${className}`} id={id}>
         {title}
       </h1>
+      <div className="mb-11 border-b-[6px] border-b-multi-red-red50a w-[72px]"></div>
       {fromLink && fromText && (
         <p className="">
           <strong>From: </strong>

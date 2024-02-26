@@ -8,6 +8,7 @@ import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
 import { Collapse } from "../../../components/molecules/Collapse";
 import { generateCollapseElements } from "../../../lib/utils/generateCollapseElements";
+import { ActionButton } from "../../../components/atoms/ActionButton";
 
 export default function MscaDashboard(props) {
   const pageData = props.pageData?.item;
@@ -364,19 +365,28 @@ export default function MscaDashboard(props) {
                 </li>
               </ul>
 
-              <p className="col-span-12 xl:col-span-8">
-                {props.locale === "en"
-                  ? pageData.scFragments[3].scContentEn.json[4].content[0].value
-                  : pageData.scFragments[3].scContentFr.json[4].content[0]
-                      .value}
-              </p>
+              <ActionButton
+                id={pageData.scFragments[4].scId}
+                style="primary"
+                custom="col-span-12 mt-6 rounded-[6px]"
+                href={
+                  props.locale === "en"
+                    ? pageData.scFragments[4].scDestinationURLEn
+                    : pageData.scFragments[4].scDestinationURLFr
+                }
+                text={
+                  props.locale === "en"
+                    ? pageData.scFragments[4].scTitleEn
+                    : pageData.scFragments[4].scTitleFr
+                }
+              />
 
               <div id="feature-section" className="col-span-12">
                 <h2 className="col-span-12">
                   {props.locale === "en"
-                    ? pageData.scFragments[4].scContentEn.json[0].content[0]
+                    ? pageData.scFragments[5].scContentEn.json[0].content[0]
                         .value
-                    : pageData.scFragments[4].scContentFr.json[0].content[0]
+                    : pageData.scFragments[5].scContentFr.json[0].content[0]
                         .value}
                 </h2>
                 <div id="feature-1" className="grid grid-cols-12 gap-x-6 mb-9">
@@ -384,16 +394,16 @@ export default function MscaDashboard(props) {
                     <img
                       src={
                         props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[0]
+                          ? pageData.scFragments[5].scFragments[0]
                               .scFragments[0].scImageEn._publishUrl
-                          : pageData.scFragments[4].scFragments[0]
+                          : pageData.scFragments[5].scFragments[0]
                               .scFragments[0].scImageFr._publishUrl
                       }
                       alt={
                         props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[0]
+                          ? pageData.scFragments[5].scFragments[0]
                               .scFragments[0].scImageAltTextEn
-                          : pageData.scFragments[4].scFragments[0]
+                          : pageData.scFragments[5].scFragments[0]
                               .scFragments[0].scImageAltTextFr
                       }
                       className="w-full"
@@ -403,31 +413,31 @@ export default function MscaDashboard(props) {
                     <div className="py-4 pl-4 border-l-4 border-multi-blue-blue60f">
                       <h3 className="mb-2">
                         {props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[0].scContentEn
+                          ? pageData.scFragments[5].scFragments[0].scContentEn
                               .json[0].content[0].value
-                          : pageData.scFragments[4].scFragments[0].scContentFr
+                          : pageData.scFragments[5].scFragments[0].scContentFr
                               .json[0].content[0].value}
                       </h3>
                       <p>
                         {props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[0].scContentEn
+                          ? pageData.scFragments[5].scFragments[0].scContentEn
                               .json[1].content[0].value
-                          : pageData.scFragments[4].scFragments[0].scContentFr
+                          : pageData.scFragments[5].scFragments[0].scContentFr
                               .json[1].content[0].value}
                       </p>
                       <ul>
                         <li>
                           {props.locale === "en"
-                            ? pageData.scFragments[4].scFragments[0].scContentEn
+                            ? pageData.scFragments[5].scFragments[0].scContentEn
                                 .json[2].content[0].content[0].value
-                            : pageData.scFragments[4].scFragments[0].scContentFr
+                            : pageData.scFragments[5].scFragments[0].scContentFr
                                 .json[2].content[0].content[0].value}
                         </li>
                         <li>
                           {props.locale === "en"
-                            ? pageData.scFragments[4].scFragments[0].scContentEn
+                            ? pageData.scFragments[5].scFragments[0].scContentEn
                                 .json[2].content[1].content[0].value
-                            : pageData.scFragments[4].scFragments[0].scContentFr
+                            : pageData.scFragments[5].scFragments[0].scContentFr
                                 .json[2].content[1].content[0].value}
                         </li>
                       </ul>
@@ -438,16 +448,16 @@ export default function MscaDashboard(props) {
                       id="image-text-collapse-1"
                       title={
                         props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[0]
+                          ? pageData.scFragments[5].scFragments[0]
                               .scFragments[0].scLongDescHeadingEn
-                          : pageData.scFragments[4].scFragments[0]
+                          : pageData.scFragments[5].scFragments[0]
                               .scFragments[0].scLongDescHeadingFr
                       }
                       children={generateCollapseElements(
                         props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[0]
+                          ? pageData.scFragments[5].scFragments[0]
                               .scFragments[0].scLongDescEn.json
-                          : pageData.scFragments[4].scFragments[0]
+                          : pageData.scFragments[5].scFragments[0]
                               .scFragments[0].scLongDescFr.json
                       )}
                     />
@@ -458,16 +468,16 @@ export default function MscaDashboard(props) {
                     <img
                       src={
                         props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[1]
+                          ? pageData.scFragments[5].scFragments[1]
                               .scFragments[0].scImageEn._publishUrl
-                          : pageData.scFragments[4].scFragments[1]
+                          : pageData.scFragments[5].scFragments[1]
                               .scFragments[0].scImageFr._publishUrl
                       }
                       alt={
                         props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[1]
+                          ? pageData.scFragments[5].scFragments[1]
                               .scFragments[0].scImageAltTextEn
-                          : pageData.scFragments[4].scFragments[1]
+                          : pageData.scFragments[5].scFragments[1]
                               .scFragments[0].scImageAltTextFr
                       }
                       className="w-full"
@@ -477,31 +487,31 @@ export default function MscaDashboard(props) {
                     <div className="p-4 border-l-4 border-multi-blue-blue60f">
                       <h3 className="mb-2">
                         {props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[1].scContentEn
+                          ? pageData.scFragments[5].scFragments[1].scContentEn
                               .json[0].content[0].value
-                          : pageData.scFragments[4].scFragments[1].scContentFr
+                          : pageData.scFragments[5].scFragments[1].scContentFr
                               .json[0].content[0].value}
                       </h3>
                       <p>
                         {props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[1].scContentEn
+                          ? pageData.scFragments[5].scFragments[1].scContentEn
                               .json[1].content[0].value
-                          : pageData.scFragments[4].scFragments[1].scContentFr
+                          : pageData.scFragments[5].scFragments[1].scContentFr
                               .json[1].content[0].value}
                       </p>
                       <ul>
                         <li>
                           {props.locale === "en"
-                            ? pageData.scFragments[4].scFragments[1].scContentEn
+                            ? pageData.scFragments[5].scFragments[1].scContentEn
                                 .json[2].content[0].content[0].value
-                            : pageData.scFragments[4].scFragments[1].scContentFr
+                            : pageData.scFragments[5].scFragments[1].scContentFr
                                 .json[2].content[0].content[0].value}
                         </li>
                         <li>
                           {props.locale === "en"
-                            ? pageData.scFragments[4].scFragments[1].scContentEn
+                            ? pageData.scFragments[5].scFragments[1].scContentEn
                                 .json[2].content[1].content[0].value
-                            : pageData.scFragments[4].scFragments[1].scContentFr
+                            : pageData.scFragments[5].scFragments[1].scContentFr
                                 .json[2].content[1].content[0].value}
                         </li>
                       </ul>
@@ -512,16 +522,16 @@ export default function MscaDashboard(props) {
                       id="image-text-collapse-2"
                       title={
                         props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[1]
+                          ? pageData.scFragments[5].scFragments[1]
                               .scFragments[0].scLongDescHeadingEn
-                          : pageData.scFragments[4].scFragments[1]
+                          : pageData.scFragments[5].scFragments[1]
                               .scFragments[0].scLongDescHeadingFr
                       }
                       children={generateCollapseElements(
                         props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[1]
+                          ? pageData.scFragments[5].scFragments[1]
                               .scFragments[0].scLongDescEn.json
-                          : pageData.scFragments[4].scFragments[1]
+                          : pageData.scFragments[5].scFragments[1]
                               .scFragments[0].scLongDescFr.json
                       )}
                     />
@@ -532,16 +542,16 @@ export default function MscaDashboard(props) {
                     <img
                       src={
                         props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[2]
+                          ? pageData.scFragments[5].scFragments[2]
                               .scFragments[0].scImageEn._publishUrl
-                          : pageData.scFragments[4].scFragments[2]
+                          : pageData.scFragments[5].scFragments[2]
                               .scFragments[0].scImageFr._publishUrl
                       }
                       alt={
                         props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[2]
+                          ? pageData.scFragments[5].scFragments[2]
                               .scFragments[0].scImageAltTextEn
-                          : pageData.scFragments[4].scFragments[2]
+                          : pageData.scFragments[5].scFragments[2]
                               .scFragments[0].scImageAltTextFr
                       }
                       className="w-full"
@@ -551,59 +561,59 @@ export default function MscaDashboard(props) {
                     <div className="p-4 border-l-4 border-multi-blue-blue60f">
                       <h3 className="mb-2">
                         {props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[2].scContentEn
+                          ? pageData.scFragments[5].scFragments[2].scContentEn
                               .json[0].content[0].value
-                          : pageData.scFragments[4].scFragments[2].scContentFr
+                          : pageData.scFragments[5].scFragments[2].scContentFr
                               .json[0].content[0].value}
                       </h3>
                       <p>
                         {props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[2].scContentEn
+                          ? pageData.scFragments[5].scFragments[2].scContentEn
                               .json[1].content[0].value
-                          : pageData.scFragments[4].scFragments[2].scContentFr
+                          : pageData.scFragments[5].scFragments[2].scContentFr
                               .json[1].content[0].value}
                       </p>
                       <ul>
                         <li>
                           {props.locale === "en"
-                            ? pageData.scFragments[4].scFragments[2].scContentEn
+                            ? pageData.scFragments[5].scFragments[2].scContentEn
                                 .json[2].content[0].content[0].value
-                            : pageData.scFragments[4].scFragments[2].scContentFr
+                            : pageData.scFragments[5].scFragments[2].scContentFr
                                 .json[2].content[0].content[0].value}
                         </li>
                         <li>
                           {props.locale === "en"
-                            ? pageData.scFragments[4].scFragments[2].scContentEn
+                            ? pageData.scFragments[5].scFragments[2].scContentEn
                                 .json[2].content[1].content[0].value
-                            : pageData.scFragments[4].scFragments[2].scContentFr
+                            : pageData.scFragments[5].scFragments[2].scContentFr
                                 .json[2].content[1].content[0].value}
                         </li>
                         <li>
                           {props.locale === "en"
-                            ? pageData.scFragments[4].scFragments[2].scContentEn
+                            ? pageData.scFragments[5].scFragments[2].scContentEn
                                 .json[2].content[2].content[0].value
-                            : pageData.scFragments[4].scFragments[2].scContentFr
+                            : pageData.scFragments[5].scFragments[2].scContentFr
                                 .json[2].content[2].content[0].value}
                         </li>
                         <li>
                           {props.locale === "en"
-                            ? pageData.scFragments[4].scFragments[2].scContentEn
+                            ? pageData.scFragments[5].scFragments[2].scContentEn
                                 .json[2].content[3].content[0].value
-                            : pageData.scFragments[4].scFragments[2].scContentFr
+                            : pageData.scFragments[5].scFragments[2].scContentFr
                                 .json[2].content[3].content[0].value}
                         </li>
                         <li>
                           {props.locale === "en"
-                            ? pageData.scFragments[4].scFragments[2].scContentEn
+                            ? pageData.scFragments[5].scFragments[2].scContentEn
                                 .json[2].content[4].content[0].value
-                            : pageData.scFragments[4].scFragments[2].scContentFr
+                            : pageData.scFragments[5].scFragments[2].scContentFr
                                 .json[2].content[4].content[0].value}
                         </li>
                         <li>
                           {props.locale === "en"
-                            ? pageData.scFragments[4].scFragments[2].scContentEn
+                            ? pageData.scFragments[5].scFragments[2].scContentEn
                                 .json[2].content[5].content[0].value
-                            : pageData.scFragments[4].scFragments[2].scContentFr
+                            : pageData.scFragments[5].scFragments[2].scContentFr
                                 .json[2].content[5].content[0].value}
                         </li>
                       </ul>
@@ -614,16 +624,16 @@ export default function MscaDashboard(props) {
                       id="image-text-collapse-3"
                       title={
                         props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[2]
+                          ? pageData.scFragments[5].scFragments[2]
                               .scFragments[0].scLongDescHeadingEn
-                          : pageData.scFragments[4].scFragments[2]
+                          : pageData.scFragments[5].scFragments[2]
                               .scFragments[0].scLongDescHeadingFr
                       }
                       children={generateCollapseElements(
                         props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[2]
+                          ? pageData.scFragments[5].scFragments[2]
                               .scFragments[0].scLongDescEn.json
-                          : pageData.scFragments[4].scFragments[2]
+                          : pageData.scFragments[5].scFragments[2]
                               .scFragments[0].scLongDescFr.json
                       )}
                     />
@@ -634,16 +644,16 @@ export default function MscaDashboard(props) {
                     <img
                       src={
                         props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[3]
+                          ? pageData.scFragments[5].scFragments[3]
                               .scFragments[0].scImageEn._publishUrl
-                          : pageData.scFragments[4].scFragments[3]
+                          : pageData.scFragments[5].scFragments[3]
                               .scFragments[0].scImageFr._publishUrl
                       }
                       alt={
                         props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[3]
+                          ? pageData.scFragments[5].scFragments[3]
                               .scFragments[0].scImageAltTextEn
-                          : pageData.scFragments[4].scFragments[3]
+                          : pageData.scFragments[5].scFragments[3]
                               .scFragments[0].scImageAltTextFr
                       }
                       className="w-full"
@@ -653,45 +663,45 @@ export default function MscaDashboard(props) {
                     <div className="p-4 border-l-4 border-multi-blue-blue60f">
                       <h3 className="mb-2">
                         {props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[3].scContentEn
+                          ? pageData.scFragments[5].scFragments[3].scContentEn
                               .json[0].content[0].value
-                          : pageData.scFragments[4].scFragments[3].scContentFr
+                          : pageData.scFragments[5].scFragments[3].scContentFr
                               .json[0].content[0].value}
                       </h3>
                       <p>
                         {props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[3].scContentEn
+                          ? pageData.scFragments[5].scFragments[3].scContentEn
                               .json[1].content[0].value
-                          : pageData.scFragments[4].scFragments[3].scContentFr
+                          : pageData.scFragments[5].scFragments[3].scContentFr
                               .json[1].content[0].value}
                       </p>
                       <ul>
                         <li>
                           {props.locale === "en"
-                            ? pageData.scFragments[4].scFragments[3].scContentEn
+                            ? pageData.scFragments[5].scFragments[3].scContentEn
                                 .json[2].content[0].content[0].value
-                            : pageData.scFragments[4].scFragments[3].scContentFr
+                            : pageData.scFragments[5].scFragments[3].scContentFr
                                 .json[2].content[0].content[0].value}
                         </li>
                         <li>
                           {props.locale === "en"
-                            ? pageData.scFragments[4].scFragments[3].scContentEn
+                            ? pageData.scFragments[5].scFragments[3].scContentEn
                                 .json[2].content[1].content[0].value
-                            : pageData.scFragments[4].scFragments[3].scContentFr
+                            : pageData.scFragments[5].scFragments[3].scContentFr
                                 .json[2].content[1].content[0].value}
                         </li>
                         <li>
                           {props.locale === "en"
-                            ? pageData.scFragments[4].scFragments[3].scContentEn
+                            ? pageData.scFragments[5].scFragments[3].scContentEn
                                 .json[2].content[2].content[0].value
-                            : pageData.scFragments[4].scFragments[3].scContentFr
+                            : pageData.scFragments[5].scFragments[3].scContentFr
                                 .json[2].content[2].content[0].value}
                         </li>
                         <li>
                           {props.locale === "en"
-                            ? pageData.scFragments[4].scFragments[3].scContentEn
+                            ? pageData.scFragments[5].scFragments[3].scContentEn
                                 .json[2].content[3].content[0].value
-                            : pageData.scFragments[4].scFragments[3].scContentFr
+                            : pageData.scFragments[5].scFragments[3].scContentFr
                                 .json[2].content[3].content[0].value}
                         </li>
                       </ul>
@@ -702,16 +712,16 @@ export default function MscaDashboard(props) {
                       id="image-text-collapse-4"
                       title={
                         props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[3]
+                          ? pageData.scFragments[5].scFragments[3]
                               .scFragments[0].scLongDescHeadingEn
-                          : pageData.scFragments[4].scFragments[3]
+                          : pageData.scFragments[5].scFragments[3]
                               .scFragments[0].scLongDescHeadingFr
                       }
                       children={generateCollapseElements(
                         props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[3]
+                          ? pageData.scFragments[5].scFragments[3]
                               .scFragments[0].scLongDescEn.json
-                          : pageData.scFragments[4].scFragments[3]
+                          : pageData.scFragments[5].scFragments[3]
                               .scFragments[0].scLongDescFr.json
                       )}
                     />
@@ -727,29 +737,39 @@ export default function MscaDashboard(props) {
           >
             <h2 className="col-span-12">
               {props.locale === "en"
-                ? pageData.scFragments[5].scContentEn.json[0].content[0].value
-                : pageData.scFragments[5].scContentFr.json[0].content[0].value}
+                ? pageData.scFragments[6].scContentEn.json[0].content[0].value
+                : pageData.scFragments[6].scContentFr.json[0].content[0].value}
             </h2>
             <p className="col-span-12 xl:col-span-8">
               {props.locale === "en"
-                ? pageData.scFragments[5].scContentEn.json[1].content[0].value
-                : pageData.scFragments[5].scContentFr.json[1].content[0].value}
+                ? pageData.scFragments[6].scContentEn.json[1].content[0].value
+                : pageData.scFragments[6].scContentFr.json[1].content[0].value}
             </p>
             <p className="col-span-12 xl:col-span-8">
               {props.locale === "en"
-                ? pageData.scFragments[5].scContentEn.json[2].content[0].value
-                : pageData.scFragments[5].scContentFr.json[2].content[0].value}
+                ? pageData.scFragments[6].scContentEn.json[2].content[0].value
+                : pageData.scFragments[6].scContentFr.json[2].content[0].value}
               <a
                 className="underline underline-offset-4"
-                href={`mailto:${pageData.scFragments[5].scContentEn.json[2].content[1].value}`}
+                href={`mailto:${pageData.scFragments[6].scContentEn.json[2].content[1].value}`}
               >
-                {pageData.scFragments[5].scContentEn.json[2].content[1].value}
+                {pageData.scFragments[6].scContentEn.json[2].content[1].value}
               </a>
             </p>
             <p className="col-span-12 xl:col-span-8">
               {props.locale === "en"
-                ? pageData.scFragments[5].scContentEn.json[3].content[0].value
-                : pageData.scFragments[5].scContentFr.json[3].content[0].value}
+                ? pageData.scFragments[6].scContentEn.json[3].content[0].value
+                : pageData.scFragments[6].scContentFr.json[3].content[0].value}
+              <span className="whitespace-nowrap">
+                {props.locale === "en"
+                  ? pageData.scFragments[6].scContentEn.json[3].content[1]
+                      .content[0].value
+                  : pageData.scFragments[6].scContentFr.json[3].content[1]
+                      .content[0].value}
+              </span>
+              {props.locale === "en"
+                ? pageData.scFragments[6].scContentEn.json[3].content[2].value
+                : pageData.scFragments[6].scContentFr.json[3].content[2].value}
             </p>
           </section>
         </div>
