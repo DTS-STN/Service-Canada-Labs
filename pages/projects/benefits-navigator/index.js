@@ -9,6 +9,7 @@ import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
 import { Collapse } from "../../../components/molecules/Collapse";
 import { generateCollapseElements } from "../../../lib/utils/generateCollapseElements";
+import Image from "../../../node_modules/next/image";
 
 export default function BenefitsNavigatorOverview(props) {
   const [pageData] = useState(props.pageData.item);
@@ -275,7 +276,7 @@ export default function BenefitsNavigatorOverview(props) {
               <div className="hidden lg:grid row-span-2 row-start-2 col-start-2 p-0 mx-4">
                 <div className="flex justify-center">
                   <div className="object-fill max-w-350px">
-                    <img
+                    <Image
                       src={
                         props.locale === "en"
                           ? pageData.scFragments[0].scImageEn._publishUrl
@@ -286,8 +287,9 @@ export default function BenefitsNavigatorOverview(props) {
                           ? pageData.scFragments[0].scImageAltTextEn
                           : pageData.scFragments[0].scImageAltTextFr
                       }
-                      width={468}
-                      height={462}
+                      width={pageData.scFragments[0].scImageEn.width}
+                      height={pageData.scFragments[0].scImageEn.height}
+                      priority
                     />
                   </div>
                 </div>
@@ -407,7 +409,7 @@ export default function BenefitsNavigatorOverview(props) {
               </h2>
               <div id="feature-1" className="grid grid-cols-12 gap-x-6 mb-9">
                 <div className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8">
-                  <img
+                  <Image
                     src={
                       props.locale === "en"
                         ? pageData.scFragments[4].scFragments[0].scFragments[0]
@@ -422,7 +424,14 @@ export default function BenefitsNavigatorOverview(props) {
                         : pageData.scFragments[4].scFragments[0].scFragments[0]
                             .scImageAltTextFr
                     }
-                    className="w-full"
+                    height={
+                      pageData.scFragments[4].scFragments[0].scFragments[0]
+                        .scImageEn.height
+                    }
+                    width={
+                      pageData.scFragments[4].scFragments[0].scFragments[0]
+                        .scImageEn.width
+                    }
                   />
                 </div>
                 <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
@@ -488,7 +497,7 @@ export default function BenefitsNavigatorOverview(props) {
               </div>
               <div id="feature-2" className="grid grid-cols-12 gap-x-6 mb-9">
                 <div className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8">
-                  <img
+                  <Image
                     src={
                       props.locale === "en"
                         ? pageData.scFragments[4].scFragments[1].scFragments[0]
@@ -503,7 +512,14 @@ export default function BenefitsNavigatorOverview(props) {
                         : pageData.scFragments[4].scFragments[1].scFragments[0]
                             .scImageAltTextFr
                     }
-                    className="w-full"
+                    height={
+                      pageData.scFragments[4].scFragments[1].scFragments[0]
+                        .scImageEn.height
+                    }
+                    width={
+                      pageData.scFragments[4].scFragments[1].scFragments[0]
+                        .scImageEn.width
+                    }
                   />
                 </div>
                 <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
@@ -569,7 +585,7 @@ export default function BenefitsNavigatorOverview(props) {
               </div>
               <div id="feature-3" className="grid grid-cols-12 gap-x-6">
                 <div className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8">
-                  <img
+                  <Image
                     src={
                       props.locale === "en"
                         ? pageData.scFragments[4].scFragments[2].scFragments[0]
@@ -584,7 +600,14 @@ export default function BenefitsNavigatorOverview(props) {
                         : pageData.scFragments[4].scFragments[2].scFragments[0]
                             .scImageAltTextFr
                     }
-                    className="w-full"
+                    height={
+                      pageData.scFragments[4].scFragments[2].scFragments[0]
+                        .scImageEn.height
+                    }
+                    width={
+                      pageData.scFragments[4].scFragments[2].scFragments[0]
+                        .scImageEn.width
+                    }
                   />
                 </div>
                 <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">

@@ -9,6 +9,7 @@ import { Heading } from "../../../components/molecules/Heading";
 import { Collapse } from "../../../components/molecules/Collapse";
 import { generateCollapseElements } from "../../../lib/utils/generateCollapseElements";
 import { ActionButton } from "../../../components/atoms/ActionButton";
+import Image from "../../../node_modules/next/image";
 
 export default function MscaDashboard(props) {
   const pageData = props.pageData?.item;
@@ -235,7 +236,7 @@ export default function MscaDashboard(props) {
               <div className="hidden lg:grid row-span-2 row-start-2 col-start-2 p-0 mx-4">
                 <div className="flex justify-center">
                   <div className="object-fill h-auto w-auto max-w-450px">
-                    <img
+                    <Image
                       src={
                         props.locale === "en"
                           ? pageData.scFragments[1].scImageEn._publishUrl
@@ -246,8 +247,9 @@ export default function MscaDashboard(props) {
                           ? pageData.scFragments[1].scImageAltTextEn
                           : pageData.scFragments[1].scImageAltTextFr) ?? ""
                       }
-                      width={468}
-                      height={462}
+                      height={pageData.scFragments[1].scImageEn.height}
+                      width={pageData.scFragments[1].scImageEn.width}
+                      priority
                     />
                   </div>
                 </div>
@@ -391,7 +393,7 @@ export default function MscaDashboard(props) {
                 </h2>
                 <div id="feature-1" className="grid grid-cols-12 gap-x-6 mb-9">
                   <div className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8">
-                    <img
+                    <Image
                       src={
                         props.locale === "en"
                           ? pageData.scFragments[5].scFragments[0]
@@ -406,7 +408,14 @@ export default function MscaDashboard(props) {
                           : pageData.scFragments[5].scFragments[0]
                               .scFragments[0].scImageAltTextFr
                       }
-                      className="w-full"
+                      height={
+                        pageData.scFragments[5].scFragments[0].scFragments[0]
+                          .scImageEn.height
+                      }
+                      width={
+                        pageData.scFragments[5].scFragments[0].scFragments[0]
+                          .scImageEn.width
+                      }
                     />
                   </div>
                   <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
@@ -465,7 +474,7 @@ export default function MscaDashboard(props) {
                 </div>
                 <div id="feature-2" className="grid grid-cols-12 gap-x-6 mb-9">
                   <div className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8">
-                    <img
+                    <Image
                       src={
                         props.locale === "en"
                           ? pageData.scFragments[5].scFragments[1]
@@ -480,7 +489,14 @@ export default function MscaDashboard(props) {
                           : pageData.scFragments[5].scFragments[1]
                               .scFragments[0].scImageAltTextFr
                       }
-                      className="w-full"
+                      height={
+                        pageData.scFragments[5].scFragments[1].scFragments[0]
+                          .scImageEn.height
+                      }
+                      width={
+                        pageData.scFragments[5].scFragments[1].scFragments[0]
+                          .scImageEn.width
+                      }
                     />
                   </div>
                   <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
@@ -539,7 +555,7 @@ export default function MscaDashboard(props) {
                 </div>
                 <div id="feature-3" className="grid grid-cols-12 gap-x-6 mb-9">
                   <div className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8">
-                    <img
+                    <Image
                       src={
                         props.locale === "en"
                           ? pageData.scFragments[5].scFragments[2]
@@ -554,7 +570,14 @@ export default function MscaDashboard(props) {
                           : pageData.scFragments[5].scFragments[2]
                               .scFragments[0].scImageAltTextFr
                       }
-                      className="w-full"
+                      height={
+                        pageData.scFragments[5].scFragments[0].scFragments[0]
+                          .scImageEn.height
+                      }
+                      width={
+                        pageData.scFragments[5].scFragments[0].scFragments[0]
+                          .scImageEn.width
+                      }
                     />
                   </div>
                   <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
@@ -641,7 +664,7 @@ export default function MscaDashboard(props) {
                 </div>
                 <div id="feature-4" className="grid grid-cols-12 gap-x-6">
                   <div className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8">
-                    <img
+                    <Image
                       src={
                         props.locale === "en"
                           ? pageData.scFragments[5].scFragments[3]
@@ -656,7 +679,14 @@ export default function MscaDashboard(props) {
                           : pageData.scFragments[5].scFragments[3]
                               .scFragments[0].scImageAltTextFr
                       }
-                      className="w-full"
+                      height={
+                        pageData.scFragments[5].scFragments[3].scFragments[0]
+                          .scImageEn.height
+                      }
+                      width={
+                        pageData.scFragments[5].scFragments[3].scFragments[0]
+                          .scImageEn.width
+                      }
                     />
                   </div>
                   <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
