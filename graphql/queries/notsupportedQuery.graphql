@@ -26,6 +26,8 @@ query getNotSupported {
           scImageEn {
             ... on ImageRef {
               _path
+              width
+              height
             }
             ... on DocumentRef {
               _path
@@ -35,6 +37,8 @@ query getNotSupported {
           scImageFr {
             ... on ImageRef {
               _path
+              width
+              height
             }
             ... on DocumentRef {
               _path

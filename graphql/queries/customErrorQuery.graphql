@@ -29,6 +29,8 @@ query getCustomErrorPage {
             }
             ... on ImageRef {
               _path
+              height
+              width
             }
           }
           scImageFr {
@@ -37,6 +39,8 @@ query getCustomErrorPage {
             }
             ... on ImageRef {
               _path
+              height
+              width
             }
           }
         }

@@ -6,6 +6,7 @@ import Card from "../components/molecules/Card";
 import aemServiceInstance from "../services/aemServiceInstance";
 import { Heading } from "../components/molecules/Heading";
 import { ContextualAlert } from "../components/molecules/ContextualAlert";
+import Image from "../node_modules/next/image";
 
 export default function Home(props) {
   const pageData = props.pageData?.item;
@@ -53,12 +54,7 @@ export default function Home(props) {
           }
           tag="new_update"
           imgSrc={
-            // TODO images should always be fetched from the same place in the response data i.e. using the socialMediaImage field
-            project.scId === "BENEFITS-NAVIGATOR-OVERVIEW"
-              ? props.locale === "en"
-                ? project.scFragments[0].scImageEn._publishUrl
-                : project.scFragments[0].scImageFr._publishUrl
-              : props.locale === "en"
+            props.locale === "en"
               ? project.scSocialMediaImageEn._publishUrl
               : project.scSocialMediaImageFr._publishUrl
           }
@@ -66,6 +62,16 @@ export default function Home(props) {
             props.locale === "en"
               ? project.scSocialMediaImageAltTextEn
               : project.scSocialMediaImageAltTextFr
+          }
+          imgHeight={
+            project.scSocialMediaImageEn.height
+              ? project.scSocialMediaImageEn.height
+              : ""
+          }
+          imgWidth={
+            project.scSocialMediaImageEn.width
+              ? project.scSocialMediaImageEn.width
+              : ""
           }
           title={props.locale === "en" ? project.scTitleEn : project.scTitleFr}
           href={
@@ -278,13 +284,16 @@ export default function Home(props) {
                   style={{ height: "260px", width: "380px", minWidth: "380px" }}
                   role="presentation"
                 >
-                  <img
+                  <Image
                     src={
                       props.locale === "en"
                         ? pageData.scFragments[1].scImageEn._publishUrl
                         : pageData.scFragments[1].scImageFr._publishUrl
                     }
                     alt=""
+                    width={pageData.scFragments[1].scImageEn.width}
+                    height={pageData.scFragments[1].scImageEn.height}
+                    priority
                   />
                 </span>
               </div>

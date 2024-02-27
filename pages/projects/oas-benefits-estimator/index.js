@@ -8,6 +8,7 @@ import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
 import Card from "../../../components/molecules/Card";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
+import Image from "../../../node_modules/next/image";
 
 export default function OasBenefitsEstimator(props) {
   const [pageData] = useState(props.pageData.item);
@@ -46,6 +47,8 @@ export default function OasBenefitsEstimator(props) {
             ? update.scSocialMediaImageAltTextEn
             : update.scSocialMediaImageAltTextFr) ?? ""
         }
+        imgHeight={update.scSocialMediaImageEn.height}
+        imgWidth={update.scSocialMediaImageEn.width}
         title={props.locale === "en" ? update.scTitleEn : update.scTitleFr}
         href={props.locale === "en" ? update.scPageNameEn : update.scPageNameFr}
         description={`${
@@ -260,7 +263,7 @@ export default function OasBenefitsEstimator(props) {
               <div className="hidden lg:grid row-span-2 row-start-2 col-start-2 p-0 mx-4">
                 <div className="flex justify-center">
                   <div className="object-fill h-auto w-auto max-w-450px">
-                    <img
+                    <Image
                       src={
                         props.locale === "en"
                           ? pageData.scFragments[1].scImageEn._publishUrl
@@ -271,8 +274,9 @@ export default function OasBenefitsEstimator(props) {
                           ? pageData.scFragments[1].scImageAltTextEn
                           : pageData.scFragments[1].scImageAltTextFr) ?? ""
                       }
-                      width={468}
-                      height={462}
+                      height={pageData.scFragments[1].scImageEn.height}
+                      width={pageData.scFragments[1].scImageEn.width}
+                      priority
                     />
                   </div>
                 </div>

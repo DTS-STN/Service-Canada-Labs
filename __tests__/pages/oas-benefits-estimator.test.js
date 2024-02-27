@@ -13,7 +13,7 @@ describe("OAS Benefits Estimator", () => {
   it("renders without crashing", () => {
     render(
       <OasBenefitsEstimator
-        pageData={oasBenefitsEstimatorData.data.scLabsPagev1ByPath}
+        pageData={oasBenefitsEstimatorData.data.sclabsPageV1ByPath}
         updatesData={oasUpdatesData}
         dictionary={dictionaryData.data.dictionaryV1List}
       />

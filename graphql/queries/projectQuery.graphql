@@ -46,6 +46,7 @@ query getAllProjects {
           _path
           _publishUrl
           width
+          height
         }
         ... on MultimediaRef {
           _path
@@ -58,6 +59,7 @@ query getAllProjects {
           _path
           _publishUrl
           width
+          height
         }
         ... on MultimediaRef {
           _path

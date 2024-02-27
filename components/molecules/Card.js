@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 import { ActionButton } from "../atoms/ActionButton";
+import Image from "../../node_modules/next/image";
 
 /**
  * Displays an experiment card on the page
@@ -28,10 +29,12 @@ export const Card = (props) => {
       >
         {props.showImage ? (
           <div className="h-80 flex justify-center">
-            <img
+            <Image
               src={props.imgSrc}
               alt={props.imgAlt}
-              className="object-contain rounded-md"
+              className="object-contain"
+              width={props.imgWidth}
+              height={props.imgHeight}
             />
           </div>
         ) : (

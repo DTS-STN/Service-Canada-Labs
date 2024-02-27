@@ -85,7 +85,7 @@ securityHeaders = [
   },
   {
     key: "Content-Security-Policy",
-    value: `default-src 'self' dts-stn.com *.dts-stn.com *.adobe.com https://assets.adobedtm.com *.omniture.com *.2o7.net; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; connect-src 'self' *.adobe.com https://assets.adobedtm.com *.demdex.net *.omtrdc.net cm.everesttech.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com data:; img-src 'self' data: *.omtrdc.net *.demdex.net cm.everesttech.net https://assets.adobedtm.com https://www.canada.ca; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com data:; frame-src 'self' *.adobe.com https://assets.adobedtm.com *.demdex.net; script-src 'self' 'unsafe-inline' *.adobe.com *.omniture.com *.2o7.net https://*.demdex.net https://cm.everesttech.net ${
+    value: `default-src 'self' dts-stn.com *.dts-stn.com *.adobe.com https://assets.adobedtm.com *.omniture.com *.2o7.net; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; connect-src 'self' *.adobe.com https://assets.adobedtm.com *.demdex.net *.omtrdc.net cm.everesttech.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com data:; img-src 'self' data: *.omtrdc.net *.demdex.net cm.everesttech.net https://assets.adobedtm.com https://www.canada.ca; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com data:; frame-src 'self' *.adobe.com https://assets.adobedtm.com *.demdex.net; script-src 'self' 'unsafe-inline' *.adobe.com *.adobedtm.com *.omniture.com *.2o7.net https://*.demdex.net https://cm.everesttech.net ${
       process.env.CI === "true"
         ? "'unsafe-eval'"
         : process.env.NODE_ENV === "development"
@@ -110,7 +110,14 @@ module.exports = {
     return config;
   },
   images: {
-    domains: ["canada.ca", "www.canada.ca"],
+    domains: ['canada.ca', 'www.canada.ca'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'canada.ca',
+        port: '',
+      },
+    ]
   },
   poweredByHeader: false,
   async headers() {
