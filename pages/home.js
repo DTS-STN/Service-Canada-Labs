@@ -104,12 +104,6 @@ export default function Home(props) {
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
       >
         <Head>
-          {props.adobeAnalyticsUrl ? (
-            <script src={props.adobeAnalyticsUrl} />
-          ) : (
-            ""
-          )}
-
           {/* Primary HTML Meta Tags */}
           <title>
             {props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr}
@@ -408,11 +402,6 @@ export default function Home(props) {
           </ul>
         </section>
       </Layout>
-      {props.adobeAnalyticsUrl ? (
-        <script type="text/javascript">_satellite.pageBottom()</script>
-      ) : (
-        ""
-      )}
     </>
   );
 }

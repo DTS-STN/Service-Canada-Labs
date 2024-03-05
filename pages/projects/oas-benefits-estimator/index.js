@@ -81,12 +81,6 @@ export default function OasBenefitsEstimator(props) {
         )}
       >
         <Head>
-          {props.adobeAnalyticsUrl ? (
-            <script src={props.adobeAnalyticsUrl} />
-          ) : (
-            ""
-          )}
-
           {/* Primary HTML Meta Tags */}
           <title>
             {props.locale === "en"
@@ -418,11 +412,6 @@ export default function OasBenefitsEstimator(props) {
           </ul>
         </div>
       </Layout>
-      {props.adobeAnalyticsUrl ? (
-        <script type="text/javascript">_satellite.pageBottom()</script>
-      ) : (
-        ""
-      )}
     </>
   );
 }

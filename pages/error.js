@@ -33,12 +33,6 @@ export default function ErrorPage(props) {
     <>
       <main className="min-h-screen relative">
         <Head>
-          {props.adobeAnalyticsUrl ? (
-            <script src={props.adobeAnalyticsUrl} />
-          ) : (
-            ""
-          )}
-
           {/* Primary HTML Meta Tags */}
           <title data-gc-analytics-error={props.statusCode}>
             {pageData.scContentEn.json[0].content[0].value} |{" "}
@@ -441,11 +435,6 @@ export default function ErrorPage(props) {
           </div>
         </footer>
       </main>
-      {props.adobeAnalyticsUrl ? (
-        <script type="text/javascript">_satellite.pageBottom()</script>
-      ) : (
-        ""
-      )}
     </>
   );
 }

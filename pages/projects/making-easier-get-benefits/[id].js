@@ -34,11 +34,7 @@ export default function IntegratedChannelStrategyArticles(props) {
           props.locale
         )}
       >
-        <PageHead
-          pageData={pageData}
-          adobeAnalyticsUrl={props.adobeAnalyticsUrl}
-          locale={props.locale}
-        />
+        <PageHead pageData={pageData} locale={props.locale} />
         <section className="mb-12">
           <div className="layout-container">
             <Heading
@@ -85,11 +81,6 @@ export default function IntegratedChannelStrategyArticles(props) {
           </div>
         </section>
       </Layout>
-      {props.adobeAnalyticsUrl ? (
-        <script type="text/javascript">_satellite.pageBottom()</script>
-      ) : (
-        ""
-      )}
     </>
   );
 }

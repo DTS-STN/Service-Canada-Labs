@@ -33,12 +33,6 @@ export default function notSupported(props) {
     <>
       <main className="min-h-screen relative">
         <Head>
-          {props.adobeAnalyticsUrl ? (
-            <script src={props.adobeAnalyticsUrl} />
-          ) : (
-            ""
-          )}
-
           {/* Primary HTML Meta Tags */}
           <title data-gc-analytics-error="notSupported">
             {pageData.scContentEn.json[0].content[0].value} |{" "}
@@ -472,11 +466,6 @@ export default function notSupported(props) {
           </div>
         </footer>
       </main>
-      {props.adobeAnalyticsUrl ? (
-        <script type="text/javascript">_satellite.pageBottom()</script>
-      ) : (
-        ""
-      )}
     </>
   );
 }
