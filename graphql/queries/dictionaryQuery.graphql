@@ -1,4 +1,4 @@
-query getAllProjects {
+query getDictionary {
   dictionaryV1List {
     items {
       _path

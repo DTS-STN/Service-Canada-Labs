@@ -10,6 +10,7 @@ import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
 import TextRender from "../../../components/text_node_renderer/TextRender";
 import Image from "../../../node_modules/next/image";
+import stageDictionary from "../../../lib/utils/stageDictionary";
 
 export default function IntegratedChannelStrategyPage(props) {
   const [pageData] = useState(props.pageData.item);
@@ -23,18 +24,6 @@ export default function IntegratedChannelStrategyPage(props) {
         item.scId === "SUMMARY"
     )
   );
-  const stageDictionary = {
-    en: {
-      "gc:custom/decd-endc/project-stage/alpha": "Alpha",
-      "gc:custom/decd-endc/project-stage/beta": "Beta",
-      "gc:custom/decd-endc/project-stage/discovery": "Discovery",
-    },
-    fr: {
-      "gc:custom/decd-endc/project-stage/alpha": "Alpha",
-      "gc:custom/decd-endc/project-stage/beta": "Bêta",
-      "gc:custom/decd-endc/project-stage/discovery": "Découverte",
-    },
-  };
 
   const displayProjectUpdates = updatesData.map((update) => (
     <li key={update.scId} className="list-none ml-0 col-span-12 lg:col-span-4">
