@@ -9,6 +9,7 @@ import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
 import { ActionButton } from "../../../components/atoms/ActionButton";
 import Image from "../../../node_modules/next/image";
+import stageDictionary from "../../../lib/utils/stageDictionary";
 
 export default function DigitalStandardsPlaybookPage(props) {
   const [pageData] = useState(props.pageData.item);
@@ -312,10 +313,8 @@ export default function DigitalStandardsPlaybookPage(props) {
                   }
                   stage={
                     props.locale === "en"
-                      ? pageData.scFragments[0].scContentEn.json[3].content[0]
-                          .value
-                      : pageData.scFragments[0].scContentFr.json[3].content[0]
-                          .value
+                      ? stageDictionary.en[pageData.scLabProjectStage]
+                      : stageDictionary.fr[pageData.scLabProjectStage]
                   }
                   summary={
                     props.locale === "en"

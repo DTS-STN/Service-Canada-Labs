@@ -10,6 +10,7 @@ import { Collapse } from "../../../components/molecules/Collapse";
 import { generateCollapseElements } from "../../../lib/utils/generateCollapseElements";
 import { ActionButton } from "../../../components/atoms/ActionButton";
 import Image from "../../../node_modules/next/image";
+import stageDictionary from "../../../lib/utils/stageDictionary";
 
 export default function MscaDashboard(props) {
   const pageData = props.pageData?.item;
@@ -21,17 +22,6 @@ export default function MscaDashboard(props) {
       item.scId === "PROJECT-STAGE" ||
       item.scId === "SUMMARY"
   );
-
-  const stageDictionary = {
-    en: {
-      "gc:custom/decd-endc/project-stage/alpha": "Alpha",
-      "gc:custom/decd-endc/project-stage/beta": "Beta",
-    },
-    fr: {
-      "gc:custom/decd-endc/project-stage/alpha": "Alpha",
-      "gc:custom/decd-endc/project-stage/beta": "Bêta",
-    },
-  };
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {

@@ -10,6 +10,7 @@ import { Heading } from "../../../components/molecules/Heading";
 import { Collapse } from "../../../components/molecules/Collapse";
 import { generateCollapseElements } from "../../../lib/utils/generateCollapseElements";
 import Image from "../../../node_modules/next/image";
+import stageDictionary from "../../../lib/utils/stageDictionary";
 
 export default function BenefitsNavigatorOverview(props) {
   const [pageData] = useState(props.pageData.item);
@@ -23,16 +24,6 @@ export default function BenefitsNavigatorOverview(props) {
         item.scId === "SUMMARY"
     )
   );
-  const stageDictionary = {
-    en: {
-      "gc:custom/decd-endc/project-stage/alpha": "Alpha",
-      "gc:custom/decd-endc/project-stage/beta": "Beta",
-    },
-    fr: {
-      "gc:custom/decd-endc/project-stage/alpha": "Alpha",
-      "gc:custom/decd-endc/project-stage/beta": "Bêta",
-    },
-  };
 
   const displayProjectUpdates = updatesData.map((update) => (
     <li key={update.scId} className="list-none ml-0 col-span-12 lg:col-span-4">
