@@ -3,8 +3,6 @@ import Head from "next/head";
 export default function PageHead(props) {
   return (
     <Head>
-      {props.adobeAnalyticsUrl ? <script src={props.adobeAnalyticsUrl} /> : ""}
-
       {/* Primary HTML Meta Tags */}
       <title>
         {props.locale === "en"

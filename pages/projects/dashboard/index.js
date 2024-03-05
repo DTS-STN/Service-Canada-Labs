@@ -54,12 +54,6 @@ export default function MscaDashboard(props) {
         )}
       >
         <Head>
-          {props.adobeAnalyticsUrl ? (
-            <script src={props.adobeAnalyticsUrl} />
-          ) : (
-            ""
-          )}
-
           {/* Primary HTML Meta Tags */}
           <title>
             {props.locale === "en"
@@ -804,11 +798,6 @@ export default function MscaDashboard(props) {
           </section>
         </div>
       </Layout>
-      {props.adobeAnalyticsUrl ? (
-        <script type="text/javascript">_satellite.pageBottom()</script>
-      ) : (
-        ""
-      )}
     </>
   );
 }

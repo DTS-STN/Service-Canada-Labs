@@ -36,12 +36,6 @@ export default function error404(props) {
     <>
       <main className="min-h-screen relative">
         <Head>
-          {props.adobeAnalyticsUrl ? (
-            <script src={props.adobeAnalyticsUrl} />
-          ) : (
-            ""
-          )}
-
           {/* Primary HTML Meta Tags */}
           <title data-gc-analytics-error="404">
             {pageData.scContentEn.json[0].content[0].value} (404) |{" "}
@@ -236,11 +230,6 @@ export default function error404(props) {
           </div>
         </footer>
       </main>
-      {props.adobeAnalyticsUrl ? (
-        <script type="text/javascript">_satellite.pageBottom()</script>
-      ) : (
-        ""
-      )}
     </>
   );
 }

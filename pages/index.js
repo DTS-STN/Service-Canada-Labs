@@ -20,12 +20,6 @@ export default function Index(props) {
     <>
       <div className="splash-bg splash-image bg-splash-img-mobile xs:bg-splash-img bg-no-repeat fixed left-0 top-0 w-full h-full -z-1" />
       <Head>
-        {props.adobeAnalyticsUrl ? (
-          <script src={props.adobeAnalyticsUrl} />
-        ) : (
-          ""
-        )}
-
         {/* Primary HTML Meta Tags */}
         <title>Service Canada Labs | Laboratoires de Service Canada</title>
         <meta
@@ -185,11 +179,6 @@ export default function Index(props) {
           </div>
         </div>
       </main>
-      {props.adobeAnalyticsUrl ? (
-        <script type="text/javascript">_satellite.pageBottom()</script>
-      ) : (
-        ""
-      )}
     </>
   );
 }
