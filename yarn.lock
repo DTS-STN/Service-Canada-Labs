@@ -16326,9 +16326,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-bootstrap@npm:^2.9.2":
-  version: 2.10.0
-  resolution: "react-bootstrap@npm:2.10.0"
+"react-bootstrap@npm:^2.10.1":
+  version: 2.10.1
+  resolution: "react-bootstrap@npm:2.10.1"
   dependencies:
     "@babel/runtime": "npm:^7.22.5"
     "@restart/hooks": "npm:^0.4.9"
@@ -16349,7 +16349,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 8cdcc44cb303e33898854f4ab59570c115ae48b1d500cefa3f84729aad022967e92f8077e42eea597f4e6423836c1bee5f07674243aac2cd321e36fa7b016c5a
+  checksum: 5de221ab35e90db04a7a4b34f704e8810b89e3758e40d38cb57ff3c816eb416098b27dac788b64e39b418f1a99cd25b14cb952d6bec5a887501e022b2b937ff4
   languageName: node
   linkType: hard
 
@@ -17616,7 +17616,7 @@ __metadata:
     prettier: "npm:^2.3.2"
     prop-types: "npm:^15.8.1"
     react: "npm:^18.2.0"
-    react-bootstrap: "npm:^2.9.2"
+    react-bootstrap: "npm:^2.10.1"
     react-copy-to-clipboard: "npm:^5.1.0"
     react-dom: "npm:^18.2.0"
     react-i18next: "npm:^13.5.0"
