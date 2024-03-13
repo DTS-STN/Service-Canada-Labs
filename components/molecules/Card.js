@@ -28,7 +28,7 @@ export const Card = (props) => {
         data-cy={props.dataCy}
       >
         {props.showImage ? (
-          <div className="h-80 flex justify-center">
+          <div className="sm:h-80 flex justify-center">
             <Image
               src={props.imgSrc}
               alt={props.imgAlt}
