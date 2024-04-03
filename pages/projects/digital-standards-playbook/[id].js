@@ -130,7 +130,7 @@ export const getStaticProps = async ({ locale, params }) => {
       locale: locale,
       pageData: pageData[0],
       dictionary: dictionary.dictionaryV1List,
-      adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+      adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       ...(await serverSideTranslations(locale, ["common"])),
     },
     revalidate: process.env.ENVIRONMENT === "development" ? 10 : false,
