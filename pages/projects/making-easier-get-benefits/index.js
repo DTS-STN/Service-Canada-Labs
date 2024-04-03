@@ -367,7 +367,7 @@ export const getStaticProps = async ({ locale }) => {
   return {
     props: {
       locale: locale,
-      adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
+      adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       pageData: pageData.sclabsPageV1ByPath,
       updatesData: updatesData.sclabsPageV1List.items,
       dictionary: dictionary.dictionaryV1List,

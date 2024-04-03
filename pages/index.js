@@ -186,7 +186,7 @@ export default function Index(props) {
 export const getServerSideProps = async ({ locale }) => ({
   props: {
     locale: locale ?? "en",
-    adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? "",
+    adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
     ...(await serverSideTranslations(locale, ["common"])),
   },
 });
