@@ -130,6 +130,6 @@ export const getStaticProps = async ({ locale, params }) => {
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL,
       ...(await serverSideTranslations(locale, ["common", "vc"])),
     },
-    revalidate: process.env.ENVIRONMENT === "development" ? 10 : false,
+    revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,
   };
 };

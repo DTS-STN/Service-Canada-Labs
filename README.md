@@ -19,34 +19,33 @@ yarn dev
 
 Create and run a production build locally\*\*\*:
 
-\*\*\* Will require `AEM_GRAPHQL_ENDPOINT=https://www.canada.ca/content/_cq_graphql/decd-endc/endpoint.json` and `ADOBE_ANALYTICS_URL=` the second being avariable with no value. These env vars should be in a top-level .env file
+\*\*\* Will require `AEM_GRAPHQL_ENDPOINT=https://www.canada.ca/content/_cq_graphql/decd-endc/endpoint.json`
 
 ```bash
 yarn build
 yarn start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser.
 
 ## Configuration
 
-There are two required variables: `AEM_GRAPHQL_ENDPOINT=https://www.canada.ca/content/_cq_graphql/decd-endc/endpoint.json` and `ADOBE_ANALYTICS_URL=`
+There is one required variable: `AEM_GRAPHQL_ENDPOINT=https://www.canada.ca/content/_cq_graphql/decd-endc/endpoint.json`
 
-`AEM_GRAPHQL_ENDPOINT` is used to fetch the data for pages and components across the site.
+`AEM_GRAPHQL_ENDPOINT` is used to fetch the content, and for some pages (articles), the structure of the pages on the site.
 
-## Enabling Report a Problem
+## Enabling Submit Feedback
 
 Required environment variables:
 
 ```code
-REPORT_A_PROBLEM_ENABLED=true
 NOTIFY_BASE_API_URL=https://api.notification.canada.ca
-NOTIFY_REPORT_A_PROBLEM_EMAIL=email which will receive the feedback from the form
 NOTIFY_API_KEY=ask for this
-NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID=ask for this
+NOTIFY_FEEDBACK_TEMPLATE_ID=ask for this
+SUBMIT_FEEDBACK_EMAIL=ask for this
 ```
 
-1. Ask the dev team for GCNotify API key and template keys
+1. Ask the dev team for GCNotify API key, template keys and feedback email
 
 2. Start the application as usual
 
@@ -54,12 +53,9 @@ NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID=ask for this
 
 Here is a list of all the environment variables used to configure the application along with what they do.
 
-`REPORT_A_PROBLEM_ENABLED`: Feature flag for the report a problem API to enable sending to GC Notify. Leave undefined if
-you do not want to enable this.
+`NOTIFY_FEEDBACK_TEMPLATE_ID`: The Notify template ID for the submit feedback template
 
-`NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID`: The Notify template ID for the report a problem email template
-
-`NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL`: The email to send it to
+`SUBMIT_FEEDBACK_EMAIL`: The email to which feedback will be sent
 
 `NOTIFY_API_KEY`: The [Notify API key](https://documentation.notification.canada.ca/en/start.html#headers)
 
@@ -67,6 +63,8 @@ you do not want to enable this.
 
 `ADOBE_ANALYTICS_URL`: URL for adobe analytics. It is found in the documentation for Adobe Analytics
 installation.
+
+`ISR_ENABLED`: Whether Incremental Static Regeneration should be enabled on pages that leverage it.
 
 ## Checking Deployed Version
 Run the following bash script to check whether the latest (on `main`) has been deployed to various environments:
