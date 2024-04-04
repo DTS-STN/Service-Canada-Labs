@@ -478,6 +478,6 @@ export const getStaticProps = async ({ locale }) => {
       dictionary: dictionary.dictionaryV1List,
       ...(await serverSideTranslations(locale, ["common"])),
     },
-    revalidate: process.env.ENVIRONMENT === "development" ? 10 : false,
+    revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,
   };
 };

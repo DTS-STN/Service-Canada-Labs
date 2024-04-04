@@ -422,6 +422,6 @@ export const getStaticProps = async ({ locale }) => {
       experimentsData: experimentsData.sclabsPageV1List.items,
       ...(await serverSideTranslations(locale, ["common"])),
     },
-    revalidate: process.env.ENVIRONMENT === "development" ? 10 : false,
+    revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,
   };
 };
