@@ -10,6 +10,8 @@ user experience.
 
 ## Getting Started
 
+*Ensure you are running Node `18.19 lts/hydrogen`
+
 Run the development server:
 
 ```bash
