@@ -22,6 +22,10 @@ const REWRITES = [
     destination: "/projects/dashboard",
   },
   {
+    source: "/projets/tableau-de-bord/:slug",
+    destination: "/projects/dashboard/:slug",
+  },
+  {
     source: "/projets/navigateur-prestations",
     destination: "/projects/benefits-navigator",
   },
