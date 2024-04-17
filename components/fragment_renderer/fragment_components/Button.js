@@ -1,33 +1,14 @@
 import { ActionButton } from "../../atoms/ActionButton";
 
-export default function Button(props) {
-  const style =
-    props.fragmentData.scButtonType === null
-      ? "primary"
-      : props.fragmentData.scButtonType[0] ===
-        "gc:custom/decd-endc/button-type/primary"
-      ? "primary"
-      : props.fragmentData.scButtonType[0] ===
-        "gc:custom/decd-endc/button-type/secondary"
-      ? "secondary"
-      : "primary";
-
+export default function Button(id, style, custom, href, text) {
   return (
     <div className="layout-container grid grid-cols-12 gap-x-6 my-12">
       <ActionButton
-        id={props.fragmentData.scId}
+        id={id}
         style={style}
-        custom="col-span-12"
-        href={
-          props.locale === "en"
-            ? props.fragmentData.scDestinationURLEn
-            : props.fragmentData.scDestinationURLFr
-        }
-        text={
-          props.locale === "en"
-            ? props.fragmentData.scTitleEn
-            : props.fragmentData.scTitleFr
-        }
+        custom={custom}
+        href={href}
+        text={text}
       />
     </div>
   );
