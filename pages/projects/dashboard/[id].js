@@ -86,7 +86,7 @@ export default function MscaDashboardArticles(props) {
 export async function getStaticPaths() {
   // Get pages data
   const { data } = await aemServiceInstance.getFragment(
-    "benefitsNavigatorArticlesQuery"
+    "getMSCADashboardArticles"
   );
   // Get paths for dynamic routes from the page name data
   const paths = getAllUpdateIds(data.sclabsPageV1List.items);
