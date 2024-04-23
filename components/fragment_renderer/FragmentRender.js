@@ -48,149 +48,87 @@ const mapFragmentsToProps = (fragmentData, fragmentName, locale) => {
       };
 
     case "SCLabs-Comp-Content-Image-v1":
-      switch (fragmentData.scLabLayout) {
-        case "default":
-          return (
-            <BasicTextWithImage
-              src={
-                locale === "en"
-                  ? fragmentData.scLabImage.scImageEn._publishUrl
-                  : fragmentData.scLabImage.scImageFr._publishUrl
-              }
-              alt={
-                fragmentData.scLabImage.scImageAltTextEn
-                  ? locale === "en"
-                    ? fragmentData.scLabImage.scImageAltTextEn
-                    : fragmentData.scLabImage.scImageAltTextFr
-                  : ""
-              }
-              width={fragmentData.scLabImage.scImageEn.width}
-              height={fragmentData.scLabImage.scImageEn.height}
-              data={
-                locale === "en"
-                  ? fragmentData.scLabContent[0].scContentEn.json
-                  : fragmentData.scLabContent[0].scContentFr.json
-              }
-            />
-          );
-
-        case "image-vertical-line-content":
-          return (
-            <ImageVerticalLineContent
-              alt={
-                locale === "en"
-                  ? fragmentData.scLabImage.scImageAltTextEn
-                  : fragmentData.scLabImage.scImageAltTextFr
-              }
-              src={
-                locale === "en"
-                  ? fragmentData.scLabImage.scImageEn._publishUrl
-                  : fragmentData.scLabImage.scImageFr._publishUrl
-              }
-              width={fragmentData.scLabImage.scImageEn.width}
-              height={fragmentData.scLabImage.scImageEn.height}
-              data={
-                locale === "en"
-                  ? fragmentData.scLabContent.scContentEn.json
-                  : fragmentData.scLabContent.scContentFr.json
-              }
-            />
-          );
-      }
+      return {
+        src:
+          locale === "en"
+            ? fragmentData.scLabImage.scImageEn._publishUrl
+            : fragmentData.scLabImage.scImageFr._publishUrl,
+        alt: fragmentData.scLabImage.scImageAltTextEn
+          ? locale === "en"
+            ? fragmentData.scLabImage.scImageAltTextEn
+            : fragmentData.scLabImage.scImageAltTextFr
+          : "",
+        width: fragmentData.scLabImage.scImageEn.width,
+        height: fragmentData.scLabImage.scImageEn.height,
+        data:
+          locale === "en"
+            ? fragmentData.scLabContent[0].scContentEn.json
+            : fragmentData.scLabContent[0].scContentFr.json,
+        layout: fragmentData.scLabLayout,
+      };
 
     case "SCLabs-Comp-Content-v1":
-      return (
-        <QuoteVerticalLineContent
-          content1={
-            locale === "en"
-              ? fragmentData.scLabContent[0].scContentEn.json
-              : fragmentData.scLabContent[0].scContentFr.json
-          }
-          content2={
-            locale === "en"
-              ? fragmentData.scLabContent[1].scContentEn.json
-              : fragmentData.scLabContent[1].scContentFr.json
-          }
-        />
-      );
+      return {
+        quoteText:
+          locale === "en"
+            ? fragmentData.scLabContent[0].scContentEn.json
+            : fragmentData.scLabContent[0].scContentFr.json,
+        explanationtext:
+          locale === "en"
+            ? fragmentData.scLabContent[1].scContentEn.json
+            : fragmentData.scLabContent[1].scContentFr.json,
+      };
 
     case "SCLabs-Content-v1":
-      return (
-        <TextContent
-          data={
-            locale === "en"
-              ? fragmentData.scContentEn.json
-              : fragmentData.scContentFr.json
-          }
-          excludeH1={true}
-        />
-      );
+      return {
+        data:
+          locale === "en"
+            ? fragmentData.scContentEn.json
+            : fragmentData.scContentFr.json,
+      };
 
     case "SCLabs-Button-v1":
-      return (
-        <Button
-          style={
-            fragmentData.scButtonType === null
-              ? "primary"
-              : fragmentData.scButtonType[0] ===
-                "gc:custom/decd-endc/button-type/primary"
-              ? "primary"
-              : fragmentData.scButtonType[0] ===
-                "gc:custom/decd-endc/button-type/secondary"
-              ? "secondary"
-              : "primary"
-          }
-          id={fragmentData.scId}
-          custom={"col-span-12"}
-          href={
-            locale === "en"
-              ? fragmentData.scDestinationURLEn
-              : fragmentData.scDestinationURLFr
-          }
-          text={
-            locale === "en" ? fragmentData.scTitleEn : fragmentData.scTitleFr
-          }
-        />
-      );
+      return {
+        id: fragmentData.scId,
+        buttonType: fragmentData.scButtonType[0],
+        href:
+          locale === "en"
+            ? fragmentData.scDestinationURLEn
+            : fragmentData.scDestinationURLFr,
+        text: locale === "en" ? fragmentData.scTitleEn : fragmentData.scTitleFr,
+      };
 
     case "SCLabs-Image-v1":
-      return (
-        <ImageWithCollapse
-          id={fragmentData.scId}
-          src={
-            locale === "en"
-              ? fragmentData.scImageEn._publishUrl
-              : fragmentData.scImageFr._publishUrl
-          }
-          alt={
-            locale === "en"
-              ? fragmentData.scImageAltTextEn
-              : fragmentData.scImageAltTextFr
-          }
-          width={fragmentData.scImageEn.width}
-          height={fragmentData.scImageEn.height}
-          content={
-            locale === "en"
-              ? fragmentData.scImageCaptionEn.json[0].content[0].value
-              : fragmentData.scImageCaptionFr.json[0].content[0].value
-          }
-          title={
-            locale === "en"
-              ? fragmentData.scLongDescHeadingEn
-              : fragmentData.scLongDescHeadingFr
-          }
-          longDesc={
-            locale === "en"
-              ? fragmentData.scLongDescEn
-              : fragmentData.scLongDescFr
-          }
-          children={generateCollapseElements(
-            locale === "en"
-              ? fragmentData.scLongDescEn.json
-              : fragmentData.scLongDescFr.json
-          )}
-        />
-      );
+      return {
+        id: fragmentData.scId,
+        src:
+          locale === "en"
+            ? fragmentData.scImageEn._publishUrl
+            : fragmentData.scImageFr._publishUrl,
+        alt:
+          locale === "en"
+            ? fragmentData.scImageAltTextEn
+            : fragmentData.scImageAltTextFr,
+        width: fragmentData.scImageEn.width,
+        height: fragmentData.scImageEn.height,
+        content:
+          locale === "en"
+            ? fragmentData.scImageCaptionEn.json[0].content[0].value
+            : fragmentData.scImageCaptionFr.json[0].content[0].value,
+        title:
+          locale === "en"
+            ? fragmentData.scLongDescHeadingEn
+            : fragmentData.scLongDescHeadingFr,
+        longDesc:
+          locale === "en"
+            ? fragmentData.scLongDescEn
+            : fragmentData.scLongDescFr,
+        children: generateCollapseElements(
+          locale === "en"
+            ? fragmentData.scLongDescEn.json
+            : fragmentData.scLongDescFr.json
+        ),
+      };
     default:
       break;
   }
@@ -207,7 +145,7 @@ export default function FragmentRender(props) {
     return (
       <Fragment
         key={uuid()}
-        props={mapFragmentsToProps(
+        {...mapFragmentsToProps(
           fragmentData,
           fragmentData?._model.title,
           props.locale
