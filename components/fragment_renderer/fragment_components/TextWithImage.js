@@ -1,7 +1,14 @@
 import BasicTextWithImage from "./BasicTextWithImage";
 import ImageVerticalLineContent from "./ImageVerticalLineContent";
 
-export default function TextWithImage(src, alt, width, height, data, layout) {
+export default function TextWithImage({
+  src,
+  alt,
+  width,
+  height,
+  data,
+  layout,
+}) {
   switch (layout) {
     case "default":
       return (

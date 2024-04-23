@@ -1,8 +1,17 @@
 import { Collapse } from "../../molecules/Collapse";
-import { generateCollapseElements } from "../../../lib/utils/generateCollapseElements";
 import Image from "../../../node_modules/next/image";
 
-export default function ImageWithCollapse(id, src, alt, width, height, content, title, children, longDesc) {
+export default function ImageWithCollapse({
+  id,
+  src,
+  alt,
+  width,
+  height,
+  content,
+  longDesc,
+  title,
+  children,
+}) {
   return (
     <div className="layout-container grid grid-cols-12 gap-x-6 my-12">
       <Image
@@ -16,12 +25,9 @@ export default function ImageWithCollapse(id, src, alt, width, height, content, 
       <p className="grid row-start-2 col-span-12 lg:col-span-10 justify-around mb-8">
         {content}
       </p>
-      {longDesc? (
+      {longDesc ? (
         <div className="grid row-start-3 col-span-12 lg:col-span-10">
-          <Collapse
-            title={title }
-            children={children}
-          />
+          <Collapse title={title} children={children} />
         </div>
       ) : (
         ""

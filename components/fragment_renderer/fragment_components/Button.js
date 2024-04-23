@@ -1,12 +1,20 @@
 import { ActionButton } from "../../atoms/ActionButton";
 
-export default function Button(id, style, custom, href, text) {
+export default function Button({ id, buttonType, href, text }) {
+  const style =
+    buttonType === null
+      ? "primary"
+      : buttonType === "gc:custom/decd-endc/button-type/primary"
+      ? "primary"
+      : buttonType === "gc:custom/decd-endc/button-type/secondary"
+      ? "secondary"
+      : "primary";
   return (
     <div className="layout-container grid grid-cols-12 gap-x-6 my-12">
       <ActionButton
         id={id}
         style={style}
-        custom={custom}
+        custom="col-span-12"
         href={href}
         text={text}
       />
