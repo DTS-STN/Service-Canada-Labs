@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1713892542844" clover="3.2.0">
-  <project timestamp="1713892542844" name="All files">
+<coverage generated="1713892647480" clover="3.2.0">
+  <project timestamp="1713892647480" name="All files">
     <metrics statements="1006" coveredstatements="654" conditionals="1577" coveredconditionals="439" methods="272" coveredmethods="140" elements="2855" coveredelements="1233" complexity="0" loc="1006" ncloc="1006" packages="18" files="136" classes="136"/>
     <package name="components">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -369,22 +369,22 @@
       <metrics statements="17" coveredstatements="0" conditionals="77" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="FragmentRender.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/fragment_renderer/FragmentRender.js">
         <metrics statements="16" coveredstatements="0" conditionals="47" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="cond" truecount="0" falsecount="7"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
-        <line num="71" count="0" type="stmt"/>
-        <line num="83" count="0" type="stmt"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="102" count="0" type="stmt"/>
-        <line num="133" count="0" type="stmt"/>
-        <line num="140" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="cond" truecount="0" falsecount="7"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="100" count="0" type="stmt"/>
+        <line num="131" count="0" type="stmt"/>
+        <line num="138" count="0" type="stmt"/>
+        <line num="139" count="0" type="stmt"/>
+        <line num="140" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="141" count="0" type="stmt"/>
-        <line num="142" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="143" count="0" type="stmt"/>
-        <line num="145" count="0" type="stmt"/>
-        <line num="157" count="0" type="stmt"/>
+        <line num="155" count="0" type="stmt"/>
       </file>
       <file name="PageHead.js" path="/home/runner/work/Service-Canada-Labs/Service-Canada-Labs/components/fragment_renderer/PageHead.js">
         <metrics statements="1" coveredstatements="0" conditionals="30" coveredconditionals="0" methods="1" coveredmethods="0"/>
