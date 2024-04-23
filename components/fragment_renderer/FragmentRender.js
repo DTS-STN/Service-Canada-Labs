@@ -6,8 +6,6 @@ import ArticleCTA from "./fragment_components/ArticleCTA";
 import QuoteVerticalLineContent from "./fragment_components/QuoteVerticalLineContent";
 import ImageWithCollapse from "./fragment_components/ImageWithCollapse";
 import TextRender from "../text_node_renderer/TextRender";
-import BasicTextWithImage from "./fragment_components/BasicTextWithImage";
-import ImageVerticalLineContent from "./fragment_components/ImageVerticalLineContent";
 import { generateCollapseElements } from "../../lib/utils/generateCollapseElements";
 
 const FRAGMENTS = {
