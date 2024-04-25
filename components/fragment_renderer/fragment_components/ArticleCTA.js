@@ -7,6 +7,7 @@ export default function ArticleCTA({ heading, body, ButtonProps, LinkProps }) {
       body={body}
       ButtonProps={ButtonProps}
       LinkProps={LinkProps}
+      containerClass="layout-container my-4"
     />
   );
 }
