@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 6
+  version: 8
   cacheKey: 10
 
 "@adobe/css-tools@npm:^4.0.1":
@@ -2316,7 +2316,7 @@ __metadata:
 "@fortawesome/fontawesome-common-types@npm:6.5.2":
   version: 6.5.2
   resolution: "@fortawesome/fontawesome-common-types@npm:6.5.2"
-  checksum: 8/8164f3e16683db5125634a4fbf3db83a5a7366bb830111ffe8538e1b8f98f8fe6dc35609cf2c595a7d6840e27d3fb45b57faf7340e40e98f0d76207fe8f94e79
+  checksum: a918b2dd6566db6878999e1c4523fa8d0fcc3c79f00086b48a36c365e543ac16a2950618f47893a8369d4ee13e454baf1f5108f7238bdf6ec2bea459b6c517ca
   languageName: node
   linkType: hard
 
@@ -2324,8 +2324,8 @@ __metadata:
   version: 6.5.2
   resolution: "@fortawesome/fontawesome-svg-core@npm:6.5.2"
   dependencies:
-    "@fortawesome/fontawesome-common-types": 6.5.2
-  checksum: 8/f0c2a0800074c5bbc143631b9f3f818b94bd14b8590153058eecc9f548ae0ac78cfca61196880f9b3b79b5d5b5afdb140d05da75542da2087701614c9c043905
+    "@fortawesome/fontawesome-common-types": "npm:6.5.2"
+  checksum: 03cc6d9662f2014e2fbbf47e9678a6a21108edeb78ff551207eeb12404daa8bfa5c6dd30a474d3fca897e856ff4b45d35261bb445fc30994c46d91783722684d
   languageName: node
   linkType: hard
 
@@ -2333,8 +2333,8 @@ __metadata:
   version: 6.5.2
   resolution: "@fortawesome/free-regular-svg-icons@npm:6.5.2"
   dependencies:
-    "@fortawesome/fontawesome-common-types": 6.5.2
-  checksum: 8/e5a6cf019e0252adbfc64d150c47beeb78c90f3d6173df75891a7fd3af45ce187412e498cb21e7d1b0818047febe9ff5a9896d0ca8c279eb5217cb4af63cc71d
+    "@fortawesome/fontawesome-common-types": "npm:6.5.2"
+  checksum: 7a4e5f3b464a64c7699babdf08daead80a10a58b69adf11c081709fcd768151b929ace343cff2bb340545d24725fab655e3e447f089da5b01908a8654160d654
   languageName: node
   linkType: hard
 
@@ -2342,8 +2342,8 @@ __metadata:
   version: 6.5.2
   resolution: "@fortawesome/free-solid-svg-icons@npm:6.5.2"
   dependencies:
-    "@fortawesome/fontawesome-common-types": 6.5.2
-  checksum: 8/f23964434ccbab5114c05bcdabb79d8e801b5be534618db7947d40d4841a3e52177e6145ae5fe59c941d864f70ffcffd0f1e4f0983dfd0048a1f5f3430a00c8c
+    "@fortawesome/fontawesome-common-types": "npm:6.5.2"
+  checksum: 2f6dde7eddc8ab9ed09d220c2dad6cb53922842d3f764ea9d393162ba50971b5be8f16e0c9a225ec808d6a2e92769a0d194e7e1ae8f98ccdd53f7a59aee2e31b
   languageName: node
   linkType: hard
 
@@ -10453,18 +10453,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@patch:fsevents@npm%3A^2.1.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@npm%3A^2.3.2#~builtin<compat/fsevents>":
+"fsevents@patch:fsevents@npm%3A^2.1.2#optional!builtin<compat/fsevents>, fsevents@patch:fsevents@npm%3A^2.3.2#optional!builtin<compat/fsevents>":
   version: 2.3.2
-  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"
+  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#optional!builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"
   dependencies:
     node-gyp: "npm:latest"
   conditions: os=darwin
   languageName: node
   linkType: hard
 
-"fsevents@patch:fsevents@npm%3A~2.3.2#~builtin<compat/fsevents>":
+"fsevents@patch:fsevents@npm%3A~2.3.2#optional!builtin<compat/fsevents>":
   version: 2.3.3
-  resolution: "fsevents@patch:fsevents@npm%3A2.3.3#~builtin<compat/fsevents>::version=2.3.3&hash=df0bf1"
+  resolution: "fsevents@patch:fsevents@npm%3A2.3.3#optional!builtin<compat/fsevents>::version=2.3.3&hash=df0bf1"
   dependencies:
     node-gyp: "npm:latest"
   conditions: os=darwin
@@ -17151,42 +17151,42 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@npm%3A^1.1.7#~builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.18.1#~builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.20.0#~builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.1#~builtin<compat/resolve>":
+"resolve@patch:resolve@npm%3A^1.1.7#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.18.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.1#optional!builtin<compat/resolve>":
   version: 1.22.1
-  resolution: "resolve@patch:resolve@npm%3A1.22.1#~builtin<compat/resolve>::version=1.22.1&hash=c3c19d"
+  resolution: "resolve@patch:resolve@npm%3A1.22.1#optional!builtin<compat/resolve>::version=1.22.1&hash=c3c19d"
   dependencies:
     is-core-module: "npm:^2.9.0"
     path-parse: "npm:^1.0.7"
     supports-preserve-symlinks-flag: "npm:^1.0.0"
   bin:
     resolve: bin/resolve
-  checksum: 8/5656f4d0bedcf8eb52685c1abdf8fbe73a1603bb1160a24d716e27a57f6cecbe2432ff9c89c2bd57542c3a7b9d14b1882b73bfe2e9d7849c9a4c0b8b39f02b8b
+  checksum: 551dd500765cce767c583747f5f21ceb51d437f539b01aee96d6ec39eb2c68a8ff5d646b083d690fe428a81329856bc1bbdb094379b8df4b3f10e7e1f6aa3839
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@npm%3A^1.10.0#~builtin<compat/resolve>":
+"resolve@patch:resolve@npm%3A^1.10.0#optional!builtin<compat/resolve>":
   version: 1.22.2
-  resolution: "resolve@patch:resolve@npm%3A1.22.2#~builtin<compat/resolve>::version=1.22.2&hash=c3c19d"
+  resolution: "resolve@patch:resolve@npm%3A1.22.2#optional!builtin<compat/resolve>::version=1.22.2&hash=c3c19d"
   dependencies:
     is-core-module: "npm:^2.11.0"
     path-parse: "npm:^1.0.7"
     supports-preserve-symlinks-flag: "npm:^1.0.0"
   bin:
     resolve: bin/resolve
-  checksum: 8/66cc788f13b8398de18eb4abb3aed90435c84bb8935953feafcf7231ba4cd191b2c10b4a87b1e9681afc34fb138c705f91f7330ff90bfa36f457e5584076a2b8
+  checksum: 14594f99dbff19c1f51f6daac0caf0b75ed345256ada3722c23f63935eace79532dcfa349b3d8889d2771c143822c38dd5d7d8eb85fb8cff257b7abccbad7872
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@npm%3A^1.14.2#~builtin<compat/resolve>":
+"resolve@patch:resolve@npm%3A^1.14.2#optional!builtin<compat/resolve>":
   version: 1.22.8
-  resolution: "resolve@patch:resolve@npm%3A1.22.8#~builtin<compat/resolve>::version=1.22.8&hash=c3c19d"
+  resolution: "resolve@patch:resolve@npm%3A1.22.8#optional!builtin<compat/resolve>::version=1.22.8&hash=c3c19d"
   dependencies:
     is-core-module: "npm:^2.13.0"
     path-parse: "npm:^1.0.7"
     supports-preserve-symlinks-flag: "npm:^1.0.0"
   bin:
     resolve: bin/resolve
-  checksum: 8/5479b7d431cacd5185f8db64bfcb7286ae5e31eb299f4c4f404ad8aa6098b77599563ac4257cb2c37a42f59dfc06a1bec2bcf283bb448f319e37f0feb9a09847
+  checksum: f345cd37f56a2c0275e3fe062517c650bb673815d885e7507566df589375d165bbbf4bdb6aa95600a9bc55f4744b81f452b5a63f95b9f10a72787dba3c90890a
   languageName: node
   linkType: hard
 
@@ -17558,80 +17558,80 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "service-canada-labs@workspace:."
   dependencies:
-    "@apollo/client": ^3.9.5
-    "@babel/core": ^7.14.6
-    "@fortawesome/fontawesome-svg-core": ^6.5.2
-    "@fortawesome/free-regular-svg-icons": ^6.5.2
-    "@fortawesome/free-solid-svg-icons": ^6.5.2
-    "@fortawesome/react-fontawesome": ^0.2.0
-    "@lottiefiles/react-lottie-player": ^3.5.3
-    "@storybook/addon-a11y": ^7.6.7
-    "@storybook/addon-actions": ^7.6.7
-    "@storybook/addon-docs": ^7.6.7
-    "@storybook/addon-essentials": ^7.6.7
-    "@storybook/addon-links": ^7.6.7
-    "@storybook/addon-mdx-gfm": ^7.6.7
-    "@storybook/addon-styling": ^1.3.7
-    "@storybook/addons": ^7.6.15
-    "@storybook/client-api": ^7.6.15
-    "@storybook/nextjs": ^7.6.7
-    "@storybook/react": ^7.6.7
-    "@svgr/webpack": ^8.1.0
-    "@tailwindcss/postcss7-compat": ^2.2.17
-    "@tailwindcss/typography": ^0.5.2
-    "@testing-library/dom": ^9.2.0
-    "@testing-library/jest-dom": ^5.14.1
-    "@testing-library/react": ^14.0.0
-    "@testing-library/user-event": ^14.4.3
-    "@types/react": ^18.2.64
-    autoprefixer: ^10.4.1
-    axe-core: ^4.3.1
-    babel-jest: ^26.6.3
-    babel-loader: ^8.2.2
-    cors: ^2.8.5
-    cuid: ^2.1.8
-    cypress: ^13.6.1
-    cypress-axe: ^1.5.0
-    cypress-localstorage-commands: ^1.4.5
-    fetch-mock: ^9.11.0
-    focus-trap-react: ^8.11.2
-    graphql: ^16.8.1
-    husky: ^7.0.1
-    i18next: ^23.9.0
-    i18next-http-backend: ^1.4.5
-    jest: ^26.6.3
-    jest-axe: ^5.0.1
-    jest-canvas-mock: ^2.3.1
-    joi: ^17.12.2
-    js-cookie: ^3.0.5
-    json2csv: ^5.0.6
-    lint-staged: ^11.0.1
-    next: ^14.0.1
-    next-i18next: ^14.0.3
-    next-router-mock: ^0.9.3
-    node-mocks-http: ^1.10.1
-    postcss: ^8.4.31
-    postcss-loader: ^6.2.1
-    prettier: ^2.3.2
-    prop-types: ^15.8.1
-    react: ^18.2.0
-    react-bootstrap: ^2.10.1
-    react-copy-to-clipboard: ^5.1.0
-    react-dom: ^18.2.0
-    react-i18next: ^13.5.0
-    react-lock-scroll: ^0.1.8
-    react-markdown: ^8.0.7
-    react-remark: ^2.1.0
-    rehype-react: ^7.2.0
-    remark-breaks: ^3.0.3
-    remark-html: ^15.0.1
-    remark-parse: ^10.0.2
-    storybook: ^7.6.7
-    tailwindcss: ^3.0.9
-    unified: ^10.1.2
-    uuid: ^9.0.1
-    weak-napi: ^2.0.2
-    webpack: ^5.76.0
+    "@apollo/client": "npm:^3.9.5"
+    "@babel/core": "npm:^7.14.6"
+    "@fortawesome/fontawesome-svg-core": "npm:^6.5.2"
+    "@fortawesome/free-regular-svg-icons": "npm:^6.5.2"
+    "@fortawesome/free-solid-svg-icons": "npm:^6.5.2"
+    "@fortawesome/react-fontawesome": "npm:^0.2.0"
+    "@lottiefiles/react-lottie-player": "npm:^3.5.3"
+    "@storybook/addon-a11y": "npm:^7.6.7"
+    "@storybook/addon-actions": "npm:^7.6.7"
+    "@storybook/addon-docs": "npm:^7.6.7"
+    "@storybook/addon-essentials": "npm:^7.6.7"
+    "@storybook/addon-links": "npm:^7.6.7"
+    "@storybook/addon-mdx-gfm": "npm:^7.6.7"
+    "@storybook/addon-styling": "npm:^1.3.7"
+    "@storybook/addons": "npm:^7.6.15"
+    "@storybook/client-api": "npm:^7.6.15"
+    "@storybook/nextjs": "npm:^7.6.7"
+    "@storybook/react": "npm:^7.6.7"
+    "@svgr/webpack": "npm:^8.1.0"
+    "@tailwindcss/postcss7-compat": "npm:^2.2.17"
+    "@tailwindcss/typography": "npm:^0.5.2"
+    "@testing-library/dom": "npm:^9.2.0"
+    "@testing-library/jest-dom": "npm:^5.14.1"
+    "@testing-library/react": "npm:^14.0.0"
+    "@testing-library/user-event": "npm:^14.4.3"
+    "@types/react": "npm:^18.2.64"
+    autoprefixer: "npm:^10.4.1"
+    axe-core: "npm:^4.3.1"
+    babel-jest: "npm:^26.6.3"
+    babel-loader: "npm:^8.2.2"
+    cors: "npm:^2.8.5"
+    cuid: "npm:^2.1.8"
+    cypress: "npm:^13.6.1"
+    cypress-axe: "npm:^1.5.0"
+    cypress-localstorage-commands: "npm:^1.4.5"
+    fetch-mock: "npm:^9.11.0"
+    focus-trap-react: "npm:^8.11.2"
+    graphql: "npm:^16.8.1"
+    husky: "npm:^7.0.1"
+    i18next: "npm:^23.9.0"
+    i18next-http-backend: "npm:^1.4.5"
+    jest: "npm:^26.6.3"
+    jest-axe: "npm:^5.0.1"
+    jest-canvas-mock: "npm:^2.3.1"
+    joi: "npm:^17.12.2"
+    js-cookie: "npm:^3.0.5"
+    json2csv: "npm:^5.0.6"
+    lint-staged: "npm:^11.0.1"
+    next: "npm:^14.0.1"
+    next-i18next: "npm:^14.0.3"
+    next-router-mock: "npm:^0.9.3"
+    node-mocks-http: "npm:^1.10.1"
+    postcss: "npm:^8.4.31"
+    postcss-loader: "npm:^6.2.1"
+    prettier: "npm:^2.3.2"
+    prop-types: "npm:^15.8.1"
+    react: "npm:^18.2.0"
+    react-bootstrap: "npm:^2.10.1"
+    react-copy-to-clipboard: "npm:^5.1.0"
+    react-dom: "npm:^18.2.0"
+    react-i18next: "npm:^13.5.0"
+    react-lock-scroll: "npm:^0.1.8"
+    react-markdown: "npm:^8.0.7"
+    react-remark: "npm:^2.1.0"
+    rehype-react: "npm:^7.2.0"
+    remark-breaks: "npm:^3.0.3"
+    remark-html: "npm:^15.0.1"
+    remark-parse: "npm:^10.0.2"
+    storybook: "npm:^7.6.7"
+    tailwindcss: "npm:^3.0.9"
+    unified: "npm:^10.1.2"
+    uuid: "npm:^9.0.1"
+    weak-napi: "npm:^2.0.2"
+    webpack: "npm:^5.76.0"
   languageName: unknown
   linkType: soft
 
