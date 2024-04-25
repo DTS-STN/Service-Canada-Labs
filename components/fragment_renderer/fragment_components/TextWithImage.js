@@ -1,20 +1,33 @@
 import BasicTextWithImage from "./BasicTextWithImage";
 import ImageVerticalLineContent from "./ImageVerticalLineContent";
 
-export default function TextWithImage(props) {
-  switch (props.fragmentData.scLabLayout) {
+export default function TextWithImage({
+  src,
+  alt,
+  width,
+  height,
+  data,
+  layout,
+}) {
+  switch (layout) {
     case "default":
       return (
         <BasicTextWithImage
-          fragmentData={props.fragmentData}
-          locale={props.locale}
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          data={data}
         />
       );
     case "image-vertical-line-content":
       return (
         <ImageVerticalLineContent
-          fragmentData={props.fragmentData}
-          locale={props.locale}
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          data={data}
         />
       );
     default:
