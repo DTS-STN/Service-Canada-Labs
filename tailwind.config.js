@@ -132,6 +132,7 @@ module.exports = {
             blue70a: "#38414D",
             blue70b: "#284162",
             blue70c: "#33465C",
+            blue70d: "#334155",
             blue65: "#16446C",
             blue65a: "#083C6C",
             blue60a: "#2E5274",

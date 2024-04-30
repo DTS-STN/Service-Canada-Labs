@@ -16,7 +16,7 @@ export default function CDCPLanding(props) {
       scPageNameFr: "https://www.canada.ca/fr/services/prestations.html",
     },
     {
-      scTitleEn: "Dental Coverage",
+      scTitleEn: "Dental coverage",
       scTitleFr: "Couverture dentaire",
       scPageNameEn: "https://www.canada.ca/en/services/benefits/dental.html",
       scPageNameFr:
