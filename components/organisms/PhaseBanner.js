@@ -33,7 +33,7 @@ export const PhaseBanner = ({
 
   return (
     <>
-      <div className="bg-circle-color">
+      <div className="bg-multi-blue-blue70d">
         <div className="block lg:flex py-4 layout-container">
           <div
             className={`flex justify-between lg:block lg:w-max ${
@@ -41,7 +41,7 @@ export const PhaseBanner = ({
             }`}
           >
             <span
-              className="font-body text-xs text-white border block w-max px-4 py-1 my-auto leading-6 items-center"
+              className="font-body text-s text-white border-2 block w-max px-4 py-1 my-auto leading-6 items-center"
               role="alert"
             >
               {phase}
@@ -59,7 +59,7 @@ export const PhaseBanner = ({
               ""
             )}
           </div>
-          <div className="lg:ml-4 xl:ml-8 xxl:ml-12">
+          <div>
             <p className="mt-2 lg:mt-0 h-full font-body text-xs lg:text-sm text-white lg:ml-4 my-auto flex items-center">
               {text}
             </p>

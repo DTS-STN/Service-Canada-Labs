@@ -4,6 +4,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../components/organisms/Layout";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { createBreadcrumbs } from "../lib/utils/createBreadcrumbs";
+import { useEffect } from "react";
 
 export default function CDCPLanding(props) {
   const { t } = useTranslation("common");
@@ -16,7 +17,7 @@ export default function CDCPLanding(props) {
       scPageNameFr: "https://www.canada.ca/fr/services/prestations.html",
     },
     {
-      scTitleEn: "Dental Coverage",
+      scTitleEn: "Dental coverage",
       scTitleFr: "Couverture dentaire",
       scPageNameEn: "https://www.canada.ca/en/services/benefits/dental.html",
       scPageNameFr:
@@ -31,6 +32,13 @@ export default function CDCPLanding(props) {
         "https://www.canada.ca/fr/services/prestations/dentaire/regime-soins-dentaires.html",
     },
   ];
+
+  useEffect(() => {
+    if (props.adobeAnalyticsUrl) {
+      window.adobeDataLayer = window.adobeDataLayer || [];
+      window.adobeDataLayer.push({ event: "pageLoad" });
+    }
+  }, []);
 
   return (
     <Layout
@@ -49,7 +57,7 @@ export default function CDCPLanding(props) {
         <title>{t("cdcp.secondaryHeading")}</title>
       </Head>
       <section className="layout-container">
-        <div className="grid grid-cols-12">
+        <div className="grid grid-cols-12 gap-x-8">
           <div className="col-span-12">
             <p className="mt-12 text-multi-neutrals-grey85">
               {t("cdcp.secondaryHeading")}
@@ -58,7 +66,7 @@ export default function CDCPLanding(props) {
               {t("cdcp.primaryHeading")}
             </h1>
           </div>
-          <div className="col-span-12 lg:col-span-8">
+          <div className="col-span-12 xl:col-span-8">
             <p>{t("cdcp.toCompleteApplication")}</p>
             <ul className="mt-5">
               <li>{t("cdcp.listItems.item1")}</li>
@@ -92,6 +100,7 @@ export const getStaticProps = async ({ locale }) => {
   return {
     props: {
       locale: locale,
+      adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };
