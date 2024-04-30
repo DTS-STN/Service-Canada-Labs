@@ -38,6 +38,7 @@ export const Footer = ({
   preFooterTitle,
   preFooterLink,
   preFooterLinkText,
+  lang,
 }) => {
   return (
     <footer id={id} data-testid="footer">
@@ -69,6 +70,7 @@ export const Footer = ({
         </div>
       </div>
       <SubFooterBand
+        locale={lang}
         container="container"
         brandLinks={brandLinks}
         onClick={onClick}
