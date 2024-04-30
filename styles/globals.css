@@ -142,7 +142,7 @@ html {
   }
 
   .icon-chevron-right:before {
-    content: url(../public/chevron-right.svg);
+    content: url("/chevron-right.svg");
   }
 
   .skip-main {
