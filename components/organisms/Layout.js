@@ -23,6 +23,7 @@ export const Layout = ({
   showDisclaimer,
   projectName,
   path,
+  excludeFooterFeedback,
   dateModifiedOverride,
 }) => {
   const { t } = useTranslation("common");
@@ -113,9 +114,13 @@ export const Layout = ({
         {children}
         <div className="mt-12">
           <h2 className="sr-only">{t("siteFooter")}</h2>
-          <div className="layout-container mt-5">
-            <Feedback />
-          </div>
+          {!excludeFooterFeedback ? (
+            <div className="layout-container mt-5">
+              <Feedback />
+            </div>
+          ) : (
+            ""
+          )}
           <div className="layout-container mb-2">
             <DateModified date={dateModifiedOverride} />
           </div>
@@ -190,6 +195,10 @@ Layout.propTypes = {
    * Path that the feedback is coming from
    */
   path: PropTypes.string,
+  /**
+   * Boolean that determines whether the footer feedback is shown or not
+   */
+  excludeFooterFeedback: PropTypes.bool,
   /**
    * Manual override for date modified component
    */
