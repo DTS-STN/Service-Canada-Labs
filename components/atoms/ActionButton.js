@@ -65,7 +65,10 @@ export function ActionButton(props) {
       {props.text}
       {props.children}
       {props.icon && props.iconEnd ? (
-        <span className={props.icon} data-testid={props.dataTestId} />
+        <span
+          className={`${props.icon} ${props.iconStyle}`}
+          data-testid={props.dataTestId}
+        />
       ) : undefined}
     </Link>
   ) : (
