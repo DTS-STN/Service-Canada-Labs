@@ -48,7 +48,7 @@ export function ActionButton(props) {
     <Link
       href={props.href}
       aria-label={`${props.ariaLabel ? props.ariaLabel : undefined}`}
-      className={`flex flex-row ${style} focus:ring focus:ring-offset-4 ring-multi-blue-blue60f py-2 px-4 rounded-sm w-fit text-base font-display ${props.custom}`}
+      className={`flex flex-row ${style} focus:ring focus:ring-offset-4 ring-multi-blue-blue60f py-2 px-4 rounded-sm w-fit text-base ${props.custom}`}
       onClick={props.onClick}
       id={props.id}
       data-testid={props.dataTestId}
@@ -65,14 +65,17 @@ export function ActionButton(props) {
       {props.text}
       {props.children}
       {props.icon && props.iconEnd ? (
-        <span className={props.icon} data-testid={props.dataTestId} />
+        <span
+          className={`${props.icon} ${props.iconStyle}`}
+          data-testid={props.dataTestId}
+        />
       ) : undefined}
     </Link>
   ) : (
     <button
       aria-expanded={`${props.ariaExpanded ? props.ariaExpanded : undefined}`}
       aria-label={`${props.ariaLabel ? props.ariaLabel : undefined}`}
-      className={`flex flex-row ${style} focus:ring focus:ring-offset-4 ring-multi-blue-blue60f py-2 px-4 rounded-sm w-fit text-base font-display ${props.custom}`}
+      className={`flex flex-row ${style} focus:ring focus:ring-offset-4 ring-multi-blue-blue60f py-2 px-4 rounded-sm w-fit text-base ${props.custom}`}
       onClick={props.onClick}
       type={props.type}
       id={props.id}
@@ -99,7 +102,10 @@ export function ActionButton(props) {
       </span>
       {props.children}
       {props.icon && props.iconEnd ? (
-        <span className={props.icon} data-testid={props.dataTestId} />
+        <span
+          className={`${props.icon} ${props.iconStyle}`}
+          data-testid={props.dataTestId}
+        />
       ) : undefined}
     </button>
   );
@@ -115,6 +121,11 @@ ActionButton.propTypes = {
    * This is for placing an icon at the end of the component
    */
   iconEnd: PropTypes.bool,
+
+  /**
+   * This will add styles to the icon span inside the button when needed
+   */
+  iconStyle: PropTypes.string,
 
   /**
    * The text that the button will display

@@ -141,6 +141,10 @@ html {
     content: url(../public/up-caret.svg);
   }
 
+  .icon-chevron-right:before {
+    content: url(../public/chevron-right.svg);
+  }
+
   .skip-main {
     @apply absolute w-px h-px -left-96;
   }

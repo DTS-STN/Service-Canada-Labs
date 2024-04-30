@@ -2,6 +2,7 @@
 import PropTypes from "prop-types";
 import { MainBand } from "../molecules/MainBand";
 import { SubFooterBand } from "../molecules/SubFooterBand";
+import { Link } from "../atoms/Link";
 
 const landscapeLinkKeys = [
   "contacts",
@@ -27,20 +28,49 @@ const landscapeLinkKeys = [
   "youth",
 ];
 
-export const Footer = ({ error, id, brandLinks, target, onClick, btnLink }) => {
+export const Footer = ({
+  error,
+  id,
+  brandLinks,
+  target,
+  onClick,
+  btnLink,
+  preFooterTitle,
+  preFooterLink,
+  preFooterLinkText,
+  lang,
+}) => {
   return (
     <footer id={id} data-testid="footer">
+      {preFooterTitle && preFooterLink ? (
+        <div className="bg-multi-blue-blue70c">
+          <div className="lg:container mx-auto px-6 pb-[22px]">
+            <h3 className="pt-[22px] text-multi-neutrals-white font-body font-bold text-[19px]">
+              {preFooterTitle}
+            </h3>
+            <Link
+              id=""
+              href={preFooterLink}
+              text={preFooterLinkText}
+              linkStyle="smfooterWhite"
+            />
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
       <div
         className="bg-multi-blue-blue70 bg-no-repeat bg-clip-border sm:bg-right-bottom bg-bottom"
         style={{
           backgroundImage: `url(/footer_bg_img.svg)`,
         }}
       >
-        <section className="lg:container mx-auto px-6">
+        <div className="lg:container mx-auto px-6">
           <MainBand landscapeLinks={landscapeLinkKeys} target={target} />
-        </section>
+        </div>
       </div>
       <SubFooterBand
+        locale={lang}
         container="container"
         brandLinks={brandLinks}
         onClick={onClick}
@@ -109,4 +139,7 @@ Footer.propTypes = {
       link: PropTypes.string,
     })
   ),
+  preFooterTitle: PropTypes.string,
+  preFooterLink: PropTypes.string,
+  preFooterLinkText: PropTypes.string,
 };

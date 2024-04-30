@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import { Banner } from "../atoms/Banner";
 import { PhaseBanner } from "./PhaseBanner";
-import { ReportAProblem } from "./ReportAProblem";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";
@@ -23,6 +22,10 @@ export const Layout = ({
   showDisclaimer,
   projectName,
   path,
+  excludeFooterFeedback,
+  preFooterTitle,
+  preFooterLink,
+  preFooterLinkText,
   dateModifiedOverride,
 }) => {
   const { t } = useTranslation("common");
@@ -113,16 +116,27 @@ export const Layout = ({
         {children}
         <div className="mt-12">
           <h2 className="sr-only">{t("siteFooter")}</h2>
-          <div className="layout-container mt-5">
-            <Feedback />
-          </div>
+          {!excludeFooterFeedback ? (
+            <div className="layout-container mt-5">
+              <Feedback />
+            </div>
+          ) : (
+            ""
+          )}
           <div className="layout-container mb-2">
             <DateModified date={dateModifiedOverride} />
           </div>
         </div>
       </main>
 
-      <Footer id="footer" lang={locale} btnLink={"#"} />
+      <Footer
+        id="footer"
+        lang={locale}
+        btnLink={"#"}
+        preFooterTitle={preFooterTitle}
+        preFooterLink={preFooterLink}
+        preFooterLinkText={preFooterLinkText}
+      />
     </div>
   );
 };
@@ -190,6 +204,22 @@ Layout.propTypes = {
    * Path that the feedback is coming from
    */
   path: PropTypes.string,
+  /**
+   * Boolean that determines whether the footer feedback is shown or not
+   */
+  excludeFooterFeedback: PropTypes.bool,
+  /**
+   * Title for the pre-footer
+   */
+  preFooterTitle: PropTypes.string,
+  /**
+   * URL for the pre-footer link
+   */
+  preFooterLink: PropTypes.string,
+  /**
+   * Text for the pre-footer link
+   */
+  preFooterLinkText: PropTypes.string,
   /**
    * Manual override for date modified component
    */

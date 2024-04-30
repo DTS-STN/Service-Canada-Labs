@@ -49,6 +49,10 @@ const REWRITES = [
     source: "/projets/faciliter-obtention-prestations/:slug",
     destination: "/projects/making-easier-get-benefits/:slug",
   },
+  {
+    source: "/rsdc-demander",
+    destination: "/cdcp-apply"
+  }
 ];
 
 securityHeaders = [

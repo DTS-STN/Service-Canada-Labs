@@ -1,7 +1,7 @@
 import { Link } from "../atoms/Link";
 import { Image } from "../atoms/Image";
 
-const brandLinksDefault = [
+const brandLinksDefaultEn = [
   {
     href: "https://www.canada.ca/en/social.html",
     text: "Social media",
@@ -23,6 +23,33 @@ const brandLinksDefault = [
     text: "Privacy",
   },
 ];
+
+const brandLinksDefaultFr = [
+  {
+    href: "https://www.canada.ca/fr/sociaux.html",
+    text: "Médias sociaux",
+  },
+  {
+    href: "https://www.canada.ca/fr/mobile.html",
+    text: "Applications mobiles",
+  },
+  {
+    href: "https://www.canada.ca/fr/gouvernement/a-propos.html",
+    text: "À propos de Canada.ca",
+  },
+  {
+    href: "https://www.canada.ca/fr/transparence/avis.html",
+    text: "Avis",
+  },
+  {
+    href: "https://www.canada.ca/fr/transparence/confidentialite.html",
+    text: "Confidentialité",
+  },
+];
+
+const brandLinksDefaults = (locale) => {
+  return locale === "en" ? brandLinksDefaultEn : brandLinksDefaultFr;
+};
 
 export function SubFooterBand(props) {
   return (
@@ -67,25 +94,29 @@ export function SubFooterBand(props) {
                         </li>
                       );
                     })
-                  : brandLinksDefault.map(({ href, text }, index) => {
-                      return (
-                        <li
-                          key={index}
-                          className={`${
-                            index === 0 ? "" : "md:list-disc"
-                          } pr-4 mb-[17px] list-inside list-none text-xxs ml-6`}
-                        >
-                          <Link
-                            onClick={props.onClick ? props.onClick : undefined}
-                            id={"footerLink" + index}
-                            href={href}
-                            text={text}
-                            linkStyle="smfooterBlue"
-                            target={props.target}
-                          />
-                        </li>
-                      );
-                    })}
+                  : brandLinksDefaults(props.locale).map(
+                      ({ href, text }, index) => {
+                        return (
+                          <li
+                            key={index}
+                            className={`${
+                              index === 0 ? "" : "md:list-disc"
+                            } pr-4 mb-[17px] list-inside list-none text-xxs ml-6`}
+                          >
+                            <Link
+                              onClick={
+                                props.onClick ? props.onClick : undefined
+                              }
+                              id={"footerLink" + index}
+                              href={href}
+                              text={text}
+                              linkStyle="smfooterBlue"
+                              target={props.target}
+                            />
+                          </li>
+                        );
+                      }
+                    )}
               </ul>
             </nav>
           </section>
