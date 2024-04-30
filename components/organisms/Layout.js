@@ -24,6 +24,9 @@ export const Layout = ({
   projectName,
   path,
   excludeFooterFeedback,
+  preFooterTitle,
+  preFooterLink,
+  preFooterLinkText,
   dateModifiedOverride,
 }) => {
   const { t } = useTranslation("common");
@@ -127,7 +130,14 @@ export const Layout = ({
         </div>
       </main>
 
-      <Footer id="footer" lang={locale} btnLink={"#"} />
+      <Footer
+        id="footer"
+        lang={locale}
+        btnLink={"#"}
+        preFooterTitle={preFooterTitle}
+        preFooterLink={preFooterLink}
+        preFooterLinkText={preFooterLinkText}
+      />
     </div>
   );
 };
@@ -199,6 +209,18 @@ Layout.propTypes = {
    * Boolean that determines whether the footer feedback is shown or not
    */
   excludeFooterFeedback: PropTypes.bool,
+  /**
+   * Title for the pre-footer
+   */
+  preFooterTitle: PropTypes.string,
+  /**
+   * URL for the pre-footer link
+   */
+  preFooterLink: PropTypes.string,
+  /**
+   * Text for the pre-footer link
+   */
+  preFooterLinkText: PropTypes.string,
   /**
    * Manual override for date modified component
    */
