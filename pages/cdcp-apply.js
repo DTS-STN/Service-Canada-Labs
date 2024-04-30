@@ -32,6 +32,13 @@ export default function CDCPLanding(props) {
     },
   ];
 
+  useEffect(() => {
+    if (props.adobeAnalyticsUrl) {
+      window.adobeDataLayer = window.adobeDataLayer || [];
+      window.adobeDataLayer.push({ event: "pageLoad" });
+    }
+  }, []);
+
   return (
     <Layout
       locale={props.locale}
@@ -92,6 +99,7 @@ export const getStaticProps = async ({ locale }) => {
   return {
     props: {
       locale: locale,
+      adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };
