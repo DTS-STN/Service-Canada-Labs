@@ -49,7 +49,7 @@ export default function CDCPLanding(props) {
         <title>{t("cdcp.secondaryHeading")}</title>
       </Head>
       <section className="layout-container">
-        <div className="grid grid-cols-12">
+        <div className="grid grid-cols-12 gap-x-8">
           <div className="col-span-12">
             <p className="mt-12 text-multi-neutrals-grey85">
               {t("cdcp.secondaryHeading")}
@@ -58,7 +58,7 @@ export default function CDCPLanding(props) {
               {t("cdcp.primaryHeading")}
             </h1>
           </div>
-          <div className="col-span-12 lg:col-span-8">
+          <div className="col-span-12 xl:col-span-8">
             <p>{t("cdcp.toCompleteApplication")}</p>
             <ul className="mt-5">
               <li>{t("cdcp.listItems.item1")}</li>
