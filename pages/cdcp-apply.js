@@ -4,6 +4,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../components/organisms/Layout";
 import { ActionButton } from "../components/atoms/ActionButton";
 import { createBreadcrumbs } from "../lib/utils/createBreadcrumbs";
+import { useEffect } from "react";
 
 export default function CDCPLanding(props) {
   const { t } = useTranslation("common");
