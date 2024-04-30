@@ -1,6 +1,6 @@
 {
-  "phaseBannerTag": "TEST SITE",
-  "phaseBannerText": "You cannot apply for services or benefits through this test site. Parts of this site may not work and will change.",
+  "phaseBannerTag": "PROTOTYPE",
+  "phaseBannerText": "This is a prototype for testing purposes only. Information entered will not be saved.",
   "siteTitle": "Service Canada Labs",
   "bannerText": "Give feedback to make new government services simple and easy to use",
   "figCaption": "Diagram that shows what we do and how user feedback gets transformed into a service to Canadians - and/or - Benefits of joining the user pool for testers",
@@ -518,5 +518,21 @@
     "did-you-find": "Did you find what you're looking for?",
     "yes": "Yes",
     "no": "No"
+  },
+
+  "cdcp": {
+    "secondaryHeading": "Canadian Dental Care Plan",
+    "primaryHeading": "Apply",
+    "toCompleteApplication": "To complete your application, you’ll need to provide the following information for yourself, your spouse or common-law partner (if applicable):",
+    "listItems": {
+      "item1": "Social Insurance Number (SIN)",
+      "item2": "Date of birth",
+      "item3": "Full name",
+      "item4": "Home and mailing address",
+      "item5": "List of the dental coverage you have through government social programs (if applicable)"
+    },
+    "headingH2": "Apply now",
+    "clickButtonToApply": "To apply for the Canadian Dental Care Plan, click the button below.",
+    "buttonText": "Apply now"
   }
 }
