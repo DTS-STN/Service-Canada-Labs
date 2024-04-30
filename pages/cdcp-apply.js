@@ -68,8 +68,9 @@ export default function CDCPLanding(props) {
             <p>{t("cdcp.clickButtonToApply")}</p>
             <div className="mt-10">
               <ActionButton
+                id="cdcp-button"
                 style="primary"
-                custom="space-x-4 mb-8"
+                custom="space-x-4 mb-8 !rounded-md"
                 text={t("cdcp.buttonText")}
                 icon="icon-chevron-right"
                 iconStyle="mt-0.5"
