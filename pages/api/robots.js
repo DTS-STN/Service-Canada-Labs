@@ -14,5 +14,7 @@ export default async function handler(req, res) {
     res.write("User-agent: *\n");
     res.write("Disallow: /\n");
   }
+  res.write("Disallow: /cdcp-apply");
+  res.write("Disallow: /rsdc-demander");
   res.end();
 }
