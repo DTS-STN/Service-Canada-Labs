@@ -533,6 +533,8 @@
     },
     "headingH2": "Apply now",
     "clickButtonToApply": "To apply for the Canadian Dental Care Plan, click the button below.",
-    "buttonText": "Apply now"
+    "buttonText": "Apply now",
+    "cdcpPreFooterLinkText": "Contact Us",
+    "cdcpPreFooterLinkUrl": "https://www.canada.ca/en/contact.html"
   }
 }
