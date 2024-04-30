@@ -1,6 +1,6 @@
 {
-  "phaseBannerTag": "SITE D'ESSAI",
-  "phaseBannerText": "Vous ne pouvez pas demander de services ou de prestations par l'intermédiaire de ce site d'essai. Certaines parties du site pourraient ne pas fonctionner et seront modifiées.",
+  "phaseBannerTag": "PROTOTYPE",
+  "phaseBannerText": "Il s'agit d'un prototype destiné uniquement à des fins de test. Les informations saisies ne seront pas enregistrées.",
   "siteTitle": "Laboratoires de Service Canada",
   "bannerText": "Donnez vos commentaires pour de nouveaux services gouvernementaux simples et faciles à utiliser",
   "figCaption": "Diagramme qui montre ce que nous faisons et comment les commentaires des utilisateurs sont transformés en un service pour les Canadiens - et / ou - les avantages de rejoindre le bassin d'utilisateurs pour les testeurs",
@@ -508,5 +508,24 @@
     "did-you-find": "Avez-vous trouvé ce que vous cherchiez?",
     "yes": "Oui",
     "no": "Non"
+  },
+
+  "cdcp": {
+    "secondaryHeading": "Régime canadien de soins dentaires",
+    "primaryHeading": "Présenter une demande",
+    "toCompleteApplication": "Pour remplir votre demande, vous devrez fournir les renseignements suivantes pour vous-même, pour votre époux/épouse ou conjoint/conjointe de fait (s’il y a lieu) :",
+    "listItems": {
+      "item1": "Numéro d’assurance sociale (NAS)",
+      "item2": "Date de naissance",
+      "item3": "Nom complet",
+      "item4": "Adresse domiciliaire et adresse postale",
+      "item5": "L’assurance dentaire à laquelle vous avez accès grâce aux programmes sociaux du gouvernement (s’il y a lieu)"
+    },
+    "headingH2": "Présenter une demande maintenant",
+    "clickButtonToApply": "Pour faire une demande au Régime canadien de soins dentaires, cliquez sur le bouton ci-dessous.",
+    "buttonText": "Présenter une demande maintenant",
+    "buttonLink": "https://d-d.alpha.service.canada.ca/fr/demander",
+    "cdcpPreFooterLinkText": "Contactez-nous",
+    "cdcpPreFooterLinkUrl": "https://www.canada.ca/fr/contact.html"
   }
 }
