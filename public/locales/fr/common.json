@@ -524,6 +524,7 @@
     "headingH2": "Présenter une demande maintenant",
     "clickButtonToApply": "Pour faire une demande au Régime canadien de soins dentaires, cliquez sur le bouton ci-dessous.",
     "buttonText": "Présenter une demande maintenant",
+    "buttonLink": "https://d-d.alpha.service.canada.ca/fr/demander",
     "cdcpPreFooterLinkText": "Contactez-nous",
     "cdcpPreFooterLinkUrl": "https://www.canada.ca/fr/contact.html"
   }
