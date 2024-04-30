@@ -49,7 +49,7 @@ export default function CDCPLanding(props) {
       breadcrumbItems={createBreadcrumbs(breadCrumbs, props.locale)}
       showDisclaimer
       preFooterTitle="Service Canada"
-      preFooterLink={t("cdcp.cdcpPreFooterLink")}
+      preFooterLink={t("cdcp.cdcpPreFooterLinkUrl")}
       preFooterLinkText={t("cdcp.cdcpPreFooterLinkText")}
     >
       <Head>
