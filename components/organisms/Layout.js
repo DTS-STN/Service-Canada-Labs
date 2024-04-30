@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import { Banner } from "../atoms/Banner";
 import { PhaseBanner } from "./PhaseBanner";
-import { ReportAProblem } from "./ReportAProblem";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { DateModified } from "../atoms/DateModified";

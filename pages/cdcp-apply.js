@@ -40,6 +40,9 @@ export default function CDCPLanding(props) {
       excludeFooterFeedback={true}
       breadcrumbItems={createBreadcrumbs(breadCrumbs, props.locale)}
       showDisclaimer
+      preFooterTitle="Service Canada"
+      preFooterLink={t("cdcp.cdcpPreFooterLink")}
+      preFooterLinkText={t("cdcp.cdcpPreFooterLinkText")}
     >
       <Head>
         {/* Primary HTML Meta Tags */}
