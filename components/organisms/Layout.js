@@ -45,7 +45,9 @@ export const Layout = ({
           data-cy-button={"skip-Content"}
           draggable="false"
           aria-label={t("skipToMainContentBtn")}
-        ></a>
+        >
+          {t("skipToMainContentBtn")}
+        </a>
       </nav>
       <header>
         <h2 className="sr-only">{t("globalHeader")}</h2>

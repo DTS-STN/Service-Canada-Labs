@@ -62,7 +62,10 @@ export default function CDCPLanding(props) {
             <p className="mt-12 text-multi-neutrals-grey85">
               {t("cdcp.secondaryHeading")}
             </p>
-            <h1 className="mt-0 mb-8 pb-2 border-b border-multi-red-red50a">
+            <h1
+              id="pageMainTitle"
+              className="mt-0 mb-8 pb-2 border-b border-multi-red-red50a"
+            >
               {t("cdcp.primaryHeading")}
             </h1>
           </div>
