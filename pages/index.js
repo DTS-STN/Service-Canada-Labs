@@ -31,7 +31,6 @@ export default function Index(props) {
         <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta name="robots" content="noindex, follow" />
-
         {/* DCMI Meta Tags */}
         <meta
           property="dcterms:title"
@@ -78,7 +77,6 @@ export default function Index(props) {
           title="gccore"
           content="GV Gouvernement et vie politique;Services gouvernementaux"
         />
-
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:locale" content={props.locale} />
@@ -93,7 +91,6 @@ export default function Index(props) {
         />
         <meta property="og:image" content={`${t("metaImage")}`} />
         <meta property="og:image:alt" content={`${t("siteTitle")}`} />
-
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta
@@ -111,6 +108,11 @@ export default function Index(props) {
         />
         <meta property="twitter:image" content={`${t("metaImage")}`} />
         <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
+        // Site ownership verification to use URL Inspection Tool
+        <meta
+          name="google-site-verification"
+          content="cJ7yrE6jUDOrRFwPgxPanWrgaRqI9l0qG0F9rqFhZxM"
+        />
       </Head>
       <main className="h-full flex justify-center">
         <div className="splash-cta fixed flex flex-col sm:justify-center sm:items-center">
