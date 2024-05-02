@@ -7,7 +7,13 @@ export default function BasicTextWithImage({ src, alt, width, height, data }) {
       <div className="hidden lg:grid col-start-8 col-span-5 row-start-1 row-span-2">
         <div className="flex justify-center">
           <div className="h-auto">
-            <Image src={src} alt={alt} width={width} height={height} />
+            <Image
+              src={src}
+              alt={alt}
+              width={width}
+              height={height}
+              sizes="50vw"
+            />
           </div>
         </div>
       </div>
