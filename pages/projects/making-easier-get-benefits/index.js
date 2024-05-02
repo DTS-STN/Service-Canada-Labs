@@ -263,6 +263,7 @@ export default function IntegratedChannelStrategyPage(props) {
                       height={pageData.scFragments[2].scImageEn.height}
                       width={pageData.scFragments[2].scImageEn.width}
                       priority
+                      sizes="33vw"
                     />
                   </div>
                 </div>

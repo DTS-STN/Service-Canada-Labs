@@ -234,6 +234,7 @@ export default function MscaDashboard(props) {
                       height={pageData.scFragments[1].scImageEn.height}
                       width={pageData.scFragments[1].scImageEn.width}
                       priority
+                      sizes="33vw"
                     />
                   </div>
                 </div>
@@ -400,6 +401,7 @@ export default function MscaDashboard(props) {
                         pageData.scFragments[5].scFragments[0].scFragments[0]
                           .scImageEn.width
                       }
+                      sizes="100vw"
                     />
                   </div>
                   <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
@@ -481,6 +483,7 @@ export default function MscaDashboard(props) {
                         pageData.scFragments[5].scFragments[1].scFragments[0]
                           .scImageEn.width
                       }
+                      sizes="100vw"
                     />
                   </div>
                   <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
@@ -562,6 +565,7 @@ export default function MscaDashboard(props) {
                         pageData.scFragments[5].scFragments[0].scFragments[0]
                           .scImageEn.width
                       }
+                      sizes="100vw"
                     />
                   </div>
                   <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
@@ -671,6 +675,7 @@ export default function MscaDashboard(props) {
                         pageData.scFragments[5].scFragments[3].scFragments[0]
                           .scImageEn.width
                       }
+                      sizes="100vw"
                     />
                   </div>
                   <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
