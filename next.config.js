@@ -118,11 +118,12 @@ module.exports = {
     return config;
   },
   images: {
+    domains: ["canada.ca", "www.canada.ca"],
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: '**.canada.ca',
-        port: '',
+        protocol: "https",
+        hostname: "**.canada.ca",
+        port: "",
       },
     ]
   },

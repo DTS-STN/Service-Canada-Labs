@@ -94,3 +94,4 @@ graphql/.cache/
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+*storybook.log
