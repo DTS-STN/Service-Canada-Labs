@@ -268,6 +268,7 @@ export default function BenefitsNavigatorOverview(props) {
                       height={pageData.scFragments[0].scImageEn.height}
                       priority
                       sizes="33vw"
+                      quality={100}
                     />
                   </div>
                 </div>
@@ -411,6 +412,7 @@ export default function BenefitsNavigatorOverview(props) {
                         .scImageEn.width
                     }
                     sizes="100vw"
+                    quality={100}
                   />
                 </div>
                 <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
@@ -500,6 +502,7 @@ export default function BenefitsNavigatorOverview(props) {
                         .scImageEn.width
                     }
                     sizes="100vw"
+                    quality={100}
                   />
                 </div>
                 <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
@@ -589,6 +592,7 @@ export default function BenefitsNavigatorOverview(props) {
                         .scImageEn.width
                     }
                     sizes="100vw"
+                    quality={100}
                   />
                 </div>
                 <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">

@@ -22,6 +22,7 @@ export default function ImageWithCollapse({
         width={width}
         height={height}
         sizes="100vw"
+        quality={100}
       />
       <p className="grid row-start-2 col-span-12 lg:col-span-10 justify-around mb-8">
         {content}

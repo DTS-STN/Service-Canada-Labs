@@ -287,8 +287,9 @@ export default function Home(props) {
                     alt=""
                     width={pageData.scFragments[1].scImageEn.width}
                     height={pageData.scFragments[1].scImageEn.height}
-                    sizes="33vw"
+                    sizes="35vw"
                     priority
+                    quality={100}
                   />
                 </span>
               </div>

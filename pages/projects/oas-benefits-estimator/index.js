@@ -263,6 +263,7 @@ export default function OasBenefitsEstimator(props) {
                       width={pageData.scFragments[1].scImageEn.width}
                       priority
                       sizes="33vw"
+                      quality={100}
                     />
                   </div>
                 </div>
