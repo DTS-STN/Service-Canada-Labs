@@ -6,16 +6,15 @@ export default {
   component: ImageFragment,
 };
 
-const Template = (args) => <ImageFragment {...args} />;
+// const Template = (args) => <ImageFragment {...args} />;
 
-export const Default = Template.bind({});
+// export const Default = Template.bind({});
 
-Default.args = {
-  locale: "en",
-  id: "Primary",
-  scImageEn: "/image1.png",
-  alt: "alt text",
-  width: 359,
-  height: 260
-};
-
+// Default.args = {
+//   locale: "en",
+//   id: "Primary",
+//   src: "/image1.png",
+//   alt: "alt text",
+//   width: 359,
+//   height: 260
+// };
