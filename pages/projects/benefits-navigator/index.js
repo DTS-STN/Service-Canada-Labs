@@ -9,7 +9,7 @@ import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
 import { Collapse } from "../../../components/molecules/Collapse";
 import { generateCollapseElements } from "../../../lib/utils/generateCollapseElements";
-import Image from "../../../node_modules/next/image";
+import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
 
 export default function BenefitsNavigatorOverview(props) {

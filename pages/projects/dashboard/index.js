@@ -9,7 +9,7 @@ import { Heading } from "../../../components/molecules/Heading";
 import { Collapse } from "../../../components/molecules/Collapse";
 import { generateCollapseElements } from "../../../lib/utils/generateCollapseElements";
 import { ActionButton } from "../../../components/atoms/ActionButton";
-import Image from "../../../node_modules/next/image";
+import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
 
 export default function MscaDashboard(props) {

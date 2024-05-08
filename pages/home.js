@@ -6,7 +6,7 @@ import Card from "../components/molecules/Card";
 import aemServiceInstance from "../services/aemServiceInstance";
 import { Heading } from "../components/molecules/Heading";
 import { ContextualAlert } from "../components/molecules/ContextualAlert";
-import Image from "../node_modules/next/image";
+import Image from "next/image";
 
 export default function Home(props) {
   const pageData = props.pageData?.item;
