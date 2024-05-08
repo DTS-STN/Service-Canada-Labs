@@ -36,7 +36,8 @@ export const Card = (props) => {
               width={props.imgWidth}
               height={props.imgHeight}
               // Cards are single column up to 768px
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={100}
             />
           </div>
         ) : (

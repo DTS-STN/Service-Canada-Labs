@@ -13,6 +13,7 @@ export default function BasicTextWithImage({ src, alt, width, height, data }) {
               width={width}
               height={height}
               sizes="50vw"
+              quality={100}
             />
           </div>
         </div>
