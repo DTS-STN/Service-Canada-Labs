@@ -13,24 +13,24 @@ Default.args = {
   locale: "en",
   quoteText: [
     {
-        "nodeType": "paragraph",
-        "content": [
-            {
-                "nodeType": "text",
-                "value": "Quote Text "
-            }
-        ]
-    }
-],
+      nodeType: "paragraph",
+      content: [
+        {
+          nodeType: "text",
+          value: "Quote Text ",
+        },
+      ],
+    },
+  ],
   explanationtext: [
     {
-        "nodeType": "paragraph",
-        "content": [
-            {
-                "nodeType": "text",
-                "value": "Explanation Text"
-            }
-        ]
-    }
-]
+      nodeType: "paragraph",
+      content: [
+        {
+          nodeType: "text",
+          value: "Explanation Text",
+        },
+      ],
+    },
+  ],
 };
