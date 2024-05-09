@@ -37,8 +37,8 @@ module.exports = {
   theme: {
     fontFamily: {
       header: ["Lato", "font-serif"],
-      display: ["Lato"],
-      body: ["Noto sans"],
+      display: ["var(--font-lato)"],
+      body: ["var(--font-notoSans)"],
     },
     fontSize: {
       xxs: ["12px", "16px"],

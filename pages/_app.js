@@ -12,8 +12,13 @@ config.autoAddCss = false;
 const notoSans = Noto_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "700", "900"],
+  variable: "--font-notoSans",
 });
-const lato = Lato({ subsets: ["latin"], weight: ["300", "400", "700", "900"] });
+const lato = Lato({
+  subsets: ["latin"],
+  weight: ["300", "400", "700", "900"],
+  variable: "--font-lato",
+});
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -21,7 +26,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <main className={[notoSans.className, lato.className]}>
+      <main className={`${notoSans.variable} ${lato.variable}`}>
         <Component {...pageProps} />
       </main>
     </>
