@@ -21,9 +21,10 @@ describe("Layout", () => {
           args[0].includes(
             "Warning: An update to %s inside a test was not wrapped in act"
           )) ||
-        args[0].includes(
-          "Error: Not implemented: navigation (except hash changes)"
-        )
+        (typeof args[0] === "string" &&
+          args[0].includes(
+            "Error: Not implemented: navigation (except hash changes)"
+          ))
       ) {
         return;
       }
