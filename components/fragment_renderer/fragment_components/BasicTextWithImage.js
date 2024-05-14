@@ -1,4 +1,4 @@
-import Image from "../../../node_modules/next/image";
+import Image from "next/image";
 import TextRender from "../../text_node_renderer/TextRender";
 
 export default function BasicTextWithImage({ src, alt, width, height, data }) {

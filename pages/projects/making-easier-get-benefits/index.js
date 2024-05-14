@@ -9,7 +9,7 @@ import Card from "../../../components/molecules/Card";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
 import TextRender from "../../../components/text_node_renderer/TextRender";
-import Image from "../../../node_modules/next/image";
+import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
 
 export default function IntegratedChannelStrategyPage(props) {

@@ -8,7 +8,7 @@ import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
 import Card from "../../../components/molecules/Card";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
-import Image from "../../../node_modules/next/image";
+import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
 
 export default function OasBenefitsEstimator(props) {
