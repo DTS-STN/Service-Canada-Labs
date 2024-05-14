@@ -33,7 +33,7 @@ Default.args = {
 
 Vertical.args = {
   src: "/image2.png",
-  alt: "Alt Text",
+  alt: "image alt text",
   width: 359,
   height: 260,
   layout: "image-vertical-line-content",
