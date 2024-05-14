@@ -485,6 +485,7 @@ html {
 }
 
 .modal-header {
+  @apply font-display;
   display: flex;
   justify-content: space-between;
   min-width: 290px;
@@ -530,6 +531,7 @@ html {
 }
 
 .modal-title {
+  @apply font-display;
   font-weight: 700;
   font-size: 36px;
   line-height: 40px;
@@ -538,6 +540,7 @@ html {
 }
 
 .modal-body {
+  @apply font-body;
   display: flex;
   width: 95%;
   margin-top: 1rem;
