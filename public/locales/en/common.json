@@ -521,6 +521,7 @@
   },
 
   "cdcp": {
+    "tertiaryHeading": "Canadian Dental Care Plan Prototype",
     "secondaryHeading": "Canadian Dental Care Plan",
     "primaryHeading": "Apply",
     "toCompleteApplication": "To complete your application, you’ll need to provide the following information for yourself, your spouse or common-law partner (if applicable):",
