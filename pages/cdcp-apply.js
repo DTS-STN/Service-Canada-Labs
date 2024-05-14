@@ -55,6 +55,29 @@ export default function CDCPLanding(props) {
       <Head>
         {/* Primary HTML Meta Tags */}
         <title>{t("cdcp.secondaryHeading")}</title>
+
+        {/* DCMI Meta Tags */}
+        <meta name="dcterms.title" content={t("cdcp.tertiaryHeading")} />
+        <meta
+          name="dcterms.language"
+          content={props.locale === "en" ? "eng" : "fra"}
+          title="ISO639-2/T"
+        />
+        <meta
+          name="dcterms.creator"
+          content={
+            props.locale === "en"
+              ? "Employment and Social Development Canada"
+              : "Emploi et Développement social Canada"
+          }
+        />
+        <meta name="dcterms.accessRights" content="2" />
+        <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
+        <meta name="dcterms.spatial" content="Canada" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content={props.locale} />
       </Head>
       <section className="layout-container">
         <div className="grid grid-cols-12 gap-x-8">
