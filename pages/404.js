@@ -34,88 +34,82 @@ export default function error404(props) {
 
   return (
     <>
-      <main className="min-h-screen relative">
-        <Head>
-          {/* Primary HTML Meta Tags */}
-          <title data-gc-analytics-error="404">
-            {pageData.scContentEn.json[0].content[0].value} (404) |{" "}
-            {pageData.scContentFr.json[0].content[0].value} (404)
-          </title>
-          <meta
-            name="description"
-            content={`${t("404errorMetaDescription")}`}
-          />
-          <meta name="author" content="Service Canada" />
-          <link rel="icon" href="/favicon.ico" />
-          <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+      <Head>
+        {/* Primary HTML Meta Tags */}
+        <title data-gc-analytics-error="404">
+          {pageData.scContentEn.json[0].content[0].value} (404) |{" "}
+          {pageData.scContentFr.json[0].content[0].value} (404)
+        </title>
+        <meta name="description" content={`${t("404errorMetaDescription")}`} />
+        <meta name="author" content="Service Canada" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
 
-          {/* DCMI Meta Tags */}
-          <meta name="dcterms.title" content={`404 — ${t("siteTitle")}`} />
-          <meta
-            name="dcterms.language"
-            content={props.locale === "en" ? "eng" : "fra"}
-            title="ISO639-2/T"
-          />
-          <meta
-            name="dcterms.description"
-            content={`${t("404errorMetaDescription")}`}
-          />
-          <meta
-            name="dcterms.subject"
-            title="gccore"
-            content={t("metaSubject")}
-          />
-          <meta
-            name="dcterms.creator"
-            content={
-              props.locale === "en"
-                ? "Employment and Social Development Canada"
-                : "Emploi et Développement social Canada"
-            }
-          />
-          <meta name="dcterms.accessRights" content="2" />
-          <meta
-            name="dcterms.service"
-            content="ESDC-EDSC_SCLabs-LaboratoireSC"
-          />
-          <meta name="dcterms.issued" title="W3CDTF" content="2021-06-01" />
-          <meta name="dcterms.modified" title="W3CDTF" content="2021-12-16" />
-          <meta name="dcterms.spatial" content="Canada" />
+        {/* DCMI Meta Tags */}
+        <meta name="dcterms.title" content={`404 — ${t("siteTitle")}`} />
+        <meta
+          name="dcterms.language"
+          content={props.locale === "en" ? "eng" : "fra"}
+          title="ISO639-2/T"
+        />
+        <meta
+          name="dcterms.description"
+          content={`${t("404errorMetaDescription")}`}
+        />
+        <meta
+          name="dcterms.subject"
+          title="gccore"
+          content={t("metaSubject")}
+        />
+        <meta
+          name="dcterms.creator"
+          content={
+            props.locale === "en"
+              ? "Employment and Social Development Canada"
+              : "Emploi et Développement social Canada"
+          }
+        />
+        <meta name="dcterms.accessRights" content="2" />
+        <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
+        <meta name="dcterms.issued" title="W3CDTF" content="2021-06-01" />
+        <meta name="dcterms.modified" title="W3CDTF" content="2021-12-16" />
+        <meta name="dcterms.spatial" content="Canada" />
 
-          {/* Open Graph / Facebook */}
-          <meta property="og:type" content="website" />
-          <meta property="og:locale" content={props.locale} />
-          <meta
-            property="og:url"
-            content={
-              "https://alpha.service.canada.ca/" + `${props.locale}` + "/404"
-            }
-          />
-          <meta property="og:title" content={`404 — ${t("siteTitle")}`} />
-          <meta
-            property="og:description"
-            content={`${t("404errorMetaDescription")}`}
-          />
-          <meta property="og:image" content={`${t("metaImage")}`} />
-          <meta property="og:image:alt" content={`${t("siteTitle")}`} />
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content={props.locale} />
+        <meta
+          property="og:url"
+          content={
+            "https://alpha.service.canada.ca/" + `${props.locale}` + "/404"
+          }
+        />
+        <meta property="og:title" content={`404 — ${t("siteTitle")}`} />
+        <meta
+          property="og:description"
+          content={`${t("404errorMetaDescription")}`}
+        />
+        <meta property="og:image" content={`${t("metaImage")}`} />
+        <meta property="og:image:alt" content={`${t("siteTitle")}`} />
 
-          {/* Twitter */}
-          <meta property="twitter:card" content="summary_large_image" />
-          <meta
-            property="twitter:url"
-            content={
-              "https://alpha.service.canada.ca/" + `${props.locale}` + "/404"
-            }
-          />
-          <meta property="twitter:title" content={`500 — ${t("siteTitle")}`} />
-          <meta name="twitter:creator" content="Service Canada" />
-          <meta
-            property="twitter:description"
-            content={`${t("404errorMetaDescription")}`}
-          />
-          <meta property="twitter:image" content={`${t("metaImage")}`} />
-          <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
-        </Head>
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:url"
+          content={
+            "https://alpha.service.canada.ca/" + `${props.locale}` + "/404"
+          }
+        />
+        <meta property="twitter:title" content={`500 — ${t("siteTitle")}`} />
+        <meta name="twitter:creator" content="Service Canada" />
+        <meta
+          property="twitter:description"
+          content={`${t("404errorMetaDescription")}`}
+        />
+        <meta property="twitter:image" content={`${t("metaImage")}`} />
+        <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
+      </Head>
+      <div className="min-h-screen relative">
         <section className="layout-container pb-44">
           <div className="pt-6">
             <img
@@ -229,7 +223,7 @@ export default function error404(props) {
             </span>
           </div>
         </footer>
-      </main>
+      </div>
     </>
   );
 }
