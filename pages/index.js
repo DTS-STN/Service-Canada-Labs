@@ -114,7 +114,7 @@ export default function Index(props) {
           content="cJ7yrE6jUDOrRFwPgxPanWrgaRqI9l0qG0F9rqFhZxM"
         />
       </Head>
-      <main className="h-full flex justify-center">
+      <div className="h-full flex justify-center">
         <div className="splash-cta fixed flex flex-col sm:justify-center sm:items-center">
           <div className="z-10 bg-white h-auto min-w-300px w-300px xl:w-500px">
             <h1 className="sr-only">alpha.service.canada.ca</h1>
@@ -180,7 +180,7 @@ export default function Index(props) {
             />
           </div>
         </div>
-      </main>
+      </div>
     </>
   );
 }

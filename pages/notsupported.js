@@ -31,124 +31,121 @@ export default function notSupported(props) {
   }
   return (
     <>
-      <main className="min-h-screen relative">
-        <Head>
-          {/* Primary HTML Meta Tags */}
-          <title data-gc-analytics-error="notSupported">
-            {pageData.scContentEn.json[0].content[0].value} |{" "}
-            {pageData.scContentFr.json[0].content[0].value}
-          </title>
-          <meta
-            name="description"
-            content="Error message stating that the site will not work with Internet Explorer."
-          />
-          <meta name="author" content="Service Canada" />
-          <link rel="icon" href="/favicon.ico" />
-          <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
-          <meta content="width=device-width, initial-scale=1" name="viewport" />
+      <Head>
+        {/* Primary HTML Meta Tags */}
+        <title data-gc-analytics-error="notSupported">
+          {pageData.scContentEn.json[0].content[0].value} |{" "}
+          {pageData.scContentFr.json[0].content[0].value}
+        </title>
+        <meta
+          name="description"
+          content="Error message stating that the site will not work with Internet Explorer."
+        />
+        <meta name="author" content="Service Canada" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
 
-          {/* DCMI Meta Tags */}
-          <meta
-            property="dcterms:title"
-            lang="en"
-            content="Sorry, this site will not work with Internet Explorer"
-          />
-          <meta
-            property="dcterms:title"
-            lang="fr"
-            content="Désolé, ce site ne fonctionne pas avec Internet Explorer"
-          />
-          <meta
-            property="dcterms:description"
-            lang="en"
-            content="Error message stating that the site will not work with Internet Explorer."
-          />
-          <meta
-            property="dcterms:description"
-            lang="fr"
-            content="Message d'erreur indiquant que le site ne fonctionne pas avec Internet Explorer."
-          />
-          <meta
-            name="dcterms.language"
-            content={props.locale === "en" ? "eng" : "fra"}
-            title="ISO639-2"
-          />
-          <meta
-            name="dcterms.creator"
-            content={
-              props.locale === "en"
-                ? "Employment and Social Development Canada"
-                : "Emploi et Développement social Canada"
-            }
-          />
-          <meta name="dcterms.accessRights" content="2" />
-          <meta
-            name="dcterms.service"
-            content="ESDC-EDSC_SCLabs-LaboratoireSC"
-          />
-          <meta
-            property="dcterms:subject"
-            lang="fr"
-            title="gccore"
-            content="GV Gouvernement et vie politique;Services gouvernementaux"
-          />
-          <meta
-            property="dcterms:subject"
-            lang="en"
-            title="gccore"
-            content="GV Government and Politics;Government services"
-          />
-          <meta name="dcterms.issued" title="W3CDTF" content="2021-11-25" />
-          <meta name="dcterms.modified" title="W3CDTF" content="2021-12-16" />
-          <meta property="dcterms:issued" content="2021-11-25" />
-          <meta property="dcterms:modified" content="2021-12-16" />
+        {/* DCMI Meta Tags */}
+        <meta
+          property="dcterms:title"
+          lang="en"
+          content="Sorry, this site will not work with Internet Explorer"
+        />
+        <meta
+          property="dcterms:title"
+          lang="fr"
+          content="Désolé, ce site ne fonctionne pas avec Internet Explorer"
+        />
+        <meta
+          property="dcterms:description"
+          lang="en"
+          content="Error message stating that the site will not work with Internet Explorer."
+        />
+        <meta
+          property="dcterms:description"
+          lang="fr"
+          content="Message d'erreur indiquant que le site ne fonctionne pas avec Internet Explorer."
+        />
+        <meta
+          name="dcterms.language"
+          content={props.locale === "en" ? "eng" : "fra"}
+          title="ISO639-2"
+        />
+        <meta
+          name="dcterms.creator"
+          content={
+            props.locale === "en"
+              ? "Employment and Social Development Canada"
+              : "Emploi et Développement social Canada"
+          }
+        />
+        <meta name="dcterms.accessRights" content="2" />
+        <meta name="dcterms.service" content="ESDC-EDSC_SCLabs-LaboratoireSC" />
+        <meta
+          property="dcterms:subject"
+          lang="fr"
+          title="gccore"
+          content="GV Gouvernement et vie politique;Services gouvernementaux"
+        />
+        <meta
+          property="dcterms:subject"
+          lang="en"
+          title="gccore"
+          content="GV Government and Politics;Government services"
+        />
+        <meta name="dcterms.issued" title="W3CDTF" content="2021-11-25" />
+        <meta name="dcterms.modified" title="W3CDTF" content="2021-12-16" />
+        <meta property="dcterms:issued" content="2021-11-25" />
+        <meta property="dcterms:modified" content="2021-12-16" />
 
-          {/* Open Graph / Facebook */}
-          <meta property="og:type" content="website" />
-          <meta property="og:locale" content={props.locale} />
-          <meta
-            property="og:url"
-            content={
-              "https://alpha.service.canada.ca/" +
-              `${props.locale}` +
-              "/notsupported"
-            }
-          />
-          <meta
-            property="og:title"
-            content={`Browser not supported — ${t("siteTitle")}`}
-          />
-          <meta
-            property="og:description"
-            content="Sorry, this site will not work with Internet Explorer | Désolé, ce
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content={props.locale} />
+        <meta
+          property="og:url"
+          content={
+            "https://alpha.service.canada.ca/" +
+            `${props.locale}` +
+            "/notsupported"
+          }
+        />
+        <meta
+          property="og:title"
+          content={`Browser not supported — ${t("siteTitle")}`}
+        />
+        <meta
+          property="og:description"
+          content="Sorry, this site will not work with Internet Explorer | Désolé, ce
             site ne fonctionne pas avec Internet Explorer"
-          />
-          <meta property="og:image" content={`${t("metaImage")}`} />
-          <meta property="og:image:alt" content={`${t("siteTitle")}`} />
+        />
+        <meta property="og:image" content={`${t("metaImage")}`} />
+        <meta property="og:image:alt" content={`${t("siteTitle")}`} />
 
-          {/* Twitter */}
-          <meta property="twitter:card" content="summary_large_image" />
-          <meta
-            property="twitter:url"
-            content={
-              "https://alpha.service.canada.ca/" +
-              `${props.locale}` +
-              "/notsupported"
-            }
-          />
-          <meta
-            property="twitter:title"
-            content={`Browser not supported — ${t("siteTitle")}`}
-          />
-          <meta name="twitter:creator" content="Service Canada" />
-          <meta
-            property="twitter:description"
-            content="Sorry, this site will not work with Internet Explorer | Désolé, ce
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:url"
+          content={
+            "https://alpha.service.canada.ca/" +
+            `${props.locale}` +
+            "/notsupported"
+          }
+        />
+        <meta
+          property="twitter:title"
+          content={`Browser not supported — ${t("siteTitle")}`}
+        />
+        <meta name="twitter:creator" content="Service Canada" />
+        <meta
+          property="twitter:description"
+          content="Sorry, this site will not work with Internet Explorer | Désolé, ce
             site ne fonctionne pas avec Internet Explorer"
-          />
-          <meta property="twitter:image" content={`${t("metaImage")}`} />
-          <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
-        </Head>
+        />
+        <meta property="twitter:image" content={`${t("metaImage")}`} />
+        <meta property="twitter:image:alt" content={`${t("siteTitle")}`} />
+      </Head>
+      <div className="min-h-screen relative">
         <section className="xs:px-0 lg:mx-auto lg:px-6 container">
           <div className="pt-6">
             <img
@@ -465,7 +462,7 @@ export default function notSupported(props) {
             </span>
           </div>
         </footer>
-      </main>
+      </div>
     </>
   );
 }
