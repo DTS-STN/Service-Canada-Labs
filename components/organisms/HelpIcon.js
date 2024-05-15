@@ -32,7 +32,7 @@ export const HelpIcon = ({ title, body, lang }) => {
           <Modal
             show={showModal}
             onHide={handleClose}
-            className="modal"
+            className="modal __variable_a1e2e3 __variable_3e745e"
             aria-label={title}
           >
             <Modal.Header className="modal-header">

@@ -111,25 +111,23 @@ export const Layout = ({
         </div>
       </header>
 
-      <main>
-        {bannerText && bannerTitle ? (
-          <Banner siteTitle={bannerTitle} headline={bannerText} />
-        ) : null}
-        {children}
-        <div className="mt-12">
-          <h2 className="sr-only">{t("siteFooter")}</h2>
-          {!excludeFooterFeedback ? (
-            <div className="layout-container mt-5">
-              <Feedback />
-            </div>
-          ) : (
-            ""
-          )}
-          <div className="layout-container mb-2">
-            <DateModified date={dateModifiedOverride} />
+      {bannerText && bannerTitle ? (
+        <Banner siteTitle={bannerTitle} headline={bannerText} />
+      ) : null}
+      {children}
+      <div className="mt-12">
+        <h2 className="sr-only">{t("siteFooter")}</h2>
+        {!excludeFooterFeedback ? (
+          <div className="layout-container mt-5">
+            <Feedback />
           </div>
+        ) : (
+          ""
+        )}
+        <div className="layout-container mb-2">
+          <DateModified date={dateModifiedOverride} />
         </div>
-      </main>
+      </div>
 
       <Footer
         id="footer"

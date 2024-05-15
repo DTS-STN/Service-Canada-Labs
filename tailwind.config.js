@@ -36,9 +36,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     fontFamily: {
-      header: ["Lato", "font-serif"],
-      display: ["Lato"],
-      body: ["Noto sans"],
+      header: ["var(--font-lato)", "font-serif"],
+      display: ["var(--font-lato)"],
+      body: ["var(--font-notoSans)"],
     },
     fontSize: {
       xxs: ["12px", "16px"],
