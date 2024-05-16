@@ -14744,6 +14744,7 @@ __metadata:
     react-dom: "npm:^18.2.0"
     react-i18next: "npm:^13.5.0"
     react-lock-scroll: "npm:^0.1.8"
+    sharp: "npm:^0.33.3"
     storybook: "npm:^8.0.9"
     tailwindcss: "npm:^3.0.9"
     unified: "npm:^10.1.2"
