@@ -12,6 +12,9 @@ describe("ImageWithCollapse", () => {
     const { container } = render(<ImageWithCollapse {...Default.args} />);
     expect(screen.getByAltText("image alt text")).toBeInTheDocument();
     expect(
+      screen.getByText((content) => content.startsWith("Every"))
+    ).toBeInTheDocument();
+    expect(
       screen.getByText((content) => content.startsWith("Example Title"))
     ).toBeInTheDocument();
     const results = await axe(container);
@@ -24,9 +27,6 @@ describe("ImageWithCollapse", () => {
       content.startsWith("Example Title")
     );
     userEvent.click(collapse);
-    expect(
-      screen.getByText((content) => content.startsWith("Every"))
-    ).toBeInTheDocument();
     expect(
       screen.getByText((content) => content.startsWith("First"))
     ).toBeInTheDocument();
