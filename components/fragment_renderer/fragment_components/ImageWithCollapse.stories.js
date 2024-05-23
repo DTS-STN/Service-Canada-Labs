@@ -21,10 +21,10 @@ Default.args = {
   longDesc: "Test Description",
   children: [
     <p>First paragraph tag</p>,
-    <p>Second paragprahp tag</p>,
+    <p>Second paragraph tag</p>,
     <ul>
-      <li>Unorderded list item 1</li>
-      <li>Unorderded list item 2</li>
+      <li>Unordered list item 1</li>
+      <li>Unordered list item 2</li>
     </ul>,
     <ol>
       <li>Ordered list item 1</li>

@@ -17,7 +17,7 @@ Default.args = {
       content: [
         {
           nodeType: "text",
-          value: "Quote Text ",
+          value: "Quote Text",
         },
       ],
     },
