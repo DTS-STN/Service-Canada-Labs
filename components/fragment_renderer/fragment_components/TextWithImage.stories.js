@@ -13,7 +13,7 @@ export const Vertical = Template.bind({});
 
 Default.args = {
   src: "/image2.png",
-  alt: "alt",
+  alt: "image alt text",
   width: 359,
   height: 260,
   layout: "default",
@@ -33,7 +33,7 @@ Default.args = {
 
 Vertical.args = {
   src: "/image2.png",
-  alt: "alt",
+  alt: "image alt text",
   width: 359,
   height: 260,
   layout: "image-vertical-line-content",
