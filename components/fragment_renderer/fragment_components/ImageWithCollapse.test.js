@@ -37,6 +37,7 @@ describe("ImageWithCollapse", () => {
       screen.getByText((content) => content.startsWith("Ordered list item 1"))
     ).toBeInTheDocument();
 
+
     // const details = screen.getByTestId("details");
     // const div = screen.getByTestId("div");
     // const paragraph = div.getElementsByTagName("p")[0];
@@ -48,6 +49,8 @@ describe("ImageWithCollapse", () => {
     // expect(await paragraph).toBeVisible();
     // expect(await unordered).toBeVisible();
     // expect(await ordered).toBeVisible();
+
+
 
     const results = await axe(container);
     expect(results).toHaveNoViolations();
