@@ -2,7 +2,7 @@ import * as React from "react";
 import ImageFragment from "./ImageFragment";
 
 export default {
-  title: "Components/Fragment_Renderer/ImageFragment",
+  title: "Components/Fragment_Renderer/Fragment_Components/ImageFragment",
   component: ImageFragment,
 };
 

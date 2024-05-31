@@ -2,7 +2,7 @@ import * as React from "react";
 import ImageWithCollapse from "./ImageWithCollapse";
 
 export default {
-  title: "Components/Fragment_Renderer/ImageWithCollapse",
+  title: "Components/Fragment_Renderer/Fragment_Components/ImageWithCollapse",
   component: ImageWithCollapse,
 };
 

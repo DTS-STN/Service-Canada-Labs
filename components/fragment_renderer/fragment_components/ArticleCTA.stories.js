@@ -2,7 +2,7 @@ import * as React from "react";
 import ArticleCTA from "./ArticleCTA";
 
 export default {
-  title: "Components/Fragment_Renderer/ArticleCTA",
+  title: "Components/Fragment_Renderer/Fragment_Components/ArticleCTA",
   component: ArticleCTA,
 };
 

@@ -2,7 +2,8 @@ import * as React from "react";
 import ImageVerticalLineContent from "./ImageVerticalLineContent";
 
 export default {
-  title: "Components/Fragment_Renderer/ImageVerticalLineContent",
+  title:
+    "Components/Fragment_Renderer/Fragment_Components/ImageVerticalLineContent",
   component: ImageVerticalLineContent,
 };
 
