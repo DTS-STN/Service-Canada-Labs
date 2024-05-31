@@ -2,7 +2,7 @@ import * as React from "react";
 import Button from "./Button";
 
 export default {
-  title: "Components/Fragment_Renderer/Button",
+  title: "Components/Fragment_Renderer/Fragment_Components/Button",
   component: Button,
 };
 

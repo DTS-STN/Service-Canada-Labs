@@ -2,7 +2,7 @@ import * as React from "react";
 import TextContent from "./TextContent";
 
 export default {
-  title: "Components/Fragment_Renderer/TextContent",
+  title: "Components/Fragment_Renderer/Fragment_Components/TextContent",
   component: TextContent,
 };
 

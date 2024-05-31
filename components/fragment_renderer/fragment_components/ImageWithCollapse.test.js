@@ -36,6 +36,19 @@ describe("ImageWithCollapse", () => {
     expect(
       screen.getByText((content) => content.startsWith("Ordered list item 1"))
     ).toBeInTheDocument();
+
+    // const details = screen.getByTestId("details");
+    // const div = screen.getByTestId("div");
+    // const paragraph = div.getElementsByTagName("p")[0];
+    // const unordered = div.getElementsByTagName("ul")[0];
+    // const ordered = div.getElementsByTagName("ol")[0];
+    // userEvent.click(details);
+    // const open = details.hasAttribute("open")
+    // expect( await open).toBeTruthy();
+    // expect(await paragraph).toBeVisible();
+    // expect(await unordered).toBeVisible();
+    // expect(await ordered).toBeVisible();
+
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });

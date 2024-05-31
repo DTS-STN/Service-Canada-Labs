@@ -2,7 +2,8 @@ import * as React from "react";
 import QuoteVerticalLineContent from "./QuoteVerticalLineContent";
 
 export default {
-  title: "Components/Fragment_Renderer/QuoteVerticalLineContent",
+  title:
+    "Components/Fragment_Renderer/Fragment_Components/QuoteVerticalLineContent",
   component: QuoteVerticalLineContent,
 };
 

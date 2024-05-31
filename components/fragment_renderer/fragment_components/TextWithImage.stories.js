@@ -2,7 +2,7 @@ import * as React from "react";
 import TextWithImage from "./TextWithImage";
 
 export default {
-  title: "Components/Fragment_Renderer/TextWithImage",
+  title: "Components/Fragment_Renderer/Fragment_Components/TextWithImage",
   component: TextWithImage,
 };
 
