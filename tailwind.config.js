@@ -144,6 +144,7 @@ module.exports = {
             blue60g: "#1C578A",
             blue50a: "#2572B4",
             blue50b: "#0535D2",
+            blue35: "#31455C",
             blue30: "#7B92B0",
             blue15: "#B0C1D7",
             blue5: "#DBE5F2",
