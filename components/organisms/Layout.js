@@ -63,9 +63,9 @@ export const Layout = ({
         ) : (
           ""
         )}
-        <div className="layout-container flex-col flex lg:flex lg:flex-row justify-between mt-2">
+        <div className="layout-container lg:max-w-full mt-4 mb-4 lg:mx-0 lg:px-2 flex-col flex lg:flex lg:flex-row justify-between">
           <div
-            className="flex flex-row justify-between items-center lg:mt-7 mt-1.5"
+            className="flex flex-row justify-between"
             role="navigation"
             aria-labelledby="officialSiteNav"
           >
@@ -78,6 +78,7 @@ export const Layout = ({
                 alt={t("symbol")}
                 width="375"
                 height="35"
+                className="max-w-[280px]"
               />
             </a>
             <h3 className="sr-only">{t("languageSelection")}</h3>
@@ -86,18 +87,18 @@ export const Layout = ({
               href={langUrl}
               locale={language}
               data-testid="languageLink1"
-              className="visible lg:invisible ml-6 sm:ml-16 underline font-body font-bold text-canada-footer-font lg:text-sm text-base hover:text-canada-footer-hover-font-blue"
+              className="block lg:hidden ml-6 -m-1 sm:ml-16 underline underline-offset-[6px] font-body text-canada-footer-font lg:text-sm text-lg hover:text-canada-footer-hover-font-blue"
             >
               {language === "en" ? "EN" : "FR"}
             </Link>
           </div>
-          <div className="flex-col flex">
+          <div className="flex flex-col justify-center">
             <Link
               key={language}
               href={langUrl}
               locale={language}
               data-testid="languageLink3"
-              className="lg:visible invisible pb-0 lg:pb-2 self-end underline font-body text-canada-footer-font hover:text-canada-footer-hover-font-blue"
+              className="flex lg:block hidden underline underline-offset-[5px] font-body text-canada-footer-font hover:text-canada-footer-hover-font-blue"
               data-cy="toggle-language-link"
               lang={language}
             >
@@ -105,6 +106,7 @@ export const Layout = ({
             </Link>
           </div>
         </div>
+        <div className="border-b-[3px] border-multi-blue-blue35" />
 
         <div className="layout-container mt-4 lg:mt-20">
           <Breadcrumb items={breadcrumbItems} />
