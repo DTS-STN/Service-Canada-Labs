@@ -719,19 +719,12 @@ export default function BenefitsNavigatorOverview(props) {
           <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0">
             {displayProjectUpdates}
           </ul>
-          <h2>
-            {props.locale === "en"
-              ? "Explore other projects"
-              : "french translation"}
-          </h2>
-          <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0">
-            <ExploreProjects
-              locale={props.locale}
-              activeProjectId={pageData.scId}
-              projects={allProjects}
-            />
-          </ul>
         </div>
+        <ExploreProjects
+          locale={props.locale}
+          activeProjectId={pageData.scId}
+          projects={allProjects}
+        />
       </Layout>
     </>
   );
