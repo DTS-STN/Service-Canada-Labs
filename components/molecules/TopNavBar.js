@@ -29,7 +29,6 @@ export function TopNavBar({
   return (
     <div className="bg-custom-gray-lightest min-h-[64px] flex justify-end">
       {/* Desktop Nav Menu */}
-      {/* TODO get translation for aria labels */}
       <nav
         aria-label={ariaLabel}
         className="hidden lg:flex w-full self-center justify-between layout-container"
@@ -38,10 +37,10 @@ export function TopNavBar({
           {homeLinkLabel}
         </Link>
         <div className="lg:mr-16">
-          <Link href={projectsLink} className="mr-10 text-p">
+          <Link href={projectsLink} className="font-body mr-10 text-p">
             {projectsLinkLabel}
           </Link>
-          <Link href={updatesLink} className="text-p">
+          <Link href={updatesLink} className="font-body text-p">
             {updatesLinkLabel}
           </Link>
         </div>
