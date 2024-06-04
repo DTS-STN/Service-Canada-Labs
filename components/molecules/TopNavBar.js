@@ -8,7 +8,8 @@ export function TopNavBar({
   updatesLinkLabel,
   projectsLink,
   projectsLinkLabel,
-  ariaLabel,
+  navAriaLabel,
+  buttonAriaLabel,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isTransitioningClosed, setIsTransitioningClosed] = useState(false);
@@ -27,12 +28,12 @@ export function TopNavBar({
   };
 
   return (
-    <div className="bg-custom-gray-lightest min-h-[64px] flex justify-end">
+    <nav
+      aria-label={navAriaLabel}
+      className="bg-custom-gray-lightest min-h-[64px] flex justify-end"
+    >
       {/* Desktop Nav Menu */}
-      <nav
-        aria-label={ariaLabel}
-        className="hidden lg:flex w-full self-center justify-between layout-container"
-      >
+      <div className="hidden lg:flex w-full self-center justify-between layout-container">
         <Link href={homeLink} className="font-body font-semibold text-h3">
           {homeLinkLabel}
         </Link>
@@ -44,13 +45,11 @@ export function TopNavBar({
             {updatesLinkLabel}
           </Link>
         </div>
-      </nav>
+      </div>
       {/* Mobile Nav Menu */}
-      <nav
-        aria-label={ariaLabel}
-        className="static lg:hidden mt-5 flex flex-col w-full mr-4"
-      >
+      <div className="static lg:hidden mt-5 flex flex-col w-full mr-4">
         <button
+          aria-label={buttonAriaLabel}
           aria-haspopup="true"
           aria-expanded={isOpen ? "true" : "false"}
           aria-controls="menu"
@@ -137,7 +136,7 @@ export function TopNavBar({
         ) : (
           ""
         )}
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }

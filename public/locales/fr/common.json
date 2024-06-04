@@ -531,7 +531,8 @@
   },
 
   "topNavBar": {
-    "ariaLabel": "menu de navigation",
+    "navAriaLabel": "menu de navigation",
+    "buttonAriaLabel": "bouton du menu de navigation",
     "homeLink": "/accueil",
     "homeLinkLabel": "Laboratoires de Service Canada",
     "projectsLink": "/projects",

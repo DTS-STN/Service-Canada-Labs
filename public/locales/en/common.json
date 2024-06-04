@@ -541,7 +541,8 @@
   },
 
   "topNavBar": {
-    "ariaLabel": "navigation menu",
+    "navAriaLabel": "navigation menu",
+    "buttonAriaLabel": "navigation menu button",
     "homeLink": "/home",
     "homeLinkLabel": "Service Canada Labs",
     "projectsLink": "/projects",
