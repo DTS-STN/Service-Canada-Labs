@@ -35,7 +35,7 @@ export const Layout = ({
     typeof window !== "undefined" && window.location.origin
       ? window.location.href
       : "";
-  const isTopNavBarActive = true;
+  const isTopNavBarActive = false;
 
   return (
     <div className="overflow-x-hidden">
