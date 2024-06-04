@@ -46,7 +46,7 @@ module.exports = {
       sm: ["16px", "22px"],
       base: ["18px", "28px"],
       lg: ["20px", "32px"],
-      p: ["20px", "33px"],
+      p: ["20px", "30px"],
       h4: ["22px", "24px"],
       h3: ["24px", "26px"],
       h2: ["32px", "36px"],
@@ -225,6 +225,7 @@ module.exports = {
           darker: "#D3080C",
         },
         "custom-gray": {
+          lightest: "#F9F9F9",
           lighter: "#EEEEEE",
           darker: "#ACACAC",
           index: "#F8F8F8",
