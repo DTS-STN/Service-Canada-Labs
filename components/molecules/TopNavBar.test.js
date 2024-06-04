@@ -9,9 +9,21 @@ import { Primary } from "./TopNavBar.stories";
 expect.extend(toHaveNoViolations);
 
 describe("TopNavBar", () => {
-  it("renders the TopNavBar with expected props", () => {
+  it("renders the TopNavBar with expected props on desktop", () => {
     render(<Primary {...Primary.args} />);
     expect(screen.getByLabelText("nav-aria-label")).toBeTruthy();
+    expect(screen.getByLabelText("button-aria-label")).toBeTruthy();
+    expect(screen.getByText("Home")).toBeTruthy();
+    expect(screen.getByText("Updates")).toBeTruthy();
+  });
+
+  it("renders the TopNavBar with expected props on mobile", () => {
+    render(<Primary {...Primary.args} />);
+    global.innerWidth = 500;
+    expect(screen.getByLabelText("nav-aria-label")).toBeTruthy();
+    expect(screen.getByLabelText("button-aria-label")).toBeTruthy();
+    expect(screen.getByText("Home")).toBeTruthy();
+    expect(screen.getByText("Updates")).toBeTruthy();
   });
 
   it("has no a11y violations", async () => {
