@@ -11,6 +11,7 @@ import { Collapse } from "../../../components/molecules/Collapse";
 import { generateCollapseElements } from "../../../lib/utils/generateCollapseElements";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
+import TextRender from "../../../components/text_node_renderer/TextRender";
 
 export default function BenefitsNavigatorOverview(props) {
   const [pageData] = useState(props.pageData.item);
@@ -417,43 +418,15 @@ export default function BenefitsNavigatorOverview(props) {
                 </div>
                 <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
                   <div className="py-4 pl-4 border-l-4 border-multi-blue-blue60f">
-                    <h3 className="mb-2">
-                      {props.locale === "en"
-                        ? pageData.scFragments[4].scFragments[0].scContentEn
-                            .json[0].content[0].value
-                        : pageData.scFragments[4].scFragments[0].scContentFr
-                            .json[0].content[0].value}
-                    </h3>
-                    <p>
-                      {props.locale === "en"
-                        ? pageData.scFragments[4].scFragments[0].scContentEn
-                            .json[1].content[0].value
-                        : pageData.scFragments[4].scFragments[0].scContentFr
-                            .json[1].content[0].value}
-                    </p>
-                    <ul>
-                      <li>
-                        {props.locale === "en"
+                    <TextRender
+                      data={
+                        props.locale === "en"
                           ? pageData.scFragments[4].scFragments[0].scContentEn
-                              .json[2].content[0].content[0].value
+                              .json
                           : pageData.scFragments[4].scFragments[0].scContentFr
-                              .json[2].content[0].content[0].value}
-                      </li>
-                      <li>
-                        {props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[0].scContentEn
-                              .json[2].content[1].content[0].value
-                          : pageData.scFragments[4].scFragments[0].scContentFr
-                              .json[2].content[1].content[0].value}
-                      </li>
-                      <li>
-                        {props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[0].scContentEn
-                              .json[2].content[2].content[0].value
-                          : pageData.scFragments[4].scFragments[0].scContentFr
-                              .json[2].content[2].content[0].value}
-                      </li>
-                    </ul>
+                              .json
+                      }
+                    />
                   </div>
                 </div>
                 <div className="mb-6 col-span-12 xl:col-span-8 row-start-2 xl:row-start-2">
@@ -466,13 +439,17 @@ export default function BenefitsNavigatorOverview(props) {
                         : pageData.scFragments[4].scFragments[0].scFragments[0]
                             .scLongDescHeadingFr
                     }
-                    children={generateCollapseElements(
-                      props.locale === "en"
-                        ? pageData.scFragments[4].scFragments[0].scFragments[0]
-                            .scLongDescEn.json
-                        : pageData.scFragments[4].scFragments[0].scFragments[0]
-                            .scLongDescFr.json
-                    )}
+                    children={
+                      <TextRender
+                        data={
+                          props.locale === "en"
+                            ? pageData.scFragments[4].scFragments[0]
+                                .scFragments[0].scLongDescEn.json
+                            : pageData.scFragments[4].scFragments[0]
+                                .scFragments[0].scLongDescFr.json
+                        }
+                      />
+                    }
                   />
                 </div>
               </div>
@@ -507,43 +484,15 @@ export default function BenefitsNavigatorOverview(props) {
                 </div>
                 <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
                   <div className="p-4 border-l-4 border-multi-blue-blue60f">
-                    <h3 className="mb-2">
-                      {props.locale === "en"
-                        ? pageData.scFragments[4].scFragments[1].scContentEn
-                            .json[0].content[0].value
-                        : pageData.scFragments[4].scFragments[1].scContentFr
-                            .json[0].content[0].value}
-                    </h3>
-                    <p>
-                      {props.locale === "en"
-                        ? pageData.scFragments[4].scFragments[1].scContentEn
-                            .json[1].content[0].value
-                        : pageData.scFragments[4].scFragments[1].scContentFr
-                            .json[1].content[0].value}
-                    </p>
-                    <ul>
-                      <li>
-                        {props.locale === "en"
+                    <TextRender
+                      data={
+                        props.locale === "en"
                           ? pageData.scFragments[4].scFragments[1].scContentEn
-                              .json[2].content[0].content[0].value
+                              .json
                           : pageData.scFragments[4].scFragments[1].scContentFr
-                              .json[2].content[0].content[0].value}
-                      </li>
-                      <li>
-                        {props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[1].scContentEn
-                              .json[2].content[1].content[0].value
-                          : pageData.scFragments[4].scFragments[1].scContentFr
-                              .json[2].content[1].content[0].value}
-                      </li>
-                      <li>
-                        {props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[1].scContentEn
-                              .json[2].content[2].content[0].value
-                          : pageData.scFragments[4].scFragments[1].scContentFr
-                              .json[2].content[2].content[0].value}
-                      </li>
-                    </ul>
+                              .json
+                      }
+                    />
                   </div>
                 </div>
                 <div className="mb-6 col-span-12 xl:col-span-8 row-start-2 xl:row-start-2">
@@ -556,13 +505,17 @@ export default function BenefitsNavigatorOverview(props) {
                         : pageData.scFragments[4].scFragments[1].scFragments[0]
                             .scLongDescHeadingFr
                     }
-                    children={generateCollapseElements(
-                      props.locale === "en"
-                        ? pageData.scFragments[4].scFragments[1].scFragments[0]
-                            .scLongDescEn.json
-                        : pageData.scFragments[4].scFragments[1].scFragments[0]
-                            .scLongDescFr.json
-                    )}
+                    children={
+                      <TextRender
+                        data={
+                          props.locale === "en"
+                            ? pageData.scFragments[4].scFragments[1]
+                                .scFragments[0].scLongDescEn.json
+                            : pageData.scFragments[4].scFragments[1]
+                                .scFragments[0].scLongDescFr.json
+                        }
+                      />
+                    }
                   />
                 </div>
               </div>
@@ -597,57 +550,15 @@ export default function BenefitsNavigatorOverview(props) {
                 </div>
                 <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
                   <div className="p-4 border-l-4 border-multi-blue-blue60f">
-                    <h3 className="mb-2">
-                      {props.locale === "en"
-                        ? pageData.scFragments[4].scFragments[2].scContentEn
-                            .json[0].content[0].value
-                        : pageData.scFragments[4].scFragments[2].scContentFr
-                            .json[0].content[0].value}
-                    </h3>
-                    <p>
-                      {props.locale === "en"
-                        ? pageData.scFragments[4].scFragments[2].scContentEn
-                            .json[1].content[0].value
-                        : pageData.scFragments[4].scFragments[2].scContentFr
-                            .json[1].content[0].value}
-                    </p>
-                    <ul>
-                      <li>
-                        {props.locale === "en"
+                    <TextRender
+                      data={
+                        props.locale === "en"
                           ? pageData.scFragments[4].scFragments[2].scContentEn
-                              .json[2].content[0].content[0].value
+                              .json
                           : pageData.scFragments[4].scFragments[2].scContentFr
-                              .json[2].content[0].content[0].value}
-                      </li>
-                      <li>
-                        {props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[2].scContentEn
-                              .json[2].content[1].content[0].value
-                          : pageData.scFragments[4].scFragments[2].scContentFr
-                              .json[2].content[1].content[0].value}
-                      </li>
-                      <li>
-                        {props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[2].scContentEn
-                              .json[2].content[2].content[0].value
-                          : pageData.scFragments[4].scFragments[2].scContentFr
-                              .json[2].content[2].content[0].value}
-                      </li>
-                      <li>
-                        {props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[2].scContentEn
-                              .json[2].content[3].content[0].value
-                          : pageData.scFragments[4].scFragments[2].scContentFr
-                              .json[2].content[3].content[0].value}
-                      </li>
-                      <li>
-                        {props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[2].scContentEn
-                              .json[2].content[4].content[0].value
-                          : pageData.scFragments[4].scFragments[2].scContentFr
-                              .json[2].content[4].content[0].value}
-                      </li>
-                    </ul>
+                              .json
+                      }
+                    />
                   </div>
                 </div>
                 <div className="mb-6 col-span-12 xl:col-span-8 row-start-2 xl:row-start-2">
@@ -660,13 +571,17 @@ export default function BenefitsNavigatorOverview(props) {
                         : pageData.scFragments[4].scFragments[2].scFragments[0]
                             .scLongDescHeadingFr
                     }
-                    children={generateCollapseElements(
-                      props.locale === "en"
-                        ? pageData.scFragments[4].scFragments[2].scFragments[0]
-                            .scLongDescEn.json
-                        : pageData.scFragments[4].scFragments[2].scFragments[0]
-                            .scLongDescFr.json
-                    )}
+                    children={
+                      <TextRender
+                        data={
+                          props.locale === "en"
+                            ? pageData.scFragments[4].scFragments[2]
+                                .scFragments[0].scLongDescEn.json
+                            : pageData.scFragments[4].scFragments[2]
+                                .scFragments[0].scLongDescFr.json
+                        }
+                      />
+                    }
                   />
                 </div>
               </div>

@@ -64,18 +64,6 @@ html {
     }
   }
 
-  /* Lists */
-  ul {
-    @apply list-disc;
-  }
-  ol {
-    @apply list-decimal;
-  }
-  li {
-    @apply ml-10;
-    @apply text-[20px];
-  }
-
   /* Content Element Styles */
   h1,
   h2 {

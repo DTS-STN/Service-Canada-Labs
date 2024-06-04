@@ -1,3 +1,3 @@
 export default function UnorderedList(props) {
-  return <ul>{props.children}</ul>;
+  return <ul className="list-disc">{props.children}</ul>;
 }
