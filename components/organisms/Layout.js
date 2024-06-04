@@ -64,7 +64,7 @@ export const Layout = ({
         ) : (
           ""
         )}
-        <div className="layout-container lg:max-w-full mt-4 mb-3 lg:mx-0 lg:px-2 flex-col flex lg:flex lg:flex-row justify-between">
+        <div className="layout-container lg:max-w-full pt-4 pb-3 !mx-0 !px-5 flex-col flex lg:flex lg:flex-row justify-between bg-custom-gray-lightest">
           <div
             className="flex flex-row justify-between"
             role="navigation"
