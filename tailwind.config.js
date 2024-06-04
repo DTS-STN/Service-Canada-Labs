@@ -135,6 +135,7 @@ module.exports = {
             blue70d: "#334155",
             blue65: "#16446C",
             blue65a: "#083C6C",
+            blue65b: "#6584A6",
             blue60a: "#2E5274",
             blue60b: "#335075",
             blue60c: "#2B4380",
