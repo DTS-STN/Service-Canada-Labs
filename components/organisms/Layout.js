@@ -7,6 +7,7 @@ import { DateModified } from "../atoms/DateModified";
 import { Breadcrumb } from "../atoms/Breadcrumb";
 import { Footer } from "../organisms/Footer";
 import Feedback from "./Feedback";
+import { TopNavBar } from "../molecules/TopNavBar";
 
 /**
  * Component which defines the layout of the page for all screen sizes
@@ -63,7 +64,7 @@ export const Layout = ({
         ) : (
           ""
         )}
-        <div className="layout-container lg:max-w-full mt-4 mb-4 lg:mx-0 lg:px-2 flex-col flex lg:flex lg:flex-row justify-between">
+        <div className="layout-container lg:max-w-full mt-4 mb-3 lg:mx-0 lg:px-2 flex-col flex lg:flex lg:flex-row justify-between">
           <div
             className="flex flex-row justify-between"
             role="navigation"
@@ -87,7 +88,7 @@ export const Layout = ({
               href={langUrl}
               locale={language}
               data-testid="languageLink1"
-              className="block lg:hidden ml-6 -m-1 sm:ml-16 underline underline-offset-[6px] font-body text-canada-footer-font lg:text-sm text-lg hover:text-canada-footer-hover-font-blue"
+              className="block lg:hidden ml-6 -mt-1 sm:ml-16 underline underline-offset-[6px] font-body text-canada-footer-font lg:text-sm text-lg hover:text-canada-footer-hover-font-blue"
             >
               {language === "en" ? "EN" : "FR"}
             </Link>
@@ -107,8 +108,16 @@ export const Layout = ({
           </div>
         </div>
         <div className="border-b-[3px] border-multi-blue-blue35" />
-
-        <div className="layout-container mt-4 lg:mt-20">
+        <TopNavBar
+          homeLink={t("topNavBar.homeLink")}
+          homeLinkLabel={t("topNavBar.homeLinkLabel")}
+          updatesLink={t("topNavBar.updatesLink")}
+          updatesLinkLabel={t("topNavBar.updatesLinkLabel")}
+          projectsLink={t("topNavBar.projectsLink")}
+          projectsLinkLabel={t("topNavBar.projectsLinkLabel")}
+          ariaLabel={t("topNavBar.ariaLabel")}
+        />
+        <div className="layout-container mt-4">
           <Breadcrumb items={breadcrumbItems} />
         </div>
       </header>
