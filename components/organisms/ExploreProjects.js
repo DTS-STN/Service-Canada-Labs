@@ -37,7 +37,7 @@ const createCard = (locale, project) => {
 export function ExploreProjects(props) {
   //initialize props
   const { locale, activeProjectId, projects } = props;
-  //filter out current project from projects array and crlocale, activeProjectId, projectseate new array
+  //filter out current project from projects array and create new array
   const filteredProjects = projects.filter((currentProject) => {
     return currentProject.scId !== activeProjectId;
   });

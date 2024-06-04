@@ -743,6 +743,7 @@ export const getStaticProps = async ({ locale }) => {
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
+  // get all projects data
   const { data: allProjects } = await aemServiceInstance.getFragment(
     "projectQuery"
   );
