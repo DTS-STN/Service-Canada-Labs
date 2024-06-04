@@ -11,8 +11,10 @@ import { Collapse } from "../../../components/molecules/Collapse";
 import { generateCollapseElements } from "../../../lib/utils/generateCollapseElements";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
+import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 
 export default function BenefitsNavigatorOverview(props) {
+  const [allProjects] = useState(props.allProjects);
   const [pageData] = useState(props.pageData.item);
   const [updatesData] = useState(props.updatesData);
   const [filteredDictionary] = useState(
@@ -717,6 +719,18 @@ export default function BenefitsNavigatorOverview(props) {
           <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0">
             {displayProjectUpdates}
           </ul>
+          <h2>
+            {props.locale === "en"
+              ? "Explore other projects"
+              : "french translation"}
+          </h2>
+          <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0">
+            <ExploreProjects
+              locale={props.locale}
+              activeProjectId={pageData.scId}
+              projects={allProjects}
+            />
+          </ul>
         </div>
       </Layout>
     </>
@@ -736,6 +750,9 @@ export const getStaticProps = async ({ locale }) => {
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
+  const { data: allProjects } = await aemServiceInstance.getFragment(
+    "projectQuery"
+  );
 
   return {
     props: {
@@ -744,6 +761,7 @@ export const getStaticProps = async ({ locale }) => {
       pageData: pageData.sclabsPageV1ByPath,
       updatesData: updatesData.sclabsPageV1List.items,
       dictionary: dictionary.dictionaryV1List,
+      allProjects: allProjects.sclabsPageV1List.items,
       ...(await serverSideTranslations(locale, ["common"])),
     },
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,
