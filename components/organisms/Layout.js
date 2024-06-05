@@ -35,7 +35,6 @@ export const Layout = ({
     typeof window !== "undefined" && window.location.origin
       ? window.location.href
       : "";
-  const isTopNavBarActive = false;
 
   return (
     <div className="overflow-x-hidden">
@@ -109,18 +108,16 @@ export const Layout = ({
           </div>
         </div>
         <div className="border-b-[3px] border-multi-blue-blue35" />
-        {isTopNavBarActive ? (
-          <TopNavBar
-            homeLink={t("topNavBar.homeLink")}
-            homeLinkLabel={t("topNavBar.homeLinkLabel")}
-            updatesLink={t("topNavBar.updatesLink")}
-            updatesLinkLabel={t("topNavBar.updatesLinkLabel")}
-            projectsLink={t("topNavBar.projectsLink")}
-            projectsLinkLabel={t("topNavBar.projectsLinkLabel")}
-            navAriaLabel={t("topNavBar.ariaLabel")}
-            buttonAriaLabel={t("topNavBar.buttonAriaLabel")}
-          />
-        ) : null}
+        <TopNavBar
+          homeLink={t("topNavBar.homeLink")}
+          homeLinkLabel={t("topNavBar.homeLinkLabel")}
+          updatesLink={t("topNavBar.updatesLink")}
+          updatesLinkLabel={t("topNavBar.updatesLinkLabel")}
+          projectsLink={t("topNavBar.projectsLink")}
+          projectsLinkLabel={t("topNavBar.projectsLinkLabel")}
+          navAriaLabel={t("topNavBar.ariaLabel")}
+          buttonAriaLabel={t("topNavBar.buttonAriaLabel")}
+        />
         <div className="layout-container mt-4">
           <Breadcrumb items={breadcrumbItems} />
         </div>
