@@ -528,5 +528,16 @@
     "buttonLink": "https://d-d.alpha.service.canada.ca/fr/demander",
     "cdcpPreFooterLinkText": "Contactez-nous",
     "cdcpPreFooterLinkUrl": "https://www.canada.ca/fr/contact.html"
+  },
+
+  "topNavBar": {
+    "navAriaLabel": "menu de navigation",
+    "buttonAriaLabel": "bouton du menu de navigation",
+    "homeLink": "/accueil",
+    "homeLinkLabel": "Laboratoires de Service Canada",
+    "projectsLink": "/projects",
+    "projectsLinkLabel": "Projets",
+    "updatesLink": "/updates",
+    "updatesLinkLabel": "Mises à jour"
   }
 }

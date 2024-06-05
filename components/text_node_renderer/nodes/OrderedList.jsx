@@ -1,3 +1,3 @@
 export default function UnorderedList(props) {
-  return <ol>{props.children}</ol>;
+  return <ol className="list-decimal">{props.children}</ol>;
 }

@@ -538,5 +538,16 @@
     "buttonLink": "https://d-d.alpha.service.canada.ca/en/apply/",
     "cdcpPreFooterLinkText": "Contact Us",
     "cdcpPreFooterLinkUrl": "https://www.canada.ca/en/contact.html"
+  },
+
+  "topNavBar": {
+    "navAriaLabel": "navigation menu",
+    "buttonAriaLabel": "navigation menu button",
+    "homeLink": "/home",
+    "homeLinkLabel": "Service Canada Labs",
+    "projectsLink": "/projects",
+    "projectsLinkLabel": "Projects",
+    "updatesLink": "/updates",
+    "updatesLinkLabel": "Updates"
   }
 }
