@@ -309,8 +309,8 @@ export default function Home(props) {
                   : pageData.scFragments[0].scContentFr.json[4].content[0]
                       .value}{" "}
               </p>
-              <ul>
-                <li>
+              <ul className="list-disc">
+                <li className="ml-10">
                   <p className="font-body">
                     {props.locale === "en"
                       ? pageData.scFragments[0].scContentEn.json[5].content[0]
@@ -319,7 +319,7 @@ export default function Home(props) {
                           .content[0].value}{" "}
                   </p>
                 </li>
-                <li>
+                <li className="ml-10">
                   <p className="font-body">
                     {props.locale === "en"
                       ? pageData.scFragments[0].scContentEn.json[5].content[1]
