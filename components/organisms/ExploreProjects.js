@@ -46,13 +46,10 @@ export function ExploreProjects(props) {
     //create html for "Explore other projects" section
     <div className="grid justify-evenly content-center lg:h-[740px] max-w-full bg-multi-blue-blue65b">
       <div className="xxs:mt-20 lg:mt-30 layout-container">
-        <h2 className="sm:hidden md:block text-multi-neutrals-white">
+        <h2 className="text-multi-neutrals-white">
           {locale === "en"
             ? "Explore other projects"
             : "Explorer d'autres projets"}
-        </h2>
-        <h2 className="sm:block md:hidden text-multi-neutrals-white">
-          {locale === "en" ? "Other projects" : "D'autres projets"}
         </h2>
       </div>
       <ul className="xs:mb-40 sm:mb-40 lg:mb-15 justify-self:center layout-container grid lg:grid-cols-12 gap-x-6 gap-y-6 list-none ml-0">
