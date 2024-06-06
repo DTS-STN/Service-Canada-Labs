@@ -14,31 +14,6 @@ Primary.args = {
   locale: "en",
   projects: [
     {
-      scId: "BENEFITS-NAVIGATOR-OVERVIEW",
-      scTitleEn: "Benefits Navigator",
-      scTitleFr: "Navigateur de prestations",
-      scPageNameEn: "/en/projects/benefits-navigator",
-      scPageNameFr: "/fr/projets/navigateur-prestations",
-      scSocialMediaImageEn: {
-        _path:
-          "/content/dam/decd-endc/images/sclabs/benefits-navigator/navigator-overview.jpg",
-        width: 359,
-        height: 260,
-      },
-      scSocialMediaImageFr: {
-        _path:
-          "/content/dam/decd-endc/images/sclabs/benefits-navigator/navigator-overview.jpg",
-        width: 359,
-        height: 260,
-      },
-      scSocialMediaImageAltTextEn:
-        "People sitting on puzzle pieces or standing next to them.",
-      scSocialMediaImageAltTextFr:
-        "Personnes assises sur des morceaux de casse-tête ou se tenant debout à côté.",
-      scDescriptionEn: { json: [{ content: ["english description"] }] },
-      scDescriptionFr: { json: [{ content: ["french description"] }] },
-    },
-    {
       scId: "First project",
       scTitleEn: "First project",
       scTitleFr: "First project fr",
