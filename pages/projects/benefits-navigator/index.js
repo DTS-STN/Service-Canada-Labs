@@ -13,6 +13,7 @@ import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
 import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 import TextRender from "../../../components/text_node_renderer/TextRender";
+import { shuffle } from "../../api/shuffle";
 
 export default function BenefitsNavigatorOverview(props) {
   const [allProjects] = useState(props.allProjects);
@@ -55,12 +56,12 @@ export default function BenefitsNavigatorOverview(props) {
     </li>
   ));
 
-  const filterProjects = (allProjects, activeProject) => {
-    //filter out current project from projects
-    const filteredProjects = allProjects.filter((currentProject) => {
+  const filterProjects = (projects, activeProject) => {
+    //filter out current project from projects array
+    const filteredProjects = projects.filter((currentProject) => {
       return currentProject.scId !== activeProject;
     });
-    //slice array to max length of 3
+    //slice filtered array to max length of 3 and return new array
     const slicedArray = filteredProjects.slice(0, 3);
     return slicedArray;
   };
@@ -653,14 +654,6 @@ export default function BenefitsNavigatorOverview(props) {
     </>
   );
 }
-export const shuffle = (allProjects) => {
-  //randomize order of otherProjects
-  for (let i = allProjects.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [allProjects[i], allProjects[j]] = [allProjects[j], allProjects[i]];
-  }
-  return allProjects;
-};
 
 export const getStaticProps = async ({ locale }) => {
   // get page data from AEM
