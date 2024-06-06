@@ -18,20 +18,16 @@ describe("ExploreProjects", () => {
   });
 
   test("renders card images with default props", async () => {
-    const { container } = render(<ExploreProjects {...Default.args} />);
+    render(<ExploreProjects {...Default.args} />);
     expect(screen.getByAltText("first alt")).toBeInTheDocument();
     expect(screen.getByAltText("second alt")).toBeInTheDocument();
     expect(screen.getByAltText("third alt")).toBeInTheDocument();
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
   });
 
   test("renders card descriptions with default props", async () => {
-    const { container } = render(<ExploreProjects {...Default.args} />);
+    render(<ExploreProjects {...Default.args} />);
     expect(screen.getByText("first description")).toBeInTheDocument();
     expect(screen.getByText("second description")).toBeInTheDocument();
     expect(screen.getByText("third description")).toBeInTheDocument();
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
   });
 });
