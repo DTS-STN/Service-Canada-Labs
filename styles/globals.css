@@ -356,6 +356,24 @@ html {
   }
 }
 
+.lg-view {
+  display:inline-block;
+}
+
+.sm-view {
+  display:none;
+}
+
+@media (max-width: 365px) {
+  .lg-view {
+    display:none;
+ }
+
+ .sm-view {
+    display:inline-block;
+ }
+}
+
 @media (max-width: 420px) {
   .splash-image {
     background-position: bottom;
