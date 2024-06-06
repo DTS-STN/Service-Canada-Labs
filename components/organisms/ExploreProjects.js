@@ -7,7 +7,7 @@ const createCard = (locale, project) => {
   return (
     <li
       key={project.scId}
-      className="card-shadow rounded-md bg-multi-neutrals-white ml-0 col-span-12 lg:col-span-4"
+      className="rounded-md bg-multi-neutrals-white col-span-12 lg:col-span-4"
     >
       <Card
         showImage
@@ -44,21 +44,18 @@ export function ExploreProjects(props) {
   );
   return (
     //create html for "Explore other projects" section
-    <div className="grid justify-evenly content-center lg:h-[740px] max-w-full bg-multi-blue-blue65b">
-      <div className="xxs:mt-20 lg:mt-30 layout-container">
-        <h2 className="sm:hidden md:block text-multi-neutrals-white">
+    <div className="py-24 max-w-full bg-multi-blue-blue65b">
+      <div className="layout-container">
+        <h2 className="mt-0 text-multi-neutrals-white">
           {locale === "en"
             ? "Explore other projects"
             : "Explorer d'autres projets"}
         </h2>
-        <h2 className="sm:block md:hidden text-multi-neutrals-white">
-          {locale === "en" ? "Other projects" : "D'autres projets"}
-        </h2>
+        <ul className="grid grid-cols-12 gap-x-6 gap-y-6 list-none">
+          {/*iterate over filteredProjects array and create card for each project */}
+          {displayCurrentProjects}
+        </ul>
       </div>
-      <ul className="xs:mb-40 sm:mb-40 lg:mb-15 justify-self:center layout-container grid lg:grid-cols-12 gap-x-6 gap-y-6 list-none ml-0">
-        {/*iterate over filteredProjects array and create card for each project */}
-        {displayCurrentProjects}
-      </ul>
     </div>
   );
 }
