@@ -7,6 +7,8 @@ import aemServiceInstance from "../services/aemServiceInstance";
 import { Heading } from "../components/molecules/Heading";
 import { ContextualAlert } from "../components/molecules/ContextualAlert";
 import Image from "next/image";
+import { Link } from "../components/atoms/Link";
+import { ExploreUpdates } from "../components/organisms/ExploreUpdates";
 
 export default function Home(props) {
   const pageData = props.pageData?.item;
@@ -35,9 +37,11 @@ export default function Home(props) {
     }
 
     // Sort the objects based on the lookup
-    return objects.sort((a, b) => {
+    const sorted = objects.sort((a, b) => {
       return titleOrder[a.scTitleEn] - titleOrder[b.scTitleEn];
     });
+    // Trim to first 3 projects
+    return sorted.slice(0, 3);
   };
 
   const displayCurrentProjects = sortedProjects(currentProjects).map(
@@ -399,10 +403,21 @@ export default function Home(props) {
               }
             />
           </div>
-          <ul className="grid lg:grid-cols-2 gap-4 list-none ml-0">
-            {displayCurrentProjects}
-          </ul>
+          <div className="mb-4">
+            <ul className="grid lg:grid-cols-3 gap-6 list-none ml-0">
+              {displayCurrentProjects}
+            </ul>
+            <div className="mt-5 flex justify-end">
+              <Link
+                id="projectsLink"
+                href="/projects"
+                lang={props.locale}
+                text="See all projects"
+              />
+            </div>
+          </div>
         </section>
+        <ExploreUpdates />
       </Layout>
     </>
   );
@@ -415,6 +430,9 @@ export const getStaticProps = async ({ locale }) => {
   const { data: experimentsData } = await aemServiceInstance.getFragment(
     "projectQuery"
   );
+  // const { data: updatesData } = await aemServiceInstance.getFragment(
+  //   "updatesQuery"
+  // )
 
   return {
     props: {
