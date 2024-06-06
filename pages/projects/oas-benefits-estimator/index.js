@@ -44,8 +44,8 @@ export default function OasBenefitsEstimator(props) {
         href={props.locale === "en" ? update.scPageNameEn : update.scPageNameFr}
         description={`${
           props.locale === "en"
-            ? props.dictionary.items[9].scTermEn
-            : props.dictionary.items[9].scTermFr
+            ? props.dictionary.items[11].scTermEn
+            : props.dictionary.items[11].scTermFr
         } ${update.scDateModifiedOverwrite}`}
       />
     </li>
