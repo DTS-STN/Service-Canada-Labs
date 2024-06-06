@@ -55,6 +55,16 @@ export default function BenefitsNavigatorOverview(props) {
     </li>
   ));
 
+  const filterProjects = (allProjects, activeProject) => {
+    //filter out current project from projects
+    const filteredProjects = allProjects.filter((currentProject) => {
+      return currentProject.scId !== activeProject;
+    });
+    //slice array to max length of 3
+    const slicedArray = filteredProjects.slice(0, 3);
+    return slicedArray;
+  };
+
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
@@ -637,13 +647,20 @@ export default function BenefitsNavigatorOverview(props) {
         </div>
         <ExploreProjects
           locale={props.locale}
-          activeProjectId={pageData.scId}
-          projects={allProjects}
+          projects={filterProjects(allProjects, pageData.scId)}
         />
       </Layout>
     </>
   );
 }
+export const shuffle = (allProjects) => {
+  //randomize order of otherProjects
+  for (let i = allProjects.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [allProjects[i], allProjects[j]] = [allProjects[j], allProjects[i]];
+  }
+  return allProjects;
+};
 
 export const getStaticProps = async ({ locale }) => {
   // get page data from AEM
@@ -670,7 +687,7 @@ export const getStaticProps = async ({ locale }) => {
       pageData: pageData.sclabsPageV1ByPath,
       updatesData: updatesData.sclabsPageV1List.items,
       dictionary: dictionary.dictionaryV1List,
-      allProjects: allProjects.sclabsPageV1List.items,
+      allProjects: await shuffle(allProjects.sclabsPageV1List.items),
       ...(await serverSideTranslations(locale, ["common"])),
     },
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,
