@@ -12,7 +12,6 @@ export const Primary = Template.bind({});
 
 Primary.args = {
   locale: "en",
-  activeProjectId: "BENEFITS-NAVIGATOR-OVERVIEW",
   projects: [
     {
       scId: "BENEFITS-NAVIGATOR-OVERVIEW",
