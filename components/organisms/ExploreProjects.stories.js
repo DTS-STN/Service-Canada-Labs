@@ -8,9 +8,9 @@ export default {
 
 const Template = (args) => <ExploreProjects {...args}></ExploreProjects>;
 
-export const Primary = Template.bind({});
+export const Default = Template.bind({});
 
-Primary.args = {
+Default.args = {
   locale: "en",
   projects: [
     {
@@ -31,15 +31,13 @@ Primary.args = {
         width: 359,
         height: 260,
       },
-      scSocialMediaImageAltTextEn:
-        "People sitting on puzzle pieces or standing next to them.",
-      scSocialMediaImageAltTextFr:
-        "Personnes assises sur des morceaux de casse-tête ou se tenant debout à côté.",
+      scSocialMediaImageAltTextEn: "first alt",
+      scSocialMediaImageAltTextFr: "first alt fr",
       scDescriptionEn: {
-        json: [{ content: [{ value: "english description" }] }],
+        json: [{ content: [{ value: "first description" }] }],
       },
       scDescriptionFr: {
-        json: [{ content: [{ value: "french description" }] }],
+        json: [{ content: [{ value: "first description fr" }] }],
       },
     },
     {
@@ -60,15 +58,13 @@ Primary.args = {
         width: 359,
         height: 260,
       },
-      scSocialMediaImageAltTextEn:
-        "People sitting on puzzle pieces or standing next to them.",
-      scSocialMediaImageAltTextFr:
-        "Personnes assises sur des morceaux de casse-tête ou se tenant debout à côté.",
+      scSocialMediaImageAltTextEn: "second alt",
+      scSocialMediaImageAltTextFr: "second alt fr",
       scDescriptionEn: {
-        json: [{ content: [{ value: "english description" }] }],
+        json: [{ content: [{ value: "second description" }] }],
       },
       scDescriptionFr: {
-        json: [{ content: [{ value: "french description" }] }],
+        json: [{ content: [{ value: "second description fr" }] }],
       },
     },
     {
@@ -89,15 +85,13 @@ Primary.args = {
         width: 359,
         height: 260,
       },
-      scSocialMediaImageAltTextEn:
-        "People sitting on puzzle pieces or standing next to them.",
-      scSocialMediaImageAltTextFr:
-        "Personnes assises sur des morceaux de casse-tête ou se tenant debout à côté.",
+      scSocialMediaImageAltTextEn: "third alt",
+      scSocialMediaImageAltTextFr: "third alt fr",
       scDescriptionEn: {
-        json: [{ content: [{ value: "english description" }] }],
+        json: [{ content: [{ value: "third description" }] }],
       },
       scDescriptionFr: {
-        json: [{ content: [{ value: "french description" }] }],
+        json: [{ content: [{ value: "third description fr" }] }],
       },
     },
   ],
