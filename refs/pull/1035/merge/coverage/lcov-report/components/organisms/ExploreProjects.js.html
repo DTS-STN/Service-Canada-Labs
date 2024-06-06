@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>6/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -124,17 +124,13 @@
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -161,18 +157,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -185,13 +179,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useEffect } from <span class="cstat-no" title="statement not covered" >"react";</span>
-import Card from <span class="cstat-no" title="statement not covered" >"../molecules/Card";</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useEffect } from "react";
+import Card from "../molecules/Card";
 import { useState } from "react";
 &nbsp;
 //callback function that creates a card for a project when called
-const createCard = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(l</span>ocale, project) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  return (</span>
+const createCard = (locale, project) =&gt; {
+  return (
     &lt;li
       key={project.scId}
       className="card-shadow rounded-md bg-multi-neutrals-white ml-0 col-span-12 lg:col-span-4"
@@ -201,33 +201,33 @@ const createCard = <span class="cstat-no" title="statement not covered" ><span c
         imgSrc={
           locale === "en"
             ? `https://www.canada.ca${project.scSocialMediaImageEn?._path}`
-            : `https://www.canada.ca${project.scSocialMediaImageFr?._path}`
+            : <span class="branch-1 cbranch-no" title="branch not covered" >`https://www.canada.ca${project.scSocialMediaImageFr?._path}`</span>
         }
         imgAlt={
           locale === "en"
             ? project.scSocialMediaImageAltTextEn
-            : project.scSocialMediaImageAltTextFr
+            : <span class="branch-1 cbranch-no" title="branch not covered" >project.scSocialMediaImageAltTextFr</span>
         }
         imgHeight={project.scSocialMediaImageEn.height}
         imgWidth={project.scSocialMediaImageEn.width}
-        title={locale === "en" ? project.scTitleEn : project.scTitleFr}
-        href={locale === "en" ? project.scPageNameEn : project.scPageNameFr}
+        title={locale === "en" ? project.scTitleEn : <span class="branch-1 cbranch-no" title="branch not covered" >project.scTitleFr}</span>
+        href={locale === "en" ? project.scPageNameEn : <span class="branch-1 cbranch-no" title="branch not covered" >project.scPageNameFr}</span>
         description={
           locale === "en"
             ? project.scDescriptionEn.json[0].content[0].value
-            : project.scDescriptionFr.json[0].content[0].value
+            : <span class="branch-1 cbranch-no" title="branch not covered" >project.scDescriptionFr.json[0].content[0].value</span>
         }
       /&gt;
     &lt;/li&gt;
   );
 };
 &nbsp;
-export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >ExploreProjects(p</span></span>rops) {
+export function ExploreProjects(props) {
   //initialize props
-  const { locale, projects } = <span class="cstat-no" title="statement not covered" >props;</span>
+  const { locale, projects } = props;
   //create cards for current projects
-  const displayCurrentProjects = <span class="cstat-no" title="statement not covered" >projects.map(<span class="fstat-no" title="function not covered" >(p</span>roject) =&gt;</span>
-<span class="cstat-no" title="statement not covered" >    createCard(locale, project)</span>
+  const displayCurrentProjects = projects.map((project) =&gt;
+    createCard(locale, project)
   );
   return (
     //create html for "Explore other projects" section
@@ -236,7 +236,7 @@ export function <span class="cstat-no" title="statement not covered" ><span clas
         &lt;h2 className="text-multi-neutrals-white"&gt;
           {locale === "en"
             ? "Explore other projects"
-            : "Explorer d'autres projets"}
+            : <span class="branch-1 cbranch-no" title="branch not covered" >"Explorer d'autres projets"}</span>
         &lt;/h2&gt;
       &lt;/div&gt;
       &lt;ul className="xs:mb-40 sm:mb-40 lg:mb-15 justify-self:center layout-container grid lg:grid-cols-12 gap-x-6 gap-y-6 list-none ml-0"&gt;
@@ -253,7 +253,7 @@ export function <span class="cstat-no" title="statement not covered" ><span clas
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-06-06T20:17:53.891Z
+                at 2024-06-06T20:18:38.501Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
