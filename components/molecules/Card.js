@@ -22,7 +22,7 @@ export const Card = (props) => {
     <Link href={props.href}>
       <div
         className={`h-full group card-shadow border border-custom-gray-border rounded-md pb-4 hover:cursor-pointer ${
-          "border-" + tagColour
+          "border-" + tagColour + ` ${props.customStyling}`
         }`}
         data-testid={props.dataTestId}
         data-cy={props.dataCy}
@@ -76,9 +76,13 @@ export const Card = (props) => {
         ) : (
           ""
         )}
-        <p className="text-custom-gray-text mx-6 leading-30px text-lg">
-          {props.description}
-        </p>
+        {props.htmlDesc ? (
+          props.description
+        ) : (
+          <p className="text-custom-gray-text mx-6 leading-30px text-lg">
+            {props.description}
+          </p>
+        )}
         {props.showButton ? (
           <ActionButton
             href={props.btnHref}
@@ -130,6 +134,11 @@ Card.propTypes = {
    * the test id for cypress test
    */
   dataCy: PropTypes.string,
+
+  /**
+   * Boolean value to allow passing of html for description
+   */
+  htmlDesc: PropTypes.bool,
 
   /**
    * Boolean value to show or hide image
