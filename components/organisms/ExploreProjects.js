@@ -35,44 +35,29 @@ const createCard = (locale, project) => {
   );
 };
 
-const shuffleNSlice = (array) => {
-  //randomize order of array
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  //slice array to max length of 3
-  array = array.slice(0, 3);
-  return array;
-};
-
 export function ExploreProjects(props) {
   //initialize props
-  const { locale, activeProjectId, projects } = props;
-  //filter out current project from projects array and create new array
-  const filteredProjects = projects.filter((currentProject) => {
-    return currentProject.scId !== activeProjectId;
-  });
-  //randomize order of filtered projects and store in shuffledProjects
-  const shuffledProjects = shuffleNSlice(filteredProjects);
-  console.log(shuffledProjects);
-
+  const { locale, projects } = props;
+  //create cards for current projects
+  const displayCurrentProjects = projects.map((project) =>
+    createCard(locale, project)
+  );
   return (
     //create html for "Explore other projects" section
     <div className="grid justify-evenly content-center lg:h-[740px] max-w-full bg-multi-blue-blue65b">
       <div className="xxs:mt-20 lg:mt-30 layout-container">
-        <h2 className="lg-view text-multi-neutrals-white">
+        <h2 className="sm:hidden md:block text-multi-neutrals-white">
           {locale === "en"
             ? "Explore other projects"
             : "Explorer d'autres projets"}
         </h2>
-        <h2 className="sm-view text-multi-neutrals-white">
+        <h2 className="sm:block md:hidden text-multi-neutrals-white">
           {locale === "en" ? "Other projects" : "D'autres projets"}
         </h2>
       </div>
       <ul className="xs:mb-40 sm:mb-40 lg:mb-15 justify-self:center layout-container grid lg:grid-cols-12 gap-x-6 gap-y-6 list-none ml-0">
         {/*iterate over filteredProjects array and create card for each project */}
-        {shuffledProjects.map((project) => createCard(locale, project))}
+        {displayCurrentProjects}
       </ul>
     </div>
   );
