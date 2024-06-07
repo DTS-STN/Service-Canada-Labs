@@ -961,11 +961,13 @@ export const experimentsData = {
             _path:
               "/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/overview.jpg",
             width: 2018,
+            height: 1000,
           },
           scSocialMediaImageFr: {
             _path:
               "/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/overview.jpg",
             width: 2018,
+            height: 1000,
           },
           scSocialMediaImageAltTextEn: "oas benefits estimator",
           scSocialMediaImageAltTextFr: "estimateur des prestations de la sv",
@@ -1048,11 +1050,13 @@ export const experimentsData = {
             _path:
               "/content/dam/decd-endc/images/sclabs/life-journeys/having-a-child-baby.jpg",
             width: 1740,
+            height: 1000,
           },
           scSocialMediaImageFr: {
             _path:
               "/content/dam/decd-endc/images/sclabs/life-journeys/having-a-child-baby.jpg",
             width: 1740,
+            height: 1000,
           },
           scSocialMediaImageAltTextEn: "having a child life journey",
           scSocialMediaImageAltTextFr: "parcours de vie d'avoir un enfant",
@@ -1130,11 +1134,13 @@ export const experimentsData = {
             _path:
               "/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/overview.jpg",
             width: 2018,
+            height: 1000,
           },
           scSocialMediaImageFr: {
             _path:
               "/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/overview.jpg",
             width: 2018,
+            height: 1000,
           },
           scSocialMediaImageAltTextEn:
             "Shows a piggy bank, a calculator, a pen and a pencil",
@@ -1240,10 +1246,12 @@ export const experimentsData = {
           scSocialMediaImageEn: {
             _path: "/content/dam/decd-endc/images/sclabs/virtual-assistant.png",
             width: 1950,
+            height: 1000,
           },
           scSocialMediaImageFr: {
             _path: "/content/dam/decd-endc/images/sclabs/virtual-assistant.png",
             width: 1950,
+            height: 1000,
           },
           scSocialMediaImageAltTextEn: "virtual concierge",
           scSocialMediaImageAltTextFr: "concierge virtuel",
