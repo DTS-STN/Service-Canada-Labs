@@ -10,6 +10,7 @@ import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
+import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
 
 export default function OasBenefitsEstimator(props) {
   const [pageData] = useState(props.pageData.item);
@@ -395,15 +396,32 @@ export default function OasBenefitsEstimator(props) {
               ariaExpanded={props.ariaExpanded}
             />
           </div>
-          <h2>
-            {props.locale === "en"
-              ? props.dictionary.items[11].scTermEn
-              : props.dictionary.items[11].scTermFr}
-          </h2>
-          <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0 mb-12">
-            {displayProjectUpdates}
-          </ul>
         </div>
+        {props.updatesData.length !== 0 ? (
+          <ExploreUpdates
+            locale={props.locale}
+            updatesData={updatesData}
+            dictionary={props.dictionary}
+            heading={
+              "OAS Benefits Estimator project updates"
+              // props.locale === "en"
+              //   ? pageData.scFragments[4].scContentEn.json[0].content[0].value
+              //   : pageData.scFragments[4].scContentFr.json[0].content[0].value
+            }
+            linkLabel={
+              "See all updates about this project"
+              // props.locale === "en"
+              //   ? pageData.scFragments[5].scContentEn.json[0].content[0].value
+              //   : pageData.scFragments[5].scContentFr.json[0].content[0].value
+            }
+            href={
+              ""
+              // props.locale === "en"
+              //   ? pageData.scFragments[5].scContentEn.json[0].content[0].data.href
+              //   : pageData.scFragments[5].scContentFr.json[0].content[0].data.href
+            }
+          />
+        ) : null}
       </Layout>
     </>
   );

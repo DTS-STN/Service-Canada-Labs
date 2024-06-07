@@ -11,6 +11,7 @@ import { Heading } from "../../../components/molecules/Heading";
 import TextRender from "../../../components/text_node_renderer/TextRender";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
+import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
 
 export default function IntegratedChannelStrategyPage(props) {
   const [pageData] = useState(props.pageData.item);
@@ -343,10 +344,32 @@ export default function IntegratedChannelStrategyPage(props) {
               />
             </div>
           </div>
-          <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0 mb-12">
-            {displayProjectUpdates}
-          </ul>
         </div>
+        {props.updatesData.length !== 0 ? (
+          <ExploreUpdates
+            locale={props.locale}
+            updatesData={updatesData}
+            dictionary={props.dictionary}
+            heading={
+              "Digital standards playbook project updates"
+              // props.locale === "en"
+              //   ? pageData.scFragments[4].scContentEn.json[0].content[0].value
+              //   : pageData.scFragments[4].scContentFr.json[0].content[0].value
+            }
+            linkLabel={
+              "See all updates about this project"
+              // props.locale === "en"
+              //   ? pageData.scFragments[5].scContentEn.json[0].content[0].value
+              //   : pageData.scFragments[5].scContentFr.json[0].content[0].value
+            }
+            href={
+              ""
+              // props.locale === "en"
+              //   ? pageData.scFragments[5].scContentEn.json[0].content[0].data.href
+              //   : pageData.scFragments[5].scContentFr.json[0].content[0].data.href
+            }
+          />
+        ) : null}
       </Layout>
     </>
   );

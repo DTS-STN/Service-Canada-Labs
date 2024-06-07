@@ -12,6 +12,7 @@ import { ActionButton } from "../../../components/atoms/ActionButton";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
 import TextRender from "../../../components/text_node_renderer/TextRender";
+import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
 
 export default function MscaDashboard(props) {
   const pageData = props.pageData?.item;
@@ -688,6 +689,31 @@ export default function MscaDashboard(props) {
             </p>
           </section>
         </div>
+        {props.updatesData.length !== 0 ? (
+          <ExploreUpdates
+            locale={props.locale}
+            updatesData={updatesData}
+            dictionary={props.dictionary}
+            heading={
+              "Dashboard project updates"
+              // props.locale === "en"
+              //   ? pageData.scFragments[4].scContentEn.json[0].content[0].value
+              //   : pageData.scFragments[4].scContentFr.json[0].content[0].value
+            }
+            linkLabel={
+              "See all updates about this project"
+              // props.locale === "en"
+              //   ? pageData.scFragments[5].scContentEn.json[0].content[0].value
+              //   : pageData.scFragments[5].scContentFr.json[0].content[0].value
+            }
+            href={
+              ""
+              // props.locale === "en"
+              //   ? pageData.scFragments[5].scContentEn.json[0].content[0].data.href
+              //   : pageData.scFragments[5].scContentFr.json[0].content[0].data.href
+            }
+          />
+        ) : null}
       </Layout>
     </>
   );
@@ -697,6 +723,10 @@ export const getStaticProps = async ({ locale }) => {
   // get page data from AEM
   const { data: pageData } = await aemServiceInstance.getFragment(
     "getMSCADashBoardPage"
+  );
+  // get page data from AEM
+  const { data: updatesData } = await aemServiceInstance.getFragment(
+    "getMSCADashBoardArticles"
   );
   // get dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
@@ -708,6 +738,7 @@ export const getStaticProps = async ({ locale }) => {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       pageData: pageData.sclabsPageV1ByPath,
+      updatesData: updatesData.sclabsPageV1List.items,
       dictionary: dictionary.dictionaryV1List,
       ...(await serverSideTranslations(locale, ["common"])),
     },
