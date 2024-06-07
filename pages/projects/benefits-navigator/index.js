@@ -14,6 +14,7 @@ import TextRender from "../../../components/text_node_renderer/TextRender";
 import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
 import { shuffle } from "../../../lib/utils/shuffle";
 import { filterItems } from "../../../lib/utils/filterItems";
+import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 
 export default function BenefitsNavigatorOverview(props) {
   const [allProjects] = useState(props.allProjects);
@@ -602,7 +603,7 @@ export default function BenefitsNavigatorOverview(props) {
         {props.updatesData.length !== 0 ? (
           <ExploreUpdates
             locale={props.locale}
-            updatesData={updatesData}
+            updatesData={sortUpdatesByDate(updatesData)}
             dictionary={props.dictionary}
             heading={
               "Benefits navigator project updates"

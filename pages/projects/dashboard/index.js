@@ -16,6 +16,7 @@ import { useState } from "react";
 import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 import { shuffle } from "../../../lib/utils/shuffle";
 import { filterItems } from "../../../lib/utils/filterItems";
+import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 
 export default function MscaDashboard(props) {
   const pageData = props.pageData?.item;
@@ -696,7 +697,7 @@ export default function MscaDashboard(props) {
         {props.updatesData.length !== 0 ? (
           <ExploreUpdates
             locale={props.locale}
-            updatesData={updatesData}
+            updatesData={sortUpdatesByDate(updatesData)}
             dictionary={props.dictionary}
             heading={
               "Dashboard project updates"

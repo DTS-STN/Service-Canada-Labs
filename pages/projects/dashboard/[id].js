@@ -9,6 +9,7 @@ import FragmentRender from "../../../components/fragment_renderer/FragmentRender
 import { Heading } from "../../../components/molecules/Heading";
 import { filterItems } from "../../../lib/utils/filterItems";
 import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
+import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 
 export default function MscaDashboardArticles(props) {
   const [pageData] = useState(props.pageData);
@@ -84,7 +85,9 @@ export default function MscaDashboardArticles(props) {
         {filterItems(props.updatesData, pageData.scId).length !== 0 ? (
           <ExploreUpdates
             locale={props.locale}
-            updatesData={filterItems(props.updatesData, pageData.scId)}
+            updatesData={filterItems(
+              sortUpdatesByDate(props.updatesData, pageData.scId)
+            )}
             dictionary={props.dictionary}
             heading={
               "Benefits navigator project updates"

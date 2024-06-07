@@ -14,6 +14,7 @@ import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
 import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 import { shuffle } from "../../../lib/utils/shuffle";
 import { filterItems } from "../../../lib/utils/filterItems";
+import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 
 export default function DigitalStandardsPlaybookPage(props) {
   const [pageData] = useState(props.pageData.item);
@@ -423,7 +424,7 @@ export default function DigitalStandardsPlaybookPage(props) {
         {props.updatesData.length !== 0 ? (
           <ExploreUpdates
             locale={props.locale}
-            updatesData={updatesData}
+            updatesData={sortUpdatesByDate(updatesData)}
             dictionary={props.dictionary}
             heading={
               "Digital standards playbook project updates"

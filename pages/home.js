@@ -10,6 +10,7 @@ import Image from "next/image";
 import { Link } from "../components/atoms/Link";
 import { ExploreUpdates } from "../components/organisms/ExploreUpdates";
 import FragmentRender from "../components/fragment_renderer/FragmentRender";
+import { sortUpdatesByDate } from "../lib/utils/sortUpdatesByDate";
 
 export default function Home(props) {
   const pageData = props.pageData?.item;
@@ -2100,7 +2101,7 @@ export default function Home(props) {
         <section>
           <ExploreUpdates
             locale={props.locale}
-            updatesData={updatesData}
+            updatesData={sortUpdatesByDate(updatesData)}
             dictionary={dictionary}
             heading={
               props.locale === "en"
