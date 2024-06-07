@@ -10,10 +10,14 @@ import { Heading } from "../../../components/molecules/Heading";
 import { ActionButton } from "../../../components/atoms/ActionButton";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
+import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
+import { shuffle } from "../../../lib/utils/shuffle";
+import { filterProjects } from "../../../lib/utils/filterProjects";
 
 export default function DigitalStandardsPlaybookPage(props) {
   const [pageData] = useState(props.pageData.item);
   const [updatesData] = useState(props.updatesData);
+  const [allProjects] = useState(props.allProjects);
 
   const filteredDictionary = props.dictionary?.items?.filter(
     (item) =>
@@ -452,6 +456,10 @@ export default function DigitalStandardsPlaybookPage(props) {
             </ul>
           </section>
         </div>
+        <ExploreProjects
+          locale={props.locale}
+          projects={filterProjects(allProjects, pageData.scId)}
+        />
       </Layout>
     </>
   );
@@ -470,6 +478,10 @@ export const getStaticProps = async ({ locale }) => {
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
+  // get all projects data
+  const { data: allProjects } = await aemServiceInstance.getFragment(
+    "projectQuery"
+  );
 
   return {
     props: {
@@ -478,6 +490,7 @@ export const getStaticProps = async ({ locale }) => {
       pageData: pageData.sclabsPageV1ByPath,
       updatesData: updatesData.sclabsPageV1List.items,
       dictionary: dictionary.dictionaryV1List,
+      allProjects: shuffle(allProjects.sclabsPageV1List.items),
       ...(await serverSideTranslations(locale, ["common"])),
     },
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,
