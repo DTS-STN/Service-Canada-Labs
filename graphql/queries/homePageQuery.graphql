@@ -1,6 +1,6 @@
 query getHomePage {
   sclabsPageV1ByPath(
-    _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/home-page"
+    _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/home"
   ) {
     item {
       scId
@@ -121,6 +121,77 @@ query getHomePage {
           scImageCaptionFr {
             json
           }
+        }
+        ... on SclabsCompContentImageV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
+          scId
+          scLabContent {
+            scId
+            scContentEn {
+              json
+            }
+            scContentFr {
+              json
+            }
+          }
+          scLabImage {
+            ... on SclabsImageV1Model {
+              scId
+              scImageEn {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageFr {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageMobileEn {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageMobileFr {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageAltTextEn
+              scImageAltTextFr
+              scImageCaptionEn {
+                json
+              }
+              scImageCaptionFr {
+                json
+              }
+            }
+          }
+          scLabLayout
         }
         ... on SclabsButtonV1Model {
           scId
