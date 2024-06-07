@@ -13,7 +13,7 @@ import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
 import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 import TextRender from "../../../components/text_node_renderer/TextRender";
-import { shuffle } from "../../api/shuffle";
+import { shuffle } from "../../../lib/utils/shuffle";
 
 export default function BenefitsNavigatorOverview(props) {
   const [allProjects] = useState(props.allProjects);
@@ -680,7 +680,7 @@ export const getStaticProps = async ({ locale }) => {
       pageData: pageData.sclabsPageV1ByPath,
       updatesData: updatesData.sclabsPageV1List.items,
       dictionary: dictionary.dictionaryV1List,
-      allProjects: await shuffle(allProjects.sclabsPageV1List.items),
+      allProjects: shuffle(allProjects.sclabsPageV1List.items),
       ...(await serverSideTranslations(locale, ["common"])),
     },
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,
