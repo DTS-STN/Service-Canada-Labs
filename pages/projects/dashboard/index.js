@@ -11,9 +11,14 @@ import { ActionButton } from "../../../components/atoms/ActionButton";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
 import TextRender from "../../../components/text_node_renderer/TextRender";
+import { useState } from "react";
+import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
+import { shuffle } from "../../../lib/utils/shuffle";
+import { filterProjects } from "../../../lib/utils/filterProjects";
 
 export default function MscaDashboard(props) {
   const pageData = props.pageData?.item;
+  const [allProjects] = useState(props.allProjects);
 
   const filteredDictionary = props.dictionary?.items?.filter(
     (item) =>
@@ -687,6 +692,10 @@ export default function MscaDashboard(props) {
             </p>
           </section>
         </div>
+        <ExploreProjects
+          locale={props.locale}
+          projects={filterProjects(allProjects, pageData.scId)}
+        />
       </Layout>
     </>
   );
@@ -702,12 +711,18 @@ export const getStaticProps = async ({ locale }) => {
     "dictionaryQuery"
   );
 
+  // get all projects data
+  const { data: allProjects } = await aemServiceInstance.getFragment(
+    "projectQuery"
+  );
+
   return {
     props: {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       pageData: pageData.sclabsPageV1ByPath,
       dictionary: dictionary.dictionaryV1List,
+      allProjects: shuffle(allProjects.sclabsPageV1List.items),
       ...(await serverSideTranslations(locale, ["common"])),
     },
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,

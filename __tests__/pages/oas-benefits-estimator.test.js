@@ -6,6 +6,7 @@ import {
   oasUpdatesData,
   experimentsData,
 } from "../../__mocks__/mockStore";
+import { shuffle } from "../../lib/utils/shuffle";
 
 describe("OAS Benefits Estimator", () => {
   it("renders without crashing", () => {
@@ -14,7 +15,7 @@ describe("OAS Benefits Estimator", () => {
         pageData={oasBenefitsEstimatorData.data.sclabsPageV1ByPath}
         updatesData={oasUpdatesData}
         dictionary={dictionaryData.data.dictionaryV1List}
-        allProjects={experimentsData.data.scLabsPagev1List.items}
+        allProjects={shuffle(experimentsData.data.scLabsPagev1List.items)}
       />
     );
   });
