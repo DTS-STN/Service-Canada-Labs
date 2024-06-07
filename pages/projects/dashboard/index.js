@@ -209,7 +209,7 @@ export default function MscaDashboard(props) {
           />
         </Head>
 
-        <div className="layout-container">
+        <div className="layout-container mb-24">
           <section aria-labelledby="pageMainTitle">
             <div className="flex flex-col break-words lg:grid lg:grid-cols-2">
               <div className="col-span-2">
