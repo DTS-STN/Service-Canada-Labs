@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Card from "../molecules/Card";
-import { useState } from "react";
 
 //callback function that creates a card for a project when called
 const createCard = (locale, project) => {
