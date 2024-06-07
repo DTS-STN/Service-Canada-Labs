@@ -1,7 +1,10 @@
 import PropTypes from "prop-types";
 import { useTranslation } from "next-i18next";
 
-export function DateModified(props) {
+export function DateModified({
+  date = process.env.NEXT_PUBLIC_BUILD_DATE,
+  ...props
+}) {
   const { t } = useTranslation("common");
   // TeamCity build dates are received in the format yyyyMMdd
   let dateFormatted = "NA";
@@ -24,10 +27,6 @@ export function DateModified(props) {
     </dl>
   );
 }
-
-DateModified.defaultProps = {
-  date: process.env.NEXT_PUBLIC_BUILD_DATE,
-};
 
 DateModified.propTypes = {
   // Date string in format yyyyMMdd
