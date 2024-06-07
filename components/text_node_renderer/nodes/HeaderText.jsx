@@ -5,8 +5,9 @@ export default function HeaderText(props) {
     case "h1":
       return (
         <Heading
+          id={"mainHeading"}
           className={props.index === 0 ? "mt-0" : ""}
-          title={props.children}
+          title={props.children[0].props.node.value}
         />
       );
     case "h2":
