@@ -77,6 +77,7 @@ export default function OASBenefitsEstimatorArticles(props) {
             <FragmentRender
               fragments={props.pageData.scFragments}
               locale={props.locale}
+              excludeH1={true}
             />
           </div>
         </section>

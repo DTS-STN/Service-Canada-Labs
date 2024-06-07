@@ -1,7 +1,14 @@
 import Image from "next/image";
 import TextRender from "../../text_node_renderer/TextRender";
 
-export default function BasicTextWithImage({ src, alt, width, height, data }) {
+export default function BasicTextWithImage({
+  src,
+  alt,
+  width,
+  height,
+  data,
+  excludeH1,
+}) {
   return (
     <div className="layout-container grid grid-cols-12 gap-x-6 my-12">
       <div className="hidden lg:grid col-start-8 col-span-5 row-start-1 row-span-2">
@@ -19,7 +26,7 @@ export default function BasicTextWithImage({ src, alt, width, height, data }) {
         </div>
       </div>
       <div className="col-span-12 lg:col-span-7">
-        <TextRender data={data} excludeH1={true} />
+        <TextRender data={data} excludeH1={excludeH1} />
       </div>
     </div>
   );
