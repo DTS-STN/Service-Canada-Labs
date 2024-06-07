@@ -1997,7 +1997,7 @@ export default function Home(props) {
             }
           />
         </Head>
-        <div className="mt-24">
+        <div id="pageMainTitle" className="mt-24">
           <FragmentRender
             locale={props.locale}
             fragments={[pageData.scFragments[0]]}
