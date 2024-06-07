@@ -77,7 +77,7 @@ export const Card = (props) => {
           ""
         )}
         {props.htmlDesc ? (
-          props.description
+          props.htmlDesc
         ) : (
           <p className="text-custom-gray-text mx-6 leading-30px text-lg">
             {props.description}
@@ -123,7 +123,7 @@ Card.propTypes = {
   /**
    * Description of the experiment card.
    */
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string,
 
   /**
    * the test id for unit tests
@@ -138,7 +138,7 @@ Card.propTypes = {
   /**
    * Boolean value to allow passing of html for description
    */
-  htmlDesc: PropTypes.bool,
+  htmlDesc: PropTypes.object,
 
   /**
    * Boolean value to show or hide image

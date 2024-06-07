@@ -13,11 +13,10 @@ export function ExploreUpdates({
     return (
       <li key={update.scId} className="bg-white list-none my-3">
         <Card
-          htmlDesc
           customStyling="md:h-[190px] pb-6 flex flex-col justify-between"
           title={locale === "en" ? update.scTitleEn : update.scTitleFr}
           href={locale === "en" ? update.scPageNameEn : update.scPageNameFr}
-          description={
+          htmlDesc={
             <div className="flex flex-col">
               <span className="flex flex-row pl-6">
                 <p className="text-multi-neutrals-grey100 font-semibold">
