@@ -13,7 +13,7 @@ import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 import TextRender from "../../../components/text_node_renderer/TextRender";
 import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
 import { shuffle } from "../../../lib/utils/shuffle";
-import { filterProjects } from "../../../lib/utils/filterProjects";
+import { filterItems } from "../../../lib/utils/filterItems";
 
 export default function BenefitsNavigatorOverview(props) {
   const [allProjects] = useState(props.allProjects);
@@ -626,7 +626,7 @@ export default function BenefitsNavigatorOverview(props) {
         ) : null}
         <ExploreProjects
           locale={props.locale}
-          projects={filterProjects(allProjects, pageData.scId)}
+          projects={filterItems(allProjects, pageData.scId)}
         />
       </Layout>
     </>

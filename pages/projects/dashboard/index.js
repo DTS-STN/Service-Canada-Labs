@@ -15,7 +15,7 @@ import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
 import { useState } from "react";
 import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 import { shuffle } from "../../../lib/utils/shuffle";
-import { filterProjects } from "../../../lib/utils/filterProjects";
+import { filterItems } from "../../../lib/utils/filterItems";
 
 export default function MscaDashboard(props) {
   const pageData = props.pageData?.item;
@@ -720,7 +720,7 @@ export default function MscaDashboard(props) {
         ) : null}
         <ExploreProjects
           locale={props.locale}
-          projects={filterProjects(allProjects, pageData.scId)}
+          projects={filterItems(allProjects, pageData.scId)}
         />
       </Layout>
     </>

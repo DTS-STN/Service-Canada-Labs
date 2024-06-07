@@ -13,7 +13,7 @@ import stageDictionary from "../../../lib/utils/stageDictionary";
 import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
 import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 import { shuffle } from "../../../lib/utils/shuffle";
-import { filterProjects } from "../../../lib/utils/filterProjects";
+import { filterItems } from "../../../lib/utils/filterItems";
 
 export default function OasBenefitsEstimator(props) {
   const [pageData] = useState(props.pageData.item);
@@ -401,7 +401,7 @@ export default function OasBenefitsEstimator(props) {
         ) : null}
         <ExploreProjects
           locale={props.locale}
-          projects={filterProjects(allProjects, pageData.scId)}
+          projects={filterItems(allProjects, pageData.scId)}
         />
       </Layout>
     </>
