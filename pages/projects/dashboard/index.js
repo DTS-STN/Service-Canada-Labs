@@ -7,15 +7,19 @@ import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
 import { Collapse } from "../../../components/molecules/Collapse";
-import { generateCollapseElements } from "../../../lib/utils/generateCollapseElements";
 import { ActionButton } from "../../../components/atoms/ActionButton";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
 import TextRender from "../../../components/text_node_renderer/TextRender";
 import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
+import { useState } from "react";
+import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
+import { shuffle } from "../../../lib/utils/shuffle";
+import { filterProjects } from "../../../lib/utils/filterProjects";
 
 export default function MscaDashboard(props) {
   const pageData = props.pageData?.item;
+  const [allProjects] = useState(props.allProjects);
 
   const filteredDictionary = props.dictionary?.items?.filter(
     (item) =>
@@ -714,6 +718,10 @@ export default function MscaDashboard(props) {
             }
           />
         ) : null}
+        <ExploreProjects
+          locale={props.locale}
+          projects={filterProjects(allProjects, pageData.scId)}
+        />
       </Layout>
     </>
   );
@@ -733,6 +741,11 @@ export const getStaticProps = async ({ locale }) => {
     "dictionaryQuery"
   );
 
+  // get all projects data
+  const { data: allProjects } = await aemServiceInstance.getFragment(
+    "projectQuery"
+  );
+
   return {
     props: {
       locale: locale,
@@ -740,6 +753,7 @@ export const getStaticProps = async ({ locale }) => {
       pageData: pageData.sclabsPageV1ByPath,
       updatesData: updatesData.sclabsPageV1List.items,
       dictionary: dictionary.dictionaryV1List,
+      allProjects: shuffle(allProjects.sclabsPageV1List.items),
       ...(await serverSideTranslations(locale, ["common"])),
     },
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,

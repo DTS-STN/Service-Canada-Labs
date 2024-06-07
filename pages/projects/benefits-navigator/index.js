@@ -4,17 +4,19 @@ import { Layout } from "../../../components/organisms/Layout";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
-import Card from "../../../components/molecules/Card";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
 import { Collapse } from "../../../components/molecules/Collapse";
-import { generateCollapseElements } from "../../../lib/utils/generateCollapseElements";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
+import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 import TextRender from "../../../components/text_node_renderer/TextRender";
 import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
+import { shuffle } from "../../../lib/utils/shuffle";
+import { filterProjects } from "../../../lib/utils/filterProjects";
 
 export default function BenefitsNavigatorOverview(props) {
+  const [allProjects] = useState(props.allProjects);
   const [pageData] = useState(props.pageData.item);
   const [updatesData] = useState(props.updatesData);
   const [filteredDictionary] = useState(
@@ -622,6 +624,10 @@ export default function BenefitsNavigatorOverview(props) {
             }
           />
         ) : null}
+        <ExploreProjects
+          locale={props.locale}
+          projects={filterProjects(allProjects, pageData.scId)}
+        />
       </Layout>
     </>
   );
@@ -640,6 +646,10 @@ export const getStaticProps = async ({ locale }) => {
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
+  // get all projects data
+  const { data: allProjects } = await aemServiceInstance.getFragment(
+    "projectQuery"
+  );
 
   return {
     props: {
@@ -648,6 +658,7 @@ export const getStaticProps = async ({ locale }) => {
       pageData: pageData.sclabsPageV1ByPath,
       updatesData: updatesData.sclabsPageV1List.items,
       dictionary: dictionary.dictionaryV1List,
+      allProjects: shuffle(allProjects.sclabsPageV1List.items),
       ...(await serverSideTranslations(locale, ["common"])),
     },
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,
