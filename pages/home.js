@@ -9,6 +9,7 @@ import { ContextualAlert } from "../components/molecules/ContextualAlert";
 import Image from "next/image";
 import { Link } from "../components/atoms/Link";
 import { ExploreUpdates } from "../components/organisms/ExploreUpdates";
+import FragmentRender from "../components/fragment_renderer/FragmentRender";
 
 export default function Home(props) {
   const pageData = props.pageData?.item;
@@ -253,92 +254,14 @@ export default function Home(props) {
           />
         </Head>
         <section className="layout-container">
-          <div className="grid grid-cols-4">
-            <div className="col-span-4">
-              <Heading
-                tabIndex="-1"
-                id="pageMainTitle"
-                title={
-                  props.locale === "en"
-                    ? pageData.scTitleEn
-                    : pageData.scTitleFr
-                }
-              />
-            </div>
-            <p className="font-body col-span-4 xl:col-span-2 row-start-2">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[1].content[0].value
-                : pageData.scFragments[0].scContentFr.json[1].content[0].value}
-            </p>
-            <p className="font-body col-span-4 xl:col-span-2 row-start-3 pt-4 xxl:pt-0">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[2].content[0].value
-                : pageData.scFragments[0].scContentFr.json[2].content[0].value}
-            </p>
-            <div className="hidden xl:grid col-span-2 col-start-3 row-start-2 row-span-2">
-              <div className="flex justify-center">
-                <span
-                  className="w-full"
-                  style={{ height: "260px", width: "380px", minWidth: "380px" }}
-                  role="presentation"
-                >
-                  <Image
-                    src={
-                      props.locale === "en"
-                        ? pageData.scFragments[1].scImageEn._publishUrl
-                        : pageData.scFragments[1].scImageFr._publishUrl
-                    }
-                    alt=""
-                    width={pageData.scFragments[1].scImageEn.width}
-                    height={pageData.scFragments[1].scImageEn.height}
-                    sizes="35vw"
-                    priority
-                    quality={100}
-                  />
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className="lg:flex">
-            <span className="w-full">
-              <h2>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[3].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[3].content[0]
-                      .value}{" "}
-              </h2>
-              <p className="font-body">
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[4].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[4].content[0]
-                      .value}{" "}
-              </p>
-              <ul className="list-disc">
-                <li className="ml-10">
-                  <p className="font-body">
-                    {props.locale === "en"
-                      ? pageData.scFragments[0].scContentEn.json[5].content[0]
-                          .content[0].value
-                      : pageData.scFragments[0].scContentFr.json[5].content[0]
-                          .content[0].value}{" "}
-                  </p>
-                </li>
-                <li className="ml-10">
-                  <p className="font-body">
-                    {props.locale === "en"
-                      ? pageData.scFragments[0].scContentEn.json[5].content[1]
-                          .content[0].value
-                      : pageData.scFragments[0].scContentFr.json[5].content[1]
-                          .content[0].value}{" "}
-                  </p>
-                </li>
-              </ul>
-            </span>
-          </div>
+          <FragmentRender
+            locale={props.locale}
+            fragments={[pageData.scFragments[0]]}
+          />
           <h2>
             {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[6].content[0].value
-              : pageData.scFragments[0].scContentFr.json[6].content[0]
+              ? pageData.scFragments[1].scContentEn.json[0].content[0].value
+              : pageData.scFragments[1].scContentFr.json[0].content[0]
                   .value}{" "}
           </h2>
           <div className="mb-8">
