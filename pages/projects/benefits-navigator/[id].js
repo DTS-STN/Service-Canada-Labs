@@ -7,6 +7,8 @@ import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
 import { Heading } from "../../../components/molecules/Heading";
+import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
+import { filterItems } from "../../../lib/utils/filterItems";
 
 export default function BenefitNavigatorArticles(props) {
   const [pageData] = useState(props.pageData);
@@ -79,6 +81,31 @@ export default function BenefitNavigatorArticles(props) {
             />
           </div>
         </section>
+        {filterItems(props.updatesData, pageData.scId).length !== 0 ? (
+          <ExploreUpdates
+            locale={props.locale}
+            updatesData={filterItems(props.updatesData, pageData.scId)}
+            dictionary={props.dictionary}
+            heading={
+              "Benefits navigator project updates"
+              // props.locale === "en"
+              //   ? pageData.scFragments[4].scContentEn.json[0].content[0].value
+              //   : pageData.scFragments[4].scContentFr.json[0].content[0].value
+            }
+            linkLabel={
+              "See all updates about this project"
+              // props.locale === "en"
+              //   ? pageData.scFragments[5].scContentEn.json[0].content[0].value
+              //   : pageData.scFragments[5].scContentFr.json[0].content[0].value
+            }
+            href={
+              ""
+              // props.locale === "en"
+              //   ? pageData.scFragments[5].scContentEn.json[0].content[0].data.href
+              //   : pageData.scFragments[5].scContentFr.json[0].content[0].data.href
+            }
+          />
+        ) : null}
       </Layout>
     </>
   );
@@ -100,14 +127,14 @@ export async function getStaticPaths() {
 
 export const getStaticProps = async ({ locale, params }) => {
   // Get pages data
-  const { data } = await aemServiceInstance.getFragment(
+  const { data: updatesData } = await aemServiceInstance.getFragment(
     "benefitsNavigatorArticlesQuery"
   );
   // get dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
-  const pages = data.sclabsPageV1List.items;
+  const pages = updatesData.sclabsPageV1List.items;
   // Return page data that matches the current page being built
   const pageData = pages.filter((page) => {
     return (
@@ -127,6 +154,7 @@ export const getStaticProps = async ({ locale, params }) => {
     props: {
       locale: locale,
       pageData: pageData[0],
+      updatesData: updatesData.sclabsPageV1List.items,
       dictionary: dictionary.dictionaryV1List,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       ...(await serverSideTranslations(locale, ["common", "vc"])),
