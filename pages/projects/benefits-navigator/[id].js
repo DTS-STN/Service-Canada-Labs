@@ -11,7 +11,7 @@ import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
 import { filterItems } from "../../../lib/utils/filterItems";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 
-export default function BenefitNavigatorArticles(props) {
+export default function BenefitNavigatorArticles({ key, ...props }) {
   const [pageData] = useState(props.pageData);
   const [dictionary] = useState(props.dictionary.items);
 
@@ -156,6 +156,7 @@ export const getStaticProps = async ({ locale, params }) => {
 
   return {
     props: {
+      key: params.id,
       locale: locale,
       pageData: pageData[0],
       updatesData: updatesData.sclabsPageV1List.items,

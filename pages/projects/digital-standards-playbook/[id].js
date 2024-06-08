@@ -12,7 +12,7 @@ import { filterItems } from "../../../lib/utils/filterItems";
 import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 
-export default function DigitalStandardsArticles(props) {
+export default function DigitalStandardsArticles({ key, ...props }) {
   const { t } = useTranslation("common");
   const [pageData] = useState(props.pageData);
   const [dictionary] = useState(props.dictionary.items);
@@ -159,6 +159,7 @@ export const getStaticProps = async ({ locale, params }) => {
 
   return {
     props: {
+      key: params.id,
       locale: locale,
       pageData: pageData[0],
       updatesData: updatesData.sclabsPageV1List.items,

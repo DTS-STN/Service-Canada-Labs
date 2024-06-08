@@ -12,7 +12,7 @@ import { filterItems } from "../../../lib/utils/filterItems";
 import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 
-export default function OASBenefitsEstimatorArticles(props) {
+export default function OASBenefitsEstimatorArticles({ key, ...props }) {
   const { t } = useTranslation("common");
   const [pageData] = useState(props.pageData);
   const [dictionary] = useState(props.dictionary.items);
@@ -84,13 +84,10 @@ export default function OASBenefitsEstimatorArticles(props) {
             />
           </div>
         </section>
-        {filterItems(props.updatesData, pageData.scId).length !== 0 ? (
+        {props.updatesData.length !== 0 ? (
           <ExploreUpdates
             locale={props.locale}
-            updatesData={filterItems(
-              sortUpdatesByDate(props.updatesData),
-              pageData.scId
-            )}
+            updatesData={props.updatesData}
             dictionary={props.dictionary}
             heading={
               "Benefits navigator project updates"
@@ -159,9 +156,12 @@ export const getStaticProps = async ({ locale, params }) => {
 
   return {
     props: {
+      key: params.id,
       locale: locale,
       pageData: pageData[0],
-      updatesData: updatesData.sclabsPageV1List.items,
+      updatesData: sortUpdatesByDate(
+        filterItems(updatesData.sclabsPageV1List.items, pageData[0].scId)
+      ),
       dictionary: dictionary.dictionaryV1List,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       ...(await serverSideTranslations(locale, ["common"])),

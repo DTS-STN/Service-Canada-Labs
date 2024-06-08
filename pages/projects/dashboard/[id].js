@@ -11,7 +11,7 @@ import { filterItems } from "../../../lib/utils/filterItems";
 import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 
-export default function MscaDashboardArticles(props) {
+export default function MscaDashboardArticles({ key, ...props }) {
   const [pageData] = useState(props.pageData);
   const [dictionary] = useState(props.dictionary.items);
 
@@ -155,6 +155,7 @@ export const getStaticProps = async ({ locale, params }) => {
 
   return {
     props: {
+      key: params.id,
       locale: locale,
       pageData: pageData[0],
       updatesData: updatesData.sclabsPageV1List.items,
