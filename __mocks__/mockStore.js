@@ -1322,6 +1322,935 @@ export const dictionaryData = {
     },
   },
 };
+
+const oasBenefitsEstimatorData = {
+  "data": {
+      "sclabsPageV1ByPath": {
+          "item": {
+              "scId": "OAS-BENEFITS-ESTIMATOR-OVERVIEW",
+              "scPageNameEn": "/en/projects/oas-benefits-estimator",
+              "scPageNameFr": "/fr/projets/estimateur-prestations-sv",
+              "scTitleEn": "Old Age Security Benefits Estimator",
+              "scTitleFr": "Estimateur des prestations de la Sécurité de la vieillesse",
+              "scShortTitleEn": null,
+              "scShortTitleFr": null,
+              "scLabProjectStage": [
+                  "gc:custom/decd-endc/project-stage/beta"
+              ],
+              "scLabProjectSummaryEn": {
+                  "json": [
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "We’re improving the estimator to make it as useful as possible for Canadian seniors. "
+                              }
+                          ]
+                      }
+                  ]
+              },
+              "scLabProjectSummaryFr": {
+                  "json": [
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Nous améliorons l'estimateur afin de le rendre aussi utile que possible pour les aînés canadiens. "
+                              }
+                          ]
+                      }
+                  ]
+              },
+              "scDescriptionEn": {
+                  "json": [
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Whether you’re about to retire or preparing for the future, this tool helps you understand and navigate Old Age Security benefits."
+                              }
+                          ]
+                      }
+                  ]
+              },
+              "scDescriptionFr": {
+                  "json": [
+                      {
+                          "nodeType": "paragraph",
+                          "content": [
+                              {
+                                  "nodeType": "text",
+                                  "value": "Si vous prenez bientôt votre retraite ou si vous vous préparez pour l'avenir, cet outil vous aide à comprendre les prestations de la Sécurité de la vieillesse et à mieux vous y orienter."
+                              }
+                          ]
+                      }
+                  ]
+              },
+              "scLabProjectUpdates": [
+                  {
+                      "_path": "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/oas-benefits-estimator/project-updates/what-we-learned",
+                      "scId": "WHAT-WE-LEARNED",
+                      "scPageNameEn": "/en/projects/oas-benefits-estimator/what-we-learned",
+                      "scPageNameFr": "/fr/projets/estimateur-prestations-sv/ce-que-nous-avons-appris",
+                      "scTitleEn": "What we learned on Service Canada Labs before going live on Canada.ca",
+                      "scTitleFr": "Ce que nous avons appris dans les laboratoires avant notre lancement sur Canada.ca",
+                      "scShortTitleEn": null,
+                      "scShortTitleFr": null,
+                      "scBreadcrumbParentPages": [
+                          {
+                              "scTitleEn": "Service Canada Labs",
+                              "scTitleFr": "Laboratoires de Service Canada",
+                              "scPageNameEn": "/en/home",
+                              "scPageNameFr": "/fr/accueil"
+                          }
+                      ],
+                      "scSubject": null,
+                      "scKeywordsEn": null,
+                      "scKeywordsFr": null,
+                      "scContentType": [
+                          "gc:content-types/promotional-material-featured-articles"
+                      ],
+                      "scOwner": null,
+                      "scDateModifiedOverwrite": "2023-07-02",
+                      "scAudience": null,
+                      "scRegion": null,
+                      "scSocialMediaImageEn": {
+                          "_path": "/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/what-we-learned.jpg",
+                          "_publishUrl": "https://www.canada.ca/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/what-we-learned.jpg",
+                          "height": 1543,
+                          "width": 2670
+                      },
+                      "scSocialMediaImageFr": {
+                          "_path": "/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/what-we-learned.jpg",
+                          "_publishUrl": "https://www.canada.ca/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/what-we-learned.jpg",
+                          "height": 1543,
+                          "width": 2670
+                      },
+                      "scSocialMediaImageAltTextEn": "People giving feedback",
+                      "scSocialMediaImageAltTextFr": "Personnes qui donnent de la rétroaction",
+                      "scNoIndex": false,
+                      "scNoFollow": false,
+                      "scFragments": [
+                          {
+                              "scId": "GIVE-FEEDBACK-OAS-ESTIMATOR",
+                              "scTitleEn": "Give feedback",
+                              "scTitleFr": "Fournir des commentaires",
+                              "scDestinationURLEn": "https://srv217.services.gc.ca/ihst4/Intro.aspx?cid=74938e05-8e91-42a9-8e9d-29daf79f6fe0&lc=eng",
+                              "scDestinationURLFr": "https://srv217.services.gc.ca/ihst4/Intro.aspx?cid=74938e05-8e91-42a9-8e9d-29daf79f6fe0&lc=fra",
+                              "scButtonType": [
+                                  "gc:custom/decd-endc/button-type/secondary"
+                              ]
+                          }
+                      ]
+                  },
+                  {
+                      "_path": "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/oas-benefits-estimator/project-updates/how-feedback-is-shaping-the-estimator",
+                      "scId": "HOW-FEEDBACK-SHAPING-ESTIMATOR",
+                      "scPageNameEn": "/en/projects/oas-benefits-estimator/how-feedback-shaping",
+                      "scPageNameFr": "/fr/projets/estimateur-prestations-sv/faconner-grace-retroaction",
+                      "scTitleEn": "How feedback is shaping the estimator",
+                      "scTitleFr": "Façonner l’estimateur grâce à la rétroaction",
+                      "scShortTitleEn": null,
+                      "scShortTitleFr": null,
+                      "scBreadcrumbParentPages": [
+                          {
+                              "scTitleEn": "Service Canada Labs",
+                              "scTitleFr": "Laboratoires de Service Canada",
+                              "scPageNameEn": "/en/home",
+                              "scPageNameFr": "/fr/accueil"
+                          }
+                      ],
+                      "scSubject": [
+                          "gc:subjects/gv-government-and-politics/government-services"
+                      ],
+                      "scKeywordsEn": "feedback, benefits, estimator",
+                      "scKeywordsFr": "rétroaction, prestations, estimateur",
+                      "scContentType": [
+                          "gc:content-types/promotional-material-featured-articles"
+                      ],
+                      "scOwner": [
+                          "gc:institutions/service-canada"
+                      ],
+                      "scDateModifiedOverwrite": "2023-12-12",
+                      "scAudience": null,
+                      "scRegion": null,
+                      "scSocialMediaImageEn": {
+                          "_path": "/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/feedback.jpg",
+                          "_publishUrl": "https://www.canada.ca/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/feedback.jpg",
+                          "height": 1543,
+                          "width": 2670
+                      },
+                      "scSocialMediaImageFr": {
+                          "_path": "/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/feedback.jpg",
+                          "_publishUrl": "https://www.canada.ca/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/feedback.jpg",
+                          "height": 1543,
+                          "width": 2670
+                      },
+                      "scSocialMediaImageAltTextEn": " Different kinds of feedback being gathered",
+                      "scSocialMediaImageAltTextFr": " Un rassemblement de différents types de rétroaction",
+                      "scNoIndex": false,
+                      "scNoFollow": false,
+                      "scFragments": [
+                          {
+                              "_path": "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/oas-benefits-estimator/project-updates/how-feedback-shaping-estimator/using-feedback",
+                              "scId": "ESTIMATOR-USING-FEEDBACK",
+                              "scContentEn": {
+                                  "json": [
+                                      {
+                                          "nodeType": "header",
+                                          "style": "h2",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "Using feedback"
+                                              }
+                                          ]
+                                      },
+                                      {
+                                          "nodeType": "paragraph",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "The estimator has proven to be user-friendly, but that didn't mean it was serving everyone’s needs. In fact, the initial feedback suggested there were specific things we needed to fix. Below, we show how we’ve used feedback with examples inspired by real survey responses. "
+                                              }
+                                          ]
+                                      }
+                                  ]
+                              },
+                              "scContentFr": {
+                                  "json": [
+                                      {
+                                          "nodeType": "header",
+                                          "style": "h2",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "Utilisation de la rétroaction"
+                                              }
+                                          ]
+                                      },
+                                      {
+                                          "nodeType": "paragraph",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "L’estimateur a bien montré être convivial, mais cela ne veut pas dire qu’il répondait aux besoins de tout le monde. En effet, les commentaires initiaux suggéraient qu’il y avait des choses spécifiques que nous devions corriger. Nous montrons ci-dessous comment nous avons utilisé la rétroaction à l’aide d’exemples inspirés de vraies réponses au sondage. "
+                                              }
+                                          ]
+                                      }
+                                  ]
+                              }
+                          },
+                          {
+                              "_path": "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/oas-benefits-estimator/project-updates/how-feedback-shaping-estimator/using-feedback-2",
+                              "scId": "ESTIMATOR-USING-FEEDBACK-2",
+                              "scContentEn": {
+                                  "json": [
+                                      {
+                                          "nodeType": "paragraph",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "Having access to feedback and being able to make quick updates has allowed us to add features like these and improve where you told us it matters most. We still have a lot of work to do and can’t address every pain point. But by grouping the feedback by topic, we can identify the most common concerns and prioritize solutions. "
+                                              }
+                                          ]
+                                      },
+                                      {
+                                          "nodeType": "paragraph",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "Here are examples of comments that represent common feedback themes and how we plan to address them: "
+                                              }
+                                          ]
+                                      }
+                                  ]
+                              },
+                              "scContentFr": {
+                                  "json": [
+                                      {
+                                          "nodeType": "paragraph",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "En ayant accès aux commentaires et en pouvant faire des mises à jour rapides, nous avons pu ajouter des fonctionnalités comme celles-ci et améliorer ce qui était le plus important pour vous. Nous avons encore beaucoup de travail à faire et nous ne pouvons pas résoudre toutes les difficultés. Mais en regroupant les commentaires par thème, nous pouvons identifier les problèmes les plus courants et prioriser les solutions. "
+                                              }
+                                          ]
+                                      },
+                                      {
+                                          "nodeType": "paragraph",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "Voici des exemples de commentaires qui illustrent des thèmes communs de la rétroaction et comment nous comptons y répondr"
+                                              },
+                                              {
+                                                  "nodeType": "span",
+                                                  "content": [
+                                                      {
+                                                          "nodeType": "text",
+                                                          "value": "e :"
+                                                      }
+                                                  ],
+                                                  "data": {
+                                                      "class": "nowrap"
+                                                  }
+                                              }
+                                          ]
+                                      }
+                                  ]
+                              }
+                          },
+                          {
+                              "_path": "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/oas-benefits-estimator/project-updates/how-feedback-shaping-estimator/measuring-success",
+                              "scId": "ESTIMATOR-MEASURING-SUCCESS",
+                              "scContentEn": {
+                                  "json": [
+                                      {
+                                          "nodeType": "header",
+                                          "style": "h2",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "Measuring success "
+                                              }
+                                          ]
+                                      },
+                                      {
+                                          "nodeType": "paragraph",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "After we implement solutions, we’re able to tell if an issue has been resolved through comments and ratings. If we’ve made the right improvements, we stop seeing the issue mentioned, and the ratings start showing positive trends. This allows us to measure the success of our new features and make sure that we’ve improved our clients’ experience. "
+                                              }
+                                          ]
+                                      },
+                                      {
+                                          "nodeType": "paragraph",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "For example, we can look at our data from before and after the 2 initial fixes mentioned above. If we compare survey ratings from July to those in October, we see that: "
+                                              }
+                                          ]
+                                      },
+                                      {
+                                          "nodeType": "unordered-list",
+                                          "content": [
+                                              {
+                                                  "nodeType": "list-item",
+                                                  "content": [
+                                                      {
+                                                          "nodeType": "text",
+                                                          "value": "20% more people felt that the tool provided the information they needed "
+                                                      }
+                                                  ]
+                                              },
+                                              {
+                                                  "nodeType": "list-item",
+                                                  "content": [
+                                                      {
+                                                          "nodeType": "text",
+                                                          "value": "15% more people said that the tool made them more aware of the benefits available to them "
+                                                      }
+                                                  ]
+                                              }
+                                          ]
+                                      },
+                                      {
+                                          "nodeType": "paragraph",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "To make sure the estimator stays user-friendly as it evolves, we’re also tracking its ease of use, which has stayed roughly the same at 80%. "
+                                              }
+                                          ]
+                                      },
+                                      {
+                                          "nodeType": "paragraph",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "By looking at comments and analytics together, we can see how the changes were received and which pain points are resolved. "
+                                              }
+                                          ]
+                                      },
+                                      {
+                                          "nodeType": "header",
+                                          "style": "h2",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "What we’re doing next "
+                                              }
+                                          ]
+                                      },
+                                      {
+                                          "nodeType": "paragraph",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "We’ll keep monitoring our success indicators as we release updated versions of the estimator. In the meantime, keep sending us comments about your experience. We’re listening! "
+                                              }
+                                          ]
+                                      }
+                                  ]
+                              },
+                              "scContentFr": {
+                                  "json": [
+                                      {
+                                          "nodeType": "header",
+                                          "style": "h2",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "Mesure du succès "
+                                              }
+                                          ]
+                                      },
+                                      {
+                                          "nodeType": "paragraph",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "Après avoir mis en œuvre des solutions, nous pouvons savoir si un problème a été réglé grâce aux commentaires et aux évaluations. Si nous avons apporté les bonnes améliorations, le problème n’est plus mentionné et les évaluations montrent des tendances positives. Cela nous permet de mesurer le succès de nos nouvelles fonctionnalités et de nous assurer que nous avons amélioré l’expérience de nos clients. "
+                                              }
+                                          ]
+                                      },
+                                      {
+                                          "nodeType": "paragraph",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "Par exemple, nous pouvons regarder nos données avant et après les "
+                                              },
+                                              {
+                                                  "nodeType": "span",
+                                                  "content": [
+                                                      {
+                                                          "nodeType": "text",
+                                                          "value": "2 premières"
+                                                      }
+                                                  ],
+                                                  "data": {
+                                                      "class": "nowrap"
+                                                  }
+                                              },
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": " corrections mentionnées ci-dessus. Si nous comparons les résultats du sondage de juillet à ceux d'octobre, nous constatons que : "
+                                              }
+                                          ]
+                                      },
+                                      {
+                                          "nodeType": "unordered-list",
+                                          "content": [
+                                              {
+                                                  "nodeType": "list-item",
+                                                  "content": [
+                                                      {
+                                                          "nodeType": "text",
+                                                          "value": "20 % plus de personnes ont trouvé que l’outil leur avait fourni les informations recherchées; "
+                                                      }
+                                                  ]
+                                              },
+                                              {
+                                                  "nodeType": "list-item",
+                                                  "content": [
+                                                      {
+                                                          "nodeType": "text",
+                                                          "value": "15 % plus de personnes ont indiqué que l'outil les avait renseignés sur les prestations qui leur sont offertes. "
+                                                      }
+                                                  ]
+                                              }
+                                          ]
+                                      },
+                                      {
+                                          "nodeType": "paragraph",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "Pour nous assurer que l’estimateur reste convivial à mesure qu’il évolue, nous surveillons également sa facilité d'utilisation, qui est restée stable à environ "
+                                              },
+                                              {
+                                                  "nodeType": "span",
+                                                  "content": [
+                                                      {
+                                                          "nodeType": "text",
+                                                          "value": "80 %"
+                                                      }
+                                                  ],
+                                                  "data": {
+                                                      "class": "nowrap"
+                                                  }
+                                              },
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": ". "
+                                              }
+                                          ]
+                                      },
+                                      {
+                                          "nodeType": "paragraph",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "En tenant compte à la fois des commentaires et des données analytiques, nous pouvons voir comment les changements ont été reçus et quelles sources de difficultés ont été éliminées. "
+                                              }
+                                          ]
+                                      },
+                                      {
+                                          "nodeType": "header",
+                                          "style": "h2",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "Ce qui nous attend "
+                                              }
+                                          ]
+                                      },
+                                      {
+                                          "nodeType": "paragraph",
+                                          "content": [
+                                              {
+                                                  "nodeType": "text",
+                                                  "value": "Nous surveillerons nos indicateurs de succès à mesure que nous publierons de nouvelles versions de l'estimateur. Entre-temps, continuez à nous envoyer des commentaires sur votre expérience. Nous sommes à l'écoute! "
+                                              }
+                                          ]
+                                      }
+                                  ]
+                              }
+                          }
+                      ]
+                  }
+              ],
+              "scBreadcrumbParentPages": [
+                  {
+                      "scTitleEn": "Service Canada Labs",
+                      "scTitleFr": "Laboratoires de Service Canada",
+                      "scPageNameEn": "/en/home",
+                      "scPageNameFr": "/fr/accueil"
+                  }
+              ],
+              "scSubject": [
+                  "gc:subjects/gv-government-and-politics/government-services"
+              ],
+              "scKeywordsEn": "digital services",
+              "scKeywordsFr": "services numériques",
+              "scContentType": null,
+              "scOwner": null,
+              "scDateModifiedOverwrite": "2023-03-03",
+              "scAudience": null,
+              "scRegion": null,
+              "scSocialMediaImageEn": {
+                  "_path": "/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/overview.jpg",
+                  "_publishUrl": "https://www.canada.ca/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/overview.jpg",
+                  "height": 1543,
+                  "width": 2670
+              },
+              "scSocialMediaImageFr": {
+                  "_path": "/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/overview.jpg",
+                  "_publishUrl": "https://www.canada.ca/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/overview.jpg",
+                  "height": 1543,
+                  "width": 2670
+              },
+              "scSocialMediaImageAltTextEn": " Older couple using the estimator on a computer",
+              "scSocialMediaImageAltTextFr": " Couple âgé qui utilise l'estimateur sur un ordinateur",
+              "scNoIndex": false,
+              "scNoFollow": false,
+              "scFragments": [
+                  {
+                      "_path": "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/oas-benefits-estimator/main-content",
+                      "scId": "OAS-BENEFITS-ESTIMATOR-MAIN-CONTENT",
+                      "scContentEn": {
+                          "json": [
+                              {
+                                  "nodeType": "header",
+                                  "style": "h1",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "Old Age Security Benefits Estimator"
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "This estimator helps you find the Old Age Security (OAS) benefits you're eligible for and estimates your monthly payments."
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "2021-10"
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "Beta"
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "We’re improving the estimator to make it as useful as possible for Canadian seniors."
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "Estimate your benefits and let us know what you think! ",
+                                          "format": {
+                                              "variants": [
+                                                  "strong"
+                                              ]
+                                          }
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "header",
+                                  "style": "h2",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "Discover the Old Age Security benefits"
+                                      },
+                                      {
+                                          "nodeType": "line-break",
+                                          "content": []
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "Whether you’re going through a life event or about to retire, this tool helps you understand and navigate Old Age Security benefits. You don’t even have to sign in. "
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "By launching the Old Age Security Benefits Estimator, we want to make access to benefits easier, from the discovery to the application process."
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "The Old Age Security Benefits Estimator will let you know if you’re eligible and when you can apply. "
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "If you haven’t already, let us know what you think of the estimator.",
+                                          "format": {
+                                              "variants": [
+                                                  "strong"
+                                              ]
+                                          }
+                                      }
+                                  ]
+                              }
+                          ]
+                      },
+                      "scContentFr": {
+                          "json": [
+                              {
+                                  "nodeType": "header",
+                                  "style": "h1",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "Estimateur des prestations de la Sécurité de la vieillesse"
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "Cet estimateur vous aide à trouver les prestations de la Sécurité de la vieillesse (SV) auxquelles vous êtes admissible et estime vos paiements mensuels."
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "2021-10"
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "Bêta"
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "Nous améliorons l'estimateur afin de le rendre aussi utile que possible pour les aînés canadiens. "
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "Estimez vos prestations et dites-nous ce que vous en pensez! ",
+                                          "format": {
+                                              "variants": [
+                                                  "strong"
+                                              ]
+                                          }
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "header",
+                                  "style": "h2",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "Découvrez les prestations de la Sécurité de la vieillesse "
+                                      },
+                                      {
+                                          "nodeType": "line-break",
+                                          "content": []
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "Si vous traversez un événement de la vie ou prenez bientôt votre retraite, cet outil vous aide à comprendre les prestations de la Sécurité de la vieillesse et à mieux vous y orienter. Vous n'avez même pas besoin d'ouvrir une session.   "
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "En lançant l'Estimateur des prestations de la Sécurité de la vieillesse, nous voulons faciliter l'accès aux prestations, du processus de découverte à celui de la demande.   "
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "L'Estimateur des prestations de la Sécurité de la vieillesse vous permettra de savoir si vous êtes admissible et quand vous pouvez présenter votre demande. "
+                                      }
+                                  ]
+                              },
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "Si vous ne l’avez pas déjà fait, dites-nous ce que vous pensez de l’estimateur. ",
+                                          "format": {
+                                              "variants": [
+                                                  "strong"
+                                              ]
+                                          }
+                                      }
+                                  ]
+                              }
+                          ]
+                      }
+                  },
+                  {
+                      "scId": "OVERVIEW",
+                      "scImageEn": {
+                          "_publishUrl": "https://www.canada.ca/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/overview.jpg",
+                          "width": 2670,
+                          "height": 1543
+                      },
+                      "scImageFr": {
+                          "_publishUrl": "https://www.canada.ca/content/dam/decd-endc/images/sclabs/oas-benefits-estimator/overview.jpg",
+                          "width": 2670,
+                          "height": 1543
+                      },
+                      "scImageMobileEn": null,
+                      "scImageMobileFr": null,
+                      "scImageAltTextEn": "Older couple using the estimator on a computer",
+                      "scImageAltTextFr": "Couple âgé qui utilise l'estimateur sur un ordinateur",
+                      "scImageCaptionEn": {
+                          "json": null
+                      },
+                      "scImageCaptionFr": {
+                          "json": null
+                      }
+                  },
+                  {
+                      "_path": "/content/dam/decd-endc/content-fragments/sclabs/components/tooltips/information-beta",
+                      "scId": "INFORMATION-BETA-SCLABS",
+                      "scTitleEn": "Information",
+                      "scTitleFr": "Information",
+                      "scContentEn": {
+                          "json": [
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "Beta: ",
+                                          "format": {
+                                              "variants": [
+                                                  "strong"
+                                              ]
+                                          }
+                                      },
+                                      {
+                                          "nodeType": "text",
+                                          "value": "Continuing to improve a usable tool or service while collecting feedback."
+                                      }
+                                  ]
+                              }
+                          ]
+                      },
+                      "scContentFr": {
+                          "json": [
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "Bêta : ",
+                                          "format": {
+                                              "variants": [
+                                                  "strong"
+                                              ]
+                                          }
+                                      },
+                                      {
+                                          "nodeType": "text",
+                                          "value": "Continuer d’améliorer un outil ou un service fonctionnel et obtenir de la rétroaction."
+                                      }
+                                  ]
+                              }
+                          ]
+                      }
+                  },
+                  {
+                      "_path": "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/beta-definition",
+                      "scId": "BETA-DEFINITION",
+                      "scContentEn": {
+                          "json": [
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "Beta: ",
+                                          "format": {
+                                              "variants": [
+                                                  "strong"
+                                              ]
+                                          }
+                                      },
+                                      {
+                                          "nodeType": "text",
+                                          "value": "Continuing to improve a usable tool or service while collecting feedback."
+                                      }
+                                  ]
+                              }
+                          ]
+                      },
+                      "scContentFr": {
+                          "json": [
+                              {
+                                  "nodeType": "paragraph",
+                                  "content": [
+                                      {
+                                          "nodeType": "text",
+                                          "value": "Bêta :",
+                                          "format": {
+                                              "variants": [
+                                                  "strong"
+                                              ]
+                                          }
+                                      },
+                                      {
+                                          "nodeType": "text",
+                                          "value": " Continuer d’améliorer un outil ou un service fonctionnel et obtenir de la rétroaction."
+                                      }
+                                  ]
+                              }
+                          ]
+                      }
+                  },
+                  {
+                      "scId": "TRY-THE-ESTIMATOR",
+                      "scTitleEn": "Try the estimator",
+                      "scTitleFr": "Essayer l'estimateur",
+                      "scDestinationURLEn": "https://ep-be.alpha.service.canada.ca/en",
+                      "scDestinationURLFr": "https://ep-be.alpha.service.canada.ca/fr",
+                      "scButtonType": [
+                          "gc:custom/decd-endc/button-type/primary"
+                      ]
+                  },
+                  {
+                      "scId": "GIVE-FEEDBACK-OAS-ESTIMATOR",
+                      "scTitleEn": "Give feedback",
+                      "scTitleFr": "Fournir des commentaires",
+                      "scDestinationURLEn": "https://srv217.services.gc.ca/ihst4/Intro.aspx?cid=74938e05-8e91-42a9-8e9d-29daf79f6fe0&lc=eng",
+                      "scDestinationURLFr": "https://srv217.services.gc.ca/ihst4/Intro.aspx?cid=74938e05-8e91-42a9-8e9d-29daf79f6fe0&lc=fra",
+                      "scButtonType": [
+                          "gc:custom/decd-endc/button-type/secondary"
+                      ]
+                  }
+              ]
+          }
+      }
+  }
+}
+
 export const [oasUpdatesData] = [
   oasBenefitsEstimatorData.data.sclabsPageV1ByPath.item.scLabProjectUpdates,
 ];
