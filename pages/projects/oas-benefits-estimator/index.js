@@ -414,10 +414,6 @@ export const getStaticProps = async ({ locale }) => {
   const { data: pageData } = await aemServiceInstance.getFragment(
     "oasBenefitsEstimatorQuery"
   );
-  // Get updates/article data
-  const { data: updatesData } = await aemServiceInstance.getFragment(
-    "oasBenefitsEstimatorArticlesQuery"
-  );
   // get dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
@@ -428,7 +424,7 @@ export const getStaticProps = async ({ locale }) => {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       pageData: pageData.sclabsPageV1ByPath,
-      updatesData: updatesData.sclabsPageV1List.items,
+      updatesData: pageData.sclabsPageV1ByPath.item.scLabProjectUpdates,
       dictionary: dictionary.dictionaryV1List,
       ...(await serverSideTranslations(locale, ["common"])),
     },
