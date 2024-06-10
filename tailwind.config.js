@@ -212,6 +212,7 @@ module.exports = {
           link: "#0535d2",
           text: "#335075",
           hover: "#083DCA",
+          "updates-blue": "#F0F7FF",
           "experiment-blue": "#004986",
           "projects-link": "#2B4380",
           "projects-link-hover": "#0535d2",

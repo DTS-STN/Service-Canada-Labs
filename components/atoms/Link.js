@@ -3,10 +3,25 @@ import PropTypes from "prop-types";
 
 // Use this component for Footer link and use Next.js <Link>
 // for all links within the site
-export function Link(props) {
+export function Link({
+  href = "#",
+  target = "_self",
+  ariaLabel,
+  component = "a",
+  linkStyle,
+  disabled,
+  lang,
+  locale,
+  onClick,
+  id,
+  dataGcAnalyticsCustomClick,
+  text,
+  abbr,
+  ...rest
+}) {
   //Styling for links based on Figma Design
   let basicStyle = "";
-  switch (props.linkStyle) {
+  switch (linkStyle) {
     case "basicStyleWithEmphasis":
       basicStyle =
         "underline text-multi-blue-blue70b font-body text-browserh5 font-bold text-mobileh5 leading-33px hover:text-multi-blue-blue50b";
@@ -33,11 +48,11 @@ export function Link(props) {
       break;
     default:
       basicStyle =
-        "underline text-multi-blue-blue70b font-body text-browserh5 leading-33px hover:text-multi-blue-blue50b";
+        "underline underline-offset-4 text-multi-blue-blue70b font-body text-browserh5 leading-33px hover:text-multi-blue-blue50b";
       break;
   }
 
-  const Component = props.component || "a";
+  const Component = component || "a";
 
   function onKeyDown() {
     true;
@@ -45,61 +60,33 @@ export function Link(props) {
 
   return Component !== "a" ? (
     <Component
-      href={props.href}
-      disabled={props.disabled}
-      lang={props.lang}
-      target={props.target}
-      aria-label={props.ariaLabel || props.text}
+      href={href}
+      disabled={disabled}
+      lang={lang}
+      target={target}
+      aria-label={ariaLabel || text}
       role="link"
+      className={`${basicStyle}`}
     >
-      <a
-        href={props.href}
-        locale={props.locale}
-        onClick={props.onClick ? props.onClick : undefined}
-        id={props.id}
-        className={`${basicStyle}`}
-        data-gc-analytics-customclick={props.dataGcAnalyticsCustomClick}
-        onKeyDown={onKeyDown}
-      >
-        {/* <!-- English Text: English --> */}
-        <span className={props.abbr ? "language-toggle-text" : ""}>
-          {props.text}
-        </span>
-        {/* <!-- English Text: title="English", en --> */}
-        <abbr className="language-toggle-abbr" title={props.text}>
-          {props.abbr}
-        </abbr>
-      </a>
+      {text}
     </Component>
   ) : (
     <a
-      href={props.href}
+      href={href}
       className={`${basicStyle}`}
-      id={props.id}
-      disabled={props.disabled}
-      lang={props.lang}
-      target={props.target}
-      aria-label={props.ariaLabel || props.text}
-      locale={props.locale}
-      onClick={props.onClick ? props.onClick : undefined}
-      data-gc-analytics-customclick={props.dataGcAnalyticsCustomClick}
+      id={id}
+      disabled={disabled}
+      lang={lang}
+      target={target}
+      aria-label={ariaLabel || text}
+      locale={locale}
+      onClick={onClick ? onClick : undefined}
+      data-gc-analytics-customclick={dataGcAnalyticsCustomClick}
     >
-      {/* <!-- English Text: English --> */}
-      <span className={props.abbr ? "language-toggle-text" : ""}>
-        {props.text}
-      </span>
-      {/* <!-- English Text: title="English", en --> */}
-      <abbr className="language-toggle-abbr" title={props.text}>
-        {props.abbr}
-      </abbr>
+      {text}
     </a>
   );
 }
-
-Link.defaultProps = {
-  target: "_self",
-  href: "#",
-};
 
 Link.propTypes = {
   /**
