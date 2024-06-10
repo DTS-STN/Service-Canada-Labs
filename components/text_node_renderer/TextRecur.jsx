@@ -1,6 +1,6 @@
 import { v4 as uuid } from "uuid";
 
-import Header from "./nodes/Header";
+import HeaderText from "./nodes/HeaderText";
 import LineBreak from "./nodes/LineBreak";
 import ListItem from "./nodes/ListItem";
 import OrderedList from "./nodes/OrderedList";
@@ -12,7 +12,7 @@ import Link from "./nodes/Link";
 
 // todo: more components will like need to be added, but for now, these are the only ones returned in the aem json response
 const NODES = {
-  header: Header,
+  header: HeaderText,
   paragraph: Paragraph,
   link: Link,
   text: Text,

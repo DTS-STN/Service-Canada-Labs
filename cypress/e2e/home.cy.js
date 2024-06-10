@@ -14,10 +14,10 @@ describe("Home page", () => {
   })
 
   it("navigates to a project page", () => {
-    cy.get("a[href*=benefits-navigator]").click();
+    cy.get("a[href*=making-easier-get-benefits]").click();
     cy.url().should(
       "equal",
-      Cypress.config().baseUrl + "/en/projects/benefits-navigator"
+      Cypress.config().baseUrl + "/en/projects/making-easier-get-benefits"
     );
   });
 });

@@ -7,15 +7,16 @@ import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
 import { Collapse } from "../../../components/molecules/Collapse";
-import { generateCollapseElements } from "../../../lib/utils/generateCollapseElements";
 import { ActionButton } from "../../../components/atoms/ActionButton";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
 import TextRender from "../../../components/text_node_renderer/TextRender";
+import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
 import { useState } from "react";
 import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 import { shuffle } from "../../../lib/utils/shuffle";
-import { filterProjects } from "../../../lib/utils/filterProjects";
+import { filterItems } from "../../../lib/utils/filterItems";
+import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 
 export default function MscaDashboard(props) {
   const pageData = props.pageData?.item;
@@ -209,7 +210,7 @@ export default function MscaDashboard(props) {
           />
         </Head>
 
-        <div className="layout-container">
+        <div className="layout-container mb-24">
           <section aria-labelledby="pageMainTitle">
             <div className="flex flex-col break-words lg:grid lg:grid-cols-2">
               <div className="col-span-2">
@@ -328,29 +329,29 @@ export default function MscaDashboard(props) {
                   : pageData.scFragments[3].scContentFr.json[2].content[0]
                       .value}
               </p>
-              <ul className="col-span-12 xl:col-span-8">
-                <li>
+              <ul className="list-disc col-span-12 xl:col-span-8">
+                <li className="ml-10 text-[20px]">
                   {props.locale === "en"
                     ? pageData.scFragments[3].scContentEn.json[3].content[0]
                         .content[0].value
                     : pageData.scFragments[3].scContentFr.json[3].content[0]
                         .content[0].value}
                 </li>
-                <li>
+                <li className="ml-10 text-[20px]">
                   {props.locale === "en"
                     ? pageData.scFragments[3].scContentEn.json[3].content[1]
                         .content[0].value
                     : pageData.scFragments[3].scContentFr.json[3].content[1]
                         .content[0].value}
                 </li>
-                <li>
+                <li className="ml-10 text-[20px]">
                   {props.locale === "en"
                     ? pageData.scFragments[3].scContentEn.json[3].content[2]
                         .content[0].value
                     : pageData.scFragments[3].scContentFr.json[3].content[2]
                         .content[0].value}
                 </li>
-                <li>
+                <li className="ml-10 text-[20px]">
                   {props.locale === "en"
                     ? pageData.scFragments[3].scContentEn.json[3].content[3]
                         .content[0].value
@@ -693,9 +694,34 @@ export default function MscaDashboard(props) {
             </p>
           </section>
         </div>
+        {props.updatesData.length !== 0 ? (
+          <ExploreUpdates
+            locale={props.locale}
+            updatesData={sortUpdatesByDate(updatesData)}
+            dictionary={props.dictionary}
+            heading={
+              "Dashboard project updates"
+              // props.locale === "en"
+              //   ? pageData.scFragments[4].scContentEn.json[0].content[0].value
+              //   : pageData.scFragments[4].scContentFr.json[0].content[0].value
+            }
+            linkLabel={
+              "See all updates about this project"
+              // props.locale === "en"
+              //   ? pageData.scFragments[5].scContentEn.json[0].content[0].value
+              //   : pageData.scFragments[5].scContentFr.json[0].content[0].value
+            }
+            href={
+              ""
+              // props.locale === "en"
+              //   ? pageData.scFragments[5].scContentEn.json[0].content[0].data.href
+              //   : pageData.scFragments[5].scContentFr.json[0].content[0].data.href
+            }
+          />
+        ) : null}
         <ExploreProjects
           locale={props.locale}
-          projects={filterProjects(allProjects, pageData.scId)}
+          projects={filterItems(allProjects, pageData.scId)}
         />
       </Layout>
     </>
@@ -706,6 +732,10 @@ export const getStaticProps = async ({ locale }) => {
   // get page data from AEM
   const { data: pageData } = await aemServiceInstance.getFragment(
     "getMSCADashBoardPage"
+  );
+  // get page data from AEM
+  const { data: updatesData } = await aemServiceInstance.getFragment(
+    "getMSCADashboardArticles"
   );
   // get dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
@@ -722,6 +752,7 @@ export const getStaticProps = async ({ locale }) => {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       pageData: pageData.sclabsPageV1ByPath,
+      updatesData: updatesData.sclabsPageV1List.items,
       dictionary: dictionary.dictionaryV1List,
       allProjects: shuffle(allProjects.sclabsPageV1List.items),
       ...(await serverSideTranslations(locale, ["common"])),

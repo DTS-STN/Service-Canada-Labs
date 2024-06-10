@@ -8,8 +8,11 @@ import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
 import { Heading } from "../../../components/molecules/Heading";
+import { filterItems } from "../../../lib/utils/filterItems";
+import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
+import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 
-export default function IntegratedChannelStrategyArticles(props) {
+export default function IntegratedChannelStrategyArticles({ key, ...props }) {
   const { t } = useTranslation("common");
   const [pageData] = useState(props.pageData);
   const [dictionary] = useState(props.dictionary.items);
@@ -77,9 +80,38 @@ export default function IntegratedChannelStrategyArticles(props) {
             <FragmentRender
               fragments={props.pageData.scFragments}
               locale={props.locale}
+              excludeH1={true}
             />
           </div>
         </section>
+        {filterItems(props.updatesData, pageData.scId).length !== 0 ? (
+          <ExploreUpdates
+            locale={props.locale}
+            updatesData={filterItems(
+              sortUpdatesByDate(props.updatesData),
+              pageData.scId
+            )}
+            dictionary={props.dictionary}
+            heading={
+              "Benefits navigator project updates"
+              // props.locale === "en"
+              //   ? pageData.scFragments[4].scContentEn.json[0].content[0].value
+              //   : pageData.scFragments[4].scContentFr.json[0].content[0].value
+            }
+            linkLabel={
+              "See all updates about this project"
+              // props.locale === "en"
+              //   ? pageData.scFragments[5].scContentEn.json[0].content[0].value
+              //   : pageData.scFragments[5].scContentFr.json[0].content[0].value
+            }
+            href={
+              ""
+              // props.locale === "en"
+              //   ? pageData.scFragments[5].scContentEn.json[0].content[0].data.href
+              //   : pageData.scFragments[5].scContentFr.json[0].content[0].data.href
+            }
+          />
+        ) : null}
       </Layout>
     </>
   );
@@ -102,14 +134,14 @@ export async function getStaticPaths() {
 
 export const getStaticProps = async ({ locale, params }) => {
   // Get pages data
-  const { data } = await aemServiceInstance.getFragment(
+  const { data: updatesData } = await aemServiceInstance.getFragment(
     "integratedChannelStrategyArticlesQuery"
   );
   // get dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
-  const pages = data.sclabsPageV1List.items;
+  const pages = updatesData.sclabsPageV1List.items;
   // Return page data that matches the current page being built
   const pageData = pages.filter((page) => {
     return (
@@ -127,8 +159,10 @@ export const getStaticProps = async ({ locale, params }) => {
 
   return {
     props: {
+      key: params.id,
       locale: locale,
       pageData: pageData[0],
+      updatesData: updatesData.sclabsPageV1List.items,
       dictionary: dictionary.dictionaryV1List,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       ...(await serverSideTranslations(locale, ["common"])),
