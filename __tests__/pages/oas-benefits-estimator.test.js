@@ -4,6 +4,7 @@ import {
   dictionaryData,
   oasBenefitsEstimatorData,
   oasUpdatesData,
+  experimentsData,
 } from "../../__mocks__/mockStore";
 
 describe("OAS Benefits Estimator", () => {
