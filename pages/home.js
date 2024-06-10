@@ -7,7 +7,8 @@ import aemServiceInstance from "../services/aemServiceInstance";
 import { Heading } from "../components/molecules/Heading";
 import { ContextualAlert } from "../components/molecules/ContextualAlert";
 import Image from "next/image";
-import { Link } from "../components/atoms/Link";
+import { Link as LinkWrapper } from "../components/atoms/Link";
+import Link from "next/link";
 import { ExploreUpdates } from "../components/organisms/ExploreUpdates";
 import FragmentRender from "../components/fragment_renderer/FragmentRender";
 import { sortUpdatesByDate } from "../lib/utils/sortUpdatesByDate";
@@ -2077,7 +2078,8 @@ export default function Home(props) {
               {displayCurrentProjects}
             </ul>
             <div className="mt-6 flex justify-end">
-              <Link
+              <LinkWrapper
+                component={Link}
                 id="projectsLink"
                 href={
                   props.locale === "en"

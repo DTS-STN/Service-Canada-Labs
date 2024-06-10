@@ -1,4 +1,5 @@
-import { Link } from "../atoms/Link";
+import Link from "next/link";
+import { Link as LinkWrapper } from "../atoms/Link";
 import Card from "../molecules/Card";
 
 export function ExploreUpdates({
@@ -47,7 +48,8 @@ export function ExploreUpdates({
           <ul className="grid col-span-12 xl:col-span-8">{updatesCards}</ul>
           <div className="grid col-span-12 xl:col-span-8 mt-4">
             <div className="flex justify-end">
-              <Link
+              <LinkWrapper
+                component={Link}
                 id="seeAllUpdatesLink"
                 href={href}
                 lang={locale}

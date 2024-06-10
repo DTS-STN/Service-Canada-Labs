@@ -48,7 +48,7 @@ export function Link({
       break;
     default:
       basicStyle =
-        "underline text-multi-blue-blue70b font-body text-browserh5 leading-33px hover:text-multi-blue-blue50b";
+        "underline underline-offset-4 text-multi-blue-blue70b font-body text-browserh5 leading-33px hover:text-multi-blue-blue50b";
       break;
   }
 
@@ -66,23 +66,9 @@ export function Link({
       target={target}
       aria-label={ariaLabel || text}
       role="link"
+      className={`${basicStyle}`}
     >
-      <a
-        href={href}
-        locale={locale}
-        onClick={onClick ? onClick : undefined}
-        id={id}
-        className={`${basicStyle}`}
-        data-gc-analytics-customclick={dataGcAnalyticsCustomClick}
-        onKeyDown={onKeyDown}
-      >
-        {/* <!-- English Text: English --> */}
-        <span className={abbr ? "language-toggle-text" : ""}>{text}</span>
-        {/* <!-- English Text: title="English", en --> */}
-        <abbr className="language-toggle-abbr" title={text}>
-          {abbr}
-        </abbr>
-      </a>
+      {text}
     </Component>
   ) : (
     <a
@@ -97,12 +83,7 @@ export function Link({
       onClick={onClick ? onClick : undefined}
       data-gc-analytics-customclick={dataGcAnalyticsCustomClick}
     >
-      {/* <!-- English Text: English --> */}
-      <span className={abbr ? "language-toggle-text" : ""}>{text}</span>
-      {/* <!-- English Text: title="English", en --> */}
-      <abbr className="language-toggle-abbr" title={text}>
-        {abbr}
-      </abbr>
+      {text}
     </a>
   );
 }
