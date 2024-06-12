@@ -23,7 +23,7 @@ export function ExploreUpdates({
                 <p className="text-multi-neutrals-grey100 font-semibold">
                   {locale === "en" ? "Project:" : "Projet :"}
                 </p>
-                <p className="mt-0 pl-1">{`${update.scDateModifiedOverwrite}`}</p>
+                <p className="mt-0 pl-1">{`${update.scLabProject}`}</p>
               </span>
               <span className="flex flex-row pl-6">
                 <p className="text-multi-neutrals-grey100 font-semibold">
