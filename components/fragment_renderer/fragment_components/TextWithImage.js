@@ -8,6 +8,9 @@ export default function TextWithImage({
   height,
   data,
   layout,
+  title,
+  longDesc,
+  children,
 }) {
   switch (layout) {
     case "default":
@@ -28,6 +31,9 @@ export default function TextWithImage({
           width={width}
           height={height}
           data={data}
+          title={title}
+          longDesc={longDesc}
+          children={children}
         />
       );
     default:
