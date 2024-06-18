@@ -1,18 +1,18 @@
 import { render } from "@testing-library/react";
-import OasBenefitsEstimator from "../../pages/projects/oas-benefits-estimator/index";
+import IntegratedChannelStrategyPage from "../../pages/projects/making-easier-get-benefits/index";
 import {
   dictionaryData,
-  oasBenefitsEstimatorData,
-  oasUpdatesData,
+  ICSData,
   experimentsData,
+  ICSUpdatesData,
 } from "../../__mocks__/mockStore";
 
-describe("OAS Benefits Estimator", () => {
+describe("Integrated Channel Strategy", () => {
   it("renders without crashing", () => {
     render(
-      <OasBenefitsEstimator
-        pageData={oasBenefitsEstimatorData.data.sclabsPageV1ByPath}
-        updatesData={oasUpdatesData}
+      <IntegratedChannelStrategyPage
+        pageData={ICSData.data.sclabsPageV1ByPath}
+        updatesData={ICSUpdatesData}
         dictionary={dictionaryData.data.dictionaryV1List}
         allProjects={experimentsData.data.scLabsPagev1List.items}
       />

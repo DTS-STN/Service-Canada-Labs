@@ -1,18 +1,18 @@
 import { render } from "@testing-library/react";
-import OasBenefitsEstimator from "../../pages/projects/oas-benefits-estimator/index";
+import BenefitsNavigatorOverview from "../../pages/projects/benefits-navigator/index";
 import {
   dictionaryData,
-  oasBenefitsEstimatorData,
-  oasUpdatesData,
+  benefitsNavigatorData,
   experimentsData,
+  benefitsNavigatorUpdatesData,
 } from "../../__mocks__/mockStore";
 
-describe("OAS Benefits Estimator", () => {
+describe("Benefits Navigator", () => {
   it("renders without crashing", () => {
     render(
-      <OasBenefitsEstimator
-        pageData={oasBenefitsEstimatorData.data.sclabsPageV1ByPath}
-        updatesData={oasUpdatesData}
+      <BenefitsNavigatorOverview
+        pageData={benefitsNavigatorData.data.sclabsPageV1ByPath}
+        updatesData={benefitsNavigatorUpdatesData}
         dictionary={dictionaryData.data.dictionaryV1List}
         allProjects={experimentsData.data.scLabsPagev1List.items}
       />
