@@ -8,7 +8,6 @@ import Card from "../../../components/molecules/Card";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
 import { Collapse } from "../../../components/molecules/Collapse";
-import { generateCollapseElements } from "../../../lib/utils/generateCollapseElements";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
 import TextRender from "../../../components/text_node_renderer/TextRender";
