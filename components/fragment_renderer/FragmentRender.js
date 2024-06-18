@@ -6,7 +6,6 @@ import ArticleCTA from "./fragment_components/ArticleCTA";
 import QuoteVerticalLineContent from "./fragment_components/QuoteVerticalLineContent";
 import ImageWithCollapse from "./fragment_components/ImageWithCollapse";
 import TextRender from "../text_node_renderer/TextRender";
-import { generateCollapseElements } from "../../lib/utils/generateCollapseElements";
 
 const FRAGMENTS = {
   "SCLabs-Comp-Content-Image-v1": TextWithImage,
@@ -63,6 +62,23 @@ const mapFragmentsToProps = (fragmentData, fragmentName, locale) => {
             ? fragmentData.scLabContent[0].scContentEn.json
             : fragmentData.scLabContent[0].scContentFr.json,
         layout: fragmentData.scLabLayout,
+        title:
+          locale === "en"
+            ? fragmentData.scLongDescHeadingEn
+            : fragmentData.scLongDescHeadingFr,
+        longDesc:
+          locale === "en"
+            ? fragmentData.scLongDescEn
+            : fragmentData.scLongDescFr,
+        children: (
+          <TextRender
+            data={
+              locale === "en"
+                ? fragmentData.scLongDescEn.json
+                : fragmentData.scLongDescFr.json
+            }
+          />
+        ),
       };
 
     case "SCLabs-Comp-Content-v1":
@@ -121,10 +137,14 @@ const mapFragmentsToProps = (fragmentData, fragmentName, locale) => {
           locale === "en"
             ? fragmentData.scLongDescEn
             : fragmentData.scLongDescFr,
-        children: generateCollapseElements(
-          locale === "en"
-            ? fragmentData.scLongDescEn.json
-            : fragmentData.scLongDescFr.json
+        children: (
+          <TextRender
+            data={
+              locale === "en"
+                ? fragmentData.scLongDescEn.json
+                : fragmentData.scLongDescFr.json
+            }
+          />
         ),
       };
     default:

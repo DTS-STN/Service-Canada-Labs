@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import FragmentRender from "./FragmentRender";
 import { axe, toHaveNoViolations } from "jest-axe";
+import { userEvent } from "../../node_modules/@storybook/test/dist/index";
 import {
   ArticleCTA,
   TextWithImage,
@@ -10,6 +11,7 @@ import {
   Button,
   TextContent,
 } from "./FragmentRender.stories";
+
 expect.extend(toHaveNoViolations);
 
 describe("FragmentRender", () => {
@@ -61,10 +63,15 @@ describe("FragmentRender", () => {
     const { container } = render(
       <FragmentRender {...ImageWithCollapse.args} />
     );
+    expect(screen.getByText("Figure 1")).toBeInTheDocument();
     expect(screen.getByText((content) => content.startsWith("Text version")))
       .toBeInTheDocument;
     expect(screen.getByAltText("Benefit news and updates page"))
       .toBeInTheDocument;
+    await userEvent.click(screen.getByTestId("summary"));
+    const details = screen.getByTestId("details");
+    const open = await details.hasAttribute("open");
+    expect(open).toBeTruthy();
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
