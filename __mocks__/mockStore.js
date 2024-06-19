@@ -8886,9 +8886,51 @@ export const [benefitsNavigatorUpdatesData] = [
 ];
 
 export const CollapseData = {
-  scLongDescHeadingEn: "Text version of the image Benefit news and updates",
-  scLongDescHeadingFr:
-    "Version textuelle de l'image Nouvelles et mises à jour sur les prestations",
+  scId: "FEATURE-DASHBOARD",
+  scImageEn: {
+    _publishUrl:
+      "https://www.canada.ca/content/dam/decd-endc/images/sclabs/client-hub/feature-dashboard-en.png",
+    width: 759,
+    height: 498,
+  },
+  scImageFr: {
+    _publishUrl:
+      "https://www.canada.ca/content/dam/decd-endc/images/sclabs/client-hub/feature-dashboard-fr.png",
+    width: 758,
+    height: 498,
+  },
+  scImageMobileEn: null,
+  scImageMobileFr: null,
+  scImageAltTextEn: "My dashboard page from My Service Canada Account",
+  scImageAltTextFr: "Page Mon tableau de bord de Mon dossier Service Canada",
+  scImageCaptionEn: {
+    json: [
+      {
+        nodeType: "paragraph",
+        content: [
+          {
+            nodeType: "text",
+            value: "Figure 1",
+          },
+        ],
+      },
+    ],
+  },
+  scImageCaptionFr: {
+    json: [
+      {
+        nodeType: "paragraph",
+        content: [
+          {
+            nodeType: "text",
+            value: "Figure 1",
+          },
+        ],
+      },
+    ],
+  },
+  scLongDescHeadingEn: "Text version of the image My dashboard",
+  scLongDescHeadingFr: "Version textuelle de l’image Mon tableau de bord",
   scLongDescEn: {
     json: [
       {
@@ -8896,7 +8938,7 @@ export const CollapseData = {
         content: [
           {
             nodeType: "text",
-            value: "The Benefit news and updates page contains 3 sections:",
+            value: "The dashboard page includes: ",
           },
         ],
       },
@@ -8908,16 +8950,7 @@ export const CollapseData = {
             content: [
               {
                 nodeType: "text",
-                value: "a search bar to search by benefit name or source",
-              },
-            ],
-          },
-          {
-            nodeType: "list-item",
-            content: [
-              {
-                nodeType: "text",
-                value: "a list of benefits to filter the news:",
+                value: "a heading with: ",
               },
               {
                 nodeType: "unordered-list",
@@ -8927,7 +8960,8 @@ export const CollapseData = {
                     content: [
                       {
                         nodeType: "text",
-                        value: "Old Age Security",
+                        value:
+                          "the name of the site: My Service Canada Account ",
                       },
                     ],
                   },
@@ -8936,79 +8970,7 @@ export const CollapseData = {
                     content: [
                       {
                         nodeType: "text",
-                        value: "Guaranteed Income Supplement",
-                      },
-                    ],
-                  },
-                  {
-                    nodeType: "list-item",
-                    content: [
-                      {
-                        nodeType: "text",
-                        value: "Allowance for the survivor",
-                      },
-                    ],
-                  },
-                  {
-                    nodeType: "list-item",
-                    content: [
-                      {
-                        nodeType: "text",
-                        value: "Canada Pension Plan",
-                      },
-                    ],
-                  },
-                  {
-                    nodeType: "list-item",
-                    content: [
-                      {
-                        nodeType: "text",
-                        value: "Post-Retirement Benefit",
-                      },
-                    ],
-                  },
-                  {
-                    nodeType: "list-item",
-                    content: [
-                      {
-                        nodeType: "text",
-                        value: "Employment Insurance",
-                      },
-                    ],
-                  },
-                  {
-                    nodeType: "list-item",
-                    content: [
-                      {
-                        nodeType: "text",
-                        value: "Canada Dental Benefit",
-                      },
-                    ],
-                  },
-                  {
-                    nodeType: "list-item",
-                    content: [
-                      {
-                        nodeType: "text",
-                        value: "Home and Community program care",
-                      },
-                    ],
-                  },
-                  {
-                    nodeType: "list-item",
-                    content: [
-                      {
-                        nodeType: "text",
-                        value: "Disability tax credit",
-                      },
-                    ],
-                  },
-                  {
-                    nodeType: "list-item",
-                    content: [
-                      {
-                        nodeType: "text",
-                        value: "Refund of Federal Excise Tax on Gas",
+                        value: "an “Account” menu ",
                       },
                     ],
                   },
@@ -9021,8 +8983,7 @@ export const CollapseData = {
             content: [
               {
                 nodeType: "text",
-                value:
-                  "a list of benefit news and updates with details. For example:",
+                value: "benefits, such as: ",
               },
               {
                 nodeType: "unordered-list",
@@ -9033,7 +8994,11 @@ export const CollapseData = {
                       {
                         nodeType: "text",
                         value:
-                          "Service disruption - Service Canada June 29, 2023 (update)",
+                          "Employment Insurance, with a link to applications, payments and claims, taxes, reports and documents, personal information ",
+                      },
+                      {
+                        nodeType: "line-break",
+                        content: [],
                       },
                     ],
                   },
@@ -9043,17 +9008,11 @@ export const CollapseData = {
                       {
                         nodeType: "text",
                         value:
-                          "OAS pension amounts - July to September 2023 (update)",
+                          "Canada Pension Plan, with a link to applications, payments, taxes, documents, provisions, personal information ",
                       },
-                    ],
-                  },
-                  {
-                    nodeType: "list-item",
-                    content: [
                       {
-                        nodeType: "text",
-                        value:
-                          "Grocery rebate will be issued July 5, 2023 (new)",
+                        nodeType: "line-break",
+                        content: [],
                       },
                     ],
                   },
@@ -9072,8 +9031,7 @@ export const CollapseData = {
         content: [
           {
             nodeType: "text",
-            value:
-              "La page Nouvelles et mises à jour sur les prestations contient 3 sections :",
+            value: "Le tableau de bord contient les éléments suivants : ",
           },
         ],
       },
@@ -9085,17 +9043,7 @@ export const CollapseData = {
             content: [
               {
                 nodeType: "text",
-                value:
-                  "une barre de recherche où on peut rechercher par le nom de la prestation ou la source",
-              },
-            ],
-          },
-          {
-            nodeType: "list-item",
-            content: [
-              {
-                nodeType: "text",
-                value: "une liste de prestations pour filtrer les nouvelles :",
+                value: "un en-tête avec : ",
               },
               {
                 nodeType: "unordered-list",
@@ -9105,7 +9053,7 @@ export const CollapseData = {
                     content: [
                       {
                         nodeType: "text",
-                        value: "Sécurité de la vieillesse",
+                        value: "le nom du site : Mon dossier Service Canada; ",
                       },
                     ],
                   },
@@ -9114,81 +9062,7 @@ export const CollapseData = {
                     content: [
                       {
                         nodeType: "text",
-                        value: "Supplément de revenu garanti",
-                      },
-                    ],
-                  },
-                  {
-                    nodeType: "list-item",
-                    content: [
-                      {
-                        nodeType: "text",
-                        value: "Allocation au survivant",
-                      },
-                    ],
-                  },
-                  {
-                    nodeType: "list-item",
-                    content: [
-                      {
-                        nodeType: "text",
-                        value: "Régime de pensions du Canada",
-                      },
-                    ],
-                  },
-                  {
-                    nodeType: "list-item",
-                    content: [
-                      {
-                        nodeType: "text",
-                        value: "Post retirement benefit",
-                      },
-                    ],
-                  },
-                  {
-                    nodeType: "list-item",
-                    content: [
-                      {
-                        nodeType: "text",
-                        value: "Assurance-emploi",
-                      },
-                    ],
-                  },
-                  {
-                    nodeType: "list-item",
-                    content: [
-                      {
-                        nodeType: "text",
-                        value: "Prestation dentaire canadienne",
-                      },
-                    ],
-                  },
-                  {
-                    nodeType: "list-item",
-                    content: [
-                      {
-                        nodeType: "text",
-                        value:
-                          "Programme de soins à domicile et en milieu communautaire",
-                      },
-                    ],
-                  },
-                  {
-                    nodeType: "list-item",
-                    content: [
-                      {
-                        nodeType: "text",
-                        value: "Crédit d’impôt pour les personnes handicapées",
-                      },
-                    ],
-                  },
-                  {
-                    nodeType: "list-item",
-                    content: [
-                      {
-                        nodeType: "text",
-                        value:
-                          "Remboursement de la taxe d'accise sur l'essence",
+                        value: "un menu « Compte »; ",
                       },
                     ],
                   },
@@ -9201,8 +9075,7 @@ export const CollapseData = {
             content: [
               {
                 nodeType: "text",
-                value:
-                  "une liste de nouvelles et de mises à jour. Par exemple :",
+                value: "des prestations, telles que : ",
               },
               {
                 nodeType: "unordered-list",
@@ -9213,7 +9086,7 @@ export const CollapseData = {
                       {
                         nodeType: "text",
                         value:
-                          "Interruption de service : Service Canada, 29 juin 2023 (mise à jour)",
+                          "Assurance-emploi, avec un lien vers les demandes de prestations, paiements et demandes, impôts, rapports et documents, renseignements personnels; ",
                       },
                     ],
                   },
@@ -9223,17 +9096,7 @@ export const CollapseData = {
                       {
                         nodeType: "text",
                         value:
-                          "Montant de la pension de la Sécurité de la vieillesse de juillet à septembre 2023 (mise à jour)",
-                      },
-                    ],
-                  },
-                  {
-                    nodeType: "list-item",
-                    content: [
-                      {
-                        nodeType: "text",
-                        value:
-                          "Le remboursement pour l’épicerie sera émis le 5 juillet 2023 (nouvelle)",
+                          "Régime de pensions du Canada, avec un lien vers les demandes de prestations, paiements, impôts, documents, clauses, renseignements personnels.",
                       },
                     ],
                   },
