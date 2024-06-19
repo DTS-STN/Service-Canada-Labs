@@ -45,41 +45,65 @@ const mapFragmentsToProps = (fragmentData, fragmentName, locale) => {
       };
 
     case "SCLabs-Comp-Content-Image-v1":
-      return {
-        src:
-          locale === "en"
-            ? fragmentData.scLabImage.scImageEn._publishUrl
-            : fragmentData.scLabImage.scImageFr._publishUrl,
-        alt: fragmentData.scLabImage.scImageAltTextEn
-          ? locale === "en"
-            ? fragmentData.scLabImage.scImageAltTextEn
-            : fragmentData.scLabImage.scImageAltTextFr
-          : "",
-        width: fragmentData.scLabImage.scImageEn.width,
-        height: fragmentData.scLabImage.scImageEn.height,
-        data:
-          locale === "en"
-            ? fragmentData.scLabContent[0].scContentEn.json
-            : fragmentData.scLabContent[0].scContentFr.json,
-        layout: fragmentData.scLabLayout,
-        title:
-          locale === "en"
-            ? fragmentData.scLongDescHeadingEn
-            : fragmentData.scLongDescHeadingFr,
-        longDesc:
-          locale === "en"
-            ? fragmentData.scLongDescEn
-            : fragmentData.scLongDescFr,
-        children: (
-          <TextRender
-            data={
+      switch (fragmentData.scLabLayout) {
+        case "default":
+          return {
+            src:
               locale === "en"
-                ? fragmentData.scLongDescEn.json
-                : fragmentData.scLongDescFr.json
-            }
-          />
-        ),
-      };
+                ? fragmentData.scLabImage.scImageEn._publishUrl
+                : fragmentData.scLabImage.scImageFr._publishUrl,
+            alt: fragmentData.scLabImage.scImageAltTextEn
+              ? locale === "en"
+                ? fragmentData.scLabImage.scImageAltTextEn
+                : fragmentData.scLabImage.scImageAltTextFr
+              : "",
+            width: fragmentData.scLabImage.scImageEn.width,
+            height: fragmentData.scLabImage.scImageEn.height,
+            data:
+              locale === "en"
+                ? fragmentData.scLabContent[0].scContentEn.json
+                : fragmentData.scLabContent[0].scContentFr.json,
+            layout: fragmentData.scLabLayout,
+          };
+        case "image-vertical-line-content":
+          return {
+            src:
+              locale === "en"
+                ? fragmentData.scLabImage.scImageEn._publishUrl
+                : fragmentData.scLabImage.scImageFr._publishUrl,
+            alt: fragmentData.scLabImage.scImageAltTextEn
+              ? locale === "en"
+                ? fragmentData.scLabImage.scImageAltTextEn
+                : fragmentData.scLabImage.scImageAltTextFr
+              : "",
+            width: fragmentData.scLabImage.scImageEn.width,
+            height: fragmentData.scLabImage.scImageEn.height,
+            data:
+              locale === "en"
+                ? fragmentData.scLabContent[0].scContentEn.json
+                : fragmentData.scLabContent[0].scContentFr.json,
+            layout: fragmentData.scLabLayout,
+            title:
+              locale === "en"
+                ? fragmentData.scLongDescHeadingEn
+                : fragmentData.scLongDescHeadingFr,
+            longDesc:
+              locale === "en"
+                ? fragmentData.scLongDescEn
+                : fragmentData.scLongDescFr,
+            children: (
+              <TextRender
+                data={
+                  locale === "en"
+                    ? fragmentData.scLongDescEn.json
+                    : fragmentData.scLongDescFr.json
+                }
+              />
+            ),
+          };
+        default:
+          break;
+      }
 
     case "SCLabs-Comp-Content-v1":
       return {
