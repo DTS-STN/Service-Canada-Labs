@@ -25,7 +25,7 @@ describe("TextWithImage", () => {
     render(<TextWithImage {...Vertical.args} />);
     expect(screen.getByAltText("image alt text")).toBeInTheDocument();
     expect(
-      screen.getByText((content) => content.startsWith("Every week"))
+      screen.getByText((content) => content.startsWith("Information"))
     ).toBeInTheDocument();
   });
   test("renders TextWithImage component with Collapse props", async () => {
@@ -33,7 +33,7 @@ describe("TextWithImage", () => {
       <TextWithImage {...VerticalWithCollapse.args} />
     );
     expect(
-      screen.getByText((content) => content.startsWith("Every week"))
+      screen.getByText((content) => content.startsWith("Information"))
     ).toBeInTheDocument();
     await userEvent.click(screen.getByTestId("summary"));
     const details = screen.getByTestId("details");

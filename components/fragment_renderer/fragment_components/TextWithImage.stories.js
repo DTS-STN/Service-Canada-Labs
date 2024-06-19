@@ -17,8 +17,8 @@ export const VerticalWithCollapse = Template.bind({});
 Default.args = {
   src: "/image2.png",
   alt: "image alt text",
-  width: 359,
-  height: 260,
+  width: 759,
+  height: 498,
   layout: "default",
   data: [
     {
@@ -35,19 +35,52 @@ Default.args = {
 };
 
 Vertical.args = {
-  src: "/image2.png",
+  src: CollapseData.scImageEn._publishUrl,
   alt: "image alt text",
-  width: 359,
-  height: 260,
+  width: CollapseData.scImageEn.width,
+  height: CollapseData.scImageEn.height,
   layout: "image-vertical-line-content",
   data: [
+    {
+      nodeType: "header",
+      style: "h3",
+      content: [
+        {
+          nodeType: "text",
+          value: "Information is clearly presented ",
+        },
+      ],
+    },
     {
       nodeType: "paragraph",
       content: [
         {
           nodeType: "text",
-          value:
-            "Every week, our product team meets for Feedback Friday to sort through all the new survey responses. We look at the ratings and comments people shared with us about their experience. ",
+          value: "On the dashboard, you will find: ",
+        },
+      ],
+    },
+    {
+      nodeType: "unordered-list",
+      content: [
+        {
+          nodeType: "list-item",
+          content: [
+            {
+              nodeType: "text",
+              value: "all your benefits on the same page ",
+            },
+          ],
+        },
+        {
+          nodeType: "list-item",
+          content: [
+            {
+              nodeType: "text",
+              value:
+                "a menu to access your personal information and security settings",
+            },
+          ],
         },
       ],
     },
@@ -55,19 +88,52 @@ Vertical.args = {
 };
 
 VerticalWithCollapse.args = {
-  src: "/image2.png",
+  src: CollapseData.scImageEn._publishUrl,
   alt: "image alt text",
-  width: 359,
-  height: 260,
+  width: CollapseData.scImageEn.width,
+  height: CollapseData.scImageEn.height,
   layout: "image-vertical-line-content",
   data: [
+    {
+      nodeType: "header",
+      style: "h3",
+      content: [
+        {
+          nodeType: "text",
+          value: "Information is clearly presented ",
+        },
+      ],
+    },
     {
       nodeType: "paragraph",
       content: [
         {
           nodeType: "text",
-          value:
-            "Every week, our product team meets for Feedback Friday to sort through all the new survey responses. We look at the ratings and comments people shared with us about their experience. ",
+          value: "On the dashboard, you will find: ",
+        },
+      ],
+    },
+    {
+      nodeType: "unordered-list",
+      content: [
+        {
+          nodeType: "list-item",
+          content: [
+            {
+              nodeType: "text",
+              value: "all your benefits on the same page ",
+            },
+          ],
+        },
+        {
+          nodeType: "list-item",
+          content: [
+            {
+              nodeType: "text",
+              value:
+                "a menu to access your personal information and security settings",
+            },
+          ],
         },
       ],
     },
