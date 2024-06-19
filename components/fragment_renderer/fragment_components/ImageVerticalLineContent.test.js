@@ -14,7 +14,7 @@ describe("ImageVerticalLineContent", () => {
     );
     expect(screen.getByAltText("image alt text")).toBeInTheDocument();
     expect(
-      screen.getByText((content) => content.startsWith("Every week"))
+      screen.getByText((content) => content.startsWith("Information"))
     ).toBeInTheDocument();
     const results = await axe(container);
     expect(results).toHaveNoViolations();
@@ -25,7 +25,7 @@ describe("ImageVerticalLineContent", () => {
     );
     expect(screen.getByAltText("image alt text")).toBeInTheDocument();
     expect(
-      screen.getByText((content) => content.startsWith("Every week"))
+      screen.getByText((content) => content.startsWith("Information"))
     ).toBeInTheDocument();
     await userEvent.click(screen.getByTestId("summary"));
     const details = screen.getByTestId("details");
