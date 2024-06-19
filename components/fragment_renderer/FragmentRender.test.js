@@ -36,10 +36,12 @@ describe("FragmentRender", () => {
     const { container } = render(
       <FragmentRender {...TextWithImageCollapse.args} />
     );
-    expect(screen.getByText("It takes time to learn about government benefits"))
+    expect(screen.getByText("Information is clearly presented"))
       .toBeInTheDocument;
-    expect(screen.getByAltText("Community workers helping people"))
-      .toBeInTheDocument;
+
+    expect(
+      screen.getByAltText("My dashboard page from My Service Canada Account")
+    ).toBeInTheDocument;
     await userEvent.click(screen.getByTestId("summary"));
     const details = screen.getByTestId("details");
     const open = await details.hasAttribute("open");
@@ -82,6 +84,7 @@ describe("FragmentRender", () => {
     expect(screen.getByText("Figure 1")).toBeInTheDocument();
     expect(screen.getByText((content) => content.startsWith("Text version")))
       .toBeInTheDocument;
+    expect(screen.getByText("Figure 1")).toBeInTheDocument;
     expect(screen.getByAltText("Benefit news and updates page"))
       .toBeInTheDocument;
     await userEvent.click(screen.getByTestId("summary"));
