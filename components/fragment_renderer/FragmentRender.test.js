@@ -6,6 +6,7 @@ import { userEvent } from "../../node_modules/@storybook/test/dist/index";
 import {
   ArticleCTA,
   TextWithImage,
+  TextWithImageCollapse,
   QuoteVerticalLineContent,
   ImageWithCollapse,
   Button,
@@ -28,6 +29,21 @@ describe("FragmentRender", () => {
       .toBeInTheDocument;
     expect(screen.getByAltText("Community workers helping people"))
       .toBeInTheDocument;
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+  it("renders TextWithImageCollapse component", async () => {
+    const { container } = render(
+      <FragmentRender {...TextWithImageCollapse.args} />
+    );
+    expect(screen.getByText("It takes time to learn about government benefits"))
+      .toBeInTheDocument;
+    expect(screen.getByAltText("Community workers helping people"))
+      .toBeInTheDocument;
+    await userEvent.click(screen.getByTestId("summary"));
+    const details = screen.getByTestId("details");
+    const open = await details.hasAttribute("open");
+    expect(open).toBeTruthy();
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
