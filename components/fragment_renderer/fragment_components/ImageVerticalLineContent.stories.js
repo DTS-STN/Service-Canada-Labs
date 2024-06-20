@@ -7,6 +7,13 @@ export default {
   title:
     "Components/Fragment_Renderer/Fragment_Components/ImageVerticalLineContent",
   component: ImageVerticalLineContent,
+  decorators: [
+    (Story) => (
+      <div className="layout-container">
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 const Template = (args) => <ImageVerticalLineContent {...args} />;

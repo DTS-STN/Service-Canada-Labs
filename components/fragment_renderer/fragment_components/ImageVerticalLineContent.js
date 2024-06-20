@@ -13,10 +13,7 @@ export default function ImageVerticalLineContent({
   children,
 }) {
   return (
-    //the "feature-section" div will be added on the article page instead of here
-    //uncomment then view in storybook to see that design matches
-    // <div id="feature-section" className="layout-container col-span-12">
-    <div id="feature-1" className="grid grid-cols-12 gap-x-6 mb-9">
+    <div className="grid grid-cols-12 gap-x-6 mb-9">
       <div className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8">
         <Image
           src={src}
@@ -44,6 +41,5 @@ export default function ImageVerticalLineContent({
         ""
       )}
     </div>
-    //</div>
   );
 }
