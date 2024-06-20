@@ -64,6 +64,7 @@ const mapFragmentsToProps = (fragmentData, fragmentName, locale, excludeH1) => {
                 ? fragmentData.scLabContent[0].scContentEn.json
                 : fragmentData.scLabContent[0].scContentFr.json,
             layout: fragmentData.scLabLayout,
+            excludeH1: excludeH1,
           };
         case "image-vertical-line-content":
           return {
@@ -191,7 +192,7 @@ export default function FragmentRender(props) {
           fragmentData,
           fragmentData?._model.title,
           props.locale,
-          props.excludeH1
+          props.excludeH1,
         )}
       />
     );

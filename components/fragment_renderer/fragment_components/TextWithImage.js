@@ -11,6 +11,7 @@ export default function TextWithImage({
   title,
   longDesc,
   children,
+  excludeH1,
 }) {
   switch (layout) {
     case "default":
