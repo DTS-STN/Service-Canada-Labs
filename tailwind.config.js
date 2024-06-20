@@ -50,7 +50,7 @@ module.exports = {
       h4: ["22px", "24px"],
       h3: ["24px", "26px"],
       h2: ["32px", "36px"],
-      h2l: ["36px", "40px"],
+      h2l: ["36px", "44px"],
       h1: ["34px", "38px"],
       h1l: ["38px", "42px"],
       h1xl: ["45px", "54px"],
