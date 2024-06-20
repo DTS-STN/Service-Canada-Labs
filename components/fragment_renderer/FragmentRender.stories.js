@@ -1,5 +1,6 @@
 import * as React from "react";
 import FragmentRender from "./FragmentRender";
+import { CollapseData } from "../../__mocks__/mockStore";
 
 export default {
   title: "Components/Fragment_Renderer/FragmentRender",
@@ -11,6 +12,7 @@ const Template = (args) => <FragmentRender {...args} />;
 
 export const ArticleCTA = Template.bind({});
 export const TextWithImage = Template.bind({});
+export const TextWithImageCollapse = Template.bind({});
 export const QuoteVerticalLineContent = Template.bind({});
 export const TextContent = Template.bind({});
 export const Button = Template.bind({});
@@ -677,6 +679,362 @@ TextWithImage.args = {
   ],
 };
 
+TextWithImageCollapse.args = {
+  locale: "en",
+  fragments: [
+    {
+      _model: {
+        title: "SCLabs-Comp-Content-Image-v1",
+      },
+      scId: "NAVIGATOR-DIFFICULTIES-MAIN",
+      scLabContent: [
+        {
+          scId: "FEATURE-DASHBOARD",
+          scContentEn: {
+            json: [
+              {
+                nodeType: "header",
+                style: "h3",
+                content: [
+                  {
+                    nodeType: "text",
+                    value: "Information is clearly presented ",
+                  },
+                ],
+              },
+              {
+                nodeType: "paragraph",
+                content: [
+                  {
+                    nodeType: "text",
+                    value: "On the dashboard, you will find: ",
+                  },
+                ],
+              },
+              {
+                nodeType: "unordered-list",
+                content: [
+                  {
+                    nodeType: "list-item",
+                    content: [
+                      {
+                        nodeType: "text",
+                        value: "all your benefits on the same page ",
+                      },
+                    ],
+                  },
+                  {
+                    nodeType: "list-item",
+                    content: [
+                      {
+                        nodeType: "text",
+                        value:
+                          "a menu to access your personal information and security settings",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          scContentFr: {
+            json: [
+              {
+                nodeType: "header",
+                style: "h3",
+                content: [
+                  {
+                    nodeType: "text",
+                    value: "Information clairement présentée",
+                  },
+                  {
+                    nodeType: "line-break",
+                    content: [],
+                  },
+                ],
+              },
+              {
+                nodeType: "paragraph",
+                content: [
+                  {
+                    nodeType: "text",
+                    value: "Sur le tableau de bord, vous trouverez :",
+                  },
+                ],
+              },
+              {
+                nodeType: "unordered-list",
+                content: [
+                  {
+                    nodeType: "list-item",
+                    content: [
+                      {
+                        nodeType: "text",
+                        value: "toutes vos prestations sur la même page;",
+                      },
+                    ],
+                  },
+                  {
+                    nodeType: "list-item",
+                    content: [
+                      {
+                        nodeType: "text",
+                        value:
+                          "un menu pour accéder à vos informations personnelles et à vos paramètres de sécurité.",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          scFragments: [
+            {
+              scId: "FEATURE-DASHBOARD",
+              scImageEn: {
+                _publishUrl:
+                  "https://www.canada.ca/content/dam/decd-endc/images/sclabs/client-hub/feature-dashboard-en.png",
+                width: 759,
+                height: 498,
+              },
+              scImageFr: {
+                _publishUrl:
+                  "https://www.canada.ca/content/dam/decd-endc/images/sclabs/client-hub/feature-dashboard-fr.png",
+                width: 758,
+                height: 498,
+              },
+              scImageMobileEn: null,
+              scImageMobileFr: null,
+              scImageAltTextEn:
+                "My dashboard page from My Service Canada Account",
+              scImageAltTextFr:
+                "Page Mon tableau de bord de Mon dossier Service Canada",
+              scImageCaptionEn: {
+                json: null,
+              },
+              scImageCaptionFr: {
+                json: null,
+              },
+              scLongDescHeadingEn: "Text version of the image My dashboard",
+              scLongDescHeadingFr:
+                "Version textuelle de l’image Mon tableau de bord",
+              scLongDescEn: {
+                json: [
+                  {
+                    nodeType: "paragraph",
+                    content: [
+                      {
+                        nodeType: "text",
+                        value: "The dashboard page includes: ",
+                      },
+                    ],
+                  },
+                  {
+                    nodeType: "unordered-list",
+                    content: [
+                      {
+                        nodeType: "list-item",
+                        content: [
+                          {
+                            nodeType: "text",
+                            value: "a heading with: ",
+                          },
+                          {
+                            nodeType: "unordered-list",
+                            content: [
+                              {
+                                nodeType: "list-item",
+                                content: [
+                                  {
+                                    nodeType: "text",
+                                    value:
+                                      "the name of the site: My Service Canada Account ",
+                                  },
+                                ],
+                              },
+                              {
+                                nodeType: "list-item",
+                                content: [
+                                  {
+                                    nodeType: "text",
+                                    value: "an “Account” menu ",
+                                  },
+                                ],
+                              },
+                            ],
+                          },
+                        ],
+                      },
+                      {
+                        nodeType: "list-item",
+                        content: [
+                          {
+                            nodeType: "text",
+                            value: "benefits, such as: ",
+                          },
+                          {
+                            nodeType: "unordered-list",
+                            content: [
+                              {
+                                nodeType: "list-item",
+                                content: [
+                                  {
+                                    nodeType: "text",
+                                    value:
+                                      "Employment Insurance, with a link to applications, payments and claims, taxes, reports and documents, personal information ",
+                                  },
+                                  {
+                                    nodeType: "line-break",
+                                    content: [],
+                                  },
+                                ],
+                              },
+                              {
+                                nodeType: "list-item",
+                                content: [
+                                  {
+                                    nodeType: "text",
+                                    value:
+                                      "Canada Pension Plan, with a link to applications, payments, taxes, documents, provisions, personal information ",
+                                  },
+                                  {
+                                    nodeType: "line-break",
+                                    content: [],
+                                  },
+                                ],
+                              },
+                            ],
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                ],
+              },
+              scLongDescFr: {
+                json: [
+                  {
+                    nodeType: "paragraph",
+                    content: [
+                      {
+                        nodeType: "text",
+                        value:
+                          "Le tableau de bord contient les éléments suivants : ",
+                      },
+                    ],
+                  },
+                  {
+                    nodeType: "unordered-list",
+                    content: [
+                      {
+                        nodeType: "list-item",
+                        content: [
+                          {
+                            nodeType: "text",
+                            value: "un en-tête avec : ",
+                          },
+                          {
+                            nodeType: "unordered-list",
+                            content: [
+                              {
+                                nodeType: "list-item",
+                                content: [
+                                  {
+                                    nodeType: "text",
+                                    value:
+                                      "le nom du site : Mon dossier Service Canada; ",
+                                  },
+                                ],
+                              },
+                              {
+                                nodeType: "list-item",
+                                content: [
+                                  {
+                                    nodeType: "text",
+                                    value: "un menu « Compte »; ",
+                                  },
+                                ],
+                              },
+                            ],
+                          },
+                        ],
+                      },
+                      {
+                        nodeType: "list-item",
+                        content: [
+                          {
+                            nodeType: "text",
+                            value: "des prestations, telles que : ",
+                          },
+                          {
+                            nodeType: "unordered-list",
+                            content: [
+                              {
+                                nodeType: "list-item",
+                                content: [
+                                  {
+                                    nodeType: "text",
+                                    value:
+                                      "Assurance-emploi, avec un lien vers les demandes de prestations, paiements et demandes, impôts, rapports et documents, renseignements personnels; ",
+                                  },
+                                ],
+                              },
+                              {
+                                nodeType: "list-item",
+                                content: [
+                                  {
+                                    nodeType: "text",
+                                    value:
+                                      "Régime de pensions du Canada, avec un lien vers les demandes de prestations, paiements, impôts, documents, clauses, renseignements personnels.",
+                                  },
+                                ],
+                              },
+                            ],
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                ],
+              },
+            },
+          ],
+        },
+      ],
+      scLabImage: {
+        scImageEn: {
+          _publishUrl:
+            "https://www.canada.ca/content/dam/decd-endc/images/sclabs/client-hub/feature-dashboard-en.png",
+          width: 759,
+          height: 498,
+        },
+        scImageFr: {
+          _publishUrl:
+            "https://www.canada.ca/content/dam/decd-endc/images/sclabs/client-hub/feature-dashboard-fr.png",
+          width: 758,
+          height: 498,
+        },
+        scImageMobileEn: null,
+        scImageMobileFr: null,
+        scImageAltTextEn: "My dashboard page from My Service Canada Account",
+        scImageAltTextFr:
+          "Page Mon tableau de bord de Mon dossier Service Canada",
+        scImageCaptionEn: {
+          json: null,
+        },
+        scImageCaptionFr: {
+          json: null,
+        },
+      },
+      scLabLayout: "image-vertical-line-content",
+      scLongDescHeadingEn: CollapseData.scLongDescHeadingEn,
+      scLongDescHeadingFr: CollapseData.scLongDescHeadingFr,
+      scLongDescEn: CollapseData.scLongDescEn,
+      scLongDescFr: CollapseData.scLongDescFr,
+    },
+  ],
+};
+
 TextContent.args = {
   locale: "en",
   fragments: [
@@ -744,10 +1102,9 @@ ImageWithCollapse.args = {
       },
       scId: "NEWS-IMAGE",
       scImageEn: {
-        _publishUrl:
-          "https://www.canada.ca/content/dam/decd-endc/images/sclabs/benefits-navigator/news-en.png",
-        width: 1363,
-        height: 890,
+        _publishUrl: CollapseData.scImageEn._publishUrl,
+        width: CollapseData.scImageEn.width,
+        height: CollapseData.scImageEn.height,
       },
       scImageFr: {
         _publishUrl:
@@ -785,367 +1142,10 @@ ImageWithCollapse.args = {
           },
         ],
       },
-      scLongDescHeadingEn: "Text version of the image Benefit news and updates",
-      scLongDescHeadingFr:
-        "Version textuelle de l'image Nouvelles et mises à jour sur les prestations",
-      scLongDescEn: {
-        json: [
-          {
-            nodeType: "paragraph",
-            content: [
-              {
-                nodeType: "text",
-                value: "The Benefit news and updates page contains 3 sections:",
-              },
-            ],
-          },
-          {
-            nodeType: "unordered-list",
-            content: [
-              {
-                nodeType: "list-item",
-                content: [
-                  {
-                    nodeType: "text",
-                    value: "a search bar to search by benefit name or source",
-                  },
-                ],
-              },
-              {
-                nodeType: "list-item",
-                content: [
-                  {
-                    nodeType: "text",
-                    value: "a list of benefits to filter the news:",
-                  },
-                  {
-                    nodeType: "unordered-list",
-                    content: [
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value: "Old Age Security",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value: "Guaranteed Income Supplement",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value: "Allowance for the survivor",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value: "Canada Pension Plan",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value: "Post-Retirement Benefit",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value: "Employment Insurance",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value: "Canada Dental Benefit",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value: "Home and Community program care",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value: "Disability tax credit",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value: "Refund of Federal Excise Tax on Gas",
-                          },
-                        ],
-                      },
-                    ],
-                  },
-                ],
-              },
-              {
-                nodeType: "list-item",
-                content: [
-                  {
-                    nodeType: "text",
-                    value:
-                      "a list of benefit news and updates with details. For example:",
-                  },
-                  {
-                    nodeType: "unordered-list",
-                    content: [
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value:
-                              "Service disruption - Service Canada June 29, 2023 (update)",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value:
-                              "OAS pension amounts - July to September 2023 (update)",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value:
-                              "Grocery rebate will be issued July 5, 2023 (new)",
-                          },
-                        ],
-                      },
-                    ],
-                  },
-                ],
-              },
-            ],
-          },
-        ],
-      },
-      scLongDescFr: {
-        json: [
-          {
-            nodeType: "paragraph",
-            content: [
-              {
-                nodeType: "text",
-                value:
-                  "La page Nouvelles et mises à jour sur les prestations contient 3 sections :",
-              },
-            ],
-          },
-          {
-            nodeType: "unordered-list",
-            content: [
-              {
-                nodeType: "list-item",
-                content: [
-                  {
-                    nodeType: "text",
-                    value:
-                      "une barre de recherche où on peut rechercher par le nom de la prestation ou la source",
-                  },
-                ],
-              },
-              {
-                nodeType: "list-item",
-                content: [
-                  {
-                    nodeType: "text",
-                    value:
-                      "une liste de prestations pour filtrer les nouvelles :",
-                  },
-                  {
-                    nodeType: "unordered-list",
-                    content: [
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value: "Sécurité de la vieillesse",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value: "Supplément de revenu garanti",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value: "Allocation au survivant",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value: "Régime de pensions du Canada",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value: "Post retirement benefit",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value: "Assurance-emploi",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value: "Prestation dentaire canadienne",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value:
-                              "Programme de soins à domicile et en milieu communautaire",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value:
-                              "Crédit d’impôt pour les personnes handicapées",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value:
-                              "Remboursement de la taxe d'accise sur l'essence",
-                          },
-                        ],
-                      },
-                    ],
-                  },
-                ],
-              },
-              {
-                nodeType: "list-item",
-                content: [
-                  {
-                    nodeType: "text",
-                    value:
-                      "une liste de nouvelles et de mises à jour. Par exemple :",
-                  },
-                  {
-                    nodeType: "unordered-list",
-                    content: [
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value:
-                              "Interruption de service : Service Canada, 29 juin 2023 (mise à jour)",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value:
-                              "Montant de la pension de la Sécurité de la vieillesse de juillet à septembre 2023 (mise à jour)",
-                          },
-                        ],
-                      },
-                      {
-                        nodeType: "list-item",
-                        content: [
-                          {
-                            nodeType: "text",
-                            value:
-                              "Le remboursement pour l’épicerie sera émis le 5 juillet 2023 (nouvelle)",
-                          },
-                        ],
-                      },
-                    ],
-                  },
-                ],
-              },
-            ],
-          },
-        ],
-      },
+      scLongDescHeadingEn: CollapseData.scLongDescHeadingEn,
+      scLongDescHeadingFr: CollapseData.scLongDescHeadingFr,
+      scLongDescEn: CollapseData.scLongDescEn,
+      scLongDescFr: CollapseData.scLongDescFr,
     },
   ],
 };

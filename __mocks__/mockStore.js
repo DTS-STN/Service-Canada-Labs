@@ -8884,3 +8884,228 @@ export const benefitsNavigatorData = {
 export const [benefitsNavigatorUpdatesData] = [
   benefitsNavigatorData.data.sclabsPageV1ByPath.item.scLabProjectUpdates,
 ];
+
+export const CollapseData = {
+  scId: "FEATURE-DASHBOARD",
+  scImageEn: {
+    _publishUrl:
+      "https://www.canada.ca/content/dam/decd-endc/images/sclabs/client-hub/feature-dashboard-en.png",
+    width: 759,
+    height: 498,
+  },
+  scImageFr: {
+    _publishUrl:
+      "https://www.canada.ca/content/dam/decd-endc/images/sclabs/client-hub/feature-dashboard-fr.png",
+    width: 758,
+    height: 498,
+  },
+  scImageMobileEn: null,
+  scImageMobileFr: null,
+  scImageAltTextEn: "My dashboard page from My Service Canada Account",
+  scImageAltTextFr: "Page Mon tableau de bord de Mon dossier Service Canada",
+  scImageCaptionEn: {
+    json: [
+      {
+        nodeType: "paragraph",
+        content: [
+          {
+            nodeType: "text",
+            value: "Figure 1",
+          },
+        ],
+      },
+    ],
+  },
+  scImageCaptionFr: {
+    json: [
+      {
+        nodeType: "paragraph",
+        content: [
+          {
+            nodeType: "text",
+            value: "Figure 1",
+          },
+        ],
+      },
+    ],
+  },
+  scLongDescHeadingEn: "Text version of the image My dashboard",
+  scLongDescHeadingFr: "Version textuelle de l’image Mon tableau de bord",
+  scLongDescEn: {
+    json: [
+      {
+        nodeType: "paragraph",
+        content: [
+          {
+            nodeType: "text",
+            value: "The dashboard page includes: ",
+          },
+        ],
+      },
+      {
+        nodeType: "unordered-list",
+        content: [
+          {
+            nodeType: "list-item",
+            content: [
+              {
+                nodeType: "text",
+                value: "a heading with: ",
+              },
+              {
+                nodeType: "unordered-list",
+                content: [
+                  {
+                    nodeType: "list-item",
+                    content: [
+                      {
+                        nodeType: "text",
+                        value:
+                          "the name of the site: My Service Canada Account ",
+                      },
+                    ],
+                  },
+                  {
+                    nodeType: "list-item",
+                    content: [
+                      {
+                        nodeType: "text",
+                        value: "an “Account” menu ",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            nodeType: "list-item",
+            content: [
+              {
+                nodeType: "text",
+                value: "benefits, such as: ",
+              },
+              {
+                nodeType: "unordered-list",
+                content: [
+                  {
+                    nodeType: "list-item",
+                    content: [
+                      {
+                        nodeType: "text",
+                        value:
+                          "Employment Insurance, with a link to applications, payments and claims, taxes, reports and documents, personal information ",
+                      },
+                      {
+                        nodeType: "line-break",
+                        content: [],
+                      },
+                    ],
+                  },
+                  {
+                    nodeType: "list-item",
+                    content: [
+                      {
+                        nodeType: "text",
+                        value:
+                          "Canada Pension Plan, with a link to applications, payments, taxes, documents, provisions, personal information ",
+                      },
+                      {
+                        nodeType: "line-break",
+                        content: [],
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  scLongDescFr: {
+    json: [
+      {
+        nodeType: "paragraph",
+        content: [
+          {
+            nodeType: "text",
+            value: "Le tableau de bord contient les éléments suivants : ",
+          },
+        ],
+      },
+      {
+        nodeType: "unordered-list",
+        content: [
+          {
+            nodeType: "list-item",
+            content: [
+              {
+                nodeType: "text",
+                value: "un en-tête avec : ",
+              },
+              {
+                nodeType: "unordered-list",
+                content: [
+                  {
+                    nodeType: "list-item",
+                    content: [
+                      {
+                        nodeType: "text",
+                        value: "le nom du site : Mon dossier Service Canada; ",
+                      },
+                    ],
+                  },
+                  {
+                    nodeType: "list-item",
+                    content: [
+                      {
+                        nodeType: "text",
+                        value: "un menu « Compte »; ",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            nodeType: "list-item",
+            content: [
+              {
+                nodeType: "text",
+                value: "des prestations, telles que : ",
+              },
+              {
+                nodeType: "unordered-list",
+                content: [
+                  {
+                    nodeType: "list-item",
+                    content: [
+                      {
+                        nodeType: "text",
+                        value:
+                          "Assurance-emploi, avec un lien vers les demandes de prestations, paiements et demandes, impôts, rapports et documents, renseignements personnels; ",
+                      },
+                    ],
+                  },
+                  {
+                    nodeType: "list-item",
+                    content: [
+                      {
+                        nodeType: "text",
+                        value:
+                          "Régime de pensions du Canada, avec un lien vers les demandes de prestations, paiements, impôts, documents, clauses, renseignements personnels.",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+};
