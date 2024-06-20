@@ -413,7 +413,7 @@ export const getStaticProps = async ({ locale }) => {
       pageData: pageData.sclabsPageV1ByPath,
       experimentsData: experimentsData.sclabsPageV1List.items,
       updatesData: updatesData.sclabsPageV1List.items,
-      dictionary: dictionary.dictionaryV1List,
+      dictionary: dictionary.dictionaryV1List.items,
       ...(await serverSideTranslations(locale, ["common"])),
     },
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,
