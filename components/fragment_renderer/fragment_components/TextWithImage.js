@@ -8,7 +8,9 @@ export default function TextWithImage({
   height,
   data,
   layout,
-  excludeH1,
+  title,
+  longDesc,
+  children,
 }) {
   switch (layout) {
     case "default":
@@ -30,7 +32,9 @@ export default function TextWithImage({
           width={width}
           height={height}
           data={data}
-          excludeH1={excludeH1}
+          title={title}
+          longDesc={longDesc}
+          children={children}
         />
       );
     default:

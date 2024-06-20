@@ -1,5 +1,7 @@
 import * as React from "react";
 import ImageWithCollapse from "./ImageWithCollapse";
+import TextRender from "../../text_node_renderer/TextRender";
+import { CollapseData } from "../../../__mocks__/mockStore";
 
 export default {
   title: "Components/Fragment_Renderer/Fragment_Components/ImageWithCollapse",
@@ -11,24 +13,12 @@ const Template = (args) => <ImageWithCollapse {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   id: "ImageWithCollapse",
-  src: "/image2.png",
+  src: CollapseData.scImageEn._publishUrl,
   alt: "image alt text",
-  width: 359,
-  height: 260,
-  content:
-    "Every week, our product team meets for Feedback Friday to sort through all the new survey responses. We look at the ratings and comments people shared with us about their experience. ",
+  width: CollapseData.scImageEn.width,
+  height: CollapseData.scImageEn.height,
+  content: CollapseData.scImageCaptionEn.json[0].content[0].value,
   title: "Example Title",
   longDesc: "Test Description",
-  children: [
-    <p>First paragraph tag</p>,
-    <p>Second paragraph tag</p>,
-    <ul>
-      <li>Unordered list item 1</li>
-      <li>Unordered list item 2</li>
-    </ul>,
-    <ol>
-      <li>Ordered list item 1</li>
-      <li>Ordered list item 2</li>
-    </ol>,
-  ],
+  children: <TextRender data={CollapseData.scLongDescEn.json} />,
 };
