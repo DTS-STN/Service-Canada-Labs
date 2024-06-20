@@ -21,13 +21,13 @@ export default function BenefitsNavigatorOverview(props) {
   const [pageData] = useState(props.pageData.item);
   const [updatesData] = useState(props.updatesData);
   const [filteredDictionary] = useState(
-    props.dictionary.items.filter(
+    props.dictionary.filter(
       (item) =>
         item.scId === "STARTED" ||
         item.scId === "ENDED" ||
         item.scId === "PROJECT-STAGE" ||
-        item.scId === "SUMMARY"
-    )
+        item.scId === "SUMMARY",
+    ),
   );
 
   useEffect(() => {
@@ -47,7 +47,7 @@ export default function BenefitsNavigatorOverview(props) {
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
-          props.locale
+          props.locale,
         )}
       >
         <Head>
@@ -637,16 +637,14 @@ export default function BenefitsNavigatorOverview(props) {
 export const getStaticProps = async ({ locale }) => {
   // get page data from AEM
   const { data: pageData } = await aemServiceInstance.getFragment(
-    "benefitsNavigatorQuery"
+    "benefitsNavigatorQuery",
   );
   // get dictionary
-  const { data: dictionary } = await aemServiceInstance.getFragment(
-    "dictionaryQuery"
-  );
+  const { data: dictionary } =
+    await aemServiceInstance.getFragment("dictionaryQuery");
   // get all projects data
-  const { data: allProjects } = await aemServiceInstance.getFragment(
-    "projectQuery"
-  );
+  const { data: allProjects } =
+    await aemServiceInstance.getFragment("projectQuery");
 
   return {
     props: {
@@ -654,7 +652,7 @@ export const getStaticProps = async ({ locale }) => {
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       pageData: pageData.sclabsPageV1ByPath,
       updatesData: pageData.sclabsPageV1ByPath.item.scLabProjectUpdates,
-      dictionary: dictionary.dictionaryV1List,
+      dictionary: dictionary.dictionaryV1List.items,
       allProjects: shuffle(allProjects.sclabsPageV1List.items),
       ...(await serverSideTranslations(locale, ["common"])),
     },

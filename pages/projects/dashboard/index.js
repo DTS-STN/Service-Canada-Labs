@@ -22,12 +22,12 @@ export default function MscaDashboard(props) {
   const pageData = props.pageData?.item;
   const [allProjects] = useState(props.allProjects);
 
-  const filteredDictionary = props.dictionary?.items?.filter(
+  const filteredDictionary = props.dictionary?.filter(
     (item) =>
       item.scId === "STARTED" ||
       item.scId === "ENDED" ||
       item.scId === "PROJECT-STAGE" ||
-      item.scId === "SUMMARY"
+      item.scId === "SUMMARY",
   );
 
   useEffect(() => {
@@ -47,7 +47,7 @@ export default function MscaDashboard(props) {
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
-          props.locale
+          props.locale,
         )}
       >
         <Head>
@@ -731,21 +731,19 @@ export default function MscaDashboard(props) {
 export const getStaticProps = async ({ locale }) => {
   // get page data from AEM
   const { data: pageData } = await aemServiceInstance.getFragment(
-    "getMSCADashBoardPage"
+    "getMSCADashBoardPage",
   );
   // get page data from AEM
   const { data: updatesData } = await aemServiceInstance.getFragment(
-    "getMSCADashboardArticles"
+    "getMSCADashboardArticles",
   );
   // get dictionary
-  const { data: dictionary } = await aemServiceInstance.getFragment(
-    "dictionaryQuery"
-  );
+  const { data: dictionary } =
+    await aemServiceInstance.getFragment("dictionaryQuery");
 
   // get all projects data
-  const { data: allProjects } = await aemServiceInstance.getFragment(
-    "projectQuery"
-  );
+  const { data: allProjects } =
+    await aemServiceInstance.getFragment("projectQuery");
 
   return {
     props: {
@@ -753,7 +751,7 @@ export const getStaticProps = async ({ locale }) => {
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       pageData: pageData.sclabsPageV1ByPath,
       updatesData: updatesData.sclabsPageV1List.items,
-      dictionary: dictionary.dictionaryV1List,
+      dictionary: dictionary.dictionaryV1List.items,
       allProjects: shuffle(allProjects.sclabsPageV1List.items),
       ...(await serverSideTranslations(locale, ["common"])),
     },

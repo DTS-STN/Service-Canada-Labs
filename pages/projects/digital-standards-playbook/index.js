@@ -21,12 +21,12 @@ export default function DigitalStandardsPlaybookPage(props) {
   const [updatesData] = useState(props.updatesData);
   const [allProjects] = useState(props.allProjects);
 
-  const filteredDictionary = props.dictionary?.items?.filter(
+  const filteredDictionary = props.dictionary?.filter(
     (item) =>
       item.scId === "STARTED" ||
       item.scId === "ENDED" ||
       item.scId === "PROJECT-STAGE" ||
-      item.scId === "SUMMARY"
+      item.scId === "SUMMARY",
   );
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export default function DigitalStandardsPlaybookPage(props) {
         dateModifiedOverride={pageData.scDateModifiedOverwrite ?? "2023-11-24"}
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
-          props.locale
+          props.locale,
         )}
       >
         <Head>
@@ -458,16 +458,14 @@ export default function DigitalStandardsPlaybookPage(props) {
 export const getStaticProps = async ({ locale }) => {
   // get page data from AEM
   const { data: pageData } = await aemServiceInstance.getFragment(
-    "getDigitalStandardsPlaybookPage"
+    "getDigitalStandardsPlaybookPage",
   );
   // get dictionary
-  const { data: dictionary } = await aemServiceInstance.getFragment(
-    "dictionaryQuery"
-  );
+  const { data: dictionary } =
+    await aemServiceInstance.getFragment("dictionaryQuery");
   // get all projects data
-  const { data: allProjects } = await aemServiceInstance.getFragment(
-    "projectQuery"
-  );
+  const { data: allProjects } =
+    await aemServiceInstance.getFragment("projectQuery");
 
   return {
     props: {
@@ -475,7 +473,7 @@ export const getStaticProps = async ({ locale }) => {
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       pageData: pageData.sclabsPageV1ByPath,
       updatesData: pageData.sclabsPageV1ByPath.item.scLabProjectUpdates,
-      dictionary: dictionary.dictionaryV1List,
+      dictionary: dictionary.dictionaryV1List.items,
       allProjects: shuffle(allProjects.sclabsPageV1List.items),
       ...(await serverSideTranslations(locale, ["common"])),
     },

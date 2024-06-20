@@ -10,6 +10,7 @@ import { Heading } from "../../../components/molecules/Heading";
 import { filterItems } from "../../../lib/utils/filterItems";
 import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
+import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 
 export default function MscaDashboardArticles({ key, ...props }) {
   const [pageData] = useState(props.pageData);
@@ -32,7 +33,7 @@ export default function MscaDashboardArticles({ key, ...props }) {
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
-          props.locale
+          props.locale,
         )}
       >
         <PageHead pageData={pageData} locale={props.locale} />
@@ -51,9 +52,7 @@ export default function MscaDashboardArticles({ key, ...props }) {
                   props.locale === "en" ? "lg:col-span-2" : "lg:col-span-3"
                 } font-bold`}
               >
-                {props.locale === "en"
-                  ? dictionary[11].scTermEn
-                  : dictionary[11].scTermFr}
+                {getDictionaryTerm(dictionary, "POSTED-ON", props.locale)}
               </p>
               <p className="col-span-6 col-start-7 sm:col-start-5 lg:col-span-2 md:col-start-5 mt-0">
                 {pageData.scDateModifiedOverwrite}
@@ -63,9 +62,7 @@ export default function MscaDashboardArticles({ key, ...props }) {
                   props.locale === "en" ? "lg:col-span-2" : "lg:col-span-3"
                 } font-bold`}
               >
-                {props.locale === "en"
-                  ? dictionary[6].scTermEn
-                  : dictionary[6].scTermFr}
+                {getDictionaryTerm(dictionary, "LAST-UPDATED", props.locale)}
               </p>
               <p className="row-start-2 col-span-6 col-start-7 sm:col-start-5 lg:col-span-2 md:col-start-5 mt-auto">
                 {pageData.scDateModifiedOverwrite}
@@ -86,7 +83,7 @@ export default function MscaDashboardArticles({ key, ...props }) {
           <ExploreUpdates
             locale={props.locale}
             updatesData={filterItems(
-              sortUpdatesByDate(props.updatesData, pageData.scId)
+              sortUpdatesByDate(props.updatesData, pageData.scId),
             )}
             dictionary={props.dictionary}
             heading={
@@ -117,7 +114,7 @@ export default function MscaDashboardArticles({ key, ...props }) {
 export async function getStaticPaths() {
   // Get pages data
   const { data } = await aemServiceInstance.getFragment(
-    "getMSCADashboardArticles"
+    "getMSCADashboardArticles",
   );
   // Get paths for dynamic routes from the page name data
   const paths = getAllUpdateIds(data.sclabsPageV1List.items);
@@ -131,12 +128,11 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({ locale, params }) => {
   // Get pages data
   const { data: updatesData } = await aemServiceInstance.getFragment(
-    "getMSCADashboardArticles"
+    "getMSCADashboardArticles",
   );
   // get dictionary
-  const { data: dictionary } = await aemServiceInstance.getFragment(
-    "dictionaryQuery"
-  );
+  const { data: dictionary } =
+    await aemServiceInstance.getFragment("dictionaryQuery");
   const pages = updatesData.sclabsPageV1List.items;
   // Return page data that matches the current page being built
   const pageData = pages.filter((page) => {
