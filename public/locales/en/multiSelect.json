@@ -1,4 +1,5 @@
 {
   "ariaOnFocusMessage": "You are currently focused on option",
-  "ariaOnFocusDisabled": ", disabled"
+  "ariaOnFocusDisabled": ", disabled",
+  "ariaPillsRemove": "Remove selected option, "
 }
