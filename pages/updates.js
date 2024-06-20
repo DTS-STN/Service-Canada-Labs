@@ -3,14 +3,6 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../components/organisms/Layout";
 import { useEffect, useState } from "react";
 import Card from "../components/molecules/Card";
-import aemServiceInstance from "../services/aemServiceInstance";
-import { Heading } from "../components/molecules/Heading";
-import { ContextualAlert } from "../components/molecules/ContextualAlert";
-import Image from "next/image";
-import { Link as LinkWrapper } from "../components/atoms/Link";
-import Link from "next/link";
-import { ExploreUpdates } from "../components/organisms/ExploreUpdates";
-import FragmentRender from "../components/fragment_renderer/FragmentRender";
 import { sortUpdatesByDate } from "../lib/utils/sortUpdatesByDate";
 import PageHead from "../components/fragment_renderer/PageHead";
 import { MultiSelectField } from "../components/atoms/MultiSelectField";
@@ -49,49 +41,50 @@ export default function UpdatesPage(props) {
     if (selectedOptions.length === 0) return updates;
     const selectedIds = new Set(selectedOptions.map((option) => option.id));
     return updates.filter((update) =>
-      selectedIds.has(update.scLabProject.scId)
+      selectedIds.has(update.scLabProject.scId),
     );
   };
 
-  const updatesCards = filterUpdates(updatesData, selectedOptions).map(
-    (update) => {
-      return (
-        <li
-          key={update.scId}
-          className="grid col-span-12 bg-white list-none my-3"
-        >
-          <Card
-            customStyling="pb-6 border-x-0 border-t-0 border-b-2 !shadow-none rounded-none"
-            cardHeadingStyling="!text-h2l pl-0 no-underline"
-            title={props.locale === "en" ? update.scTitleEn : update.scTitleFr}
-            href={
-              props.locale === "en" ? update.scPageNameEn : update.scPageNameFr
-            }
-            htmlDesc={
-              <div className="flex flex-col pt-8">
-                <span className="flex flex-row">
-                  <p className="text-multi-neutrals-grey100 font-semibold">
-                    {props.locale === "en" ? "Project:" : "Projet :"}
-                  </p>
-                  <p className="mt-0 pl-1">
-                    {props.locale === "en"
-                      ? update.scLabProject.scTermEn
-                      : update.scLabProject.scTermFr}
-                  </p>
-                </span>
-                <span className="flex flex-row">
-                  <p className="text-multi-neutrals-grey100 font-semibold">
-                    {getDictionaryTerm(dictionary, "POSTED-ON", props.locale)}
-                  </p>
-                  <p className="mt-0 pl-1">{`${update.scDateModifiedOverwrite}`}</p>
-                </span>
-              </div>
-            }
-          />
-        </li>
-      );
-    }
-  );
+  const updatesCards = filterUpdates(
+    sortUpdatesByDate(updatesData),
+    selectedOptions,
+  ).map((update) => {
+    return (
+      <li
+        key={update.scId}
+        className="grid col-span-12 bg-white list-none my-3"
+      >
+        <Card
+          customStyling="pb-6 border-x-0 border-t-0 border-b-2 !shadow-none rounded-none"
+          cardHeadingStyling="!text-h2l pl-0 no-underline"
+          title={props.locale === "en" ? update.scTitleEn : update.scTitleFr}
+          href={
+            props.locale === "en" ? update.scPageNameEn : update.scPageNameFr
+          }
+          htmlDesc={
+            <div className="flex flex-col pt-8">
+              <span className="flex flex-row">
+                <p className="text-multi-neutrals-grey100 font-semibold">
+                  {props.locale === "en" ? "Project:" : "Projet :"}
+                </p>
+                <p className="mt-0 pl-1">
+                  {props.locale === "en"
+                    ? update.scLabProject.scTermEn
+                    : update.scLabProject.scTermFr}
+                </p>
+              </span>
+              <span className="flex flex-row">
+                <p className="text-multi-neutrals-grey100 font-semibold">
+                  {getDictionaryTerm(dictionary, "POSTED-ON", props.locale)}
+                </p>
+                <p className="mt-0 pl-1">{`${update.scDateModifiedOverwrite}`}</p>
+              </span>
+            </div>
+          }
+        />
+      </li>
+    );
+  });
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
@@ -110,7 +103,7 @@ export default function UpdatesPage(props) {
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
-          props.locale
+          props.locale,
         )}
       >
         <PageHead locale={props.locale} pageData={pageData} />
@@ -158,15 +151,15 @@ export default function UpdatesPage(props) {
 export const getStaticProps = async ({ locale }) => {
   // Get page data
   const { data: pageData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclUpdatesV1`
+    `${process.env.AEM_BASE_URL}/getSclUpdatesV1`,
   ).then((res) => res.json());
   // Get updates data
   const { data: updatesData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV1`
+    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV1`,
   ).then((res) => res.json());
   // get dictionary
   const { data: dictionary } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclDictionaryV1`
+    `${process.env.AEM_BASE_URL}/getSclDictionaryV1`,
   ).then((res) => res.json());
 
   return {
