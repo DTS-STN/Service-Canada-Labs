@@ -28,6 +28,33 @@ export default function MscaDashboard(props) {
       item.scId === "SUMMARY"
   );
 
+  const displayProjectUpdates = updatesData.map((update) => (
+    <li key={update.scId} className="list-none ml-0 col-span-12 lg:col-span-4">
+      <Card
+        showImage
+        imgSrc={
+          props.locale === "en"
+            ? `https://www.canada.ca${update.scSocialMediaImageEn?._path}`
+            : `https://www.canada.ca${update.scSocialMediaImageFr?._path}`
+        }
+        imgAlt={
+          props.locale === "en"
+            ? update.scSocialMediaImageAltTextEn
+            : update.scSocialMediaImageAltTextFr
+        }
+        imgHeight={update.scSocialMediaImageEn.height}
+        imgWidth={update.scSocialMediaImageEn.width}
+        title={props.locale === "en" ? update.scTitleEn : update.scTitleFr}
+        href={props.locale === "en" ? update.scPageNameEn : update.scPageNameFr}
+        description={`${
+          props.locale === "en"
+            ? props.dictionary.items[9].scTermEn
+            : props.dictionary.items[9].scTermFr
+        } ${update.scDateModifiedOverwrite}`}
+      />
+    </li>
+  ));
+
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
