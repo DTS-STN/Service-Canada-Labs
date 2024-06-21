@@ -150,10 +150,15 @@ const mapFragmentsToProps = (fragmentData, fragmentName, locale, excludeH1) => {
             : fragmentData.scImageAltTextFr,
         width: fragmentData.scImageEn.width,
         height: fragmentData.scImageEn.height,
-        content:
-          locale === "en"
-            ? fragmentData.scImageCaptionEn.json[0].content[0].value
-            : fragmentData.scImageCaptionFr.json[0].content[0].value,
+        content: (
+          <TextRender
+            data={
+              locale === "en"
+                ? fragmentData.scImageCaptionEn.json
+                : fragmentData.scImageCaptionFr.json
+            }
+          />
+        ),
         title:
           locale === "en"
             ? fragmentData.scLongDescHeadingEn
