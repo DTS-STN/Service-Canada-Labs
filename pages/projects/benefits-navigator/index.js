@@ -627,7 +627,7 @@ export default function BenefitsNavigatorOverview(props) {
         ) : null}
         <ExploreProjects
           locale={props.locale}
-          projects={filterItems(allProjects, pageData.scId)}
+          projects={filterItems(allProjects, pageData.scId).slice(0, 3)}
         />
       </Layout>
     </>
