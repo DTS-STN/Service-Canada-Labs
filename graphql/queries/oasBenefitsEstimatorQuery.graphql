@@ -1,5 +1,5 @@
 query getOASBenefitsEstimatorPage {
-  sclabsPageV1ByPath (
+  sclabsPageV1ByPath(
     _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/oas-benefits-estimator/overview"
   ) {
     item {
@@ -31,6 +31,10 @@ query getOASBenefitsEstimatorPage {
           scPageNameFr
           scTitleEn
           scTitleFr
+          scLabProject {
+            scTermEn
+            scTermFr
+          }
           scShortTitleEn
           scShortTitleFr
           scBreadcrumbParentPages {

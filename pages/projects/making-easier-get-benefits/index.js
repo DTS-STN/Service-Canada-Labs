@@ -21,7 +21,7 @@ export default function IntegratedChannelStrategyPage(props) {
   const [updatesData] = useState(props.updatesData);
   const [allProjects] = useState(props.allProjects);
   const [filteredDictionary] = useState(
-    props.dictionary.items.filter(
+    props.dictionary.filter(
       (item) =>
         item.scId === "STARTED" ||
         item.scId === "ENDED" ||
@@ -349,7 +349,7 @@ export default function IntegratedChannelStrategyPage(props) {
         ) : null}
         <ExploreProjects
           locale={props.locale}
-          projects={filterItems(allProjects, pageData.scId)}
+          projects={filterItems(allProjects, pageData.scId).slice(0, 3)}
         />
       </Layout>
     </>
@@ -376,7 +376,7 @@ export const getStaticProps = async ({ locale }) => {
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       pageData: pageData.sclabsPageV1ByPath,
       updatesData: pageData.sclabsPageV1ByPath.item.scLabProjectUpdates,
-      dictionary: dictionary.dictionaryV1List,
+      dictionary: dictionary.dictionaryV1List.items,
       allProjects: shuffle(allProjects.sclabsPageV1List.items),
       ...(await serverSideTranslations(locale, ["common"])),
     },

@@ -10,10 +10,11 @@ import { Heading } from "../../../components/molecules/Heading";
 import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
 import { filterItems } from "../../../lib/utils/filterItems";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
+import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 
 export default function BenefitNavigatorArticles({ key, ...props }) {
   const [pageData] = useState(props.pageData);
-  const [dictionary] = useState(props.dictionary.items);
+  const [dictionary] = useState(props.dictionary);
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
@@ -51,9 +52,7 @@ export default function BenefitNavigatorArticles({ key, ...props }) {
                   props.locale === "en" ? "lg:col-span-2" : "lg:col-span-3"
                 } font-bold`}
               >
-                {props.locale === "en"
-                  ? dictionary[9].scTermEn
-                  : dictionary[9].scTermFr}
+                {getDictionaryTerm(dictionary, "POSTED-ON", props.locale)}
               </p>
               <p className="col-span-6 col-start-7 sm:col-start-5 lg:col-span-2 md:col-start-5 mt-0">
                 {pageData.scDateModifiedOverwrite}
@@ -63,9 +62,7 @@ export default function BenefitNavigatorArticles({ key, ...props }) {
                   props.locale === "en" ? "lg:col-span-2" : "lg:col-span-3"
                 } font-bold`}
               >
-                {props.locale === "en"
-                  ? dictionary[4].scTermEn
-                  : dictionary[4].scTermFr}
+                {getDictionaryTerm(dictionary, "LAST-UPDATED", props.locale)}
               </p>
               <p className="row-start-2 col-span-6 col-start-7 sm:col-start-5 lg:col-span-2 md:col-start-5 mt-auto">
                 {pageData.scDateModifiedOverwrite}
@@ -89,7 +86,7 @@ export default function BenefitNavigatorArticles({ key, ...props }) {
               sortUpdatesByDate(props.updatesData),
               pageData.scId
             )}
-            dictionary={props.dictionary}
+            dictionary={dictionary}
             heading={
               "Benefits navigator project updates"
               // props.locale === "en"
@@ -160,7 +157,7 @@ export const getStaticProps = async ({ locale, params }) => {
       locale: locale,
       pageData: pageData[0],
       updatesData: updatesData.sclabsPageV1List.items,
-      dictionary: dictionary.dictionaryV1List,
+      dictionary: dictionary.dictionaryV1List.items,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       ...(await serverSideTranslations(locale, ["common", "vc"])),
     },

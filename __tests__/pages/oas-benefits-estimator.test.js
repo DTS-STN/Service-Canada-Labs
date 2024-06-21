@@ -14,9 +14,9 @@ describe("OAS Benefits Estimator", () => {
       <OasBenefitsEstimator
         pageData={oasBenefitsEstimatorData.data.sclabsPageV1ByPath}
         updatesData={oasUpdatesData}
-        dictionary={dictionaryData.data.dictionaryV1List}
+        dictionary={dictionaryData.data.dictionaryV1List.items}
         allProjects={shuffle(experimentsData.data.scLabsPagev1List.items)}
-      />
+      />,
     );
   });
 });

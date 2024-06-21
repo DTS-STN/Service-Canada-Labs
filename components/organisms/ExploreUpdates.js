@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Link as LinkWrapper } from "../atoms/Link";
 import Card from "../molecules/Card";
+import { getDictionaryTerm } from "../../lib/utils/getDictionaryTerm";
 
 export function ExploreUpdates({
   heading,
@@ -23,13 +24,15 @@ export function ExploreUpdates({
                 <p className="text-multi-neutrals-grey100 font-semibold">
                   {locale === "en" ? "Project:" : "Projet :"}
                 </p>
-                <p className="mt-0 pl-1">{`${update.scDateModifiedOverwrite}`}</p>
+                <p className="mt-0 pl-1">
+                  {locale === "en"
+                    ? update.scLabProject.scTermEn
+                    : update.scLabProject.scTermFr}
+                </p>
               </span>
               <span className="flex flex-row pl-6">
                 <p className="text-multi-neutrals-grey100 font-semibold">
-                  {locale === "en"
-                    ? dictionary.items[11].scTermEn
-                    : dictionary.items[11].scTermFr}
+                  {getDictionaryTerm(dictionary, "POSTED-ON", locale)}
                 </p>
                 <p className="mt-0 pl-1">{`${update.scDateModifiedOverwrite}`}</p>
               </span>

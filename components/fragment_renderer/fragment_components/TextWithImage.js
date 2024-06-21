@@ -35,7 +35,7 @@ export default function TextWithImage({
           data={data}
           title={title}
           longDesc={longDesc}
-          children={children}
+          children={children}s
           excludeH1={excludeH1}
         />
       );

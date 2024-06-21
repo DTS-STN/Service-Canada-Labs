@@ -3122,6 +3122,11 @@ export const oasBenefitsEstimatorData = {
               "What we learned on Service Canada Labs before going live on Canada.ca",
             scTitleFr:
               "Ce que nous avons appris dans les laboratoires avant notre lancement sur Canada.ca",
+            scLabProject: {
+              scTermEn: "OAS Benefits Estimator",
+              scTermFr:
+                "Estimateur des prestations de la Sécurité de la vieillesse",
+            },
             scShortTitleEn: null,
             scShortTitleFr: null,
             scBreadcrumbParentPages: [
@@ -3186,6 +3191,11 @@ export const oasBenefitsEstimatorData = {
               "/fr/projets/estimateur-prestations-sv/faconner-grace-retroaction",
             scTitleEn: "How feedback is shaping the estimator",
             scTitleFr: "Façonner l’estimateur grâce à la rétroaction",
+            scLabProject: {
+              scTermEn: "OAS Benefits Estimator",
+              scTermFr:
+                "Estimateur des prestations de la Sécurité de la vieillesse",
+            },
             scShortTitleEn: null,
             scShortTitleFr: null,
             scBreadcrumbParentPages: [
@@ -4110,7 +4120,11 @@ export const playbookData = {
               "What we learned about awareness, use and gaps of the digital standards playbook",
             scTitleFr:
               "Ce que nous avons appris sur la connaissance, l'utilisation et les lacunes du guide sur les normes relatives au numérique",
-            scShortTitleEn: null,
+              scLabProject: {
+                scTermEn: "Digital Standards Playbook",
+                scTermFr: "Guide sur les normes relatives au numérique",
+              },
+              scShortTitleEn: null,
             scShortTitleFr: null,
             scBreadcrumbParentPages: [
               {
@@ -6065,8 +6079,8 @@ export const dashboardData = {
         scId: "CLIENT-HUB-DASHBOARD-OVERVIEW",
         scPageNameEn: "/en/projects/dashboard",
         scPageNameFr: "/fr/projets/tableau-de-bord",
-        scTitleEn: "My Service Canada Account dashboard",
-        scTitleFr: "Tableau de bord de Mon dossier Service Canada",
+        scTitleEn: "New dashboard for My Service Canada Account",
+        scTitleFr: "Nouveau tableau de bord pour Mon dossier Service Canada",
         scShortTitleEn: null,
         scShortTitleFr: null,
         scLabProjectStage: ["gc:custom/decd-endc/project-stage/beta"],
@@ -6126,7 +6140,142 @@ export const dashboardData = {
             },
           ],
         },
-        scLabProjectUpdates: [],
+        scLabProjectUpdates: [
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/client-hub/updates/overview",
+            scId: "PAGE-HUB-OVERVIEW",
+            scPageNameEn: "/en/projects/dashboard/overview",
+            scPageNameFr: "/fr/projets/tableau-de-bord/apercu",
+            scTitleEn: "Overview of My Service Canada dashboard",
+            scTitleFr:
+              "Aperçu du tableau de bord de Mon dossier Service Canada",
+            scLabProject: {
+              scTermEn: "My Service Canada Account dashboard",
+              scTermFr: "Tableau de bord de Mon dossier Service Canada",
+            },
+            scShortTitleEn: null,
+            scShortTitleFr: null,
+            scBreadcrumbParentPages: [
+              {
+                scTitleEn: "Service Canada Labs",
+                scTitleFr: "Laboratoires de Service Canada",
+                scPageNameEn: "/en/home",
+                scPageNameFr: "/fr/accueil",
+              },
+            ],
+            scSubject: [
+              "gc:subjects/gv-government-and-politics/government-services",
+            ],
+            scKeywordsEn: null,
+            scKeywordsFr: null,
+            scContentType: [
+              "gc:content-types/promotional-material-featured-articles",
+            ],
+            scOwner: ["gc:institutions/service-canada"],
+            scDateModifiedOverwrite: "2024-06-21",
+            scAudience: null,
+            scRegion: null,
+            scSocialMediaImageEn: {
+              _path:
+                "/content/dam/decd-endc/images/sclabs/client-hub/feature-dashboard-en.png",
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/client-hub/feature-dashboard-en.png",
+              width: 759,
+              height: 498,
+            },
+            scSocialMediaImageFr: {
+              _path:
+                "/content/dam/decd-endc/images/sclabs/client-hub/feature-dashboard-fr.png",
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/client-hub/feature-dashboard-fr.png",
+              width: 758,
+              height: 498,
+            },
+            scSocialMediaImageAltTextEn:
+              "My dashboard page from My Service Canada Account",
+            scSocialMediaImageAltTextFr:
+              "Page Mon tableau de bord de Mon dossier Service Canada",
+            scNoIndex: false,
+            scNoFollow: false,
+            scFragments: [
+              {
+                _path:
+                  "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/client-hub/updates/overview-intro",
+                scId: "CONTENT-HUB-OVERVIEW-INTRO",
+                scContentEn: {
+                  json: [
+                    {
+                      nodeType: "header",
+                      style: "h1",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Overview of My Service Canada dashboard",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "paragraph",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "The My Service Canada Account dashboard provides you with all your Service Canada payments, benefits and services in one central space for easy access.",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "header",
+                      style: "h2",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Overview of features",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                scContentFr: {
+                  json: [
+                    {
+                      nodeType: "header",
+                      style: "h1",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Aperçu du tableau de bord de Mon dossier Service Canada",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "paragraph",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Le tableau de bord de Mon dossier Service Canada vous permet d'accéder facilement à tous vos paiements, prestations et services de Service Canada dans un espace central.",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "header",
+                      style: "h2",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Aperçu des fonctionnalités",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        ],
         scBreadcrumbParentPages: [
           {
             scTitleEn: "Service Canada Labs",
@@ -6143,7 +6292,7 @@ export const dashboardData = {
         scKeywordsFr: null,
         scContentType: null,
         scOwner: null,
-        scDateModifiedOverwrite: "2023-06-28",
+        scDateModifiedOverwrite: "2024-06-21",
         scAudience: null,
         scRegion: null,
         scSocialMediaImageEn: {
@@ -6170,6 +6319,9 @@ export const dashboardData = {
         scNoFollow: false,
         scFragments: [
           {
+            _model: {
+              title: "SCLabs-Content-v1",
+            },
             _path:
               "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/client-hub/dashboard-intro",
             scId: "CLIENT-HUB-INTRO",
@@ -6285,9 +6437,13 @@ export const dashboardData = {
                 },
               ],
             },
-            scFragments: [],
           },
           {
+            _model: {
+              title: "SCLabs-Image-v1",
+            },
+            _path:
+              "/content/dam/decd-endc/content-fragments/sclabs/components/images/projects/client-hub/dashboard-overview",
             scId: "CLIENT-HUB-OVERVIEW",
             scImageEn: {
               _publishUrl:
@@ -6311,8 +6467,19 @@ export const dashboardData = {
             scImageCaptionFr: {
               json: null,
             },
+            scLongDescHeadingEn: null,
+            scLongDescHeadingFr: null,
+            scLongDescEn: {
+              json: null,
+            },
+            scLongDescFr: {
+              json: null,
+            },
           },
           {
+            _model: {
+              title: "Tooltip-v1",
+            },
             _path:
               "/content/dam/decd-endc/content-fragments/sclabs/components/tooltips/information-beta",
             scId: "INFORMATION-BETA-SCLABS",
@@ -6362,9 +6529,12 @@ export const dashboardData = {
             },
           },
           {
+            _model: {
+              title: "SCLabs-Content-v1",
+            },
             _path:
-              "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/client-hub/about",
-            scId: "DASHBOARD-ABOUT",
+              "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/client-hub/easy-access",
+            scId: "CONTENT-HUB-EASY-ACCESS",
             scContentEn: {
               json: [
                 {
@@ -6373,7 +6543,8 @@ export const dashboardData = {
                   content: [
                     {
                       nodeType: "text",
-                      value: "About the dashboard",
+                      value:
+                        "Easy access to your payments, benefits and services",
                     },
                   ],
                 },
@@ -6383,7 +6554,22 @@ export const dashboardData = {
                     {
                       nodeType: "text",
                       value:
-                        "The new dashboard is ready for you to try on My Service Canada Account. It will provide you with all your Service Canada payments, benefits and services in one central space for easy access. You'll be able to perform common actions such as starting an application, viewing your updates, submitting information or getting help.",
+                        "The new dashboard is available on My Service Canada Account, you just need to sign in. ",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Accéder plus facilement à vos paiements, prestations et services",
                     },
                   ],
                 },
@@ -6392,11 +6578,52 @@ export const dashboardData = {
                   content: [
                     {
                       nodeType: "text",
-                      value: "The dashboard will make it simple and easy to:",
+                      value:
+                        "Le nouveau tableau de bord est disponible sur Mon dossier Service Canada, il suffit de vous y connecter pour y accéder.",
                     },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            _model: {
+              title: "SCLabs-Button-v1",
+            },
+            scId: "SIGN-IN-MSCA-BUTTON",
+            scTitleEn: "Sign in to My Service Canada Account",
+            scTitleFr: "Se connecter à Mon dossier Service Canada",
+            scDestinationURLEn:
+              "https://www.canada.ca/en/employment-social-development/services/my-account.html",
+            scDestinationURLFr:
+              "https://www.canada.ca/fr/emploi-developpement-social/services/mon-dossier.html",
+            scButtonType: ["gc:custom/decd-endc/button-type/primary"],
+          },
+          {
+            _model: {
+              title: "SCLabs-Content-v1",
+            },
+            _path:
+              "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/client-hub/help-common-actions",
+            scId: "CONTENT-HUB-HELP-COMMON-ACTIONS",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
                     {
-                      nodeType: "line-break",
-                      content: [],
+                      nodeType: "text",
+                      value:
+                        "The dashboard helps you perform common actions such as starting an application, viewing your updates, submitting information or getting help.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "It makes it simple and easy to: ",
                     },
                   ],
                 },
@@ -6408,7 +6635,7 @@ export const dashboardData = {
                       content: [
                         {
                           nodeType: "text",
-                          value: "find the information you are looking for",
+                          value: "find the information you are looking for ",
                         },
                       ],
                     },
@@ -6417,7 +6644,7 @@ export const dashboardData = {
                       content: [
                         {
                           nodeType: "text",
-                          value: "start and complete what you came to do",
+                          value: "start and complete what you came to do ",
                         },
                       ],
                     },
@@ -6427,7 +6654,7 @@ export const dashboardData = {
                         {
                           nodeType: "text",
                           value:
-                            "view and manage your personal information for all benefits in one place",
+                            "view and manage your personal information for all benefits in one place ",
                         },
                       ],
                     },
@@ -6447,12 +6674,12 @@ export const dashboardData = {
             scContentFr: {
               json: [
                 {
-                  nodeType: "header",
-                  style: "h2",
+                  nodeType: "paragraph",
                   content: [
                     {
                       nodeType: "text",
-                      value: "À propos du tableau de bord",
+                      value:
+                        "Le tableau de bord vous permet d’effectuer des actions courantes, telles que présenter des demandes, consulter vos mises à jour, soumettre de l’information et obtenir de l’aide.",
                     },
                   ],
                 },
@@ -6462,17 +6689,7 @@ export const dashboardData = {
                     {
                       nodeType: "text",
                       value:
-                        "Le nouveau tableau de bord est disponible pour que vous puissiez l'essayer sur Mon dossier Service Canada. Il vous permettra d'accéder facilement à tous vos paiements, prestations et services de Service Canada dans un espace central. Vous pourrez effectuer des actions courantes, telles que présenter des demandes, consulter vos mises à jour, soumettre de l'information et obtenir de l'aide.",
-                    },
-                  ],
-                },
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "Le tableau de bord rendra les choses plus simples et plus faciles pour :",
+                        "Il rend les choses plus simples et plus faciles pour : ",
                     },
                     {
                       nodeType: "line-break",
@@ -6488,7 +6705,7 @@ export const dashboardData = {
                       content: [
                         {
                           nodeType: "text",
-                          value: "trouver l'information que vous cherchez;",
+                          value: "trouver l'information que vous cherchez; ",
                         },
                       ],
                     },
@@ -6498,7 +6715,7 @@ export const dashboardData = {
                         {
                           nodeType: "text",
                           value:
-                            "commencer et terminer ce que vous êtes venu faire;",
+                            "commencer et terminer ce que vous êtes venu faire; ",
                         },
                       ],
                     },
@@ -6508,7 +6725,7 @@ export const dashboardData = {
                         {
                           nodeType: "text",
                           value:
-                            "consulter et gérer vos renseignements personnels pour toutes vos prestations en un seul endroit;",
+                            "consulter et gérer vos renseignements personnels pour toutes vos prestations en un seul endroit; ",
                         },
                       ],
                     },
@@ -6526,1666 +6743,174 @@ export const dashboardData = {
                 },
               ],
             },
+          },
+          {
+            _model: {
+              title: "SCLabs-Content-v1",
+            },
+            _path:
+              "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/client-hub/help-improve",
+            scId: "CONTENT-HUB-HELP-IMPROVE",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Contribuer à l’amélioration du Guide",
+                    },
+                    {
+                      nodeType: "line-break",
+                      content: [],
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Nous conservons les 10 principes du ",
+                    },
+                    {
+                      nodeType: "link",
+                      data: {
+                        href: "https://www.canada.ca/fr/gouvernement/systeme/gouvernement-numerique/normes-numeriques-gouvernement-canada.html",
+                      },
+                      value: "Guide précédent",
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        ", mais nous améliorerons et élaborerons l’orientation en fonction de vos commentaires!",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Répondez à notre sondage rapide pour nous aider à comprendre le niveau de connaissance des utilisateurs à propos des normes relatives au numérique, cela nous permettra de recueillir les commentaires initiaux sur le contenu proposé du Guide.",
+                    },
+                  ],
+                },
+              ],
+            },
             scFragments: [],
           },
           {
-            scId: "SIGN-IN-MSCA-BUTTON",
-            scTitleEn: "Sign in to My Service Canada Account",
-            scTitleFr: "Se connecter à Mon dossier Service Canada",
+            _path:
+              "/content/dam/decd-endc/content-fragments/sclabs/components/tooltips/information-discovery",
+            scId: "INFORMATION-DISCOVERY-SCLABS",
+            scTitleEn: "Information",
+            scTitleFr: "Information",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Discovery:",
+                      format: {
+                        variants: ["strong"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        " Defining a problem, exploring needs and evaluating existing solutions.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Découverte : ",
+                      format: {
+                        variants: ["strong"],
+                      },
+                    },
+                    {
+                      nodeType: "text",
+                      value:
+                        "Définir un problème, explorer les besoins et évaluer les solutions existantes.",
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+          {
+            scId: "PLAYBOOK-OVERVIEW",
+            scImageEn: {
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/digital-standards-playbook/overview.png",
+              width: 500,
+              height: 335,
+            },
+            scImageFr: {
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/digital-standards-playbook/overview.png",
+              width: 500,
+              height: 335,
+            },
+            scImageMobileEn: null,
+            scImageMobileFr: null,
+            scImageAltTextEn: null,
+            scImageAltTextFr: null,
+            scImageCaptionEn: {
+              json: null,
+            },
+            scImageCaptionFr: {
+              json: null,
+            },
+          },
+          {
+            scId: "PLAYBOOK-TAKE-SURVEY",
+            scTitleEn: "Take survey",
+            scTitleFr: "Répondre au sondage",
             scDestinationURLEn:
-              "https://www.canada.ca/en/employment-social-development/services/my-account.html",
+              "https://forms-formulaires.alpha.canada.ca/id/clooguv2g0052yj6368lm0kb7",
             scDestinationURLFr:
-              "https://www.canada.ca/fr/emploi-developpement-social/services/mon-dossier.html",
+              "https://forms-formulaires.alpha.canada.ca/fr/id/clooguv2g0052yj6368lm0kb7",
             scButtonType: ["gc:custom/decd-endc/button-type/primary"],
           },
           {
             _path:
-              "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/client-hub/features",
-            scId: "DASHBOARD-FEATURES",
+              "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/digital-standards-playbook/share-thoughts",
+            scId: "PLAYBOOK-SHARE-THOUGHTS",
             scContentEn: {
               json: [
-                {
-                  nodeType: "header",
-                  style: "h2",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value: "Overview of features",
-                    },
-                  ],
-                },
-              ],
-            },
-            scContentFr: {
-              json: [
-                {
-                  nodeType: "header",
-                  style: "h2",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value: "Aperçu des fonctionnalités",
-                    },
-                  ],
-                },
-              ],
-            },
-            scFragments: [
-              {
-                _path:
-                  "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/client-hub/feature-dashboard",
-                scId: "FEATURE-DASHBOARD",
-                scContentEn: {
-                  json: [
-                    {
-                      nodeType: "header",
-                      style: "h3",
-                      content: [
-                        {
-                          nodeType: "text",
-                          value: "Information is clearly presented ",
-                        },
-                      ],
-                    },
-                    {
-                      nodeType: "paragraph",
-                      content: [
-                        {
-                          nodeType: "text",
-                          value: "On the dashboard, you will find: ",
-                        },
-                      ],
-                    },
-                    {
-                      nodeType: "unordered-list",
-                      content: [
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value: "all your benefits on the same page ",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value:
-                                "a menu to access your personal information and security settings",
-                            },
-                          ],
-                        },
-                      ],
-                    },
-                  ],
-                },
-                scContentFr: {
-                  json: [
-                    {
-                      nodeType: "header",
-                      style: "h3",
-                      content: [
-                        {
-                          nodeType: "text",
-                          value: "Information clairement présentée",
-                        },
-                        {
-                          nodeType: "line-break",
-                          content: [],
-                        },
-                      ],
-                    },
-                    {
-                      nodeType: "paragraph",
-                      content: [
-                        {
-                          nodeType: "text",
-                          value: "Sur le tableau de bord, vous trouverez :",
-                        },
-                      ],
-                    },
-                    {
-                      nodeType: "unordered-list",
-                      content: [
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value: "toutes vos prestations sur la même page;",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value:
-                                "un menu pour accéder à vos informations personnelles et à vos paramètres de sécurité.",
-                            },
-                          ],
-                        },
-                      ],
-                    },
-                  ],
-                },
-                scFragments: [
-                  {
-                    scId: "FEATURE-DASHBOARD",
-                    scImageEn: {
-                      _publishUrl:
-                        "https://www.canada.ca/content/dam/decd-endc/images/sclabs/client-hub/feature-dashboard-en.png",
-                      width: 759,
-                      height: 498,
-                    },
-                    scImageFr: {
-                      _publishUrl:
-                        "https://www.canada.ca/content/dam/decd-endc/images/sclabs/client-hub/feature-dashboard-fr.png",
-                      width: 758,
-                      height: 498,
-                    },
-                    scImageMobileEn: null,
-                    scImageMobileFr: null,
-                    scImageAltTextEn:
-                      "My dashboard page from My Service Canada Account",
-                    scImageAltTextFr:
-                      "Page Mon tableau de bord de Mon dossier Service Canada",
-                    scImageCaptionEn: {
-                      json: null,
-                    },
-                    scImageCaptionFr: {
-                      json: null,
-                    },
-                    scLongDescHeadingEn:
-                      "Text version of the image My dashboard",
-                    scLongDescHeadingFr:
-                      "Version textuelle de l’image Mon tableau de bord",
-                    scLongDescEn: {
-                      json: [
-                        {
-                          nodeType: "paragraph",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value: "The dashboard page includes: ",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "unordered-list",
-                          content: [
-                            {
-                              nodeType: "list-item",
-                              content: [
-                                {
-                                  nodeType: "text",
-                                  value: "a heading with: ",
-                                },
-                                {
-                                  nodeType: "unordered-list",
-                                  content: [
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value:
-                                            "the name of the site: My Service Canada Account ",
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "an “Account” menu ",
-                                        },
-                                      ],
-                                    },
-                                  ],
-                                },
-                              ],
-                            },
-                            {
-                              nodeType: "list-item",
-                              content: [
-                                {
-                                  nodeType: "text",
-                                  value: "benefits, such as: ",
-                                },
-                                {
-                                  nodeType: "unordered-list",
-                                  content: [
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value:
-                                            "Employment Insurance, with a link to applications, payments and claims, taxes, reports and documents, personal information ",
-                                        },
-                                        {
-                                          nodeType: "line-break",
-                                          content: [],
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value:
-                                            "Canada Pension Plan, with a link to applications, payments, taxes, documents, provisions, personal information ",
-                                        },
-                                        {
-                                          nodeType: "line-break",
-                                          content: [],
-                                        },
-                                      ],
-                                    },
-                                  ],
-                                },
-                              ],
-                            },
-                          ],
-                        },
-                      ],
-                    },
-                    scLongDescFr: {
-                      json: [
-                        {
-                          nodeType: "paragraph",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value:
-                                "Le tableau de bord contient les éléments suivants : ",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "unordered-list",
-                          content: [
-                            {
-                              nodeType: "list-item",
-                              content: [
-                                {
-                                  nodeType: "text",
-                                  value: "un en-tête avec : ",
-                                },
-                                {
-                                  nodeType: "unordered-list",
-                                  content: [
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value:
-                                            "le nom du site : Mon dossier Service Canada; ",
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "un menu « Compte »; ",
-                                        },
-                                      ],
-                                    },
-                                  ],
-                                },
-                              ],
-                            },
-                            {
-                              nodeType: "list-item",
-                              content: [
-                                {
-                                  nodeType: "text",
-                                  value: "des prestations, telles que : ",
-                                },
-                                {
-                                  nodeType: "unordered-list",
-                                  content: [
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value:
-                                            "Assurance-emploi, avec un lien vers les demandes de prestations, paiements et demandes, impôts, rapports et documents, renseignements personnels; ",
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value:
-                                            "Régime de pensions du Canada, avec un lien vers les demandes de prestations, paiements, impôts, documents, clauses, renseignements personnels.",
-                                        },
-                                      ],
-                                    },
-                                  ],
-                                },
-                              ],
-                            },
-                          ],
-                        },
-                      ],
-                    },
-                  },
-                ],
-              },
-              {
-                _path:
-                  "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/client-hub/feature-card",
-                scId: "FEATURE-CARD",
-                scContentEn: {
-                  json: [
-                    {
-                      nodeType: "header",
-                      style: "h3",
-                      content: [
-                        {
-                          nodeType: "text",
-                          value: "Actions are easy to find and to complete",
-                        },
-                      ],
-                    },
-                    {
-                      nodeType: "paragraph",
-                      content: [
-                        {
-                          nodeType: "text",
-                          value: "For each benefit, you will find:",
-                        },
-                      ],
-                    },
-                    {
-                      nodeType: "unordered-list",
-                      content: [
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value:
-                                "all the actions you can complete in the My Service Canada Account",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value:
-                                "actions organized by category to help you find what you are looking for",
-                            },
-                          ],
-                        },
-                      ],
-                    },
-                  ],
-                },
-                scContentFr: {
-                  json: [
-                    {
-                      nodeType: "header",
-                      style: "h3",
-                      content: [
-                        {
-                          nodeType: "text",
-                          value: "Actions faciles à trouver et à accomplir",
-                        },
-                      ],
-                    },
-                    {
-                      nodeType: "paragraph",
-                      content: [
-                        {
-                          nodeType: "text",
-                          value:
-                            "Pour chacune des prestations, vous trouverez :",
-                        },
-                      ],
-                    },
-                    {
-                      nodeType: "unordered-list",
-                      content: [
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value:
-                                "toutes les actions que vous pouvez accomplir à partir de Mon dossier Service Canada;",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value:
-                                "les actions organisées par catégorie pour vous aider à trouver ce que vous cherchez.",
-                            },
-                          ],
-                        },
-                      ],
-                    },
-                  ],
-                },
-                scFragments: [
-                  {
-                    scId: "FEATURE-CARD",
-                    scImageEn: {
-                      _publishUrl:
-                        "https://www.canada.ca/content/dam/decd-endc/images/sclabs/client-hub/feature-card-en.png",
-                      width: 759,
-                      height: 498,
-                    },
-                    scImageFr: {
-                      _publishUrl:
-                        "https://www.canada.ca/content/dam/decd-endc/images/sclabs/client-hub/feature-card-fr.png",
-                      width: 758,
-                      height: 498,
-                    },
-                    scImageMobileEn: null,
-                    scImageMobileFr: null,
-                    scImageAltTextEn:
-                      "Partial image of the Employment Insurance section of the dashboard",
-                    scImageAltTextFr:
-                      "Image partielle de la section Assurance-emploi du tableau de bord",
-                    scImageCaptionEn: {
-                      json: null,
-                    },
-                    scImageCaptionFr: {
-                      json: null,
-                    },
-                    scLongDescHeadingEn:
-                      "Text version of the image Employment Insurance",
-                    scLongDescHeadingFr:
-                      "Version textuelle de l’image Assurance-emploi",
-                    scLongDescEn: {
-                      json: [
-                        {
-                          nodeType: "paragraph",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value:
-                                "The Employment Insurance section includes:",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "unordered-list",
-                          content: [
-                            {
-                              nodeType: "list-item",
-                              content: [
-                                {
-                                  nodeType: "text",
-                                  value:
-                                    "a link “Applications, payments and claims, taxes, reports and documents, personal information” to show a list of actions",
-                                },
-                                {
-                                  nodeType: "line-break",
-                                  content: [],
-                                },
-                              ],
-                            },
-                            {
-                              nodeType: "list-item",
-                              content: [
-                                {
-                                  nodeType: "text",
-                                  value:
-                                    "actions organized by category, such as:",
-                                },
-                                {
-                                  nodeType: "line-break",
-                                  content: [],
-                                },
-                                {
-                                  nodeType: "unordered-list",
-                                  content: [
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "Most requested",
-                                        },
-                                        {
-                                          nodeType: "line-break",
-                                          content: [],
-                                        },
-                                        {
-                                          nodeType: "unordered-list",
-                                          content: [
-                                            {
-                                              nodeType: "list-item",
-                                              content: [
-                                                {
-                                                  nodeType: "text",
-                                                  value:
-                                                    "View my status updates",
-                                                },
-                                                {
-                                                  nodeType: "line-break",
-                                                  content: [],
-                                                },
-                                              ],
-                                            },
-                                            {
-                                              nodeType: "list-item",
-                                              content: [
-                                                {
-                                                  nodeType: "text",
-                                                  value: "View my payments",
-                                                },
-                                                {
-                                                  nodeType: "line-break",
-                                                  content: [],
-                                                },
-                                              ],
-                                            },
-                                          ],
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "Applications",
-                                        },
-                                        {
-                                          nodeType: "line-break",
-                                          content: [],
-                                        },
-                                        {
-                                          nodeType: "unordered-list",
-                                          content: [
-                                            {
-                                              nodeType: "list-item",
-                                              content: [
-                                                {
-                                                  nodeType: "text",
-                                                  value:
-                                                    "View my status updates",
-                                                },
-                                                {
-                                                  nodeType: "line-break",
-                                                  content: [],
-                                                },
-                                              ],
-                                            },
-                                            {
-                                              nodeType: "list-item",
-                                              content: [
-                                                {
-                                                  nodeType: "text",
-                                                  value:
-                                                    "Apply for Employment Insurance",
-                                                },
-                                                {
-                                                  nodeType: "line-break",
-                                                  content: [],
-                                                },
-                                              ],
-                                            },
-                                          ],
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "Payments and claims",
-                                        },
-                                        {
-                                          nodeType: "line-break",
-                                          content: [],
-                                        },
-                                        {
-                                          nodeType: "unordered-list",
-                                          content: [
-                                            {
-                                              nodeType: "list-item",
-                                              content: [
-                                                {
-                                                  nodeType: "text",
-                                                  value: "View my payments",
-                                                },
-                                                {
-                                                  nodeType: "line-break",
-                                                  content: [],
-                                                },
-                                              ],
-                                            },
-                                            {
-                                              nodeType: "list-item",
-                                              content: [
-                                                {
-                                                  nodeType: "text",
-                                                  value: "View my latest claim",
-                                                },
-                                                {
-                                                  nodeType: "line-break",
-                                                  content: [],
-                                                },
-                                              ],
-                                            },
-                                            {
-                                              nodeType: "list-item",
-                                              content: [
-                                                {
-                                                  nodeType: "text",
-                                                  value: "View my past claims",
-                                                },
-                                                {
-                                                  nodeType: "line-break",
-                                                  content: [],
-                                                },
-                                              ],
-                                            },
-                                          ],
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "Reports and documents",
-                                        },
-                                        {
-                                          nodeType: "line-break",
-                                          content: [],
-                                        },
-                                      ],
-                                    },
-                                  ],
-                                },
-                              ],
-                            },
-                          ],
-                        },
-                      ],
-                    },
-                    scLongDescFr: {
-                      json: [
-                        {
-                          nodeType: "paragraph",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value: "La section Assurance-emploi contient :",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "unordered-list",
-                          content: [
-                            {
-                              nodeType: "list-item",
-                              content: [
-                                {
-                                  nodeType: "text",
-                                  value:
-                                    "un lien « Demandes de prestations, paiements et demandes, impôts, rapports et documents, renseignements personnels » qui affiche une liste d’actions;",
-                                },
-                              ],
-                            },
-                            {
-                              nodeType: "list-item",
-                              content: [
-                                {
-                                  nodeType: "text",
-                                  value:
-                                    "des actions classées par catégorie, telles que :",
-                                },
-                                {
-                                  nodeType: "unordered-list",
-                                  content: [
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "En demande",
-                                        },
-                                        {
-                                          nodeType: "unordered-list",
-                                          content: [
-                                            {
-                                              nodeType: "list-item",
-                                              content: [
-                                                {
-                                                  nodeType: "text",
-                                                  value:
-                                                    "Consulter l'état de ma demande",
-                                                },
-                                              ],
-                                            },
-                                            {
-                                              nodeType: "list-item",
-                                              content: [
-                                                {
-                                                  nodeType: "text",
-                                                  value:
-                                                    "Consulter mes paiements",
-                                                },
-                                              ],
-                                            },
-                                          ],
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "Demandes de prestations",
-                                        },
-                                        {
-                                          nodeType: "unordered-list",
-                                          content: [
-                                            {
-                                              nodeType: "list-item",
-                                              content: [
-                                                {
-                                                  nodeType: "text",
-                                                  value:
-                                                    "Consulter l'état de ma demande",
-                                                },
-                                              ],
-                                            },
-                                            {
-                                              nodeType: "list-item",
-                                              content: [
-                                                {
-                                                  nodeType: "text",
-                                                  value:
-                                                    "Présenter une demande d'assurance-emploi",
-                                                },
-                                              ],
-                                            },
-                                          ],
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "Paiements et demandeS",
-                                        },
-                                        {
-                                          nodeType: "unordered-list",
-                                          content: [
-                                            {
-                                              nodeType: "list-item",
-                                              content: [
-                                                {
-                                                  nodeType: "text",
-                                                  value:
-                                                    "Consulter mes paiements",
-                                                },
-                                              ],
-                                            },
-                                            {
-                                              nodeType: "list-item",
-                                              content: [
-                                                {
-                                                  nodeType: "text",
-                                                  value:
-                                                    "Consulter ma dernière demande",
-                                                },
-                                              ],
-                                            },
-                                            {
-                                              nodeType: "list-item",
-                                              content: [
-                                                {
-                                                  nodeType: "text",
-                                                  value:
-                                                    "Consulter mes demandes antérieures",
-                                                },
-                                              ],
-                                            },
-                                          ],
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "Rapports et documents",
-                                        },
-                                      ],
-                                    },
-                                  ],
-                                },
-                              ],
-                            },
-                          ],
-                        },
-                      ],
-                    },
-                  },
-                ],
-              },
-              {
-                _path:
-                  "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/client-hub/feature-profile",
-                scId: "FEATURE-PROFILE",
-                scContentEn: {
-                  json: [
-                    {
-                      nodeType: "header",
-                      style: "h3",
-                      content: [
-                        {
-                          nodeType: "text",
-                          value:
-                            "Your information can be viewed and updated in one place",
-                        },
-                      ],
-                    },
-                    {
-                      nodeType: "paragraph",
-                      content: [
-                        {
-                          nodeType: "text",
-                          value:
-                            "On the profile page, you will be able to view and update your:",
-                        },
-                      ],
-                    },
-                    {
-                      nodeType: "unordered-list",
-                      content: [
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value: "address",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value: "telephone number",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value: "banking information for direct deposit",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value: "language of correspondence",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value: "consent to communicate on your behalf",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value:
-                                "preferences for email notifications (Alert me)",
-                            },
-                          ],
-                        },
-                      ],
-                    },
-                  ],
-                },
-                scContentFr: {
-                  json: [
-                    {
-                      nodeType: "header",
-                      style: "h3",
-                      content: [
-                        {
-                          nodeType: "text",
-                          value:
-                            "Consultation et mise à jour de vos renseignements personnels à un endroit",
-                        },
-                      ],
-                    },
-                    {
-                      nodeType: "paragraph",
-                      content: [
-                        {
-                          nodeType: "text",
-                          value:
-                            "Sur la page de profil, vous pourrez consulter et mettre à jour votre :",
-                        },
-                      ],
-                    },
-                    {
-                      nodeType: "unordered-list",
-                      content: [
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value: "adresse;",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value: "numéro de téléphone;",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value:
-                                "information bancaire pour le dépôt direct;",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value: "langue de correspondance;",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value:
-                                "autorisation de communiquer en votre nom;",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value:
-                                "préférence pour les notifications par courrier électronique (Alertez-moi).",
-                            },
-                          ],
-                        },
-                      ],
-                    },
-                  ],
-                },
-                scFragments: [
-                  {
-                    scId: "FEATURE-PROFILE",
-                    scImageEn: {
-                      _publishUrl:
-                        "https://www.canada.ca/content/dam/decd-endc/images/sclabs/client-hub/feature-profile-en.png",
-                      width: 759,
-                      height: 498,
-                    },
-                    scImageFr: {
-                      _publishUrl:
-                        "https://www.canada.ca/content/dam/decd-endc/images/sclabs/client-hub/feature-profile-fr.png",
-                      width: 759,
-                      height: 499,
-                    },
-                    scImageMobileEn: null,
-                    scImageMobileFr: null,
-                    scImageAltTextEn: "Partial image of the Profile page",
-                    scImageAltTextFr: "Image partielle de la page Profil",
-                    scImageCaptionEn: {
-                      json: null,
-                    },
-                    scImageCaptionFr: {
-                      json: null,
-                    },
-                    scLongDescHeadingEn: "Text version of the image Profile",
-                    scLongDescHeadingFr: "Version textuelle de l’image Profil",
-                    scLongDescEn: {
-                      json: [
-                        {
-                          nodeType: "paragraph",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value:
-                                "The Profile page provides access to personal information for each benefit program.",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "unordered-list",
-                          content: [
-                            {
-                              nodeType: "list-item",
-                              content: [
-                                {
-                                  nodeType: "text",
-                                  value: "Employment Insurance:",
-                                },
-                                {
-                                  nodeType: "unordered-list",
-                                  content: [
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "Address and telephone number",
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "Province of residence",
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "Direct deposit details",
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "Language of correspondence",
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value:
-                                            "Email notifications (Alert me)",
-                                        },
-                                      ],
-                                    },
-                                  ],
-                                },
-                              ],
-                            },
-                            {
-                              nodeType: "list-item",
-                              content: [
-                                {
-                                  nodeType: "text",
-                                  value: "Canada Pension Plan",
-                                },
-                              ],
-                            },
-                          ],
-                        },
-                      ],
-                    },
-                    scLongDescFr: {
-                      json: [
-                        {
-                          nodeType: "paragraph",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value:
-                                "La page Profil donne accès à vos renseignements personnels pour chaque programme de prestations. ",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "unordered-list",
-                          content: [
-                            {
-                              nodeType: "list-item",
-                              content: [
-                                {
-                                  nodeType: "text",
-                                  value: "Assurance-emploi",
-                                },
-                                {
-                                  nodeType: "unordered-list",
-                                  content: [
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value:
-                                            "Adresse et numéro de téléphone",
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "Province de résidence",
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value:
-                                            "Renseignements sur le dépôt direct",
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "Langue de correspondance",
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value:
-                                            "Avis par courriel (Alertez-moi)",
-                                        },
-                                      ],
-                                    },
-                                  ],
-                                },
-                              ],
-                            },
-                            {
-                              nodeType: "list-item",
-                              content: [
-                                {
-                                  nodeType: "text",
-                                  value: "Régime de pensions du Canada",
-                                },
-                              ],
-                            },
-                          ],
-                        },
-                      ],
-                    },
-                  },
-                ],
-              },
-              {
-                _path:
-                  "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/client-hub/feature-contact",
-                scId: "FEATURE-CONTACT",
-                scContentEn: {
-                  json: [
-                    {
-                      nodeType: "header",
-                      style: "h3",
-                      content: [
-                        {
-                          nodeType: "text",
-                          value: "Contact information is easy to find",
-                        },
-                      ],
-                    },
-                    {
-                      nodeType: "paragraph",
-                      content: [
-                        {
-                          nodeType: "text",
-                          value:
-                            "On the contact us pages, you will find how to reach us:",
-                        },
-                      ],
-                    },
-                    {
-                      nodeType: "unordered-list",
-                      content: [
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value: "by telephone",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value: "via callback",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value: "in person",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value: "by mail",
-                            },
-                          ],
-                        },
-                      ],
-                    },
-                  ],
-                },
-                scContentFr: {
-                  json: [
-                    {
-                      nodeType: "header",
-                      style: "h3",
-                      content: [
-                        {
-                          nodeType: "text",
-                          value: "Coordonnées faciles à trouver",
-                        },
-                      ],
-                    },
-                    {
-                      nodeType: "paragraph",
-                      content: [
-                        {
-                          nodeType: "text",
-                          value:
-                            "Sur les pages de coordonnées, vous trouverez comment nous joindre :",
-                        },
-                      ],
-                    },
-                    {
-                      nodeType: "unordered-list",
-                      content: [
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value: "par téléphone;",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value: "par demande de rappel;",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value: "en personne;",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "list-item",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value: "par la poste.",
-                            },
-                          ],
-                        },
-                      ],
-                    },
-                  ],
-                },
-                scFragments: [
-                  {
-                    scId: "FEATURE-CONTACT",
-                    scImageEn: {
-                      _publishUrl:
-                        "https://www.canada.ca/content/dam/decd-endc/images/sclabs/client-hub/feature-contact-en.png",
-                      width: 758,
-                      height: 498,
-                    },
-                    scImageFr: {
-                      _publishUrl:
-                        "https://www.canada.ca/content/dam/decd-endc/images/sclabs/client-hub/feature-contact-fr.png",
-                      width: 758,
-                      height: 498,
-                    },
-                    scImageMobileEn: null,
-                    scImageMobileFr: null,
-                    scImageAltTextEn:
-                      "Partial image of the Contact Employment Insurance page",
-                    scImageAltTextFr:
-                      "Image partielle de la page Communiquer avec l'assurance-emploi",
-                    scImageCaptionEn: {
-                      json: null,
-                    },
-                    scImageCaptionFr: {
-                      json: null,
-                    },
-                    scLongDescHeadingEn:
-                      "Text version of the image Contact Employment Insurance",
-                    scLongDescHeadingFr:
-                      "Version textuelle de l’image Communiquer avec l'assurance-emploi",
-                    scLongDescEn: {
-                      json: [
-                        {
-                          nodeType: "paragraph",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value:
-                                "The Contact Employment Insurance page includes elements such as:",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "unordered-list",
-                          content: [
-                            {
-                              nodeType: "list-item",
-                              content: [
-                                {
-                                  nodeType: "text",
-                                  value:
-                                    "links to navigate to the information on the page:",
-                                },
-                                {
-                                  nodeType: "unordered-list",
-                                  content: [
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "Telephone",
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "Callback",
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value:
-                                            "In person at a Service Canada Centre",
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "Mail",
-                                        },
-                                      ],
-                                    },
-                                  ],
-                                },
-                              ],
-                            },
-                            {
-                              nodeType: "list-item",
-                              content: [
-                                {
-                                  nodeType: "text",
-                                  value:
-                                    "a “Telephone” section with instructions and coordinates: Call us to speak to an Employment Insurance representative for help during the hours of operation listed below",
-                                },
-                              ],
-                            },
-                            {
-                              nodeType: "list-item",
-                              content: [
-                                {
-                                  nodeType: "text",
-                                  value:
-                                    "telephone numbers: 1-800-206-7218 (toll-free), 1-800-529-3742 (TTY)",
-                                },
-                              ],
-                            },
-                          ],
-                        },
-                      ],
-                    },
-                    scLongDescFr: {
-                      json: [
-                        {
-                          nodeType: "paragraph",
-                          content: [
-                            {
-                              nodeType: "text",
-                              value:
-                                "La page Communiquer avec l'assurance-emploi contient de l’information telle que :",
-                            },
-                          ],
-                        },
-                        {
-                          nodeType: "unordered-list",
-                          content: [
-                            {
-                              nodeType: "list-item",
-                              content: [
-                                {
-                                  nodeType: "text",
-                                  value: "des liens de navigation sur la page",
-                                },
-                                {
-                                  nodeType: "unordered-list",
-                                  content: [
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "Téléphone",
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "Demande de rappel",
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value:
-                                            "En personne à un Centre Service Canada",
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      nodeType: "list-item",
-                                      content: [
-                                        {
-                                          nodeType: "text",
-                                          value: "Poste",
-                                        },
-                                      ],
-                                    },
-                                  ],
-                                },
-                              ],
-                            },
-                            {
-                              nodeType: "list-item",
-                              content: [
-                                {
-                                  nodeType: "text",
-                                  value:
-                                    "une section « Téléphone » avec des instructions et coordonnées : Appelez-nous pour parler à un représentant de l'assurance-emploi et obtenir de l'aide pendant les heures d’ouverture indiquées ci-dessous",
-                                },
-                              ],
-                            },
-                            {
-                              nodeType: "list-item",
-                              content: [
-                                {
-                                  nodeType: "text",
-                                  value:
-                                    "des numéro de téléphone : 1-800-808-6352 (sans frais), 1-800-529-3742 (ATS)",
-                                },
-                              ],
-                            },
-                          ],
-                        },
-                      ],
-                    },
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            _path:
-              "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/client-hub/help-design",
-            scId: "DASHBOARD-HELP-DESIGN",
-            scContentEn: {
-              json: [
-                {
-                  nodeType: "header",
-                  style: "h2",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value: "Help design the dashboard",
-                    },
-                  ],
-                },
                 {
                   nodeType: "paragraph",
                   content: [
                     {
                       nodeType: "text",
                       value:
-                        "We will continue to make improvements to the dashboard and My Service Canada Account. Our goal is to make it easier to understand your government benefits and apply for them. To create a tool that meets your needs, we would like your input.",
-                    },
-                    {
-                      nodeType: "line-break",
-                      content: [],
-                    },
-                  ],
-                },
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "Do you find these features helpful? Would you like to see other ones? Email us at ",
+                        "Interested in seeing the full Playbook or want to share your thoughts? Email us at ",
                     },
                     {
                       nodeType: "link",
                       data: {
-                        href: "mailto:experience@servicecanada.gc.ca",
+                        href: "mailto:servicedigital-servicesnumerique@tbs-sct.gc.ca",
                       },
-                      value: "experience@servicecanada.gc.ca",
+                      value: "servicedigital-servicesnumerique@tbs-sct.gc.ca",
                     },
                     {
                       nodeType: "text",
                       value: ".",
                     },
-                    {
-                      nodeType: "line-break",
-                      content: [],
-                    },
                   ],
                 },
                 {
@@ -8194,24 +6919,7 @@ export const dashboardData = {
                     {
                       nodeType: "text",
                       value:
-                        "This email address is to give your feedback on the My Service Canada Account Dashboard. If you need help with your government benefits, contact ",
-                    },
-                    {
-                      nodeType: "span",
-                      content: [
-                        {
-                          nodeType: "text",
-                          value: "1 800 O-Canada",
-                        },
-                      ],
-                      data: {
-                        class: "nowrap",
-                      },
-                    },
-                    {
-                      nodeType: "text",
-                      value:
-                        ". You will not receive a response if your email is about your benefits.",
+                        "The Playbook will continue to evolve to better meet your needs. Expect to see updates here as we refine the content.",
                     },
                     {
                       nodeType: "line-break",
@@ -8224,56 +6932,24 @@ export const dashboardData = {
             scContentFr: {
               json: [
                 {
-                  nodeType: "header",
-                  style: "h2",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value: "Contribuez à la conception du tableau de bord",
-                    },
-                    {
-                      nodeType: "line-break",
-                      content: [],
-                    },
-                  ],
-                },
-                {
                   nodeType: "paragraph",
                   content: [
                     {
                       nodeType: "text",
                       value:
-                        "Nous continuerons d'apporter des améliorations au tableau de bord et à Mon dossier Service Canada. Notre objectif est de rendre vos prestations gouvernementales plus faciles à comprendre et à demander. Pour créer un outil qui réponde à vos besoins, nous aimerions avoir votre avis.",
-                    },
-                    {
-                      nodeType: "line-break",
-                      content: [],
-                    },
-                  ],
-                },
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "Trouvez-vous ces fonctionnalités utiles? Souhaitez-vous en voir d'autres? Envoyez-nous un courriel à l'adresse suivante : ",
+                        "Vous souhaitez consulter le Guide complet ou nous faire part de vos commentaires? Envoyez-nous un courriel, à : ",
                     },
                     {
                       nodeType: "link",
                       data: {
-                        href: "mailto:experience@servicecanada.gc.ca",
+                        href: "mailto:servicedigital-servicesnumerique@tbs-sct.gc.ca",
                       },
-                      value: "experience@servicecanada.gc.ca",
+                      value: "servicedigital-servicesnumerique@tbs-sct.gc.ca",
                     },
                     {
                       nodeType: "text",
                       value: ".",
                     },
-                    {
-                      nodeType: "line-break",
-                      content: [],
-                    },
                   ],
                 },
                 {
@@ -8282,24 +6958,7 @@ export const dashboardData = {
                     {
                       nodeType: "text",
                       value:
-                        "Cette adresse de courriel vous permet de nous faire part de vos commentaires sur le tableau de bord de Mon dossier Service Canada. Si vous avez besoin d'aide concernant vos prestations gouvernementales, contactez le ",
-                    },
-                    {
-                      nodeType: "span",
-                      content: [
-                        {
-                          nodeType: "text",
-                          value: "1 800 O-Canada",
-                        },
-                      ],
-                      data: {
-                        class: "nowrap",
-                      },
-                    },
-                    {
-                      nodeType: "text",
-                      value:
-                        ". Vous ne recevrez pas de réponse si votre courriel concerne vos prestations.",
+                        "Le Guide continuera d’évoluer de façon itérative pour mieux répondre à vos besoins. Restez à l’affût afin de constater les mises à jour en continu.",
                     },
                     {
                       nodeType: "line-break",

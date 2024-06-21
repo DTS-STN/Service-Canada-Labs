@@ -10,6 +10,7 @@ import { Heading } from "../../../components/molecules/Heading";
 import { filterItems } from "../../../lib/utils/filterItems";
 import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
+import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 
 export default function MscaDashboardArticles({ key, ...props }) {
   const [pageData] = useState(props.pageData);
@@ -51,9 +52,7 @@ export default function MscaDashboardArticles({ key, ...props }) {
                   props.locale === "en" ? "lg:col-span-2" : "lg:col-span-3"
                 } font-bold`}
               >
-                {props.locale === "en"
-                  ? dictionary[9].scTermEn
-                  : dictionary[9].scTermFr}
+                {getDictionaryTerm(dictionary, "POSTED-ON", props.locale)}
               </p>
               <p className="col-span-6 col-start-7 sm:col-start-5 lg:col-span-2 md:col-start-5 mt-0">
                 {pageData.scDateModifiedOverwrite}
@@ -63,9 +62,7 @@ export default function MscaDashboardArticles({ key, ...props }) {
                   props.locale === "en" ? "lg:col-span-2" : "lg:col-span-3"
                 } font-bold`}
               >
-                {props.locale === "en"
-                  ? dictionary[4].scTermEn
-                  : dictionary[4].scTermFr}
+                {getDictionaryTerm(dictionary, "LAST-UPDATED", props.locale)}
               </p>
               <p className="row-start-2 col-span-6 col-start-7 sm:col-start-5 lg:col-span-2 md:col-start-5 mt-auto">
                 {pageData.scDateModifiedOverwrite}
