@@ -267,7 +267,102 @@ query getDashboardPage {
       scNoIndex
       scNoFollow
       scFragments {
+        ... on SclabsCompContentV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
+          scId
+          scLabContent {
+            ... on SclabsContentV1Model {
+              scContentEn {
+                json
+              }
+              scContentFr {
+                json
+              }
+            }
+          }
+          scLabLayout
+        }
+        ... on SclabsCompContentImageV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
+          scId
+          scLabContent {
+            scId
+            scContentEn {
+              json
+            }
+            scContentFr {
+              json
+            }
+          }
+          scLabImage {
+            ... on SclabsImageV1Model {
+              scId
+              scImageEn {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageFr {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageMobileEn {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageMobileFr {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageAltTextEn
+              scImageAltTextFr
+              scImageCaptionEn {
+                json
+              }
+              scImageCaptionFr {
+                json
+              }
+            }
+          }
+          scLabLayout
+        }
         ... on SclabsContentV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
           _path
           scId
           scContentEn {
@@ -276,81 +371,14 @@ query getDashboardPage {
           scContentFr {
             json
           }
-          scFragments {
-            ... on SclabsContentV1Model {
-              _path
-              scId
-              scContentEn {
-                json
-              }
-              scContentFr {
-                json
-              }
-              scFragments {
-                ... on SclabsImageV1Model {
-                  scId
-                  scImageEn {
-                    ... on ImageRef {
-                      _publishUrl
-                      width
-                      height
-                    }
-                    ... on DocumentRef {
-                      _publishUrl
-                    }
-                  }
-                  scImageFr {
-                    ... on ImageRef {
-                      _publishUrl
-                      width
-                      height
-                    }
-                    ... on DocumentRef {
-                      _publishUrl
-                    }
-                  }
-                  scImageMobileEn {
-                    ... on ImageRef {
-                      _publishUrl
-                      width
-                      height
-                    }
-                    ... on DocumentRef {
-                      _publishUrl
-                    }
-                  }
-                  scImageMobileFr {
-                    ... on ImageRef {
-                      _publishUrl
-                      width
-                      height
-                    }
-                    ... on DocumentRef {
-                      _publishUrl
-                    }
-                  }
-                  scImageAltTextEn
-                  scImageAltTextFr
-                  scImageCaptionEn {
-                    json
-                  }
-                  scImageCaptionFr {
-                    json
-                  }
-                  scLongDescHeadingEn
-                  scLongDescHeadingFr
-                  scLongDescEn {
-                    json
-                  }
-                  scLongDescFr {
-                    json
-                  }
-                }
-              }
-            }
-          }
         }
         ... on SclabsImageV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
+          _path
           scId
           scImageEn {
             ... on ImageRef {
@@ -400,8 +428,21 @@ query getDashboardPage {
           scImageCaptionFr {
             json
           }
+          scLongDescHeadingEn
+          scLongDescHeadingFr
+          scLongDescEn {
+            json
+          }
+          scLongDescFr {
+            json
+          }
         }
         ... on SclabsButtonV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
           scId
           scTitleEn
           scTitleFr
@@ -410,6 +451,11 @@ query getDashboardPage {
           scButtonType
         }
         ... on SclabsFeatureV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
           scId
           scTitleEn
           scTitleFr
@@ -429,6 +475,7 @@ query getDashboardPage {
               _publishUrl
             }
           }
+          scImageAltTextEn
           scImageFr {
             ... on ImageRef {
               _publishUrl
@@ -439,6 +486,7 @@ query getDashboardPage {
               _publishUrl
             }
           }
+          scImageAltTextFr
           scFragments {
             ... on SclabsAlertV1Model {
               _path
@@ -466,6 +514,11 @@ query getDashboardPage {
           }
         }
         ... on TooltipV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
           _path
           scId
           scTitleEn
