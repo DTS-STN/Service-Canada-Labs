@@ -32,11 +32,7 @@ export default function ImageVerticalLineContent({
         </div>
         {longDesc ? (
           <div className="mb-6 col-span-12 xl:col-span-8 row-start-2 xl:row-start-2">
-            <Collapse
-              id="image-text-collapse-1"
-              title={title}
-              children={children}
-            />
+            <Collapse data-testid="summary" title={title} children={children} />
           </div>
         ) : (
           ""
