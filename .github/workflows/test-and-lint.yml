@@ -29,6 +29,7 @@ jobs:
         env:
           NEXT_PUBLIC_API_MOCKING: enabled
           AEM_GRAPHQL_ENDPOINT: ${{ secrets.AEM_GRAPHQL_ENDPOINT }}
+          AEM_BASE_URL: ${{ secrets.AEM_BASE_URL }}
           ADOBE_ANALYTICS_URL: ${{ secrets.ADOBE_ANALYTICS_URL }}
           THANK_YOU_EMAIL: ${{ secrets.THANK_YOU_EMAIL }}
           CI: true
