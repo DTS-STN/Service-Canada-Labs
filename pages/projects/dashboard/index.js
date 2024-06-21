@@ -6,11 +6,8 @@ import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
-import { Collapse } from "../../../components/molecules/Collapse";
-import { ActionButton } from "../../../components/atoms/ActionButton";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
-import TextRender from "../../../components/text_node_renderer/TextRender";
 import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
 import { useState } from "react";
 import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
@@ -321,7 +318,7 @@ export default function MscaDashboard(props) {
         {props.updatesData.length !== 0 ? (
           <ExploreUpdates
             locale={props.locale}
-            updatesData={sortUpdatesByDate(updatesData)}
+            updatesData={sortUpdatesByDate(props.updatesData)}
             dictionary={props.dictionary}
             heading={
               "Dashboard project updates"

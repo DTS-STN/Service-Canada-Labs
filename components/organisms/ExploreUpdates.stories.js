@@ -21,6 +21,10 @@ Default.args = {
       scPageNameEn: "/en/projects/oas-benefits-estimator/how-feedback-shaping",
       scPageNameFr:
         "/fr/projets/estimateur-prestations-sv/faconner-grace-retroaction",
+      scLabProject: {
+        scTermEn: "OAS Benefits Estimator",
+        scTermFr: "Estimateur des prestations de la Sécurité de la vieillesse",
+      },
       scTitleEn: "How feedback is shaping the estimator",
       scTitleFr: "Façonner l’estimateur grâce à la rétroaction",
       scBreadcrumbParentPages: [
@@ -74,6 +78,10 @@ Default.args = {
       scPageNameEn: "/en/projects/oas-benefits-estimator/what-we-learned",
       scPageNameFr:
         "/fr/projets/estimateur-prestations-sv/ce-que-nous-avons-appris",
+      scLabProject: {
+        scTermEn: "OAS Benefits Estimator",
+        scTermFr: "Estimateur des prestations de la Sécurité de la vieillesse",
+      },
       scTitleEn:
         "What we learned on Service Canada Labs before going live on Canada.ca",
       scTitleFr:

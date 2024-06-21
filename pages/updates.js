@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../components/organisms/Layout";
 import { useEffect, useState } from "react";
