@@ -12,7 +12,7 @@ query getMSCADashboardArticles {
       _path: {
         _expressions: [
           {
-            value: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/client-hub/project-updates/"
+            value: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/client-hub/updates/"
             _operator: STARTS_WITH
           }
         ]
@@ -150,6 +150,14 @@ query getMSCADashboardArticles {
                 ... on DocumentRef {
                   _publishUrl
                 }
+              }
+              scLongDescHeadingEn
+              scLongDescHeadingFr
+              scLongDescEn {
+                json
+              }
+              scLongDescFr {
+                json
               }
               scImageAltTextEn
               scImageAltTextFr
