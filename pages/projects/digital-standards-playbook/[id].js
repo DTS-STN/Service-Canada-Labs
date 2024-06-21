@@ -35,7 +35,7 @@ export default function DigitalStandardsArticles({ key, ...props }) {
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
-          props.locale,
+          props.locale
         )}
       >
         <PageHead pageData={pageData} locale={props.locale} />
@@ -86,7 +86,7 @@ export default function DigitalStandardsArticles({ key, ...props }) {
             locale={props.locale}
             updatesData={filterItems(
               sortUpdatesByDate(props.updatesData),
-              pageData.scId,
+              pageData.scId
             )}
             dictionary={props.dictionary}
             heading={
@@ -117,7 +117,7 @@ export default function DigitalStandardsArticles({ key, ...props }) {
 export async function getStaticPaths() {
   // Get pages data
   const { data } = await aemServiceInstance.getFragment(
-    "getDigitalStandardsPlaybookArticles",
+    "getDigitalStandardsPlaybookArticles"
   );
   // Get paths for dynamic routes from the page name data
   const paths = getAllUpdateIds(data.sclabsPageV1List.items);
@@ -132,11 +132,12 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({ locale, params }) => {
   // Get pages data
   const { data: updatesData } = await aemServiceInstance.getFragment(
-    "getDigitalStandardsPlaybookArticles",
+    "getDigitalStandardsPlaybookArticles"
   );
   // get dictionary
-  const { data: dictionary } =
-    await aemServiceInstance.getFragment("dictionaryQuery");
+  const { data: dictionary } = await aemServiceInstance.getFragment(
+    "dictionaryQuery"
+  );
   const pages = updatesData.sclabsPageV1List.items;
   // Return page data that matches the current page being built
   const pageData = pages.filter((page) => {

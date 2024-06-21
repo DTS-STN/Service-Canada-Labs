@@ -26,8 +26,8 @@ export default function OasBenefitsEstimator(props) {
         item.scId === "STARTED" ||
         item.scId === "ENDED" ||
         item.scId === "PROJECT-STAGE" ||
-        item.scId === "SUMMARY",
-    ),
+        item.scId === "SUMMARY"
+    )
   );
 
   useEffect(() => {
@@ -47,7 +47,7 @@ export default function OasBenefitsEstimator(props) {
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
-          props.locale,
+          props.locale
         )}
       >
         <Head>
@@ -412,14 +412,16 @@ export default function OasBenefitsEstimator(props) {
 export const getStaticProps = async ({ locale }) => {
   // get page data from AEM
   const { data: pageData } = await aemServiceInstance.getFragment(
-    "oasBenefitsEstimatorQuery",
+    "oasBenefitsEstimatorQuery"
   );
   // get dictionary
-  const { data: dictionary } =
-    await aemServiceInstance.getFragment("dictionaryQuery");
+  const { data: dictionary } = await aemServiceInstance.getFragment(
+    "dictionaryQuery"
+  );
   // get all projects data
-  const { data: allProjects } =
-    await aemServiceInstance.getFragment("projectQuery");
+  const { data: allProjects } = await aemServiceInstance.getFragment(
+    "projectQuery"
+  );
 
   return {
     props: {

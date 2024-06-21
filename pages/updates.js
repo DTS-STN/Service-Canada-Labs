@@ -40,13 +40,13 @@ export default function UpdatesPage(props) {
     if (selectedOptions.length === 0) return updates;
     const selectedIds = new Set(selectedOptions.map((option) => option.id));
     return updates.filter((update) =>
-      selectedIds.has(update.scLabProject.scId),
+      selectedIds.has(update.scLabProject.scId)
     );
   };
 
   const updatesCards = filterUpdates(
     sortUpdatesByDate(updatesData),
-    selectedOptions,
+    selectedOptions
   ).map((update) => {
     return (
       <li
@@ -102,7 +102,7 @@ export default function UpdatesPage(props) {
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
-          props.locale,
+          props.locale
         )}
       >
         <PageHead locale={props.locale} pageData={pageData} />
@@ -150,15 +150,15 @@ export default function UpdatesPage(props) {
 export const getStaticProps = async ({ locale }) => {
   // Get page data
   const { data: pageData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclUpdatesV1`,
+    `${process.env.AEM_BASE_URL}/getSclUpdatesV1`
   ).then((res) => res.json());
   // Get updates data
   const { data: updatesData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV1`,
+    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV1`
   ).then((res) => res.json());
   // get dictionary
   const { data: dictionary } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclDictionaryV1`,
+    `${process.env.AEM_BASE_URL}/getSclDictionaryV1`
   ).then((res) => res.json());
 
   return {

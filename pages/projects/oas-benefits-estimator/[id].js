@@ -35,7 +35,7 @@ export default function OASBenefitsEstimatorArticles({ key, ...props }) {
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
-          props.locale,
+          props.locale
         )}
       >
         <PageHead pageData={pageData} locale={props.locale} />
@@ -114,7 +114,7 @@ export default function OASBenefitsEstimatorArticles({ key, ...props }) {
 export async function getStaticPaths() {
   // Get pages data
   const { data } = await aemServiceInstance.getFragment(
-    "oasBenefitsEstimatorArticlesQuery",
+    "oasBenefitsEstimatorArticlesQuery"
   );
   // Get paths for dynamic routes from the page name data
   const paths = getAllUpdateIds(data.sclabsPageV1List.items);
@@ -129,11 +129,12 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({ locale, params }) => {
   // Get pages data
   const { data: updatesData } = await aemServiceInstance.getFragment(
-    "oasBenefitsEstimatorArticlesQuery",
+    "oasBenefitsEstimatorArticlesQuery"
   );
   // get dictionary
-  const { data: dictionary } =
-    await aemServiceInstance.getFragment("dictionaryQuery");
+  const { data: dictionary } = await aemServiceInstance.getFragment(
+    "dictionaryQuery"
+  );
   const pages = updatesData.sclabsPageV1List.items;
   // Return page data that matches the current page being built
   const pageData = pages.filter((page) => {
@@ -156,7 +157,7 @@ export const getStaticProps = async ({ locale, params }) => {
       locale: locale,
       pageData: pageData[0],
       updatesData: sortUpdatesByDate(
-        filterItems(updatesData.sclabsPageV1List.items, pageData[0].scId),
+        filterItems(updatesData.sclabsPageV1List.items, pageData[0].scId)
       ),
       dictionary: dictionary.dictionaryV1List.items,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,

@@ -197,7 +197,7 @@ export default function FragmentRender(props) {
           fragmentData,
           fragmentData?._model.title,
           props.locale,
-          props.excludeH1,
+          props.excludeH1
         )}
       />
     );
