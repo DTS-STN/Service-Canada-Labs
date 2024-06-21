@@ -24,6 +24,7 @@ export default function TextWithImage({
         />
       );
     case "image-vertical-line-content":
+      console.log(longDesc);
       return (
         <ImageVerticalLineContent
           src={src}

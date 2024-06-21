@@ -353,6 +353,14 @@ query getDashboardPage {
               scImageCaptionFr {
                 json
               }
+              scLongDescHeadingEn
+              scLongDescHeadingFr
+              scLongDescEn {
+                json
+              }
+              scLongDescFr {
+                json
+              }
             }
           }
           scLabLayout
