@@ -25,35 +25,8 @@ export default function MscaDashboard(props) {
       item.scId === "STARTED" ||
       item.scId === "ENDED" ||
       item.scId === "PROJECT-STAGE" ||
-      item.scId === "SUMMARY"
+      item.scId === "SUMMARY",
   );
-
-  const displayProjectUpdates = updatesData.map((update) => (
-    <li key={update.scId} className="list-none ml-0 col-span-12 lg:col-span-4">
-      <Card
-        showImage
-        imgSrc={
-          props.locale === "en"
-            ? `https://www.canada.ca${update.scSocialMediaImageEn?._path}`
-            : `https://www.canada.ca${update.scSocialMediaImageFr?._path}`
-        }
-        imgAlt={
-          props.locale === "en"
-            ? update.scSocialMediaImageAltTextEn
-            : update.scSocialMediaImageAltTextFr
-        }
-        imgHeight={update.scSocialMediaImageEn.height}
-        imgWidth={update.scSocialMediaImageEn.width}
-        title={props.locale === "en" ? update.scTitleEn : update.scTitleFr}
-        href={props.locale === "en" ? update.scPageNameEn : update.scPageNameFr}
-        description={`${
-          props.locale === "en"
-            ? props.dictionary.items[9].scTermEn
-            : props.dictionary.items[9].scTermFr
-        } ${update.scDateModifiedOverwrite}`}
-      />
-    </li>
-  ));
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
@@ -72,7 +45,7 @@ export default function MscaDashboard(props) {
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
-          props.locale
+          props.locale,
         )}
       >
         <Head>
@@ -235,7 +208,7 @@ export default function MscaDashboard(props) {
           />
         </Head>
 
-        <div className="layout-container mb-24">
+        <div className="layout-container mb-20">
           <section aria-labelledby="pageMainTitle">
             <div className="flex flex-col break-words lg:grid lg:grid-cols-2">
               <div className="col-span-2">
@@ -379,28 +352,21 @@ export default function MscaDashboard(props) {
 export const getStaticProps = async ({ locale }) => {
   // get page data from AEM
   const { data: pageData } = await aemServiceInstance.getFragment(
-    "getMSCADashBoardPage"
-  );
-  // get page data from AEM
-  const { data: updatesData } = await aemServiceInstance.getFragment(
-    "getMSCADashboardArticles"
+    "getMSCADashBoardPage",
   );
   // get dictionary
-  const { data: dictionary } = await aemServiceInstance.getFragment(
-    "dictionaryQuery"
-  );
-
+  const { data: dictionary } =
+    await aemServiceInstance.getFragment("dictionaryQuery");
   // get all projects data
-  const { data: allProjects } = await aemServiceInstance.getFragment(
-    "projectQuery"
-  );
+  const { data: allProjects } =
+    await aemServiceInstance.getFragment("projectQuery");
 
   return {
     props: {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       pageData: pageData.sclabsPageV1ByPath,
-      updatesData: updatesData.sclabsPageV1List.items,
+      updatesData: pageData.sclabsPageV1ByPath.item.scLabProjectUpdates,
       dictionary: dictionary.dictionaryV1List.items,
       allProjects: shuffle(allProjects.sclabsPageV1List.items),
       ...(await serverSideTranslations(locale, ["common"])),
