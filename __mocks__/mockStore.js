@@ -4120,11 +4120,11 @@ export const playbookData = {
               "What we learned about awareness, use and gaps of the digital standards playbook",
             scTitleFr:
               "Ce que nous avons appris sur la connaissance, l'utilisation et les lacunes du guide sur les normes relatives au numérique",
-              scLabProject: {
-                scTermEn: "Digital Standards Playbook",
-                scTermFr: "Guide sur les normes relatives au numérique",
-              },
-              scShortTitleEn: null,
+            scLabProject: {
+              scTermEn: "Digital Standards Playbook",
+              scTermFr: "Guide sur les normes relatives au numérique",
+            },
+            scShortTitleEn: null,
             scShortTitleFr: null,
             scBreadcrumbParentPages: [
               {
@@ -6759,71 +6759,31 @@ export const dashboardData = {
                   content: [
                     {
                       nodeType: "text",
-                      value: "Contribuer à l’amélioration du Guide",
+                      value: "Help improve the dashboard",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "We will continue to make improvements to the dashboard and My Service Canada Account. Our goal is for them to respond best to your needs.",
+                    },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Do you find the dashboard useful? Is there anything you like or dislike? Share your feedback by answering the short survey.",
                     },
                     {
                       nodeType: "line-break",
                       content: [],
-                    },
-                  ],
-                },
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value: "Nous conservons les 10 principes du ",
-                    },
-                    {
-                      nodeType: "link",
-                      data: {
-                        href: "https://www.canada.ca/fr/gouvernement/systeme/gouvernement-numerique/normes-numeriques-gouvernement-canada.html",
-                      },
-                      value: "Guide précédent",
-                    },
-                    {
-                      nodeType: "text",
-                      value:
-                        ", mais nous améliorerons et élaborerons l’orientation en fonction de vos commentaires!",
-                    },
-                  ],
-                },
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "Répondez à notre sondage rapide pour nous aider à comprendre le niveau de connaissance des utilisateurs à propos des normes relatives au numérique, cela nous permettra de recueillir les commentaires initiaux sur le contenu proposé du Guide.",
-                    },
-                  ],
-                },
-              ],
-            },
-            scFragments: [],
-          },
-          {
-            _path:
-              "/content/dam/decd-endc/content-fragments/sclabs/components/tooltips/information-discovery",
-            scId: "INFORMATION-DISCOVERY-SCLABS",
-            scTitleEn: "Information",
-            scTitleFr: "Information",
-            scContentEn: {
-              json: [
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value: "Discovery:",
-                      format: {
-                        variants: ["strong"],
-                      },
-                    },
-                    {
-                      nodeType: "text",
-                      value:
-                        " Defining a problem, exploring needs and evaluating existing solutions.",
                     },
                   ],
                 },
@@ -6832,19 +6792,36 @@ export const dashboardData = {
             scContentFr: {
               json: [
                 {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Contribuez à l’amélioration du tableau de bord",
+                    },
+                  ],
+                },
+                {
                   nodeType: "paragraph",
                   content: [
                     {
                       nodeType: "text",
-                      value: "Découverte : ",
-                      format: {
-                        variants: ["strong"],
-                      },
+                      value:
+                        "Nous continuerons d'apporter des améliorations au tableau de bord et à Mon dossier Service Canada. Notre but est qu'ils répondent le mieux à vos besoins.",
                     },
+                  ],
+                },
+                {
+                  nodeType: "paragraph",
+                  content: [
                     {
                       nodeType: "text",
                       value:
-                        "Définir un problème, explorer les besoins et évaluer les solutions existantes.",
+                        "Trouvez-vous le tableau de bord utile? Quelque chose vous plaît ou vous déplaît? Donnez votre avis en répondant au court sondage.",
+                    },
+                    {
+                      nodeType: "line-break",
+                      content: [],
                     },
                   ],
                 },
@@ -6852,123 +6829,17 @@ export const dashboardData = {
             },
           },
           {
-            scId: "PLAYBOOK-OVERVIEW",
-            scImageEn: {
-              _publishUrl:
-                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/digital-standards-playbook/overview.png",
-              width: 500,
-              height: 335,
+            _model: {
+              title: "SCLabs-Button-v1",
             },
-            scImageFr: {
-              _publishUrl:
-                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/digital-standards-playbook/overview.png",
-              width: 500,
-              height: 335,
-            },
-            scImageMobileEn: null,
-            scImageMobileFr: null,
-            scImageAltTextEn: null,
-            scImageAltTextFr: null,
-            scImageCaptionEn: {
-              json: null,
-            },
-            scImageCaptionFr: {
-              json: null,
-            },
-          },
-          {
-            scId: "PLAYBOOK-TAKE-SURVEY",
+            scId: "BUTTON-HUB-TAKE-SURVEY",
             scTitleEn: "Take survey",
             scTitleFr: "Répondre au sondage",
             scDestinationURLEn:
-              "https://forms-formulaires.alpha.canada.ca/id/clooguv2g0052yj6368lm0kb7",
+              "https://forms-formulaires.alpha.canada.ca/en/id/clwayben200zex88386f9f3d7",
             scDestinationURLFr:
-              "https://forms-formulaires.alpha.canada.ca/fr/id/clooguv2g0052yj6368lm0kb7",
-            scButtonType: ["gc:custom/decd-endc/button-type/primary"],
-          },
-          {
-            _path:
-              "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/digital-standards-playbook/share-thoughts",
-            scId: "PLAYBOOK-SHARE-THOUGHTS",
-            scContentEn: {
-              json: [
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "Interested in seeing the full Playbook or want to share your thoughts? Email us at ",
-                    },
-                    {
-                      nodeType: "link",
-                      data: {
-                        href: "mailto:servicedigital-servicesnumerique@tbs-sct.gc.ca",
-                      },
-                      value: "servicedigital-servicesnumerique@tbs-sct.gc.ca",
-                    },
-                    {
-                      nodeType: "text",
-                      value: ".",
-                    },
-                  ],
-                },
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "The Playbook will continue to evolve to better meet your needs. Expect to see updates here as we refine the content.",
-                    },
-                    {
-                      nodeType: "line-break",
-                      content: [],
-                    },
-                  ],
-                },
-              ],
-            },
-            scContentFr: {
-              json: [
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "Vous souhaitez consulter le Guide complet ou nous faire part de vos commentaires? Envoyez-nous un courriel, à : ",
-                    },
-                    {
-                      nodeType: "link",
-                      data: {
-                        href: "mailto:servicedigital-servicesnumerique@tbs-sct.gc.ca",
-                      },
-                      value: "servicedigital-servicesnumerique@tbs-sct.gc.ca",
-                    },
-                    {
-                      nodeType: "text",
-                      value: ".",
-                    },
-                  ],
-                },
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "Le Guide continuera d’évoluer de façon itérative pour mieux répondre à vos besoins. Restez à l’affût afin de constater les mises à jour en continu.",
-                    },
-                    {
-                      nodeType: "line-break",
-                      content: [],
-                    },
-                  ],
-                },
-              ],
-            },
-            scFragments: [],
+              "https://forms-formulaires.alpha.canada.ca/fr/id/clwayben200zex88386f9f3d7",
+            scButtonType: ["gc:custom/decd-endc/button-type/secondary"],
           },
         ],
       },
@@ -7040,6 +6911,11 @@ export const benefitsNavigatorData = {
               "Difficultés rencontrées par les travailleuses et travailleurs communautaires qui aident les gens avec leurs prestations",
             scShortTitleEn: null,
             scShortTitleFr: null,
+            scLabProject: {
+              scTermEn: "OAS Benefits Estimator",
+              scTermFr:
+                "Estimateur des prestations de la Sécurité de la vieillesse",
+            },
             scBreadcrumbParentPages: [
               {
                 scTitleEn: "Service Canada Labs",
