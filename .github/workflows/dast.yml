@@ -18,12 +18,14 @@ jobs:
         env:
           CI: true
           AEM_GRAPHQL_ENDPOINT: ${{secrets.AEM_GRAPHQL_ENDPOINT}}
+          AEM_BASE_URL: ${{ secrets.AEM_BASE_URL }}
 
       - name: Docker run
         run: docker run -d -p 3000:3000 sc-labs
         env:
           CI: true
           AEM_GRAPHQL_ENDPOINT: ${{secrets.AEM_GRAPHQL_ENDPOINT}}
+          AEM_BASE_URL: ${{ secrets.AEM_BASE_URL }}
 
       - name: OWASP ZAP FULL Scan
         uses: zaproxy/action-full-scan@v0.4.0
