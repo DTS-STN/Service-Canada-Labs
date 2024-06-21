@@ -7,9 +7,11 @@ export function Collapse(props) {
       key={id}
       id={id}
       className="mb-[5px] text-multi-neutrals-grey100 leading-[33px]  text-mobileh5 font-body"
+      data-testid="details"
     >
       <summary
         key={`summary-${id}`}
+        data-testid="summary"
         className="text-multi-blue-blue60d hover:hover:text-multi-blue-blue50b hover:underline border border-multi-neutrals-grey40 rounded px-[15px] py-[5px] cursor-pointer select-none outline-none"
       >
         {title}

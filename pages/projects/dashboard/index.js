@@ -6,23 +6,21 @@ import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
-import { Collapse } from "../../../components/molecules/Collapse";
-import { ActionButton } from "../../../components/atoms/ActionButton";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
-import TextRender from "../../../components/text_node_renderer/TextRender";
 import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
 import { useState } from "react";
 import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 import { shuffle } from "../../../lib/utils/shuffle";
 import { filterItems } from "../../../lib/utils/filterItems";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
+import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
 
 export default function MscaDashboard(props) {
   const pageData = props.pageData?.item;
   const [allProjects] = useState(props.allProjects);
 
-  const filteredDictionary = props.dictionary?.items?.filter(
+  const filteredDictionary = props.dictionary?.filter(
     (item) =>
       item.scId === "STARTED" ||
       item.scId === "ENDED" ||
@@ -309,395 +307,18 @@ export default function MscaDashboard(props) {
               </div>
             </div>
           </section>
-          <section id="pageMainContent">
-            <div className="grid grid-cols-12">
-              <h2 className="col-span-12">
-                {props.locale === "en"
-                  ? pageData.scFragments[3].scContentEn.json[0].content[0].value
-                  : pageData.scFragments[3].scContentFr.json[0].content[0]
-                      .value}
-              </h2>
-              <p className="col-span-12 xl:col-span-8">
-                {props.locale === "en"
-                  ? pageData.scFragments[3].scContentEn.json[1].content[0].value
-                  : pageData.scFragments[3].scContentFr.json[1].content[0]
-                      .value}
-              </p>
-              <p className="col-span-12 xl:col-span-8">
-                {props.locale === "en"
-                  ? pageData.scFragments[3].scContentEn.json[2].content[0].value
-                  : pageData.scFragments[3].scContentFr.json[2].content[0]
-                      .value}
-              </p>
-              <ul className="list-disc col-span-12 xl:col-span-8">
-                <li className="ml-10 text-[20px]">
-                  {props.locale === "en"
-                    ? pageData.scFragments[3].scContentEn.json[3].content[0]
-                        .content[0].value
-                    : pageData.scFragments[3].scContentFr.json[3].content[0]
-                        .content[0].value}
-                </li>
-                <li className="ml-10 text-[20px]">
-                  {props.locale === "en"
-                    ? pageData.scFragments[3].scContentEn.json[3].content[1]
-                        .content[0].value
-                    : pageData.scFragments[3].scContentFr.json[3].content[1]
-                        .content[0].value}
-                </li>
-                <li className="ml-10 text-[20px]">
-                  {props.locale === "en"
-                    ? pageData.scFragments[3].scContentEn.json[3].content[2]
-                        .content[0].value
-                    : pageData.scFragments[3].scContentFr.json[3].content[2]
-                        .content[0].value}
-                </li>
-                <li className="ml-10 text-[20px]">
-                  {props.locale === "en"
-                    ? pageData.scFragments[3].scContentEn.json[3].content[3]
-                        .content[0].value
-                    : pageData.scFragments[3].scContentFr.json[3].content[3]
-                        .content[0].value}
-                </li>
-              </ul>
-
-              <ActionButton
-                id={pageData.scFragments[4].scId}
-                style="primary"
-                custom="col-span-12 mt-6 rounded-[6px]"
-                href={
-                  props.locale === "en"
-                    ? pageData.scFragments[4].scDestinationURLEn
-                    : pageData.scFragments[4].scDestinationURLFr
-                }
-                text={
-                  props.locale === "en"
-                    ? pageData.scFragments[4].scTitleEn
-                    : pageData.scFragments[4].scTitleFr
-                }
-              />
-
-              <div id="feature-section" className="col-span-12">
-                <h2 className="col-span-12">
-                  {props.locale === "en"
-                    ? pageData.scFragments[5].scContentEn.json[0].content[0]
-                        .value
-                    : pageData.scFragments[5].scContentFr.json[0].content[0]
-                        .value}
-                </h2>
-                <div id="feature-1" className="grid grid-cols-12 gap-x-6 mb-9">
-                  <div className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8">
-                    <Image
-                      src={
-                        props.locale === "en"
-                          ? pageData.scFragments[5].scFragments[0]
-                              .scFragments[0].scImageEn._publishUrl
-                          : pageData.scFragments[5].scFragments[0]
-                              .scFragments[0].scImageFr._publishUrl
-                      }
-                      alt={
-                        props.locale === "en"
-                          ? pageData.scFragments[5].scFragments[0]
-                              .scFragments[0].scImageAltTextEn
-                          : pageData.scFragments[5].scFragments[0]
-                              .scFragments[0].scImageAltTextFr
-                      }
-                      height={
-                        pageData.scFragments[5].scFragments[0].scFragments[0]
-                          .scImageEn.height
-                      }
-                      width={
-                        pageData.scFragments[5].scFragments[0].scFragments[0]
-                          .scImageEn.width
-                      }
-                      sizes="100vw"
-                      quality={100}
-                    />
-                  </div>
-                  <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
-                    <div className="py-4 pl-4 border-l-4 border-multi-blue-blue60f">
-                      <TextRender
-                        data={
-                          props.locale === "en"
-                            ? pageData.scFragments[5].scFragments[0].scContentEn
-                                .json
-                            : pageData.scFragments[5].scFragments[0].scContentFr
-                                .json
-                        }
-                      />
-                    </div>
-                  </div>
-                  <div className="mb-6 col-span-12 xl:col-span-8 row-start-2 xl:row-start-2">
-                    <Collapse
-                      id="image-text-collapse-1"
-                      title={
-                        props.locale === "en"
-                          ? pageData.scFragments[5].scFragments[0]
-                              .scFragments[0].scLongDescHeadingEn
-                          : pageData.scFragments[5].scFragments[0]
-                              .scFragments[0].scLongDescHeadingFr
-                      }
-                      children={
-                        <TextRender
-                          data={
-                            props.locale === "en"
-                              ? pageData.scFragments[5].scFragments[0]
-                                  .scFragments[0].scLongDescEn.json
-                              : pageData.scFragments[5].scFragments[0]
-                                  .scFragments[0].scLongDescFr.json
-                          }
-                        />
-                      }
-                    />
-                  </div>
-                </div>
-                <div id="feature-2" className="grid grid-cols-12 gap-x-6 mb-9">
-                  <div className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8">
-                    <Image
-                      src={
-                        props.locale === "en"
-                          ? pageData.scFragments[5].scFragments[1]
-                              .scFragments[0].scImageEn._publishUrl
-                          : pageData.scFragments[5].scFragments[1]
-                              .scFragments[0].scImageFr._publishUrl
-                      }
-                      alt={
-                        props.locale === "en"
-                          ? pageData.scFragments[5].scFragments[1]
-                              .scFragments[0].scImageAltTextEn
-                          : pageData.scFragments[5].scFragments[1]
-                              .scFragments[0].scImageAltTextFr
-                      }
-                      height={
-                        pageData.scFragments[5].scFragments[1].scFragments[0]
-                          .scImageEn.height
-                      }
-                      width={
-                        pageData.scFragments[5].scFragments[1].scFragments[0]
-                          .scImageEn.width
-                      }
-                      sizes="100vw"
-                      quality={100}
-                    />
-                  </div>
-                  <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
-                    <div className="p-4 border-l-4 border-multi-blue-blue60f">
-                      <TextRender
-                        data={
-                          props.locale === "en"
-                            ? pageData.scFragments[5].scFragments[1].scContentEn
-                                .json
-                            : pageData.scFragments[5].scFragments[1].scContentFr
-                                .json
-                        }
-                      />
-                    </div>
-                  </div>
-                  <div className="mb-6 col-span-12 xl:col-span-8 row-start-2 xl:row-start-2">
-                    <Collapse
-                      id="image-text-collapse-2"
-                      title={
-                        props.locale === "en"
-                          ? pageData.scFragments[5].scFragments[1]
-                              .scFragments[0].scLongDescHeadingEn
-                          : pageData.scFragments[5].scFragments[1]
-                              .scFragments[0].scLongDescHeadingFr
-                      }
-                      children={
-                        <TextRender
-                          data={
-                            props.locale === "en"
-                              ? pageData.scFragments[5].scFragments[1]
-                                  .scFragments[0].scLongDescEn.json
-                              : pageData.scFragments[5].scFragments[1]
-                                  .scFragments[0].scLongDescFr.json
-                          }
-                        />
-                      }
-                    />
-                  </div>
-                </div>
-                <div id="feature-3" className="grid grid-cols-12 gap-x-6 mb-9">
-                  <div className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8">
-                    <Image
-                      src={
-                        props.locale === "en"
-                          ? pageData.scFragments[5].scFragments[2]
-                              .scFragments[0].scImageEn._publishUrl
-                          : pageData.scFragments[5].scFragments[2]
-                              .scFragments[0].scImageFr._publishUrl
-                      }
-                      alt={
-                        props.locale === "en"
-                          ? pageData.scFragments[5].scFragments[2]
-                              .scFragments[0].scImageAltTextEn
-                          : pageData.scFragments[5].scFragments[2]
-                              .scFragments[0].scImageAltTextFr
-                      }
-                      height={
-                        pageData.scFragments[5].scFragments[0].scFragments[0]
-                          .scImageEn.height
-                      }
-                      width={
-                        pageData.scFragments[5].scFragments[0].scFragments[0]
-                          .scImageEn.width
-                      }
-                      sizes="100vw"
-                      quality={100}
-                    />
-                  </div>
-                  <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
-                    <div className="p-4 border-l-4 border-multi-blue-blue60f">
-                      <TextRender
-                        data={
-                          props.locale === "en"
-                            ? pageData.scFragments[5].scFragments[2].scContentEn
-                                .json
-                            : pageData.scFragments[5].scFragments[2].scContentFr
-                                .json
-                        }
-                      />
-                    </div>
-                  </div>
-                  <div className="mb-6 col-span-12 xl:col-span-8 row-start-2 xl:row-start-2">
-                    <Collapse
-                      id="image-text-collapse-3"
-                      title={
-                        props.locale === "en"
-                          ? pageData.scFragments[5].scFragments[2]
-                              .scFragments[0].scLongDescHeadingEn
-                          : pageData.scFragments[5].scFragments[2]
-                              .scFragments[0].scLongDescHeadingFr
-                      }
-                      children={
-                        <TextRender
-                          data={
-                            props.locale === "en"
-                              ? pageData.scFragments[5].scFragments[2]
-                                  .scFragments[0].scLongDescEn.json
-                              : pageData.scFragments[5].scFragments[2]
-                                  .scFragments[0].scLongDescFr.json
-                          }
-                        />
-                      }
-                    />
-                  </div>
-                </div>
-                <div id="feature-4" className="grid grid-cols-12 gap-x-6">
-                  <div className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8">
-                    <Image
-                      src={
-                        props.locale === "en"
-                          ? pageData.scFragments[5].scFragments[3]
-                              .scFragments[0].scImageEn._publishUrl
-                          : pageData.scFragments[5].scFragments[3]
-                              .scFragments[0].scImageFr._publishUrl
-                      }
-                      alt={
-                        props.locale === "en"
-                          ? pageData.scFragments[5].scFragments[3]
-                              .scFragments[0].scImageAltTextEn
-                          : pageData.scFragments[5].scFragments[3]
-                              .scFragments[0].scImageAltTextFr
-                      }
-                      height={
-                        pageData.scFragments[5].scFragments[3].scFragments[0]
-                          .scImageEn.height
-                      }
-                      width={
-                        pageData.scFragments[5].scFragments[3].scFragments[0]
-                          .scImageEn.width
-                      }
-                      sizes="100vw"
-                      quality={100}
-                    />
-                  </div>
-                  <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
-                    <div className="p-4 border-l-4 border-multi-blue-blue60f">
-                      <TextRender
-                        data={
-                          props.locale === "en"
-                            ? pageData.scFragments[5].scFragments[3].scContentEn
-                                .json
-                            : pageData.scFragments[5].scFragments[3].scContentFr
-                                .json
-                        }
-                      />
-                    </div>
-                  </div>
-                  <div className="mb-6 col-span-12 xl:col-span-8 row-start-2 xl:row-start-2">
-                    <Collapse
-                      id="image-text-collapse-4"
-                      title={
-                        props.locale === "en"
-                          ? pageData.scFragments[5].scFragments[3]
-                              .scFragments[0].scLongDescHeadingEn
-                          : pageData.scFragments[5].scFragments[3]
-                              .scFragments[0].scLongDescHeadingFr
-                      }
-                      children={
-                        <TextRender
-                          data={
-                            props.locale === "en"
-                              ? pageData.scFragments[5].scFragments[3]
-                                  .scFragments[0].scLongDescEn.json
-                              : pageData.scFragments[5].scFragments[3]
-                                  .scFragments[0].scLongDescFr.json
-                          }
-                        />
-                      }
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section
-            id="SCCH-HELP-DESIGN"
-            className="grid grid-cols-12 col-span-12"
-          >
-            <h2 className="col-span-12">
-              {props.locale === "en"
-                ? pageData.scFragments[6].scContentEn.json[0].content[0].value
-                : pageData.scFragments[6].scContentFr.json[0].content[0].value}
-            </h2>
-            <p className="col-span-12 xl:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[6].scContentEn.json[1].content[0].value
-                : pageData.scFragments[6].scContentFr.json[1].content[0].value}
-            </p>
-            <p className="col-span-12 xl:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[6].scContentEn.json[2].content[0].value
-                : pageData.scFragments[6].scContentFr.json[2].content[0].value}
-              <a
-                className="underline underline-offset-4"
-                href={`mailto:${pageData.scFragments[6].scContentEn.json[2].content[1].value}`}
-              >
-                {pageData.scFragments[6].scContentEn.json[2].content[1].value}
-              </a>
-            </p>
-            <p className="col-span-12 xl:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[6].scContentEn.json[3].content[0].value
-                : pageData.scFragments[6].scContentFr.json[3].content[0].value}
-              <span className="whitespace-nowrap">
-                {props.locale === "en"
-                  ? pageData.scFragments[6].scContentEn.json[3].content[1]
-                      .content[0].value
-                  : pageData.scFragments[6].scContentFr.json[3].content[1]
-                      .content[0].value}
-              </span>
-              {props.locale === "en"
-                ? pageData.scFragments[6].scContentEn.json[3].content[2].value
-                : pageData.scFragments[6].scContentFr.json[3].content[2].value}
-            </p>
-          </section>
         </div>
+        <section id="pageMainContent">
+          <FragmentRender
+            locale={props.locale}
+            fragments={pageData.scFragments.slice(3)}
+            excludeH1={true}
+          />
+        </section>
         {props.updatesData.length !== 0 ? (
           <ExploreUpdates
             locale={props.locale}
-            updatesData={sortUpdatesByDate(updatesData)}
+            updatesData={sortUpdatesByDate(props.updatesData)}
             dictionary={props.dictionary}
             heading={
               "Dashboard project updates"
@@ -721,7 +342,7 @@ export default function MscaDashboard(props) {
         ) : null}
         <ExploreProjects
           locale={props.locale}
-          projects={filterItems(allProjects, pageData.scId)}
+          projects={filterItems(allProjects, pageData.scId).slice(0, 3)}
         />
       </Layout>
     </>
@@ -753,7 +374,7 @@ export const getStaticProps = async ({ locale }) => {
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       pageData: pageData.sclabsPageV1ByPath,
       updatesData: updatesData.sclabsPageV1List.items,
-      dictionary: dictionary.dictionaryV1List,
+      dictionary: dictionary.dictionaryV1List.items,
       allProjects: shuffle(allProjects.sclabsPageV1List.items),
       ...(await serverSideTranslations(locale, ["common"])),
     },

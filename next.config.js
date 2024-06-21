@@ -52,6 +52,10 @@ const REWRITES = [
   {
     source: "/rsdc-demander",
     destination: "/cdcp-apply"
+  },
+  {
+    source: "/mises-a-jour",
+    destination: "/updates"
   }
 ];
 

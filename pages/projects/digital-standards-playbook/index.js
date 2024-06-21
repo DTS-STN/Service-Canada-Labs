@@ -21,7 +21,7 @@ export default function DigitalStandardsPlaybookPage(props) {
   const [updatesData] = useState(props.updatesData);
   const [allProjects] = useState(props.allProjects);
 
-  const filteredDictionary = props.dictionary?.items?.filter(
+  const filteredDictionary = props.dictionary?.filter(
     (item) =>
       item.scId === "STARTED" ||
       item.scId === "ENDED" ||
@@ -448,7 +448,7 @@ export default function DigitalStandardsPlaybookPage(props) {
         ) : null}
         <ExploreProjects
           locale={props.locale}
-          projects={filterItems(allProjects, pageData.scId)}
+          projects={filterItems(allProjects, pageData.scId).slice(0, 3)}
         />
       </Layout>
     </>
@@ -459,10 +459,6 @@ export const getStaticProps = async ({ locale }) => {
   // get page data from AEM
   const { data: pageData } = await aemServiceInstance.getFragment(
     "getDigitalStandardsPlaybookPage"
-  );
-  // Get updates/article data
-  const { data: updatesData } = await aemServiceInstance.getFragment(
-    "getDigitalStandardsPlaybookArticles"
   );
   // get dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
@@ -478,8 +474,8 @@ export const getStaticProps = async ({ locale }) => {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       pageData: pageData.sclabsPageV1ByPath,
-      updatesData: updatesData.sclabsPageV1List.items,
-      dictionary: dictionary.dictionaryV1List,
+      updatesData: pageData.sclabsPageV1ByPath.item.scLabProjectUpdates,
+      dictionary: dictionary.dictionaryV1List.items,
       allProjects: shuffle(allProjects.sclabsPageV1List.items),
       ...(await serverSideTranslations(locale, ["common"])),
     },
