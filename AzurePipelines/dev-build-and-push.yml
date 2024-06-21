@@ -48,6 +48,7 @@ stages:
                 --build-arg ISR_ENABLED=$(ISR_ENABLED) 
                 --build-arg THANK_YOU_EMAIL=$(THANK_YOU_EMAIL) 
                 --build-arg AEM_GRAPHQL_ENDPOINT=$(AEM_GRAPHQL_ENDPOINT) 
+                --build-arg AEM_BASE_URL=$(AEM_BASE_URL)
                 --build-arg REVALIDATION_TOKEN=$(REVALIDATION_TOKEN) 
                 --build-arg GIT_SHA=$(Build.SourceVersion)
                 --build-arg ENVIRONMENT=$(ENVIRONMENT)
