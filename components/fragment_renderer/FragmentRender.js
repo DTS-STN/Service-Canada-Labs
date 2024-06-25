@@ -86,18 +86,18 @@ const mapFragmentsToProps = (fragmentData, fragmentName, locale, excludeH1) => {
             layout: fragmentData.scLabLayout,
             title:
               locale === "en"
-                ? fragmentData.scLongDescHeadingEn
-                : fragmentData.scLongDescHeadingFr,
+                ? fragmentData.scLabImage.scLongDescHeadingEn
+                : fragmentData.scLabImage.scLongDescHeadingFr,
             longDesc:
               locale === "en"
-                ? fragmentData.scLongDescEn
-                : fragmentData.scLongDescFr,
+                ? fragmentData.scLabImage.scLongDescEn
+                : fragmentData.scLabImage.scLongDescFr,
             children: (
               <TextRender
                 data={
                   locale === "en"
-                    ? fragmentData.scLongDescEn.json
-                    : fragmentData.scLongDescFr.json
+                    ? fragmentData.scLabImage.scLongDescEn?.json
+                    : fragmentData.scLabImage.scLongDescFr?.json
                 }
               />
             ),

@@ -2927,6 +2927,20 @@ export const dictionaryData = {
         },
         {
           _path:
+            "/content/dam/decd-endc/content-fragments/sclabs/dictionary/explore-other-projects",
+          scId: "EXPLORE-OTHER-PROJECTS",
+          scTermEn: "Explore other projects",
+          scTermFr: "Explorez d'autres projets",
+        },
+        {
+          _path:
+            "/content/dam/decd-endc/content-fragments/sclabs/dictionary/explore-the-project",
+          scId: "EXPLORE-THE-PROJECT",
+          scTermEn: "Explore the project",
+          scTermFr: "Explorez le projet",
+        },
+        {
+          _path:
             "/content/dam/decd-endc/content-fragments/sclabs/dictionary/filter-by",
           scId: "FILTER-BY",
           scTermEn: "Filter by:",

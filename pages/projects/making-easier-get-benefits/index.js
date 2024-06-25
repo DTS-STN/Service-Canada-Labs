@@ -309,7 +309,7 @@ export default function IntegratedChannelStrategyPage(props) {
               </div>
             </div>
           </section>
-          <div className="grid grid-cols-12">
+          <div id="pageMainContent" className="grid grid-cols-12">
             <div className="col-span-12 lg:col-span-7 mt-[48px]">
               <TextRender
                 data={
