@@ -46,8 +46,8 @@ export default function MscaDashboard(props) {
         href={props.locale === "en" ? update.scPageNameEn : update.scPageNameFr}
         description={`${
           props.locale === "en"
-            ? props.dictionary.items[9].scTermEn
-            : props.dictionary.items[9].scTermFr
+            ? props.dictionary.items[13].scTermEn
+            : props.dictionary.items[13].scTermFr
         } ${update.scDateModifiedOverwrite}`}
       />
     </li>
@@ -340,16 +340,18 @@ export default function MscaDashboard(props) {
             excludeH1={true}
           />
         </section>
-        <section className="layout-container">
-          <h2>
-            {props.locale === "en"
-              ? "Project updates"
-              : "Mises à jour du projet"}
-          </h2>
-          <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0">
-            {displayProjectUpdates}
-          </ul>
-        </section>
+        {updatesData.length === 0 ? null : (
+          <section id="projectUpdates" className="layout-container">
+            <h2>
+              {props.locale === "en"
+                ? "Project updates"
+                : "Mises à jour du projet"}
+            </h2>
+            <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0 mb-12">
+              {displayProjectUpdates}
+            </ul>
+          </section>
+        )}
       </Layout>
     </>
   );
