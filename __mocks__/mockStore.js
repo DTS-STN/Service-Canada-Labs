@@ -1016,6 +1016,13 @@ export const dictionaryData = {
       items: [
         {
           _path:
+            "/content/dam/decd-endc/content-fragments/sch/dictionary/opens-in-a-new-tab",
+          scId: "opens-in-a-new-tab",
+          scTermEn: "(Opens in a new tab)",
+          scTermFr: "(S'ouvre dans un nouvel onglet)",
+        },
+        {
+          _path:
             "/content/dam/decd-endc/content-fragments/sclabs/dictionary/all",
           scId: "ALL",
           scTermEn: "All",
@@ -1030,10 +1037,45 @@ export const dictionaryData = {
         },
         {
           _path:
+            "/content/dam/decd-endc/content-fragments/sclabs/dictionary/explore-other-projects",
+          scId: "EXPLORE-OTHER-PROJECTS",
+          scTermEn: "Explore other projects",
+          scTermFr: "Explorez d'autres projets",
+        },
+        {
+          _path:
+            "/content/dam/decd-endc/content-fragments/sclabs/dictionary/explore-the-project",
+          scId: "EXPLORE-THE-PROJECT",
+          scTermEn: "Explore the project",
+          scTermFr: "Explorez le projet",
+        },
+        {
+          _path:
             "/content/dam/decd-endc/content-fragments/sclabs/dictionary/filter-by",
           scId: "FILTER-BY",
           scTermEn: "Filter by:",
           scTermFr: "Filtrer par :",
+        },
+        {
+          _path:
+            "/content/dam/decd-endc/content-fragments/sclabs/dictionary/filter-by-project",
+          scId: "DICTIONARY-FILTER-BY-PROJECT",
+          scTermEn: "Filter by project",
+          scTermFr: "Filtrer par projet",
+        },
+        {
+          _path:
+            "/content/dam/decd-endc/content-fragments/sclabs/dictionary/filter-by-project-status",
+          scId: "DICTIONARY-FILTER-BY-PROJECT-STATUS",
+          scTermEn: "Filter by project status",
+          scTermFr: "Filtrer par état du projet",
+        },
+        {
+          _path:
+            "/content/dam/decd-endc/content-fragments/sclabs/dictionary/last-updated",
+          scId: "LAST-UPDATED",
+          scTermEn: "Last updated:",
+          scTermFr: "Dernière mise à jour :",
         },
         {
           _path:
@@ -1060,8 +1102,15 @@ export const dictionaryData = {
           _path:
             "/content/dam/decd-endc/content-fragments/sclabs/dictionary/paused",
           scId: "PAUSED",
-          scTermEn: "Paused",
+          scTermEn: "Paused:",
           scTermFr: "Interrompu :",
+        },
+        {
+          _path:
+            "/content/dam/decd-endc/content-fragments/sclabs/dictionary/posted-on",
+          scId: "POSTED-ON",
+          scTermEn: "Posted on:",
+          scTermFr: "Publié le :",
         },
         {
           _path:
@@ -1072,10 +1121,24 @@ export const dictionaryData = {
         },
         {
           _path:
+            "/content/dam/decd-endc/content-fragments/sclabs/dictionary/project-updates",
+          scId: "PROJECT-UPDATES",
+          scTermEn: "project updates",
+          scTermFr: "Mises à jour du projet",
+        },
+        {
+          _path:
             "/content/dam/decd-endc/content-fragments/sclabs/dictionary/required-information",
           scId: "REQUIRED-INFORMATION",
           scTermEn: "Required information",
           scTermFr: "Renseignements obligatoires",
+        },
+        {
+          _path:
+            "/content/dam/decd-endc/content-fragments/sclabs/dictionary/see-all-updates-project",
+          scId: "DICTIONARY-SEE-ALL-UPDATES-PROJECT",
+          scTermEn: "See all updates about this project",
+          scTermFr: "Consulter toutes les mises à jour de ce projet",
         },
         {
           _path:
@@ -1088,7 +1151,7 @@ export const dictionaryData = {
           _path:
             "/content/dam/decd-endc/content-fragments/sclabs/dictionary/summary",
           scId: "SUMMARY",
-          scTermEn: "Summary",
+          scTermEn: "Summary:",
           scTermFr: "Résumé :",
         },
         {
