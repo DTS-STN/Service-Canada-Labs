@@ -44,8 +44,8 @@ export default function OasBenefitsEstimator(props) {
         href={props.locale === "en" ? update.scPageNameEn : update.scPageNameFr}
         description={`${
           props.locale === "en"
-            ? props.dictionary.items[9].scTermEn
-            : props.dictionary.items[9].scTermFr
+            ? props.dictionary.items[13].scTermEn
+            : props.dictionary.items[13].scTermFr
         } ${update.scDateModifiedOverwrite}`}
       />
     </li>
@@ -395,14 +395,18 @@ export default function OasBenefitsEstimator(props) {
               ariaExpanded={props.ariaExpanded}
             />
           </div>
-          <h2>
-            {props.locale === "en"
-              ? props.dictionary.items[11].scTermEn
-              : props.dictionary.items[11].scTermFr}
-          </h2>
-          <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0 mb-12">
-            {displayProjectUpdates}
-          </ul>
+          {updatesData.length === 0 ? null : (
+            <section id="projectUpdates">
+              <h2>
+                {props.locale === "en"
+                  ? "Project updates"
+                  : "Mises à jour du projet"}
+              </h2>
+              <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0 mb-12">
+                {displayProjectUpdates}
+              </ul>
+            </section>
+          )}
         </div>
       </Layout>
     </>
