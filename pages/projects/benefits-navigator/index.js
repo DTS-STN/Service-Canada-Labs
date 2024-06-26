@@ -351,22 +351,22 @@ export default function BenefitsNavigatorOverview(props) {
                 ? pageData.scFragments[3].scContentEn.json[2].content[0].value
                 : pageData.scFragments[3].scContentFr.json[2].content[0].value}
             </p>
-            <ul className="col-span-12 xl:col-span-8">
-              <li>
+            <ul className="list-disc col-span-12 xl:col-span-8">
+              <li className="ml-10 text-[20px]">
                 {props.locale === "en"
                   ? pageData.scFragments[3].scContentEn.json[3].content[0]
                       .content[0].value
                   : pageData.scFragments[3].scContentFr.json[3].content[0]
                       .content[0].value}
               </li>
-              <li>
+              <li className="ml-10 text-[20px]">
                 {props.locale === "en"
                   ? pageData.scFragments[3].scContentEn.json[3].content[1]
                       .content[0].value
                   : pageData.scFragments[3].scContentFr.json[3].content[1]
                       .content[0].value}
               </li>
-              <li>
+              <li className="ml-10 text-[20px]">
                 {props.locale === "en"
                   ? pageData.scFragments[3].scContentEn.json[3].content[2]
                       .content[0].value
