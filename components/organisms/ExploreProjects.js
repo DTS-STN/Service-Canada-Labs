@@ -39,7 +39,7 @@ export function ExploreProjects(props) {
   const { locale, projects, heading } = props;
   //create cards for current projects
   const displayCurrentProjects = projects.map((project) =>
-    createCard(locale, project),
+    createCard(locale, project)
   );
   return (
     //create html for "Explore other projects" section
