@@ -27,8 +27,12 @@ query getMSCADashboardArticles {
       scTitleEn
       scTitleFr
       scLabProject {
+        _path
+        scId
         scTermEn
         scTermFr
+        scDestinationURLEn
+        scDestinationURLFr
       }
       scShortTitleEn
       scShortTitleFr
