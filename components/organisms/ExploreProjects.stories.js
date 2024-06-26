@@ -95,4 +95,5 @@ Default.args = {
       },
     },
   ],
+  heading: "Explore other projects",
 };
