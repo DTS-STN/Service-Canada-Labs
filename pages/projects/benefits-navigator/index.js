@@ -15,6 +15,7 @@ import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
 import { shuffle } from "../../../lib/utils/shuffle";
 import { filterItems } from "../../../lib/utils/filterItems";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
+import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 
 export default function BenefitsNavigatorOverview(props) {
   const [allProjects] = useState(props.allProjects);
@@ -26,8 +27,8 @@ export default function BenefitsNavigatorOverview(props) {
         item.scId === "STARTED" ||
         item.scId === "ENDED" ||
         item.scId === "PROJECT-STAGE" ||
-        item.scId === "SUMMARY"
-    )
+        item.scId === "SUMMARY",
+    ),
   );
 
   useEffect(() => {
@@ -47,7 +48,7 @@ export default function BenefitsNavigatorOverview(props) {
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
-          props.locale
+          props.locale,
         )}
       >
         <Head>
@@ -605,27 +606,28 @@ export default function BenefitsNavigatorOverview(props) {
             locale={props.locale}
             updatesData={sortUpdatesByDate(updatesData)}
             dictionary={props.dictionary}
-            heading={
-              "Benefits navigator project updates"
-              // props.locale === "en"
-              //   ? pageData.scFragments[4].scContentEn.json[0].content[0].value
-              //   : pageData.scFragments[4].scContentFr.json[0].content[0].value
-            }
-            linkLabel={
-              "See all updates about this project"
-              // props.locale === "en"
-              //   ? pageData.scFragments[5].scContentEn.json[0].content[0].value
-              //   : pageData.scFragments[5].scContentFr.json[0].content[0].value
-            }
-            href={
-              ""
-              // props.locale === "en"
-              //   ? pageData.scFragments[5].scContentEn.json[0].content[0].data.href
-              //   : pageData.scFragments[5].scContentFr.json[0].content[0].data.href
-            }
+            heading={`${
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+            } ${getDictionaryTerm(
+              props.dictionary,
+              "PROJECT-UPDATES",
+              props.locale,
+            )}`}
+            linkLabel={`${getDictionaryTerm(
+              props.dictionary,
+              "DICTIONARY-SEE-ALL-UPDATES-PROJECT",
+              props.locale,
+            )}`}
+            // TODO
+            href={"/en/updates?project=benefits-navigator"}
           />
         ) : null}
         <ExploreProjects
+          heading={getDictionaryTerm(
+            props.dictionary,
+            "EXPLORE-OTHER-PROJECTS",
+            props.locale,
+          )}
           locale={props.locale}
           projects={filterItems(allProjects, pageData.scId).slice(0, 3)}
         />
@@ -637,16 +639,14 @@ export default function BenefitsNavigatorOverview(props) {
 export const getStaticProps = async ({ locale }) => {
   // get page data from AEM
   const { data: pageData } = await aemServiceInstance.getFragment(
-    "benefitsNavigatorQuery"
+    "benefitsNavigatorQuery",
   );
   // get dictionary
-  const { data: dictionary } = await aemServiceInstance.getFragment(
-    "dictionaryQuery"
-  );
+  const { data: dictionary } =
+    await aemServiceInstance.getFragment("dictionaryQuery");
   // get all projects data
-  const { data: allProjects } = await aemServiceInstance.getFragment(
-    "projectQuery"
-  );
+  const { data: allProjects } =
+    await aemServiceInstance.getFragment("projectQuery");
 
   return {
     props: {

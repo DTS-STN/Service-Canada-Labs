@@ -15,6 +15,7 @@ import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 import { shuffle } from "../../../lib/utils/shuffle";
 import { filterItems } from "../../../lib/utils/filterItems";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
+import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 
 export default function DigitalStandardsPlaybookPage(props) {
   const [pageData] = useState(props.pageData.item);
@@ -26,7 +27,7 @@ export default function DigitalStandardsPlaybookPage(props) {
       item.scId === "STARTED" ||
       item.scId === "ENDED" ||
       item.scId === "PROJECT-STAGE" ||
-      item.scId === "SUMMARY"
+      item.scId === "SUMMARY",
   );
 
   useEffect(() => {
@@ -46,7 +47,7 @@ export default function DigitalStandardsPlaybookPage(props) {
         dateModifiedOverride={pageData.scDateModifiedOverwrite ?? "2023-11-24"}
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
-          props.locale
+          props.locale,
         )}
       >
         <Head>
@@ -426,27 +427,28 @@ export default function DigitalStandardsPlaybookPage(props) {
             locale={props.locale}
             updatesData={sortUpdatesByDate(updatesData)}
             dictionary={props.dictionary}
-            heading={
-              "Digital standards playbook project updates"
-              // props.locale === "en"
-              //   ? pageData.scFragments[4].scContentEn.json[0].content[0].value
-              //   : pageData.scFragments[4].scContentFr.json[0].content[0].value
-            }
-            linkLabel={
-              "See all updates about this project"
-              // props.locale === "en"
-              //   ? pageData.scFragments[5].scContentEn.json[0].content[0].value
-              //   : pageData.scFragments[5].scContentFr.json[0].content[0].value
-            }
-            href={
-              ""
-              // props.locale === "en"
-              //   ? pageData.scFragments[5].scContentEn.json[0].content[0].data.href
-              //   : pageData.scFragments[5].scContentFr.json[0].content[0].data.href
-            }
+            heading={`${
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+            } ${getDictionaryTerm(
+              props.dictionary,
+              "PROJECT-UPDATES",
+              props.locale,
+            )}`}
+            linkLabel={`${getDictionaryTerm(
+              props.dictionary,
+              "DICTIONARY-SEE-ALL-UPDATES-PROJECT",
+              props.locale,
+            )}`}
+            // TODO
+            href={"/en/updates?project=digital-standards-playbook"}
           />
         ) : null}
         <ExploreProjects
+          heading={getDictionaryTerm(
+            props.dictionary,
+            "EXPLORE-OTHER-PROJECTS",
+            props.locale,
+          )}
           locale={props.locale}
           projects={filterItems(allProjects, pageData.scId).slice(0, 3)}
         />
@@ -458,16 +460,14 @@ export default function DigitalStandardsPlaybookPage(props) {
 export const getStaticProps = async ({ locale }) => {
   // get page data from AEM
   const { data: pageData } = await aemServiceInstance.getFragment(
-    "getDigitalStandardsPlaybookPage"
+    "getDigitalStandardsPlaybookPage",
   );
   // get dictionary
-  const { data: dictionary } = await aemServiceInstance.getFragment(
-    "dictionaryQuery"
-  );
+  const { data: dictionary } =
+    await aemServiceInstance.getFragment("dictionaryQuery");
   // get all projects data
-  const { data: allProjects } = await aemServiceInstance.getFragment(
-    "projectQuery"
-  );
+  const { data: allProjects } =
+    await aemServiceInstance.getFragment("projectQuery");
 
   return {
     props: {
