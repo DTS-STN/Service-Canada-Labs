@@ -12,10 +12,13 @@ import { filterItems } from "../../../lib/utils/filterItems";
 import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
+import { UpdateInfo } from "../../../components/atoms/UpdateInfo";
+import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 
 export default function OASBenefitsEstimatorArticles({ key, ...props }) {
   const { t } = useTranslation("common");
   const [pageData] = useState(props.pageData);
+  const [projectData] = useState(props.projectData);
   const [dictionary] = useState(props.dictionary);
 
   useEffect(() => {
@@ -35,7 +38,7 @@ export default function OASBenefitsEstimatorArticles({ key, ...props }) {
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
-          props.locale
+          props.locale,
         )}
       >
         <PageHead pageData={pageData} locale={props.locale} />
@@ -48,28 +51,35 @@ export default function OASBenefitsEstimatorArticles({ key, ...props }) {
                 props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
               }
             />
-            <div id="postedOnUpdatedOnSection" className="grid grid-cols-12">
-              <p
-                className={`col-span-6 sm:col-span-4 ${
-                  props.locale === "en" ? "lg:col-span-2" : "lg:col-span-3"
-                } font-bold`}
-              >
-                {getDictionaryTerm(dictionary, "POSTED-ON", props.locale)}
-              </p>
-              <p className="col-span-6 col-start-7 sm:col-start-5 lg:col-span-2 md:col-start-5 mt-0">
-                {pageData.scDateModifiedOverwrite}
-              </p>
-              <p
-                className={`row-start-2 col-span-6 sm:col-span-4 mt-0 ${
-                  props.locale === "en" ? "lg:col-span-2" : "lg:col-span-3"
-                } font-bold`}
-              >
-                {getDictionaryTerm(dictionary, "LAST-UPDATED", props.locale)}
-              </p>
-              <p className="row-start-2 col-span-6 col-start-7 sm:col-start-5 lg:col-span-2 md:col-start-5 mt-auto">
-                {pageData.scDateModifiedOverwrite}
-              </p>
-            </div>
+            <UpdateInfo
+              projectLabel={`${getDictionaryTerm(
+                dictionary,
+                "PROJECT",
+                props.locale,
+              )}`}
+              projectName={
+                props.locale === "en"
+                  ? pageData.scLabProject.scTermEn
+                  : pageData.scLabProject.scTermFr
+              }
+              projectHref={
+                props.locale === "en"
+                  ? pageData.scLabProject.scDestinationURLEn
+                  : pageData.scLabProject.scDestinationURLFr
+              }
+              postedOnLabel={`${getDictionaryTerm(
+                dictionary,
+                "POSTED-ON",
+                props.locale,
+              )}`}
+              postedOn={pageData.scDateModifiedOverwrite}
+              lastUpdatedLabel={`${getDictionaryTerm(
+                dictionary,
+                "LAST-UPDATED",
+                props.locale,
+              )}`}
+              lastUpdated={pageData.scDateModifiedOverwrite}
+            />
           </div>
 
           {/* Main */}
@@ -81,31 +91,38 @@ export default function OASBenefitsEstimatorArticles({ key, ...props }) {
             />
           </div>
         </section>
-        {props.updatesData.length !== 0 ? (
+        {filterItems(props.updatesData, pageData.scId).length !== 0 ? (
           <ExploreUpdates
             locale={props.locale}
-            updatesData={props.updatesData}
+            updatesData={filterItems(props.updatesData, pageData.scId)}
             dictionary={props.dictionary}
-            heading={
-              "Benefits navigator project updates"
-              // props.locale === "en"
-              //   ? pageData.scFragments[4].scContentEn.json[0].content[0].value
-              //   : pageData.scFragments[4].scContentFr.json[0].content[0].value
-            }
-            linkLabel={
-              "See all updates about this project"
-              // props.locale === "en"
-              //   ? pageData.scFragments[5].scContentEn.json[0].content[0].value
-              //   : pageData.scFragments[5].scContentFr.json[0].content[0].value
-            }
-            href={
-              ""
-              // props.locale === "en"
-              //   ? pageData.scFragments[5].scContentEn.json[0].content[0].data.href
-              //   : pageData.scFragments[5].scContentFr.json[0].content[0].data.href
-            }
+            heading={`${
+              props.locale === "en"
+                ? projectData.scTitleEn
+                : projectData.scTitleFr
+            } ${getDictionaryTerm(
+              props.dictionary,
+              "PROJECT-UPDATES",
+              props.locale,
+            )}`}
+            linkLabel={`${getDictionaryTerm(
+              props.dictionary,
+              "DICTIONARY-SEE-ALL-UPDATES-PROJECT",
+              props.locale,
+            )}`}
+            // TODO
+            href={"/en/updates?project=benefits-navigator"}
           />
         ) : null}
+        <ExploreProjects
+          projects={[projectData]}
+          heading={getDictionaryTerm(
+            dictionary,
+            "EXPLORE-THE-PROJECT",
+            props.locale,
+          )}
+          locale={props.locale}
+        />
       </Layout>
     </>
   );
@@ -114,7 +131,7 @@ export default function OASBenefitsEstimatorArticles({ key, ...props }) {
 export async function getStaticPaths() {
   // Get pages data
   const { data } = await aemServiceInstance.getFragment(
-    "oasBenefitsEstimatorArticlesQuery"
+    "oasBenefitsEstimatorArticlesQuery",
   );
   // Get paths for dynamic routes from the page name data
   const paths = getAllUpdateIds(data.sclabsPageV1List.items);
@@ -129,12 +146,14 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({ locale, params }) => {
   // Get pages data
   const { data: updatesData } = await aemServiceInstance.getFragment(
-    "oasBenefitsEstimatorArticlesQuery"
+    "oasBenefitsEstimatorArticlesQuery",
+  );
+  const { data: projectData } = await aemServiceInstance.getFragment(
+    "oasBenefitsEstimatorQuery",
   );
   // get dictionary
-  const { data: dictionary } = await aemServiceInstance.getFragment(
-    "dictionaryQuery"
-  );
+  const { data: dictionary } =
+    await aemServiceInstance.getFragment("dictionaryQuery");
   const pages = updatesData.sclabsPageV1List.items;
   // Return page data that matches the current page being built
   const pageData = pages.filter((page) => {
@@ -156,9 +175,8 @@ export const getStaticProps = async ({ locale, params }) => {
       key: params.id,
       locale: locale,
       pageData: pageData[0],
-      updatesData: sortUpdatesByDate(
-        filterItems(updatesData.sclabsPageV1List.items, pageData[0].scId)
-      ),
+      updatesData: updatesData.sclabsPageV1List.items,
+      projectData: projectData.sclabsPageV1ByPath.item,
       dictionary: dictionary.dictionaryV1List.items,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       ...(await serverSideTranslations(locale, ["common"])),
