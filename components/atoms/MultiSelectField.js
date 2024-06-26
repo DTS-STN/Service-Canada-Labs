@@ -74,7 +74,6 @@ export function MultiSelectField(props) {
         }`}
       >
         {props.label}
-        {/* {ariaFocusMessage} */}
       </label>
       <Select
         aria-labelledby="multiSelectLabel"
@@ -218,7 +217,7 @@ MultiSelectField.propTypes = {
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
-    })
+    }),
   ),
 
   /**
