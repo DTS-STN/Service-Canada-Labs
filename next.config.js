@@ -10,6 +10,10 @@ const REWRITES = [
     destination: "/home",
   },
   {
+    source: "/projets",
+    destination: "/projects",
+  },
+  {
     source: "/projets/estimateur-prestations-sv",
     destination: "/projects/oas-benefits-estimator",
   },
