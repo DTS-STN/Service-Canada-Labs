@@ -36,6 +36,8 @@ export const Layout = ({
       ? window.location.href
       : "";
 
+  const isTopNavBarActive = false;
+
   return (
     <div className="overflow-x-hidden">
       <nav className="skip-main" aria-label={t("skipToMainContentBtn")}>
@@ -108,16 +110,18 @@ export const Layout = ({
           </div>
         </div>
         <div className="border-b-[3px] border-multi-blue-blue35" />
-        <TopNavBar
-          homeLink={t("topNavBar.homeLink")}
-          homeLinkLabel={t("topNavBar.homeLinkLabel")}
-          updatesLink={t("topNavBar.updatesLink")}
-          updatesLinkLabel={t("topNavBar.updatesLinkLabel")}
-          projectsLink={t("topNavBar.projectsLink")}
-          projectsLinkLabel={t("topNavBar.projectsLinkLabel")}
-          navAriaLabel={t("topNavBar.ariaLabel")}
-          buttonAriaLabel={t("topNavBar.buttonAriaLabel")}
-        />
+        {isTopNavBarActive ? (
+          <TopNavBar
+            homeLink={t("topNavBar.homeLink")}
+            homeLinkLabel={t("topNavBar.homeLinkLabel")}
+            updatesLink={t("topNavBar.updatesLink")}
+            updatesLinkLabel={t("topNavBar.updatesLinkLabel")}
+            projectsLink={t("topNavBar.projectsLink")}
+            projectsLinkLabel={t("topNavBar.projectsLinkLabel")}
+            navAriaLabel={t("topNavBar.ariaLabel")}
+            buttonAriaLabel={t("topNavBar.buttonAriaLabel")}
+          />
+        ) : null}
         <div className="layout-container mt-4">
           <Breadcrumb items={breadcrumbItems} />
         </div>
