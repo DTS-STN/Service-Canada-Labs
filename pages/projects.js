@@ -38,7 +38,7 @@ export default function ProjectsPage(props) {
     if (selectedOptions.length === 0) return projects;
     const selectedIds = new Set(selectedOptions.map((option) => option.id));
     return projects.filter((project) =>
-      selectedIds.has(project.scLabProjectStatus[0]),
+      selectedIds.has(project.scLabProjectStatus[0])
     );
   };
 
@@ -84,7 +84,7 @@ export default function ProjectsPage(props) {
           />
         </li>
       );
-    },
+    }
   );
 
   useEffect(() => {
@@ -104,7 +104,7 @@ export default function ProjectsPage(props) {
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
-          props.locale,
+          props.locale
         )}
       >
         <PageHead locale={props.locale} pageData={pageData} />
@@ -135,7 +135,7 @@ export default function ProjectsPage(props) {
               label={getDictionaryTerm(
                 dictionary,
                 "DICTIONARY-FILTER-BY-PROJECT-STATUS",
-                props.locale,
+                props.locale
               )}
               placeholder={getDictionaryTerm(dictionary, "ALL", props.locale)}
               boldLabel
@@ -154,15 +154,15 @@ export default function ProjectsPage(props) {
 export const getStaticProps = async ({ locale }) => {
   // Get page data
   const { data: pageData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclProjectsV2`,
+    `${process.env.AEM_BASE_URL}/getSclProjectsV2`
   ).then((res) => res.json());
   // Get projects data
   const { data: projectsData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclAllProjectsV1`,
+    `${process.env.AEM_BASE_URL}/getSclAllProjectsV1`
   ).then((res) => res.json());
   // get dictionary
   const { data: dictionary } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclDictionaryV1`,
+    `${process.env.AEM_BASE_URL}/getSclDictionaryV1`
   ).then((res) => res.json());
 
   return {

@@ -27,7 +27,7 @@ export default function DigitalStandardsPlaybookPage(props) {
       item.scId === "STARTED" ||
       item.scId === "ENDED" ||
       item.scId === "PROJECT-STAGE" ||
-      item.scId === "SUMMARY",
+      item.scId === "SUMMARY"
   );
 
   useEffect(() => {
@@ -47,7 +47,7 @@ export default function DigitalStandardsPlaybookPage(props) {
         dateModifiedOverride={pageData.scDateModifiedOverwrite ?? "2023-11-24"}
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
-          props.locale,
+          props.locale
         )}
       >
         <Head>
@@ -432,12 +432,12 @@ export default function DigitalStandardsPlaybookPage(props) {
             } ${getDictionaryTerm(
               props.dictionary,
               "PROJECT-UPDATES",
-              props.locale,
+              props.locale
             )}`}
             linkLabel={`${getDictionaryTerm(
               props.dictionary,
               "DICTIONARY-SEE-ALL-UPDATES-PROJECT",
-              props.locale,
+              props.locale
             )}`}
             href={
               props.locale === "en"
@@ -450,7 +450,7 @@ export default function DigitalStandardsPlaybookPage(props) {
           heading={getDictionaryTerm(
             props.dictionary,
             "EXPLORE-OTHER-PROJECTS",
-            props.locale,
+            props.locale
           )}
           locale={props.locale}
           projects={filterItems(allProjects, pageData.scId).slice(0, 3)}
@@ -463,14 +463,16 @@ export default function DigitalStandardsPlaybookPage(props) {
 export const getStaticProps = async ({ locale }) => {
   // get page data from AEM
   const { data: pageData } = await aemServiceInstance.getFragment(
-    "getDigitalStandardsPlaybookPage",
+    "getDigitalStandardsPlaybookPage"
   );
   // get dictionary
-  const { data: dictionary } =
-    await aemServiceInstance.getFragment("dictionaryQuery");
+  const { data: dictionary } = await aemServiceInstance.getFragment(
+    "dictionaryQuery"
+  );
   // get all projects data
-  const { data: allProjects } =
-    await aemServiceInstance.getFragment("projectQuery");
+  const { data: allProjects } = await aemServiceInstance.getFragment(
+    "projectQuery"
+  );
 
   return {
     props: {

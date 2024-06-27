@@ -38,7 +38,7 @@ export default function DigitalStandardsArticles({ key, ...props }) {
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
-          props.locale,
+          props.locale
         )}
       >
         <PageHead pageData={pageData} locale={props.locale} />
@@ -55,7 +55,7 @@ export default function DigitalStandardsArticles({ key, ...props }) {
               projectLabel={`${getDictionaryTerm(
                 dictionary,
                 "PROJECT",
-                props.locale,
+                props.locale
               )}`}
               projectName={
                 props.locale === "en"
@@ -70,13 +70,13 @@ export default function DigitalStandardsArticles({ key, ...props }) {
               postedOnLabel={`${getDictionaryTerm(
                 dictionary,
                 "POSTED-ON",
-                props.locale,
+                props.locale
               )}`}
               postedOn={pageData.scDateModifiedOverwrite}
               lastUpdatedLabel={`${getDictionaryTerm(
                 dictionary,
                 "LAST-UPDATED",
-                props.locale,
+                props.locale
               )}`}
               lastUpdated={pageData.scDateModifiedOverwrite}
             />
@@ -103,12 +103,12 @@ export default function DigitalStandardsArticles({ key, ...props }) {
             } ${getDictionaryTerm(
               dictionary,
               "PROJECT-UPDATES",
-              props.locale,
+              props.locale
             )}`}
             linkLabel={`${getDictionaryTerm(
               dictionary,
               "DICTIONARY-SEE-ALL-UPDATES-PROJECT",
-              props.locale,
+              props.locale
             )}`}
             href={
               props.locale === "en"
@@ -122,7 +122,7 @@ export default function DigitalStandardsArticles({ key, ...props }) {
           heading={getDictionaryTerm(
             dictionary,
             "EXPLORE-THE-PROJECT",
-            props.locale,
+            props.locale
           )}
           locale={props.locale}
         />
@@ -134,7 +134,7 @@ export default function DigitalStandardsArticles({ key, ...props }) {
 export async function getStaticPaths() {
   // Get pages data
   const { data } = await aemServiceInstance.getFragment(
-    "getDigitalStandardsPlaybookArticles",
+    "getDigitalStandardsPlaybookArticles"
   );
   // Get paths for dynamic routes from the page name data
   const paths = getAllUpdateIds(data.sclabsPageV1List.items);
@@ -149,14 +149,15 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({ locale, params }) => {
   // Get pages data
   const { data: updatesData } = await aemServiceInstance.getFragment(
-    "getDigitalStandardsPlaybookArticles",
+    "getDigitalStandardsPlaybookArticles"
   );
   const { data: projectData } = await aemServiceInstance.getFragment(
-    "getDigitalStandardsPlaybookPage",
+    "getDigitalStandardsPlaybookPage"
   );
   // get dictionary
-  const { data: dictionary } =
-    await aemServiceInstance.getFragment("dictionaryQuery");
+  const { data: dictionary } = await aemServiceInstance.getFragment(
+    "dictionaryQuery"
+  );
   const pages = updatesData.sclabsPageV1List.items;
   // Return page data that matches the current page being built
   const pageData = pages.filter((page) => {
