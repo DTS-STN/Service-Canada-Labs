@@ -7,8 +7,10 @@ import PageHead from "../components/fragment_renderer/PageHead";
 import { MultiSelectField } from "../components/atoms/MultiSelectField";
 import { createBreadcrumbs } from "../lib/utils/createBreadcrumbs";
 import { getDictionaryTerm } from "../lib/utils/getDictionaryTerm";
+import { useRouter } from "next/router";
 
 export default function UpdatesPage(props) {
+  const router = useRouter();
   const pageData = props.pageData?.item;
   const updatesData = props.updatesData;
   const dictionary = props.dictionary;
@@ -40,13 +42,13 @@ export default function UpdatesPage(props) {
     if (selectedOptions.length === 0) return updates;
     const selectedIds = new Set(selectedOptions.map((option) => option.id));
     return updates.filter((update) =>
-      selectedIds.has(update.scLabProject.scId)
+      selectedIds.has(update.scLabProject.scId),
     );
   };
 
   const updatesCards = filterUpdates(
     sortUpdatesByDate(updatesData),
-    selectedOptions
+    selectedOptions,
   ).map((update) => {
     return (
       <li
@@ -90,7 +92,21 @@ export default function UpdatesPage(props) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
-  }, []);
+    const options = getSelectOptionsFromUpdateData(updatesData);
+    if (router.isReady) {
+      const routerQuery =
+        props.locale === "en" ? router.query.project : router.query.projet;
+      const selectedOptionsFromQueryString = options.filter(
+        (option) => option.label === routerQuery,
+      );
+      console.log(
+        "Selected options from query string:",
+        selectedOptionsFromQueryString,
+      );
+      selectedOptionsFromQueryString;
+      setSelectedOptions(selectedOptionsFromQueryString);
+    }
+  }, [router.isReady, setSelectedOptions]);
 
   return (
     <>
@@ -102,7 +118,7 @@ export default function UpdatesPage(props) {
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
-          props.locale
+          props.locale,
         )}
       >
         <PageHead locale={props.locale} pageData={pageData} />
@@ -150,15 +166,15 @@ export default function UpdatesPage(props) {
 export const getStaticProps = async ({ locale }) => {
   // Get page data
   const { data: pageData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclUpdatesV1`
+    `${process.env.AEM_BASE_URL}/getSclUpdatesV1`,
   ).then((res) => res.json());
   // Get updates data
   const { data: updatesData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV1`
+    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV1`,
   ).then((res) => res.json());
   // get dictionary
   const { data: dictionary } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclDictionaryV1`
+    `${process.env.AEM_BASE_URL}/getSclDictionaryV1`,
   ).then((res) => res.json());
 
   return {
