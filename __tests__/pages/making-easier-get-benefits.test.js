@@ -13,9 +13,9 @@ describe("Integrated Channel Strategy", () => {
       <IntegratedChannelStrategyPage
         pageData={ICSData.data.sclabsPageV1ByPath}
         updatesData={ICSUpdatesData}
-        dictionary={dictionaryData.data.dictionaryV1List}
+        dictionary={dictionaryData.data.dictionaryV1List.items}
         allProjects={experimentsData.data.scLabsPagev1List.items}
-      />
+      />,
     );
   });
 });

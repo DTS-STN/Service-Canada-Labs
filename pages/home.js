@@ -7,10 +7,17 @@ import aemServiceInstance from "../services/aemServiceInstance";
 import { Heading } from "../components/molecules/Heading";
 import { ContextualAlert } from "../components/molecules/ContextualAlert";
 import Image from "next/image";
+import { Link as LinkWrapper } from "../components/atoms/Link";
+import Link from "next/link";
+import { ExploreUpdates } from "../components/organisms/ExploreUpdates";
+import FragmentRender from "../components/fragment_renderer/FragmentRender";
+import { sortUpdatesByDate } from "../lib/utils/sortUpdatesByDate";
 
 export default function Home(props) {
   const pageData = props.pageData?.item;
   const experimentsData = props.experimentsData;
+  const dictionary = props.dictionary;
+  const updatesData = props.updatesData;
 
   const currentProjects = experimentsData.filter((project) => {
     return (
@@ -35,9 +42,11 @@ export default function Home(props) {
     }
 
     // Sort the objects based on the lookup
-    return objects.sort((a, b) => {
+    const sorted = objects.sort((a, b) => {
       return titleOrder[a.scTitleEn] - titleOrder[b.scTitleEn];
     });
+    // Trim to first 3 projects
+    return sorted.slice(0, 3);
   };
 
   const displayCurrentProjects = sortedProjects(currentProjects).map(
@@ -248,93 +257,17 @@ export default function Home(props) {
             }
           />
         </Head>
-        <section className="layout-container">
-          <div className="grid grid-cols-4">
-            <div className="col-span-4">
-              <Heading
-                tabIndex="-1"
-                id="pageMainTitle"
-                title={
-                  props.locale === "en"
-                    ? pageData.scTitleEn
-                    : pageData.scTitleFr
-                }
-              />
-            </div>
-            <p className="font-body col-span-4 xl:col-span-2 row-start-2">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[1].content[0].value
-                : pageData.scFragments[0].scContentFr.json[1].content[0].value}
-            </p>
-            <p className="font-body col-span-4 xl:col-span-2 row-start-3 pt-4 xxl:pt-0">
-              {props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[2].content[0].value
-                : pageData.scFragments[0].scContentFr.json[2].content[0].value}
-            </p>
-            <div className="hidden xl:grid col-span-2 col-start-3 row-start-2 row-span-2">
-              <div className="flex justify-center">
-                <span
-                  className="w-full"
-                  style={{ height: "260px", width: "380px", minWidth: "380px" }}
-                  role="presentation"
-                >
-                  <Image
-                    src={
-                      props.locale === "en"
-                        ? pageData.scFragments[1].scImageEn._publishUrl
-                        : pageData.scFragments[1].scImageFr._publishUrl
-                    }
-                    alt=""
-                    width={pageData.scFragments[1].scImageEn.width}
-                    height={pageData.scFragments[1].scImageEn.height}
-                    sizes="35vw"
-                    priority
-                    quality={100}
-                  />
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className="lg:flex">
-            <span className="w-full">
-              <h2>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[3].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[3].content[0]
-                      .value}{" "}
-              </h2>
-              <p className="font-body">
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[4].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[4].content[0]
-                      .value}{" "}
-              </p>
-              <ul className="list-disc">
-                <li className="ml-10">
-                  <p className="font-body">
-                    {props.locale === "en"
-                      ? pageData.scFragments[0].scContentEn.json[5].content[0]
-                          .content[0].value
-                      : pageData.scFragments[0].scContentFr.json[5].content[0]
-                          .content[0].value}{" "}
-                  </p>
-                </li>
-                <li className="ml-10">
-                  <p className="font-body">
-                    {props.locale === "en"
-                      ? pageData.scFragments[0].scContentEn.json[5].content[1]
-                          .content[0].value
-                      : pageData.scFragments[0].scContentFr.json[5].content[1]
-                          .content[0].value}{" "}
-                  </p>
-                </li>
-              </ul>
-            </span>
-          </div>
+        <div id="pageMainTitle" className="mt-24">
+          <FragmentRender
+            locale={props.locale}
+            fragments={[pageData.scFragments[0]]}
+          />
+        </div>
+        <div className="layout-container">
           <h2>
             {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[6].content[0].value
-              : pageData.scFragments[0].scContentFr.json[6].content[0]
+              ? pageData.scFragments[1].scContentEn.json[0].content[0].value
+              : pageData.scFragments[1].scContentFr.json[0].content[0]
                   .value}{" "}
           </h2>
           <div className="mb-8">
@@ -399,9 +332,56 @@ export default function Home(props) {
               }
             />
           </div>
-          <ul className="grid lg:grid-cols-2 gap-4 list-none ml-0">
-            {displayCurrentProjects}
-          </ul>
+          <div className="mb-4">
+            <ul className="grid lg:grid-cols-3 gap-6 list-none ml-0">
+              {displayCurrentProjects}
+            </ul>
+            <div className="mt-6 flex justify-end">
+              <LinkWrapper
+                component={Link}
+                id="projectsLink"
+                href={
+                  props.locale === "en"
+                    ? pageData.scFragments[3].scContentEn.json[0].content[0]
+                        .data.href
+                    : pageData.scFragments[3].scContentFr.json[0].content[0]
+                        .data.href
+                }
+                lang={props.locale}
+                text={
+                  props.locale === "en"
+                    ? pageData.scFragments[3].scContentEn.json[0].content[0]
+                        .value
+                    : pageData.scFragments[3].scContentFr.json[0].content[0]
+                        .value
+                }
+              />
+            </div>
+          </div>
+        </div>
+        <section>
+          <ExploreUpdates
+            locale={props.locale}
+            updatesData={sortUpdatesByDate(updatesData).slice(0, 3)}
+            dictionary={dictionary}
+            heading={
+              props.locale === "en"
+                ? pageData.scFragments[4].scContentEn.json[0].content[0].value
+                : pageData.scFragments[4].scContentFr.json[0].content[0].value
+            }
+            linkLabel={
+              props.locale === "en"
+                ? pageData.scFragments[5].scContentEn.json[0].content[0].value
+                : pageData.scFragments[5].scContentFr.json[0].content[0].value
+            }
+            href={
+              props.locale === "en"
+                ? pageData.scFragments[5].scContentEn.json[0].content[0].data
+                    .href
+                : pageData.scFragments[5].scContentFr.json[0].content[0].data
+                    .href
+            }
+          />
         </section>
       </Layout>
     </>
@@ -412,8 +392,18 @@ export const getStaticProps = async ({ locale }) => {
   const { data: pageData } = await aemServiceInstance.getFragment(
     "homePageQuery"
   );
+
   const { data: experimentsData } = await aemServiceInstance.getFragment(
     "projectQuery"
+  );
+
+  const { data: updatesData } = await fetch(
+    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV1`
+  ).then((res) => res.json());
+
+  // get dictionary
+  const { data: dictionary } = await aemServiceInstance.getFragment(
+    "dictionaryQuery"
   );
 
   return {
@@ -422,6 +412,8 @@ export const getStaticProps = async ({ locale }) => {
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       pageData: pageData.sclabsPageV1ByPath,
       experimentsData: experimentsData.sclabsPageV1List.items,
+      updatesData: updatesData.sclabsPageV1List.items,
+      dictionary: dictionary.dictionaryV1List.items,
       ...(await serverSideTranslations(locale, ["common"])),
     },
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,

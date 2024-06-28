@@ -535,9 +535,10 @@
     "buttonAriaLabel": "bouton du menu de navigation",
     "homeLink": "/accueil",
     "homeLinkLabel": "Laboratoires de Service Canada",
-    "projectsLink": "/projects",
+    "projectsLink": "/projets",
     "projectsLinkLabel": "Projets",
-    "updatesLink": "/updates",
+    "updatesLink": "/mises-a-jour",
     "updatesLinkLabel": "Mises à jour"
-  }
+  },
+  "custom/decd-endc/project-status/current": "En cours"
 }

@@ -10,12 +10,19 @@ import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
+import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
+import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
+import { shuffle } from "../../../lib/utils/shuffle";
+import { filterItems } from "../../../lib/utils/filterItems";
+import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
+import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 
 export default function OasBenefitsEstimator(props) {
   const [pageData] = useState(props.pageData.item);
   const [updatesData] = useState(props.updatesData);
+  const [allProjects] = useState(props.allProjects);
   const [filteredDictionary] = useState(
-    props.dictionary.items.filter(
+    props.dictionary.filter(
       (item) =>
         item.scId === "STARTED" ||
         item.scId === "ENDED" ||
@@ -23,33 +30,6 @@ export default function OasBenefitsEstimator(props) {
         item.scId === "SUMMARY"
     )
   );
-
-  const displayProjectUpdates = updatesData.map((update) => (
-    <li key={update.scId} className="list-none ml-0 col-span-12 lg:col-span-4">
-      <Card
-        showImage
-        imgSrc={
-          props.locale === "en"
-            ? `https://www.canada.ca${update.scSocialMediaImageEn._path}`
-            : `https://www.canada.ca${update.scSocialMediaImageFr._path}`
-        }
-        imgAlt={
-          (props.locale === "en"
-            ? update.scSocialMediaImageAltTextEn
-            : update.scSocialMediaImageAltTextFr) ?? ""
-        }
-        imgHeight={update.scSocialMediaImageEn.height}
-        imgWidth={update.scSocialMediaImageEn.width}
-        title={props.locale === "en" ? update.scTitleEn : update.scTitleFr}
-        href={props.locale === "en" ? update.scPageNameEn : update.scPageNameFr}
-        description={`${
-          props.locale === "en"
-            ? props.dictionary.items[13].scTermEn
-            : props.dictionary.items[13].scTermFr
-        } ${update.scDateModifiedOverwrite}`}
-      />
-    </li>
-  ));
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
@@ -231,7 +211,7 @@ export default function OasBenefitsEstimator(props) {
           />
         </Head>
 
-        <div className="layout-container">
+        <div className="layout-container mb-24">
           <section aria-labelledby="pageMainTitle">
             <div className="flex flex-col break-words lg:grid lg:grid-cols-2">
               <div className="col-span-2">
@@ -395,19 +375,40 @@ export default function OasBenefitsEstimator(props) {
               ariaExpanded={props.ariaExpanded}
             />
           </div>
-          {updatesData.length === 0 ? null : (
-            <section id="projectUpdates">
-              <h2>
-                {props.locale === "en"
-                  ? "Project updates"
-                  : "Mises à jour du projet"}
-              </h2>
-              <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0 mb-12">
-                {displayProjectUpdates}
-              </ul>
-            </section>
-          )}
         </div>
+        {props.updatesData.length !== 0 ? (
+          <ExploreUpdates
+            locale={props.locale}
+            updatesData={sortUpdatesByDate(updatesData)}
+            dictionary={props.dictionary}
+            heading={`${
+              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+            } ${getDictionaryTerm(
+              props.dictionary,
+              "PROJECT-UPDATES",
+              props.locale
+            )}`}
+            linkLabel={`${getDictionaryTerm(
+              props.dictionary,
+              "DICTIONARY-SEE-ALL-UPDATES-PROJECT",
+              props.locale
+            )}`}
+            href={
+              props.locale === "en"
+                ? `/en/updates?project=${pageData.scTitleEn}`
+                : `/fr/mises-a-jour?projet=${pageData.scTitleFr}`
+            }
+          />
+        ) : null}
+        <ExploreProjects
+          heading={getDictionaryTerm(
+            props.dictionary,
+            "EXPLORE-OTHER-PROJECTS",
+            props.locale
+          )}
+          locale={props.locale}
+          projects={filterItems(allProjects, pageData.scId).slice(0, 3)}
+        />
       </Layout>
     </>
   );
@@ -422,6 +423,10 @@ export const getStaticProps = async ({ locale }) => {
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
+  // get all projects data
+  const { data: allProjects } = await aemServiceInstance.getFragment(
+    "projectQuery"
+  );
 
   return {
     props: {
@@ -429,7 +434,8 @@ export const getStaticProps = async ({ locale }) => {
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       pageData: pageData.sclabsPageV1ByPath,
       updatesData: pageData.sclabsPageV1ByPath.item.scLabProjectUpdates,
-      dictionary: dictionary.dictionaryV1List,
+      dictionary: dictionary.dictionaryV1List.items,
+      allProjects: shuffle(allProjects.sclabsPageV1List.items),
       ...(await serverSideTranslations(locale, ["common"])),
     },
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,

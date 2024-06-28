@@ -31,6 +31,10 @@ query getBenefitsNavigatorPage {
           scPageNameFr
           scTitleEn
           scTitleFr
+          scLabProject {
+            scTermEn
+            scTermFr
+          }
           scShortTitleEn
           scShortTitleFr
           scBreadcrumbParentPages {

@@ -13,9 +13,9 @@ describe("Digital Standards Playbook", () => {
       <DigitalStandardsPlaybookPage
         pageData={playbookData.data.sclabsPageV1ByPath}
         updatesData={playbookUpdatesData}
-        dictionary={dictionaryData.data.dictionaryV1List}
+        dictionary={dictionaryData.data.dictionaryV1List.items}
         allProjects={experimentsData.data.scLabsPagev1List.items}
-      />
+      />,
     );
   });
 });

@@ -114,21 +114,21 @@ export function TopNavBar({
             <li
               className={`${
                 isTransitioningClosed ? "decrease-margin" : "expand-margin"
-              } my-2 ml-4`}
+              } my-2 ml-4 text-[20px]`}
             >
               <Link href={homeLink}>{homeLinkLabel}</Link>
             </li>
             <li
               className={`${
                 isTransitioningClosed ? "decrease-margin" : "expand-margin"
-              } my-2 ml-4`}
+              } my-2 ml-4 text-[20px]`}
             >
               <Link href={projectsLink}>{projectsLinkLabel}</Link>
             </li>
             <li
               className={`${
                 isTransitioningClosed ? "decrease-margin" : "expand-margin"
-              } my-2 ml-4`}
+              } my-2 ml-4 text-[20px]`}
             >
               <Link href={updatesLink}>{updatesLinkLabel}</Link>
             </li>
