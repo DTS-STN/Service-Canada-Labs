@@ -65,7 +65,7 @@ export default function UpdatesPage(props) {
           htmlDesc={
             <div className="flex flex-col pt-8">
               <span className="flex flex-row">
-                <p className="text-multi-neutrals-grey100 font-semibold">
+                <p className="text-multi-neutrals-grey100 font-semibold whitespace-nowrap">
                   {props.locale === "en" ? "Project:" : "Projet :"}
                 </p>
                 <p className="mt-0 pl-1">
