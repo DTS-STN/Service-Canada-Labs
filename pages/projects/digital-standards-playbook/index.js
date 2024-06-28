@@ -10,10 +10,12 @@ import { Heading } from "../../../components/molecules/Heading";
 import { ActionButton } from "../../../components/atoms/ActionButton";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
+import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 
 export default function DigitalStandardsPlaybookPage(props) {
   const [pageData] = useState(props.pageData.item);
   const [updatesData] = useState(props.updatesData);
+  const sortedUpdates = sortUpdatesByDate(updatesData);
 
   const filteredDictionary = props.dictionary?.items?.filter(
     (item) =>
@@ -23,7 +25,7 @@ export default function DigitalStandardsPlaybookPage(props) {
       item.scId === "SUMMARY"
   );
 
-  const displayProjectUpdates = updatesData.map((update) => (
+  const displayProjectUpdates = sortedUpdates.map((update) => (
     <li key={update.scId} className="list-none ml-0 col-span-12 lg:col-span-4">
       <Card
         showImage

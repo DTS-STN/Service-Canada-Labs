@@ -10,10 +10,12 @@ import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
+import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 
 export default function OasBenefitsEstimator(props) {
   const [pageData] = useState(props.pageData.item);
   const [updatesData] = useState(props.updatesData);
+  const sortedUpdates = sortUpdatesByDate(updatesData);
   const [filteredDictionary] = useState(
     props.dictionary.items.filter(
       (item) =>
@@ -24,7 +26,7 @@ export default function OasBenefitsEstimator(props) {
     )
   );
 
-  const displayProjectUpdates = updatesData.map((update) => (
+  const displayProjectUpdates = sortedUpdates.map((update) => (
     <li key={update.scId} className="list-none ml-0 col-span-12 lg:col-span-4">
       <Card
         showImage
