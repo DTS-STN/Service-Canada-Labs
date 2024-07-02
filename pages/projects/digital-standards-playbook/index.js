@@ -14,8 +14,7 @@ import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 
 export default function DigitalStandardsPlaybookPage(props) {
   const [pageData] = useState(props.pageData.item);
-  const [updatesData] = useState(props.updatesData);
-  const sortedUpdates = sortUpdatesByDate(updatesData);
+  const updatesData = sortUpdatesByDate(props.updatesData);
 
   const filteredDictionary = props.dictionary?.items?.filter(
     (item) =>
@@ -25,7 +24,7 @@ export default function DigitalStandardsPlaybookPage(props) {
       item.scId === "SUMMARY"
   );
 
-  const displayProjectUpdates = sortedUpdates.map((update) => (
+  const displayProjectUpdates = updatesData.map((update) => (
     <li key={update.scId} className="list-none ml-0 col-span-12 lg:col-span-4">
       <Card
         showImage
