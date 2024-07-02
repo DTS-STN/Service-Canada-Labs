@@ -10,7 +10,7 @@ variables:
   azure.servicePrincipal: 'rg-ServiceCanadaLabs-Dev-10/11/2023'
   webapp.name: 'app-servicecanadalabs-dev'
   webapp.resourceGroup: 'rg-servicecanadalabs-dev'
-  webapp.slotName: null
+  webapp.slotName: 0
   azureContainerRegistry.name: 'DTS Shared Container Repo 10/11/2023'
   azureContainerRegistry.repository: 'alphasite'
   azureContainerRegistry.domain: 'dtsshared.azurecr.io'
@@ -63,6 +63,7 @@ steps:
       latest
 
 - task: PowerShell@2
+  condition: eq(variables['Build.Reason'], 'PullRequest')
   displayName: 'Decide which AppService slot to put this preview in'
   inputs:
     targetType: 'inline'
