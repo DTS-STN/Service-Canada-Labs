@@ -10,10 +10,11 @@ import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
+import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 
 export default function OasBenefitsEstimator(props) {
   const [pageData] = useState(props.pageData.item);
-  const [updatesData] = useState(props.updatesData);
+  const updatesData = sortUpdatesByDate(props.updatesData);
   const [filteredDictionary] = useState(
     props.dictionary.items.filter(
       (item) =>
