@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 /**
  * Radio input styled as a button
  **/
-export function RadioButton(props) {
+export function RadioButton({ checked = false, ...props }) {
   const ifControlledProps = !props.uncontrolled
     ? {
-        checked: props.checked,
+        checked: checked,
       }
     : {
-        defaultChecked: props.checked || false,
+        defaultChecked: checked || false,
       };
   return (
     <div className="flex relative">
@@ -47,10 +47,6 @@ export function RadioButton(props) {
     </div>
   );
 }
-
-RadioButton.defaultProps = {
-  checked: false,
-};
 
 RadioButton.propTypes = {
   /**
