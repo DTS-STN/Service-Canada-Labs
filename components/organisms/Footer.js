@@ -83,11 +83,6 @@ export const Footer = ({
   );
 };
 
-Footer.defaultProps = {
-  contactLink: "https://www.canada.ca/en/contact.html",
-  withMainBand: true,
-};
-
 Footer.propTypes = {
   /**
    * id of this component
