@@ -4,7 +4,7 @@ import { ActionButton } from "../atoms/ActionButton";
 /**
  * error box to be used to summarise error in forms
  */
-export function ErrorBox(props) {
+export function ErrorBox({ errors = [], ...props }) {
   return (
     <div
       id="error-box"
@@ -20,7 +20,7 @@ export function ErrorBox(props) {
         data-cy="error-box-items"
         id="error-box-items"
       >
-        {props.errors.map(({ id, text }) => {
+        {errors.map(({ id, text }) => {
           return (
             <li key={`${id}-${text}`} className="mb-2">
               <ActionButton
@@ -39,10 +39,6 @@ export function ErrorBox(props) {
     </div>
   );
 }
-
-ErrorBox.defaultProps = {
-  errors: [],
-};
 
 ErrorBox.propTypes = {
   /**
