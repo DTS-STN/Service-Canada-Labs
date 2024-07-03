@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 /**
  * radio field
  */
-export function RadioField(props) {
+export function RadioField({ checked = false, value = "true", ...props }) {
   const ifControlledProps = !props.uncontrolled
     ? {
-        checked: props.checked,
+        checked: checked,
       }
     : {};
   return (
@@ -19,13 +19,13 @@ export function RadioField(props) {
         className="control-input cursor-pointer appearance-none w-40px h-40px absolute left-0 m-0 z-1 opacity-0"
         id={props.id}
         name={props.name}
-        value={props.value}
+        value={value}
         type="radio"
         onChange={(e) =>
           props.onChange(
-            props.uncontrolled ? !e.currentTarget.checked : props.checked,
+            props.uncontrolled ? !e.currentTarget.checked : checked,
             props.name,
-            props.value
+            value
           )
         }
         aria-required={props.required}
@@ -39,18 +39,13 @@ export function RadioField(props) {
           props.error ? " text-error-border-red" : undefined
         }`}
         htmlFor={props.id}
-        onClick={() => props.onChange(props.checked, props.name, props.value)}
+        onClick={() => props.onChange(checked, props.name, value)}
       >
         {props.label}
       </label>
     </div>
   );
 }
-
-RadioField.defaultProps = {
-  checked: false,
-  value: "true",
-};
 
 RadioField.propTypes = {
   /**
