@@ -2,12 +2,12 @@ import PropTypes from "prop-types";
 import { ErrorLabel } from "./ErrorLabel";
 import { useTranslation } from "next-i18next";
 
-export function SelectField(props) {
+export function SelectField({ value = "", ...props }) {
   const { t } = useTranslation("common");
 
   const ifControlledProps = !props.uncontrolled
     ? {
-        value: props.value,
+        value: value,
       }
     : {};
 
@@ -80,10 +80,6 @@ export function SelectField(props) {
     </div>
   );
 }
-
-SelectField.defaultProps = {
-  value: "",
-};
 
 SelectField.propTypes = {
   /**
