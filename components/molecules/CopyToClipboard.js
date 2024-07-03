@@ -2,10 +2,10 @@ import PropTypes from "prop-types";
 import Clipboard from "react-copy-to-clipboard";
 import { ActionButton } from "../atoms/ActionButton";
 
-export function CopyToClipboard(props) {
+export function CopyToClipboard({ value = "", type = "text", ...props }) {
   const ifControlledProps = !props.uncontrolled
     ? {
-        value: props.value,
+        value: value,
       }
     : {};
   return (
@@ -16,14 +16,14 @@ export function CopyToClipboard(props) {
         aria-describedby={props.describedby}
         name={props.name}
         placeholder={props.placeholder}
-        type={props.type}
+        type={type}
         onChange={(e) => props.onChange(e.currentTarget.value)}
         {...ifControlledProps}
         data-testid={props.dataTestId}
         data-cy={props.dataCy}
         aria-label={props.aria_label}
       />
-      <Clipboard text={props.value}>
+      <Clipboard text={value}>
         <ActionButton
           id={props.buttonId}
           className={`w-full ${props.buttonStyle}`}
@@ -35,11 +35,6 @@ export function CopyToClipboard(props) {
     </div>
   );
 }
-
-CopyToClipboard.defaultProps = {
-  value: "",
-  type: "text",
-};
 
 CopyToClipboard.propTypes = {
   /**
