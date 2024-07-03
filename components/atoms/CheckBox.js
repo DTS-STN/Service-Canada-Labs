@@ -3,10 +3,15 @@ import PropTypes from "prop-types";
 /**
  * check box component for forms
  */
-export function CheckBox(props) {
+export function CheckBox({
+  checked = false,
+  value = "true",
+  showRequiredLabel = false,
+  ...props
+}) {
   const ifControlledProps = !props.uncontrolled
     ? {
-        checked: props.checked,
+        checked: checked,
       }
     : {};
   return (
@@ -19,13 +24,13 @@ export function CheckBox(props) {
         className="control-input cursor-pointer appearance-none w-40px h-40px absolute left-0 m-0 z-1 opacity-0"
         id={props.id}
         name={props.name}
-        value={props.value}
+        value={value}
         type="checkbox"
         onChange={(e) =>
           props.onChange(
-            props.uncontrolled ? !e.currentTarget.checked : props.checked,
+            props.uncontrolled ? !e.currentTarget.checked : checked,
             props.name,
-            props.value
+            value
           )
         }
         aria-required={props.required}
@@ -40,7 +45,7 @@ export function CheckBox(props) {
         } font-body${props.error ? " text-error-border-red" : undefined}`}
         htmlFor={props.id}
       >
-        {props.showRequiredLabel ? (
+        {showRequiredLabel ? (
           <b className="text-error-border-red" aria-hidden="true">
             *
           </b>
@@ -50,12 +55,6 @@ export function CheckBox(props) {
     </div>
   );
 }
-
-CheckBox.defaultProps = {
-  checked: false,
-  value: "true",
-  showRequiredLabel: false,
-};
 
 CheckBox.propTypes = {
   /**
