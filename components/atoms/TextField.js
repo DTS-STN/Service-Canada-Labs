@@ -5,12 +5,12 @@ import { useTranslation } from "next-i18next";
 /**
  * text field component
  */
-export function TextField(props) {
+export function TextField({ value = "", type = "text", ...props }) {
   const { t } = useTranslation("common");
 
   const ifControlledProps = !props.uncontrolled
     ? {
-        value: props.value,
+        value: value,
       }
     : {};
   return (
@@ -52,7 +52,7 @@ export function TextField(props) {
         aria-describedby={props.describedby}
         name={props.name}
         placeholder={props.placeholder}
-        type={props.type}
+        type={type}
         min={props.min}
         max={props.max}
         step={props.step}
@@ -67,12 +67,6 @@ export function TextField(props) {
     </div>
   );
 }
-
-TextField.defaultProps = {
-  value: "",
-  type: "text",
-};
-
 TextField.propTypes = {
   /**
    * additional css for the component
