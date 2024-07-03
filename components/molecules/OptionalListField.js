@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 /**
  * An optional list field (radio, checkbox) that is enabled by a checkbox
  */
-export function OptionalListField(props) {
+export function OptionalListField({ controlType = "checkbox", ...props }) {
   let [showListField, setShowListField] = useState(props.checked || false);
   let handleCheckChange = (wasChecked, name, value) => {
     if (wasChecked) {
@@ -30,7 +30,7 @@ export function OptionalListField(props) {
   });
   return (
     <>
-      {props.controlType === "checkbox" ? (
+      {controlType === "checkbox" ? (
         <CheckBox
           label={props.controlLabel}
           id={props.controlId}
@@ -75,10 +75,6 @@ export function OptionalListField(props) {
     </>
   );
 }
-
-OptionalListField.defaultProps = {
-  controlType: "checkbox",
-};
 
 OptionalListField.propTypes = {
   /**
