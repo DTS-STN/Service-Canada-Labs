@@ -11,10 +11,11 @@ import { Collapse } from "../../../components/molecules/Collapse";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
 import TextRender from "../../../components/text_node_renderer/TextRender";
+import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 
 export default function BenefitsNavigatorOverview(props) {
   const [pageData] = useState(props.pageData.item);
-  const [updatesData] = useState(props.updatesData);
+  const updatesData = sortUpdatesByDate(props.updatesData);
   const [filteredDictionary] = useState(
     props.dictionary.items.filter(
       (item) =>

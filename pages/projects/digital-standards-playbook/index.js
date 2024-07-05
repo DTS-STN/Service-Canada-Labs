@@ -10,10 +10,11 @@ import { Heading } from "../../../components/molecules/Heading";
 import { ActionButton } from "../../../components/atoms/ActionButton";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
+import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 
 export default function DigitalStandardsPlaybookPage(props) {
   const [pageData] = useState(props.pageData.item);
-  const [updatesData] = useState(props.updatesData);
+  const updatesData = sortUpdatesByDate(props.updatesData);
 
   const filteredDictionary = props.dictionary?.items?.filter(
     (item) =>

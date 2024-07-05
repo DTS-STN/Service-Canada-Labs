@@ -13,10 +13,11 @@ import stageDictionary from "../../../lib/utils/stageDictionary";
 import TextRender from "../../../components/text_node_renderer/TextRender";
 import Card from "../../../components/molecules/Card";
 import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
+import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 
 export default function MscaDashboard(props) {
   const pageData = props.pageData?.item;
-  const updatesData = props.updatesData;
+  const updatesData = sortUpdatesByDate(props.updatesData);
 
   const filteredDictionary = props.dictionary?.items?.filter(
     (item) =>
