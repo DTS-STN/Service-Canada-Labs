@@ -3,7 +3,13 @@ import { Image } from "./Image";
 
 // Button used in HelpIcon.js and CTA.js
 // Use ActionButton.js for all other buttons in the app
-export function DSButton(props) {
+export function DSButton({
+  id = "btn1",
+  styling = "supertask",
+  text = "default",
+  href = "no ref",
+  ...props
+}) {
   //Styling for buttons and links
   const PRIMARY =
     "text-multi-neutrals-white bg-multi-blue-blue70 hover:bg-multi-blue-blue60g focus:bg-multi-blue-blue60g";
@@ -16,25 +22,25 @@ export function DSButton(props) {
   const LINK =
     "text-multi-blue-blue60c hover:text-multi-blue-blue50b focus:text-multi-blue-blue60f";
 
-  const styling =
-    props.styling === "primary"
+  styling =
+    styling === "primary"
       ? PRIMARY
-      : props.styling === "secondary"
+      : styling === "secondary"
       ? SECONDARY
-      : props.styling === "supertask"
+      : styling === "supertask"
       ? SUPERTASK
-      : props.styling === "danger"
+      : styling === "danger"
       ? DANGER
-      : props.styling === "link"
+      : styling === "link"
       ? LINK
       : "";
 
-  return props.href === "no ref" ? (
+  return href === "no ref" ? (
     <button
       className={`flex flex-row px-[16px] py-[8px] ${styling} rounded-sm focus:ring focus:ring-offset-4 ${props.className} `}
       onClick={props.onClick}
       type={props.type}
-      id={props.id}
+      id={id}
       disabled={props.disabled}
       {...props.attributes}
       alt={props.iconAltText}
@@ -46,10 +52,10 @@ export function DSButton(props) {
       ) : undefined}
       <span
         className={`grid place-items-center ${
-          props.styling === "supertask" ? "h-8" : ""
+          styling === "supertask" ? "h-8" : ""
         }`}
       >
-        {props.text}
+        {text}
       </span>
       {props.children}
       {props.icon && props.iconEnd ? (
@@ -60,12 +66,12 @@ export function DSButton(props) {
     </button>
   ) : (
     <a
-      href={props.href}
+      href={href}
       className={`flex flex-row ${
-        props.styling !== "none" ? "btn-link" : ""
+        styling !== "none" ? "btn-link" : ""
       } focus:ring focus:ring-offset-4 ${props.className}`}
       onClick={props.onClick}
-      id={props.id}
+      id={id}
       disabled={props.disabled}
       role="button"
     >
@@ -76,7 +82,7 @@ export function DSButton(props) {
           alt={props.iconAltText}
         />
       ) : undefined}
-      {props.text}
+      {text}
       {props.children}
       {props.icon && props.iconEnd ? (
         <div className="grid place-items-center h-8 w-8">
@@ -90,13 +96,6 @@ export function DSButton(props) {
     </a>
   );
 }
-
-DSButton.defaultProps = {
-  id: "btn1",
-  styling: "supertask",
-  text: "default",
-  href: "no ref",
-};
 
 DSButton.propTypes = {
   /**

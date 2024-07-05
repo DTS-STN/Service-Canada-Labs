@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 // Use this component for Footer link and use Next.js <Link>
 // for all links within the site
-export function Link(props) {
+export function Link({ target = "_self", href = "#", ...props }) {
   //Styling for links based on Figma Design
   let basicStyle = "";
   switch (props.linkStyle) {
@@ -45,15 +45,15 @@ export function Link(props) {
 
   return Component !== "a" ? (
     <Component
-      href={props.href}
+      href={href}
       disabled={props.disabled}
       lang={props.lang}
-      target={props.target}
+      target={target}
       aria-label={props.ariaLabel || props.text}
       role="link"
     >
       <a
-        href={props.href}
+        href={href}
         locale={props.locale}
         onClick={props.onClick ? props.onClick : undefined}
         id={props.id}
@@ -73,12 +73,12 @@ export function Link(props) {
     </Component>
   ) : (
     <a
-      href={props.href}
+      href={href}
       className={`${basicStyle}`}
       id={props.id}
       disabled={props.disabled}
       lang={props.lang}
-      target={props.target}
+      target={target}
       aria-label={props.ariaLabel || props.text}
       locale={props.locale}
       onClick={props.onClick ? props.onClick : undefined}
@@ -95,11 +95,6 @@ export function Link(props) {
     </a>
   );
 }
-
-Link.defaultProps = {
-  target: "_self",
-  href: "#",
-};
 
 Link.propTypes = {
   /**

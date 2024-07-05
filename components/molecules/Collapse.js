@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
-export function Collapse(props) {
-  const { id, title, children } = props;
+export function Collapse({ id = "defaultAccordion", ...props }) {
+  const { title, children } = props;
   return (
     <details
       key={id}
@@ -22,10 +22,6 @@ export function Collapse(props) {
     </details>
   );
 }
-
-Collapse.defaultProps = {
-  id: "defaultAccordion",
-};
 
 Collapse.propTypes = {
   /**
