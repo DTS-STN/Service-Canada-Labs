@@ -9,31 +9,31 @@ export function Link({ target = "_self", href = "#", ...props }) {
   switch (props.linkStyle) {
     case "basicStyleWithEmphasis":
       basicStyle =
-        "underline text-multi-blue-blue70b font-body text-browserh5 font-bold text-mobileh5 leading-33px hover:text-multi-blue-blue50b";
+        "underline text-multi-blue-blue70b font-body text-mobilebody lg:text-p font-bold text-mobileh5 leading-33px hover:text-multi-blue-blue50b";
       break;
     case "titleLink":
       basicStyle =
-        "underline text-multi-blue-blue70b font-header text-browserh5 leading-23px font-bold hover:text-multi-blue-blue50b";
+        "underline text-multi-blue-blue70b font-header text-mobilebody lg:text-p leading-23px font-bold hover:text-multi-blue-blue50b";
       break;
     case "smfooterBlue":
       basicStyle =
-        "text-multi-blue-blue70b font-body leading-20px text-browserh7 hover:underline";
+        "text-multi-blue-blue70b font-body leading-20px text-mobilebody lg:text-p hover:underline";
       break;
     case "smfooterWhite":
       basicStyle =
-        "text-multi-neutrals-white font-body text-browserh7 leading-20px font-regular hover:text-multi-neutrals-white hover:underline focus:ring-1 focus:ring-white";
+        "text-multi-neutrals-white font-body text-mobilebody lg:text-p leading-20px font-regular hover:text-multi-neutrals-white hover:underline focus:ring-1 focus:ring-white";
       break;
     case "smBreadcrumbs":
       basicStyle =
-        "text-multi-blue-blue70b font-body text-browserh8 leading-23px font-regular hover:text-multi-blue-blue50b";
+        "text-multi-blue-blue70b font-body text-mobilebody lg:text-p leading-23px font-regular hover:text-multi-blue-blue50b";
       break;
     case "cardActionLink":
       basicStyle =
-        "text-multi-blue-blue70b font-body text-browserh5 underline leading-28px font-regular hover:text-multi-blue-blue50b";
+        "text-multi-blue-blue70b font-body text-mobilebody lg:text-p underline leading-28px font-regular hover:text-multi-blue-blue50b";
       break;
     default:
       basicStyle =
-        "underline underline-offset-4 text-multi-blue-blue70b font-body text-browserh5 leading-33px hover:text-multi-blue-blue50b";
+        "underline underline-offset-4 text-multi-blue-blue70b font-body text-mobilebody lg:text-p leading-33px hover:text-multi-blue-blue50b";
       break;
   }
 

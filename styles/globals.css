@@ -32,20 +32,22 @@ html {
 
   /* Font sizes */
   h1 {
-    @apply text-h1;
+    @apply text-mobileh1;
   }
   h2 {
-    @apply text-h2;
+    @apply text-mobileh2;
   }
   h3 {
-    @apply text-h3;
+    @apply text-mobileh3;
   }
   h4 {
-    @apply text-h4;
+    @apply text-mobileh4;
   }
-  h5,
+  h5{
+    @apply text-mobileh5;
+  }
   p {
-    @apply text-p;
+    @apply text-mobilebody;
   }
   h6 {
     @apply text-base;
@@ -57,10 +59,22 @@ html {
   }
   @screen lg {
     h1 {
-      @apply text-h1l;
+      @apply text-h1;
     }
     h2 {
-      @apply text-h2l;
+      @apply text-h2;
+    }
+    h3 {
+      @apply text-h3;
+    }
+    h4 {
+      @apply text-h4;
+    }
+    h5{
+      @apply text-h5;
+    }
+    p {
+      @apply text-p;
     }
   }
 

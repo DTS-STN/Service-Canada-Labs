@@ -246,7 +246,7 @@ export default function MscaDashboard(props) {
                   </div>
                 </div>
               </div>
-              <p className="row-start-2 font-body text-lg mb-4">
+              <p className="row-start-2 mb-4">
                 {props.locale === "en"
                   ? pageData.scFragments[0].scContentEn.json[1].content[0].value
                   : pageData.scFragments[0].scContentFr.json[1].content[0]

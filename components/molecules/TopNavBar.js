@@ -34,7 +34,10 @@ export function TopNavBar({
     >
       {/* Desktop Nav Menu */}
       <div className="hidden lg:flex w-full self-center justify-between layout-container">
-        <Link href={homeLink} className="font-body font-semibold text-h3">
+        <Link
+          href={homeLink}
+          className="font-body font-semibold text-[25.31px]"
+        >
           {homeLinkLabel}
         </Link>
         <div className="lg:mr-16">

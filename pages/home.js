@@ -31,7 +31,7 @@ export default function Home(props) {
     const sortOrder = [
       "Making it easier to get benefits",
       "Digital Standards Playbook",
-      "My Service Canada Account dashboard",
+      "New dashboard for My Service Canada Account",
       "Benefits Navigator",
       "Old Age Security Benefits Estimator",
     ];

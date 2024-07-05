@@ -46,7 +46,7 @@ export const Card = (props) => {
         <div className="flex">
           <p
             className={
-              `block font-display text-lg text-custom-blue-projects-link font-bold underline underline-offset-[6px] my-1 py-2 px-6 items-center group-hover:text-custom-blue-projects-link-hover` +
+              `block font-display text-[22px] leading-7 text-custom-blue-projects-link font-bold underline underline-offset-[2px] my-1 py-2 px-6 items-center group-hover:text-custom-blue-projects-link-hover` +
               ` ${props.cardHeadingStyling}`
             }
           >
@@ -84,7 +84,7 @@ export const Card = (props) => {
         {props.htmlDesc ? (
           props.htmlDesc
         ) : (
-          <p className="text-custom-gray-text mx-6 leading-30px text-lg">
+          <p className="text-custom-gray-text mx-6 leading-30px">
             {props.description}
           </p>
         )}

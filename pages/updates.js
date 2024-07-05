@@ -56,14 +56,14 @@ export default function UpdatesPage(props) {
         className="grid col-span-12 bg-white list-none my-3"
       >
         <Card
-          customStyling="pb-6 border-x-0 border-t-0 border-b-2 !shadow-none rounded-none"
-          cardHeadingStyling="!text-h2l pl-0 no-underline"
+          customStyling="pb-5 border-x-0 border-t-0 border-b-2 !shadow-none rounded-none"
+          cardHeadingStyling="!text-mobileh2 lg:!text-h2l pl-0 no-underline"
           title={props.locale === "en" ? update.scTitleEn : update.scTitleFr}
           href={
             props.locale === "en" ? update.scPageNameEn : update.scPageNameFr
           }
           htmlDesc={
-            <div className="flex flex-col pt-8">
+            <div className="flex flex-col lg:pt-3">
               <span className="flex flex-row">
                 <p className="text-multi-neutrals-grey100 font-semibold whitespace-nowrap">
                   {props.locale === "en" ? "Project:" : "Projet :"}

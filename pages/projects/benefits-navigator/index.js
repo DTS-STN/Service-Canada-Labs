@@ -252,7 +252,7 @@ export default function BenefitsNavigatorOverview(props) {
                   </div>
                 </div>
               </div>
-              <p className="row-start-2 font-body text-lg mb-4">
+              <p className="row-start-2 mb-4">
                 {props.locale === "en"
                   ? pageData.scFragments[2].scContentEn.json[1].content[0].value
                   : pageData.scFragments[2].scContentFr.json[1].content[0]
@@ -330,22 +330,22 @@ export default function BenefitsNavigatorOverview(props) {
                 ? pageData.scFragments[3].scContentEn.json[2].content[0].value
                 : pageData.scFragments[3].scContentFr.json[2].content[0].value}
             </p>
-            <ul className="list-disc col-span-12 xl:col-span-8">
-              <li className="ml-10 text-[20px]">
+            <ul className="list-disc col-span-12 xl:col-span-8 text-mobilebody lg:text-p">
+              <li className="ml-10">
                 {props.locale === "en"
                   ? pageData.scFragments[3].scContentEn.json[3].content[0]
                       .content[0].value
                   : pageData.scFragments[3].scContentFr.json[3].content[0]
                       .content[0].value}
               </li>
-              <li className="ml-10 text-[20px]">
+              <li className="ml-10">
                 {props.locale === "en"
                   ? pageData.scFragments[3].scContentEn.json[3].content[1]
                       .content[0].value
                   : pageData.scFragments[3].scContentFr.json[3].content[1]
                       .content[0].value}
               </li>
-              <li className="ml-10 text-[20px]">
+              <li className="ml-10">
                 {props.locale === "en"
                   ? pageData.scFragments[3].scContentEn.json[3].content[2]
                       .content[0].value
