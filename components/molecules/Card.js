@@ -84,9 +84,7 @@ export const Card = (props) => {
         {props.htmlDesc ? (
           props.htmlDesc
         ) : (
-          <p className="text-custom-gray-text mx-6 leading-30px">
-            {props.description}
-          </p>
+          <p className="text-custom-gray-text mx-6">{props.description}</p>
         )}
         {props.showButton ? (
           <ActionButton

@@ -17,11 +17,11 @@ export function Link({ target = "_self", href = "#", ...props }) {
       break;
     case "smfooterBlue":
       basicStyle =
-        "text-multi-blue-blue70b font-body leading-20px text-mobilebody lg:text-p hover:underline";
+        "text-multi-blue-blue70b font-body leading-20px text-browserh7 hover:underline";
       break;
     case "smfooterWhite":
       basicStyle =
-        "text-multi-neutrals-white font-body text-mobilebody lg:text-p leading-20px font-regular hover:text-multi-neutrals-white hover:underline focus:ring-1 focus:ring-white";
+        "text-multi-neutrals-white font-body text-browserh7 leading-20px font-regular hover:text-multi-neutrals-white hover:underline focus:ring-1 focus:ring-white";
       break;
     case "smBreadcrumbs":
       basicStyle =
