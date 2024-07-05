@@ -5,7 +5,7 @@ import { useTranslation } from "next-i18next";
 /**
  * multi line text field
  */
-export function MultiTextField(props) {
+export function MultiTextField({ spellCheck = true, wrap = "soft", ...props }) {
   const { t } = useTranslation("common");
 
   return (
@@ -41,8 +41,8 @@ export function MultiTextField(props) {
         onChange={(e) => props.onChange(e.currentTarget.value)}
         cols={props.cols}
         rows={props.rows}
-        spellCheck={props.spellCheck}
-        wrap={props.wrap}
+        spellCheck={spellCheck}
+        wrap={wrap}
         required={props.required}
         data-testid={props.dataTestId}
         data-cy={props.dataCy}
@@ -53,11 +53,6 @@ export function MultiTextField(props) {
     </div>
   );
 }
-
-MultiTextField.defaultProps = {
-  spellCheck: true,
-  wrap: "soft",
-};
 
 MultiTextField.propTypes = {
   /**

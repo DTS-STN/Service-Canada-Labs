@@ -20,7 +20,7 @@ import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 export default function BenefitsNavigatorOverview(props) {
   const [allProjects] = useState(props.allProjects);
   const [pageData] = useState(props.pageData.item);
-  const [updatesData] = useState(props.updatesData);
+  const updatesData = props.updatesData;
   const [filteredDictionary] = useState(
     props.dictionary.filter(
       (item) =>

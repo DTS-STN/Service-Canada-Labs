@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 /**
  * An optional text box that is enabled by a checkbox
  */
-export function OptionalTextField(props) {
+export function OptionalTextField({ controlType = "checkbox", ...props }) {
   let [showTextField, setShowTextField] = useState(props.checked || false);
   const [expandState, setExpandState] = useState("collapsed");
   const { t } = useTranslation("common");
@@ -28,7 +28,7 @@ export function OptionalTextField(props) {
   };
   return (
     <>
-      {props.controlType === "checkbox" && (
+      {controlType === "checkbox" && (
         <CheckBox
           label={props.controlLabel}
           id={props.controlId}
@@ -44,7 +44,7 @@ export function OptionalTextField(props) {
           expandState={expandState}
         />
       )}
-      {props.controlType === "radiofield" && (
+      {controlType === "radiofield" && (
         <RadioField
           label={props.controlLabel}
           id={props.controlId}
@@ -102,10 +102,6 @@ export function OptionalTextField(props) {
     </>
   );
 }
-
-OptionalTextField.defaultProps = {
-  controlType: "checkbox",
-};
 
 OptionalTextField.propTypes = {
   /**

@@ -21,6 +21,7 @@ export default function IntegratedChannelStrategyPage(props) {
   const [pageData] = useState(props.pageData.item);
   const [updatesData] = useState(props.updatesData);
   const [allProjects] = useState(props.allProjects);
+
   const [filteredDictionary] = useState(
     props.dictionary.filter(
       (item) =>

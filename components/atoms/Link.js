@@ -3,25 +3,10 @@ import PropTypes from "prop-types";
 
 // Use this component for Footer link and use Next.js <Link>
 // for all links within the site
-export function Link({
-  href = "#",
-  target = "_self",
-  ariaLabel,
-  component = "a",
-  linkStyle,
-  disabled,
-  lang,
-  locale,
-  onClick,
-  id,
-  dataGcAnalyticsCustomClick,
-  text,
-  abbr,
-  ...rest
-}) {
+export function Link({ target = "_self", href = "#", ...props }) {
   //Styling for links based on Figma Design
   let basicStyle = "";
-  switch (linkStyle) {
+  switch (props.linkStyle) {
     case "basicStyleWithEmphasis":
       basicStyle =
         "underline text-multi-blue-blue70b font-body text-browserh5 font-bold text-mobileh5 leading-33px hover:text-multi-blue-blue50b";
@@ -52,7 +37,7 @@ export function Link({
       break;
   }
 
-  const Component = component || "a";
+  const Component = props.component || "a";
 
   function onKeyDown() {
     true;
@@ -61,29 +46,29 @@ export function Link({
   return Component !== "a" ? (
     <Component
       href={href}
-      disabled={disabled}
-      lang={lang}
+      disabled={props.disabled}
+      lang={props.lang}
       target={target}
-      aria-label={ariaLabel || text}
+      aria-label={props.ariaLabel || props.text}
       role="link"
       className={`${basicStyle}`}
     >
-      {text}
+      {props.text}
     </Component>
   ) : (
     <a
       href={href}
       className={`${basicStyle}`}
-      id={id}
-      disabled={disabled}
-      lang={lang}
+      id={props.id}
+      disabled={props.disabled}
+      lang={props.lang}
       target={target}
-      aria-label={ariaLabel || text}
-      locale={locale}
-      onClick={onClick ? onClick : undefined}
-      data-gc-analytics-customclick={dataGcAnalyticsCustomClick}
+      aria-label={props.ariaLabel || props.text}
+      locale={props.locale}
+      onClick={props.onClick ? props.onClick : undefined}
+      data-gc-analytics-customclick={props.dataGcAnalyticsCustomClick}
     >
-      {text}
+      {props.text}
     </a>
   );
 }
