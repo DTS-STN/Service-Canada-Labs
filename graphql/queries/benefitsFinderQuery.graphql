@@ -1,0 +1,519 @@
+query getBenefitsFinderPage {
+  sclabsPageV1ByPath(
+    _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/benefits-finder/benefits-finder"
+  ) {
+    item {
+      scId
+      scPageNameEn
+      scPageNameFr
+      scTitleEn
+      scTitleFr
+      scShortTitleEn
+      scShortTitleFr
+      scLabProjectStage
+      scLabProjectSummaryEn {
+        json
+      }
+      scLabProjectSummaryFr {
+        json
+      }
+      scDescriptionEn {
+        json
+      }
+      scDescriptionFr {
+        json
+      }
+      scLabProjectUpdates {
+        ... on SclabsPageV1Model {
+          _path
+          scId
+          scPageNameEn
+          scPageNameFr
+          scTitleEn
+          scTitleFr
+          scShortTitleEn
+          scShortTitleFr
+          scBreadcrumbParentPages {
+            ... on SclabsPageV1Model {
+              scTitleEn
+              scTitleFr
+              scPageNameEn
+              scPageNameFr
+            }
+          }
+          scSubject
+          scKeywordsEn
+          scKeywordsFr
+          scContentType
+          scOwner
+          scDateModifiedOverwrite
+          scAudience
+          scRegion
+          scSocialMediaImageEn {
+            ... on ImageRef {
+              _path
+              _publishUrl
+              width
+              height
+            }
+            ... on DocumentRef {
+              _path
+              _publishUrl
+            }
+          }
+          scSocialMediaImageFr {
+            ... on ImageRef {
+              _path
+              _publishUrl
+              width
+              height
+            }
+            ... on DocumentRef {
+              _path
+              _publishUrl
+            }
+          }
+          scSocialMediaImageAltTextEn
+          scSocialMediaImageAltTextFr
+          scNoIndex
+          scNoFollow
+          scFragments {
+            ... on SclabsContentV1Model {
+              _path
+              scId
+              scContentEn {
+                json
+              }
+              scContentFr {
+                json
+              }
+            }
+            ... on SclabsImageV1Model {
+              scId
+              scImageEn {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageFr {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageMobileEn {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageMobileFr {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageAltTextEn
+              scImageAltTextFr
+              scImageCaptionEn {
+                json
+              }
+              scImageCaptionFr {
+                json
+              }
+            }
+            ... on SclabsButtonV1Model {
+              scId
+              scTitleEn
+              scTitleFr
+              scDestinationURLEn
+              scDestinationURLFr
+              scButtonType
+            }
+            ... on SclabsFeatureV1Model {
+              scId
+              scTitleEn
+              scTitleFr
+              scContentEn {
+                json
+              }
+              scContentFr {
+                json
+              }
+              scImageEn {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scImageFr {
+                ... on ImageRef {
+                  _publishUrl
+                  width
+                  height
+                }
+                ... on DocumentRef {
+                  _publishUrl
+                }
+              }
+              scFragments {
+                ... on SclabsAlertV1Model {
+                  _path
+                  scId
+                  scTitleEn
+                  scTitleFr
+                  scContentEn {
+                    json
+                  }
+                  scContentFr {
+                    json
+                  }
+                  scAlertType
+                }
+              }
+              scImageAltTextEn
+              scImageAltTextFr
+              scLabsButton {
+                scId
+                scTitleEn
+                scTitleFr
+                scDestinationURLEn
+                scDestinationURLFr
+                scButtonType
+              }
+            }
+            ... on TooltipV1Model {
+              _path
+              scId
+              scTitleEn
+              scTitleFr
+              scContentEn {
+                json
+              }
+              scContentFr {
+                json
+              }
+            }
+          }
+        }
+      }
+      scBreadcrumbParentPages {
+        ... on SclabsPageV1Model {
+          scTitleEn
+          scTitleFr
+          scPageNameEn
+          scPageNameFr
+        }
+      }
+      scSubject
+      scKeywordsEn
+      scKeywordsFr
+      scContentType
+      scOwner
+      scDateModifiedOverwrite
+      scAudience
+      scRegion
+      scSocialMediaImageEn {
+        ... on ImageRef {
+          _path
+          _publishUrl
+          width
+          height
+        }
+        ... on DocumentRef {
+          _path
+          _publishUrl
+        }
+      }
+      scSocialMediaImageFr {
+        ... on ImageRef {
+          _path
+          _publishUrl
+          width
+          height
+        }
+        ... on DocumentRef {
+          _path
+          _publishUrl
+        }
+      }
+      scSocialMediaImageAltTextEn
+      scSocialMediaImageAltTextFr
+      scNoIndex
+      scNoFollow
+      scFragments {
+        ... on SclabsContentV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
+          _path
+          scId
+          scContentEn {
+            json
+          }
+          scContentFr {
+            json
+          }
+          scFragments {
+            ... on SclabsContentV1Model {
+              _model {
+                ... on ModelInfo {
+                  title
+                }
+              }
+              _path
+              scId
+              scContentEn {
+                json
+              }
+              scContentFr {
+                json
+              }
+              scFragments {
+                ... on SclabsImageV1Model {
+                  _model {
+                    ... on ModelInfo {
+                      title
+                    }
+                  }
+                  scId
+                  scImageEn {
+                    ... on ImageRef {
+                      _publishUrl
+                      width
+                      height
+                    }
+                    ... on DocumentRef {
+                      _publishUrl
+                    }
+                  }
+                  scImageFr {
+                    ... on ImageRef {
+                      _publishUrl
+                      width
+                      height
+                    }
+                    ... on DocumentRef {
+                      _publishUrl
+                    }
+                  }
+                  scImageMobileEn {
+                    ... on ImageRef {
+                      _publishUrl
+                      width
+                      height
+                    }
+                    ... on DocumentRef {
+                      _publishUrl
+                    }
+                  }
+                  scImageMobileFr {
+                    ... on ImageRef {
+                      _publishUrl
+                      width
+                      height
+                    }
+                    ... on DocumentRef {
+                      _publishUrl
+                    }
+                  }
+                  scImageAltTextEn
+                  scImageAltTextFr
+                  scImageCaptionEn {
+                    json
+                  }
+                  scImageCaptionFr {
+                    json
+                  }
+                  scLongDescHeadingEn
+                  scLongDescHeadingFr
+                  scLongDescEn {
+                    json
+                  }
+                  scLongDescFr {
+                    json
+                  }
+                }
+              }
+            }
+          }
+        }
+        ... on SclabsImageV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
+          scId
+          scImageEn {
+            ... on ImageRef {
+              _publishUrl
+              width
+              height
+            }
+            ... on DocumentRef {
+              _publishUrl
+            }
+          }
+          scImageFr {
+            ... on ImageRef {
+              _publishUrl
+              width
+              height
+            }
+            ... on DocumentRef {
+              _publishUrl
+            }
+          }
+          scImageMobileEn {
+            ... on ImageRef {
+              _publishUrl
+              width
+              height
+            }
+            ... on DocumentRef {
+              _publishUrl
+            }
+          }
+          scImageMobileFr {
+            ... on ImageRef {
+              _publishUrl
+              width
+              height
+            }
+            ... on DocumentRef {
+              _publishUrl
+            }
+          }
+          scImageAltTextEn
+          scImageAltTextFr
+          scImageCaptionEn {
+            json
+          }
+          scImageCaptionFr {
+            json
+          }
+        }
+        ... on SclabsButtonV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
+          scId
+          scTitleEn
+          scTitleFr
+          scDestinationURLEn
+          scDestinationURLFr
+          scButtonType
+        }
+        ... on SclabsFeatureV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
+          scId
+          scTitleEn
+          scTitleFr
+          scContentEn {
+            json
+          }
+          scContentFr {
+            json
+          }
+          scImageEn {
+            ... on ImageRef {
+              _publishUrl
+              width
+              height
+            }
+            ... on DocumentRef {
+              _publishUrl
+            }
+          }
+          scImageFr {
+            ... on ImageRef {
+              _publishUrl
+              width
+              height
+            }
+            ... on DocumentRef {
+              _publishUrl
+            }
+          }
+          scFragments {
+            ... on SclabsAlertV1Model {
+              _model {
+                ... on ModelInfo {
+                  title
+                }
+              }
+              _path
+              scId
+              scTitleEn
+              scTitleFr
+              scContentEn {
+                json
+              }
+              scContentFr {
+                json
+              }
+              scAlertType
+            }
+          }
+          scImageAltTextEn
+          scImageAltTextFr
+          scLabsButton {
+            scId
+            scTitleEn
+            scTitleFr
+            scDestinationURLEn
+            scDestinationURLFr
+            scButtonType
+          }
+        }
+        ... on TooltipV1Model {
+          _model {
+            ... on ModelInfo {
+              title
+            }
+          }
+          _path
+          scId
+          scTitleEn
+          scTitleFr
+          scContentEn {
+            json
+          }
+          scContentFr {
+            json
+          }
+        }
+      }
+    }
+  }
+}
