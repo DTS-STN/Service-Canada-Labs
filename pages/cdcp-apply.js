@@ -94,12 +94,22 @@ export default function CDCPLanding(props) {
           </div>
           <div className="col-span-12 xl:col-span-8">
             <p>{t("cdcp.toCompleteApplication")}</p>
-            <ul className="mt-5">
-              <li>{t("cdcp.listItems.item1")}</li>
-              <li>{t("cdcp.listItems.item2")}</li>
-              <li>{t("cdcp.listItems.item3")}</li>
-              <li>{t("cdcp.listItems.item4")}</li>
-              <li>{t("cdcp.listItems.item5")}</li>
+            <ul className="list-disc mt-5">
+              <li className="ml-10">
+                <p>{t("cdcp.listItems.item1")}</p>
+              </li>
+              <li className="ml-10">
+                <p>{t("cdcp.listItems.item2")}</p>
+              </li>
+              <li className="ml-10">
+                <p>{t("cdcp.listItems.item3")}</p>
+              </li>
+              <li className="ml-10">
+                <p>{t("cdcp.listItems.item4")}</p>
+              </li>
+              <li className="ml-10">
+                <p>{t("cdcp.listItems.item5")}</p>
+              </li>
             </ul>
             <h2 className="mt-10 mb-10">{t("cdcp.headingH2")}</h2>
             <p>{t("cdcp.clickButtonToApply")}</p>
