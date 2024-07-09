@@ -15,7 +15,8 @@ export default function Home(props) {
   const currentProjects = experimentsData.filter((project) => {
     return (
       project.scLabProjectStatus[0] ===
-      "gc:custom/decd-endc/project-status/current"
+        "gc:custom/decd-endc/project-status/current" &&
+      project.scTitleEn != "Benefits Navigator"
     );
   });
 
@@ -25,7 +26,6 @@ export default function Home(props) {
       "Making it easier to get benefits",
       "Digital Standards Playbook",
       "My Service Canada Account dashboard",
-      "Benefits Navigator",
       "Old Age Security Benefits Estimator",
     ];
     // Create a lookup for efficient ordering
