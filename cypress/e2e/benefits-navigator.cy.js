@@ -14,7 +14,7 @@ describe("Home Page", () => {
         cy.get('h2.modal-title').should('have.text','Alpha')
     })
   
-    it("navigates to a project page", () => {
+    it("navigates to an article page", () => {
       cy.get("a[href*=difficulties-community]").click();
       cy.url().should(
         "equal",
