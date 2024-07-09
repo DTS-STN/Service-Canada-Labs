@@ -74,7 +74,7 @@ describe("Link", () => {
       FooterBlueLink.args.text
     );
     expect(screen.getByRole("link")).toHaveClass(
-      "text-multi-blue-blue70b font-body leading-20px text-mobilebody lg:text-p hover:underline"
+      "text-multi-blue-blue70b font-body leading-20px text-browserh7 hover:underline"
     );
     expect(screen.getByLabelText(FooterBlueLink.args.text)).toBeInTheDocument();
   });

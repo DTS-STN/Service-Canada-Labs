@@ -21,7 +21,7 @@ export function ExploreUpdates({
           htmlDesc={
             <div className="flex flex-col">
               <span className="flex flex-row pl-6">
-                <p className="text-multi-neutrals-grey100 font-semibold">
+                <p className="text-multi-neutrals-grey100 font-semibold whitespace-nowrap">
                   {locale === "en" ? "Project:" : "Projet :"}
                 </p>
                 <p className="mt-0 pl-1">
