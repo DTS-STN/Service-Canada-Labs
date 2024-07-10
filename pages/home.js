@@ -26,8 +26,8 @@ export default function Home(props) {
       "Making it easier to get benefits",
       "Digital Standards Playbook",
       "New dashboard for My Service Canada Account",
-      // "Benefits Navigator",
       "Old Age Security Benefits Estimator",
+      "Benefits Navigator",
     ];
     // Create a lookup for efficient ordering
     const titleOrder = {};
