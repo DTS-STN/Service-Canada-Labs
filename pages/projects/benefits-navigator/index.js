@@ -239,28 +239,6 @@ export default function BenefitsNavigatorOverview(props) {
         </Head>
 
         <div className="layout-container">
-          <div className="mt-12 max-w-[75ch]">
-            <ContextualAlert
-              id="alert"
-              type="warning"
-              message_heading={
-                props.locale === "en"
-                  ? pageData.scFragments[0].scTitleEn
-                  : pageData.scFragments[0].scTitleFr
-              }
-              message_body={
-                <TextRender
-                  data={
-                    props.locale === "en"
-                      ? pageData.scFragments[0].scContentEn.json
-                      : pageData.scFragments[0].scContentFr.json
-                  }
-                />
-              }
-              alert_icon_alt_text=""
-              alert_icon_id="project-status-cta-icon"
-            />
-          </div>
           <section aria-labelledby="pageMainTitle">
             <div className="flex flex-col break-words lg:grid lg:grid-cols-2">
               <div className="col-span-2">
@@ -273,6 +251,28 @@ export default function BenefitsNavigatorOverview(props) {
                       : pageData.scTitleFr
                   }
                 />
+                <div className="mb-10 max-w-[76ch]">
+                  <ContextualAlert
+                    id="alert"
+                    type="warning"
+                    message_heading={
+                      props.locale === "en"
+                        ? pageData.scFragments[0].scTitleEn
+                        : pageData.scFragments[0].scTitleFr
+                    }
+                    message_body={
+                      <TextRender
+                        data={
+                          props.locale === "en"
+                            ? pageData.scFragments[0].scContentEn.json
+                            : pageData.scFragments[0].scContentFr.json
+                        }
+                      />
+                    }
+                    alert_icon_alt_text=""
+                    alert_icon_id="project-status-cta-icon"
+                  />
+                </div>
               </div>
               <div className="hidden lg:grid row-span-2 row-start-2 col-start-2 p-0 mx-4">
                 <div className="flex justify-center">
