@@ -50,6 +50,14 @@ const REWRITES = [
     destination: "/projects/making-easier-get-benefits/:slug",
   },
   {
+    source: "/projets/chercheur-prestations",
+    destination: "/projects/benefits-finder",
+  },
+  {
+    source: "/projets/chercheur-prestations/:slug",
+    destination: "/projects/benefits-finder/:slug",
+  },
+  {
     source: "/rsdc-demander",
     destination: "/cdcp-apply"
   }
