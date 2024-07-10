@@ -336,10 +336,10 @@ query getBenefitsNavigatorPage {
                   scLongDescHeadingEn
                   scLongDescHeadingFr
                   scLongDescEn {
-                      json
+                    json
                   }
                   scLongDescFr {
-                      json
+                    json
                   }
                 }
               }
@@ -472,6 +472,19 @@ query getBenefitsNavigatorPage {
           scContentFr {
             json
           }
+        }
+        ... on SclabsAlertV1Model {
+          _path
+          scId
+          scTitleEn
+          scTitleFr
+          scContentEn {
+            json
+          }
+          scContentFr {
+            json
+          }
+          scAlertType
         }
       }
     }

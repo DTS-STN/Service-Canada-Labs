@@ -22,10 +22,11 @@ export default function Home(props) {
   const sortedProjects = (objects) => {
     // Order to sort the projects
     const sortOrder = [
+      "Benefits Finder",
       "Making it easier to get benefits",
       "Digital Standards Playbook",
-      "My Service Canada Account dashboard",
-      "Benefits Navigator",
+      "New dashboard for My Service Canada Account",
+      // "Benefits Navigator",
       "Old Age Security Benefits Estimator",
     ];
     // Create a lookup for efficient ordering
