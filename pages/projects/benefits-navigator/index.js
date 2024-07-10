@@ -12,6 +12,7 @@ import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
 import TextRender from "../../../components/text_node_renderer/TextRender";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
+import { ContextualAlert } from "../../../components/molecules/ContextualAlert";
 
 export default function BenefitsNavigatorOverview(props) {
   const [pageData] = useState(props.pageData.item);
@@ -184,14 +185,14 @@ export default function BenefitsNavigatorOverview(props) {
           />
           <meta
             property="og:image"
-            content={pageData.scFragments[0].scImageEn._publishUrl}
+            content={pageData.scFragments[1].scImageEn._publishUrl}
           />
           <meta
             property="og:image:alt"
             content={
               props.locale === "en"
-                ? pageData.scFragments[0].scImageAltTextEn
-                : pageData.scFragments[0].scImageAltTextFr
+                ? pageData.scFragments[1].scImageAltTextEn
+                : pageData.scFragments[1].scImageAltTextFr
             }
           />
 
@@ -225,14 +226,14 @@ export default function BenefitsNavigatorOverview(props) {
           />
           <meta
             property="twitter:image"
-            content={pageData.scFragments[0].scImageEn._publishUrl}
+            content={pageData.scFragments[1].scImageEn._publishUrl}
           />
           <meta
             property="twitter:image:alt"
             content={
               props.locale === "en"
-                ? pageData.scFragments[0].scImageAltTextEn
-                : pageData.scFragments[0].scImageAltTextFr
+                ? pageData.scFragments[1].scImageAltTextEn
+                : pageData.scFragments[1].scImageAltTextFr
             }
           />
         </Head>
@@ -250,6 +251,28 @@ export default function BenefitsNavigatorOverview(props) {
                       : pageData.scTitleFr
                   }
                 />
+                <div className="mb-10 max-w-[76ch]">
+                  <ContextualAlert
+                    id="alert"
+                    type="warning"
+                    message_heading={
+                      props.locale === "en"
+                        ? pageData.scFragments[0].scTitleEn
+                        : pageData.scFragments[0].scTitleFr
+                    }
+                    message_body={
+                      <TextRender
+                        data={
+                          props.locale === "en"
+                            ? pageData.scFragments[0].scContentEn.json
+                            : pageData.scFragments[0].scContentFr.json
+                        }
+                      />
+                    }
+                    alert_icon_alt_text=""
+                    alert_icon_id="project-status-cta-icon"
+                  />
+                </div>
               </div>
               <div className="hidden lg:grid row-span-2 row-start-2 col-start-2 p-0 mx-4">
                 <div className="flex justify-center">
@@ -257,16 +280,16 @@ export default function BenefitsNavigatorOverview(props) {
                     <Image
                       src={
                         props.locale === "en"
-                          ? pageData.scFragments[0].scImageEn._publishUrl
-                          : pageData.scFragments[0].scImageFr._publishUrl
+                          ? pageData.scFragments[1].scImageEn._publishUrl
+                          : pageData.scFragments[1].scImageFr._publishUrl
                       }
                       alt={
                         props.locale === "en"
-                          ? pageData.scFragments[0].scImageAltTextEn
-                          : pageData.scFragments[0].scImageAltTextFr
+                          ? pageData.scFragments[1].scImageAltTextEn
+                          : pageData.scFragments[1].scImageAltTextFr
                       }
-                      width={pageData.scFragments[0].scImageEn.width}
-                      height={pageData.scFragments[0].scImageEn.height}
+                      width={pageData.scFragments[1].scImageEn.width}
+                      height={pageData.scFragments[1].scImageEn.height}
                       priority
                       sizes="33vw"
                       quality={100}
@@ -276,8 +299,8 @@ export default function BenefitsNavigatorOverview(props) {
               </div>
               <p className="row-start-2 font-body text-lg mb-4">
                 {props.locale === "en"
-                  ? pageData.scFragments[2].scContentEn.json[1].content[0].value
-                  : pageData.scFragments[2].scContentFr.json[1].content[0]
+                  ? pageData.scFragments[3].scContentEn.json[1].content[0].value
+                  : pageData.scFragments[3].scContentFr.json[1].content[0]
                       .value}
               </p>
               <div className="row-start-3">
@@ -299,26 +322,26 @@ export default function BenefitsNavigatorOverview(props) {
                       : filteredDictionary[3].scTermFr
                   }
                   dateStarted={
-                    pageData.scFragments[2].scContentEn.json[2].content[0].value
+                    pageData.scFragments[3].scContentEn.json[2].content[0].value
                   }
                   term={
                     props.locale === "en"
-                      ? pageData.scFragments[1].scContentEn.json[0].content[0]
+                      ? pageData.scFragments[2].scContentEn.json[0].content[0]
                           .value + " "
-                      : pageData.scFragments[1].scContentFr.json[0].content[0]
+                      : pageData.scFragments[2].scContentFr.json[0].content[0]
                           .value + " "
                   }
                   definition={
                     props.locale === "en"
-                      ? pageData.scFragments[1].scContentEn.json[0].content[1]
+                      ? pageData.scFragments[2].scContentEn.json[0].content[1]
                           .value
-                      : pageData.scFragments[1].scContentFr.json[0].content[1]
+                      : pageData.scFragments[2].scContentFr.json[0].content[1]
                           .value
                   }
                   information={
                     props.locale === "en"
-                      ? pageData.scFragments[1].scTitleEn
-                      : pageData.scFragments[1].scTitleFr
+                      ? pageData.scFragments[2].scTitleEn
+                      : pageData.scFragments[2].scTitleFr
                   }
                   stage={
                     props.locale === "en"
@@ -327,9 +350,9 @@ export default function BenefitsNavigatorOverview(props) {
                   }
                   summary={
                     props.locale === "en"
-                      ? pageData.scFragments[2].scContentEn.json[4].content[0]
+                      ? pageData.scFragments[3].scContentEn.json[4].content[0]
                           .value
-                      : pageData.scFragments[2].scContentFr.json[4].content[0]
+                      : pageData.scFragments[3].scContentFr.json[4].content[0]
                           .value
                   }
                 />
@@ -339,52 +362,52 @@ export default function BenefitsNavigatorOverview(props) {
           <div className="grid grid-cols-12">
             <h2 className="col-span-12">
               {props.locale === "en"
-                ? pageData.scFragments[3].scContentEn.json[0].content[0].value
-                : pageData.scFragments[3].scContentFr.json[0].content[0].value}
+                ? pageData.scFragments[4].scContentEn.json[0].content[0].value
+                : pageData.scFragments[4].scContentFr.json[0].content[0].value}
             </h2>
             <p className="col-span-12 xl:col-span-8">
               {props.locale === "en"
-                ? pageData.scFragments[3].scContentEn.json[1].content[0].value
-                : pageData.scFragments[3].scContentFr.json[1].content[0].value}
+                ? pageData.scFragments[4].scContentEn.json[1].content[0].value
+                : pageData.scFragments[4].scContentFr.json[1].content[0].value}
             </p>
             <p className="col-span-12 xl:col-span-8">
               {props.locale === "en"
-                ? pageData.scFragments[3].scContentEn.json[2].content[0].value
-                : pageData.scFragments[3].scContentFr.json[2].content[0].value}
+                ? pageData.scFragments[4].scContentEn.json[2].content[0].value
+                : pageData.scFragments[4].scContentFr.json[2].content[0].value}
             </p>
             <ul className="list-disc col-span-12 xl:col-span-8">
               <li className="ml-10 text-[20px]">
                 {props.locale === "en"
-                  ? pageData.scFragments[3].scContentEn.json[3].content[0]
+                  ? pageData.scFragments[4].scContentEn.json[3].content[0]
                       .content[0].value
-                  : pageData.scFragments[3].scContentFr.json[3].content[0]
+                  : pageData.scFragments[4].scContentFr.json[3].content[0]
                       .content[0].value}
               </li>
               <li className="ml-10 text-[20px]">
                 {props.locale === "en"
-                  ? pageData.scFragments[3].scContentEn.json[3].content[1]
+                  ? pageData.scFragments[4].scContentEn.json[3].content[1]
                       .content[0].value
-                  : pageData.scFragments[3].scContentFr.json[3].content[1]
+                  : pageData.scFragments[4].scContentFr.json[3].content[1]
                       .content[0].value}
               </li>
               <li className="ml-10 text-[20px]">
                 {props.locale === "en"
-                  ? pageData.scFragments[3].scContentEn.json[3].content[2]
+                  ? pageData.scFragments[4].scContentEn.json[3].content[2]
                       .content[0].value
-                  : pageData.scFragments[3].scContentFr.json[3].content[2]
+                  : pageData.scFragments[4].scContentFr.json[3].content[2]
                       .content[0].value}
               </li>
             </ul>
             <p className="col-span-12 xl:col-span-8">
               {props.locale === "en"
-                ? pageData.scFragments[3].scContentEn.json[4].content[0].value
-                : pageData.scFragments[3].scContentFr.json[4].content[0].value}
+                ? pageData.scFragments[4].scContentEn.json[4].content[0].value
+                : pageData.scFragments[4].scContentFr.json[4].content[0].value}
             </p>
             <div id="feature-section" className="col-span-12">
               <h2 className="col-span-12">
                 {props.locale === "en"
-                  ? pageData.scFragments[4].scContentEn.json[0].content[0].value
-                  : pageData.scFragments[4].scContentFr.json[0].content[0]
+                  ? pageData.scFragments[5].scContentEn.json[0].content[0].value
+                  : pageData.scFragments[5].scContentFr.json[0].content[0]
                       .value}
               </h2>
               <div id="feature-1" className="grid grid-cols-12 gap-x-6 mb-9">
@@ -392,24 +415,24 @@ export default function BenefitsNavigatorOverview(props) {
                   <Image
                     src={
                       props.locale === "en"
-                        ? pageData.scFragments[4].scFragments[0].scFragments[0]
+                        ? pageData.scFragments[5].scFragments[0].scFragments[0]
                             .scImageEn._publishUrl
-                        : pageData.scFragments[4].scFragments[0].scFragments[0]
+                        : pageData.scFragments[5].scFragments[0].scFragments[0]
                             .scImageFr._publishUrl
                     }
                     alt={
                       props.locale === "en"
-                        ? pageData.scFragments[4].scFragments[0].scFragments[0]
+                        ? pageData.scFragments[5].scFragments[0].scFragments[0]
                             .scImageAltTextEn
-                        : pageData.scFragments[4].scFragments[0].scFragments[0]
+                        : pageData.scFragments[5].scFragments[0].scFragments[0]
                             .scImageAltTextFr
                     }
                     height={
-                      pageData.scFragments[4].scFragments[0].scFragments[0]
+                      pageData.scFragments[5].scFragments[0].scFragments[0]
                         .scImageEn.height
                     }
                     width={
-                      pageData.scFragments[4].scFragments[0].scFragments[0]
+                      pageData.scFragments[5].scFragments[0].scFragments[0]
                         .scImageEn.width
                     }
                     sizes="100vw"
@@ -421,9 +444,9 @@ export default function BenefitsNavigatorOverview(props) {
                     <TextRender
                       data={
                         props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[0].scContentEn
+                          ? pageData.scFragments[5].scFragments[0].scContentEn
                               .json
-                          : pageData.scFragments[4].scFragments[0].scContentFr
+                          : pageData.scFragments[5].scFragments[0].scContentFr
                               .json
                       }
                     />
@@ -434,18 +457,18 @@ export default function BenefitsNavigatorOverview(props) {
                     id="image-text-collapse-1"
                     title={
                       props.locale === "en"
-                        ? pageData.scFragments[4].scFragments[0].scFragments[0]
+                        ? pageData.scFragments[5].scFragments[0].scFragments[0]
                             .scLongDescHeadingEn
-                        : pageData.scFragments[4].scFragments[0].scFragments[0]
+                        : pageData.scFragments[5].scFragments[0].scFragments[0]
                             .scLongDescHeadingFr
                     }
                     children={
                       <TextRender
                         data={
                           props.locale === "en"
-                            ? pageData.scFragments[4].scFragments[0]
+                            ? pageData.scFragments[5].scFragments[0]
                                 .scFragments[0].scLongDescEn.json
-                            : pageData.scFragments[4].scFragments[0]
+                            : pageData.scFragments[5].scFragments[0]
                                 .scFragments[0].scLongDescFr.json
                         }
                       />
@@ -458,24 +481,24 @@ export default function BenefitsNavigatorOverview(props) {
                   <Image
                     src={
                       props.locale === "en"
-                        ? pageData.scFragments[4].scFragments[1].scFragments[0]
+                        ? pageData.scFragments[5].scFragments[1].scFragments[0]
                             .scImageEn._publishUrl
-                        : pageData.scFragments[4].scFragments[1].scFragments[0]
+                        : pageData.scFragments[5].scFragments[1].scFragments[0]
                             .scImageFr._publishUrl
                     }
                     alt={
                       props.locale === "en"
-                        ? pageData.scFragments[4].scFragments[1].scFragments[0]
+                        ? pageData.scFragments[5].scFragments[1].scFragments[0]
                             .scImageAltTextEn
-                        : pageData.scFragments[4].scFragments[1].scFragments[0]
+                        : pageData.scFragments[5].scFragments[1].scFragments[0]
                             .scImageAltTextFr
                     }
                     height={
-                      pageData.scFragments[4].scFragments[1].scFragments[0]
+                      pageData.scFragments[5].scFragments[1].scFragments[0]
                         .scImageEn.height
                     }
                     width={
-                      pageData.scFragments[4].scFragments[1].scFragments[0]
+                      pageData.scFragments[5].scFragments[1].scFragments[0]
                         .scImageEn.width
                     }
                     sizes="100vw"
@@ -487,9 +510,9 @@ export default function BenefitsNavigatorOverview(props) {
                     <TextRender
                       data={
                         props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[1].scContentEn
+                          ? pageData.scFragments[5].scFragments[1].scContentEn
                               .json
-                          : pageData.scFragments[4].scFragments[1].scContentFr
+                          : pageData.scFragments[5].scFragments[1].scContentFr
                               .json
                       }
                     />
@@ -500,18 +523,18 @@ export default function BenefitsNavigatorOverview(props) {
                     id="image-text-collapse-2"
                     title={
                       props.locale === "en"
-                        ? pageData.scFragments[4].scFragments[1].scFragments[0]
+                        ? pageData.scFragments[5].scFragments[1].scFragments[0]
                             .scLongDescHeadingEn
-                        : pageData.scFragments[4].scFragments[1].scFragments[0]
+                        : pageData.scFragments[5].scFragments[1].scFragments[0]
                             .scLongDescHeadingFr
                     }
                     children={
                       <TextRender
                         data={
                           props.locale === "en"
-                            ? pageData.scFragments[4].scFragments[1]
+                            ? pageData.scFragments[5].scFragments[1]
                                 .scFragments[0].scLongDescEn.json
-                            : pageData.scFragments[4].scFragments[1]
+                            : pageData.scFragments[5].scFragments[1]
                                 .scFragments[0].scLongDescFr.json
                         }
                       />
@@ -524,24 +547,24 @@ export default function BenefitsNavigatorOverview(props) {
                   <Image
                     src={
                       props.locale === "en"
-                        ? pageData.scFragments[4].scFragments[2].scFragments[0]
+                        ? pageData.scFragments[5].scFragments[2].scFragments[0]
                             .scImageEn._publishUrl
-                        : pageData.scFragments[4].scFragments[2].scFragments[0]
+                        : pageData.scFragments[5].scFragments[2].scFragments[0]
                             .scImageFr._publishUrl
                     }
                     alt={
                       props.locale === "en"
-                        ? pageData.scFragments[4].scFragments[2].scFragments[0]
+                        ? pageData.scFragments[5].scFragments[2].scFragments[0]
                             .scImageAltTextEn
-                        : pageData.scFragments[4].scFragments[2].scFragments[0]
+                        : pageData.scFragments[5].scFragments[2].scFragments[0]
                             .scImageAltTextFr
                     }
                     height={
-                      pageData.scFragments[4].scFragments[2].scFragments[0]
+                      pageData.scFragments[5].scFragments[2].scFragments[0]
                         .scImageEn.height
                     }
                     width={
-                      pageData.scFragments[4].scFragments[2].scFragments[0]
+                      pageData.scFragments[5].scFragments[2].scFragments[0]
                         .scImageEn.width
                     }
                     sizes="100vw"
@@ -553,9 +576,9 @@ export default function BenefitsNavigatorOverview(props) {
                     <TextRender
                       data={
                         props.locale === "en"
-                          ? pageData.scFragments[4].scFragments[2].scContentEn
+                          ? pageData.scFragments[5].scFragments[2].scContentEn
                               .json
-                          : pageData.scFragments[4].scFragments[2].scContentFr
+                          : pageData.scFragments[5].scFragments[2].scContentFr
                               .json
                       }
                     />
@@ -566,18 +589,18 @@ export default function BenefitsNavigatorOverview(props) {
                     id="image-text-collapse-3"
                     title={
                       props.locale === "en"
-                        ? pageData.scFragments[4].scFragments[2].scFragments[0]
+                        ? pageData.scFragments[5].scFragments[2].scFragments[0]
                             .scLongDescHeadingEn
-                        : pageData.scFragments[4].scFragments[2].scFragments[0]
+                        : pageData.scFragments[5].scFragments[2].scFragments[0]
                             .scLongDescHeadingFr
                     }
                     children={
                       <TextRender
                         data={
                           props.locale === "en"
-                            ? pageData.scFragments[4].scFragments[2]
+                            ? pageData.scFragments[5].scFragments[2]
                                 .scFragments[0].scLongDescEn.json
-                            : pageData.scFragments[4].scFragments[2]
+                            : pageData.scFragments[5].scFragments[2]
                                 .scFragments[0].scLongDescFr.json
                         }
                       />
@@ -586,41 +609,6 @@ export default function BenefitsNavigatorOverview(props) {
                 </div>
               </div>
             </div>
-            <section
-              id="BENEFITS-NAVIGATOR-HELP-DESIGN"
-              className="grid grid-cols-12 col-span-12"
-            >
-              <h2 className="col-span-12">
-                {props.locale === "en"
-                  ? pageData.scFragments[5].scContentEn.json[0].content[0].value
-                  : pageData.scFragments[5].scContentFr.json[0].content[0]
-                      .value}
-              </h2>
-              <p className="col-span-12 xl:col-span-8">
-                {props.locale === "en"
-                  ? pageData.scFragments[5].scContentEn.json[1].content[0].value
-                  : pageData.scFragments[5].scContentFr.json[1].content[0]
-                      .value}
-              </p>
-              <p className="col-span-12 xl:col-span-8">
-                {props.locale === "en"
-                  ? pageData.scFragments[5].scContentEn.json[2].content[0].value
-                  : pageData.scFragments[5].scContentFr.json[2].content[0]
-                      .value}
-                <a
-                  className="underline underline-offset-4"
-                  href={`mailto:${pageData.scFragments[5].scContentEn.json[2].content[1].value}`}
-                >
-                  {pageData.scFragments[5].scContentEn.json[2].content[1].value}
-                </a>
-              </p>
-              <p className="col-span-12 xl:col-span-8">
-                {props.locale === "en"
-                  ? pageData.scFragments[5].scContentEn.json[3].content[0].value
-                  : pageData.scFragments[5].scContentFr.json[3].content[0]
-                      .value}
-              </p>
-            </section>
           </div>
 
           {updatesData.length === 0 ? null : (
