@@ -351,7 +351,7 @@ export default function IntegratedChannelStrategyPage(props) {
                   ? "Project updates"
                   : "Mises à jour du projet"}
               </h2>
-              <ul className="grid lg:grid-cols-12 gap-x-4 lg:gap-y-12 list-none ml-0 mb-12">
+              <ul className="grid lg:grid-cols-12 gap-x-4 gap-y-4 lg:gap-y-12 list-none ml-0 mb-12">
                 {displayProjectUpdates}
               </ul>
             </section>
