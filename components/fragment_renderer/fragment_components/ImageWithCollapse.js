@@ -24,9 +24,13 @@ export default function ImageWithCollapse({
         sizes="100vw"
         quality={100}
       />
-      <p className="grid row-start-2 col-span-12 lg:col-span-10 justify-around mb-8">
-        {content}
-      </p>
+      {content ? (
+        <p className="grid row-start-2 col-span-12 lg:col-span-10 justify-around mb-8">
+          {content}
+        </p>
+      ) : (
+        ""
+      )}
       {longDesc ? (
         <div className="grid row-start-3 col-span-12 lg:col-span-10">
           <Collapse title={title} children={children} />

@@ -6890,7 +6890,7 @@ export const benefitsNavigatorData = {
                 {
                   nodeType: "text",
                   value:
-                    "Whether for yourself or someone else, this tool will make it easier for you to stay up to date and navigate government benefits.",
+                    "This project is closed. Whether for yourself or someone else, this tool will make it easier for you to stay up to date and navigate government benefits.",
                 },
               ],
             },
@@ -6904,7 +6904,7 @@ export const benefitsNavigatorData = {
                 {
                   nodeType: "text",
                   value:
-                    "Que ce soit pour vous ou pour quelqu'un d'autre, cet outil vous permettra de rester informé et d'explorer plus facilement les prestations gouvernementales.",
+                    "Ce projet est terminé. Que ce soit pour vous ou pour quelqu'un d'autre, cet outil vous permettra de rester informé et d'explorer plus facilement les prestations gouvernementales.",
                 },
               ],
             },
@@ -6971,6 +6971,162 @@ export const benefitsNavigatorData = {
             scNoFollow: false,
             scFragments: [],
           },
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/sclabs/pages/projects/benefits-navigator/updates/staying-informed-government-benefits-services",
+            scId: "PAGE-BN-STAYING-INFORMED-GOVERNMENT-BENEFITS-SERVICES",
+            scPageNameEn:
+              "/en/projects/benefits-navigator/staying-informed-government-benefits-services",
+            scPageNameFr:
+              "/fr/projets/navigateur-prestations/rester-informe-prestations-services-gouvernementaux",
+            scTitleEn: "Staying informed on government benefits and services",
+            scTitleFr:
+              "Rester informé sur les prestations et services gouvernementaux",
+            scShortTitleEn: null,
+            scShortTitleFr: null,
+            scBreadcrumbParentPages: [
+              {
+                scTitleEn: "Service Canada Labs",
+                scTitleFr: "Laboratoires de Service Canada",
+                scPageNameEn: "/en/home",
+                scPageNameFr: "/fr/accueil",
+              },
+            ],
+            scSubject: [
+              "gc:subjects/gv-government-and-politics/government-services",
+            ],
+            scKeywordsEn: null,
+            scKeywordsFr: null,
+            scContentType: [
+              "gc:content-types/promotional-material-featured-articles",
+            ],
+            scOwner: ["gc:institutions/service-canada"],
+            scDateModifiedOverwrite: "2024-06-21",
+            scAudience: null,
+            scRegion: null,
+            scSocialMediaImageEn: {
+              _path:
+                "/content/dam/decd-endc/images/sclabs/benefits-navigator/benefits-newsfeed.jpg",
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/benefits-navigator/benefits-newsfeed.jpg",
+              width: 900,
+              height: 600,
+            },
+            scSocialMediaImageFr: {
+              _path:
+                "/content/dam/decd-endc/images/sclabs/benefits-navigator/benefits-newsfeed.jpg",
+              _publishUrl:
+                "https://www.canada.ca/content/dam/decd-endc/images/sclabs/benefits-navigator/benefits-newsfeed.jpg",
+              width: 900,
+              height: 600,
+            },
+            scSocialMediaImageAltTextEn: "People adding content to a web page",
+            scSocialMediaImageAltTextFr:
+              "Personnes qui ajoutent du contenu à une page Web",
+            scNoIndex: false,
+            scNoFollow: false,
+            scFragments: [
+              {
+                scId: "IMAGE-BN-STAYING-INFORMED-NEWSFEED",
+                scImageEn: {
+                  _publishUrl:
+                    "https://www.canada.ca/content/dam/decd-endc/images/sclabs/client-hub/bn-article-newsfeed-screen-en.jpg",
+                  width: 1912,
+                  height: 1249,
+                },
+                scImageFr: {
+                  _publishUrl:
+                    "https://www.canada.ca/content/dam/decd-endc/images/sclabs/client-hub/bn-article-newsfeed-screen-fr.jpg",
+                  width: 1912,
+                  height: 1322,
+                },
+                scImageMobileEn: null,
+                scImageMobileFr: null,
+                scImageAltTextEn: "Benefits newsfeed",
+                scImageAltTextFr: "Fil d'actualité pour les prestations",
+                scImageCaptionEn: {
+                  json: [
+                    {
+                      nodeType: "paragraph",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Image of the Benefits newsfeed",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                scImageCaptionFr: {
+                  json: [
+                    {
+                      nodeType: "paragraph",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Image du fil d'actualité pour les prestations",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              },
+              {
+                _path:
+                  "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/benefits-navigator/updates/staying-informed-next",
+                scId: "CONTENT-BN-STAYING-INFORMED-NEXT",
+                scContentEn: {
+                  json: [
+                    {
+                      nodeType: "header",
+                      style: "h2",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Next Steps",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "paragraph",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "The Benefits newsfeed is just one idea to help people learn about government benefits. Other ideas that are being explored include improving the Canada Benefits Finder and exploring if artificial intelligence can provide personalized information about government benefits. You may see some of these ideas here on Service Canada Labs. Stay tuned!",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                scContentFr: {
+                  json: [
+                    {
+                      nodeType: "header",
+                      style: "h2",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value: "Prochaines étapes",
+                        },
+                      ],
+                    },
+                    {
+                      nodeType: "paragraph",
+                      content: [
+                        {
+                          nodeType: "text",
+                          value:
+                            "Le fil d'actualité pour les prestations n'est qu'une idée parmi d'autres pour aider les gens à s'informer sur les prestations gouvernementales. D'autres idées sont à l'étude, comme l'amélioration du Chercheur de prestations du Canada et l'utilisation de l'intelligence artificielle pour fournir des informations personnalisées sur les prestations du gouvernement. Vous verrez peut-être certaines de ces idées ici, sur le site des laboratoires de Service Canada. Restez à l'écoute!",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              },
+            ],
+          },
         ],
         scBreadcrumbParentPages: [
           {
@@ -6988,7 +7144,7 @@ export const benefitsNavigatorData = {
         scKeywordsFr: null,
         scContentType: null,
         scOwner: null,
-        scDateModifiedOverwrite: "2023-07-04",
+        scDateModifiedOverwrite: "2024-07-11",
         scAudience: null,
         scRegion: null,
         scSocialMediaImageEn: {
@@ -7014,6 +7170,64 @@ export const benefitsNavigatorData = {
         scNoIndex: false,
         scNoFollow: false,
         scFragments: [
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/sclabs/components/alerts/projects/benefits-navigator/project-closed",
+            scId: "ALERT-BN-PROJECT-CLOSED",
+            scTitleEn: "This project is closed",
+            scTitleFr: "Ce projet est terminé",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "We're no longer collecting feedback. What we learned from this project will be used to improve the Canada ",
+                    },
+                    {
+                      nodeType: "link",
+                      data: {
+                        href: "/en/projects/benefits-finder",
+                      },
+                      value: "Benefits Finder",
+                    },
+                    {
+                      nodeType: "text",
+                      value: ".",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Nous ne recueillons plus de commentaires. Ce que nous avons appris dans le cadre de ce projet sera utilisé pour améliorer le ",
+                    },
+                    {
+                      nodeType: "link",
+                      data: {
+                        href: "/fr/projets/chercheur-prestations",
+                      },
+                      value: "Chercheur de prestations",
+                    },
+                    {
+                      nodeType: "text",
+                      value: " du Canada.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scAlertType: ["gc:custom/decd-endc/alert-type/warning"],
+          },
           {
             scId: "OVERVIEW-IMAGE",
             scImageEn: {
@@ -9230,139 +9444,6 @@ export const benefitsNavigatorData = {
                 ],
               },
             ],
-          },
-          {
-            _path:
-              "/content/dam/decd-endc/content-fragments/sclabs/components/content/projects/benefits-navigator/help-design",
-            scId: "BENEFITS-NAVIGATOR-HELP-DESIGN",
-            scContentEn: {
-              json: [
-                {
-                  nodeType: "header",
-                  style: "h2",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value: "Help design the Benefits Navigator",
-                    },
-                  ],
-                },
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "We’re working to make it easier to understand and apply for government benefits. To create a tool that meets your needs, we need your input.",
-                    },
-                  ],
-                },
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "Do you find these features helpful? Would you like to see other ones? Email us at ",
-                    },
-                    {
-                      nodeType: "link",
-                      data: {
-                        href: "mailto:experience@servicecanada.gc.ca",
-                      },
-                      value: "experience@servicecanada.gc.ca",
-                    },
-                    {
-                      nodeType: "text",
-                      value: ".",
-                    },
-                    {
-                      nodeType: "line-break",
-                      content: [],
-                    },
-                  ],
-                },
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "This email address is to give your feedback on the Benefits Navigator. If you need help with your government benefits, contact 1-800-O-Canada. You will not receive a response if your e-mail is about your benefits.",
-                    },
-                    {
-                      nodeType: "line-break",
-                      content: [],
-                    },
-                  ],
-                },
-              ],
-            },
-            scContentFr: {
-              json: [
-                {
-                  nodeType: "header",
-                  style: "h2",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "Contribuez à la conception du Navigateur de prestations",
-                    },
-                  ],
-                },
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "Nous nous efforçons de rendre les prestations gouvernementales plus faciles à comprendre et à demander. Pour créer un outil qui réponde à vos besoins, nous avons besoin de votre contribution.",
-                    },
-                  ],
-                },
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "Trouvez-vous les fonctionnalités du navigateur utiles? Y a-t-il autre chose que vous aimeriez voir? Faites-nous part de vos commentaires en nous envoyant un courriel à ",
-                    },
-                    {
-                      nodeType: "link",
-                      data: {
-                        href: "mailto:experience@servicecanada.gc.ca",
-                      },
-                      value: "experience@servicecanada.gc.ca",
-                    },
-                    {
-                      nodeType: "text",
-                      value: ".",
-                    },
-                    {
-                      nodeType: "line-break",
-                      content: [],
-                    },
-                  ],
-                },
-                {
-                  nodeType: "paragraph",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value:
-                        "Cette adresse de courriel vous permet de donner votre avis sur le Navigateur de prestations. Si vous avez besoin d'aide concernant vos prestations gouvernementales, contactez le 1-800-O-Canada. Vous ne recevrez pas de réponse si votre courriel concerne vos prestations.",
-                    },
-                    {
-                      nodeType: "line-break",
-                      content: [],
-                    },
-                  ],
-                },
-              ],
-            },
-            scFragments: [],
           },
         ],
       },
