@@ -94,15 +94,19 @@ export default function MscaDashboardArticles({ key, ...props }) {
             locale={props.locale}
             updatesData={filterItems(props.updatesData, pageData.scId)}
             dictionary={dictionary}
-            heading={`${
+            heading={
               props.locale === "en"
-                ? projectData.scTitleEn
-                : projectData.scTitleFr
-            } ${getDictionaryTerm(
-              dictionary,
-              "PROJECT-UPDATES",
-              props.locale
-            )}`}
+                ? `${projectData.scTitleEn} ${getDictionaryTerm(
+                    props.dictionary,
+                    "PROJECT-UPDATES",
+                    props.locale
+                  )}`
+                : `${getDictionaryTerm(
+                    props.dictionary,
+                    "PROJECT-UPDATES",
+                    props.locale
+                  )} ${projectData.scTitleFr}`
+            }
             linkLabel={`${getDictionaryTerm(
               dictionary,
               "DICTIONARY-SEE-ALL-UPDATES-PROJECT",
@@ -110,8 +114,8 @@ export default function MscaDashboardArticles({ key, ...props }) {
             )}`}
             href={
               props.locale === "en"
-                ? `/en/updates?project=${pageData.scTitleEn}`
-                : `/fr/mises-a-jour?projet=${pageData.scTitleFr}`
+                ? `/en/updates?project=${pageData.scLabProject.scTermEn}`
+                : `/fr/mises-a-jour?projet=${pageData.scLabProject.scTermFr}`
             }
           />
         ) : null}

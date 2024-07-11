@@ -329,13 +329,19 @@ export default function IntegratedChannelStrategyPage(props) {
             locale={props.locale}
             updatesData={sortUpdatesByDate(updatesData)}
             dictionary={props.dictionary}
-            heading={`${
-              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
-            } ${getDictionaryTerm(
-              props.dictionary,
-              "PROJECT-UPDATES",
-              props.locale
-            )}`}
+            heading={
+              props.locale === "en"
+                ? `${pageData.scTitleEn} ${getDictionaryTerm(
+                    props.dictionary,
+                    "PROJECT-UPDATES",
+                    props.locale
+                  )}`
+                : `${getDictionaryTerm(
+                    props.dictionary,
+                    "PROJECT-UPDATES",
+                    props.locale
+                  )} ${pageData.scTitleFr}`
+            }
             linkLabel={`${getDictionaryTerm(
               props.dictionary,
               "DICTIONARY-SEE-ALL-UPDATES-PROJECT",

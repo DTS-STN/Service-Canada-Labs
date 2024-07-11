@@ -48,7 +48,7 @@ export function ActionButton(props) {
     <Link
       href={props.href}
       aria-label={`${props.ariaLabel ? props.ariaLabel : undefined}`}
-      className={`flex flex-row ${style} focus:ring focus:ring-offset-4 ring-multi-blue-blue60f py-2 px-4 rounded-sm w-fit text-base ${props.custom}`}
+      className={`flex flex-row ${style} focus:ring focus:ring-offset-4 ring-multi-blue-blue60f py-2 px-4 rounded-sm w-fit text-mobilebody lg:text-p font-body ${props.custom}`}
       onClick={props.onClick}
       id={props.id}
       data-testid={props.dataTestId}
@@ -75,7 +75,7 @@ export function ActionButton(props) {
     <button
       aria-expanded={`${props.ariaExpanded ? props.ariaExpanded : undefined}`}
       aria-label={`${props.ariaLabel ? props.ariaLabel : undefined}`}
-      className={`flex flex-row ${style} focus:ring focus:ring-offset-4 ring-multi-blue-blue60f py-2 px-4 rounded-sm w-fit text-base ${props.custom}`}
+      className={`flex flex-row ${style} focus:ring focus:ring-offset-4 ring-multi-blue-blue60f py-2 px-4 rounded-sm w-fit text-mobilebody lg:text-p font-body ${props.custom}`}
       onClick={props.onClick}
       type={props.type}
       id={props.id}

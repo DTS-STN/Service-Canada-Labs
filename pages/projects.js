@@ -45,7 +45,10 @@ export default function ProjectsPage(props) {
   const projectsCards = filterProjects(projectsData, selectedOptions).map(
     (project) => {
       return (
-        <li key={project.scId} className="grid col-span-4 list-none">
+        <li
+          key={project.scId}
+          className="grid col-span-12 md:col-span-6 xl:col-span-4 list-none"
+        >
           <Card
             title={
               props.locale === "en" ? project.scTitleEn : project.scTitleFr
