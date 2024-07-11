@@ -6890,7 +6890,7 @@ export const benefitsNavigatorData = {
                 {
                   nodeType: "text",
                   value:
-                    "This project is closed. Whether for yourself or someone else, this tool will make it easier for you to stay up to date and navigate government benefits.",
+                    "This project is closed. Whether for yourself or someone else, this tool was designed to make it easier to stay up to date and navigate government benefits.",
                 },
               ],
             },
@@ -6904,7 +6904,7 @@ export const benefitsNavigatorData = {
                 {
                   nodeType: "text",
                   value:
-                    "Ce projet est terminé. Que ce soit pour vous ou pour quelqu'un d'autre, cet outil vous permettra de rester informé et d'explorer plus facilement les prestations gouvernementales.",
+                    "Ce projet est terminé. Que ce soit pour vous-même ou pour quelqu'un d'autre, cet outil visait à vous aider à rester informé et à explorer les prestations gouvernementales plus facilement.",
                 },
               ],
             },
@@ -6923,13 +6923,12 @@ export const benefitsNavigatorData = {
               "Difficulties faced by community workers who help people with their benefits",
             scTitleFr:
               "Difficultés rencontrées par les travailleuses et travailleurs communautaires qui aident les gens avec leurs prestations",
+            scLabProject: {
+              scTermEn: "Benefits Navigator",
+              scTermFr: "Navigateur de prestations",
+            },
             scShortTitleEn: null,
             scShortTitleFr: null,
-            scLabProject: {
-              scTermEn: "OAS Benefits Estimator",
-              scTermFr:
-                "Estimateur des prestations de la Sécurité de la vieillesse",
-            },
             scBreadcrumbParentPages: [
               {
                 scTitleEn: "Service Canada Labs",
@@ -6982,6 +6981,10 @@ export const benefitsNavigatorData = {
             scTitleEn: "Staying informed on government benefits and services",
             scTitleFr:
               "Rester informé sur les prestations et services gouvernementaux",
+            scLabProject: {
+              scTermEn: "Benefits Navigator",
+              scTermFr: "Navigateur de prestations",
+            },
             scShortTitleEn: null,
             scShortTitleFr: null,
             scBreadcrumbParentPages: [
@@ -7216,7 +7219,7 @@ export const benefitsNavigatorData = {
                       data: {
                         href: "/fr/projets/chercheur-prestations",
                       },
-                      value: "Chercheur de prestations",
+                      value: "chercheur de prestations",
                     },
                     {
                       nodeType: "text",
