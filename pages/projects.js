@@ -116,6 +116,7 @@ export default function ProjectsPage(props) {
           className="flex flex-col justify-center content-center mt-16 h-[182px] bg-multi-blue-blue70 bg-no-repeat sm:bg-right-bottom"
           style={{
             backgroundImage: `url(/updates-projectsbanner.png)`,
+            backgroundSize: "cover",
           }}
         >
           <div className="layout-container text-white">

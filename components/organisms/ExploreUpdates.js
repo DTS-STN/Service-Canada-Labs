@@ -15,11 +15,12 @@ export function ExploreUpdates({
     return (
       <li key={update.scId} className="bg-white list-none my-3">
         <Card
-          customStyling="md:h-[190px] pb-6 flex flex-col justify-between"
+          cardHeadingStyling="!mt-0 !pt-0"
+          customStyling="md:h-[190px] flex flex-col justify-between !py-5"
           title={locale === "en" ? update.scTitleEn : update.scTitleFr}
           href={locale === "en" ? update.scPageNameEn : update.scPageNameFr}
           htmlDesc={
-            <div className="flex flex-col">
+            <div className="flex flex-col pt-6 md:pt-0">
               <span className="flex flex-row pl-6">
                 <p className="text-multi-neutrals-grey100 font-semibold whitespace-nowrap">
                   {locale === "en" ? "Project:" : "Projet :"}

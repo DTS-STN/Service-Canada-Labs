@@ -21,7 +21,7 @@ export const Card = (props) => {
   return (
     <Link href={props.href}>
       <div
-        className={`h-full group card-shadow border border-custom-gray-border rounded-md pb-4 hover:cursor-pointer ${
+        className={`h-full group card-shadow border border-custom-gray-border rounded-md py-4 hover:cursor-pointer ${
           "border-" + tagColour + ` ${props.customStyling}`
         }`}
         data-testid={props.dataTestId}

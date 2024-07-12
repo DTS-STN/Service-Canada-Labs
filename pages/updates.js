@@ -51,19 +51,16 @@ export default function UpdatesPage(props) {
     selectedOptions
   ).map((update) => {
     return (
-      <li
-        key={update.scId}
-        className="grid col-span-12 bg-white list-none my-3"
-      >
+      <li key={update.scId} className="grid col-span-12 bg-white list-none">
         <Card
-          customStyling="pb-5 border-x-0 border-t-0 border-b-2 !shadow-none rounded-none"
-          cardHeadingStyling="!text-mobileh2 lg:!text-h2l pl-0 no-underline"
+          customStyling="py-8 border-x-0 border-t-0 border-b-2 !shadow-none rounded-none"
+          cardHeadingStyling="!text-mobileh2 lg:!text-h2l pl-0 no-underline !pt-0 !mt-0"
           title={props.locale === "en" ? update.scTitleEn : update.scTitleFr}
           href={
             props.locale === "en" ? update.scPageNameEn : update.scPageNameFr
           }
           htmlDesc={
-            <div className="flex flex-col lg:pt-3">
+            <div className="flex flex-col lg:pt-5">
               <span className="flex flex-row">
                 <p className="text-multi-neutrals-grey100 font-semibold whitespace-nowrap">
                   {props.locale === "en" ? "Project:" : "Projet :"}
@@ -127,6 +124,7 @@ export default function UpdatesPage(props) {
           className="flex flex-col justify-center content-center mt-16 h-[182px] bg-multi-blue-blue70 bg-no-repeat sm:bg-right-bottom"
           style={{
             backgroundImage: `url(/updates-projectsbanner.png)`,
+            backgroundSize: "cover",
           }}
         >
           <div className="layout-container text-white">
