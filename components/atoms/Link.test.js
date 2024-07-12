@@ -28,7 +28,7 @@ describe("Link", () => {
       Default.args.text
     );
     expect(screen.getByRole("link")).toHaveClass(
-      "underline text-multi-blue-blue70b font-body text-browserh5 leading-33px hover:text-multi-blue-blue50b"
+      "underline underline-offset-4 text-multi-blue-blue70b font-body text-mobilebody lg:text-p leading-33px hover:text-multi-blue-blue50b"
     );
     expect(screen.getByLabelText(Default.args.text)).toBeInTheDocument();
   });
@@ -39,7 +39,7 @@ describe("Link", () => {
       RegularLinkwithEmphasis.args.text
     );
     expect(screen.getByRole("link")).toHaveClass(
-      "underline text-multi-blue-blue70b font-body text-browserh5 font-bold text-mobileh5 leading-33px hover:text-multi-blue-blue50b"
+      "underline text-multi-blue-blue70b font-body text-mobilebody lg:text-p font-bold text-mobileh5 leading-33px hover:text-multi-blue-blue50b"
     );
     expect(
       screen.getByLabelText(RegularLinkwithEmphasis.args.text)
@@ -52,7 +52,7 @@ describe("Link", () => {
       TitleLink.args.text
     );
     expect(screen.getByRole("link")).toHaveClass(
-      "underline text-multi-blue-blue70b font-header text-browserh5 leading-23px font-bold hover:text-multi-blue-blue50b"
+      "underline text-multi-blue-blue70b font-header text-mobilebody lg:text-p leading-23px font-bold hover:text-multi-blue-blue50b"
     );
     expect(screen.getByLabelText(TitleLink.args.text)).toBeInTheDocument();
   });
@@ -63,7 +63,7 @@ describe("Link", () => {
       CardActionLink.args.text
     );
     expect(screen.getByRole("link")).toHaveClass(
-      "text-multi-blue-blue70b font-body text-browserh5 underline leading-28px font-regular hover:text-multi-blue-blue50b"
+      "text-multi-blue-blue70b font-body text-mobilebody lg:text-p underline leading-28px font-regular hover:text-multi-blue-blue50b"
     );
     expect(screen.getByLabelText(CardActionLink.args.text)).toBeInTheDocument();
   });
@@ -85,7 +85,7 @@ describe("Link", () => {
       screen.getByText("Small link - Breadcrumbs & French toggle")
     ).toHaveTextContent(BreadcrumbsLink.args.text);
     expect(screen.getByRole("link")).toHaveClass(
-      "text-multi-blue-blue70b font-body text-browserh8 leading-23px font-regular hover:text-multi-blue-blue50b"
+      "text-multi-blue-blue70b font-body text-mobilebody lg:text-p leading-23px font-regular hover:text-multi-blue-blue50b"
     );
     expect(
       screen.getByLabelText(BreadcrumbsLink.args.text)

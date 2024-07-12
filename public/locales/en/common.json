@@ -549,5 +549,6 @@
     "projectsLinkLabel": "Projects",
     "updatesLink": "/updates",
     "updatesLinkLabel": "Updates"
-  }
+  },
+  "custom/decd-endc/project-status/current": "In progress"
 }
