@@ -11,6 +11,8 @@ import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
+import { getJsonContent } from "../../../lib/utils/getJsonContent";
+import { getFragment } from "../../../lib/utils/getFragment";
 
 export default function BenefitsFinderOverview(props) {
   const [pageData] = useState(props.pageData.item);
@@ -24,27 +26,60 @@ export default function BenefitsFinderOverview(props) {
         item.scId === "SUMMARY"
     )
   );
+  const locale = props.locale;
+  const en = locale === "en";
+  const fragments = pageData.scFragments;
+  let scDescription,
+    title,
+    pageName,
+    publishUrl,
+    imageAltText,
+    content,
+    definition,
+    summary;
+
+  scDescription = en
+    ? pageData.scDescriptionEn.json
+    : pageData.scDescriptionFr.json;
+  title = en ? pageData.scTitleEn : pageData.scTitleFr;
+  pageName = en ? pageData.scPageNameEn : pageData.scPageNameFr;
+  summary = en
+    ? pageData.scLabProjectSummaryEn.json
+    : pageData.scLabProjectSummaryFr.json;
+
+  publishUrl = en
+    ? getFragment(fragments, 2, "scImageEn", "_publishUrl")
+    : getFragment(fragments, 2, "scImageFr", "_publishUrl");
+  imageAltText = en
+    ? getFragment(fragments, 2, "scImageAltTextEn")
+    : getFragment(fragments, 2, "scImageAltTextFr");
+  content = en
+    ? getFragment(fragments, 0, "scContentEn")
+    : getFragment(fragments, 0, "scContentFr");
+  definition = en
+    ? getFragment(fragments, 1, "scContentEn", "json", 0, 1)
+    : getFragment(fragments, 1, "scContentFr", "json", 0, 1);
 
   const displayProjectUpdates = updatesData.map((update) => (
     <li key={update.scId} className="list-none ml-0 col-span-12 lg:col-span-4">
       <Card
         showImage
         imgSrc={
-          props.locale === "en"
+          en
             ? `https://www.canada.ca${update.scSocialMediaImageEn?._path}`
             : `https://www.canada.ca${update.scSocialMediaImageFr?._path}`
         }
         imgAlt={
-          props.locale === "en"
+          en
             ? update.scSocialMediaImageAltTextEn
             : update.scSocialMediaImageAltTextFr
         }
         imgHeight={update.scSocialMediaImageEn.height}
         imgWidth={update.scSocialMediaImageEn.width}
-        title={props.locale === "en" ? update.scTitleEn : update.scTitleFr}
-        href={props.locale === "en" ? update.scPageNameEn : update.scPageNameFr}
+        title={title}
+        href={pageName}
         description={`${
-          props.locale === "en"
+          en
             ? props.dictionary.items[13].scTermEn
             : props.dictionary.items[13].scTermFr
         } ${update.scDateModifiedOverwrite}`}
@@ -62,70 +97,44 @@ export default function BenefitsFinderOverview(props) {
   return (
     <>
       <Layout
-        locale={props.locale}
-        langUrl={
-          props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
-        }
+        locale={locale}
+        langUrl={pageName}
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
-          props.locale
+          locale
         )}
       >
         <Head>
           {/* Primary HTML Meta Tags */}
-          <title>
-            {props.locale === "en"
-              ? `${pageData.scTitleEn} - Service Canada Labs`
-              : `${pageData.scTitleFr} - Laboratoires de Service Canada`}
-          </title>
+          <title>{title}</title>
           <meta
             name="description"
-            content={
-              props.locale === "en"
-                ? pageData.scDescriptionEn.json[0].content[0].value
-                : pageData.scDescriptionFr.json[0].content[0].value
-            }
+            content={getJsonContent(scDescription, 0, 0)}
           />
           <meta name="author" content="Service Canada" />
           <link rel="icon" href="/favicon.ico" />
           <link
             rel="canonical"
-            href={
-              "https://alpha.service.canada.ca" +
-              `${
-                props.locale === "en"
-                  ? pageData.scPageNameEn
-                  : pageData.scPageNameFr
-              }`
-            }
+            href={"https://alpha.service.canada.ca" + `${pageName}`}
           />
           <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
           <meta
             name="keywords"
-            content={
-              props.locale === "en"
-                ? pageData.scKeywordsEn
-                : pageData.scKeywordsFr
-            }
+            content={en ? pageData.scKeywordsEn : pageData.scKeywordsFr}
           />
 
           {/* DCMI Meta Tags */}
-          <meta
-            name="dcterms.title"
-            content={
-              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
-            }
-          />
+          <meta name="dcterms.title" content={title} />
           <meta
             name="dcterms.language"
-            content={props.locale === "en" ? "eng" : "fra"}
+            content={en ? "eng" : "fra"}
             title="ISO639-2/T"
           />
           <meta
             name="dcterms.creator"
             content={
-              props.locale === "en"
+              en
                 ? "Employment and Social Development Canada"
                 : "Emploi et Développement social Canada"
             }
@@ -140,11 +149,7 @@ export default function BenefitsFinderOverview(props) {
           <meta name="dcterms.modified" title="W3CDTF" content="2021-12-16" />
           <meta
             name="dcterms.description"
-            content={
-              props.locale === "en"
-                ? pageData.scDescriptionEn.json[0].content[0].value
-                : pageData.scDescriptionFr.json[0].content[0].value
-            }
+            content={getJsonContent(scDescription, 0, 0)}
           />
           <meta
             name="dcterms.subject"
@@ -155,42 +160,26 @@ export default function BenefitsFinderOverview(props) {
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
-          <meta property="og:locale" content={props.locale} />
+          <meta property="og:locale" content={locale} />
           <meta
             property="og:url"
-            content={
-              "https://alpha.service.canada.ca" +
-              `${
-                props.locale === "en"
-                  ? pageData.scPageNameEn
-                  : pageData.scPageNameFr
-              }`
-            }
+            content={"https://alpha.service.canada.ca" + `${pageName}`}
           />
-          <meta
-            property="og:title"
-            content={
-              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
-            }
-          />
+          <meta property="og:title" content={title} />
           <meta
             property="og:description"
-            content={
-              props.locale === "en"
-                ? pageData.scDescriptionEn.json[0].content[0].value
-                : pageData.scDescriptionFr.json[0].content[0].value
-            }
+            content={getJsonContent(scDescription, 0, 0)}
           />
           <meta
             property="og:image"
-            content={pageData.scFragments[2].scImageEn._publishUrl}
+            content={getFragment(fragments, 2, "scImageEn", "_publishUrl")}
           />
           <meta
             property="og:image:alt"
             content={
-              props.locale === "en"
-                ? pageData.scFragments[2].scImageAltTextEn
-                : pageData.scFragments[2].scImageAltTextFr
+              en
+                ? getFragment(fragments, 2, "scImageAltTextEn")
+                : getFragment(fragments, 2, "scImageAltTextFr")
             }
           />
 
@@ -198,74 +187,32 @@ export default function BenefitsFinderOverview(props) {
           <meta property="twitter:card" content="summary_large_image" />
           <meta
             property="twitter:url"
-            content={
-              "https://alpha.service.canada.ca" +
-              `${
-                props.locale === "en"
-                  ? pageData.scPageNameEn
-                  : pageData.scPageNameFr
-              }`
-            }
+            content={"https://alpha.service.canada.ca" + `${pageName}`}
           />
-          <meta
-            property="twitter:title"
-            content={
-              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
-            }
-          />
+          <meta property="twitter:title" content={title} />
           <meta name="twitter:creator" content="Service Canada" />
           <meta
             property="twitter:description"
-            content={
-              props.locale === "en"
-                ? pageData.scDescriptionEn.json[0].content[0].value
-                : pageData.scDescriptionFr.json[0].content[0].value
-            }
+            content={getJsonContent(scDescription, 0, 0)}
           />
-          <meta
-            property="twitter:image"
-            content={pageData.scFragments[2].scImageEn._publishUrl}
-          />
-          <meta
-            property="twitter:image:alt"
-            content={
-              props.locale === "en"
-                ? pageData.scFragments[2].scImageAltTextEn
-                : pageData.scFragments[2].scImageAltTextFr
-            }
-          />
+          <meta property="twitter:image" content={publishUrl} />
+          <meta property="twitter:image:alt" content={imageAltText} />
         </Head>
 
         <div className="layout-container">
           <section aria-labelledby="pageMainTitle">
             <div className="flex flex-col break-words lg:grid lg:grid-cols-2">
               <div className="col-span-2">
-                <Heading
-                  tabIndex="-1"
-                  id="pageMainTitle"
-                  title={
-                    props.locale === "en"
-                      ? pageData.scTitleEn
-                      : pageData.scTitleFr
-                  }
-                />
+                <Heading tabIndex="-1" id="pageMainTitle" title={title} />
               </div>
               <div className="hidden lg:grid row-span-2 row-start-2 col-start-2 p-0 mx-4">
                 <div className="flex justify-center">
                   <div className="object-fill max-w-350px">
                     <Image
-                      src={
-                        props.locale === "en"
-                          ? pageData.scFragments[2].scImageEn._publishUrl
-                          : pageData.scFragments[2].scImageFr._publishUrl
-                      }
-                      alt={
-                        props.locale === "en"
-                          ? pageData.scFragments[2].scImageAltTextEn
-                          : pageData.scFragments[2].scImageAltTextFr
-                      }
-                      width={pageData.scFragments[2].scImageEn.width}
-                      height={pageData.scFragments[2].scImageEn.height}
+                      src={publishUrl}
+                      alt={imageAltText}
+                      width={getFragment(fragments, 2, "scImageEn", "width")}
+                      height={getFragment(fragments, 2, "scImageEn", "height")}
                       priority
                       sizes="33vw"
                       quality={100}
@@ -274,68 +221,55 @@ export default function BenefitsFinderOverview(props) {
                 </div>
               </div>
               <p className="row-start-2 font-body text-lg mb-4">
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[1].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[1].content[0]
-                      .value}
+                {en
+                  ? getFragment(fragments, 0, "scContentEn", "json", 1, 0)
+                  : getFragment(fragments, 0, "scContentFr", "json", 1, 0)}
               </p>
               <div className="row-start-3">
                 <ProjectInfo
-                  locale={props.locale}
+                  locale={locale}
                   termStarted={
-                    props.locale === "en"
+                    en
                       ? filteredDictionary[2].scTermEn
                       : filteredDictionary[2].scTermFr
                   }
                   termStage={
-                    props.locale === "en"
+                    en
                       ? filteredDictionary[1].scTermEn
                       : filteredDictionary[1].scTermFr
                   }
                   termSummary={
-                    props.locale === "en"
+                    en
                       ? filteredDictionary[3].scTermEn
                       : filteredDictionary[3].scTermFr
                   }
-                  dateStarted={
-                    pageData.scFragments[0].scContentEn.json[2].content[0].value
-                  }
-                  term={
-                    props.locale === "en"
-                      ? pageData.scFragments[0].scContentEn.json[0].content[0]
-                          .value + " "
-                      : pageData.scFragments[0].scContentFr.json[0].content[0]
-                          .value + " "
-                  }
-                  definition={
-                    props.locale === "en"
-                      ? pageData.scFragments[1].scContentEn.json[0].content[1]
-                          .value
-                      : pageData.scFragments[1].scContentFr.json[0].content[1]
-                          .value
-                  }
+                  dateStarted={getFragment(
+                    fragments,
+                    0,
+                    "scContentEn",
+                    "json",
+                    2,
+                    0
+                  )}
+                  term={content.json[0].content[0].value + " "}
+                  definition={definition}
                   information={
-                    props.locale === "en"
-                      ? pageData.scFragments[1].scTitleEn
-                      : pageData.scFragments[1].scTitleFr
+                    en
+                      ? getFragment(fragments, 1, "scTitleEn")
+                      : getFragment(fragments, 1, "scTitleFr")
                   }
                   stage={
-                    props.locale === "en"
+                    en
                       ? stageDictionary.en[pageData.scLabProjectStage]
                       : stageDictionary.fr[pageData.scLabProjectStage]
                   }
-                  summary={
-                    props.locale === "en"
-                      ? pageData.scLabProjectSummaryEn.json[0].content[0].value
-                      : pageData.scLabProjectSummaryFr.json[0].content[0].value
-                  }
+                  summary={getJsonContent(summary, 0, 0)}
                 />
               </div>
               <strong className="font-body text-p pt-8">
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[5].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[5].content[0]
-                      .value}
+                {en
+                  ? getFragment(fragments, 0, "scContentEn", "json", 5, 0)
+                  : getFragment(fragments, 0, "scContentFr", "json", 5, 0)}
               </strong>
             </div>
           </section>
@@ -343,16 +277,12 @@ export default function BenefitsFinderOverview(props) {
 
         <FragmentRender
           fragments={pageData.scFragments.slice(3)}
-          locale={props.locale}
+          locale={locale}
         />
         <div className="layout-container">
           {updatesData.length === 0 ? null : (
             <section id="projectUpdates">
-              <h2>
-                {props.locale === "en"
-                  ? "Project updates"
-                  : "Mises à jour du projet"}
-              </h2>
+              <h2>{en ? "Project updates" : "Mises à jour du projet"}</h2>
               <ul className="grid lg:grid-cols-12 gap-x-4 gap-y-4 lg:gap-y-12 list-none ml-0 mb-12">
                 {displayProjectUpdates}
               </ul>
