@@ -29,34 +29,24 @@ export default function BenefitsFinderOverview(props) {
   const locale = props.locale;
   const en = locale === "en";
   const fragments = pageData.scFragments;
-  let scDescription,
-    title,
-    pageName,
-    publishUrl,
-    imageAltText,
-    content,
-    definition,
-    summary;
-
-  scDescription = en
+  const scDescription = en
     ? pageData.scDescriptionEn.json
     : pageData.scDescriptionFr.json;
-  title = en ? pageData.scTitleEn : pageData.scTitleFr;
-  pageName = en ? pageData.scPageNameEn : pageData.scPageNameFr;
-  summary = en
+  const title = en ? pageData.scTitleEn : pageData.scTitleFr;
+  const pageName = en ? pageData.scPageNameEn : pageData.scPageNameFr;
+  const summary = en
     ? pageData.scLabProjectSummaryEn.json
     : pageData.scLabProjectSummaryFr.json;
-
-  publishUrl = en
+  const publishUrl = en
     ? getFragment(fragments, 2, "scImageEn", "_publishUrl")
     : getFragment(fragments, 2, "scImageFr", "_publishUrl");
-  imageAltText = en
+  const imageAltText = en
     ? getFragment(fragments, 2, "scImageAltTextEn")
     : getFragment(fragments, 2, "scImageAltTextFr");
-  content = en
-    ? getFragment(fragments, 0, "scContentEn")
-    : getFragment(fragments, 0, "scContentFr");
-  definition = en
+  const term = en
+    ? getFragment(fragments, 0, "scContentEn", "json", 0, 0)
+    : getFragment(fragments, 0, "scContentFr", "json", 0, 0);
+  const definition = en
     ? getFragment(fragments, 1, "scContentEn", "json", 0, 1)
     : getFragment(fragments, 1, "scContentFr", "json", 0, 1);
 
@@ -251,7 +241,7 @@ export default function BenefitsFinderOverview(props) {
                     2,
                     0
                   )}
-                  term={content.json[0].content[0].value + " "}
+                  term={term + " "}
                   definition={definition}
                   information={
                     en
