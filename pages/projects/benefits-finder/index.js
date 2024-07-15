@@ -76,8 +76,8 @@ export default function BenefitsFinderOverview(props) {
         }
         imgHeight={update.scSocialMediaImageEn.height}
         imgWidth={update.scSocialMediaImageEn.width}
-        title={title}
-        href={pageName}
+        title={en ? update.scTitleEn : update.scTitleFr}
+        href={en ? update.scPageNameEn : update.scPageNameFr}
         description={`${
           en
             ? props.dictionary.items[13].scTermEn
