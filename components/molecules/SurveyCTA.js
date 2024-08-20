@@ -13,7 +13,7 @@ export const SurveyCTA = ({
         <h3 className="font-display">{heading}</h3>
         <p className="font-body">{description}</p>
       </div>
-      <div className="flex flex-col px-10 pt-5 md:pt-0 md:justify-center md:items-center text-nowrap">
+      <div className="flex flex-col px-10 pt-5 md:pt-0 md:justify-center md:items-center whitespace-nowrap">
         <ActionButton href={buttonLink} text={buttonLabel} style="tertiary" />
       </div>
     </div>
