@@ -4,14 +4,13 @@ import { Layout } from "../components/organisms/Layout";
 import { useEffect } from "react";
 import Card from "../components/molecules/Card";
 import aemServiceInstance from "../services/aemServiceInstance";
-import { Heading } from "../components/molecules/Heading";
 import { ContextualAlert } from "../components/molecules/ContextualAlert";
-import Image from "next/image";
 import { Link as LinkWrapper } from "../components/atoms/Link";
 import Link from "next/link";
 import { ExploreUpdates } from "../components/organisms/ExploreUpdates";
 import FragmentRender from "../components/fragment_renderer/FragmentRender";
 import { sortUpdatesByDate } from "../lib/utils/sortUpdatesByDate";
+import { SurveyCTA } from "../components/molecules/SurveyCTA";
 
 export default function Home(props) {
   const pageData = props.pageData?.item;
@@ -265,10 +264,32 @@ export default function Home(props) {
           />
         </div>
         <div className="layout-container">
+          <SurveyCTA
+            heading={
+              props.locale === "en"
+                ? pageData.scFragments[1].scTitleEn
+                : pageData.scFragments[1].scTitleFr
+            }
+            description={
+              props.locale === "en"
+                ? pageData.scFragments[1].scContentEn.json[0].content[0].value
+                : pageData.scFragments[1].scContentFr.json[0].content[0].value
+            }
+            buttonLabel={
+              props.locale === "en"
+                ? pageData.scFragments[1].scLabsButton[0].scTitleEn
+                : pageData.scFragments[1].scLabsButton[0].scTitleFr
+            }
+            buttonLink={
+              props.locale === "en"
+                ? pageData.scFragments[1].scLabsButton[0].scDestinationURLEn
+                : pageData.scFragments[1].scLabsButton[0].scDestinationURLFr
+            }
+          />
           <h2>
             {props.locale === "en"
-              ? pageData.scFragments[1].scContentEn.json[0].content[0].value
-              : pageData.scFragments[1].scContentFr.json[0].content[0]
+              ? pageData.scFragments[2].scContentEn.json[0].content[0].value
+              : pageData.scFragments[2].scContentFr.json[0].content[0]
                   .value}{" "}
           </h2>
           <div className="mb-8">
@@ -279,53 +300,53 @@ export default function Home(props) {
               alert_icon_id="info icon"
               message_heading={
                 props.locale === "en"
-                  ? pageData.scFragments[2].scTitleEn
-                  : pageData.scFragments[2].scTitleFr
+                  ? pageData.scFragments[3].scTitleEn
+                  : pageData.scFragments[3].scTitleFr
               }
               message_body={
                 props.locale === "en" ? (
                   <>
                     {
-                      pageData.scFragments[2].scContentEn.json[0].content[0]
+                      pageData.scFragments[3].scContentEn.json[0].content[0]
                         .value
                     }
                     <a
                       className="underline text-canada-footer-font hover:text-canada-footer-hover-font-blue"
                       href={
-                        pageData.scFragments[2].scContentEn.json[0].content[1]
+                        pageData.scFragments[3].scContentEn.json[0].content[1]
                           .data.href
                       }
                     >
                       {
-                        pageData.scFragments[2].scContentEn.json[0].content[1]
+                        pageData.scFragments[3].scContentEn.json[0].content[1]
                           .value
                       }
                     </a>
                     {
-                      pageData.scFragments[2].scContentEn.json[0].content[2]
+                      pageData.scFragments[3].scContentEn.json[0].content[2]
                         .value
                     }
                   </>
                 ) : (
                   <>
                     {
-                      pageData.scFragments[2].scContentFr.json[0].content[0]
+                      pageData.scFragments[3].scContentFr.json[0].content[0]
                         .value
                     }
                     <a
                       className="underline text-canada-footer-font hover:text-canada-footer-hover-font-blue"
                       href={
-                        pageData.scFragments[2].scContentFr.json[0].content[1]
+                        pageData.scFragments[3].scContentFr.json[0].content[1]
                           .data.href
                       }
                     >
                       {
-                        pageData.scFragments[2].scContentFr.json[0].content[1]
+                        pageData.scFragments[3].scContentFr.json[0].content[1]
                           .value
                       }
                     </a>
                     {
-                      pageData.scFragments[2].scContentEn.json[0].content[2]
+                      pageData.scFragments[3].scContentEn.json[0].content[2]
                         .value
                     }
                   </>
@@ -343,17 +364,17 @@ export default function Home(props) {
                 id="projectsLink"
                 href={
                   props.locale === "en"
-                    ? pageData.scFragments[3].scContentEn.json[0].content[0]
+                    ? pageData.scFragments[4].scContentEn.json[0].content[0]
                         .data.href
-                    : pageData.scFragments[3].scContentFr.json[0].content[0]
+                    : pageData.scFragments[4].scContentFr.json[0].content[0]
                         .data.href
                 }
                 lang={props.locale}
                 text={
                   props.locale === "en"
-                    ? pageData.scFragments[3].scContentEn.json[0].content[0]
+                    ? pageData.scFragments[4].scContentEn.json[0].content[0]
                         .value
-                    : pageData.scFragments[3].scContentFr.json[0].content[0]
+                    : pageData.scFragments[4].scContentFr.json[0].content[0]
                         .value
                 }
               />
@@ -367,19 +388,19 @@ export default function Home(props) {
             dictionary={dictionary}
             heading={
               props.locale === "en"
-                ? pageData.scFragments[4].scContentEn.json[0].content[0].value
-                : pageData.scFragments[4].scContentFr.json[0].content[0].value
-            }
-            linkLabel={
-              props.locale === "en"
                 ? pageData.scFragments[5].scContentEn.json[0].content[0].value
                 : pageData.scFragments[5].scContentFr.json[0].content[0].value
             }
+            linkLabel={
+              props.locale === "en"
+                ? pageData.scFragments[6].scContentEn.json[0].content[0].value
+                : pageData.scFragments[6].scContentFr.json[0].content[0].value
+            }
             href={
               props.locale === "en"
-                ? pageData.scFragments[5].scContentEn.json[0].content[0].data
+                ? pageData.scFragments[6].scContentEn.json[0].content[0].data
                     .href
-                : pageData.scFragments[5].scContentFr.json[0].content[0].data
+                : pageData.scFragments[6].scContentFr.json[0].content[0].data
                     .href
             }
           />
@@ -390,9 +411,9 @@ export default function Home(props) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  const { data: pageData } = await aemServiceInstance.getFragment(
-    "homePageQuery"
-  );
+  const { data: pageData } = await fetch(
+    `${process.env.AEM_BASE_URL}/getSclHomeV2`
+  ).then((res) => res.json());
 
   const { data: experimentsData } = await aemServiceInstance.getFragment(
     "projectQuery"
