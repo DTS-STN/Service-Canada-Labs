@@ -7,6 +7,7 @@ import aemServiceInstance from "../services/aemServiceInstance";
 import { Heading } from "../components/molecules/Heading";
 import { ContextualAlert } from "../components/molecules/ContextualAlert";
 import Image from "next/image";
+import { SurveyCTA } from "../components/molecules/SurveyCTA";
 
 export default function Home(props) {
   const pageData = props.pageData?.item;
@@ -332,10 +333,34 @@ export default function Home(props) {
               </ul>
             </span>
           </div>
+          <div className="mt-12">
+            <SurveyCTA
+              heading={
+                props.locale === "en"
+                  ? pageData.scFragments[2].scTitleEn
+                  : pageData.scFragments[2].scTitleFr
+              }
+              description={
+                props.locale === "en"
+                  ? pageData.scFragments[2].scContentEn.json[0].content[0].value
+                  : pageData.scFragments[2].scContentFr.json[0].content[0].value
+              }
+              buttonLabel={
+                props.locale === "en"
+                  ? pageData.scFragments[2].scLabsButton[0].scTitleEn
+                  : pageData.scFragments[2].scLabsButton[0].scTitleFr
+              }
+              buttonLink={
+                props.locale === "en"
+                  ? pageData.scFragments[2].scLabsButton[0].scDestinationURLEn
+                  : pageData.scFragments[2].scLabsButton[0].scDestinationURLFr
+              }
+            />
+          </div>
           <h2>
             {props.locale === "en"
-              ? pageData.scFragments[0].scContentEn.json[6].content[0].value
-              : pageData.scFragments[0].scContentFr.json[6].content[0]
+              ? pageData.scFragments[3].scContentEn.json[0].content[0].value
+              : pageData.scFragments[3].scContentFr.json[0].content[0]
                   .value}{" "}
           </h2>
           <div className="mb-8">
@@ -346,53 +371,53 @@ export default function Home(props) {
               alert_icon_id="info icon"
               message_heading={
                 props.locale === "en"
-                  ? pageData.scFragments[2].scTitleEn
-                  : pageData.scFragments[2].scTitleFr
+                  ? pageData.scFragments[4].scTitleEn
+                  : pageData.scFragments[4].scTitleFr
               }
               message_body={
                 props.locale === "en" ? (
                   <>
                     {
-                      pageData.scFragments[2].scContentEn.json[0].content[0]
+                      pageData.scFragments[4].scContentEn.json[0].content[0]
                         .value
                     }
                     <a
                       className="underline text-canada-footer-font hover:text-canada-footer-hover-font-blue"
                       href={
-                        pageData.scFragments[2].scContentEn.json[0].content[1]
+                        pageData.scFragments[4].scContentEn.json[0].content[1]
                           .data.href
                       }
                     >
                       {
-                        pageData.scFragments[2].scContentEn.json[0].content[1]
+                        pageData.scFragments[4].scContentEn.json[0].content[1]
                           .value
                       }
                     </a>
                     {
-                      pageData.scFragments[2].scContentEn.json[0].content[2]
+                      pageData.scFragments[4].scContentEn.json[0].content[2]
                         .value
                     }
                   </>
                 ) : (
                   <>
                     {
-                      pageData.scFragments[2].scContentFr.json[0].content[0]
+                      pageData.scFragments[4].scContentFr.json[0].content[0]
                         .value
                     }
                     <a
                       className="underline text-canada-footer-font hover:text-canada-footer-hover-font-blue"
                       href={
-                        pageData.scFragments[2].scContentFr.json[0].content[1]
+                        pageData.scFragments[4].scContentFr.json[0].content[1]
                           .data.href
                       }
                     >
                       {
-                        pageData.scFragments[2].scContentFr.json[0].content[1]
+                        pageData.scFragments[4].scContentFr.json[0].content[1]
                           .value
                       }
                     </a>
                     {
-                      pageData.scFragments[2].scContentEn.json[0].content[2]
+                      pageData.scFragments[4].scContentEn.json[0].content[2]
                         .value
                     }
                   </>
