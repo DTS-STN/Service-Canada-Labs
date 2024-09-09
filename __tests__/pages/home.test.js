@@ -10,14 +10,14 @@ describe("Home", () => {
   it("renders without crashing", () => {
     render(
       <Home
-        pageData={homePageData.data.scLabsPagev1ByPath}
+        pageData={homePageData.data.sclabsPageV1ByPath}
         experimentsData={experimentsData.data.scLabsPagev1List.items}
-      />
+      />,
     );
     expect(
       screen.getByRole("heading", {
         name: "Laboratoires de Service Canada",
-      })
+      }),
     ).toBeInTheDocument();
   });
 });

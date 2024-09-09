@@ -564,7 +564,7 @@ export const error404Page = {
 
 export const homePageData = {
   data: {
-    scLabsPagev1ByPath: {
+    sclabsPageV1ByPath: {
       item: {
         scId: "SCLABS-HOME-PAGE",
         scPageNameEn: "/en/home",
@@ -609,23 +609,26 @@ export const homePageData = {
         scKeywordsFr: "services numériques",
         scContentType: null,
         scOwner: null,
-        scDateModifiedOverwrite: "2022-12-11",
+        scDateModifiedOverwrite: "2023-04-11",
         scAudience: null,
         scRegion: null,
         scSocialMediaImageEn: {
+          _path: "/content/dam/decd-endc/images/sclabs/homePage_image1.png",
           _publishUrl:
             "https://www.canada.ca/content/dam/decd-endc/images/sclabs/homePage_image1.png",
           width: 2932,
           height: 2078,
         },
         scSocialMediaImageFr: {
+          _path: "/content/dam/decd-endc/images/sclabs/homePage_image1.png",
           _publishUrl:
             "https://www.canada.ca/content/dam/decd-endc/images/sclabs/homePage_image1.png",
           width: 2932,
           height: 2078,
         },
-        scSocialMediaImageAltTextEn: null,
-        scSocialMediaImageAltTextFr: null,
+        scSocialMediaImageAltTextEn: "People adding icons to a mobile screen",
+        scSocialMediaImageAltTextFr:
+          "Personnes ajoutant des icônes à un écran mobile",
         scNoIndex: false,
         scNoFollow: false,
         scFragments: [
@@ -707,16 +710,6 @@ export const homePageData = {
                     },
                   ],
                 },
-                {
-                  nodeType: "header",
-                  style: "h2",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value: "Explore our projects",
-                    },
-                  ],
-                },
               ],
             },
             scContentFr: {
@@ -794,16 +787,6 @@ export const homePageData = {
                     },
                   ],
                 },
-                {
-                  nodeType: "header",
-                  style: "h2",
-                  content: [
-                    {
-                      nodeType: "text",
-                      value: "Explorez nos projets",
-                    },
-                  ],
-                },
               ],
             },
           },
@@ -830,6 +813,89 @@ export const homePageData = {
             },
             scImageCaptionFr: {
               json: null,
+            },
+          },
+          {
+            scId: "FEATURE-SC-LABS-FEEDBACK-SURVEY",
+            scTitleEn: "Tell us what you think of Service Canada Labs",
+            scTitleFr:
+              "Dites-nous ce que vous pensez des laboratoires de Service Canada",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "You can help shape this website too. Take a few minutes to tell us about your experience.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Vous pouvez aussi contribuer à l'élaboration de ce site Web. Prenez quelques minutes pour nous faire part de votre expérience.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scImageEn: null,
+            scImageFr: null,
+            scImageAltTextEn: null,
+            scImageAltTextFr: null,
+            scLabsButton: [
+              {
+                scId: "BUTTON-SC-LABS-FEEDBACK-SURVEY",
+                scTitleEn: "Take the survey",
+                scTitleFr: "Répondre au sondage",
+                scDestinationURLEn:
+                  "https://forms-formulaires.alpha.canada.ca/en/id/cm0mjtvrg0014330vn6blw3pi",
+                scDestinationURLFr:
+                  "https://forms-formulaires.alpha.canada.ca/fr/id/cm0mjtvrg0014330vn6blw3pi",
+                scButtonType: ["gc:custom/decd-endc/button-type/secondary"],
+              },
+            ],
+          },
+          {
+            _path:
+              "/content/dam/decd-endc/content-fragments/sclabs/components/content/home-explore-projects",
+            scId: "CONTENT-HOME-EXPLORE-PROJECTS",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Explore our projects",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "header",
+                  style: "h2",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Explorez nos projets",
+                    },
+                  ],
+                },
+              ],
             },
           },
           {
