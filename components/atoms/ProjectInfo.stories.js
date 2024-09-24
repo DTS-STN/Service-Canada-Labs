@@ -13,5 +13,5 @@ Primary.args = {
   dateStarted: "2021-01-01",
   dateEnded: "2022-03-31",
   stage: "Alpha",
-  summary: "Project status",
+  summary: "Project summary",
 };

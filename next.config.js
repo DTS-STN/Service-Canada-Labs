@@ -10,6 +10,10 @@ const REWRITES = [
     destination: "/home",
   },
   {
+    source: "/projets",
+    destination: "/projects",
+  },
+  {
     source: "/projets/estimateur-prestations-sv",
     destination: "/projects/oas-benefits-estimator",
   },
@@ -68,6 +72,10 @@ const REWRITES = [
   {
     source: "/rsdc-demander",
     destination: "/cdcp-apply"
+  },
+  {
+    source: "/mises-a-jour",
+    destination: "/updates"
   }
 ];
 
