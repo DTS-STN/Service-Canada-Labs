@@ -342,7 +342,7 @@ export default function EiIndigenousOverview(props) {
               data={
                 props.locale === "en"
                   ? pageData.scFragments[0].scContentEn.json.slice(5)
-                  : pageData.scFragments[0].scContentFr.json
+                  : pageData.scFragments[0].scContentFr.json.slice(5)
               }
             />
           </div>
