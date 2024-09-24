@@ -23,6 +23,7 @@ export default function Home(props) {
   const sortedProjects = (objects) => {
     // Order to sort the projects
     const sortOrder = [
+      "Transforming EI with Indigenous peoples",
       "Benefits Finder",
       "Making it easier to get benefits",
       "Digital Standards Playbook",
