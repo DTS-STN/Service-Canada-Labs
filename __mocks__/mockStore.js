@@ -566,11 +566,13 @@ export const homePageData = {
   data: {
     sclabsPageV1ByPath: {
       item: {
+        _path: "/content/dam/decd-endc/content-fragments/sclabs/pages/home",
         scId: "PAGES-HOME",
-        scPageNameEn: "/en/home",
-        scPageNameFr: "/fr/accueil",
         scTitleEn: "Service Canada Labs",
         scTitleFr: "Laboratoires de Service Canada",
+        scPageNameEn: "/en/home",
+        scPageNameFr: "/fr/accueil",
+        scBreadcrumbParentPages: [],
         scShortTitleEn: null,
         scShortTitleFr: null,
         scDescriptionEn: {
@@ -601,7 +603,6 @@ export const homePageData = {
             },
           ],
         },
-        scBreadcrumbParentPages: [],
         scSubject: [
           "gc:subjects/gv-government-and-politics/government-services",
         ],
@@ -609,6 +610,7 @@ export const homePageData = {
         scKeywordsFr: "services numériques",
         scContentType: null,
         scOwner: null,
+        scDateIssued: "2023-04-10",
         scDateModifiedOverwrite: null,
         scAudience: null,
         scRegion: null,
@@ -639,6 +641,9 @@ export const homePageData = {
             scId: "COMP-IMAGE-HOME-INTRO",
             scLabContent: [
               {
+                _model: {
+                  title: "SCLabs-Content-v1",
+                },
                 scId: "CONTENT-HOME-MAIN",
                 scContentEn: {
                   json: [
@@ -800,6 +805,9 @@ export const homePageData = {
               },
             ],
             scLabImage: {
+              _model: {
+                title: "SCLabs-Image-v1",
+              },
               scId: "SCLABS-HOMEPAGE-IMAGE",
               scImageEn: {
                 _publishUrl:
@@ -823,12 +831,77 @@ export const homePageData = {
               scImageCaptionFr: {
                 json: null,
               },
+              scLongDescHeadingEn: null,
+              scLongDescHeadingFr: null,
+              scLongDescEn: {
+                json: null,
+              },
+              scLongDescFr: {
+                json: null,
+              },
             },
             scLabLayout: "default",
           },
           {
+            _model: {
+              title: "SCLabs-Feature-v1",
+            },
+            scId: "FEATURE-SC-LABS-FEEDBACK-SURVEY",
+            scTitleEn: "Tell us what you think of Service Canada Labs",
+            scTitleFr:
+              "Dites-nous ce que vous pensez des laboratoires de Service Canada",
+            scContentEn: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "You can help shape this website too. Take a few minutes to tell us about your experience.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scContentFr: {
+              json: [
+                {
+                  nodeType: "paragraph",
+                  content: [
+                    {
+                      nodeType: "text",
+                      value:
+                        "Vous pouvez aussi contribuer à l'élaboration de ce site Web. Prenez quelques minutes pour nous faire part de votre expérience.",
+                    },
+                  ],
+                },
+              ],
+            },
+            scImageEn: null,
+            scImageFr: null,
+            scImageAltTextEn: null,
+            scImageAltTextFr: null,
+            scFragments: [],
+            scLabsButton: [
+              {
+                scId: "BUTTON-SC-LABS-FEEDBACK-SURVEY",
+                scTitleEn: "Take the survey",
+                scTitleFr: "Répondre au sondage",
+                scDestinationURLEn:
+                  "https://forms-formulaires.alpha.canada.ca/en/id/cm0mjtvrg0014330vn6blw3pi",
+                scDestinationURLFr:
+                  "https://forms-formulaires.alpha.canada.ca/fr/id/cm0mjtvrg0014330vn6blw3pi",
+                scButtonType: ["gc:custom/decd-endc/button-type/secondary"],
+              },
+            ],
+          },
+          {
             _path:
               "/content/dam/decd-endc/content-fragments/sclabs/components/content/home-explore-projects",
+            _model: {
+              title: "SCLabs-Content-v1",
+            },
             scId: "CONTENT-HOME-EXPLORE-PROJECTS",
             scContentEn: {
               json: [
@@ -860,6 +933,11 @@ export const homePageData = {
             },
           },
           {
+            _path:
+              "/content/dam/decd-endc/content-fragments/sclabs/components/alerts/site-features-works-in-progress",
+            _model: {
+              title: "SCLabs-Alert-v1",
+            },
             scId: "SITE-FEATURES-WORKS-IN-PROGRESS",
             scTitleEn: "This site features works in progress",
             scTitleFr: "Ce site présente des travaux en cours",
@@ -913,10 +991,14 @@ export const homePageData = {
                 },
               ],
             },
+            scAlertType: ["gc:custom/decd-endc/alert-type/information"],
           },
           {
             _path:
               "/content/dam/decd-endc/content-fragments/sclabs/components/content/home-see-all-projects",
+            _model: {
+              title: "SCLabs-Content-v1",
+            },
             scId: "CONTENT-HOME-SEE-ALL-PROJECTS",
             scContentEn: {
               json: [
@@ -926,7 +1008,7 @@ export const homePageData = {
                     {
                       nodeType: "link",
                       data: {
-                        href: "/en/projects.html",
+                        href: "/en/projects",
                       },
                       value: "See all projects",
                     },
@@ -942,7 +1024,7 @@ export const homePageData = {
                     {
                       nodeType: "link",
                       data: {
-                        href: "/fr/projets.html",
+                        href: "/fr/projets",
                       },
                       value: "Consulter tous les projets",
                     },
@@ -954,6 +1036,9 @@ export const homePageData = {
           {
             _path:
               "/content/dam/decd-endc/content-fragments/sclabs/components/content/home-read-updates",
+            _model: {
+              title: "SCLabs-Content-v1",
+            },
             scId: "CONTENT-HOME-READ-UPDATES",
             scContentEn: {
               json: [
@@ -988,6 +1073,9 @@ export const homePageData = {
           {
             _path:
               "/content/dam/decd-endc/content-fragments/sclabs/components/content/home-see-all-updates",
+            _model: {
+              title: "SCLabs-Content-v1",
+            },
             scId: "CONTENT-HOME-SEE-ALL-UPDATES",
             scContentEn: {
               json: [
@@ -997,7 +1085,7 @@ export const homePageData = {
                     {
                       nodeType: "link",
                       data: {
-                        href: "/en/updates.html",
+                        href: "/en/updates",
                       },
                       value: "See all updates",
                     },
@@ -1013,7 +1101,7 @@ export const homePageData = {
                     {
                       nodeType: "link",
                       data: {
-                        href: "/fr/mises-a-jour.html",
+                        href: "/fr/mises-a-jour",
                       },
                       value: "Consulter toutes les mises à jour",
                     },
