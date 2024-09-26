@@ -13,6 +13,7 @@ import stageDictionary from "../../../lib/utils/stageDictionary";
 import TextRender from "../../../components/text_node_renderer/TextRender";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 import { ContextualAlert } from "../../../components/molecules/ContextualAlert";
+import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 
 export default function BenefitsNavigatorOverview(props) {
   const [pageData] = useState(props.pageData.item);
@@ -45,11 +46,11 @@ export default function BenefitsNavigatorOverview(props) {
         imgWidth={update.scSocialMediaImageEn.width}
         title={props.locale === "en" ? update.scTitleEn : update.scTitleFr}
         href={props.locale === "en" ? update.scPageNameEn : update.scPageNameFr}
-        description={`${
-          props.locale === "en"
-            ? props.dictionary.items[13].scTermEn
-            : props.dictionary.items[13].scTermFr
-        } ${update.scDateModifiedOverwrite}`}
+        description={`${getDictionaryTerm(
+          props.dictionary.items,
+          "POSTED-ON",
+          props.locale
+        )} ${update.scDateModifiedOverwrite}`}
       />
     </li>
   ));

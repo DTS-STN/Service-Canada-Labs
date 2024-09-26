@@ -11,6 +11,7 @@ import { Heading } from "../../../components/molecules/Heading";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
+import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 
 export default function OasBenefitsEstimator(props) {
   const [pageData] = useState(props.pageData.item);
@@ -43,11 +44,11 @@ export default function OasBenefitsEstimator(props) {
         imgWidth={update.scSocialMediaImageEn.width}
         title={props.locale === "en" ? update.scTitleEn : update.scTitleFr}
         href={props.locale === "en" ? update.scPageNameEn : update.scPageNameFr}
-        description={`${
-          props.locale === "en"
-            ? props.dictionary.items[13].scTermEn
-            : props.dictionary.items[13].scTermFr
-        } ${update.scDateModifiedOverwrite}`}
+        description={`${getDictionaryTerm(
+          props.dictionary.items,
+          "POSTED-ON",
+          props.locale
+        )} ${update.scDateModifiedOverwrite}`}
       />
     </li>
   ));
