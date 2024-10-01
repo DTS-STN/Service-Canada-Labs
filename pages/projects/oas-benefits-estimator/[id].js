@@ -8,6 +8,7 @@ import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
 import { Heading } from "../../../components/molecules/Heading";
+import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 
 export default function OASBenefitsEstimatorArticles(props) {
   const { t } = useTranslation("common");
