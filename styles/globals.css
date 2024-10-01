@@ -66,11 +66,11 @@ html {
 
   /* Content Element Styles */
   h1,
-  h2 {
+  h2,
+  h3 {
     margin-top: 48px;
     margin-bottom: 24px;
   }
-  h3,
   h4,
   h5 {
     margin-bottom: 16px;

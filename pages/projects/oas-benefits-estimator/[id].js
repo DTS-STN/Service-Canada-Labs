@@ -8,6 +8,7 @@ import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
 import { Heading } from "../../../components/molecules/Heading";
+import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 
 export default function OASBenefitsEstimatorArticles(props) {
   const { t } = useTranslation("common");
@@ -50,9 +51,7 @@ export default function OASBenefitsEstimatorArticles(props) {
                   props.locale === "en" ? "lg:col-span-2" : "lg:col-span-3"
                 } font-bold`}
               >
-                {props.locale === "en"
-                  ? dictionary[13].scTermEn
-                  : dictionary[13].scTermFr}
+                {getDictionaryTerm(dictionary, "POSTED-ON", props.locale)}
               </p>
               <p className="col-span-6 col-start-7 sm:col-start-5 lg:col-span-2 md:col-start-5 mt-0">
                 {pageData.scDateModifiedOverwrite}
@@ -62,9 +61,7 @@ export default function OASBenefitsEstimatorArticles(props) {
                   props.locale === "en" ? "lg:col-span-2" : "lg:col-span-3"
                 } font-bold`}
               >
-                {props.locale === "en"
-                  ? dictionary[8].scTermEn
-                  : dictionary[8].scTermFr}
+                {getDictionaryTerm(dictionary, "LAST-UPDATED", props.locale)}
               </p>
               <p className="row-start-2 col-span-6 col-start-7 sm:col-start-5 lg:col-span-2 md:col-start-5 mt-auto">
                 {pageData.scDateModifiedOverwrite}

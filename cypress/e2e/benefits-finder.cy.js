@@ -1,4 +1,4 @@
-describe("Home Page", () => {
+describe("Benefits Finder Page", () => {
   beforeEach(() => {
     cy.visit("/en/projects/benefits-finder");
     cy.injectAxe();
