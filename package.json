@@ -1,6 +1,6 @@
 {
   "name": "service-canada-labs",
-  "version": "1.9.0",
+  "version": "1.20.1",
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.10.4",
