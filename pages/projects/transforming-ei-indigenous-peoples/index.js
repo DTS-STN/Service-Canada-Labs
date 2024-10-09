@@ -7,35 +7,58 @@ import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
 import Card from "../../../components/molecules/Card";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
-import { ActionButton } from "../../../components/atoms/ActionButton";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
-import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
-import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
-import { shuffle } from "../../../lib/utils/shuffle";
-import { filterItems } from "../../../lib/utils/filterItems";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
+import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
+import TextRender from "../../../components/text_node_renderer/TextRender";
 import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 
-export default function DigitalStandardsPlaybookPage(props) {
+export default function EiIndigenousOverview(props) {
   const [pageData] = useState(props.pageData.item);
-  const [updatesData] = useState(props.updatesData);
-  const [allProjects] = useState(props.allProjects);
-
-  const filteredDictionary = props.dictionary?.filter(
-    (item) =>
-      item.scId === "STARTED" ||
-      item.scId === "ENDED" ||
-      item.scId === "PROJECT-STAGE" ||
-      item.scId === "SUMMARY"
+  const updatesData = sortUpdatesByDate(props.updatesData);
+  const [filteredDictionary] = useState(
+    props.dictionary.items.filter(
+      (item) =>
+        item.scId === "STARTED" ||
+        item.scId === "ENDED" ||
+        item.scId === "PROJECT-STAGE" ||
+        item.scId === "SUMMARY"
+    )
   );
+
+  const displayProjectUpdates = updatesData.map((update) => (
+    <li key={update.scId} className="list-none ml-0 col-span-12 lg:col-span-4">
+      <Card
+        showImage
+        imgSrc={
+          props.locale === "en"
+            ? `https://www.canada.ca${update.scSocialMediaImageEn?._path}`
+            : `https://www.canada.ca${update.scSocialMediaImageFr?._path}`
+        }
+        imgAlt={
+          props.locale === "en"
+            ? update.scSocialMediaImageAltTextEn
+            : update.scSocialMediaImageAltTextFr
+        }
+        imgHeight={update.scSocialMediaImageEn.height}
+        imgWidth={update.scSocialMediaImageEn.width}
+        title={props.locale === "en" ? update.scTitleEn : update.scTitleFr}
+        href={props.locale === "en" ? update.scPageNameEn : update.scPageNameFr}
+        description={`${getDictionaryTerm(
+          props.dictionary.items,
+          "POSTED-ON",
+          props.locale
+        )} ${update.scDateModifiedOverwrite}`}
+      />
+    </li>
+  ));
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
-    console.log(props.dictionary);
   }, []);
 
   return (
@@ -45,7 +68,7 @@ export default function DigitalStandardsPlaybookPage(props) {
         langUrl={
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
-        dateModifiedOverride={pageData.scDateModifiedOverwrite ?? "2023-11-24"}
+        dateModifiedOverride={pageData.scDateModifiedOverwrite}
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
           props.locale
@@ -156,18 +179,20 @@ export default function DigitalStandardsPlaybookPage(props) {
             property="og:description"
             content={
               props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[0].content[0].value
-                : pageData.scFragments[0].scContentFr.json[0].content[0].value
+                ? pageData.scDescriptionEn.json[0].content[0].value
+                : pageData.scDescriptionFr.json[0].content[0].value
             }
           />
           <meta
             property="og:image"
-            content={pageData.scSocialMediaImageEn._publishUrl}
+            content={pageData.scFragments[2].scImageEn._publishUrl}
           />
           <meta
             property="og:image:alt"
             content={
-              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+              props.locale === "en"
+                ? pageData.scFragments[2].scImageAltTextEn
+                : pageData.scFragments[2].scImageAltTextFr
             }
           />
 
@@ -195,23 +220,25 @@ export default function DigitalStandardsPlaybookPage(props) {
             property="twitter:description"
             content={
               props.locale === "en"
-                ? pageData.scFragments[0].scContentEn.json[1].content[0].value
-                : pageData.scFragments[0].scContentFr.json[1].content[0].value
+                ? pageData.scDescriptionEn.json[0].content[0].value
+                : pageData.scDescriptionFr.json[0].content[0].value
             }
           />
           <meta
             property="twitter:image"
-            content={pageData.scSocialMediaImageEn._publishUrl}
+            content={pageData.scFragments[2].scImageEn._publishUrl}
           />
           <meta
             property="twitter:image:alt"
             content={
-              props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
+              props.locale === "en"
+                ? pageData.scFragments[2].scImageAltTextEn
+                : pageData.scFragments[2].scImageAltTextFr
             }
           />
         </Head>
 
-        <div className="layout-container mb-24">
+        <div className="layout-container">
           <section aria-labelledby="pageMainTitle">
             <div className="flex flex-col break-words lg:grid lg:grid-cols-2">
               <div className="col-span-2">
@@ -227,7 +254,7 @@ export default function DigitalStandardsPlaybookPage(props) {
               </div>
               <div className="hidden lg:grid row-span-2 row-start-2 col-start-2 p-0 mx-4">
                 <div className="flex justify-center">
-                  <div className="object-fill h-auto w-auto max-w-450px">
+                  <div className="object-fill max-w-350px">
                     <Image
                       src={
                         props.locale === "en"
@@ -235,12 +262,12 @@ export default function DigitalStandardsPlaybookPage(props) {
                           : pageData.scFragments[2].scImageFr._publishUrl
                       }
                       alt={
-                        (props.locale === "en"
+                        props.locale === "en"
                           ? pageData.scFragments[2].scImageAltTextEn
-                          : pageData.scFragments[2].scImageAltTextFr) ?? ""
+                          : pageData.scFragments[2].scImageAltTextFr
                       }
-                      height={pageData.scFragments[2].scImageEn.height}
                       width={pageData.scFragments[2].scImageEn.width}
+                      height={pageData.scFragments[2].scImageEn.height}
                       priority
                       sizes="33vw"
                       quality={100}
@@ -248,7 +275,7 @@ export default function DigitalStandardsPlaybookPage(props) {
                   </div>
                 </div>
               </div>
-              <p className="row-start-2 mb-4">
+              <p className="row-start-2 font-body text-lg mb-4">
                 {props.locale === "en"
                   ? pageData.scFragments[0].scContentEn.json[1].content[0].value
                   : pageData.scFragments[0].scContentFr.json[1].content[0]
@@ -277,10 +304,10 @@ export default function DigitalStandardsPlaybookPage(props) {
                   }
                   term={
                     props.locale === "en"
-                      ? pageData.scFragments[1].scContentEn.json[0].content[0]
-                          .value
-                      : pageData.scFragments[1].scContentFr.json[0].content[0]
-                          .value
+                      ? pageData.scFragments[0].scContentEn.json[0].content[0]
+                          .value + " "
+                      : pageData.scFragments[0].scContentFr.json[0].content[0]
+                          .value + " "
                   }
                   definition={
                     props.locale === "en"
@@ -291,8 +318,8 @@ export default function DigitalStandardsPlaybookPage(props) {
                   }
                   information={
                     props.locale === "en"
-                      ? pageData.scFragments[2].scTitleEn
-                      : pageData.scFragments[2].scTitleFr
+                      ? pageData.scFragments[1].scTitleEn
+                      : pageData.scFragments[1].scTitleFr
                   }
                   stage={
                     props.locale === "en"
@@ -301,167 +328,40 @@ export default function DigitalStandardsPlaybookPage(props) {
                   }
                   summary={
                     props.locale === "en"
-                      ? pageData.scFragments[0].scContentEn.json[4].content[0]
-                          .value
-                      : pageData.scFragments[0].scContentFr.json[4].content[0]
-                          .value
+                      ? pageData.scLabProjectSummaryEn.json[0].content[0].value
+                      : pageData.scLabProjectSummaryFr.json[0].content[0].value
                   }
                 />
               </div>
             </div>
           </section>
-          <section id="pageMainContent">
-            <div className="grid grid-cols-12">
-              <h2 className="col-span-12">
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[5].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[5].content[0]
-                      .value}
-              </h2>
-              <p className="col-span-12 xl:col-span-8">
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[6].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[6].content[0]
-                      .value}
-              </p>
-              <p className="col-span-12 xl:col-span-8">
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[7].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[7].content[0]
-                      .value}
-              </p>
-
-              <h2 className="col-span-12">
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[8].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[8].content[0]
-                      .value}
-              </h2>
-              <p className="col-span-12 xl:col-span-8">
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[9].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[9].content[0]
-                      .value}
-                <a
-                  className="underline underline-offset-[6px]"
-                  href={
-                    props.locale === "en"
-                      ? pageData.scFragments[0].scContentEn.json[9].content[1]
-                          .data.href
-                      : pageData.scFragments[0].scContentFr.json[9].content[1]
-                          .data.href
-                  }
-                >
-                  {props.locale === "en"
-                    ? pageData.scFragments[0].scContentEn.json[9].content[1]
-                        .value
-                    : pageData.scFragments[0].scContentFr.json[9].content[1]
-                        .value}
-                </a>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[9].content[2].value
-                  : pageData.scFragments[0].scContentFr.json[9].content[2]
-                      .value}
-              </p>
-              <p className="col-span-12 xl:col-span-8">
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[10].content[0]
-                      .value
-                  : pageData.scFragments[0].scContentFr.json[10].content[0]
-                      .value}
-              </p>
-
-              <ActionButton
-                id="take-survey"
-                style="primary"
-                custom="col-span-12 my-6"
-                href={
-                  props.locale === "en"
-                    ? pageData.scFragments[3].scDestinationURLEn
-                    : pageData.scFragments[3].scDestinationURLFr
-                }
-                text={
-                  props.locale === "en"
-                    ? pageData.scFragments[3].scTitleEn
-                    : pageData.scFragments[3].scTitleFr
-                }
-                ariaExpanded={props.ariaExpanded}
-              />
-
-              <p className="col-span-12 xl:col-span-8">
-                {props.locale === "en"
-                  ? pageData.scFragments[4].scContentEn.json[0].content[0].value
-                  : pageData.scFragments[4].scContentFr.json[0].content[0]
-                      .value}
-                <a
-                  className="underline underline-offset-[6px]"
-                  href={
-                    props.locale === "en"
-                      ? pageData.scFragments[4].scContentEn.json[0].content[1]
-                          .data.href
-                      : pageData.scFragments[4].scContentFr.json[0].content[1]
-                          .data.href
-                  }
-                >
-                  {props.locale === "en"
-                    ? pageData.scFragments[4].scContentEn.json[0].content[1]
-                        .value
-                    : pageData.scFragments[4].scContentFr.json[0].content[1]
-                        .value}
-                </a>
-                {props.locale === "en"
-                  ? pageData.scFragments[4].scContentEn.json[0].content[2].value
-                  : pageData.scFragments[4].scContentFr.json[0].content[2]
-                      .value}
-              </p>
-              <p className="col-span-12 xl:col-span-8">
-                {props.locale === "en"
-                  ? pageData.scFragments[4].scContentEn.json[1].content[0].value
-                  : pageData.scFragments[4].scContentFr.json[1].content[0]
-                      .value}
-              </p>
-            </div>
-          </section>
         </div>
-        {props.updatesData.length !== 0 ? (
-          <ExploreUpdates
-            locale={props.locale}
-            updatesData={sortUpdatesByDate(updatesData)}
-            dictionary={props.dictionary}
-            heading={
-              props.locale === "en"
-                ? `${pageData.scTitleEn} ${getDictionaryTerm(
-                    props.dictionary,
-                    "PROJECT-UPDATES",
-                    props.locale
-                  )}`
-                : `${getDictionaryTerm(
-                    props.dictionary,
-                    "PROJECT-UPDATES",
-                    props.locale
-                  )} ${pageData.scTitleFr}`
-            }
-            linkLabel={`${getDictionaryTerm(
-              props.dictionary,
-              "DICTIONARY-SEE-ALL-UPDATES-PROJECT",
-              props.locale
-            )}`}
-            href={
-              props.locale === "en"
-                ? `/en/updates?project=${pageData.scTitleEn}`
-                : `/fr/mises-a-jour?projet=${pageData.scTitleFr}`
-            }
-          />
-        ) : null}
-        <ExploreProjects
-          heading={getDictionaryTerm(
-            props.dictionary,
-            "EXPLORE-OTHER-PROJECTS",
-            props.locale
+
+        <div className="layout-container mt-[48px] grid grid-cols-12">
+          <div className="col-span-12 lg:col-span-7">
+            <TextRender
+              data={
+                props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json.slice(5)
+                  : pageData.scFragments[0].scContentFr.json.slice(5)
+              }
+            />
+          </div>
+        </div>
+        <div className="layout-container">
+          {updatesData.length === 0 ? null : (
+            <section id="projectUpdates">
+              <h2>
+                {props.locale === "en"
+                  ? "Project updates"
+                  : "Mises à jour du projet"}
+              </h2>
+              <ul className="grid lg:grid-cols-12 gap-x-4 gap-y-4 lg:gap-y-12 list-none ml-0 mb-12">
+                {displayProjectUpdates}
+              </ul>
+            </section>
           )}
-          locale={props.locale}
-          projects={filterItems(allProjects, pageData.scId).slice(0, 3)}
-        />
+        </div>
       </Layout>
     </>
   );
@@ -470,15 +370,11 @@ export default function DigitalStandardsPlaybookPage(props) {
 export const getStaticProps = async ({ locale }) => {
   // get page data from AEM
   const { data: pageData } = await aemServiceInstance.getFragment(
-    "getDigitalStandardsPlaybookPage"
+    "indigenousEiQuery"
   );
   // get dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
-  );
-  // get all projects data
-  const { data: allProjects } = await aemServiceInstance.getFragment(
-    "projectQuery"
   );
 
   return {
@@ -487,8 +383,7 @@ export const getStaticProps = async ({ locale }) => {
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       pageData: pageData.sclabsPageV1ByPath,
       updatesData: pageData.sclabsPageV1ByPath.item.scLabProjectUpdates,
-      dictionary: dictionary.dictionaryV1List.items,
-      allProjects: shuffle(allProjects.sclabsPageV1List.items),
+      dictionary: dictionary.dictionaryV1List,
       ...(await serverSideTranslations(locale, ["common"])),
     },
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,

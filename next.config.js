@@ -62,6 +62,14 @@ const REWRITES = [
     destination: "/projects/benefits-finder/:slug",
   },
   {
+    source: "/projets/transformer-assurance-emploi-peuples-autochtones",
+    destination: "/projects/transforming-ei-indigenous-peoples",
+  },
+  {
+    source: "/projets/transformer-assurance-emploi-peuples-autochtones/:slug",
+    destination: "/projects/transforming-ei-indigenous-peoples/:slug",
+  },
+  {
     source: "/rsdc-demander",
     destination: "/cdcp-apply"
   },

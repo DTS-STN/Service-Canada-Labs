@@ -7,9 +7,8 @@ import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
 import { Heading } from "../../../components/molecules/Heading";
-import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 
-export default function BenefitFinderArticles(props) {
+export default function IndigenousEiArticles(props) {
   const [pageData] = useState(props.pageData);
   const [dictionary] = useState(props.dictionary.items);
 
@@ -83,7 +82,7 @@ export default function BenefitFinderArticles(props) {
 export async function getStaticPaths() {
   // Get pages data
   const { data } = await aemServiceInstance.getFragment(
-    "benefitsNavigatorArticlesQuery"
+    "indigenousEiArticlesQuery"
   );
   // Get paths for dynamic routes from the page name data
   const paths = getAllUpdateIds(data.sclabsPageV1List.items);
@@ -97,7 +96,7 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({ locale, params }) => {
   // Get pages data
   const { data } = await aemServiceInstance.getFragment(
-    "benefitsFinderArticlesQuery"
+    "indigenousEiArticlesQuery"
   );
   // get dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
