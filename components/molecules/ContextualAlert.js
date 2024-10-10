@@ -50,14 +50,14 @@ export function ContextualAlert(props) {
         className={`overflow-auto border-l-6 ${alert_color} pl-[24px] py-[17px] leading-8`}
       >
         {asHtml ? (
-          <h2
+          <h3
             className="mt-0 text-mobileh3 lg:text-h3 leading-heading3 ml-1"
             dangerouslySetInnerHTML={{ __html: message_heading }}
           />
         ) : (
-          <h2 className="mt-0 text-mobileh3 lg:text-h3 leading-heading3 ml-1">
+          <h3 className="mt-0 text-mobileh3 lg:text-h3 leading-heading3 ml-1">
             {message_heading}
-          </h2>
+          </h3>
         )}
         {asHtml ? (
           <div
