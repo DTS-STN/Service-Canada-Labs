@@ -50,6 +50,7 @@ export const Layout = ({
           {t("skipToMainContentBtn")}
         </a>
       </nav>
+
       <header>
         <h2 className="sr-only">{t("globalHeader")}</h2>
         <h3 className="sr-only">{t("testSiteNotice")}</h3>
@@ -123,23 +124,25 @@ export const Layout = ({
         </div>
       </header>
 
-      {bannerText && bannerTitle ? (
-        <Banner siteTitle={bannerTitle} headline={bannerText} />
-      ) : null}
-      {children}
-      <div className="mt-12">
-        <h2 className="sr-only">{t("siteFooter")}</h2>
-        {!excludeFooterFeedback ? (
-          <div className="layout-container mt-5">
-            <Feedback />
+      <main>
+        {bannerText && bannerTitle ? (
+          <Banner siteTitle={bannerTitle} headline={bannerText} />
+        ) : null}
+        {children}
+        <div className="mt-12">
+          <h2 className="sr-only">{t("siteFooter")}</h2>
+          {!excludeFooterFeedback ? (
+            <div className="layout-container mt-5">
+              <Feedback />
+            </div>
+          ) : (
+            ""
+          )}
+          <div className="layout-container mb-2">
+            <DateModified date={dateModifiedOverride} />
           </div>
-        ) : (
-          ""
-        )}
-        <div className="layout-container mb-2">
-          <DateModified date={dateModifiedOverride} />
         </div>
-      </div>
+      </main>
 
       <Footer
         id="footer"
