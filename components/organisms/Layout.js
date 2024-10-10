@@ -38,18 +38,16 @@ export const Layout = ({
 
   return (
     <div className="overflow-x-hidden">
-      <nav className="skip-main" aria-label={t("skipToMainContentBtn")}>
-        <a
-          id="skipToMainContent"
-          className="bg-white text-custom-blue-dark text-lg underline py-1 px-2 focus:outline-dark-goldenrod hover:bg-gray-dark"
-          href="#pageMainTitle"
-          data-cy-button={"skip-Content"}
-          draggable="false"
-          aria-label={t("skipToMainContentBtn")}
-        >
-          {t("skipToMainContentBtn")}
-        </a>
-      </nav>
+      <a
+        id="skipToMainContent"
+        className="bg-white text-custom-blue-dark text-lg underline py-1 px-2 focus:outline-dark-goldenrod hover:bg-gray-dark skip-main"
+        href="#pageMainTitle"
+        data-cy-button={"skip-Content"}
+        draggable="false"
+        aria-label={t("skipToMainContentBtn")}
+      >
+        {t("skipToMainContentBtn")}
+      </a>
 
       <header>
         <h2 className="sr-only">{t("globalHeader")}</h2>
