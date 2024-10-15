@@ -13,9 +13,9 @@ describe("MSCA Dashboard", () => {
       <MscaDashboard
         pageData={dashboardData.data.sclabsPageV1ByPath}
         updatesData={dashboardUpdatesData}
-        dictionary={dictionaryData.data.dictionaryV1List}
+        dictionary={dictionaryData.data.dictionaryV1List.items}
         allProjects={experimentsData.data.scLabsPagev1List.items}
-      />
+      />,
     );
   });
 });

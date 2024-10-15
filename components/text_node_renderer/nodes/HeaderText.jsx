@@ -1,10 +1,14 @@
-export default function Header(props) {
+import { Heading } from "../../molecules/Heading";
+
+export default function HeaderText(props) {
   switch (props.node.style) {
     case "h1":
       return (
-        <h1 id={props.index} className={props.index === 0 ? "mt-0" : ""}>
-          {props.children}
-        </h1>
+        <Heading
+          id={"mainHeading"}
+          className={props.index === 0 ? "mt-0" : ""}
+          title={props.children[0].props.node.value}
+        />
       );
     case "h2":
       return (

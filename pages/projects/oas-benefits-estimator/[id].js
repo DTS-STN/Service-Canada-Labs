@@ -8,12 +8,18 @@ import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
 import { Heading } from "../../../components/molecules/Heading";
+import { filterItems } from "../../../lib/utils/filterItems";
+import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
+import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
+import { UpdateInfo } from "../../../components/atoms/UpdateInfo";
+import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 
-export default function OASBenefitsEstimatorArticles(props) {
+export default function OASBenefitsEstimatorArticles({ key, ...props }) {
   const { t } = useTranslation("common");
   const [pageData] = useState(props.pageData);
-  const [dictionary] = useState(props.dictionary.items);
+  const [projectData] = useState(props.projectData);
+  const [dictionary] = useState(props.dictionary);
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
@@ -45,28 +51,35 @@ export default function OASBenefitsEstimatorArticles(props) {
                 props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
               }
             />
-            <div id="postedOnUpdatedOnSection" className="grid grid-cols-12">
-              <p
-                className={`col-span-6 sm:col-span-4 ${
-                  props.locale === "en" ? "lg:col-span-2" : "lg:col-span-3"
-                } font-bold`}
-              >
-                {getDictionaryTerm(dictionary, "POSTED-ON", props.locale)}
-              </p>
-              <p className="col-span-6 col-start-7 sm:col-start-5 lg:col-span-2 md:col-start-5 mt-0">
-                {pageData.scDateModifiedOverwrite}
-              </p>
-              <p
-                className={`row-start-2 col-span-6 sm:col-span-4 mt-0 ${
-                  props.locale === "en" ? "lg:col-span-2" : "lg:col-span-3"
-                } font-bold`}
-              >
-                {getDictionaryTerm(dictionary, "LAST-UPDATED", props.locale)}
-              </p>
-              <p className="row-start-2 col-span-6 col-start-7 sm:col-start-5 lg:col-span-2 md:col-start-5 mt-auto">
-                {pageData.scDateModifiedOverwrite}
-              </p>
-            </div>
+            <UpdateInfo
+              projectLabel={`${getDictionaryTerm(
+                dictionary,
+                "PROJECT",
+                props.locale
+              )}`}
+              projectName={
+                props.locale === "en"
+                  ? pageData.scLabProject.scTermEn
+                  : pageData.scLabProject.scTermFr
+              }
+              projectHref={
+                props.locale === "en"
+                  ? pageData.scLabProject.scDestinationURLEn
+                  : pageData.scLabProject.scDestinationURLFr
+              }
+              postedOnLabel={`${getDictionaryTerm(
+                dictionary,
+                "POSTED-ON",
+                props.locale
+              )}`}
+              postedOn={pageData.scDateModifiedOverwrite}
+              lastUpdatedLabel={`${getDictionaryTerm(
+                dictionary,
+                "LAST-UPDATED",
+                props.locale
+              )}`}
+              lastUpdated={pageData.scDateModifiedOverwrite}
+            />
           </div>
 
           {/* Main */}
@@ -74,9 +87,49 @@ export default function OASBenefitsEstimatorArticles(props) {
             <FragmentRender
               fragments={props.pageData.scFragments}
               locale={props.locale}
+              excludeH1={true}
             />
           </div>
         </section>
+        {filterItems(props.updatesData, pageData.scId).length !== 0 ? (
+          <ExploreUpdates
+            locale={props.locale}
+            updatesData={filterItems(props.updatesData, pageData.scId)}
+            dictionary={props.dictionary}
+            heading={
+              props.locale === "en"
+                ? `${projectData.scTitleEn} ${getDictionaryTerm(
+                    props.dictionary,
+                    "PROJECT-UPDATES",
+                    props.locale
+                  )}`
+                : `${getDictionaryTerm(
+                    props.dictionary,
+                    "PROJECT-UPDATES",
+                    props.locale
+                  )} ${projectData.scTitleFr}`
+            }
+            linkLabel={`${getDictionaryTerm(
+              props.dictionary,
+              "DICTIONARY-SEE-ALL-UPDATES-PROJECT",
+              props.locale
+            )}`}
+            href={
+              props.locale === "en"
+                ? `/en/updates?project=${pageData.scLabProject.scTermEn}`
+                : `/fr/mises-a-jour?projet=${pageData.scLabProject.scTermFr}`
+            }
+          />
+        ) : null}
+        <ExploreProjects
+          projects={[projectData]}
+          heading={getDictionaryTerm(
+            dictionary,
+            "EXPLORE-THE-PROJECT",
+            props.locale
+          )}
+          locale={props.locale}
+        />
       </Layout>
     </>
   );
@@ -99,14 +152,17 @@ export async function getStaticPaths() {
 
 export const getStaticProps = async ({ locale, params }) => {
   // Get pages data
-  const { data } = await aemServiceInstance.getFragment(
+  const { data: updatesData } = await aemServiceInstance.getFragment(
     "oasBenefitsEstimatorArticlesQuery"
+  );
+  const { data: projectData } = await aemServiceInstance.getFragment(
+    "oasBenefitsEstimatorQuery"
   );
   // get dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
-  const pages = data.sclabsPageV1List.items;
+  const pages = updatesData.sclabsPageV1List.items;
   // Return page data that matches the current page being built
   const pageData = pages.filter((page) => {
     return (
@@ -124,9 +180,12 @@ export const getStaticProps = async ({ locale, params }) => {
 
   return {
     props: {
+      key: params.id,
       locale: locale,
       pageData: pageData[0],
-      dictionary: dictionary.dictionaryV1List,
+      updatesData: updatesData.sclabsPageV1List.items,
+      projectData: projectData.sclabsPageV1ByPath.item,
+      dictionary: dictionary.dictionaryV1List.items,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       ...(await serverSideTranslations(locale, ["common"])),
     },

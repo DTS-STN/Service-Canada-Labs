@@ -5,15 +5,19 @@ export function ProjectInfo(props) {
   return (
     <>
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-x-2 text-[20px]">
-        <strong className="font-body col-span-1">{props.termStarted}</strong>
+        <strong className="font-body text-mobilebody lg:text-p col-span-1">
+          {props.termStarted}
+        </strong>
         <p className="col-span-2">
           {props.dateStarted && props.dateStarted.substring(0, 10)}
         </p>
-        <strong className="font-body col-span-1">{props.termEnded}</strong>
+        <strong className="font-body text-mobilebody lg:text-p col-span-1 pt-3 lg:pt-0">
+          {props.termEnded}
+        </strong>
         <p className="col-span-2">
           {props.dateEnded && props.dateEnded.substring(0, 10)}
         </p>
-        <strong className="font-body col-span-1 my-auto">
+        <strong className="font-body text-mobilebody lg:text-p col-span-1 my-auto">
           {props.termStage}
         </strong>
         <div className="flex col-span-2 items-end">
@@ -28,7 +32,7 @@ export function ProjectInfo(props) {
             </div>
           </div>
         </div>
-        <strong className="font-body col-span-1 col-start-1">
+        <strong className="font-body text-mobilebody lg:text-p col-span-1 col-start-1">
           {props.termSummary}
         </strong>
         <p className="col-span-2">{props.summary}</p>

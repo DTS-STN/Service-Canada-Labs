@@ -38,7 +38,9 @@ export const Footer = ({
   preFooterTitle,
   preFooterLink,
   preFooterLinkText,
+  contactLink = "https://www.canada.ca/en/contact.html",
   lang,
+  withMainBand = true,
 }) => {
   return (
     <footer id={id} data-testid="footer">

@@ -9,11 +9,11 @@ export function Link({ target = "_self", href = "#", ...props }) {
   switch (props.linkStyle) {
     case "basicStyleWithEmphasis":
       basicStyle =
-        "underline text-multi-blue-blue70b font-body text-browserh5 font-bold text-mobileh5 leading-33px hover:text-multi-blue-blue50b";
+        "underline text-multi-blue-blue70b font-body text-mobilebody lg:text-p font-bold text-mobileh5 leading-33px hover:text-multi-blue-blue50b";
       break;
     case "titleLink":
       basicStyle =
-        "underline text-multi-blue-blue70b font-header text-browserh5 leading-23px font-bold hover:text-multi-blue-blue50b";
+        "underline text-multi-blue-blue70b font-header text-mobilebody lg:text-p leading-23px font-bold hover:text-multi-blue-blue50b";
       break;
     case "smfooterBlue":
       basicStyle =
@@ -25,15 +25,15 @@ export function Link({ target = "_self", href = "#", ...props }) {
       break;
     case "smBreadcrumbs":
       basicStyle =
-        "text-multi-blue-blue70b font-body text-browserh8 leading-23px font-regular hover:text-multi-blue-blue50b";
+        "text-multi-blue-blue70b font-body text-mobilebody lg:text-p leading-23px font-regular hover:text-multi-blue-blue50b";
       break;
     case "cardActionLink":
       basicStyle =
-        "text-multi-blue-blue70b font-body text-browserh5 underline leading-28px font-regular hover:text-multi-blue-blue50b";
+        "text-multi-blue-blue70b font-body text-mobilebody lg:text-p underline leading-28px font-regular hover:text-multi-blue-blue50b";
       break;
     default:
       basicStyle =
-        "underline text-multi-blue-blue70b font-body text-browserh5 leading-33px hover:text-multi-blue-blue50b";
+        "underline underline-offset-4 text-multi-blue-blue70b font-body text-mobilebody lg:text-p leading-33px hover:text-multi-blue-blue50b";
       break;
   }
 
@@ -51,25 +51,9 @@ export function Link({ target = "_self", href = "#", ...props }) {
       target={target}
       aria-label={props.ariaLabel || props.text}
       role="link"
+      className={`${basicStyle}`}
     >
-      <a
-        href={href}
-        locale={props.locale}
-        onClick={props.onClick ? props.onClick : undefined}
-        id={props.id}
-        className={`${basicStyle}`}
-        data-gc-analytics-customclick={props.dataGcAnalyticsCustomClick}
-        onKeyDown={onKeyDown}
-      >
-        {/* <!-- English Text: English --> */}
-        <span className={props.abbr ? "language-toggle-text" : ""}>
-          {props.text}
-        </span>
-        {/* <!-- English Text: title="English", en --> */}
-        <abbr className="language-toggle-abbr" title={props.text}>
-          {props.abbr}
-        </abbr>
-      </a>
+      {props.text}
     </Component>
   ) : (
     <a
@@ -84,14 +68,7 @@ export function Link({ target = "_self", href = "#", ...props }) {
       onClick={props.onClick ? props.onClick : undefined}
       data-gc-analytics-customclick={props.dataGcAnalyticsCustomClick}
     >
-      {/* <!-- English Text: English --> */}
-      <span className={props.abbr ? "language-toggle-text" : ""}>
-        {props.text}
-      </span>
-      {/* <!-- English Text: title="English", en --> */}
-      <abbr className="language-toggle-abbr" title={props.text}>
-        {props.abbr}
-      </abbr>
+      {props.text}
     </a>
   );
 }

@@ -36,22 +36,19 @@ export const Layout = ({
       ? window.location.href
       : "";
 
-  const isTopNavBarActive = false;
-
   return (
     <div className="overflow-x-hidden">
-      <nav className="skip-main" aria-label={t("skipToMainContentBtn")}>
-        <a
-          id="skipToMainContent"
-          className="bg-white text-custom-blue-dark text-lg underline py-1 px-2 focus:outline-dark-goldenrod hover:bg-gray-dark"
-          href="#pageMainTitle"
-          data-cy-button={"skip-Content"}
-          draggable="false"
-          aria-label={t("skipToMainContentBtn")}
-        >
-          {t("skipToMainContentBtn")}
-        </a>
-      </nav>
+      <a
+        id="skipToMainContent"
+        className="bg-white text-custom-blue-dark text-lg underline py-1 px-2 focus:outline-dark-goldenrod hover:bg-gray-dark skip-main"
+        href="#pageMainTitle"
+        data-cy-button={"skip-Content"}
+        draggable="false"
+        aria-label={t("skipToMainContentBtn")}
+      >
+        {t("skipToMainContentBtn")}
+      </a>
+
       <header>
         <h2 className="sr-only">{t("globalHeader")}</h2>
         <h3 className="sr-only">{t("testSiteNotice")}</h3>
@@ -110,40 +107,40 @@ export const Layout = ({
           </div>
         </div>
         <div className="border-b-[3px] border-multi-blue-blue35" />
-        {isTopNavBarActive ? (
-          <TopNavBar
-            homeLink={t("topNavBar.homeLink")}
-            homeLinkLabel={t("topNavBar.homeLinkLabel")}
-            updatesLink={t("topNavBar.updatesLink")}
-            updatesLinkLabel={t("topNavBar.updatesLinkLabel")}
-            projectsLink={t("topNavBar.projectsLink")}
-            projectsLinkLabel={t("topNavBar.projectsLinkLabel")}
-            navAriaLabel={t("topNavBar.ariaLabel")}
-            buttonAriaLabel={t("topNavBar.buttonAriaLabel")}
-          />
-        ) : null}
+        <TopNavBar
+          homeLink={t("topNavBar.homeLink")}
+          homeLinkLabel={t("topNavBar.homeLinkLabel")}
+          updatesLink={t("topNavBar.updatesLink")}
+          updatesLinkLabel={t("topNavBar.updatesLinkLabel")}
+          projectsLink={t("topNavBar.projectsLink")}
+          projectsLinkLabel={t("topNavBar.projectsLinkLabel")}
+          navAriaLabel={t("topNavBar.ariaLabel")}
+          buttonAriaLabel={t("topNavBar.buttonAriaLabel")}
+        />
         <div className="layout-container mt-4">
           <Breadcrumb items={breadcrumbItems} />
         </div>
       </header>
 
-      {bannerText && bannerTitle ? (
-        <Banner siteTitle={bannerTitle} headline={bannerText} />
-      ) : null}
-      {children}
-      <div className="mt-12">
-        <h2 className="sr-only">{t("siteFooter")}</h2>
-        {!excludeFooterFeedback ? (
-          <div className="layout-container mt-5">
-            <Feedback />
+      <main>
+        {bannerText && bannerTitle ? (
+          <Banner siteTitle={bannerTitle} headline={bannerText} />
+        ) : null}
+        {children}
+        <div className="mt-12">
+          <h2 className="sr-only">{t("siteFooter")}</h2>
+          {!excludeFooterFeedback ? (
+            <div className="layout-container mt-5">
+              <Feedback />
+            </div>
+          ) : (
+            ""
+          )}
+          <div className="layout-container mb-2">
+            <DateModified date={dateModifiedOverride} />
           </div>
-        ) : (
-          ""
-        )}
-        <div className="layout-container mb-2">
-          <DateModified date={dateModifiedOverride} />
         </div>
-      </div>
+      </main>
 
       <Footer
         id="footer"
