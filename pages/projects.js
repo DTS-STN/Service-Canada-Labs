@@ -115,7 +115,7 @@ export default function ProjectsPage(props) {
           id="pageMainTitle"
           className="flex flex-col justify-center content-center mt-16 h-[182px] bg-multi-blue-blue70 bg-no-repeat sm:bg-right-bottom"
           style={{
-            backgroundImage: `url(/updates-projectsbanner.png)`,
+            backgroundImage: `url(/981A606F-CEBD-4DD1-BDF5-FC7DD4834CCA_4_5005_c.jpeg)`,
             backgroundSize: "cover",
           }}
         >
