@@ -3,6 +3,7 @@ import { ActionButton } from "../atoms/ActionButton";
 export const SurveyCTA = ({
   heading,
   description,
+  buttonId,
   buttonLabel,
   buttonLink,
   buttonType,
@@ -14,7 +15,12 @@ export const SurveyCTA = ({
         <p className="font-body">{description}</p>
       </div>
       <div className="flex flex-col px-10 pt-5 md:pt-0 md:justify-center md:items-center whitespace-nowrap">
-        <ActionButton href={buttonLink} text={buttonLabel} style="tertiary" />
+        <ActionButton
+          id={buttonId}
+          href={buttonLink}
+          text={buttonLabel}
+          style="tertiary"
+        />
       </div>
     </div>
   );
