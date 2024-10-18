@@ -11,11 +11,11 @@ describe("Digital Standards Playbook Page", () => {
     it("loads page",()=>{
         cy.url().should('equal',Cypress.config().baseUrl+'/en/projects/digital-standards-playbook')
         cy.get('button.info').click()
-        cy.get('h2.modal-title').should('have.text','Discovery')
+        cy.get('h2.modal-title').should('have.text','Live')
     })
   
-    it("finds survey page", () => {
-      cy.get("a:contains('Take survey')").should('be.visible');
+    it("finds 'Read and comment on guidance' button", () => {
+      cy.get("a:contains('Read and comment on the new guidance')").should('be.visible');
     });
   });
   
