@@ -44,6 +44,12 @@ query getBenefitsNavigatorArticles {
           scPageNameFr
         }
       }
+      scDescriptionEn {
+        json
+      }
+      scDescriptionFr {
+        json
+      }
       scSubject
       scKeywordsEn
       scKeywordsFr

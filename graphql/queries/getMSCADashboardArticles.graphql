@@ -44,6 +44,12 @@ query getMSCADashboardArticles {
           scPageNameFr
         }
       }
+      scDescriptionEn {
+        json
+      }
+      scDescriptionFr {
+        json
+      }
       scSubject
       scKeywordsEn
       scKeywordsFr
