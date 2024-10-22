@@ -113,12 +113,14 @@ function Feedback() {
             <button
               onClick={() => setIsSubmitted(true)}
               className="bg-multi-blue-blue70 hover:bg-multi-blue-blue60e text-white rounded py-1 px-2"
+              aria-label={t("feedback.yes-aria-label")}
             >
               {t("feedback.yes")}
             </button>
             <button
               onClick={() => setIsProvidingFeedback(true)}
               className="bg-multi-blue-blue70 hover:bg-multi-blue-blue60e text-white rounded py-1 px-2"
+              aria-label={t("feedback.no-aria-label")}
             >
               {t("feedback.no")}
             </button>

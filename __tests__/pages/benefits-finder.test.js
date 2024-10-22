@@ -13,7 +13,7 @@ describe("Benefits Finder", () => {
       <BenefitsFinderOverview
         pageData={benefitsFinderMock.data.sclabsPageV1ByPath}
         updatesData={benefitsNavigatorUpdatesData}
-        dictionary={dictionaryData.data.dictionaryV1List}
+        dictionary={dictionaryData.data.dictionaryV1List.items}
         allProjects={experimentsData.data.scLabsPagev1List.items}
       />
     );

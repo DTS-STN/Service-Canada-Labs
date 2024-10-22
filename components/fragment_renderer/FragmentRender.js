@@ -16,7 +16,7 @@ const FRAGMENTS = {
   "SCLabs-Image-v1": ImageWithCollapse,
 };
 
-const mapFragmentsToProps = (fragmentData, fragmentName, locale) => {
+const mapFragmentsToProps = (fragmentData, fragmentName, locale, excludeH1) => {
   switch (fragmentName) {
     case "SCLabs-Feature-v1":
       return {
@@ -64,6 +64,7 @@ const mapFragmentsToProps = (fragmentData, fragmentName, locale) => {
                 ? fragmentData.scLabContent[0].scContentEn.json
                 : fragmentData.scLabContent[0].scContentFr.json,
             layout: fragmentData.scLabLayout,
+            excludeH1: excludeH1,
           };
         case "image-vertical-line-content":
           return {
@@ -149,10 +150,15 @@ const mapFragmentsToProps = (fragmentData, fragmentName, locale) => {
             : fragmentData.scImageAltTextFr,
         width: fragmentData.scImageEn.width,
         height: fragmentData.scImageEn.height,
-        content:
-          locale === "en"
-            ? fragmentData.scImageCaptionEn.json[0].content[0].value
-            : fragmentData.scImageCaptionFr.json[0].content[0].value,
+        content: (
+          <TextRender
+            data={
+              locale === "en"
+                ? fragmentData.scImageCaptionEn.json
+                : fragmentData.scImageCaptionFr.json
+            }
+          />
+        ),
         title:
           locale === "en"
             ? fragmentData.scLongDescHeadingEn
@@ -190,7 +196,8 @@ export default function FragmentRender(props) {
         {...mapFragmentsToProps(
           fragmentData,
           fragmentData?._model.title,
-          props.locale
+          props.locale,
+          props.excludeH1
         )}
       />
     );

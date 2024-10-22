@@ -13,8 +13,8 @@ export default function PageHead(props) {
         name="description"
         content={
           props.locale === "en"
-            ? props.pageData.scTitleEn
-            : props.pageData.scTitleFr
+            ? props.pageData.scDescriptionEn.json[0].content[0].value
+            : props.pageData.scDescriptionFr.json[0].content[0].value
         }
       />
       <meta name="author" content="Service Canada" />

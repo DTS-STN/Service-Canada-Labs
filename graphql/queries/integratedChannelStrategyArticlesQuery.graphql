@@ -26,6 +26,14 @@ query getIntegratedChannelStrategyArticles {
       scPageNameFr
       scTitleEn
       scTitleFr
+      scLabProject {
+        _path
+        scId
+        scTermEn
+        scTermFr
+        scDestinationURLEn
+        scDestinationURLFr
+      }
       scShortTitleEn
       scShortTitleFr
       scBreadcrumbParentPages {
@@ -35,6 +43,12 @@ query getIntegratedChannelStrategyArticles {
           scPageNameEn
           scPageNameFr
         }
+      }
+      scDescriptionEn {
+        json
+      }
+      scDescriptionFr {
+        json
       }
       scSubject
       scKeywordsEn

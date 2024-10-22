@@ -4,19 +4,23 @@ import { Layout } from "../../../components/organisms/Layout";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
-import Card from "../../../components/molecules/Card";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
 import Image from "next/image";
 import stageDictionary from "../../../lib/utils/stageDictionary";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
-import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
 import TextRender from "../../../components/text_node_renderer/TextRender";
 import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
+import { shuffle } from "../../../lib/utils/shuffle";
+import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
+import { filterItems } from "../../../lib/utils/filterItems";
+import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 
 export default function EiIndigenousOverview(props) {
   const [pageData] = useState(props.pageData.item);
   const updatesData = sortUpdatesByDate(props.updatesData);
+  const [allProjects] = useState(props.allProjects);
+
   const [filteredDictionary] = useState(
     props.dictionary.items.filter(
       (item) =>
@@ -26,33 +30,6 @@ export default function EiIndigenousOverview(props) {
         item.scId === "SUMMARY"
     )
   );
-
-  const displayProjectUpdates = updatesData.map((update) => (
-    <li key={update.scId} className="list-none ml-0 col-span-12 lg:col-span-4">
-      <Card
-        showImage
-        imgSrc={
-          props.locale === "en"
-            ? `https://www.canada.ca${update.scSocialMediaImageEn?._path}`
-            : `https://www.canada.ca${update.scSocialMediaImageFr?._path}`
-        }
-        imgAlt={
-          props.locale === "en"
-            ? update.scSocialMediaImageAltTextEn
-            : update.scSocialMediaImageAltTextFr
-        }
-        imgHeight={update.scSocialMediaImageEn.height}
-        imgWidth={update.scSocialMediaImageEn.width}
-        title={props.locale === "en" ? update.scTitleEn : update.scTitleFr}
-        href={props.locale === "en" ? update.scPageNameEn : update.scPageNameFr}
-        description={`${getDictionaryTerm(
-          props.dictionary.items,
-          "POSTED-ON",
-          props.locale
-        )} ${update.scDateModifiedOverwrite}`}
-      />
-    </li>
-  ));
 
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
@@ -337,7 +314,7 @@ export default function EiIndigenousOverview(props) {
           </section>
         </div>
 
-        <div className="layout-container mt-[48px] grid grid-cols-12">
+        <div className="layout-container mt-[48px] mb-24 grid grid-cols-12">
           <div className="col-span-12 lg:col-span-7">
             <TextRender
               data={
@@ -348,20 +325,45 @@ export default function EiIndigenousOverview(props) {
             />
           </div>
         </div>
-        <div className="layout-container">
-          {updatesData.length === 0 ? null : (
-            <section id="projectUpdates">
-              <h2>
-                {props.locale === "en"
-                  ? "Project updates"
-                  : "Mises à jour du projet"}
-              </h2>
-              <ul className="grid lg:grid-cols-12 gap-x-4 gap-y-4 lg:gap-y-12 list-none ml-0 mb-12">
-                {displayProjectUpdates}
-              </ul>
-            </section>
+        {props.updatesData.length !== 0 ? (
+          <ExploreUpdates
+            locale={props.locale}
+            updatesData={sortUpdatesByDate(updatesData)}
+            dictionary={props.dictionary}
+            heading={
+              props.locale === "en"
+                ? `${pageData.scTitleEn} ${getDictionaryTerm(
+                    props.dictionary.items,
+                    "PROJECT-UPDATES",
+                    props.locale
+                  )}`
+                : `${getDictionaryTerm(
+                    props.dictionary.items,
+                    "PROJECT-UPDATES",
+                    props.locale
+                  )} ${pageData.scTitleFr}`
+            }
+            linkLabel={`${getDictionaryTerm(
+              props.dictionary.items,
+              "DICTIONARY-SEE-ALL-UPDATES-PROJECT",
+              props.locale
+            )}`}
+            href={
+              props.locale === "en"
+                ? `/en/updates?project=${pageData.scTitleEn}`
+                : `/fr/mises-a-jour?projet=${pageData.scTitleFr}`
+            }
+          />
+        ) : null}
+        <ExploreProjects
+          heading={getDictionaryTerm(
+            props.dictionary.items,
+            "EXPLORE-OTHER-PROJECTS",
+            props.locale
           )}
-        </div>
+          locale={props.locale}
+          projects={filterItems(allProjects, pageData.scId).slice(0, 3)}
+        />
       </Layout>
     </>
   );
@@ -376,6 +378,10 @@ export const getStaticProps = async ({ locale }) => {
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
+  // get all projects data
+  const { data: allProjects } = await aemServiceInstance.getFragment(
+    "projectQuery"
+  );
 
   return {
     props: {
@@ -384,6 +390,7 @@ export const getStaticProps = async ({ locale }) => {
       pageData: pageData.sclabsPageV1ByPath,
       updatesData: pageData.sclabsPageV1ByPath.item.scLabProjectUpdates,
       dictionary: dictionary.dictionaryV1List,
+      allProjects: shuffle(allProjects.sclabsPageV1List.items),
       ...(await serverSideTranslations(locale, ["common"])),
     },
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,

@@ -507,7 +507,9 @@
     "submit": "Soumettre",
     "did-you-find": "Avez-vous trouvé ce que vous cherchiez?",
     "yes": "Oui",
-    "no": "Non"
+    "no": "Non",
+    "yes-aria-label": "Sélectionnez oui pour indiquer que cette page vous a fourni l'information que vous cherchiez.",
+    "no-aria-label": "Sélectionnez non pour indiquer que cette page ne vous a pas fourni l'information que vous cherchiez."
   },
 
   "cdcp": {
@@ -535,9 +537,10 @@
     "buttonAriaLabel": "bouton du menu de navigation",
     "homeLink": "/accueil",
     "homeLinkLabel": "Laboratoires de Service Canada",
-    "projectsLink": "/projects",
+    "projectsLink": "/projets",
     "projectsLinkLabel": "Projets",
-    "updatesLink": "/updates",
+    "updatesLink": "/mises-a-jour",
     "updatesLinkLabel": "Mises à jour"
-  }
+  },
+  "custom/decd-endc/project-status/current": "En cours"
 }

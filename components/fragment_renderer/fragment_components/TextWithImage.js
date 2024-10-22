@@ -11,6 +11,7 @@ export default function TextWithImage({
   title,
   longDesc,
   children,
+  excludeH1,
 }) {
   switch (layout) {
     case "default":
@@ -21,6 +22,7 @@ export default function TextWithImage({
           width={width}
           height={height}
           data={data}
+          excludeH1={excludeH1}
         />
       );
     case "image-vertical-line-content":
@@ -34,6 +36,7 @@ export default function TextWithImage({
           title={title}
           longDesc={longDesc}
           children={children}
+          excludeH1={excludeH1}
         />
       );
     default:

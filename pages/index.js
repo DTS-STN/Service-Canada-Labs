@@ -114,73 +114,75 @@ export default function Index(props) {
           content="cJ7yrE6jUDOrRFwPgxPanWrgaRqI9l0qG0F9rqFhZxM"
         />
       </Head>
-      <div className="h-full flex justify-center">
-        <div className="splash-cta fixed flex flex-col sm:justify-center sm:items-center">
-          <div className="z-10 bg-white h-auto min-w-300px w-300px xl:w-500px">
-            <h1 className="sr-only">alpha.service.canada.ca</h1>
-            <div className="p-4">
+      <main>
+        <div className="h-full flex justify-center">
+          <div className="splash-cta fixed flex flex-col sm:justify-center sm:items-center">
+            <div className="z-10 bg-white h-auto min-w-300px w-300px xl:w-500px">
+              <h1 className="sr-only">alpha.service.canada.ca</h1>
+              <div className="p-4">
+                <img
+                  src={"/sig-blk-en.svg"}
+                  alt={"Government of Canada / Gouvernement du Canada"}
+                  width="300"
+                  height="35"
+                />
+              </div>
+              <div className="flex w-max container mx-auto py-6 font-display">
+                <h2
+                  className="text-p text-right xl:text-h4 mr-6 w-32 xl:w-40"
+                  lang="en"
+                >
+                  Service Canada Labs
+                </h2>
+                <h2 className="text-p xl:text-h4 w-32 xl:w-40" lang="fr">
+                  Laboratoires de Service Canada
+                </h2>
+              </div>
+              <div className="flex w-max container pb-6 mx-auto font-display">
+                <ActionButton
+                  id="english-button"
+                  style="primary"
+                  text="English"
+                  lang="en"
+                  custom="justify-center w-7.5rem xl:w-138px mr-6 text-lg"
+                  href="/en/home"
+                />
+                <ActionButton
+                  id="french-button"
+                  style="primary"
+                  text="Français"
+                  href="/fr/accueil"
+                  lang="fr"
+                  custom="justify-center w-7.5rem xl:w-138px text-lg"
+                />
+              </div>
+            </div>
+            <div className="relative py-7 bg-splash-page-bottom text-p h-auto min-w-300px w-300px flex justify-between container p-6 xl:w-500px xl:items-center">
+              <div className="w-28 text-base xl:text-p xl:w-max font-body">
+                <Link
+                  href="https://www.canada.ca/en/transparency/terms.html"
+                  className="inline-block w-28 xl:w-max mr-0 hover:text-canada-footer-hover-font-blue text-canada-footer-font splash-link"
+                >
+                  Terms & conditions
+                </Link>
+                <Link
+                  href="https://www.canada.ca/fr/transparence/avis.html"
+                  className="inline-block hover:text-canada-footer-hover-font-blue text-canada-footer-font"
+                  lang="fr"
+                >
+                  Avis
+                </Link>
+              </div>
               <img
-                src={"/sig-blk-en.svg"}
-                alt={"Government of Canada / Gouvernement du Canada"}
-                width="300"
-                height="35"
+                src="/wmms-blk.svg"
+                alt="Symbol of the Government of Canada / Symbole du gouvernement du Canada"
+                width="150"
+                height="25"
               />
             </div>
-            <div className="flex w-max container mx-auto py-6 font-display">
-              <h2
-                className="text-p text-right xl:text-h4 mr-6 w-32 xl:w-40"
-                lang="en"
-              >
-                Service Canada Labs
-              </h2>
-              <h2 className="text-p xl:text-h4 w-32 xl:w-40" lang="fr">
-                Laboratoires de Service Canada
-              </h2>
-            </div>
-            <div className="flex w-max container pb-6 mx-auto font-display">
-              <ActionButton
-                id="english-button"
-                style="primary"
-                text="English"
-                lang="en"
-                custom="justify-center w-7.5rem xl:w-138px mr-6 text-lg"
-                href="/en/home"
-              />
-              <ActionButton
-                id="french-button"
-                style="primary"
-                text="Français"
-                href="/fr/accueil"
-                lang="fr"
-                custom="justify-center w-7.5rem xl:w-138px text-lg"
-              />
-            </div>
-          </div>
-          <div className="relative py-7 bg-splash-page-bottom text-p h-auto min-w-300px w-300px flex justify-between container p-6 xl:w-500px xl:items-center">
-            <div className="w-28 text-base xl:text-p xl:w-max font-body">
-              <Link
-                href="https://www.canada.ca/en/transparency/terms.html"
-                className="inline-block w-28 xl:w-max mr-0 hover:text-canada-footer-hover-font-blue text-canada-footer-font splash-link"
-              >
-                Terms & conditions
-              </Link>
-              <Link
-                href="https://www.canada.ca/fr/transparence/avis.html"
-                className="inline-block hover:text-canada-footer-hover-font-blue text-canada-footer-font"
-                lang="fr"
-              >
-                Avis
-              </Link>
-            </div>
-            <img
-              src="/wmms-blk.svg"
-              alt="Symbol of the Government of Canada / Symbole du gouvernement du Canada"
-              width="150"
-              height="25"
-            />
           </div>
         </div>
-      </div>
+      </main>
     </>
   );
 }
