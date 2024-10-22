@@ -35,7 +35,6 @@ export default function DigitalStandardsPlaybookPage(props) {
       window.adobeDataLayer = window.adobeDataLayer || [];
       window.adobeDataLayer.push({ event: "pageLoad" });
     }
-    console.log(props.dictionary);
   }, []);
 
   return (

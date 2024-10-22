@@ -5,7 +5,6 @@ import { ActionButton } from "../../../components//atoms/ActionButton";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
-import Card from "../../../components/molecules/Card";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
 import Image from "next/image";
