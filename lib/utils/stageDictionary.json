@@ -2,11 +2,13 @@
   "en": {
     "gc:custom/decd-endc/project-stage/alpha": "Alpha",
     "gc:custom/decd-endc/project-stage/beta": "Beta",
-    "gc:custom/decd-endc/project-stage/discovery": "Discovery"
+    "gc:custom/decd-endc/project-stage/discovery": "Discovery",
+    "gc:custom/decd-endc/project-stage/live": "Live"
   },
   "fr": {
     "gc:custom/decd-endc/project-stage/alpha": "Alpha",
     "gc:custom/decd-endc/project-stage/beta": "Bêta",
-    "gc:custom/decd-endc/project-stage/discovery": "Découverte"
+    "gc:custom/decd-endc/project-stage/discovery": "Découverte",
+    "gc:custom/decd-endc/project-stage/live": "Mise en ligne"
   }
 }

@@ -186,6 +186,7 @@ ActionButton.propTypes = {
     "secondary",
     "danger",
     "link",
+    "tertiary",
   ]),
 
   /**

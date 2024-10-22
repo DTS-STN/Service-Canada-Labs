@@ -342,33 +342,6 @@ export default function DigitalStandardsPlaybookPage(props) {
                   ? pageData.scFragments[0].scContentEn.json[9].content[0].value
                   : pageData.scFragments[0].scContentFr.json[9].content[0]
                       .value}
-                <a
-                  className="underline underline-offset-[6px]"
-                  href={
-                    props.locale === "en"
-                      ? pageData.scFragments[0].scContentEn.json[9].content[1]
-                          .data.href
-                      : pageData.scFragments[0].scContentFr.json[9].content[1]
-                          .data.href
-                  }
-                >
-                  {props.locale === "en"
-                    ? pageData.scFragments[0].scContentEn.json[9].content[1]
-                        .value
-                    : pageData.scFragments[0].scContentFr.json[9].content[1]
-                        .value}
-                </a>
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[9].content[2].value
-                  : pageData.scFragments[0].scContentFr.json[9].content[2]
-                      .value}
-              </p>
-              <p className="col-span-12 xl:col-span-8">
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[10].content[0]
-                      .value
-                  : pageData.scFragments[0].scContentFr.json[10].content[0]
-                      .value}
               </p>
 
               <ActionButton

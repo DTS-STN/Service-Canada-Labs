@@ -276,6 +276,11 @@ export default function Home(props) {
                 ? pageData.scFragments[1].scContentEn.json[0].content[0].value
                 : pageData.scFragments[1].scContentFr.json[0].content[0].value
             }
+            buttonId={
+              props.locale === "en"
+                ? pageData.scFragments[1].scLabsButton[0].scId
+                : pageData.scFragments[1].scLabsButton[0].scIdFr
+            }
             buttonLabel={
               props.locale === "en"
                 ? pageData.scFragments[1].scLabsButton[0].scTitleEn
