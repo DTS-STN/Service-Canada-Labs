@@ -8,7 +8,7 @@ import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
 import { Heading } from "../../../components/molecules/Heading";
 
-export default function IndigenousEiArticles(props) {
+export default function IndigenousEiArticles({ key, ...props }) {
   const [pageData] = useState(props.pageData);
   const [dictionary] = useState(props.dictionary.items);
 
@@ -120,6 +120,7 @@ export const getStaticProps = async ({ locale, params }) => {
 
   return {
     props: {
+      key: params.id,
       locale: locale,
       pageData: pageData[0],
       dictionary: dictionary.dictionaryV1List,

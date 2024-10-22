@@ -99,12 +99,12 @@ export default function DigitalStandardsArticles({ key, ...props }) {
             heading={
               props.locale === "en"
                 ? `${projectData.scTitleEn} ${getDictionaryTerm(
-                    props.dictionary,
+                    dictionary,
                     "PROJECT-UPDATES",
                     props.locale
                   )}`
                 : `${getDictionaryTerm(
-                    props.dictionary,
+                    dictionary,
                     "PROJECT-UPDATES",
                     props.locale
                   )} ${projectData.scTitleFr}`

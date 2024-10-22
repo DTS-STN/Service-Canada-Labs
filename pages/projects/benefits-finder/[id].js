@@ -9,7 +9,7 @@ import FragmentRender from "../../../components/fragment_renderer/FragmentRender
 import { Heading } from "../../../components/molecules/Heading";
 import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 
-export default function BenefitFinderArticles(props) {
+export default function BenefitFinderArticles({ key, ...props }) {
   const [pageData] = useState(props.pageData);
   const [dictionary] = useState(props.dictionary.items);
 
@@ -121,6 +121,7 @@ export const getStaticProps = async ({ locale, params }) => {
 
   return {
     props: {
+      key: params.id,
       locale: locale,
       pageData: pageData[0],
       dictionary: dictionary.dictionaryV1List,
