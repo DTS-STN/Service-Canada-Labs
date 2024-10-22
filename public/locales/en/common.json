@@ -517,7 +517,9 @@
     "submit": "Submit",
     "did-you-find": "Did you find what you're looking for?",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "yes-aria-label": "Select yes to submit feedback that this page provided you with the information you were looking for.",
+    "no-aria-label": "Select no to submit feedback that this page did not provide you with the information you were looking for."
   },
 
   "cdcp": {
