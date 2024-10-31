@@ -115,9 +115,9 @@ export default function PageHead(props) {
       />
 
       {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta
-        property="twitter:url"
+        name="twitter:url"
         content={
           "https://alpha.service.canada.ca" +
           `${
@@ -128,7 +128,7 @@ export default function PageHead(props) {
         }
       />
       <meta
-        property="twitter:title"
+        name="twitter:title"
         content={
           props.locale === "en"
             ? props.pageData.scTitleEn
@@ -137,7 +137,7 @@ export default function PageHead(props) {
       />
       <meta name="twitter:creator" content="Service Canada" />
       <meta
-        property="twitter:description"
+        name="twitter:description"
         content={
           props.locale === "en"
             ? props.pageData.scTitleEn
@@ -145,11 +145,11 @@ export default function PageHead(props) {
         }
       />
       <meta
-        property="twitter:image"
+        name="twitter:image"
         content={props.pageData.scSocialMediaImageEn?._publishUrl}
       />
       <meta
-        property="twitter:image:alt"
+        name="twitter:image:alt"
         content={
           props.locale === "en"
             ? props.pageData.scTitleEn
