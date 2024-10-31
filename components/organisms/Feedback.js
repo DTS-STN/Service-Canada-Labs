@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
@@ -6,6 +6,7 @@ import { useTranslation } from "next-i18next";
 function Feedback() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isProvidingFeedback, setIsProvidingFeedback] = useState(false);
+  const thankYouRef = useRef(null);
 
   const router = useRouter();
   const { t } = useTranslation("common");
@@ -22,7 +23,22 @@ function Feedback() {
       });
     } finally {
       setIsSubmitted(true);
+      // Focus will move to thank you message when it appears
+      setFocus(thankYouRef);
     }
+  }
+
+  function onYesClick() {
+    setIsSubmitted(true);
+    setFocus(thankYouRef);
+  }
+
+  function setFocus(ref) {
+    setTimeout(() => {
+      if (ref.current) {
+        ref.current.focus();
+      }
+    }, 100);
   }
 
   return (
@@ -36,8 +52,10 @@ function Feedback() {
             height={25}
             style={{ width: 25, height: 25 }}
             priority
-          ></Image>
-          <p>{t("feedback.thank-you")}</p>
+          />
+          <p ref={thankYouRef} tabIndex={-1} role="status" aria-live="polite">
+            {t("feedback.thank-you")}
+          </p>
         </div>
       )}
 
@@ -54,7 +72,7 @@ function Feedback() {
                 name="what-was-wrong"
                 value="cant-find-info"
                 required
-              ></input>
+              />
               {t("feedback.cant-find-info")}
             </label>
             <label className="flex gap-2">
@@ -62,7 +80,7 @@ function Feedback() {
                 type="radio"
                 name="what-was-wrong"
                 value="hard-to-understand"
-              ></input>
+              />
               {t("feedback.hard-to-understand")}
             </label>
             <label className="flex gap-2">
@@ -70,16 +88,11 @@ function Feedback() {
                 type="radio"
                 name="what-was-wrong"
                 value="there-was-an-error"
-              ></input>
+              />
               {t("feedback.there-was-an-error")}
             </label>
             <label className="flex gap-2">
-              <input
-                type="radio"
-                name="what-was-wrong"
-                value="other-reason"
-              ></input>
-
+              <input type="radio" name="what-was-wrong" value="other-reason" />
               {t("feedback.other-reason")}
             </label>
           </fieldset>
@@ -98,7 +111,7 @@ function Feedback() {
               aria-describedby="extra-info maximum-characters"
               maxLength={300}
               className="p-1"
-            ></textarea>
+            />
           </label>
           <button className="bg-multi-blue-blue70 hover:bg-multi-blue-blue60e text-white rounded py-1 px-2">
             {t("feedback.submit")}
@@ -111,7 +124,7 @@ function Feedback() {
           <p className="font-semibold text-sm">{t("feedback.did-you-find")}</p>
           <div className="flex gap-2">
             <button
-              onClick={() => setIsSubmitted(true)}
+              onClick={() => onYesClick()}
               className="bg-multi-blue-blue70 hover:bg-multi-blue-blue60e text-white rounded py-1 px-2"
               aria-label={t("feedback.yes-aria-label")}
             >
