@@ -9587,12 +9587,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^23.11.3":
-  version: 23.11.5
-  resolution: "i18next@npm:23.11.5"
+"i18next@npm:^23.15.2":
+  version: 23.16.4
+  resolution: "i18next@npm:23.16.4"
   dependencies:
     "@babel/runtime": "npm:^7.23.2"
-  checksum: 3a8e0d5d2b9ac6c6fa8c2180452aaf816d60e1cc790da69d6be515feec85553f8af9fcc19414ade1a621f08236e84f38df4415a8234919fa97fa2e35624e86b6
+  checksum: a3aa6189aa4bf3022c372a03c88a2216d420b70f01369bd1017f7e51d0ed012dcda8b5f6476021835ab9574ee0ac5d056049fe4b720b5458b42bcc6ae66bd38d
   languageName: node
   linkType: hard
 
@@ -14356,7 +14356,7 @@ __metadata:
     focus-trap-react: "npm:^8.11.2"
     graphql: "npm:^16.9.0"
     husky: "npm:^9.0.11"
-    i18next: "npm:^23.11.3"
+    i18next: "npm:^23.15.2"
     i18next-http-backend: "npm:^1.4.5"
     jest: "npm:^29.7.0"
     jest-axe: "npm:^5.0.1"
