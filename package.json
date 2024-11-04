@@ -85,7 +85,7 @@
     "storybook": "^8.0.9",
     "tailwindcss": "^3.0.9",
     "weak-napi": "^2.0.2",
-    "webpack": "^5.76.0"
+    "webpack": "^5.94.0"
   },
   "lint-staged": {
     "pages/**/*.{js,jsx,ts,tsx,json,md}": [
