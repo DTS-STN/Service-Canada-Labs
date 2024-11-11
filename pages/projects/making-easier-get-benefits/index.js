@@ -17,11 +17,18 @@ import { filterItems } from "../../../lib/utils/filterItems";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 
+/**
+ * Component for displaying an Integrated Channel Strategy page
+ * Handles bilingual content (English/French) and various project-related information
+ * @param {Object} props Component properties from getStaticProps
+ */
 export default function IntegratedChannelStrategyPage(props) {
+  // Initialize state with props data, using array destructuring for read-only values
   const [pageData] = useState(props.pageData.item);
   const [updatesData] = useState(props.updatesData);
   const [allProjects] = useState(props.allProjects);
 
+  // Filter dictionary to only include specific status-related terms
   const [filteredDictionary] = useState(
     props.dictionary.filter(
       (item) =>
@@ -32,6 +39,7 @@ export default function IntegratedChannelStrategyPage(props) {
     )
   );
 
+  // Initialize Adobe Analytics on page load if URL is provided
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
@@ -41,6 +49,7 @@ export default function IntegratedChannelStrategyPage(props) {
 
   return (
     <>
+      {/* Main layout wrapper with language-specific configuration */}
       <Layout
         locale={props.locale}
         langUrl={
@@ -52,6 +61,7 @@ export default function IntegratedChannelStrategyPage(props) {
           props.locale
         )}
       >
+        {/* Page head metadata */}
         <Head>
           {/* Primary HTML Meta Tags */}
           <title>
@@ -211,10 +221,12 @@ export default function IntegratedChannelStrategyPage(props) {
             }
           />
         </Head>
-
+        {/* Main content container */}
         <div className="layout-container mb-24">
           <section aria-labelledby="pageMainTitle">
+            {/* Grid layout for main content area */}
             <div className="flex flex-col break-words lg:grid lg:grid-cols-2">
+              {/* Page title section */}
               <div className="col-span-2">
                 <Heading
                   tabIndex="-1"
@@ -226,6 +238,7 @@ export default function IntegratedChannelStrategyPage(props) {
                   }
                 />
               </div>
+              {/* Desktop-only image section */}
               <div className="hidden lg:grid row-span-2 row-start-2 col-start-2 p-0 mx-4">
                 <div className="flex justify-center">
                   <div className="object-fill h-auto w-auto max-w-450px">
@@ -249,12 +262,14 @@ export default function IntegratedChannelStrategyPage(props) {
                   </div>
                 </div>
               </div>
+              {/* Introduction paragraph */}
               <p className="row-start-2 mb-4">
                 {props.locale === "en"
                   ? pageData.scFragments[0].scContentEn.json[1].content[0].value
                   : pageData.scFragments[0].scContentFr.json[1].content[0]
                       .value}
               </p>
+              {/* Project information component */}
               <div className="row-start-3">
                 <ProjectInfo
                   locale={props.locale}
@@ -311,6 +326,7 @@ export default function IntegratedChannelStrategyPage(props) {
               </div>
             </div>
           </section>
+          {/* Main content text section */}
           <div id="pageMainContent" className="grid grid-cols-12">
             <div className="col-span-12 lg:col-span-7 mt-[48px]">
               <TextRender
@@ -324,6 +340,7 @@ export default function IntegratedChannelStrategyPage(props) {
             </div>
           </div>
         </div>
+        {/* Conditional rendering of updates section */}
         {props.updatesData.length !== 0 ? (
           <ExploreUpdates
             locale={props.locale}
@@ -354,6 +371,7 @@ export default function IntegratedChannelStrategyPage(props) {
             }
           />
         ) : null}
+        {/* Related projects section */}
         <ExploreProjects
           heading={getDictionaryTerm(
             props.dictionary,
@@ -368,20 +386,27 @@ export default function IntegratedChannelStrategyPage(props) {
   );
 }
 
+/**
+ * Next.js getStaticProps function to fetch data at build time
+ * Retrieves page data, dictionary terms, and project information from AEM
+ * @param {Object} context Contains locale information
+ * @returns {Object} Props for the page component
+ */
 export const getStaticProps = async ({ locale }) => {
-  // get page data from AEM
+  // Fetch page-specific data from AEM
   const { data: pageData } = await aemServiceInstance.getFragment(
     "integratedChannelStrategyQuery"
   );
-  // get dictionary
+  // Fetch dictionary terms for translations
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
-  // get all projects data
+  // Fetch all projects data
   const { data: allProjects } = await aemServiceInstance.getFragment(
     "projectQuery"
   );
 
+  // Return props object with all necessary data
   return {
     props: {
       locale: locale,
@@ -392,6 +417,7 @@ export const getStaticProps = async ({ locale }) => {
       allProjects: shuffle(allProjects.sclabsPageV1List.items),
       ...(await serverSideTranslations(locale, ["common"])),
     },
+    // Configure ISR (Incremental Static Regeneration) if enabled
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,
   };
 };

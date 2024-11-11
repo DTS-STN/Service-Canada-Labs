@@ -17,20 +17,29 @@ import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 import { filterItems } from "../../../lib/utils/filterItems";
 import { shuffle } from "../../../lib/utils/shuffle";
 
+/**
+ * Benefits Finder Project Overview Component
+ * Displays detailed information about the Benefits Finder project
+ * Includes project summary, stage information, updates, and related projects
+ */
 export default function BenefitsFinderOverview(props) {
-  const [pageData] = useState(props.pageData.item);
-  const updatesData = sortUpdatesByDate(props.updatesData);
-  const allProjects = props.allProjects;
+  // Initialize state and data management
+  const [pageData] = useState(props.pageData.item); // Core page content from AEM
+  const updatesData = sortUpdatesByDate(props.updatesData); // Project updates sorted by date
+  const allProjects = props.allProjects; // All SC Labs projects
+
+  // Filter dictionary to only include terms needed for this page
   const [filteredDictionary] = useState(
     props.dictionary.filter(
       (item) =>
-        item.scId === "STARTED" ||
-        item.scId === "ENDED" ||
-        item.scId === "PROJECT-STAGE" ||
-        item.scId === "SUMMARY"
+        item.scId === "STARTED" || // Project start date label
+        item.scId === "ENDED" || // Project end date label
+        item.scId === "PROJECT-STAGE" || // Project stage label
+        item.scId === "SUMMARY" // Summary section label
     )
   );
 
+  // Initialize Adobe Analytics data layer
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
@@ -42,10 +51,12 @@ export default function BenefitsFinderOverview(props) {
     <>
       <Layout
         locale={props.locale}
+        // Set alternate language URL for language toggle
         langUrl={
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
+        // Generate breadcrumb navigation from parent pages
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
           props.locale
@@ -215,9 +226,12 @@ export default function BenefitsFinderOverview(props) {
           />
         </Head>
 
+        {/* Main Content Container */}
         <div className="layout-container">
           <section aria-labelledby="pageMainTitle">
+            {/* Two-column grid layout for desktop, stack on mobile */}
             <div className="flex flex-col break-words lg:grid lg:grid-cols-2">
+              {/* Page Title - spans full width */}
               <div className="col-span-2">
                 <Heading
                   tabIndex="-1"
@@ -229,6 +243,8 @@ export default function BenefitsFinderOverview(props) {
                   }
                 />
               </div>
+
+              {/* Project Image - hidden on mobile, shown in right column on desktop */}
               <div className="hidden lg:grid row-span-2 row-start-2 col-start-2 p-0 mx-4">
                 <div className="flex justify-center">
                   <div className="object-fill max-w-350px">
@@ -245,22 +261,27 @@ export default function BenefitsFinderOverview(props) {
                       }
                       width={pageData.scFragments[2].scImageEn.width}
                       height={pageData.scFragments[2].scImageEn.height}
-                      priority
+                      priority // Load image with high priority
                       sizes="33vw"
                       quality={100}
                     />
                   </div>
                 </div>
               </div>
+
+              {/* Project Description Text */}
               <p className="row-start-2 font-body text-lg mb-4">
                 {props.locale === "en"
                   ? pageData.scFragments[0].scContentEn.json[1].content[0].value
                   : pageData.scFragments[0].scContentFr.json[1].content[0]
                       .value}
               </p>
+
+              {/* Project Information Component - contains key project details */}
               <div className="row-start-3">
                 <ProjectInfo
                   locale={props.locale}
+                  // Pass translated terms and labels
                   termStarted={
                     props.locale === "en"
                       ? filteredDictionary[2].scTermEn
@@ -276,6 +297,7 @@ export default function BenefitsFinderOverview(props) {
                       ? filteredDictionary[3].scTermEn
                       : filteredDictionary[3].scTermFr
                   }
+                  // Pass project-specific information
                   dateStarted={
                     pageData.scFragments[0].scContentEn.json[2].content[0].value
                   }
@@ -310,6 +332,8 @@ export default function BenefitsFinderOverview(props) {
                   }
                 />
               </div>
+
+              {/* Additional Project Information */}
               <strong className="font-body text-p pt-8">
                 {props.locale === "en"
                   ? pageData.scFragments[0].scContentEn.json[5].content[0].value
@@ -320,10 +344,13 @@ export default function BenefitsFinderOverview(props) {
           </section>
         </div>
 
+        {/* Render Additional Content Fragments */}
         <FragmentRender
           fragments={pageData.scFragments.slice(3)}
           locale={props.locale}
         />
+
+        {/* Project Updates Section - Only shown if updates exist */}
         {props.updatesData.length !== 0 ? (
           <ExploreUpdates
             locale={props.locale}
@@ -354,6 +381,8 @@ export default function BenefitsFinderOverview(props) {
             }
           />
         ) : null}
+
+        {/* Related Projects Section - Shows 3 random other projects */}
         <ExploreProjects
           heading={getDictionaryTerm(
             props.dictionary,
@@ -368,20 +397,27 @@ export default function BenefitsFinderOverview(props) {
   );
 }
 
+/**
+ * Next.js Static Site Generation (SSG) function
+ * Fetches all required data at build time
+ */
 export const getStaticProps = async ({ locale }) => {
-  // get page data from AEM
+  // Fetch main Benefits Finder content from AEM
   const { data: pageData } = await aemServiceInstance.getFragment(
     "benefitsFinderQuery"
   );
-  // get dictionary
+
+  // Fetch translation dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
-  // get all projects data
+
+  // Fetch all projects for related projects section
   const { data: allProjects } = await aemServiceInstance.getFragment(
     "projectQuery"
   );
 
+  // Return props for page rendering
   return {
     props: {
       locale: locale,
@@ -389,9 +425,12 @@ export const getStaticProps = async ({ locale }) => {
       pageData: pageData.sclabsPageV1ByPath,
       updatesData: pageData.sclabsPageV1ByPath.item.scLabProjectUpdates,
       dictionary: dictionary.dictionaryV1List.items,
+      // Randomize project order for related projects section
       allProjects: shuffle(allProjects.sclabsPageV1List.items),
+      // Include common translations
       ...(await serverSideTranslations(locale, ["common"])),
     },
+    // Enable ISR if configured in environment
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,
   };
 };

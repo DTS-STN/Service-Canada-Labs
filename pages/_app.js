@@ -9,6 +9,7 @@ import { Noto_Sans, Lato } from "next/font/google";
 
 config.autoAddCss = false;
 
+// Setup fonts for pre-loading
 const notoSans = Noto_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "700", "900"],

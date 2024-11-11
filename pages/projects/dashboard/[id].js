@@ -14,11 +14,18 @@ import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 import { UpdateInfo } from "../../../components/atoms/UpdateInfo";
 import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 
+/**
+ * MSCA Dashboard Articles Component
+ * Displays individual article pages for the My Service Canada Account Dashboard project
+ * Supports bilingual content, project context, and related updates
+ */
 export default function MscaDashboardArticles({ key, ...props }) {
-  const [pageData] = useState(props.pageData);
-  const [dictionary] = useState(props.dictionary.items);
-  const [projectData] = useState(props.projectData);
+  // Initialize state with content data
+  const [pageData] = useState(props.pageData); // Current article content
+  const [dictionary] = useState(props.dictionary.items); // Translation dictionary
+  const [projectData] = useState(props.projectData); // Parent project data
 
+  // Initialize Adobe Analytics
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
@@ -28,20 +35,27 @@ export default function MscaDashboardArticles({ key, ...props }) {
 
   return (
     <>
+      {/* Main Layout Component - Provides consistent page structure */}
       <Layout
         locale={props.locale}
+        // Alternate language URL for language toggle
         langUrl={
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
+        // Generate breadcrumb navigation
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
           props.locale
         )}
       >
+        {/* Head component for meta tags */}
         <PageHead pageData={pageData} locale={props.locale} />
+
+        {/* Main Article Section */}
         <section className="mb-12">
           <div className="layout-container">
+            {/* Article Title with accessibility support */}
             <Heading
               tabIndex="-1"
               id="pageMainTitle"
@@ -49,7 +63,10 @@ export default function MscaDashboardArticles({ key, ...props }) {
                 props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
               }
             />
+
+            {/* Article Metadata Component */}
             <UpdateInfo
+              // Project context labels and links
               projectLabel={`${getDictionaryTerm(
                 dictionary,
                 "PROJECT",
@@ -65,6 +82,7 @@ export default function MscaDashboardArticles({ key, ...props }) {
                   ? pageData.scLabProject.scDestinationURLEn
                   : pageData.scLabProject.scDestinationURLFr
               }
+              // Publishing dates
               postedOnLabel={`${getDictionaryTerm(
                 dictionary,
                 "POSTED-ON",
@@ -80,20 +98,24 @@ export default function MscaDashboardArticles({ key, ...props }) {
             />
           </div>
 
-          {/* Main */}
+          {/* Main Article Content */}
           <div id="mainContentSection">
             <FragmentRender
               fragments={props.pageData.scFragments}
               locale={props.locale}
-              excludeH1={true}
+              excludeH1={true} // Exclude H1 as it's already rendered in Heading
             />
           </div>
         </section>
+
+        {/* Related Updates Section - Conditionally rendered if updates exist */}
         {filterItems(props.updatesData, pageData.scId).length !== 0 ? (
           <ExploreUpdates
             locale={props.locale}
+            // Filter updates related to this article
             updatesData={filterItems(props.updatesData, pageData.scId)}
             dictionary={dictionary}
+            // Construct bilingual section heading
             heading={
               props.locale === "en"
                 ? `${projectData.scTitleEn} ${getDictionaryTerm(
@@ -107,11 +129,13 @@ export default function MscaDashboardArticles({ key, ...props }) {
                     props.locale
                   )} ${projectData.scTitleFr}`
             }
+            // "See all updates" link label
             linkLabel={`${getDictionaryTerm(
               dictionary,
               "DICTIONARY-SEE-ALL-UPDATES-PROJECT",
               props.locale
             )}`}
+            // Link to filtered updates page
             href={
               props.locale === "en"
                 ? `/en/updates?project=${pageData.scLabProject.scTermEn}`
@@ -119,8 +143,10 @@ export default function MscaDashboardArticles({ key, ...props }) {
             }
           />
         ) : null}
+
+        {/* Parent Project Information Section */}
         <ExploreProjects
-          projects={[projectData]}
+          projects={[projectData]} // Show only the parent project
           heading={getDictionaryTerm(
             dictionary,
             "EXPLORE-THE-PROJECT",
@@ -133,34 +159,47 @@ export default function MscaDashboardArticles({ key, ...props }) {
   );
 }
 
+/**
+ * Generate static paths for all MSCA Dashboard articles
+ * Required for Next.js dynamic routing
+ * Creates paths for both English and French versions
+ */
 export async function getStaticPaths() {
-  // Get pages data
+  // Fetch all MSCA Dashboard articles from AEM
   const { data } = await aemServiceInstance.getFragment(
     "getMSCADashboardArticles"
   );
-  // Get paths for dynamic routes from the page name data
+  // Generate paths for dynamic routes using page names
   const paths = getAllUpdateIds(data.sclabsPageV1List.items);
+  // Extract the last segment of the URL for the ID parameter
   paths.map((path) => (path.params.id = path.params.id.split("/").at(-1)));
+
   return {
     paths,
-    fallback: "blocking",
+    fallback: "blocking", // Show loading state while generating new pages
   };
 }
 
+/**
+ * Fetch page data at build time
+ * Handles data fetching for both languages and 404 cases
+ */
 export const getStaticProps = async ({ locale, params }) => {
-  // Get pages data
+  // Fetch all MSCA Dashboard articles
   const { data: updatesData } = await aemServiceInstance.getFragment(
     "getMSCADashboardArticles"
   );
+  // Fetch parent project data
   const { data: projectData } = await aemServiceInstance.getFragment(
     "getMSCADashBoardPage"
   );
-  // get dictionary
+  // Fetch translation dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
+
   const pages = updatesData.sclabsPageV1List.items;
-  // Return page data that matches the current page being built
+  // Filter for the current article based on URL parameter
   const pageData = pages.filter((page) => {
     return (
       (locale === "en" ? page.scPageNameEn : page.scPageNameFr)
@@ -169,12 +208,14 @@ export const getStaticProps = async ({ locale, params }) => {
     );
   });
 
+  // Return 404 if page not found
   if (!pageData || !pageData.length) {
     return {
       notFound: true,
     };
   }
 
+  // Return props for page rendering
   return {
     props: {
       key: params.id,
@@ -186,6 +227,7 @@ export const getStaticProps = async ({ locale, params }) => {
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       ...(await serverSideTranslations(locale, ["common", "vc"])),
     },
+    // Enable ISR if configured in environment
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,
   };
 };

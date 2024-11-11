@@ -1,8 +1,11 @@
+// Core Next.js imports for page head management and i18n (internationalization)
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+// Custom components imports - using atomic design principles (atoms, molecules, organisms)
 import { Layout } from "../components/organisms/Layout";
 import { useEffect } from "react";
 import Card from "../components/molecules/Card";
+// Service for interacting with Adobe Experience Manager (AEM)
 import aemServiceInstance from "../services/aemServiceInstance";
 import { ContextualAlert } from "../components/molecules/ContextualAlert";
 import { Link as LinkWrapper } from "../components/atoms/Link";
@@ -12,12 +15,20 @@ import FragmentRender from "../components/fragment_renderer/FragmentRender";
 import { sortUpdatesByDate } from "../lib/utils/sortUpdatesByDate";
 import { SurveyCTA } from "../components/molecules/SurveyCTA";
 
+/**
+ * Home Page Component for Service Canada Labs
+ * Renders the main landing page with projects, updates, and survey CTA
+ * Supports bilingual content (English/French) based on locale
+ */
 export default function Home(props) {
-  const pageData = props.pageData?.item;
-  const experimentsData = props.experimentsData;
-  const dictionary = props.dictionary;
-  const updatesData = props.updatesData;
+  // Extract content data from props
+  const pageData = props.pageData?.item; // Core page content from AEM
+  const experimentsData = props.experimentsData; // List of all projects/experiments
+  const dictionary = props.dictionary; // Translation dictionary for UI elements
+  const updatesData = props.updatesData; // Recent updates for projects
 
+  // Filter to show only currently active projects
+  // Projects must have a specific AEM status code to be considered "current"
   const currentProjects = experimentsData.filter((project) => {
     return (
       project.scLabProjectStatus[0] ===
@@ -25,8 +36,14 @@ export default function Home(props) {
     );
   });
 
-  const sortedProjects = (objects) => {
-    // Order to sort the projects
+  /**
+   * Sorts projects according to a predefined order and returns top 3
+   * Order is manually maintained until content strategy is finalized
+   * @param {Array} objects - Array of project objects to sort
+   * @returns {Array} - Top 3 sorted projects
+   */
+  const sortProjects = (objects) => {
+    // Predefined display order for projects
     const sortOrder = [
       "Transforming EI with Indigenous peoples",
       "Benefits Finder",
@@ -36,25 +53,29 @@ export default function Home(props) {
       "Old Age Security Benefits Estimator",
       "Benefits Navigator",
     ];
-    // Create a lookup for efficient ordering
+    // Create lookup object for efficient sorting
     const titleOrder = {};
     for (let i = 0; i < sortOrder.length; i++) {
       titleOrder[sortOrder[i]] = i;
     }
 
-    // Sort the objects based on the lookup
+    // Sort projects based on predefined order
     const sorted = objects.sort((a, b) => {
       return titleOrder[a.scTitleEn] - titleOrder[b.scTitleEn];
     });
-    // Trim to first 3 projects
-    return sorted.slice(0, 3);
+    return sorted.slice(0, 3); // Return only top 3 projects
   };
 
-  const displayCurrentProjects = sortedProjects(currentProjects).map(
+  /**
+   * Maps current projects to Card components with bilingual support
+   * Handles image sources, alt text, and "New update" tags
+   */
+  const displayCurrentProjects = sortProjects(currentProjects).map(
     (project) => (
       <li key={project.scId} className="list-none ml-0">
         <Card
           showImage
+          // Show "New update" tag if project has a future expiry date
           showTag={
             project.scLabsNewExpiryDate &&
             Date.now() <= new Date(project.scLabsNewExpiryDate)
@@ -63,6 +84,7 @@ export default function Home(props) {
             props.locale === "en" ? "New update" : "Nouvelle mise à jour"
           }
           tag="new_update"
+          // Bilingual image handling
           imgSrc={
             props.locale === "en"
               ? project.scSocialMediaImageEn._publishUrl
@@ -83,6 +105,7 @@ export default function Home(props) {
               ? project.scSocialMediaImageEn.width
               : ""
           }
+          // Bilingual content handling
           title={props.locale === "en" ? project.scTitleEn : project.scTitleFr}
           href={
             props.locale === "en" ? project.scPageNameEn : project.scPageNameFr
@@ -97,6 +120,7 @@ export default function Home(props) {
     )
   );
 
+  // Initialize Adobe Analytics data layer on page load
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
@@ -108,11 +132,13 @@ export default function Home(props) {
     <>
       <Layout
         locale={props.locale}
+        // Alternate language URL for language toggle
         langUrl={
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
       >
+        {/* Page head component for meta tags */}
         <Head>
           {/* Primary HTML Meta Tags */}
           <title>
@@ -258,13 +284,17 @@ export default function Home(props) {
             }
           />
         </Head>
+
+        {/* Main Page Content */}
         <div id="pageMainTitle" className="mt-24">
           <FragmentRender
             locale={props.locale}
             fragments={[pageData.scFragments[0]]}
           />
         </div>
+
         <div className="layout-container">
+          {/* Survey Call-to-Action Section */}
           <SurveyCTA
             heading={
               props.locale === "en"
@@ -292,12 +322,16 @@ export default function Home(props) {
                 : pageData.scFragments[1].scLabsButton[0].scDestinationURLFr
             }
           />
+
+          {/* Projects Section Title */}
           <h2>
             {props.locale === "en"
               ? pageData.scFragments[2].scContentEn.json[0].content[0].value
               : pageData.scFragments[2].scContentFr.json[0].content[0]
                   .value}{" "}
           </h2>
+
+          {/* Information Alert Section */}
           <div className="mb-8">
             <ContextualAlert
               id="info-alert"
@@ -310,6 +344,7 @@ export default function Home(props) {
                   : pageData.scFragments[3].scTitleFr
               }
               message_body={
+                // Conditional rendering of alert message with embedded link
                 props.locale === "en" ? (
                   <>
                     {
@@ -334,6 +369,7 @@ export default function Home(props) {
                     }
                   </>
                 ) : (
+                  // French version of alert message
                   <>
                     {
                       pageData.scFragments[3].scContentFr.json[0].content[0]
@@ -360,10 +396,13 @@ export default function Home(props) {
               }
             />
           </div>
+
+          {/* Project Cards Grid Section */}
           <div className="mb-4">
             <ul className="grid lg:grid-cols-3 gap-6 list-none ml-0">
               {displayCurrentProjects}
             </ul>
+            {/* "See all projects" link */}
             <div className="mt-6 flex justify-end">
               <LinkWrapper
                 component={Link}
@@ -387,6 +426,8 @@ export default function Home(props) {
             </div>
           </div>
         </div>
+
+        {/* Updates Section */}
         <section>
           <ExploreUpdates
             locale={props.locale}
@@ -416,24 +457,33 @@ export default function Home(props) {
   );
 }
 
+/**
+ * Next.js Static Site Generation (SSG) function
+ * Fetches all required data at build time for static page generation
+ * Enables Incremental Static Regeneration (ISR) if configured
+ */
 export const getStaticProps = async ({ locale }) => {
+  // Fetch main page content from AEM
   const { data: pageData } = await fetch(
     `${process.env.AEM_BASE_URL}/getSclHomeV2`
   ).then((res) => res.json());
 
+  // Fetch projects/experiments data
   const { data: experimentsData } = await aemServiceInstance.getFragment(
     "projectQuery"
   );
 
+  // Fetch updates data for all projects
   const { data: updatesData } = await fetch(
     `${process.env.AEM_BASE_URL}/getSclAllUpdatesV1`
   ).then((res) => res.json());
 
-  // get dictionary
+  // Fetch translation dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
 
+  // Return all props needed for page rendering
   return {
     props: {
       locale: locale,
@@ -444,6 +494,7 @@ export const getStaticProps = async ({ locale }) => {
       dictionary: dictionary.dictionaryV1List.items,
       ...(await serverSideTranslations(locale, ["common"])),
     },
+    // Enable ISR if configured in environment
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,
   };
 };

@@ -22,7 +22,7 @@ describe("robots api", () => {
     });
     await handler(req, res);
     expect(res._getData()).toBe(
-      "User-agent: *\nDisallow: /api\nDisallow: /projects/*\nDisallow: /notsupported.js\nDisallow: /cdcp-apply\nDisallow: /rsdc-demander\n"
+      "User-agent: *\nDisallow: /api\nDisallow: /projects/*\nDisallow: /notsupported.js\nDisallow: /rsdc-demander\n"
     );
   });
 });

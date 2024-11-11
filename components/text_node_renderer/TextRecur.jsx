@@ -1,5 +1,6 @@
 import { v4 as uuid } from "uuid";
 
+// Import all supported node type components
 import HeaderText from "./nodes/HeaderText";
 import LineBreak from "./nodes/LineBreak";
 import ListItem from "./nodes/ListItem";
@@ -10,23 +11,37 @@ import Span from "./nodes/Span";
 import UnorderedList from "./nodes/UnorderedList";
 import Link from "./nodes/Link";
 
-// todo: more components will like need to be added, but for now, these are the only ones returned in the aem json response
+/**
+ * TextRecur Component
+ * Recursive component that handles the actual rendering of content nodes
+ * Supports various content types (headers, paragraphs, lists, etc.)
+ * Can handle nested content structures of arbitrary depth
+ */
+
+// Map of supported node types to their corresponding components
+// This mapping allows dynamic selection of the appropriate component based on nodeType
 const NODES = {
-  header: HeaderText,
-  paragraph: Paragraph,
-  link: Link,
-  text: Text,
-  span: Span,
-  "unordered-list": UnorderedList,
-  "ordered-list": OrderedList,
-  "list-item": ListItem,
-  "line-break": LineBreak,
+  header: HeaderText, // Renders h1-h6 headers
+  paragraph: Paragraph, // Renders paragraph blocks
+  link: Link, // Renders hyperlinks
+  text: Text, // Renders plain text
+  span: Span, // Renders inline styled text
+  "unordered-list": UnorderedList, // Renders bullet lists
+  "ordered-list": OrderedList, // Renders numbered lists
+  "list-item": ListItem, // Renders individual list items
+  "line-break": LineBreak, // Renders line breaks
 };
 
 export default function TextRecur(props) {
+  // Get the appropriate component for the current node type
   const Node = NODES[props.node?.nodeType];
+
+  // Get any child content from the current node
   let content = props.node?.content;
 
+  // Skip rendering if:
+  // 1. No matching component exists for this node type
+  // 2. Node is an h1 header and excludeH1 flag is true
   if (
     !Node ||
     (props.excludeH1 &&
@@ -38,13 +53,16 @@ export default function TextRecur(props) {
 
   return (
     <>
+      {/* Handle nodes differently based on whether they have child content */}
       {content && content.length ? (
+        // For nodes with children: render the node and recursively render its children
         <Node key={uuid()} node={props.node} index={props.index}>
           {content.map((node) => (
             <TextRecur key={uuid()} node={node} />
           ))}
         </Node>
       ) : (
+        // For leaf nodes: render just the node itself
         <Node key={uuid()} node={props.node}></Node>
       )}
     </>

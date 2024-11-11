@@ -1,4 +1,7 @@
+// Import UUID generator for unique React keys
 import { v4 as uuid } from "uuid";
+
+// Import all fragment-specific components
 import TextWithImage from "./fragment_components/TextWithImage";
 import TextContent from "./fragment_components/TextContent";
 import Button from "./fragment_components/Button";
@@ -7,17 +10,33 @@ import QuoteVerticalLineContent from "./fragment_components/QuoteVerticalLineCon
 import ImageWithCollapse from "./fragment_components/ImageWithCollapse";
 import TextRender from "../text_node_renderer/TextRender";
 
+/**
+ * Map of fragment types to their corresponding React components
+ * Each key represents a specific AEM fragment model type
+ * Values are the React components responsible for rendering that fragment type
+ */
 const FRAGMENTS = {
-  "SCLabs-Comp-Content-Image-v1": TextWithImage,
-  "SCLabs-Comp-Content-v1": QuoteVerticalLineContent,
-  "SCLabs-Content-v1": TextContent,
-  "SCLabs-Button-v1": Button,
-  "SCLabs-Feature-v1": ArticleCTA,
-  "SCLabs-Image-v1": ImageWithCollapse,
+  "SCLabs-Comp-Content-Image-v1": TextWithImage, // Combined text and image layouts
+  "SCLabs-Comp-Content-v1": QuoteVerticalLineContent, // Quote blocks with vertical line styling
+  "SCLabs-Content-v1": TextContent, // Generic text content blocks
+  "SCLabs-Button-v1": Button, // Interactive button elements
+  "SCLabs-Feature-v1": ArticleCTA, // Call-to-action article features
+  "SCLabs-Image-v1": ImageWithCollapse, // Images with collapsible details
 };
 
+/**
+ * Maps AEM fragment data to component-specific props
+ * Handles bilingual content and different layout variations
+ *
+ * @param {Object} fragmentData - Raw fragment data from AEM
+ * @param {string} fragmentName - Type identifier for the fragment
+ * @param {string} locale - Current language locale (en/fr)
+ * @param {boolean} excludeH1 - Whether to exclude h1 headers
+ * @returns {Object} Props object formatted for the specific component
+ */
 const mapFragmentsToProps = (fragmentData, fragmentName, locale, excludeH1) => {
   switch (fragmentName) {
+    // Article CTA Fragment handling
     case "SCLabs-Feature-v1":
       return {
         heading:
@@ -44,8 +63,10 @@ const mapFragmentsToProps = (fragmentData, fragmentName, locale, excludeH1) => {
         },
       };
 
+    // Text with Image Fragment handling
     case "SCLabs-Comp-Content-Image-v1":
       switch (fragmentData.scLabLayout) {
+        // Default layout configuration
         case "default":
           return {
             src:
@@ -66,6 +87,7 @@ const mapFragmentsToProps = (fragmentData, fragmentName, locale, excludeH1) => {
             layout: fragmentData.scLabLayout,
             excludeH1: excludeH1,
           };
+        // Vertical line layout configuration
         case "image-vertical-line-content":
           return {
             src:
@@ -106,6 +128,7 @@ const mapFragmentsToProps = (fragmentData, fragmentName, locale, excludeH1) => {
           break;
       }
 
+    // Quote with vertical line styling
     case "SCLabs-Comp-Content-v1":
       return {
         quoteText:
@@ -118,6 +141,7 @@ const mapFragmentsToProps = (fragmentData, fragmentName, locale, excludeH1) => {
             : fragmentData.scLabContent[1].scContentFr.json,
       };
 
+    // Generic text content
     case "SCLabs-Content-v1":
       return {
         data:
@@ -126,6 +150,7 @@ const mapFragmentsToProps = (fragmentData, fragmentName, locale, excludeH1) => {
             : fragmentData.scContentFr.json,
       };
 
+    // Interactive button element
     case "SCLabs-Button-v1":
       return {
         id: fragmentData.scId,
@@ -137,6 +162,7 @@ const mapFragmentsToProps = (fragmentData, fragmentName, locale, excludeH1) => {
         text: locale === "en" ? fragmentData.scTitleEn : fragmentData.scTitleFr,
       };
 
+    // Image with collapsible details
     case "SCLabs-Image-v1":
       return {
         id: fragmentData.scId,
@@ -182,14 +208,28 @@ const mapFragmentsToProps = (fragmentData, fragmentName, locale, excludeH1) => {
   }
 };
 
+/**
+ * FragmentRender Component
+ * Main component responsible for rendering AEM content fragments
+ * Handles the transformation of AEM data into React components
+ *
+ * @param {Object} props - Component props
+ * @param {Array} props.fragments - Array of AEM content fragments
+ * @param {string} props.locale - Current language locale
+ * @param {boolean} props.excludeH1 - Flag to exclude h1 headers
+ */
 export default function FragmentRender(props) {
-  // Create and return array of elements corresponding to
-  // fragments
+  // Map each fragment to its corresponding React component
   const pageFragments = props.fragments.map((fragmentData) => {
+    // Get the appropriate component based on the fragment model type
     const Fragment = FRAGMENTS[fragmentData?._model.title];
+
+    // Skip if no matching component is found
     if (!Fragment) {
       return;
     }
+
+    // Render the component with mapped props
     return (
       <Fragment
         key={uuid()}

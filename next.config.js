@@ -1,18 +1,25 @@
+// Import i18n configuration for internationalization
 const { i18n } = require("./next-i18next.config");
 
+// URL rewrite rules for French/English bilingual routes
+// Maps French routes to their English counterparts
 const REWRITES = [
+  // API endpoint rewrites
   {
     source: "/robots.txt",
     destination: "/api/robots",
   },
+  // Main page rewrites
   {
     source: "/accueil",
     destination: "/home",
   },
+  // Project page rewrites
   {
     source: "/projets",
     destination: "/projects",
   },
+  // Individual project rewrites with their slugs
   {
     source: "/projets/estimateur-prestations-sv",
     destination: "/projects/oas-benefits-estimator",
@@ -69,52 +76,51 @@ const REWRITES = [
     source: "/projets/transformer-assurance-emploi-peuples-autochtones/:slug",
     destination: "/projects/transforming-ei-indigenous-peoples/:slug",
   },
-  {
-    source: "/rsdc-demander",
-    destination: "/cdcp-apply"
-  },
+  // Updates page rewrite
   {
     source: "/mises-a-jour",
     destination: "/updates"
   }
 ];
 
+// Security headers configuration for enhanced protection
 securityHeaders = [
-  //Enables DNS prefetching, which reduces latency when a user clicks a link
+  // DNS prefetching for performance optimization
   {
     key: "X-DNS-Prefetch-Control",
     value: "on",
   },
-  //Restrict our page from being rendered within a frame
+  // Prevent site from being embedded in iframes (clickjacking protection)
   {
     key: "X-Frame-Options",
     value: "DENY",
   },
-  //Restrict browser features
+  // Restrict access to browser features
   {
     key: "Permissions-Policy",
     value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
   },
-  // Only ever use HTTPS
+  // Force HTTPS connection
   {
     key: "Strict-Transport-Security",
     value: "max-age=31536000; includeSubDomains; preload",
   },
-  // Disables use of inline javascript in XSS attacks
+  // XSS attack protection
   {
     key: "X-XSS-Protection",
     value: "1; mode=block",
   },
-  // Prevents the browser from attempting to guess the type of content
+  // Prevent MIME type sniffing
   {
     key: "X-Content-Type-Options",
     value: "nosniff",
   },
-  // Only allow secure origin to be delivered over HTTPS
+  // Control how much referrer information should be included
   {
     key: "Referrer-Policy",
     value: "same-origin",
   },
+  // Content Security Policy configuration
   {
     key: "Content-Security-Policy",
     value: `default-src 'self' dts-stn.com *.dts-stn.com *.adobe.com https://assets.adobedtm.com *.omniture.com *.2o7.net; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; connect-src 'self' *.adobe.com https://assets.adobedtm.com *.demdex.net *.omtrdc.net cm.everesttech.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com data:; img-src 'self' data: webpack: *.omtrdc.net *.demdex.net cm.everesttech.net https://assets.adobedtm.com https://www.canada.ca; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com data:; frame-src 'self' *.adobe.com https://assets.adobedtm.com *.demdex.net; script-src 'self' 'unsafe-inline' *.adobe.com *.adobedtm.com *.omniture.com *.2o7.net https://*.demdex.net https://cm.everesttech.net ${
@@ -127,12 +133,17 @@ securityHeaders = [
   },
 ];
 
+// Main Next.js configuration export
 module.exports = {
+  // Build output configuration
   output: "standalone",
   swcMinify: true,
+  // Internationalization settings
   i18n,
+
+  // Webpack configuration
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    //GraphQL loader for .graphql files
+    // Add GraphQL file loader
     config.module.rules.push({
       test: /\.(graphql|gql)$/,
       exclude: /node_modules/,
@@ -141,6 +152,8 @@ module.exports = {
 
     return config;
   },
+
+  // Image optimization configuration
   images: {
     remotePatterns: [
       {
@@ -150,24 +163,30 @@ module.exports = {
       },
     ]
   },
+
+  // Disable the "Powered by Next.js" header
   poweredByHeader: false,
+
+  // Custom header configuration
   async headers() {
     return [
       {
-        // Apply these headers to all routes in your application.
+        // Apply security headers to all routes
         source: "/:path*{/}?",
         headers: securityHeaders,
       },
     ];
   },
 
+  // URL rewrite configuration
   async rewrites() {
     return REWRITES;
   },
+
+  // Redirect configuration
   async redirects() {
     return [
-      // Note: pathmatch is removed because subpaths are in different languages, so subpath match doesn't work anymore.
-      // Redirect to home page when user set prefered language
+      // Redirect IE (Trident) users to not supported page
       {
         source: "/",
         has: [
@@ -180,6 +199,8 @@ module.exports = {
         destination: "/notsupported",
         permanent: false,
       },
+      // Redirect all other routes for IE users to not supported page
+      // except the not supported page itself
       {
         source: "/:slug((?!notsupported$).*)",
         has: [

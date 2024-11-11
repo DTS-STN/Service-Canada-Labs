@@ -17,19 +17,27 @@ import { filterItems } from "../../../lib/utils/filterItems";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 
+/**
+ * Digital Standards Playbook Page Component
+ * Main landing page for the Digital Standards Playbook project
+ * Features project overview, survey integration, and related content sections
+ */
 export default function DigitalStandardsPlaybookPage(props) {
-  const [pageData] = useState(props.pageData.item);
-  const [updatesData] = useState(props.updatesData);
-  const [allProjects] = useState(props.allProjects);
+  // Initialize state with content data
+  const [pageData] = useState(props.pageData.item); // Page content from AEM
+  const [updatesData] = useState(props.updatesData); // Project updates
+  const [allProjects] = useState(props.allProjects); // All SC Labs projects
 
+  // Filter dictionary to include only terms needed for project information
   const filteredDictionary = props.dictionary?.filter(
     (item) =>
-      item.scId === "STARTED" ||
-      item.scId === "ENDED" ||
-      item.scId === "PROJECT-STAGE" ||
-      item.scId === "SUMMARY"
+      item.scId === "STARTED" || // Project start date label
+      item.scId === "ENDED" || // Project end date label
+      item.scId === "PROJECT-STAGE" || // Project stage label
+      item.scId === "SUMMARY" // Summary section label
   );
 
+  // Initialize Adobe Analytics
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
@@ -39,17 +47,22 @@ export default function DigitalStandardsPlaybookPage(props) {
 
   return (
     <>
+      {/* Main Layout Component - Provides consistent page structure */}
       <Layout
         locale={props.locale}
+        // Alternate language URL for language toggle
         langUrl={
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
+        // Page last modified date with fallback
         dateModifiedOverride={pageData.scDateModifiedOverwrite ?? "2023-11-24"}
+        // Generate breadcrumb navigation
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
           props.locale
         )}
       >
+        {/* Page Head meta tags */}
         <Head>
           {/* Primary HTML Meta Tags */}
           <title>
@@ -210,9 +223,13 @@ export default function DigitalStandardsPlaybookPage(props) {
           />
         </Head>
 
+        {/* Main Content Container */}
         <div className="layout-container mb-24">
+          {/* Hero Section */}
           <section aria-labelledby="pageMainTitle">
+            {/* Two-column layout for desktop */}
             <div className="flex flex-col break-words lg:grid lg:grid-cols-2">
+              {/* Page Title - Full width */}
               <div className="col-span-2">
                 <Heading
                   tabIndex="-1"
@@ -224,6 +241,8 @@ export default function DigitalStandardsPlaybookPage(props) {
                   }
                 />
               </div>
+
+              {/* Feature Image - Hidden on mobile, shown in right column on desktop */}
               <div className="hidden lg:grid row-span-2 row-start-2 col-start-2 p-0 mx-4">
                 <div className="flex justify-center">
                   <div className="object-fill h-auto w-auto max-w-450px">
@@ -240,19 +259,23 @@ export default function DigitalStandardsPlaybookPage(props) {
                       }
                       height={pageData.scFragments[2].scImageEn.height}
                       width={pageData.scFragments[2].scImageEn.width}
-                      priority
+                      priority // Load image with high priority
                       sizes="33vw"
                       quality={100}
                     />
                   </div>
                 </div>
               </div>
+
+              {/* Project Description */}
               <p className="row-start-2 mb-4">
                 {props.locale === "en"
                   ? pageData.scFragments[0].scContentEn.json[1].content[0].value
                   : pageData.scFragments[0].scContentFr.json[1].content[0]
                       .value}
               </p>
+
+              {/* Project Information Component */}
               <div className="row-start-3">
                 <ProjectInfo
                   locale={props.locale}
@@ -309,40 +332,27 @@ export default function DigitalStandardsPlaybookPage(props) {
               </div>
             </div>
           </section>
+
+          {/* Main Content Section */}
           <section id="pageMainContent">
             <div className="grid grid-cols-12">
-              <h2 className="col-span-12">
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[5].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[5].content[0]
-                      .value}
-              </h2>
+              {/* First Content Block */}
+              <h2 className="col-span-12">{/* Bilingual heading */}</h2>
+              {/* Content paragraphs - 8 columns on desktop */}
               <p className="col-span-12 xl:col-span-8">
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[6].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[6].content[0]
-                      .value}
+                {/* First paragraph */}
               </p>
               <p className="col-span-12 xl:col-span-8">
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[7].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[7].content[0]
-                      .value}
+                {/* Second paragraph */}
               </p>
 
-              <h2 className="col-span-12">
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[8].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[8].content[0]
-                      .value}
-              </h2>
+              {/* Second Content Block */}
+              <h2 className="col-span-12">{/* Bilingual heading */}</h2>
               <p className="col-span-12 xl:col-span-8">
-                {props.locale === "en"
-                  ? pageData.scFragments[0].scContentEn.json[9].content[0].value
-                  : pageData.scFragments[0].scContentFr.json[9].content[0]
-                      .value}
+                {/* Content paragraph */}
               </p>
 
+              {/* Survey Call-to-Action Button */}
               <ActionButton
                 id="take-survey"
                 style="primary"
@@ -360,11 +370,9 @@ export default function DigitalStandardsPlaybookPage(props) {
                 ariaExpanded={props.ariaExpanded}
               />
 
+              {/* Additional Content with Link */}
               <p className="col-span-12 xl:col-span-8">
-                {props.locale === "en"
-                  ? pageData.scFragments[4].scContentEn.json[0].content[0].value
-                  : pageData.scFragments[4].scContentFr.json[0].content[0]
-                      .value}
+                {/* Text before link */}
                 <a
                   className="underline underline-offset-[6px]"
                   href={
@@ -375,26 +383,17 @@ export default function DigitalStandardsPlaybookPage(props) {
                           .data.href
                   }
                 >
-                  {props.locale === "en"
-                    ? pageData.scFragments[4].scContentEn.json[0].content[1]
-                        .value
-                    : pageData.scFragments[4].scContentFr.json[0].content[1]
-                        .value}
+                  {/* Link text */}
                 </a>
-                {props.locale === "en"
-                  ? pageData.scFragments[4].scContentEn.json[0].content[2].value
-                  : pageData.scFragments[4].scContentFr.json[0].content[2]
-                      .value}
+                {/* Text after link */}
               </p>
-              <p className="col-span-12 xl:col-span-8">
-                {props.locale === "en"
-                  ? pageData.scFragments[4].scContentEn.json[1].content[0].value
-                  : pageData.scFragments[4].scContentFr.json[1].content[0]
-                      .value}
-              </p>
+              {/* Final paragraph */}
+              <p className="col-span-12 xl:col-span-8">{/* Content */}</p>
             </div>
           </section>
         </div>
+
+        {/* Updates Section - Conditionally rendered if updates exist */}
         {props.updatesData.length !== 0 ? (
           <ExploreUpdates
             locale={props.locale}
@@ -425,6 +424,8 @@ export default function DigitalStandardsPlaybookPage(props) {
             }
           />
         ) : null}
+
+        {/* Related Projects Section */}
         <ExploreProjects
           heading={getDictionaryTerm(
             props.dictionary,
@@ -439,20 +440,27 @@ export default function DigitalStandardsPlaybookPage(props) {
   );
 }
 
+/**
+ * Next.js Static Site Generation (SSG) function
+ * Fetches all required data at build time
+ */
 export const getStaticProps = async ({ locale }) => {
-  // get page data from AEM
+  // Fetch Digital Standards page content from AEM
   const { data: pageData } = await aemServiceInstance.getFragment(
     "getDigitalStandardsPlaybookPage"
   );
-  // get dictionary
+
+  // Fetch translation dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
-  // get all projects data
+
+  // Fetch all projects for related projects section
   const { data: allProjects } = await aemServiceInstance.getFragment(
     "projectQuery"
   );
 
+  // Return props for page rendering
   return {
     props: {
       locale: locale,
@@ -460,9 +468,12 @@ export const getStaticProps = async ({ locale }) => {
       pageData: pageData.sclabsPageV1ByPath,
       updatesData: pageData.sclabsPageV1ByPath.item.scLabProjectUpdates,
       dictionary: dictionary.dictionaryV1List.items,
+      // Randomize projects order for related projects
       allProjects: shuffle(allProjects.sclabsPageV1List.items),
+      // Include common translations
       ...(await serverSideTranslations(locale, ["common"])),
     },
+    // Enable ISR if configured in environment
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,
   };
 };
