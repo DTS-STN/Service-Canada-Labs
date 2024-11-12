@@ -1,3 +1,20 @@
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+import PageHead from "../../../components/fragment_renderer/PageHead";
+import { Layout } from "../../../components/organisms/Layout";
+import { useEffect, useState } from "react";
+import aemServiceInstance from "../../../services/aemServiceInstance";
+import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
+import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
+import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
+import { Heading } from "../../../components/molecules/Heading";
+import { filterItems } from "../../../lib/utils/filterItems";
+import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
+import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
+import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
+import { UpdateInfo } from "../../../components/atoms/UpdateInfo";
+import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
+
 /**
  * Digital Standards Articles Component
  * Displays individual article pages for the Digital Standards Playbook project
