@@ -17,18 +17,26 @@ import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
 import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 
+/**
+ * MSCA Dashboard Component
+ * Main landing page for the My Service Canada Account Dashboard project
+ * Features project overview, updates, and related project information
+ */
 export default function MscaDashboard(props) {
-  const pageData = props.pageData?.item;
-  const [allProjects] = useState(props.allProjects);
+  // Initialize state and data management
+  const pageData = props.pageData?.item; // Core page content from AEM
+  const [allProjects] = useState(props.allProjects); // All SC Labs projects
 
+  // Filter dictionary to include only required terms for project information
   const filteredDictionary = props.dictionary?.filter(
     (item) =>
-      item.scId === "STARTED" ||
-      item.scId === "ENDED" ||
-      item.scId === "PROJECT-STAGE" ||
-      item.scId === "SUMMARY"
+      item.scId === "STARTED" || // Project start date label
+      item.scId === "ENDED" || // Project end date label
+      item.scId === "PROJECT-STAGE" || // Project stage label
+      item.scId === "SUMMARY" // Summary section label
   );
 
+  // Initialize Adobe Analytics
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
@@ -38,17 +46,21 @@ export default function MscaDashboard(props) {
 
   return (
     <>
+      {/* Main Layout Component - Provides consistent page structure */}
       <Layout
         locale={props.locale}
+        // Alternate language URL for language toggle
         langUrl={
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
+        // Generate breadcrumb navigation
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
           props.locale
         )}
       >
+        {/* Page Head meta tags */}
         <Head>
           {/* Primary HTML Meta Tags */}
           <title>
@@ -209,9 +221,12 @@ export default function MscaDashboard(props) {
           />
         </Head>
 
+        {/* Main Content Container */}
         <div className="layout-container mb-20">
           <section aria-labelledby="pageMainTitle">
+            {/* Two-column layout for desktop */}
             <div className="flex flex-col break-words lg:grid lg:grid-cols-2">
+              {/* Page Title - Full width */}
               <div className="col-span-2">
                 <Heading
                   tabIndex="-1"
@@ -223,6 +238,8 @@ export default function MscaDashboard(props) {
                   }
                 />
               </div>
+
+              {/* Feature Image - Hidden on mobile, shown in right column on desktop */}
               <div className="hidden lg:grid row-span-2 row-start-2 col-start-2 p-0 mx-4">
                 <div className="flex justify-center">
                   <div className="object-fill h-auto w-auto max-w-450px">
@@ -239,19 +256,23 @@ export default function MscaDashboard(props) {
                       }
                       height={pageData.scFragments[1].scImageEn.height}
                       width={pageData.scFragments[1].scImageEn.width}
-                      priority
+                      priority // Load image with high priority
                       sizes="33vw"
                       quality={100}
                     />
                   </div>
                 </div>
               </div>
+
+              {/* Project Description */}
               <p className="row-start-2 mb-4">
                 {props.locale === "en"
                   ? pageData.scFragments[0].scContentEn.json[1].content[0].value
                   : pageData.scFragments[0].scContentFr.json[1].content[0]
                       .value}
               </p>
+
+              {/* Project Information Component */}
               <div className="row-start-3">
                 <ProjectInfo
                   locale={props.locale}
@@ -309,19 +330,24 @@ export default function MscaDashboard(props) {
             </div>
           </section>
         </div>
+
+        {/* Main Content Section with Project Details */}
         <section id="pageMainContent">
           <FragmentRender
             locale={props.locale}
             fragments={pageData.scFragments.slice(3)}
-            excludeH1={true}
+            excludeH1={true} // Exclude H1 as it's already rendered in Heading
           />
         </section>
+
+        {/* Updates Section - Conditionally rendered if updates exist */}
         {props.updatesData.length !== 0 ? (
           <ExploreUpdates
             locale={props.locale}
             updatesData={sortUpdatesByDate(props.updatesData)}
             dictionary={props.dictionary}
             heading={
+              // Bilingual heading construction
               props.locale === "en"
                 ? `${pageData.scTitleEn} ${getDictionaryTerm(
                     props.dictionary,
@@ -340,12 +366,15 @@ export default function MscaDashboard(props) {
               props.locale
             )}`}
             href={
+              // Link to filtered updates page
               props.locale === "en"
                 ? `/en/updates?project=${pageData.scTitleEn}`
                 : `/fr/mises-a-jour?projet=${pageData.scTitleFr}`
             }
           />
         ) : null}
+
+        {/* Related Projects Section */}
         <ExploreProjects
           heading={getDictionaryTerm(
             props.dictionary,
@@ -360,20 +389,27 @@ export default function MscaDashboard(props) {
   );
 }
 
+/**
+ * Next.js Static Site Generation (SSG) function
+ * Fetches all required data at build time
+ */
 export const getStaticProps = async ({ locale }) => {
-  // get page data from AEM
+  // Fetch MSCA Dashboard page content from AEM
   const { data: pageData } = await aemServiceInstance.getFragment(
     "getMSCADashBoardPage"
   );
-  // get dictionary
+
+  // Fetch dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
-  // get all projects data
+
+  // Fetch all projects for related projects section
   const { data: allProjects } = await aemServiceInstance.getFragment(
     "projectQuery"
   );
 
+  // Return props for page rendering
   return {
     props: {
       locale: locale,
@@ -381,9 +417,12 @@ export const getStaticProps = async ({ locale }) => {
       pageData: pageData.sclabsPageV1ByPath,
       updatesData: pageData.sclabsPageV1ByPath.item.scLabProjectUpdates,
       dictionary: dictionary.dictionaryV1List.items,
+      // Randomize projects order for related projects
       allProjects: shuffle(allProjects.sclabsPageV1List.items),
+      // Include common translations
       ...(await serverSideTranslations(locale, ["common"])),
     },
+    // Enable ISR if configured in environment
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,
   };
 };

@@ -18,20 +18,29 @@ import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 import { ContextualAlert } from "../../../components/molecules/ContextualAlert";
 
+/**
+ * Benefits Navigator Overview Component
+ * Main landing page for the Benefits Navigator project
+ * Features bilingual content, project details, and feature showcases
+ */
 export default function BenefitsNavigatorOverview(props) {
-  const [allProjects] = useState(props.allProjects);
-  const [pageData] = useState(props.pageData.item);
-  const updatesData = props.updatesData;
+  // Initialize state with project data and filtered dictionary terms
+  const [allProjects] = useState(props.allProjects); // All SC Labs projects for related content
+  const [pageData] = useState(props.pageData.item); // Current page content from AEM
+  const updatesData = props.updatesData; // Project updates data
+
+  // Filter dictionary to only include specific terms needed for project info display
   const [filteredDictionary] = useState(
     props.dictionary.filter(
       (item) =>
-        item.scId === "STARTED" ||
-        item.scId === "ENDED" ||
-        item.scId === "PROJECT-STAGE" ||
-        item.scId === "SUMMARY"
+        item.scId === "STARTED" || // Project start date label
+        item.scId === "ENDED" || // Project end date label
+        item.scId === "PROJECT-STAGE" || // Current stage label
+        item.scId === "SUMMARY" // Summary section label
     )
   );
 
+  // Initialize Adobe Analytics data layer
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
@@ -41,12 +50,15 @@ export default function BenefitsNavigatorOverview(props) {
 
   return (
     <>
+      {/* Main Layout Component - Provides consistent page structure */}
       <Layout
         locale={props.locale}
+        // Set alternate language URL for language toggle
         langUrl={
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
+        // Generate breadcrumb navigation from parent pages
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
           props.locale
@@ -215,10 +227,13 @@ export default function BenefitsNavigatorOverview(props) {
             }
           />
         </Head>
-
+        {/* Main Content Container */}
         <div className="layout-container mb-24">
+          {/* Main Content Section with ARIA labelledby */}
           <section aria-labelledby="pageMainTitle">
+            {/* Two-column layout for desktop, single column for mobile */}
             <div className="flex flex-col break-words lg:grid lg:grid-cols-2">
+              {/* Page Title and Alert Section - Full Width */}
               <div className="col-span-2">
                 <Heading
                   tabIndex="-1"
@@ -229,6 +244,7 @@ export default function BenefitsNavigatorOverview(props) {
                       : pageData.scTitleFr
                   }
                 />
+                {/* Warning Alert for Project Status */}
                 <div className="mb-10 max-w-[76ch]">
                   <ContextualAlert
                     id="alert"
@@ -252,6 +268,8 @@ export default function BenefitsNavigatorOverview(props) {
                   />
                 </div>
               </div>
+
+              {/* Project Image - Hidden on mobile, shown in right column on desktop */}
               <div className="hidden lg:grid row-span-2 row-start-2 col-start-2 p-0 mx-4">
                 <div className="flex justify-center">
                   <div className="object-fill max-w-350px">
@@ -268,22 +286,27 @@ export default function BenefitsNavigatorOverview(props) {
                       }
                       width={pageData.scFragments[1].scImageEn.width}
                       height={pageData.scFragments[1].scImageEn.height}
-                      priority
+                      priority // Load image with high priority
                       sizes="33vw"
                       quality={100}
                     />
                   </div>
                 </div>
               </div>
+
+              {/* Project Description Text */}
               <p className="row-start-2 mb-4">
                 {props.locale === "en"
                   ? pageData.scFragments[3].scContentEn.json[1].content[0].value
                   : pageData.scFragments[3].scContentFr.json[1].content[0]
                       .value}
               </p>
+
+              {/* Project Information Component - Contains key project details */}
               <div className="row-start-3">
                 <ProjectInfo
                   locale={props.locale}
+                  // Pass translated terms and labels
                   termStarted={
                     props.locale === "en"
                       ? filteredDictionary[2].scTermEn
@@ -337,12 +360,16 @@ export default function BenefitsNavigatorOverview(props) {
               </div>
             </div>
           </section>
+          {/* Features Grid Section - Uses 12-column grid system */}
           <div className="grid grid-cols-12">
+            {/* Features Section Title */}
             <h2 className="col-span-12">
               {props.locale === "en"
                 ? pageData.scFragments[4].scContentEn.json[0].content[0].value
                 : pageData.scFragments[4].scContentFr.json[0].content[0].value}
             </h2>
+
+            {/* Features Introduction Paragraphs - 8 columns on desktop */}
             <p className="col-span-12 xl:col-span-8">
               {props.locale === "en"
                 ? pageData.scFragments[4].scContentEn.json[1].content[0].value
@@ -353,7 +380,10 @@ export default function BenefitsNavigatorOverview(props) {
                 ? pageData.scFragments[4].scContentEn.json[2].content[0].value
                 : pageData.scFragments[4].scContentFr.json[2].content[0].value}
             </p>
+
+            {/* Feature List - Bulleted list of key features */}
             <ul className="list-disc col-span-12 xl:col-span-8 text-mobilebody lg:text-p">
+              {/* Individual feature items with responsive text sizing */}
               <li className="ml-10">
                 {props.locale === "en"
                   ? pageData.scFragments[4].scContentEn.json[3].content[0]
@@ -376,19 +406,20 @@ export default function BenefitsNavigatorOverview(props) {
                       .content[0].value}
               </li>
             </ul>
-            <p className="col-span-12 xl:col-span-8">
-              {props.locale === "en"
-                ? pageData.scFragments[4].scContentEn.json[4].content[0].value
-                : pageData.scFragments[4].scContentFr.json[4].content[0].value}
-            </p>
+
+            {/* Features Section with Images and Descriptions */}
             <div id="feature-section" className="col-span-12">
+              {/* Features Section Title */}
               <h2 className="col-span-12">
                 {props.locale === "en"
                   ? pageData.scFragments[5].scContentEn.json[0].content[0].value
                   : pageData.scFragments[5].scContentFr.json[0].content[0]
                       .value}
               </h2>
+
+              {/* Feature 1 - Grid Layout with Image, Description, and Collapse */}
               <div id="feature-1" className="grid grid-cols-12 gap-x-6 mb-9">
+                {/* Feature Image - Full width on mobile, 8 columns on desktop */}
                 <div className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8">
                   <Image
                     src={
@@ -417,6 +448,7 @@ export default function BenefitsNavigatorOverview(props) {
                     quality={100}
                   />
                 </div>
+                {/* Feature Description - With blue left border */}
                 <div className="col-span-12 row-start-3 xl:col-span-4 xl:row-start-1">
                   <div className="py-4 pl-4 border-l-4 border-multi-blue-blue60f">
                     <TextRender
@@ -430,6 +462,7 @@ export default function BenefitsNavigatorOverview(props) {
                     />
                   </div>
                 </div>
+                {/* Collapsible Long Description */}
                 <div className="mb-6 col-span-12 xl:col-span-8 row-start-2 xl:row-start-2">
                   <Collapse
                     id="image-text-collapse-1"
@@ -633,20 +666,27 @@ export default function BenefitsNavigatorOverview(props) {
   );
 }
 
+/**
+ * Next.js Static Site Generation (SSG) function
+ * Fetches all required data at build time
+ */
 export const getStaticProps = async ({ locale }) => {
-  // get page data from AEM
+  // Fetch main page content from AEM
   const { data: pageData } = await aemServiceInstance.getFragment(
     "benefitsNavigatorQuery"
   );
-  // get dictionary
+
+  // Fetch translation dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
-  // get all projects data
+
+  // Fetch all projects for related content
   const { data: allProjects } = await aemServiceInstance.getFragment(
     "projectQuery"
   );
 
+  // Return props for page rendering
   return {
     props: {
       locale: locale,
@@ -654,9 +694,12 @@ export const getStaticProps = async ({ locale }) => {
       pageData: pageData.sclabsPageV1ByPath,
       updatesData: pageData.sclabsPageV1ByPath.item.scLabProjectUpdates,
       dictionary: dictionary.dictionaryV1List.items,
+      // Randomize projects order for variety
       allProjects: shuffle(allProjects.sclabsPageV1List.items),
+      // Include common translations
       ...(await serverSideTranslations(locale, ["common"])),
     },
+    // Enable ISR if configured in environment
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,
   };
 };

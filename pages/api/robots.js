@@ -10,7 +10,6 @@ export default async function handler(req, res) {
     res.write("Disallow: /api\n");
     res.write("Disallow: /projects/*\n");
     res.write("Disallow: /notsupported.js\n");
-    res.write("Disallow: /cdcp-apply\n");
     res.write("Disallow: /rsdc-demander\n");
   } else {
     res.write("User-agent: *\n");

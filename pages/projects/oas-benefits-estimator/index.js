@@ -16,11 +16,18 @@ import { filterItems } from "../../../lib/utils/filterItems";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 
+/**
+ * Main component for the OAS Benefits Estimator project page
+ * Displays project information, an interactive estimator tool, and related content
+ * Handles bilingual content (English/French) throughout
+ */
 export default function OasBenefitsEstimator(props) {
+  // Initialize state with props data, using array destructuring for read-only values
   const [pageData] = useState(props.pageData.item);
   const [updatesData] = useState(props.updatesData);
   const [allProjects] = useState(props.allProjects);
 
+  // Filter dictionary to only include status-related terms needed for project info
   const [filteredDictionary] = useState(
     props.dictionary.filter(
       (item) =>
@@ -31,6 +38,7 @@ export default function OasBenefitsEstimator(props) {
     )
   );
 
+  // Initialize Adobe Analytics on page load if URL is provided
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
@@ -40,6 +48,7 @@ export default function OasBenefitsEstimator(props) {
 
   return (
     <>
+      {/* Main layout wrapper with language-specific configuration */}
       <Layout
         locale={props.locale}
         langUrl={
@@ -211,9 +220,12 @@ export default function OasBenefitsEstimator(props) {
           />
         </Head>
 
+        {/* Main content container */}
         <div className="layout-container mb-24">
+          {/* Hero section with title, image, and project info */}
           <section aria-labelledby="pageMainTitle">
             <div className="flex flex-col break-words lg:grid lg:grid-cols-2">
+              {/* Page title */}
               <div className="col-span-2">
                 <Heading
                   tabIndex="-1"
@@ -225,6 +237,7 @@ export default function OasBenefitsEstimator(props) {
                   }
                 />
               </div>
+              {/* Desktop-only feature image */}
               <div className="hidden lg:grid row-span-2 row-start-2 col-start-2 p-0 mx-4">
                 <div className="flex justify-center">
                   <div className="object-fill h-auto w-auto max-w-450px">
@@ -248,12 +261,14 @@ export default function OasBenefitsEstimator(props) {
                   </div>
                 </div>
               </div>
+              {/* Introduction paragraph */}
               <p className="row-start-2 mb-4">
                 {props.locale === "en"
                   ? pageData.scFragments[0].scContentEn.json[1].content[0].value
                   : pageData.scFragments[0].scContentFr.json[1].content[0]
                       .value}
               </p>
+              {/* Project information component */}
               <div className="row-start-3">
                 <ProjectInfo
                   locale={props.locale}
@@ -310,12 +325,16 @@ export default function OasBenefitsEstimator(props) {
               </div>
             </div>
           </section>
+
+          {/* Estimator tool section with CTA */}
           <div className="grid grid-cols-12">
+            {/* Tool introduction heading */}
             <h2 className="col-span-12 text-[20px]">
               {props.locale === "en"
                 ? pageData.scFragments[0].scContentEn.json[5].content[0].value
                 : pageData.scFragments[0].scContentFr.json[5].content[0].value}
             </h2>
+            {/* Primary CTA button to launch estimator tool */}
             <ActionButton
               id="try-btn"
               style="primary"
@@ -332,11 +351,14 @@ export default function OasBenefitsEstimator(props) {
               }
               ariaExpanded={props.ariaExpanded}
             />
+
+            {/* Information section about the tool */}
             <h2 className="col-span-12">
               {props.locale === "en"
                 ? pageData.scFragments[0].scContentEn.json[6].content[0].value
                 : pageData.scFragments[0].scContentFr.json[6].content[0].value}
             </h2>
+            {/* Descriptive paragraphs about the tool's functionality */}
             <p className="col-span-12 xl:col-span-8">
               {props.locale === "en"
                 ? pageData.scFragments[0].scContentEn.json[7].content[0].value
@@ -353,6 +375,8 @@ export default function OasBenefitsEstimator(props) {
                 : pageData.scFragments[0].scContentFr.json[9].content[0].value}
             </p>
           </div>
+
+          {/* Feedback section */}
           <h2 className="text-[20px]">
             {props.locale === "en"
               ? pageData.scFragments[0].scContentEn.json[10].content[0].value
@@ -376,6 +400,8 @@ export default function OasBenefitsEstimator(props) {
             />
           </div>
         </div>
+
+        {/* Conditional rendering of updates section if updates exist */}
         {props.updatesData.length !== 0 ? (
           <ExploreUpdates
             locale={props.locale}
@@ -406,6 +432,8 @@ export default function OasBenefitsEstimator(props) {
             }
           />
         ) : null}
+
+        {/* Related projects section */}
         <ExploreProjects
           heading={getDictionaryTerm(
             props.dictionary,
@@ -420,20 +448,27 @@ export default function OasBenefitsEstimator(props) {
   );
 }
 
+/**
+ * Next.js getStaticProps function to fetch data at build time
+ * Retrieves page data, dictionary terms, and project information from AEM
+ * @param {Object} context Contains locale information
+ * @returns {Object} Props for the page component
+ */
 export const getStaticProps = async ({ locale }) => {
-  // get page data from AEM
+  // Fetch main page data from AEM
   const { data: pageData } = await aemServiceInstance.getFragment(
     "oasBenefitsEstimatorQuery"
   );
-  // get dictionary
+  // Fetch dictionary terms for translations
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
-  // get all projects data
+  // Fetch all projects data for the related projects section
   const { data: allProjects } = await aemServiceInstance.getFragment(
     "projectQuery"
   );
 
+  // Return props object with all necessary data
   return {
     props: {
       locale: locale,
@@ -444,6 +479,7 @@ export const getStaticProps = async ({ locale }) => {
       allProjects: shuffle(allProjects.sclabsPageV1List.items),
       ...(await serverSideTranslations(locale, ["common"])),
     },
+    // Configure ISR (Incremental Static Regeneration) if enabled
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,
   };
 };

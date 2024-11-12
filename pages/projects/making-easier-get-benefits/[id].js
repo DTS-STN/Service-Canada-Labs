@@ -1,3 +1,4 @@
+// Import required dependencies and components
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import PageHead from "../../../components/fragment_renderer/PageHead";
@@ -15,12 +16,17 @@ import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 import { UpdateInfo } from "../../../components/atoms/UpdateInfo";
 import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 
+// Main component for rendering Integrated Channel Strategy Articles
 export default function IntegratedChannelStrategyArticles({ key, ...props }) {
+  // Initialize translations
   const { t } = useTranslation("common");
+
+  // Set up state using props data
   const [pageData] = useState(props.pageData);
   const [projectData] = useState(props.projectData);
   const [dictionary] = useState(props.dictionary.items);
 
+  // Initialize Adobe Analytics on page load if URL is provided
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
@@ -30,6 +36,7 @@ export default function IntegratedChannelStrategyArticles({ key, ...props }) {
 
   return (
     <>
+      {/* Main layout wrapper with language and breadcrumb navigation */}
       <Layout
         locale={props.locale}
         langUrl={
@@ -41,9 +48,13 @@ export default function IntegratedChannelStrategyArticles({ key, ...props }) {
           props.locale
         )}
       >
+        {/* Page header metadata */}
         <PageHead pageData={pageData} locale={props.locale} />
+
+        {/* Main content section */}
         <section className="mb-12">
           <div className="layout-container">
+            {/* Page title */}
             <Heading
               tabIndex="-1"
               id="pageMainTitle"
@@ -51,6 +62,8 @@ export default function IntegratedChannelStrategyArticles({ key, ...props }) {
                 props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
               }
             />
+
+            {/* Project and update information */}
             <UpdateInfo
               projectLabel={`${getDictionaryTerm(
                 dictionary,
@@ -82,7 +95,7 @@ export default function IntegratedChannelStrategyArticles({ key, ...props }) {
             />
           </div>
 
-          {/* Main */}
+          {/* Main content fragments */}
           <div id="mainContentSection">
             <FragmentRender
               fragments={props.pageData.scFragments}
@@ -91,6 +104,8 @@ export default function IntegratedChannelStrategyArticles({ key, ...props }) {
             />
           </div>
         </section>
+
+        {/* Show updates section if there are related updates */}
         {filterItems(props.updatesData, pageData.scId).length !== 0 ? (
           <ExploreUpdates
             locale={props.locale}
@@ -121,6 +136,8 @@ export default function IntegratedChannelStrategyArticles({ key, ...props }) {
             }
           />
         ) : null}
+
+        {/* Related projects section */}
         <ExploreProjects
           projects={[projectData]}
           heading={getDictionaryTerm(
@@ -135,35 +152,41 @@ export default function IntegratedChannelStrategyArticles({ key, ...props }) {
   );
 }
 
+// Generate static paths for all articles
 export async function getStaticPaths() {
-  // Get pages data
+  // Fetch all article data from AEM
   const { data } = await aemServiceInstance.getFragment(
     "integratedChannelStrategyArticlesQuery"
   );
-  // Get paths for dynamic routes from the page name data
+
+  // Generate paths for dynamic routing
   const paths = getAllUpdateIds(data.sclabsPageV1List.items);
-  // Remove characters preceding the page name itself i.e. change "/en/projects/oas-benefits-estimator/what-we-learned" to "what-we-learned"
+
+  // Extract the final segment of the URL for the page ID
   paths.map((path) => (path.params.id = path.params.id.split("/").at(-1)));
+
   return {
     paths,
-    fallback: "blocking",
+    fallback: "blocking", // Show loading state while generating new pages
   };
 }
 
+// Generate static props for each article page
 export const getStaticProps = async ({ locale, params }) => {
-  // Get pages data
+  // Fetch required data from AEM
   const { data: updatesData } = await aemServiceInstance.getFragment(
     "integratedChannelStrategyArticlesQuery"
   );
   const { data: projectData } = await aemServiceInstance.getFragment(
     "integratedChannelStrategyQuery"
   );
-  // get dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
   );
+
   const pages = updatesData.sclabsPageV1List.items;
-  // Return page data that matches the current page being built
+
+  // Find the matching page data for current URL
   const pageData = pages.filter((page) => {
     return (
       (locale === "en" ? page.scPageNameEn : page.scPageNameFr)
@@ -172,12 +195,14 @@ export const getStaticProps = async ({ locale, params }) => {
     );
   });
 
+  // Return 404 if page not found
   if (!pageData || !pageData.length) {
     return {
       notFound: true,
     };
   }
 
+  // Return props for page rendering
   return {
     props: {
       key: params.id,
@@ -189,6 +214,6 @@ export const getStaticProps = async ({ locale, params }) => {
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       ...(await serverSideTranslations(locale, ["common"])),
     },
-    revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,
+    revalidate: process.env.ISR_ENABLED === "true" ? 10 : false, // Enable ISR if configured
   };
 };
