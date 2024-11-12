@@ -337,19 +337,36 @@ export default function DigitalStandardsPlaybookPage(props) {
           <section id="pageMainContent">
             <div className="grid grid-cols-12">
               {/* First Content Block */}
-              <h2 className="col-span-12">{/* Bilingual heading */}</h2>
-              {/* Content paragraphs - 8 columns on desktop */}
+              <h2 className="col-span-12">
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[5].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[5].content[0]
+                      .value}
+              </h2>
               <p className="col-span-12 xl:col-span-8">
-                {/* First paragraph */}
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[6].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[6].content[0]
+                      .value}
               </p>
               <p className="col-span-12 xl:col-span-8">
-                {/* Second paragraph */}
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[7].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[7].content[0]
+                      .value}
               </p>
 
-              {/* Second Content Block */}
-              <h2 className="col-span-12">{/* Bilingual heading */}</h2>
+              <h2 className="col-span-12">
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[8].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[8].content[0]
+                      .value}
+              </h2>
               <p className="col-span-12 xl:col-span-8">
-                {/* Content paragraph */}
+                {props.locale === "en"
+                  ? pageData.scFragments[0].scContentEn.json[9].content[0].value
+                  : pageData.scFragments[0].scContentFr.json[9].content[0]
+                      .value}
               </p>
 
               {/* Survey Call-to-Action Button */}
@@ -372,7 +389,10 @@ export default function DigitalStandardsPlaybookPage(props) {
 
               {/* Additional Content with Link */}
               <p className="col-span-12 xl:col-span-8">
-                {/* Text before link */}
+                {props.locale === "en"
+                  ? pageData.scFragments[4].scContentEn.json[0].content[0].value
+                  : pageData.scFragments[4].scContentFr.json[0].content[0]
+                      .value}
                 <a
                   className="underline underline-offset-[6px]"
                   href={
@@ -383,12 +403,23 @@ export default function DigitalStandardsPlaybookPage(props) {
                           .data.href
                   }
                 >
-                  {/* Link text */}
+                  {props.locale === "en"
+                    ? pageData.scFragments[4].scContentEn.json[0].content[1]
+                        .value
+                    : pageData.scFragments[4].scContentFr.json[0].content[1]
+                        .value}
                 </a>
-                {/* Text after link */}
+                {props.locale === "en"
+                  ? pageData.scFragments[4].scContentEn.json[0].content[2].value
+                  : pageData.scFragments[4].scContentFr.json[0].content[2]
+                      .value}
               </p>
-              {/* Final paragraph */}
-              <p className="col-span-12 xl:col-span-8">{/* Content */}</p>
+              <p className="col-span-12 xl:col-span-8">
+                {props.locale === "en"
+                  ? pageData.scFragments[4].scContentEn.json[1].content[0].value
+                  : pageData.scFragments[4].scContentFr.json[1].content[0]
+                      .value}
+              </p>
             </div>
           </section>
         </div>

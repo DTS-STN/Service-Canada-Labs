@@ -10,7 +10,6 @@ import FragmentRender from "../../../components/fragment_renderer/FragmentRender
 import { Heading } from "../../../components/molecules/Heading";
 import { filterItems } from "../../../lib/utils/filterItems";
 import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
-import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 import { UpdateInfo } from "../../../components/atoms/UpdateInfo";
 import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
