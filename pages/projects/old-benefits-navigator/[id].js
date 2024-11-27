@@ -1,6 +1,5 @@
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
 import PageHead from "../../../components/fragment_renderer/PageHead";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../../../components/organisms/Layout";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
@@ -8,25 +7,26 @@ import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
 import { Heading } from "../../../components/molecules/Heading";
-import { filterItems } from "../../../lib/utils/filterItems";
 import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
+import { filterItems } from "../../../lib/utils/filterItems";
+import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 import { UpdateInfo } from "../../../components/atoms/UpdateInfo";
 import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 
 /**
- * Digital Standards Articles Component
- * Displays individual article pages for the Digital Standards Playbook project
- * Supports bilingual content, project context, and related updates
+ * Benefits Navigator Articles Component
+ * Displays individual article pages for the Benefits Navigator project
+ * Supports bilingual content, project metadata, and related content
+ * Uses dynamic routing to handle multiple article URLs
  */
-export default function DigitalStandardsArticles({ key, ...props }) {
-  // Initialize required hooks and state
-  const { t } = useTranslation("common"); // Translation hook
-  const [pageData] = useState(props.pageData); // Current article content
-  const [projectData] = useState(props.projectData); // Parent project data
-  const [dictionary] = useState(props.dictionary.items); // Translation dictionary
+export default function BenefitNavigatorArticles({ key, ...props }) {
+  // State management for page content and translations
+  const [pageData] = useState(props.pageData); // Individual article data from AEM
+  const [dictionary] = useState(props.dictionary); // Translation dictionary for UI elements
+  const projectData = props.projectData; // Parent project information
 
-  // Initialize Adobe Analytics
+  // Initialize Adobe Analytics tracking
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
@@ -36,60 +36,65 @@ export default function DigitalStandardsArticles({ key, ...props }) {
 
   return (
     <>
-      {/* Main Layout Component - Provides consistent page structure */}
+      {/* Layout wrapper component provides consistent page structure */}
       <Layout
         locale={props.locale}
-        // Alternate language URL for language toggle
+        // Alternate language URL for language switching
         langUrl={
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
+        // Last modified date for the page
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
-        // Generate breadcrumb navigation
+        // Breadcrumb navigation generated from parent pages
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
           props.locale
         )}
       >
-        {/* Meta tags component */}
+        {/* PageHead component manages meta tags */}
         <PageHead pageData={pageData} locale={props.locale} />
 
-        {/* Main Article Section */}
+        {/* Main article section */}
         <section className="mb-12">
           <div className="layout-container">
-            {/* Article Title with accessibility support */}
+            {/* Article title with accessibility support */}
             <Heading
               tabIndex="-1"
               id="pageMainTitle"
               title={
+                // Bilingual title handling
                 props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
               }
             />
 
-            {/* Article Metadata Component */}
+            {/* Article metadata component showing project context and dates */}
             <UpdateInfo
-              // Project context labels and links
+              // Project label and name with translation
               projectLabel={`${getDictionaryTerm(
                 dictionary,
                 "PROJECT",
                 props.locale
               )}`}
               projectName={
+                // Bilingual project name
                 props.locale === "en"
                   ? pageData.scLabProject.scTermEn
                   : pageData.scLabProject.scTermFr
               }
+              // Link to parent project page
               projectHref={
                 props.locale === "en"
                   ? pageData.scLabProject.scDestinationURLEn
                   : pageData.scLabProject.scDestinationURLFr
               }
-              // Article dates
+              // Posted date label and value
               postedOnLabel={`${getDictionaryTerm(
                 dictionary,
                 "POSTED-ON",
                 props.locale
               )}`}
               postedOn={pageData.scDateModifiedOverwrite}
+              // Last updated label and value
               lastUpdatedLabel={`${getDictionaryTerm(
                 dictionary,
                 "LAST-UPDATED",
@@ -99,12 +104,12 @@ export default function DigitalStandardsArticles({ key, ...props }) {
             />
           </div>
 
-          {/* Main Article Content */}
+          {/* Main article content rendered from AEM fragments */}
           <div id="mainContentSection">
             <FragmentRender
               fragments={props.pageData.scFragments}
               locale={props.locale}
-              excludeH1={true} // Exclude H1 as it's already rendered in Heading
+              excludeH1={true} // Exclude H1 as it's already rendered in the Heading component
             />
           </div>
         </section>
@@ -115,24 +120,24 @@ export default function DigitalStandardsArticles({ key, ...props }) {
             locale={props.locale}
             // Filter updates related to this article
             updatesData={filterItems(props.updatesData, pageData.scId)}
-            dictionary={dictionary}
+            dictionary={props.dictionary}
             // Construct bilingual section heading
             heading={
               props.locale === "en"
                 ? `${projectData.scTitleEn} ${getDictionaryTerm(
-                    dictionary,
+                    props.dictionary,
                     "PROJECT-UPDATES",
                     props.locale
                   )}`
                 : `${getDictionaryTerm(
-                    dictionary,
+                    props.dictionary,
                     "PROJECT-UPDATES",
                     props.locale
                   )} ${projectData.scTitleFr}`
             }
             // "See all updates" link label
             linkLabel={`${getDictionaryTerm(
-              dictionary,
+              props.dictionary,
               "DICTIONARY-SEE-ALL-UPDATES-PROJECT",
               props.locale
             )}`}
@@ -161,39 +166,43 @@ export default function DigitalStandardsArticles({ key, ...props }) {
 }
 
 /**
- * Generate static paths for all Digital Standards articles
+ * Generate static paths for all Benefits Navigator articles
  * Required for Next.js dynamic routing
- * Creates paths for both English and French versions
+ * Creates paths for both English and French versions of each article
  */
 export async function getStaticPaths() {
-  // Fetch all Digital Standards articles from AEM
+  const idLabel = "id";
+  // Fetch all Benefits Navigator articles from AEM
   const { data } = await aemServiceInstance.getFragment(
-    "getDigitalStandardsPlaybookArticles"
+    "benefitsNavigatorArticlesQuery"
   );
-  // Generate paths for dynamic routes using page names
-  const paths = getAllUpdateIds(data.sclabsPageV1List.items);
-  // Extract the last segment of the URL for the ID parameter
-  // Example: "/en/projects/digital-standards/article" becomes "article"
-  paths.map((path) => (path.params.id = path.params.id.split("/").at(-1)));
+  // Generate paths array for all articles in both languages
+  const paths = getAllUpdateIds(idLabel, data.sclabsPageV1List.items);
+  // Extract the article ID from the full path
+  paths.map(
+    (path) => (path.params[idLabel] = path.params[idLabel].split("/").at(-1))
+  );
 
   return {
     paths,
-    fallback: "blocking", // Show loading state while generating new pages
+    fallback: "blocking", // Show loading state for new pages being generated
   };
 }
 
 /**
- * Fetch page data at build time
- * Handles data fetching for both languages and 404 cases
+ * Fetch and prepare data for page rendering at build time
+ * Handles data fetching, language selection, and 404 cases
+ * @param {Object} context - Contains locale and URL parameters
  */
 export const getStaticProps = async ({ locale, params }) => {
-  // Fetch all Digital Standards articles
+  const idLabel = "id";
+  // Fetch all articles data from AEM
   const { data: updatesData } = await aemServiceInstance.getFragment(
-    "getDigitalStandardsPlaybookArticles"
+    "benefitsNavigatorArticlesQuery"
   );
-  // Fetch parent project data
+  // Fetch parent project data from AEM
   const { data: projectData } = await aemServiceInstance.getFragment(
-    "getDigitalStandardsPlaybookPage"
+    "benefitsNavigatorQuery"
   );
   // Fetch translation dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
@@ -201,16 +210,16 @@ export const getStaticProps = async ({ locale, params }) => {
   );
 
   const pages = updatesData.sclabsPageV1List.items;
-  // Filter for the current article based on URL parameter
+  // Find the specific article based on URL parameter
   const pageData = pages.filter((page) => {
     return (
       (locale === "en" ? page.scPageNameEn : page.scPageNameFr)
         .split("/")
-        .at(-1) === params.id
+        .at(-1) === params[idLabel]
     );
   });
 
-  // Return 404 if page not found
+  // Return 404 response if article not found
   if (!pageData || !pageData.length) {
     return {
       notFound: true,
@@ -220,16 +229,16 @@ export const getStaticProps = async ({ locale, params }) => {
   // Return props for page rendering
   return {
     props: {
-      key: params.id, // Unique key for React
+      key: params[idLabel], // Unique key for React
       locale: locale, // Current language
       pageData: pageData[0], // Article content
       updatesData: updatesData.sclabsPageV1List.items, // All updates for filtering
       projectData: projectData.sclabsPageV1ByPath.item, // Parent project data
-      dictionary: dictionary.dictionaryV1List, // Translation dictionary
-      adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null, // Analytics config
-      ...(await serverSideTranslations(locale, ["common"])), // Load translations
+      dictionary: dictionary.dictionaryV1List.items, // Translation dictionary
+      adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null, // Analytics configuration
+      ...(await serverSideTranslations(locale, ["common", "vc"])), // Load translations
     },
-    // Enable ISR if configured
+    // Enable Incremental Static Regeneration if configured
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,
   };
 };

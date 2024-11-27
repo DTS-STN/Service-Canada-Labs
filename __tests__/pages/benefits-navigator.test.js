@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import BenefitsNavigatorOverview from "../../pages/projects/benefits-navigator/index";
+import BenefitsNavigatorOverview from "../../pages/projects/old-benefits-navigator/index";
 import {
   dictionaryData,
   benefitsNavigatorData,
@@ -15,7 +15,7 @@ describe("Benefits Navigator", () => {
         updatesData={benefitsNavigatorUpdatesData}
         dictionary={dictionaryData.data.dictionaryV1List.items}
         allProjects={experimentsData.data.scLabsPagev1List.items}
-      />,
+      />
     );
   });
 });

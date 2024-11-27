@@ -672,9 +672,9 @@ export default function BenefitsNavigatorOverview(props) {
  */
 export const getStaticProps = async ({ locale }) => {
   // Fetch main page content from AEM
-  const { data: pageData } = await aemServiceInstance.getFragment(
-    "benefitsNavigatorQuery"
-  );
+  const { data: pageData } = await fetch(
+    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclAllProjectsV2%3Bproject%3DBENEFITS-NAVIGATOR-OVERVIEW%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
+  ).then((res) => res.json());
 
   // Fetch translation dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
