@@ -213,7 +213,7 @@ export const getStaticProps = async ({ locale }) => {
 
   // Fetch all projects data
   const { data: projectsData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclAllProjectsV1`
+    `${process.env.AEM_BASE_URL}/getSclAllProjectsV1%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
   ).then((res) => res.json());
 
   // Fetch translation dictionary

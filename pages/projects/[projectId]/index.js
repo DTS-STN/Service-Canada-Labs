@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../../../components/organisms/Layout";
 import { useEffect, useState } from "react";
@@ -18,66 +17,55 @@ import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 import { ContextualAlert } from "../../../components/molecules/ContextualAlert";
 import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
+import PageHead from "../../../components/fragment_renderer/PageHead";
 
-export default function ProjectPage({ projectData, articlesData, ...props }) {
+export default function ProjectPage({
+  projectData,
+  articlesData,
+  dictionary,
+  adobeAnalyticsUrl,
+  locale,
+}) {
+  // Filter dictionary to only include specific terms needed for project info display
+  const [filteredDictionary] = useState(
+    dictionary.filter(
+      (item) =>
+        item.scId === "STARTED" || // Project start date label
+        item.scId === "ENDED" || // Project end date label
+        item.scId === "PROJECT-STAGE" || // Current stage label
+        item.scId === "SUMMARY" // Summary section label
+    )
+  );
+
+  // Initialize Adobe Analytics data layer
+  useEffect(() => {
+    if (adobeAnalyticsUrl) {
+      window.adobeDataLayer = window.adobeDataLayer || [];
+      window.adobeDataLayer.push({ event: "pageLoad" });
+    }
+  }, []);
+
   // Render project page content
   return (
-    <div></div>
-    // <Layout>
-    //   <h1>{projectData.scTitleEn}</h1>
-    //   <ul>
-    //     {articlesData.map((article) => (
-    //       <li key={article.scId}>
-    //         <Link
-    //           href={`/projects/${projectId}/${article.scPageNameEn
-    //             .split("/")
-    //             .pop()}`}
-    //         >
-    //           {article.scTitleEn}
-    //         </Link>
-    //       </li>
-    //     ))}
-    //   </ul>
-    //   {props.updatesData.length !== 0 ? (
-    //     <ExploreUpdates
-    //       locale={props.locale}
-    //       updatesData={sortUpdatesByDate(updatesData)}
-    //       dictionary={props.dictionary}
-    //       heading={
-    //         props.locale === "en"
-    //           ? `${pageData.scTitleEn} ${getDictionaryTerm(
-    //               props.dictionary,
-    //               "PROJECT-UPDATES",
-    //               props.locale
-    //             )}`
-    //           : `${getDictionaryTerm(
-    //               props.dictionary,
-    //               "PROJECT-UPDATES",
-    //               props.locale
-    //             )} ${pageData.scTitleFr}`
-    //       }
-    //       linkLabel={`${getDictionaryTerm(
-    //         props.dictionary,
-    //         "DICTIONARY-SEE-ALL-UPDATES-PROJECT",
-    //         props.locale
-    //       )}`}
-    //       href={
-    //         props.locale === "en"
-    //           ? `/en/updates?project=${pageData.scTitleEn}`
-    //           : `/fr/mises-a-jour?projet=${pageData.scTitleFr}`
-    //       }
-    //     />
-    //   ) : null}
-    //   <ExploreProjects
-    //     heading={getDictionaryTerm(
-    //       props.dictionary,
-    //       "EXPLORE-OTHER-PROJECTS",
-    //       props.locale
-    //     )}
-    //     locale={props.locale}
-    //     projects={filterItems(allProjects, pageData.scId).slice(0, 3)}
-    //   />
-    // </Layout>
+    <Layout
+      locale={locale}
+      // Set alternate language URL for language toggle
+      langUrl={
+        locale === "en" ? projectData.scPageNameFr : projectData.scPageNameEn
+      }
+      dateModifiedOverride={projectData.scDateModifiedOverwrite}
+      // Generate breadcrumb navigation from parent pages
+      breadcrumbItems={createBreadcrumbs(
+        projectData.scBreadcrumbParentPages,
+        locale
+      )}
+    >
+      <PageHead pageData={projectData} locale={locale} />
+      {/* Main Content Container */}
+      <div className="layout-container mb-24">
+        <section aria-labelledby="pageMainTitle"></section>
+      </div>
+    </Layout>
   );
 }
 
@@ -90,7 +78,7 @@ export async function getStaticPaths() {
   const idLabel = "projectId";
   // Fetch main page content from AEM
   const { data } = await fetch(
-    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclAllProjectsV2%3Bproject%3DBENEFITS-NAVIGATOR-OVERVIEW%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
+    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclProjectV1%3Bproject%3DBENEFITS-NAVIGATOR-OVERVIEW%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
   ).then((res) => res.json());
 
   // Generate paths array for all projects in both languages
@@ -109,8 +97,9 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({ locale, params }) => {
   const idLabel = "projectId";
   // Fetch main page content from AEM
+  // TODO: If AEM returns error, pass error to page for debugging
   const { data: projectsData } = await fetch(
-    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclAllProjectsV2%3Bproject%3DBENEFITS-NAVIGATOR-OVERVIEW%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
+    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclProjectV1%3Bproject%3DBENEFITS-NAVIGATOR-OVERVIEW%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
   ).then((res) => res.json());
 
   // Fetch translation dictionary
@@ -119,6 +108,7 @@ export const getStaticProps = async ({ locale, params }) => {
   );
 
   const pages = projectsData.sclabsPageV1List.items;
+
   // Find the specific article based on URL parameter
   const pageData = pages.filter((page) => {
     return (
@@ -140,8 +130,8 @@ export const getStaticProps = async ({ locale, params }) => {
     props: {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
-      pageData: pageData[0],
-      // articlesData: pageData[0].scLabProjectUpdates,
+      projectData: pageData[0],
+      articlesData: pageData[0].scLabProjectUpdates,
       dictionary: dictionary.dictionaryV1List.items,
       // Randomize projects order for variety
       allProjects: shuffle(projectsData.sclabsPageV1List.items),
