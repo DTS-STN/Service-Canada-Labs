@@ -3,7 +3,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../../../components/organisms/Layout";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
-import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
+import { getAllPathParams } from "../../../lib/utils/getAllPathParams";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
 import { Heading } from "../../../components/molecules/Heading";
@@ -164,17 +164,20 @@ export default function ArticlePage({ key, ...props }) {
  * Creates paths for both English and French versions of each article
  */
 export async function getStaticPaths() {
-  const idLabel = "articleId";
-  // Fetch all Benefits Navigator articles from AEM
-  const { data } = await aemServiceInstance.getFragment(
-    "benefitsNavigatorArticlesQuery"
-  );
+  const articleIdLabel = "articleId";
+  const projectIdLabel = "projectId";
+  // Fetch all projects aarticles from AEM
+  const { data: updatesData } = await fetch(
+    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclAllUpdatesV1`
+  ).then((res) => res.json());
+
   // Generate paths array for all articles in both languages
-  const paths = getAllUpdateIds(idLabel, data.sclabsPageV1List.items);
-  // Extract the article ID from the full path
-  paths.map(
-    (path) => (path.params[idLabel] = path.params[idLabel].split("/").at(-1))
+  const paths = getAllPathParams(
+    [articleIdLabel, projectIdLabel],
+    updatesData.sclabsPageV1List.items
   );
+
+  console.log(paths);
 
   return {
     paths,

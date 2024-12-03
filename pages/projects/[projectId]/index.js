@@ -16,12 +16,14 @@ import { filterItems } from "../../../lib/utils/filterItems";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 import { ContextualAlert } from "../../../components/molecules/ContextualAlert";
-import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
+import { getAllPathParams } from "../../../lib/utils/getAllPathParams";
 import PageHead from "../../../components/fragment_renderer/PageHead";
+import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
 
 export default function ProjectPage({
   projectData,
   articlesData,
+  allProjects,
   dictionary,
   adobeAnalyticsUrl,
   locale,
@@ -45,6 +47,11 @@ export default function ProjectPage({
     }
   }, []);
 
+  // Check if any fragment is an alert and if so, show closed project alert
+  const showClosedProjectAlert = projectData.scFragments.some(
+    (fragment) => fragment._path && fragment._path.includes("/project-closed")
+  );
+
   // Render project page content
   return (
     <Layout
@@ -63,8 +70,191 @@ export default function ProjectPage({
       <PageHead pageData={projectData} locale={locale} />
       {/* Main Content Container */}
       <div className="layout-container mb-24">
-        <section aria-labelledby="pageMainTitle"></section>
+        {/* Main Content Section with ARIA labelledby */}
+        <section aria-labelledby="pageMainTitle">
+          {/* Two-column layout for desktop, single column for mobile */}
+          <div className="flex flex-col break-words lg:grid lg:grid-cols-2">
+            {/* Page Title and Alert Section - Full Width */}
+            <div className="col-span-2">
+              <Heading
+                tabIndex="-1"
+                id="pageMainTitle"
+                title={
+                  locale === "en"
+                    ? projectData.scTitleEn
+                    : projectData.scTitleFr
+                }
+              />
+
+              {/* Conditionally render the warning alert */}
+              {showClosedProjectAlert && (
+                <div className="mb-10 max-w-[76ch]">
+                  <ContextualAlert
+                    id="alert"
+                    type="warning"
+                    message_heading={
+                      locale === "en"
+                        ? projectData.scFragments[0].scTitleEn
+                        : projectData.scFragments[0].scTitleFr
+                    }
+                    message_body={
+                      <TextRender
+                        data={
+                          locale === "en"
+                            ? projectData.scFragments[0].scContentEn.json
+                            : projectData.scFragments[0].scContentFr.json
+                        }
+                      />
+                    }
+                    alert_icon_alt_text=""
+                    alert_icon_id="project-status-cta-icon"
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* Project Image - Hidden on mobile, shown in right column on desktop */}
+            <div className="hidden lg:grid row-span-2 row-start-2 col-start-2 p-0 mx-4">
+              <div className="flex justify-center">
+                <div className="object-fill max-w-350px">
+                  <Image
+                    src={
+                      locale === "en"
+                        ? projectData.scSocialMediaImageEn._publishUrl
+                        : projectData.scSocialMediaImageFr._publishUrl
+                    }
+                    alt={
+                      projectData.scSocialMediaImageEn
+                        .scSocialMediaImageAltTextEn
+                        ? locale === "en"
+                          ? projectData.scSocialMediaImageEn
+                              .scSocialMediaImageAltTextEn
+                          : projectData.scSocialMediaImageFr
+                              .scSocialMediaImageAltTextFr
+                        : ""
+                    }
+                    width={projectData.scSocialMediaImageEn.width}
+                    height={projectData.scSocialMediaImageEn.height}
+                    priority // Load image with high priority
+                    sizes="33vw"
+                    quality={100}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Project Description Text */}
+            <p className="row-start-2 mb-4">
+              {locale === "en"
+                ? projectData.scFragments[3].scContentEn.json[1].content[0]
+                    .value
+                : projectData.scFragments[3].scContentFr.json[1].content[0]
+                    .value}
+            </p>
+
+            {/* Project Information Component - Contains key project details */}
+            <div className="row-start-3">
+              <ProjectInfo
+                locale={locale}
+                // Pass translated terms and labels
+                termStarted={
+                  locale === "en"
+                    ? filteredDictionary[2].scTermEn
+                    : filteredDictionary[2].scTermFr
+                }
+                termStage={
+                  locale === "en"
+                    ? filteredDictionary[1].scTermEn
+                    : filteredDictionary[1].scTermFr
+                }
+                termSummary={
+                  locale === "en"
+                    ? filteredDictionary[3].scTermEn
+                    : filteredDictionary[3].scTermFr
+                }
+                dateStarted={projectData.scDateStarted}
+                term={
+                  locale === "en"
+                    ? projectData.scFragments[2].scContentEn.json[0].content[0]
+                        .value + " "
+                    : projectData.scFragments[2].scContentFr.json[0].content[0]
+                        .value + " "
+                }
+                definition={
+                  locale === "en"
+                    ? projectData.scFragments[2].scContentEn.json[0].content[1]
+                        .value
+                    : projectData.scFragments[2].scContentFr.json[0].content[1]
+                        .value
+                }
+                information={
+                  locale === "en"
+                    ? projectData.scFragments[2].scTitleEn
+                    : projectData.scFragments[2].scTitleFr
+                }
+                stage={
+                  locale === "en"
+                    ? stageDictionary.en[projectData.scLabProjectStage]
+                    : stageDictionary.fr[projectData.scLabProjectStage]
+                }
+                summary={
+                  locale === "en"
+                    ? projectData.scFragments[3].scContentEn.json[4].content[0]
+                        .value
+                    : projectData.scFragments[3].scContentFr.json[4].content[0]
+                        .value
+                }
+              />
+            </div>
+          </div>
+        </section>
+        <div id="mainContentSection">
+          {/* <FragmentRender
+            fragments={projectData.scFragments}
+            locale={locale}
+            excludeH1={true} // Exclude H1 as it's already rendered in the Heading component
+          /> */}
+        </div>
       </div>
+      {/* {articlesData.length !== 0 ? (
+        <ExploreUpdates
+          locale={locale}
+          updatesData={sortUpdatesByDate(articlesData)}
+          dictionary={dictionary}
+          heading={
+            locale === "en"
+              ? `${projectData.scTitleEn} ${getDictionaryTerm(
+                  dictionary,
+                  "PROJECT-UPDATES",
+                  locale
+                )}`
+              : `${getDictionaryTerm(
+                  dictionary,
+                  "PROJECT-UPDATES",
+                  locale
+                )} ${projectData.scTitleFr}`
+          }
+          linkLabel={`${getDictionaryTerm(
+            dictionary,
+            "DICTIONARY-SEE-ALL-UPDATES-PROJECT",
+            locale
+          )}`}
+          href={
+            locale === "en"
+              ? `/en/updates?project=${projectData.scTitleEn}`
+              : `/fr/mises-a-jour?projet=${projectData.scTitleFr}`
+          }
+        />
+      ) : null} */}
+      <ExploreProjects
+        heading={getDictionaryTerm(
+          dictionary,
+          "EXPLORE-OTHER-PROJECTS",
+          locale
+        )}
+        locale={locale}
+        projects={filterItems(allProjects, projectData.scId).slice(0, 3)}
+      />
     </Layout>
   );
 }
@@ -78,11 +268,11 @@ export async function getStaticPaths() {
   const idLabel = "projectId";
   // Fetch main page content from AEM
   const { data } = await fetch(
-    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclProjectV1%3Bproject%3DBENEFITS-NAVIGATOR-OVERVIEW%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
+    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclProjectV1%3Bproject%3DBENEFITS-NAVIGATOR-OVERVIEW-V2%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
   ).then((res) => res.json());
 
   // Generate paths array for all projects in both languages
-  const paths = getAllUpdateIds(idLabel, data.sclabsPageV1List.items);
+  const paths = getAllPathParams([idLabel], data.sclabsPageV1List.items);
   // Extract the project ID from the full path
   paths.map(
     (path) => (path.params[idLabel] = path.params[idLabel].split("/").at(-1))
@@ -100,6 +290,10 @@ export const getStaticProps = async ({ locale, params }) => {
   // TODO: If AEM returns error, pass error to page for debugging
   const { data: projectsData } = await fetch(
     `https://www.canada.ca/graphql/execute.json/decd-endc/getSclProjectV1%3Bproject%3DBENEFITS-NAVIGATOR-OVERVIEW%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
+  ).then((res) => res.json());
+
+  const { data: allProjectsData } = await fetch(
+    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclAllProjectsV1%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
   ).then((res) => res.json());
 
   // Fetch translation dictionary
@@ -134,7 +328,7 @@ export const getStaticProps = async ({ locale, params }) => {
       articlesData: pageData[0].scLabProjectUpdates,
       dictionary: dictionary.dictionaryV1List.items,
       // Randomize projects order for variety
-      allProjects: shuffle(projectsData.sclabsPageV1List.items),
+      allProjects: shuffle(allProjectsData.sclabsPageV1List.items),
       // Include common translations
       ...(await serverSideTranslations(locale, ["common"])),
     },
