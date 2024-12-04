@@ -35,7 +35,7 @@ export function ProjectInfo(props) {
         <strong className="font-body text-mobilebody lg:text-p col-span-1 col-start-1">
           {props.termSummary}
         </strong>
-        <p className="col-span-2">{props.summary}</p>
+        <div className="col-span-2">{props.summary}</div>
       </div>
     </>
   );

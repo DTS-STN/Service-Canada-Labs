@@ -144,13 +144,15 @@ export default function ProjectPage({
             </div>
 
             {/* Project Description Text */}
-            <p className="row-start-2 mb-4">
-              {locale === "en"
-                ? projectData.scFragments[3].scContentEn.json[1].content[0]
-                    .value
-                : projectData.scFragments[3].scContentFr.json[1].content[0]
-                    .value}
-            </p>
+            <div className="row-start-2 mb-4">
+              <TextRender
+                data={
+                  locale === "en"
+                    ? projectData.scIntroEn.json
+                    : projectData.scIntroFr.json
+                }
+              />
+            </div>
 
             {/* Project Information Component - Contains key project details */}
             <div className="row-start-3">
@@ -173,24 +175,11 @@ export default function ProjectPage({
                     : filteredDictionary[3].scTermFr
                 }
                 dateStarted={projectData.scDateStarted}
-                term={
-                  locale === "en"
-                    ? projectData.scFragments[2].scContentEn.json[0].content[0]
-                        .value + " "
-                    : projectData.scFragments[2].scContentFr.json[0].content[0]
-                        .value + " "
-                }
-                definition={
-                  locale === "en"
-                    ? projectData.scFragments[2].scContentEn.json[0].content[1]
-                        .value
-                    : projectData.scFragments[2].scContentFr.json[0].content[1]
-                        .value
-                }
+                definition={locale === "en" ? "definition EN" : "definition FR"}
                 information={
                   locale === "en"
-                    ? projectData.scFragments[2].scTitleEn
-                    : projectData.scFragments[2].scTitleFr
+                    ? stageDictionary.en[projectData.scLabProjectStage]
+                    : stageDictionary.fr[projectData.scLabProjectStage]
                 }
                 stage={
                   locale === "en"
@@ -198,22 +187,24 @@ export default function ProjectPage({
                     : stageDictionary.fr[projectData.scLabProjectStage]
                 }
                 summary={
-                  locale === "en"
-                    ? projectData.scFragments[3].scContentEn.json[4].content[0]
-                        .value
-                    : projectData.scFragments[3].scContentFr.json[4].content[0]
-                        .value
+                  <TextRender
+                    data={
+                      locale === "en"
+                        ? projectData.scLabProjectSummaryEn.json
+                        : projectData.scLabProjectSummaryFr.json
+                    }
+                  />
                 }
               />
             </div>
           </div>
         </section>
         <div id="mainContentSection">
-          {/* <FragmentRender
+          <FragmentRender
             fragments={projectData.scFragments}
             locale={locale}
             excludeH1={true} // Exclude H1 as it's already rendered in the Heading component
-          /> */}
+          />
         </div>
       </div>
       {/* {articlesData.length !== 0 ? (
@@ -293,7 +284,7 @@ export const getStaticProps = async ({ locale, params }) => {
   ).then((res) => res.json());
 
   const { data: allProjectsData } = await fetch(
-    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclAllProjectsV1%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
+    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclAllProjectsV2%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
   ).then((res) => res.json());
 
   // Fetch translation dictionary
