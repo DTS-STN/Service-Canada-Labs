@@ -469,13 +469,13 @@ export const getStaticProps = async ({ locale }) => {
   ).then((res) => res.json());
 
   // Fetch projects/experiments data
-  const { data: experimentsData } = await aemServiceInstance.getFragment(
-    "projectQuery"
-  );
+  const { data: experimentsData } = await fetch(
+    `${process.env.AEM_BASE_URL}/getSclAllProjectsV2%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
+  ).then((res) => res.json());
 
   // Fetch updates data for all projects
   const { data: updatesData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV1`
+    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV2%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
   ).then((res) => res.json());
 
   // Fetch translation dictionary

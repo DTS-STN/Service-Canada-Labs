@@ -17,7 +17,6 @@ export default function ArticlePage({ key, ...props }) {
   // State management for page content and translations
   const [pageData] = useState(props.pageData); // Individual article data from AEM
   const [dictionary] = useState(props.dictionary); // Translation dictionary for UI elements
-  const projectData = props.projectData; // Parent project information
 
   // Initialize Adobe Analytics tracking
   useEffect(() => {
@@ -71,14 +70,14 @@ export default function ArticlePage({ key, ...props }) {
               projectName={
                 // Bilingual project name
                 props.locale === "en"
-                  ? pageData.scLabProject.scTermEn
-                  : pageData.scLabProject.scTermFr
+                  ? pageData.scLabProject.scTitleEn
+                  : pageData.scLabProject.scTitleFr
               }
               // Link to parent project page
               projectHref={
                 props.locale === "en"
-                  ? pageData.scLabProject.scDestinationURLEn
-                  : pageData.scLabProject.scDestinationURLFr
+                  ? pageData.scLabProject.scPageNameEn
+                  : pageData.scLabProject.scPageNameFr
               }
               // Posted date label and value
               postedOnLabel={`${getDictionaryTerm(
@@ -117,7 +116,7 @@ export default function ArticlePage({ key, ...props }) {
             // Construct bilingual section heading
             heading={
               props.locale === "en"
-                ? `${projectData.scTitleEn} ${getDictionaryTerm(
+                ? `${pageData.scLabProject.scTitleEn} ${getDictionaryTerm(
                     props.dictionary,
                     "PROJECT-UPDATES",
                     props.locale
@@ -126,7 +125,7 @@ export default function ArticlePage({ key, ...props }) {
                     props.dictionary,
                     "PROJECT-UPDATES",
                     props.locale
-                  )} ${projectData.scTitleFr}`
+                  )} ${pageData.scLabProject.scTitleFr}`
             }
             // "See all updates" link label
             linkLabel={`${getDictionaryTerm(
@@ -145,7 +144,7 @@ export default function ArticlePage({ key, ...props }) {
 
         {/* Parent Project Information Section */}
         <ExploreProjects
-          projects={[projectData]} // Show only the parent project
+          projects={[pageData.scLabProject]} // Show only the parent project
           heading={getDictionaryTerm(
             dictionary,
             "EXPLORE-THE-PROJECT",
@@ -168,7 +167,7 @@ export async function getStaticPaths() {
   const projectIdLabel = "projectId";
   // Fetch all projects aarticles from AEM
   const { data: updatesData } = await fetch(
-    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclAllUpdatesV1`
+    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV2%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
   ).then((res) => res.json());
 
   // Generate paths array for all articles in both languages
@@ -176,8 +175,6 @@ export async function getStaticPaths() {
     [articleIdLabel, projectIdLabel],
     updatesData.sclabsPageV1List.items
   );
-
-  console.log(paths);
 
   return {
     paths,
@@ -191,15 +188,12 @@ export async function getStaticPaths() {
  * @param {Object} context - Contains locale and URL parameters
  */
 export const getStaticProps = async ({ locale, params }) => {
-  const idLabel = "articleId";
+  const articleIdLabel = "articleId";
+  const projectIdLabel = "projectId";
   // Fetch all articles data from AEM
-  const { data: updatesData } = await aemServiceInstance.getFragment(
-    "benefitsNavigatorArticlesQuery"
-  );
-  // Fetch parent project data from AEM
-  const { data: projectData } = await aemServiceInstance.getFragment(
-    "benefitsNavigatorQuery"
-  );
+  const { data: updatesData } = await fetch(
+    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV2%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
+  ).then((res) => res.json());
   // Fetch translation dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
     "dictionaryQuery"
@@ -211,8 +205,12 @@ export const getStaticProps = async ({ locale, params }) => {
     return (
       (locale === "en" ? page.scPageNameEn : page.scPageNameFr)
         .split("/")
-        .at(-1) === params[idLabel]
+        .at(-1) === params[articleIdLabel]
     );
+  });
+
+  const otherUpdatesForPage = pages.filter((page) => {
+    return page.scLabProject.scId === pageData[0].scLabProject.scId;
   });
 
   // Return 404 response if article not found
@@ -225,11 +223,10 @@ export const getStaticProps = async ({ locale, params }) => {
   // Return props for page rendering
   return {
     props: {
-      key: params[idLabel], // Unique key for React
+      key: params[articleIdLabel], // Unique key for React
       locale: locale, // Current language
       pageData: pageData[0], // Article content
-      updatesData: updatesData.sclabsPageV1List.items, // All updates for filtering
-      projectData: projectData.sclabsPageV1ByPath.item, // Parent project data
+      updatesData: otherUpdatesForPage, // All updates for filtering
       dictionary: dictionary.dictionaryV1List.items, // Translation dictionary
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null, // Analytics configuration
       ...(await serverSideTranslations(locale, ["common", "vc"])), // Load translations

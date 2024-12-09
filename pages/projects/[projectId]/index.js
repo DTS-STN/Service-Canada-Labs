@@ -69,7 +69,7 @@ export default function ProjectPage({
     >
       <PageHead pageData={projectData} locale={locale} />
       {/* Main Content Container */}
-      <div className="layout-container mb-24">
+      <div className="layout-container mb-12">
         {/* Main Content Section with ARIA labelledby */}
         <section aria-labelledby="pageMainTitle">
           {/* Two-column layout for desktop, single column for mobile */}
@@ -175,16 +175,19 @@ export default function ProjectPage({
                     : filteredDictionary[3].scTermFr
                 }
                 dateStarted={projectData.scDateStarted}
-                definition={locale === "en" ? "definition EN" : "definition FR"}
-                information={
-                  locale === "en"
-                    ? stageDictionary.en[projectData.scLabProjectStage]
-                    : stageDictionary.fr[projectData.scLabProjectStage]
-                }
                 stage={
                   locale === "en"
-                    ? stageDictionary.en[projectData.scLabProjectStage]
-                    : stageDictionary.fr[projectData.scLabProjectStage]
+                    ? projectData.scLabProjectStagev2.scTermEn
+                    : projectData.scLabProjectStagev2.scTermFr
+                }
+                definition={
+                  <TextRender
+                    data={
+                      locale === "en"
+                        ? projectData.scLabProjectStagev2.scDescriptionEn.json
+                        : projectData.scLabProjectStagev2.scDescriptionFr.json
+                    }
+                  />
                 }
                 summary={
                   <TextRender
@@ -199,16 +202,18 @@ export default function ProjectPage({
             </div>
           </div>
         </section>
-        <div id="mainContentSection">
-          <FragmentRender
-            fragments={projectData.scFragments}
-            locale={locale}
-            excludeH1={true} // Exclude H1 as it's already rendered in the Heading component
-          />
-        </div>
       </div>
-      {/* {articlesData.length !== 0 ? (
+      <div id="mainContentSection">
+        <FragmentRender
+          fragments={projectData.scFragments}
+          locale={locale}
+          excludeH1={true} // Exclude H1 as it's already rendered in the Heading component
+        />
+      </div>
+      {articlesData.length !== 0 ? (
         <ExploreUpdates
+          isOnProjectPage={true}
+          projectName={projectData.scTitleEn}
           locale={locale}
           updatesData={sortUpdatesByDate(articlesData)}
           dictionary={dictionary}
@@ -219,11 +224,9 @@ export default function ProjectPage({
                   "PROJECT-UPDATES",
                   locale
                 )}`
-              : `${getDictionaryTerm(
-                  dictionary,
-                  "PROJECT-UPDATES",
-                  locale
-                )} ${projectData.scTitleFr}`
+              : `${getDictionaryTerm(dictionary, "PROJECT-UPDATES", locale)} ${
+                  projectData.scTitleFr
+                }`
           }
           linkLabel={`${getDictionaryTerm(
             dictionary,
@@ -236,7 +239,7 @@ export default function ProjectPage({
               : `/fr/mises-a-jour?projet=${projectData.scTitleFr}`
           }
         />
-      ) : null} */}
+      ) : null}
       <ExploreProjects
         heading={getDictionaryTerm(
           dictionary,
@@ -259,7 +262,7 @@ export async function getStaticPaths() {
   const idLabel = "projectId";
   // Fetch main page content from AEM
   const { data } = await fetch(
-    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclProjectV1%3Bproject%3DBENEFITS-NAVIGATOR-OVERVIEW-V2%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
+    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclAllProjectsV2%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
   ).then((res) => res.json());
 
   // Generate paths array for all projects in both languages
@@ -278,10 +281,6 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({ locale, params }) => {
   const idLabel = "projectId";
   // Fetch main page content from AEM
-  // TODO: If AEM returns error, pass error to page for debugging
-  const { data: projectsData } = await fetch(
-    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclProjectV1%3Bproject%3DBENEFITS-NAVIGATOR-OVERVIEW%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
-  ).then((res) => res.json());
 
   const { data: allProjectsData } = await fetch(
     `https://www.canada.ca/graphql/execute.json/decd-endc/getSclAllProjectsV2%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
@@ -292,7 +291,7 @@ export const getStaticProps = async ({ locale, params }) => {
     "dictionaryQuery"
   );
 
-  const pages = projectsData.sclabsPageV1List.items;
+  const pages = allProjectsData.sclabsPageV1List.items;
 
   // Find the specific article based on URL parameter
   const pageData = pages.filter((page) => {

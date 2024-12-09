@@ -10,7 +10,7 @@ export default function Button({ id, buttonType, href, text }) {
       ? "secondary"
       : "primary";
   return (
-    <div className="layout-container grid grid-cols-12 gap-x-6 my-12">
+    <div className="layout-container grid grid-cols-12 gap-x-6 mt-12">
       <ActionButton
         id={id}
         style={style}

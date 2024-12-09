@@ -45,7 +45,7 @@ ProjectInfo.propTypes = {
   dateStarted: PropTypes.string,
   dateEnded: PropTypes.string,
   stage: PropTypes.string,
-  summary: PropTypes.string,
+  summary: PropTypes.object,
   info: PropTypes.string,
   locale: PropTypes.string,
 };
