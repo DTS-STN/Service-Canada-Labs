@@ -22,7 +22,7 @@ import { SurveyCTA } from "../components/molecules/SurveyCTA";
  */
 export default function Home(props) {
   // Extract content data from props
-  const pageData = props.pageData?.item; // Core page content from AEM
+  const pageData = props.pageData; // Core page content from AEM
   const experimentsData = props.experimentsData; // List of all projects/experiments
   const dictionary = props.dictionary; // Translation dictionary for UI elements
   const updatesData = props.updatesData; // Recent updates for projects
@@ -465,17 +465,17 @@ export default function Home(props) {
 export const getStaticProps = async ({ locale }) => {
   // Fetch main page content from AEM
   const { data: pageData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclHomeV2`
+    `${process.env.AEM_BASE_URL}/getSclHomeV3${process.env.AEM_CONTENT_FOLDER}`
   ).then((res) => res.json());
 
   // Fetch projects/experiments data
-  const { data: experimentsData } = await aemServiceInstance.getFragment(
-    "projectQuery"
-  );
+  const { data: experimentsData } = await fetch(
+    `${process.env.AEM_BASE_URL}/getSclAllProjectsV2${process.env.AEM_CONTENT_FOLDER}`
+  ).then((res) => res.json());
 
   // Fetch updates data for all projects
   const { data: updatesData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV1`
+    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV2${process.env.AEM_CONTENT_FOLDER}`
   ).then((res) => res.json());
 
   // Fetch translation dictionary
@@ -488,7 +488,7 @@ export const getStaticProps = async ({ locale }) => {
     props: {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
-      pageData: pageData.sclabsPageV1ByPath,
+      pageData: pageData.sclabsPageV1List.items[0],
       experimentsData: experimentsData.sclabsPageV1List.items,
       updatesData: updatesData.sclabsPageV1List.items,
       dictionary: dictionary.dictionaryV1List.items,

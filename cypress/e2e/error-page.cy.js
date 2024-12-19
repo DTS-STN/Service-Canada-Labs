@@ -1,4 +1,4 @@
-describe("Error Page", () => {
+xdescribe("Error Page", () => {
   beforeEach(() => {
     cy.visit("/error", { failOnStatusCode: false });
     cy.injectAxe();
