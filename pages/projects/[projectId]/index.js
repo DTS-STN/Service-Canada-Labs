@@ -1,13 +1,10 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../../../components/organisms/Layout";
 import { useEffect, useState } from "react";
-import aemServiceInstance from "../../../services/aemServiceInstance";
 import { ProjectInfo } from "../../../components/atoms/ProjectInfo";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import { Heading } from "../../../components/molecules/Heading";
-import { Collapse } from "../../../components/molecules/Collapse";
 import Image from "next/image";
-import stageDictionary from "../../../lib/utils/stageDictionary";
 import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 import TextRender from "../../../components/text_node_renderer/TextRender";
 import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
@@ -258,11 +255,10 @@ export default function ProjectPage({
  * Similar structure to article pages for consistency
  */
 export async function getStaticPaths() {
-  // const { data } = await aemServiceInstance.getFragment("allProjectsQuery");
   const idLabel = "projectId";
   // Fetch main page content from AEM
   const { data } = await fetch(
-    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclAllProjectsV2%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
+    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclAllProjectsV2${process.env.AEM_CONTENT_FOLDER}`
   ).then((res) => res.json());
 
   // Generate paths array for all projects in both languages
@@ -283,13 +279,13 @@ export const getStaticProps = async ({ locale, params }) => {
   // Fetch main page content from AEM
 
   const { data: allProjectsData } = await fetch(
-    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclAllProjectsV2%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
+    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclAllProjectsV2${process.env.AEM_CONTENT_FOLDER}`
   ).then((res) => res.json());
 
   // Fetch translation dictionary
-  const { data: dictionary } = await aemServiceInstance.getFragment(
-    "dictionaryQuery"
-  );
+  const { data: dictionary } = await fetch(
+    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclDictionaryV1`
+  ).then((res) => res.json());
 
   const pages = allProjectsData.sclabsPageV1List.items;
 

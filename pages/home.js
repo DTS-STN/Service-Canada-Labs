@@ -465,17 +465,17 @@ export default function Home(props) {
 export const getStaticProps = async ({ locale }) => {
   // Fetch main page content from AEM
   const { data: pageData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclHomeV3%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
+    `${process.env.AEM_BASE_URL}/getSclHomeV3${process.env.AEM_CONTENT_FOLDER}`
   ).then((res) => res.json());
 
   // Fetch projects/experiments data
   const { data: experimentsData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclAllProjectsV2%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
+    `${process.env.AEM_BASE_URL}/getSclAllProjectsV2${process.env.AEM_CONTENT_FOLDER}`
   ).then((res) => res.json());
 
   // Fetch updates data for all projects
   const { data: updatesData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV2%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
+    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV2${process.env.AEM_CONTENT_FOLDER}`
   ).then((res) => res.json());
 
   // Fetch translation dictionary

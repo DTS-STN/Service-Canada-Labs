@@ -167,7 +167,7 @@ export async function getStaticPaths() {
   const projectIdLabel = "projectId";
   // Fetch all projects aarticles from AEM
   const { data: updatesData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV2%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
+    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV2${process.env.AEM_CONTENT_FOLDER}`
   ).then((res) => res.json());
 
   // Generate paths array for all articles in both languages
@@ -192,12 +192,12 @@ export const getStaticProps = async ({ locale, params }) => {
   const projectIdLabel = "projectId";
   // Fetch all articles data from AEM
   const { data: updatesData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV2%3BfolderName%3D/content/dam/decd-endc/content-fragments/preview-sclabs`
+    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV2${process.env.AEM_CONTENT_FOLDER}`
   ).then((res) => res.json());
   // Fetch translation dictionary
-  const { data: dictionary } = await aemServiceInstance.getFragment(
-    "dictionaryQuery"
-  );
+  const { data: dictionary } = await fetch(
+    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclDictionaryV1`
+  ).then((res) => res.json());
 
   const pages = updatesData.sclabsPageV1List.items;
   // Find the specific article based on URL parameter
