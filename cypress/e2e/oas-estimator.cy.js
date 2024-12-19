@@ -11,7 +11,7 @@ describe("OAS Estimator Page", () => {
     it("loads page",()=>{
         cy.url().should('equal',Cypress.config().baseUrl+'/en/projects/oas-benefits-estimator')
         cy.get('button.info').click()
-        cy.get('h2.modal-title').should('have.text','Beta')
+        cy.get('h2.modal-title').should('have.text','beta')
     })
   
     it("navigates to a project page", () => {

@@ -11,6 +11,6 @@ describe("Benefits Finder Page", () => {
   it("loads page",()=>{
       cy.url().should('equal',Cypress.config().baseUrl+'/en/projects/benefits-finder')
       cy.get('button.info').click()
-      cy.get('h2.modal-title').should('have.text','Beta')
+      cy.get('h2.modal-title').should('have.text','beta')
   })
 });

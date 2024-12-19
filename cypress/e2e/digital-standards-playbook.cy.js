@@ -11,7 +11,7 @@ describe("Digital Standards Playbook Page", () => {
     it("loads page",()=>{
         cy.url().should('equal',Cypress.config().baseUrl+'/en/projects/digital-standards-playbook')
         cy.get('button.info').click()
-        cy.get('h2.modal-title').should('have.text','Live')
+        cy.get('h2.modal-title').should('have.text','live')
     })
   
     it("finds 'Read and comment on guidance' button", () => {

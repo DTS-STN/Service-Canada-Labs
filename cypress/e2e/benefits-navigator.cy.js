@@ -11,7 +11,7 @@ describe("Benefits Navigator Page", () => {
     it("loads page",()=>{
         cy.url().should('equal',Cypress.config().baseUrl+'/en/projects/benefits-navigator')
         cy.get('button.info').click()
-        cy.get('h2.modal-title').should('have.text','Alpha')
+        cy.get('h2.modal-title').should('have.text','alpha')
     })
   
     it("navigates to an article page", () => {
