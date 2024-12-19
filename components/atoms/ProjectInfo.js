@@ -35,7 +35,7 @@ export function ProjectInfo(props) {
         <strong className="font-body text-mobilebody lg:text-p col-span-1 col-start-1">
           {props.termSummary}
         </strong>
-        <p className="col-span-2">{props.summary}</p>
+        <div className="col-span-2">{props.summary}</div>
       </div>
     </>
   );
@@ -45,7 +45,7 @@ ProjectInfo.propTypes = {
   dateStarted: PropTypes.string,
   dateEnded: PropTypes.string,
   stage: PropTypes.string,
-  summary: PropTypes.string,
+  summary: PropTypes.object,
   info: PropTypes.string,
   locale: PropTypes.string,
 };

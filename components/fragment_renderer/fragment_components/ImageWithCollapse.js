@@ -25,9 +25,9 @@ export default function ImageWithCollapse({
         quality={100}
       />
       {content ? (
-        <p className="grid row-start-2 col-span-12 lg:col-span-10 justify-around mb-8">
+        <div className="grid row-start-2 col-span-12 lg:col-span-10 justify-around mb-8">
           {content}
-        </p>
+        </div>
       ) : (
         ""
       )}
