@@ -45,8 +45,8 @@ export default function UpdatesPage(props) {
         id: option.scLabProject.scId,
         label:
           props.locale === "en"
-            ? option.scLabProject.scTermEn
-            : option.scLabProject.scTermFr,
+            ? option.scLabProject.scTitleEn
+            : option.scLabProject.scTitleFr,
         value: option.scLabProject.scId,
       };
     });
