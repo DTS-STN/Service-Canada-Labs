@@ -28,58 +28,6 @@ const REWRITES = [
     source: "/projets/:slug/:slug",
     destination: "/projects/:slug/:slug",
   },
-  // {
-  //   source: "/projets/estimateur-prestations-sv/:slug",
-  //   destination: "/projects/oas-benefits-estimator/:slug",
-  // },
-  // {
-  //   source: "/projets/tableau-de-bord",
-  //   destination: "/projects/dashboard",
-  // },
-  // {
-  //   source: "/projets/tableau-de-bord/:slug",
-  //   destination: "/projects/dashboard/:slug",
-  // },
-  // {
-  //   source: "/projets/navigateur-prestations",
-  //   destination: "/projects/benefits-navigator",
-  // },
-  // {
-  //   source: "/projets/navigateur-prestations/:slug",
-  //   destination: "/projects/benefits-navigator/:slug",
-  // },
-  // {
-  //   source: "/projets/guide-normes-numeriques",
-  //   destination: "/projects/digital-standards-playbook",
-  // },
-  // {
-  //   source: "/projets/guide-normes-numeriques/:slug",
-  //   destination: "/projects/digital-standards-playbook/:slug",
-  // },
-  // {
-  //   source: "/projets/faciliter-obtention-prestations",
-  //   destination: "/projects/making-easier-get-benefits",
-  // },
-  // {
-  //   source: "/projets/faciliter-obtention-prestations/:slug",
-  //   destination: "/projects/making-easier-get-benefits/:slug",
-  // },
-  // {
-  //   source: "/projets/chercheur-prestations",
-  //   destination: "/projects/benefits-finder",
-  // },
-  // {
-  //   source: "/projets/chercheur-prestations/:slug",
-  //   destination: "/projects/benefits-finder/:slug",
-  // },
-  // {
-  //   source: "/projets/transformer-assurance-emploi-peuples-autochtones",
-  //   destination: "/projects/transforming-ei-indigenous-peoples",
-  // },
-  // {
-  //   source: "/projets/transformer-assurance-emploi-peuples-autochtones/:slug",
-  //   destination: "/projects/transforming-ei-indigenous-peoples/:slug",
-  // },
   // Updates page rewrite
   {
     source: "/mises-a-jour",
