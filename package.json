@@ -9,7 +9,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@lottiefiles/react-lottie-player": "^3.5.3",
-    "@types/react": "^18.3.11",
+    "@types/react": "^18.3.16",
     "cors": "^2.8.5",
     "cuid": "^2.1.8",
     "focus-trap-react": "^8.11.2",
