@@ -15,6 +15,7 @@ export default function ImageWithCollapse({
   return (
     <div className="layout-container grid grid-cols-12 gap-x-6 my-12">
       <Image
+        unoptimized={true}
         id={id}
         src={src}
         alt={alt}

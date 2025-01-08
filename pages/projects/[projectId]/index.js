@@ -115,6 +115,7 @@ export default function ProjectPage({
               <div className="flex justify-center">
                 <div className="object-fill max-w-350px">
                   <Image
+                    unoptimized={true}
                     src={
                       locale === "en"
                         ? projectData.scSocialMediaImageEn._publishUrl
