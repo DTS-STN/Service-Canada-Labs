@@ -17,6 +17,7 @@ export default function ImageVerticalLineContent({
       <div className="grid grid-cols-12 gap-x-6 mb-9">
         <div className="mb-6 object-fill col-span-12 row-start-1 xl:row-start-1 xl:col-span-8">
           <Image
+            unoptimized={true}
             src={src}
             alt={alt}
             height={height}

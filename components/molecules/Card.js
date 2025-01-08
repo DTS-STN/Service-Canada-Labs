@@ -30,6 +30,7 @@ export const Card = (props) => {
         {props.showImage ? (
           <div className="h-[208px] flex justify-center">
             <Image
+              unoptimized={true}
               src={props.imgSrc}
               alt={props.imgAlt}
               className="object-contain"

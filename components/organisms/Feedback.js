@@ -46,6 +46,7 @@ function Feedback() {
       {isSubmitted && (
         <div className="flex gap-5 items-center">
           <Image
+            unoptimized={true}
             src="/success_img.svg"
             alt=""
             width={25}
