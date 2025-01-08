@@ -4782,13 +4782,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.3.11":
-  version: 18.3.12
-  resolution: "@types/react@npm:18.3.12"
+"@types/react@npm:^18.3.16":
+  version: 18.3.18
+  resolution: "@types/react@npm:18.3.18"
   dependencies:
     "@types/prop-types": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: c9bbdfeacd5347d2240e0d2cb5336bc57dbc1b9ff557b6c4024b49df83419e4955553518169d3736039f1b62608e15b35762a6c03d49bd86e33add4b43b19033
+  checksum: 7fdd8b853e0d291d4138133f93f8d5c333da918e5804afcea61a923aab4bdfc9bb15eb21a5640959b452972b8715ddf10ffb12b3bd071898b9e37738636463f2
   languageName: node
   linkType: hard
 
@@ -14419,7 +14419,7 @@ __metadata:
     "@testing-library/jest-dom": "npm:^5.17.0"
     "@testing-library/react": "npm:^14.3.1"
     "@testing-library/user-event": "npm:^14.4.3"
-    "@types/react": "npm:^18.3.11"
+    "@types/react": "npm:^18.3.16"
     autoprefixer: "npm:^10.4.1"
     axe-core: "npm:^4.3.1"
     cors: "npm:^2.8.5"
