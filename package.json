@@ -42,7 +42,7 @@
     "lint:test": "prettier --check \"pages/**/*.{js,jsx,ts,tsx,json,md}\" --check \"components/**/*.{js,jsx,ts,tsx,json,md}\" --check \"lib/**/*.{js,jsx,ts,tsx,json,md}\" --check \"tailwind.config.js\" --check \"middlewares/**/*.{js,jsx,ts,tsx,json,md}\"",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test:ci": "jest --ci --reporters=default --reporters=jest-junit --coverage --coverageReporters=cobertura",
+    "test:ci": "jest --ci --reporter=jest-junit --coverage --coverageReporters=cobertura",
     "test:unit": "jest --forceExit --detectOpenHandles",
     "test:a11y": "cypress run --spec \"cypress/e2e/a11y/**/*.cy.js\"",
     "test:a11y:open": "cypress open --config-file=cypress.config.js --e2e \"cypress/e2e/a11y/**/*.cy.js\"",

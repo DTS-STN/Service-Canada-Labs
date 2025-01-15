@@ -88,13 +88,6 @@ stages:
               artifact: "cypress-videos"
             condition: always()
 
-          - task: PublishPipelineArtifact@1
-            displayName: "Store Jest Coverage"
-            inputs:
-              targetPath: "coverage"
-              artifact: "jest-coverage"
-            condition: always()
-
   - stage: Build
     displayName: Build and Push to ACR
     jobs:
