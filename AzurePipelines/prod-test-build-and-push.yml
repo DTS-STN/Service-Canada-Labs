@@ -1,0 +1,148 @@
+name: $(Date:yyyyMMdd)
+
+trigger:
+  tags:
+    include:
+      - v*
+
+pr: none
+
+variables:
+  azureContainerRegistry.repository: "servicecanadalabs"
+  azureContainerRegistry.name: "DTS Shared Container Repo 10/11/2023"
+  azureContainerRegistry.domain: "dtsshared.azurecr.io"
+  ADO_BUILD: $(Build.BuildId)
+  BUILD_DATE: $(Build.BuildNumber)
+  tag: "ADO-$(ADO_BUILD)"
+  vmImageName: "ubuntu-latest"
+  GIT_SHA: $(Build.SourceVersion)
+
+stages:
+  - stage: Test
+    displayName: Run Regression Tests
+    jobs:
+      - job: UnitAndIntegrationAndA11yTests
+        displayName: Run Jest, Cypress and A11y Tests
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: "18.x"
+            displayName: "Install Node.js"
+
+          # Enable corepack for Yarn
+          - script: |
+              corepack enable
+            displayName: "Enable Corepack"
+
+          - script: |
+              yarn install --immutable
+            displayName: "Install Dependencies"
+
+          - script: |
+              yarn test:ci
+            displayName: "Run Jest Tests"
+
+          - script: |
+              yarn cypress:run --retries 2
+            displayName: "Run Cypress Tests"
+
+          - script: |
+              yarn test:a11y
+            displayName: "Run A11y Tests"
+
+          - task: PublishPipelineArtifact@1
+            displayName: "Store A11y Test Results"
+            inputs:
+              targetPath: "cypress/a11y-results"
+              artifact: "a11y-test-results"
+            condition: always()
+
+          - task: PublishTestResults@2
+            inputs:
+              testResultsFormat: "JUnit"
+              testResultsFiles: "**/junit.xml"
+              mergeTestResults: true
+              testRunTitle: "Regression Tests"
+            condition: always()
+
+          - task: PublishCodeCoverageResults@1
+            inputs:
+              codeCoverageTool: "Cobertura"
+              summaryFileLocation: "**/coverage/cobertura-coverage.xml"
+              reportDirectory: "**/coverage"
+            condition: always()
+
+          - task: PublishPipelineArtifact@1
+            displayName: "Store Cypress Screenshots"
+            inputs:
+              targetPath: "cypress/screenshots"
+              artifact: "cypress-screenshots"
+            condition: always()
+
+          - task: PublishPipelineArtifact@1
+            displayName: "Store Cypress Videos"
+            inputs:
+              targetPath: "cypress/videos"
+              artifact: "cypress-videos"
+            condition: always()
+
+          - task: PublishPipelineArtifact@1
+            displayName: "Store Jest Coverage"
+            inputs:
+              targetPath: "coverage"
+              artifact: "jest-coverage"
+            condition: always()
+
+  - stage: Build
+    displayName: Build and Push to ACR
+    jobs:
+      - job: Build
+        displayName: Build and Push Container
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+          - task: Docker@2
+            inputs:
+              containerRegistry: "$(azureContainerRegistry.name)"
+              repository: "$(azureContainerRegistry.repository)"
+              command: "login"
+          - script: "docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):latest"
+            displayName: Pull latest for layer caching
+            continueOnError: true
+          - task: Docker@2
+            inputs:
+              containerRegistry: "$(azureContainerRegistry.name)"
+              repository: "$(azureContainerRegistry.repository)"
+              command: "build"
+              Dockerfile: "./Dockerfile"
+              tags: |
+                $(tag)
+                latest
+                production-release
+              arguments: |
+                --pull 
+                --build-arg NEXT_PUBLIC_BUILD_ID=$(ADO_BUILD) 
+                --build-arg NEXT_PUBLIC_BUILD_DATE=$(BUILD_DATE) 
+                --build-arg ADOBE_ANALYTICS_URL=$(ADOBE_ANALYTICS_URL) 
+                --build-arg NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL=$(NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL) 
+                --build-arg THANK_YOU_EMAIL=$(THANK_YOU_EMAIL) 
+                --build-arg AEM_GRAPHQL_ENDPOINT=$(AEM_GRAPHQL_ENDPOINT)
+                --build-arg AEM_BASE_URL=$(AEM_BASE_URL)
+                --build-arg AEM_CONTENT_FOLDER=$(AEM_CONTENT_FOLDER)
+                --build-arg REVALIDATION_TOKEN=$(REVALIDATION_TOKEN) 
+                --build-arg GIT_SHA=$(GIT_SHA)
+                --build-arg ENVIRONMENT=$(ENVIRONMENT)
+                --build-arg NOTIFY_API_KEY=$(NOTIFY_API_KEY)
+                --build-arg NOTIFY_FEEDBACK_TEMPLATE_ID=$(NOTIFY_FEEDBACK_TEMPLATE_ID)
+
+          - task: Docker@2
+            inputs:
+              containerRegistry: "$(azureContainerRegistry.name)"
+              repository: "$(azureContainerRegistry.repository)"
+              command: "push"
+              tags: |
+                $(tag)
+                latest
+                production-release
