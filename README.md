@@ -21,7 +21,7 @@ yarn dev
 
 Create and run a production build locally\*\*\*:
 
-\*\*\* Will require `AEM_GRAPHQL_ENDPOINT=https://www.canada.ca/content/_cq_graphql/decd-endc/endpoint.json`
+\*\*\* Will require `AEM_BASE_URL=https://www.canada.ca/graphql/execute.json/decd-endc` and `AEM_CONTENT_FOLDER=%3BfolderName%3D/content/dam/decd-endc/content-fragments/sclabs`
 
 ```bash
 yarn build
@@ -32,9 +32,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser.
 
 ## Configuration
 
-There is one required variable: `AEM_GRAPHQL_ENDPOINT=https://www.canada.ca/content/_cq_graphql/decd-endc/endpoint.json`
+There are two required variables: `AEM_BASE_URL=https://www.canada.ca/graphql/execute.json/decd-endc` and `AEM_CONTENT_FOLDER=%3BfolderName%3D/content/dam/decd-endc/content-fragments/sclabs`
 
-`AEM_GRAPHQL_ENDPOINT` is used to fetch the content, and for some pages (articles), the structure of the pages on the site.
+`AEM_BASE_URL` is used to fetch the content, and for some pages (articles), the structure of the pages on the site.
+
+`AEM_CONTENT_FOLDER` is used to fetch the content from a content folder.
 
 ## Enabling Submit Feedback
 

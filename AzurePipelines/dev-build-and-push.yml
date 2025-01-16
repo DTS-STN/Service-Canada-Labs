@@ -47,7 +47,6 @@ stages:
                 --build-arg NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL=$(NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL) 
                 --build-arg ISR_ENABLED=$(ISR_ENABLED) 
                 --build-arg THANK_YOU_EMAIL=$(THANK_YOU_EMAIL) 
-                --build-arg AEM_GRAPHQL_ENDPOINT=$(AEM_GRAPHQL_ENDPOINT) 
                 --build-arg AEM_BASE_URL=$(AEM_BASE_URL)
                 --build-arg AEM_CONTENT_FOLDER=$(AEM_CONTENT_FOLDER)
                 --build-arg REVALIDATION_TOKEN=$(REVALIDATION_TOKEN) 
