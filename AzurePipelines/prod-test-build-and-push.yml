@@ -18,76 +18,6 @@ variables:
   GIT_SHA: $(Build.SourceVersion)
 
 stages:
-  - stage: Test
-    displayName: Run Regression Tests
-    jobs:
-      - job: UnitAndIntegrationAndA11yTests
-        displayName: Run Jest, Cypress and A11y Tests
-        pool:
-          vmImage: $(vmImageName)
-        steps:
-          - task: NodeTool@0
-            inputs:
-              versionSpec: "18.x"
-            displayName: "Install Node.js"
-
-          # Enable corepack for Yarn
-          - script: |
-              corepack enable
-            displayName: "Enable Corepack"
-
-          - script: |
-              yarn install --immutable
-            displayName: "Install Dependencies"
-
-          - script: |
-              yarn test:ci
-            displayName: "Run Jest Tests"
-
-          - script: |
-              yarn cypress:run
-            displayName: "Run Cypress Tests"
-
-          - script: |
-              yarn test:a11y
-            displayName: "Run A11y Tests"
-
-          - task: PublishPipelineArtifact@1
-            displayName: "Store A11y Test Results"
-            inputs:
-              targetPath: "cypress/a11y-results"
-              artifact: "a11y-test-results"
-            condition: always()
-
-          - task: PublishTestResults@2
-            inputs:
-              testResultsFormat: "JUnit"
-              testResultsFiles: "**/junit.xml"
-              mergeTestResults: true
-              testRunTitle: "Regression Tests"
-            condition: always()
-
-          - task: PublishCodeCoverageResults@1
-            inputs:
-              codeCoverageTool: "Cobertura"
-              summaryFileLocation: "**/coverage/cobertura-coverage.xml"
-              reportDirectory: "**/coverage"
-            condition: always()
-
-          - task: PublishPipelineArtifact@1
-            displayName: "Store Cypress Screenshots"
-            inputs:
-              targetPath: "cypress/screenshots"
-              artifact: "cypress-screenshots"
-            condition: always()
-
-          - task: PublishPipelineArtifact@1
-            displayName: "Store Cypress Videos"
-            inputs:
-              targetPath: "cypress/videos"
-              artifact: "cypress-videos"
-            condition: always()
-
   - stage: Build
     displayName: Build Container
     dependsOn: Test
@@ -130,6 +60,92 @@ stages:
                 --build-arg ENVIRONMENT=$(ENVIRONMENT)
                 --build-arg NOTIFY_API_KEY=$(NOTIFY_API_KEY)
                 --build-arg NOTIFY_FEEDBACK_TEMPLATE_ID=$(NOTIFY_FEEDBACK_TEMPLATE_ID)
+
+  - stage: Test
+    displayName: Run Regression Tests
+    jobs:
+      - job: UnitAndIntegrationAndA11yTests
+        displayName: Run Jest, Cypress and A11y Tests
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: "18.x"
+            displayName: "Install Node.js"
+
+          # Enable corepack for Yarn
+          - script: |
+              corepack enable
+            displayName: "Enable Corepack"
+
+          - script: |
+              yarn install --immutable
+            displayName: "Install Dependencies"
+
+          - script: |
+              yarn test:ci
+            displayName: "Run Jest Tests"
+
+          # Start the container before E2E tests
+          - script: |
+              docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(tag)
+              docker run -d -p 3000:3000 --name app $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(tag)
+              # Wait for the application to be ready
+              echo "Waiting for application to be ready..."
+              timeout 60 bash -c 'while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:3000)" != "200" ]]; do sleep 5; done' || false
+            displayName: "Start Application Container"
+
+          - script: |
+              yarn cypress:run
+            displayName: "Run Cypress Tests"
+
+          - script: |
+              yarn test:a11y
+            displayName: "Run A11y Tests"
+
+          # Stop the container after tests
+          - script: |
+              docker stop app
+              docker rm app
+            displayName: "Stop Application Container"
+            condition: always()
+
+          - task: PublishPipelineArtifact@1
+            displayName: "Store A11y Test Results"
+            inputs:
+              targetPath: "cypress/a11y-results"
+              artifact: "a11y-test-results"
+            condition: always()
+
+          - task: PublishTestResults@2
+            inputs:
+              testResultsFormat: "JUnit"
+              testResultsFiles: "**/junit.xml"
+              mergeTestResults: true
+              testRunTitle: "Regression Tests"
+            condition: always()
+
+          - task: PublishCodeCoverageResults@1
+            inputs:
+              codeCoverageTool: "Cobertura"
+              summaryFileLocation: "**/coverage/cobertura-coverage.xml"
+              reportDirectory: "**/coverage"
+            condition: always()
+
+          - task: PublishPipelineArtifact@1
+            displayName: "Store Cypress Screenshots"
+            inputs:
+              targetPath: "cypress/screenshots"
+              artifact: "cypress-screenshots"
+            condition: always()
+
+          - task: PublishPipelineArtifact@1
+            displayName: "Store Cypress Videos"
+            inputs:
+              targetPath: "cypress/videos"
+              artifact: "cypress-videos"
+            condition: always()
 
   # - stage: SecurityTest
   #   displayName: Security Testing
