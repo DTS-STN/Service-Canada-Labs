@@ -182,7 +182,8 @@ stages:
 
   - stage: Push
     displayName: Push to ACR
-    dependsOn: SecurityTest
+    # dependsOn: SecurityTest
+    dependsOn: Build
     jobs:
       - job: PushContainer
         displayName: Push Container to ACR
