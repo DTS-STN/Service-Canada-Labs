@@ -50,7 +50,9 @@
     "cypress:open": "cypress open --config-file=cypress.config.js",
     "cypress:run": "cypress run --config-file=cypress.config.js",
     "prepare": "husky",
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "security:baseline": "zap-baseline.py -t http://localhost:3000 -c zap.conf",
+    "security:full": "zap-full-scan.py -t http://localhost:3000 -c zap.conf"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.3.3",

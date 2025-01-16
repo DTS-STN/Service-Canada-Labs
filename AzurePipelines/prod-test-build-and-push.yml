@@ -88,6 +88,55 @@ stages:
               artifact: "cypress-videos"
             condition: always()
 
+  - stage: SecurityTest
+    displayName: Security Testing
+    dependsOn: Build # Run after build since we need the app running
+    jobs:
+      - job: OWASPZapTest
+        displayName: OWASP ZAP Security Tests
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+          # Start the application container
+          - script: |
+              docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(tag)
+              docker run -d -p 3000:3000 $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(tag)
+            displayName: Start Application Container
+
+          # Run ZAP Baseline Scan
+          - task: owaspzap@1
+            inputs:
+              aggressivemode: false # Set to true for more thorough but slower scan
+              threshold: $(ZAP_THRESHOLD)
+              port: 3000
+              targeturl: $(ZAP_TARGET_URL)
+              scantype: "targetedScan"
+              contextpath: "$(System.DefaultWorkingDirectory)/zap"
+              reportfilename: "OWASP-ZAP-Report.html"
+              reportformat: "html"
+              enableVerifications: true
+              scantimeout: $(ZAP_TIMEOUT)
+              failonhigh: true
+              failonmedium: false
+              scanningmode: "targeted"
+
+          # Publish ZAP test results
+          - task: PublishPipelineArtifact@1
+            displayName: "Publish ZAP Results"
+            inputs:
+              targetPath: "$(System.DefaultWorkingDirectory)/zap"
+              artifact: "zap-security-report"
+            condition: always()
+
+          # Convert ZAP results to JUnit format for better visualization
+          - task: PublishTestResults@2
+            inputs:
+              testResultsFormat: "JUnit"
+              testResultsFiles: "**/zap-report.xml"
+              mergeTestResults: true
+              testRunTitle: "OWASP ZAP Security Tests"
+            condition: always()
+
   - stage: Build
     displayName: Build and Push to ACR
     jobs:
