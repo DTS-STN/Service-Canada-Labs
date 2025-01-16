@@ -1,6 +1,6 @@
 name: Dynamic Application Security Tests
 
-on:  
+on:
   push:
     branches: [main]
 
@@ -14,12 +14,12 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Docker Build
-        run: docker build --build-arg AEM_GRAPHQL_ENDPOINT=${{secrets.AEM_GRAPHQL_ENDPOINT}} -t sc-labs .
+        run: docker build --build-arg AEM_GRAPHQL_ENDPOINT=${{secrets.AEM_GRAPHQL_ENDPOINT}} --build-arg AEM_CONTENT_FOLDER=${{secrets.AEM_CONTENT_FOLDER}} -t sc-labs .
         env:
           CI: true
           AEM_GRAPHQL_ENDPOINT: ${{secrets.AEM_GRAPHQL_ENDPOINT}}
           AEM_BASE_URL: ${{ secrets.AEM_BASE_URL }}
-
+          AEM_CONTENT_FOLDER: ${{ secrets.AEM_CONTENT_FOLDER }}
       - name: Docker run
         run: docker run -d -p 3000:3000 sc-labs
         env:
