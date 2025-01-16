@@ -45,7 +45,7 @@ stages:
             displayName: "Run Jest Tests"
 
           - script: |
-              yarn cypress:run --retries 2
+              yarn cypress:run
             displayName: "Run Cypress Tests"
 
           - script: |
