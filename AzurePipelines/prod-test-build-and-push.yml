@@ -107,15 +107,15 @@ stages:
           - task: owaspzap@1
             inputs:
               aggressivemode: false # Set to true for more thorough but slower scan
-              threshold: "Medium" # Fail on Medium or Higher vulnerabilities
+              threshold: $(ZAP_THRESHOLD)
               port: 3000
-              targeturl: "http://localhost:3000"
+              targeturl: $(ZAP_TARGET_URL)
               scantype: "targetedScan"
               contextpath: "$(System.DefaultWorkingDirectory)/zap"
               reportfilename: "OWASP-ZAP-Report.html"
               reportformat: "html"
               enableVerifications: true
-              scantimeout: "0"
+              scantimeout: $(ZAP_TIMEOUT)
               failonhigh: true
               failonmedium: false
               scanningmode: "targeted"
@@ -178,9 +178,6 @@ stages:
                 --build-arg ENVIRONMENT=$(ENVIRONMENT)
                 --build-arg NOTIFY_API_KEY=$(NOTIFY_API_KEY)
                 --build-arg NOTIFY_FEEDBACK_TEMPLATE_ID=$(NOTIFY_FEEDBACK_TEMPLATE_ID)
-                --build-arg ZAP_SCAN_LEVEL=$(ZAP_SCAN_LEVEL)
-                --build-arg ZAP_TIMEOUT=$(ZAP_TIMEOUT)
-                --build-arg ZAP_TARGET_URL=$(ZAP_TARGET_URL)
 
           - task: Docker@2
             inputs:
