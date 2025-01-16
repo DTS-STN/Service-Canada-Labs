@@ -27,3 +27,13 @@
 import "cypress-localstorage-commands";
 
 Cypress.Commands.add("setLanguage", () => cy.setLocalStorage("lang", "en"))
+
+Cypress.Commands.add('checkA11y', (context, options) => {
+  cy.checkA11y(context, options, violations => {
+    // Save violations to a JSON file
+    cy.writeFile(
+      `cypress/a11y-results/${context || 'page'}-violations.json`,
+      violations
+    )
+  })
+})
