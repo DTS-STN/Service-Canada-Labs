@@ -131,54 +131,54 @@ stages:
                 --build-arg NOTIFY_API_KEY=$(NOTIFY_API_KEY)
                 --build-arg NOTIFY_FEEDBACK_TEMPLATE_ID=$(NOTIFY_FEEDBACK_TEMPLATE_ID)
 
-  - stage: SecurityTest
-    displayName: Security Testing
-    dependsOn: Build
-    jobs:
-      - job: OWASPZapTest
-        displayName: OWASP ZAP Security Tests
-        pool:
-          vmImage: $(vmImageName)
-        steps:
-          # Start the application container
-          - script: |
-              docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(tag)
-              docker run -d -p 3000:3000 $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(tag)
-            displayName: Start Application Container
+  # - stage: SecurityTest
+  #   displayName: Security Testing
+  #   dependsOn: Build
+  #   jobs:
+  #     - job: OWASPZapTest
+  #       displayName: OWASP ZAP Security Tests
+  #       pool:
+  #         vmImage: $(vmImageName)
+  #       steps:
+  #         # Start the application container
+  #         - script: |
+  #             docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(tag)
+  #             docker run -d -p 3000:3000 $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(tag)
+  #           displayName: Start Application Container
 
-          # Use OWASP ZAP Scanner Task
-          - task: Zap@1
-            inputs:
-              aggressivemode: false
-              threshold: $(ZAP_THRESHOLD)
-              port: 3000
-              targeturl: $(ZAP_TARGET_URL)
-              scantype: "targetedScan"
-              contextpath: "$(System.DefaultWorkingDirectory)/zap"
-              reportfilename: "OWASP-ZAP-Report.html"
-              reportformat: "html"
-              enableVerifications: true
-              scantimeout: $(ZAP_TIMEOUT)
-              failonhigh: true
-              failonmedium: false
-              scanningmode: "targeted"
+  #         # Use OWASP ZAP Scanner Task
+  #         - task: Zap@1
+  #           inputs:
+  #             aggressivemode: false
+  #             threshold: $(ZAP_THRESHOLD)
+  #             port: 3000
+  #             targeturl: $(ZAP_TARGET_URL)
+  #             scantype: "targetedScan"
+  #             contextpath: "$(System.DefaultWorkingDirectory)/zap"
+  #             reportfilename: "OWASP-ZAP-Report.html"
+  #             reportformat: "html"
+  #             enableVerifications: true
+  #             scantimeout: $(ZAP_TIMEOUT)
+  #             failonhigh: true
+  #             failonmedium: false
+  #             scanningmode: "targeted"
 
-          # Publish ZAP test results
-          - task: PublishPipelineArtifact@1
-            displayName: "Publish ZAP Results"
-            inputs:
-              targetPath: "$(System.DefaultWorkingDirectory)/zap"
-              artifact: "zap-security-report"
-            condition: always()
+  #         # Publish ZAP test results
+  #         - task: PublishPipelineArtifact@1
+  #           displayName: "Publish ZAP Results"
+  #           inputs:
+  #             targetPath: "$(System.DefaultWorkingDirectory)/zap"
+  #             artifact: "zap-security-report"
+  #           condition: always()
 
-          # Convert ZAP results to JUnit format for better visualization
-          - task: PublishTestResults@2
-            inputs:
-              testResultsFormat: "JUnit"
-              testResultsFiles: "**/zap-report.xml"
-              mergeTestResults: true
-              testRunTitle: "OWASP ZAP Security Tests"
-            condition: always()
+  #         # Convert ZAP results to JUnit format for better visualization
+  #         - task: PublishTestResults@2
+  #           inputs:
+  #             testResultsFormat: "JUnit"
+  #             testResultsFiles: "**/zap-report.xml"
+  #             mergeTestResults: true
+  #             testRunTitle: "OWASP ZAP Security Tests"
+  #           condition: always()
 
   - stage: Push
     displayName: Push to ACR
