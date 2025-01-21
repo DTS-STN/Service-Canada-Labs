@@ -19,7 +19,7 @@ variables:
 
 stages:
   - stage: Build
-    displayName: Build
+    displayName: Build Container
     jobs:
       - job: Build
         displayName: Build Container
@@ -27,7 +27,14 @@ stages:
           vmImage: $(vmImageName)
         steps:
           - task: Docker@2
-            displayName: Build image
+            inputs:
+              containerRegistry: "$(azureContainerRegistry.name)"
+              repository: "$(azureContainerRegistry.repository)"
+              command: "login"
+          - script: "docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):latest"
+            displayName: Pull latest for layer caching
+            continueOnError: true
+          - task: Docker@2
             inputs:
               containerRegistry: "$(azureContainerRegistry.name)"
               repository: "$(azureContainerRegistry.repository)"
@@ -53,18 +60,6 @@ stages:
                 --build-arg NOTIFY_API_KEY=$(NOTIFY_API_KEY)
                 --build-arg NOTIFY_FEEDBACK_TEMPLATE_ID=$(NOTIFY_FEEDBACK_TEMPLATE_ID)
 
-      - job: Push Release Candidate Container
-        displayName: Push Release Candidate Container
-        pool:
-          vmImage: $(vmImageName)
-        dependsOn: Build
-        steps:
-          - task: Docker@2
-            inputs:
-              containerRegistry: "$(azureContainerRegistry.name)"
-              repository: "$(azureContainerRegistry.repository)"
-              command: "login"
-
           - task: Docker@2
             inputs:
               containerRegistry: "$(azureContainerRegistry.name)"
@@ -76,14 +71,33 @@ stages:
                 release-candidate
 
   - stage: Test
-    displayName: Regression Tests
+    displayName: Run Regression Tests
     dependsOn: Build
     jobs:
-      - job: Test
-        displayName: Run Regression Tests
+      - job: UnitAndIntegrationAndA11yTests
+        displayName: Run Jest, Cypress and A11y Tests
         pool:
           vmImage: $(vmImageName)
         steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: "18.x"
+            displayName: "Install Node.js"
+
+          # Enable corepack for Yarn
+          - script: |
+              corepack enable
+            displayName: "Enable Corepack"
+
+          - script: |
+              yarn install --immutable
+            displayName: "Install Dependencies"
+
+          - script: |
+              yarn test:ci
+            displayName: "Run Jest Tests"
+
+          # Start the container before E2E tests
           - task: Docker@2
             inputs:
               containerRegistry: "$(azureContainerRegistry.name)"
@@ -98,7 +112,6 @@ stages:
               timeout 60 bash -c 'while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:3000)" != "200" ]]; do sleep 5; done' || false
             displayName: "Start Application Container"
 
-          # Run your E2E tests here
           - script: |
               yarn cypress:run
             displayName: "Run Cypress Tests"
@@ -159,12 +172,6 @@ stages:
         pool:
           vmImage: $(vmImageName)
         steps:
-          - task: Docker@2
-            inputs:
-              containerRegistry: "$(azureContainerRegistry.name)"
-              repository: "$(azureContainerRegistry.repository)"
-              command: "login"
-
           # Start the application container
           - script: |
               docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(tag)
@@ -207,9 +214,9 @@ stages:
 
   - stage: Push
     displayName: Push to ACR
-    dependsOn: Test
+    dependsOn: Security Test
     jobs:
-      - job: PushContainer
+      - job: Push Container
         displayName: Push Container to ACR
         pool:
           vmImage: $(vmImageName)
@@ -220,14 +227,6 @@ stages:
               repository: "$(azureContainerRegistry.repository)"
               command: "login"
 
-          # Pull the release candidate image first
-          - script: |
-              docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):release-candidate
-              # Tag it with the new tags
-              docker tag $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):release-candidate $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):production-release
-            displayName: "Pull and tag release candidate"
-
-          # Push the production release tag
           - task: Docker@2
             inputs:
               containerRegistry: "$(azureContainerRegistry.name)"
