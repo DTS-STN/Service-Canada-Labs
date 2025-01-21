@@ -216,7 +216,7 @@ stages:
     displayName: Push to ACR
     dependsOn: SecurityTest
     jobs:
-      - job: PushContainer
+      - job: Push Container
         displayName: Push Container to ACR
         pool:
           vmImage: $(vmImageName)
