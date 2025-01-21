@@ -35,11 +35,10 @@ stages:
             displayName: Pull latest for layer caching
             continueOnError: true
           - task: Docker@2
-            displayName: Build and push image
             inputs:
               containerRegistry: "$(azureContainerRegistry.name)"
               repository: "$(azureContainerRegistry.repository)"
-              command: buildAndPush
+              command: "build"
               Dockerfile: "./Dockerfile"
               tags: |
                 $(tag)
