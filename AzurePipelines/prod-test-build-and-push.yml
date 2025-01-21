@@ -163,7 +163,7 @@ stages:
               artifact: "cypress-videos"
             condition: always()
 
-  - stage: Security Test
+  - stage: SecurityTest
     displayName: Security Testing
     dependsOn: Build
     jobs:
@@ -214,7 +214,7 @@ stages:
 
   - stage: Push
     displayName: Push to ACR
-    dependsOn: Security Test
+    dependsOn: SecurityTest
     jobs:
       - job: Push Container
         displayName: Push Container to ACR
