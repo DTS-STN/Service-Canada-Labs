@@ -19,7 +19,7 @@ variables:
 
 stages:
   - stage: Build
-    displayName: Build Container
+    displayName: Build
     jobs:
       - job: Build
         displayName: Build Container
@@ -27,14 +27,7 @@ stages:
           vmImage: $(vmImageName)
         steps:
           - task: Docker@2
-            inputs:
-              containerRegistry: "$(azureContainerRegistry.name)"
-              repository: "$(azureContainerRegistry.repository)"
-              command: "login"
-          - script: "docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):latest"
-            displayName: Pull latest for layer caching
-            continueOnError: true
-          - task: Docker@2
+            displayName: Build image
             inputs:
               containerRegistry: "$(azureContainerRegistry.name)"
               repository: "$(azureContainerRegistry.repository)"
@@ -43,7 +36,7 @@ stages:
               tags: |
                 $(tag)
                 latest
-                production-release
+                release-candidate
               arguments: |
                 --pull 
                 --build-arg NEXT_PUBLIC_BUILD_ID=$(ADO_BUILD) 
@@ -60,34 +53,37 @@ stages:
                 --build-arg NOTIFY_API_KEY=$(NOTIFY_API_KEY)
                 --build-arg NOTIFY_FEEDBACK_TEMPLATE_ID=$(NOTIFY_FEEDBACK_TEMPLATE_ID)
 
+      - job: Push Release Candidate Container
+        displayName: Push Release Candidate Container
+        pool:
+          vmImage: $(vmImageName)
+        dependsOn: Build
+        steps:
+          - task: Docker@2
+            inputs:
+              containerRegistry: "$(azureContainerRegistry.name)"
+              repository: "$(azureContainerRegistry.repository)"
+              command: "login"
+
+          - task: Docker@2
+            inputs:
+              containerRegistry: "$(azureContainerRegistry.name)"
+              repository: "$(azureContainerRegistry.repository)"
+              command: "push"
+              tags: |
+                $(tag)
+                latest
+                release-candidate
+
   - stage: Test
-    displayName: Run Regression Tests
+    displayName: Regression Tests
     dependsOn: Build
     jobs:
-      - job: UnitAndIntegrationAndA11yTests
-        displayName: Run Jest, Cypress and A11y Tests
+      - job: Test
+        displayName: Run Regression Tests
         pool:
           vmImage: $(vmImageName)
         steps:
-          - task: NodeTool@0
-            inputs:
-              versionSpec: "18.x"
-            displayName: "Install Node.js"
-
-          # Enable corepack for Yarn
-          - script: |
-              corepack enable
-            displayName: "Enable Corepack"
-
-          - script: |
-              yarn install --immutable
-            displayName: "Install Dependencies"
-
-          - script: |
-              yarn test:ci
-            displayName: "Run Jest Tests"
-
-          # Start the container before E2E tests
           - task: Docker@2
             inputs:
               containerRegistry: "$(azureContainerRegistry.name)"
@@ -102,6 +98,7 @@ stages:
               timeout 60 bash -c 'while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:3000)" != "200" ]]; do sleep 5; done' || false
             displayName: "Start Application Container"
 
+          # Run your E2E tests here
           - script: |
               yarn cypress:run
             displayName: "Run Cypress Tests"
@@ -153,58 +150,63 @@ stages:
               artifact: "cypress-videos"
             condition: always()
 
-  # - stage: SecurityTest
-  #   displayName: Security Testing
-  #   dependsOn: Build
-  #   jobs:
-  #     - job: OWASPZapTest
-  #       displayName: OWASP ZAP Security Tests
-  #       pool:
-  #         vmImage: $(vmImageName)
-  #       steps:
-  #         # Start the application container
-  #         - script: |
-  #             docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(tag)
-  #             docker run -d -p 3000:3000 $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(tag)
-  #           displayName: Start Application Container
+  - stage: Security Test
+    displayName: Security Testing
+    dependsOn: Build
+    jobs:
+      - job: OWASPZapTest
+        displayName: OWASP ZAP Security Tests
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+          - task: Docker@2
+            inputs:
+              containerRegistry: "$(azureContainerRegistry.name)"
+              repository: "$(azureContainerRegistry.repository)"
+              command: "login"
 
-  #         # Use OWASP ZAP Scanner Task
-  #         - task: Zap@1
-  #           inputs:
-  #             aggressivemode: false
-  #             threshold: $(ZAP_THRESHOLD)
-  #             port: 3000
-  #             targeturl: $(ZAP_TARGET_URL)
-  #             scantype: "targetedScan"
-  #             contextpath: "$(System.DefaultWorkingDirectory)/zap"
-  #             reportfilename: "OWASP-ZAP-Report.html"
-  #             reportformat: "html"
-  #             enableVerifications: true
-  #             scantimeout: $(ZAP_TIMEOUT)
-  #             failonhigh: true
-  #             failonmedium: false
-  #             scanningmode: "targeted"
+          # Start the application container
+          - script: |
+              docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(tag)
+              docker run -d -p 3000:3000 $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(tag)
+            displayName: Start Application Container
 
-  #         # Publish ZAP test results
-  #         - task: PublishPipelineArtifact@1
-  #           displayName: "Publish ZAP Results"
-  #           inputs:
-  #             targetPath: "$(System.DefaultWorkingDirectory)/zap"
-  #             artifact: "zap-security-report"
-  #           condition: always()
+          # Use OWASP ZAP Scanner Task
+          - task: Zap@1
+            inputs:
+              aggressivemode: false
+              threshold: $(ZAP_THRESHOLD)
+              port: 3000
+              targeturl: $(ZAP_TARGET_URL)
+              scantype: "targetedScan"
+              contextpath: "$(System.DefaultWorkingDirectory)/zap"
+              reportfilename: "OWASP-ZAP-Report.html"
+              reportformat: "html"
+              enableVerifications: true
+              scantimeout: $(ZAP_TIMEOUT)
+              failonhigh: true
+              failonmedium: false
+              scanningmode: "targeted"
 
-  #         # Convert ZAP results to JUnit format for better visualization
-  #         - task: PublishTestResults@2
-  #           inputs:
-  #             testResultsFormat: "JUnit"
-  #             testResultsFiles: "**/zap-report.xml"
-  #             mergeTestResults: true
-  #             testRunTitle: "OWASP ZAP Security Tests"
-  #           condition: always()
+          # Publish ZAP test results
+          - task: PublishPipelineArtifact@1
+            displayName: "Publish ZAP Results"
+            inputs:
+              targetPath: "$(System.DefaultWorkingDirectory)/zap"
+              artifact: "zap-security-report"
+            condition: always()
+
+          # Convert ZAP results to JUnit format for better visualization
+          - task: PublishTestResults@2
+            inputs:
+              testResultsFormat: "JUnit"
+              testResultsFiles: "**/zap-report.xml"
+              mergeTestResults: true
+              testRunTitle: "OWASP ZAP Security Tests"
+            condition: always()
 
   - stage: Push
     displayName: Push to ACR
-    # dependsOn: SecurityTest
     dependsOn: Test
     jobs:
       - job: PushContainer
@@ -218,12 +220,18 @@ stages:
               repository: "$(azureContainerRegistry.repository)"
               command: "login"
 
+          # Pull the release candidate image first
+          - script: |
+              docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):release-candidate
+              # Tag it with the new tags
+              docker tag $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):release-candidate $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):production-release
+            displayName: "Pull and tag release candidate"
+
+          # Push the production release tag
           - task: Docker@2
             inputs:
               containerRegistry: "$(azureContainerRegistry.name)"
               repository: "$(azureContainerRegistry.repository)"
               command: "push"
               tags: |
-                $(tag)
-                latest
                 production-release
