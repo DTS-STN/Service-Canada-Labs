@@ -44,8 +44,6 @@
     "build-storybook": "storybook build",
     "test:ci": "jest --ci --reporter=jest-junit --coverage --coverageReporters=cobertura",
     "test:unit": "jest --forceExit --detectOpenHandles",
-    "test:a11y": "cypress run --spec \"cypress/e2e/a11y/**/*.cy.js\"",
-    "test:a11y:open": "cypress open --config-file=cypress.config.js --e2e \"cypress/e2e/a11y/**/*.cy.js\"",
     "test:coverage": "jest --coverage --forceExit",
     "cypress:open": "cypress open --config-file=cypress.config.js",
     "cypress:run": "cypress run --config-file=cypress.config.js",

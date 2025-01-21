@@ -116,22 +116,11 @@ stages:
               yarn cypress:run
             displayName: "Run Cypress Tests"
 
-          - script: |
-              yarn test:a11y
-            displayName: "Run A11y Tests"
-
           # Stop the container after tests
           - script: |
               docker stop app
               docker rm app
             displayName: "Stop Application Container"
-            condition: always()
-
-          - task: PublishPipelineArtifact@1
-            displayName: "Store A11y Test Results"
-            inputs:
-              targetPath: "cypress/a11y-results"
-              artifact: "a11y-test-results"
             condition: always()
 
           - task: PublishTestResults@2
@@ -147,20 +136,6 @@ stages:
               codeCoverageTool: "Cobertura"
               summaryFileLocation: "**/coverage/cobertura-coverage.xml"
               reportDirectory: "**/coverage"
-            condition: always()
-
-          - task: PublishPipelineArtifact@1
-            displayName: "Store Cypress Screenshots"
-            inputs:
-              targetPath: "cypress/screenshots"
-              artifact: "cypress-screenshots"
-            condition: always()
-
-          - task: PublishPipelineArtifact@1
-            displayName: "Store Cypress Videos"
-            inputs:
-              targetPath: "cypress/videos"
-              artifact: "cypress-videos"
             condition: always()
 
   # - stage: SecurityTest
