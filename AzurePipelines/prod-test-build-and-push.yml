@@ -88,6 +88,12 @@ stages:
             displayName: "Run Jest Tests"
 
           # Start the container before E2E tests
+          - task: Docker@2
+            inputs:
+              containerRegistry: "$(azureContainerRegistry.name)"
+              repository: "$(azureContainerRegistry.repository)"
+              command: "login"
+
           - script: |
               docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(tag)
               docker run -d -p 3000:3000 --name app $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(tag)
