@@ -202,6 +202,13 @@ stages:
               repository: "$(azureContainerRegistry.repository)"
               command: "login"
 
+          # Pull the release candidate image
+          - script: |
+              docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):release-candidate
+              docker tag $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):release-candidate $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):production-release
+            displayName: "Pull and tag release candidate"
+
+          # Push the production release tag
           - task: Docker@2
             inputs:
               containerRegistry: "$(azureContainerRegistry.name)"
