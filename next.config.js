@@ -107,6 +107,7 @@ module.exports = {
 
   // Image optimization configuration
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
