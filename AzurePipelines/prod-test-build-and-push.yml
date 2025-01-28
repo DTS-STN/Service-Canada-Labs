@@ -1,4 +1,4 @@
-name: $(Date:yyyyMMdd)_$(Build.BuildId)
+name: $(Date:yyyyMMdd)_$(Build.SourceBranchName)
 
 trigger:
   tags:
