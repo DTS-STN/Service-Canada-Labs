@@ -51,6 +51,7 @@ steps:
       --build-arg ENVIRONMENT=$(ENVIRONMENT)
       --build-arg NOTIFY_API_KEY=$(NOTIFY_API_KEY)
       --build-arg NOTIFY_FEEDBACK_TEMPLATE_ID=$(NOTIFY_FEEDBACK_TEMPLATE_ID)
+      --build-arg SUBMIT_FEEDBACK_EMAIL=$(SUBMIT_FEEDBACK_EMAIL)
 
 - task: Docker@2
   displayName: "Push image"
