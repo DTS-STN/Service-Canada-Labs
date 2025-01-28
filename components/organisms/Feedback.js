@@ -12,6 +12,7 @@ function Feedback() {
   const { t } = useTranslation("common");
 
   async function handleSubmit(e) {
+    console.log("handleSubmit was called", e);
     e.preventDefault();
     try {
       await fetch("/api/submit-feedback", {
