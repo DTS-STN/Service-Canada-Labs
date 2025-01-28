@@ -13,7 +13,7 @@ import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 import { UpdateInfo } from "../../../components/atoms/UpdateInfo";
 import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 
-export default function ArticlePage({ key, ...props }) {
+export default function ArticlePage({ ...props }) {
   // State management for page content and translations
   const [pageData] = useState(props.pageData); // Individual article data from AEM
   const [dictionary] = useState(props.dictionary); // Translation dictionary for UI elements
@@ -158,7 +158,7 @@ export default function ArticlePage({ key, ...props }) {
 }
 
 /**
- * Generate static paths for all Benefits Navigator articles
+ * Generate static paths for all articles
  * Required for Next.js dynamic routing
  * Creates paths for both English and French versions of each article
  */
@@ -189,7 +189,6 @@ export async function getStaticPaths() {
  */
 export const getStaticProps = async ({ locale, params }) => {
   const articleIdLabel = "articleId";
-  const projectIdLabel = "projectId";
   // Fetch all articles data from AEM
   const { data: updatesData } = await fetch(
     `${process.env.AEM_BASE_URL}/getSclAllUpdatesV2${process.env.AEM_CONTENT_FOLDER}`
@@ -223,7 +222,6 @@ export const getStaticProps = async ({ locale, params }) => {
   // Return props for page rendering
   return {
     props: {
-      key: params[articleIdLabel], // Unique key for React
       locale: locale, // Current language
       pageData: pageData[0], // Article content
       updatesData: otherUpdatesForPage, // All updates for filtering

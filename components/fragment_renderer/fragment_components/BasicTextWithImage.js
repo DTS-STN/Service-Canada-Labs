@@ -15,7 +15,6 @@ export default function BasicTextWithImage({
         <div className="flex justify-center">
           <div className="h-auto">
             <Image
-              unoptimized={true}
               src={src}
               alt={alt}
               width={width}
