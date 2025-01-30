@@ -178,7 +178,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: "blocking", // Show loading state for new pages being generated
+    fallback: "blocking",
   };
 }
 
