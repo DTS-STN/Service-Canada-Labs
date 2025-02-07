@@ -19,10 +19,10 @@ variables:
 
 stages:
   - stage: Build
-    displayName: Build Container
+    displayName: Build Container and Push
     jobs:
       - job: Build
-        displayName: Build Container
+        displayName: Build Container and Push to ACR
         pool:
           vmImage: $(vmImageName)
         steps:
@@ -186,29 +186,3 @@ stages:
   #             mergeTestResults: true
   #             testRunTitle: "OWASP ZAP Security Tests"
   #           condition: always()
-
-  - stage: Push
-    displayName: Push to ACR
-    dependsOn: Test
-    jobs:
-      - job: PushContainer
-        displayName: Push Container to ACR
-        pool:
-          vmImage: $(vmImageName)
-        steps:
-          - task: Docker@2
-            inputs:
-              containerRegistry: "$(azureContainerRegistry.name)"
-              repository: "$(azureContainerRegistry.repository)"
-              command: "login"
-
-          # Push the production release tag
-          - task: Docker@2
-            inputs:
-              containerRegistry: "$(azureContainerRegistry.name)"
-              repository: "$(azureContainerRegistry.repository)"
-              command: "push"
-              tags: |
-                $(tag)
-                latest
-                production-release
