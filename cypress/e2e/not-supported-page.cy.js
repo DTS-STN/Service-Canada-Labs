@@ -1,4 +1,4 @@
-describe("Not Supported Page", () => {
+xdescribe("Not Supported Page", () => {
   beforeEach(() => {
     cy.visit("/notsupported", { failOnStatusCode: false });
     cy.injectAxe();

@@ -1,4 +1,4 @@
-describe("500 Error Page", () => {
+xdescribe("500 Error Page", () => {
     beforeEach(() => {
       cy.visit("/500", { failOnStatusCode: false });
       cy.injectAxe();

@@ -54,12 +54,7 @@ export const HelpIcon = ({ title, body, lang }) => {
                 </svg>
               </button>
             </Modal.Header>
-            <Modal.Body>
-              <p
-                className="modal-body"
-                dangerouslySetInnerHTML={{ __html: body }}
-              />
-            </Modal.Body>
+            <Modal.Body>{body}</Modal.Body>
             <Modal.Footer>
               <DSButton
                 onClick={handleClose}

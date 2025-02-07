@@ -1,38 +1,24 @@
-// Import necessary Next.js internationalization utilities
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
-
-// Import components from project structure
 import PageHead from "../../../components/fragment_renderer/PageHead";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../../../components/organisms/Layout";
 import { useEffect, useState } from "react";
 import aemServiceInstance from "../../../services/aemServiceInstance";
-import { getAllUpdateIds } from "../../../lib/utils/getAllUpdateIds";
+import { getAllPathParams } from "../../../lib/utils/getAllPathParams";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
 import { Heading } from "../../../components/molecules/Heading";
-import { filterItems } from "../../../lib/utils/filterItems";
 import { ExploreUpdates } from "../../../components/organisms/ExploreUpdates";
-import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
+import { filterItems } from "../../../lib/utils/filterItems";
 import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 import { UpdateInfo } from "../../../components/atoms/UpdateInfo";
 import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 
-/**
- * Component for displaying OAS Benefits Estimator article pages
- * Handles bilingual content (English/French) and displays project updates and related information
- * This is a dynamic page that renders different articles based on the URL parameter
- */
-export default function OASBenefitsEstimatorArticles({ key, ...props }) {
-  // Initialize translation hook for common terms
-  const { t } = useTranslation("common");
+export default function ArticlePage({ ...props }) {
+  // State management for page content and translations
+  const [pageData] = useState(props.pageData); // Individual article data from AEM
+  const [dictionary] = useState(props.dictionary); // Translation dictionary for UI elements
 
-  // Initialize state with props data, using array destructuring for read-only values
-  const [pageData] = useState(props.pageData);
-  const [projectData] = useState(props.projectData);
-  const [dictionary] = useState(props.dictionary);
-
-  // Initialize Adobe Analytics on page load if URL is provided
+  // Initialize Adobe Analytics tracking
   useEffect(() => {
     if (props.adobeAnalyticsUrl) {
       window.adobeDataLayer = window.adobeDataLayer || [];
@@ -42,56 +28,65 @@ export default function OASBenefitsEstimatorArticles({ key, ...props }) {
 
   return (
     <>
-      {/* Main layout wrapper with language-specific configuration */}
+      {/* Layout wrapper component provides consistent page structure */}
       <Layout
         locale={props.locale}
+        // Alternate language URL for language switching
         langUrl={
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
+        // Last modified date for the page
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
+        // Breadcrumb navigation generated from parent pages
         breadcrumbItems={createBreadcrumbs(
           pageData.scBreadcrumbParentPages,
           props.locale
         )}
       >
-        {/* Page metadata component */}
+        {/* PageHead component manages meta tags */}
         <PageHead pageData={pageData} locale={props.locale} />
 
         {/* Main article section */}
         <section className="mb-12">
           <div className="layout-container">
-            {/* Page title */}
+            {/* Article title with accessibility support */}
             <Heading
               tabIndex="-1"
               id="pageMainTitle"
               title={
+                // Bilingual title handling
                 props.locale === "en" ? pageData.scTitleEn : pageData.scTitleFr
               }
             />
 
-            {/* Article metadata (project info, posting date, last updated) */}
+            {/* Article metadata component showing project context and dates */}
             <UpdateInfo
+              // Project label and name with translation
               projectLabel={`${getDictionaryTerm(
                 dictionary,
                 "PROJECT",
                 props.locale
               )}`}
               projectName={
+                // Bilingual project name
                 props.locale === "en"
-                  ? pageData.scLabProject.scTermEn
-                  : pageData.scLabProject.scTermFr
+                  ? pageData.scLabProject.scTitleEn
+                  : pageData.scLabProject.scTitleFr
               }
+              // Link to parent project page
               projectHref={
                 props.locale === "en"
-                  ? pageData.scLabProject.scDestinationURLEn
-                  : pageData.scLabProject.scDestinationURLFr
+                  ? pageData.scLabProject.scPageNameEn
+                  : pageData.scLabProject.scPageNameFr
               }
+              // Posted date label and value
               postedOnLabel={`${getDictionaryTerm(
                 dictionary,
                 "POSTED-ON",
                 props.locale
               )}`}
               postedOn={pageData.scDateModifiedOverwrite}
+              // Last updated label and value
               lastUpdatedLabel={`${getDictionaryTerm(
                 dictionary,
                 "LAST-UPDATED",
@@ -101,25 +96,27 @@ export default function OASBenefitsEstimatorArticles({ key, ...props }) {
             />
           </div>
 
-          {/* Main content area rendering AEM fragments */}
+          {/* Main article content rendered from AEM fragments */}
           <div id="mainContentSection">
             <FragmentRender
               fragments={props.pageData.scFragments}
               locale={props.locale}
-              excludeH1={true}
+              excludeH1={true} // Exclude H1 as it's already rendered in the Heading component
             />
           </div>
         </section>
 
-        {/* Conditional rendering of updates section if updates exist */}
+        {/* Related Updates Section - Conditionally rendered if updates exist */}
         {filterItems(props.updatesData, pageData.scId).length !== 0 ? (
           <ExploreUpdates
             locale={props.locale}
+            // Filter updates related to this article
             updatesData={filterItems(props.updatesData, pageData.scId)}
             dictionary={props.dictionary}
+            // Construct bilingual section heading
             heading={
               props.locale === "en"
-                ? `${projectData.scTitleEn} ${getDictionaryTerm(
+                ? `${pageData.scLabProject.scTitleEn} ${getDictionaryTerm(
                     props.dictionary,
                     "PROJECT-UPDATES",
                     props.locale
@@ -128,13 +125,15 @@ export default function OASBenefitsEstimatorArticles({ key, ...props }) {
                     props.dictionary,
                     "PROJECT-UPDATES",
                     props.locale
-                  )} ${projectData.scTitleFr}`
+                  )} ${pageData.scLabProject.scTitleFr}`
             }
+            // "See all updates" link label
             linkLabel={`${getDictionaryTerm(
               props.dictionary,
               "DICTIONARY-SEE-ALL-UPDATES-PROJECT",
               props.locale
             )}`}
+            // Link to filtered updates page
             href={
               props.locale === "en"
                 ? `/en/updates?project=${pageData.scLabProject.scTermEn}`
@@ -143,9 +142,9 @@ export default function OASBenefitsEstimatorArticles({ key, ...props }) {
           />
         ) : null}
 
-        {/* Related project exploration section */}
+        {/* Parent Project Information Section */}
         <ExploreProjects
-          projects={[projectData]}
+          projects={[pageData.scLabProject]} // Show only the parent project
           heading={getDictionaryTerm(
             dictionary,
             "EXPLORE-THE-PROJECT",
@@ -159,79 +158,78 @@ export default function OASBenefitsEstimatorArticles({ key, ...props }) {
 }
 
 /**
- * Next.js getStaticPaths function to specify dynamic routes
- * Generates paths for all OAS Benefits Estimator articles at build time
- * @returns {Object} Contains paths for all article pages and fallback behavior
+ * Generate static paths for all articles
+ * Required for Next.js dynamic routing
+ * Creates paths for both English and French versions of each article
  */
 export async function getStaticPaths() {
-  // Fetch all OAS Benefits Estimator articles data from AEM
-  const { data } = await aemServiceInstance.getFragment(
-    "oasBenefitsEstimatorArticlesQuery"
+  const articleIdLabel = "articleId";
+  const projectIdLabel = "projectId";
+  // Fetch all projects aarticles from AEM
+  const { data: updatesData } = await fetch(
+    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV2${process.env.AEM_CONTENT_FOLDER}`
+  ).then((res) => res.json());
+
+  // Generate paths array for all articles in both languages
+  const paths = getAllPathParams(
+    [articleIdLabel, projectIdLabel],
+    updatesData.sclabsPageV1List.items
   );
-
-  // Generate paths for each article
-  const paths = getAllUpdateIds(data.sclabsPageV1List.items);
-
-  // Extract the final segment of the URL for use as the dynamic parameter
-  // Example: "/en/projects/oas-benefits-estimator/what-we-learned" -> "what-we-learned"
-  paths.map((path) => (path.params.id = path.params.id.split("/").at(-1)));
 
   return {
     paths,
-    // Use blocking fallback for server-side rendering of new paths
-    fallback: "blocking",
+    fallback: "blocking", // Show loading state for new pages being generated
   };
 }
 
 /**
- * Next.js getStaticProps function to fetch data at build time
- * Retrieves specific article data, project info, and dictionary terms from AEM
- * @param {Object} context Contains locale and URL parameters
- * @returns {Object} Props for the page component or notFound flag
+ * Fetch and prepare data for page rendering at build time
+ * Handles data fetching, language selection, and 404 cases
+ * @param {Object} context - Contains locale and URL parameters
  */
 export const getStaticProps = async ({ locale, params }) => {
-  // Fetch all necessary data from AEM
-  const { data: updatesData } = await aemServiceInstance.getFragment(
-    "oasBenefitsEstimatorArticlesQuery"
-  );
-  const { data: projectData } = await aemServiceInstance.getFragment(
-    "oasBenefitsEstimatorQuery"
-  );
-  const { data: dictionary } = await aemServiceInstance.getFragment(
-    "dictionaryQuery"
-  );
+  const articleIdLabel = "articleId";
+  // Fetch all articles data from AEM
+  const { data: updatesData } = await fetch(
+    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV2${process.env.AEM_CONTENT_FOLDER}`
+  ).then((res) => res.json());
+  // Fetch translation dictionary
+  const { data: dictionary } = await fetch(
+    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclDictionaryV1`
+  ).then((res) => res.json());
 
   const pages = updatesData.sclabsPageV1List.items;
-
-  // Find the specific page data matching the current URL parameter
+  // Find the specific article based on URL parameter
   const pageData = pages.filter((page) => {
     return (
       (locale === "en" ? page.scPageNameEn : page.scPageNameFr)
         .split("/")
-        .at(-1) === params.id
+        .at(-1) === params[articleIdLabel]
     );
   });
 
-  // Return 404 if page data isn't found
+  const otherUpdatesForPage = pages.filter((page) => {
+    return page.scLabProject.scId === pageData[0].scLabProject.scId;
+  });
+
+  // Return 404 response if article not found
   if (!pageData || !pageData.length) {
     return {
       notFound: true,
     };
   }
 
-  // Return props object with all necessary data
+  // Return props for page rendering
   return {
     props: {
-      key: params.id,
-      locale: locale,
-      pageData: pageData[0],
-      updatesData: updatesData.sclabsPageV1List.items,
-      projectData: projectData.sclabsPageV1ByPath.item,
-      dictionary: dictionary.dictionaryV1List.items,
-      adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
-      ...(await serverSideTranslations(locale, ["common"])),
+      locale: locale, // Current language
+      pageData: pageData[0], // Article content
+      updatesData: otherUpdatesForPage, // All updates for filtering
+      dictionary: dictionary.dictionaryV1List.items, // Translation dictionary
+      adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null, // Analytics configuration
+      ...(await serverSideTranslations(locale, ["common", "vc"])), // Load translations
     },
-    // Configure ISR (Incremental Static Regeneration) if enabled
+    // Enable Incremental Static Regeneration if configured
     revalidate: process.env.ISR_ENABLED === "true" ? 10 : false,
   };
 };

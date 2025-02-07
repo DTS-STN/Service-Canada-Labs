@@ -16,9 +16,11 @@ const createCard = (locale, project) => {
             : `https://www.canada.ca${project.scSocialMediaImageFr?._path}`
         }
         imgAlt={
-          locale === "en"
-            ? project.scSocialMediaImageAltTextEn
-            : project.scSocialMediaImageAltTextFr
+          project.scSocialMediaImageAltTextEn
+            ? locale === "en"
+              ? project.scSocialMediaImageAltTextEn
+              : project.scSocialMediaImageAltTextFr
+            : ""
         }
         imgHeight={project.scSocialMediaImageEn?.height}
         imgWidth={project.scSocialMediaImageEn?.width}

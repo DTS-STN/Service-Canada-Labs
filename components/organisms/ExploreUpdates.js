@@ -4,6 +4,8 @@ import Card from "../molecules/Card";
 import { getDictionaryTerm } from "../../lib/utils/getDictionaryTerm";
 
 export function ExploreUpdates({
+  isOnProjectPage,
+  projectName,
   heading,
   updatesData,
   href,
@@ -26,16 +28,18 @@ export function ExploreUpdates({
                   {locale === "en" ? "Project:" : "Projet :"}
                 </p>
                 <p className="mt-0 pl-1">
-                  {locale === "en"
-                    ? update.scLabProject.scTermEn
-                    : update.scLabProject.scTermFr}
+                  {isOnProjectPage
+                    ? projectName
+                    : locale === "en"
+                    ? update.scLabProject.scTitleEn
+                    : update.scLabProject.scTitleFr}
                 </p>
               </span>
               <span className="flex flex-row pl-6">
                 <p className="text-multi-neutrals-grey100 font-semibold">
                   {getDictionaryTerm(dictionary, "POSTED-ON", locale)}
                 </p>
-                <p className="mt-0 pl-1">{`${update.scDateModifiedOverwrite}`}</p>
+                <p className="mt-0 pl-1">{`${update.scDateIssued}`}</p>
               </span>
             </div>
           }

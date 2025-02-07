@@ -30,6 +30,7 @@ jobs:
           NEXT_PUBLIC_API_MOCKING: enabled
           AEM_GRAPHQL_ENDPOINT: ${{ secrets.AEM_GRAPHQL_ENDPOINT }}
           AEM_BASE_URL: ${{ secrets.AEM_BASE_URL }}
+          AEM_CONTENT_FOLDER: ${{ secrets.AEM_CONTENT_FOLDER }}
           ADOBE_ANALYTICS_URL: ${{ secrets.ADOBE_ANALYTICS_URL }}
           THANK_YOU_EMAIL: ${{ secrets.THANK_YOU_EMAIL }}
           CI: true
@@ -58,13 +59,13 @@ jobs:
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
 
-      - name: Deploy Coverage Report 🚀
-        uses: JamesIves/github-pages-deploy-action@3.6.2
-        with:
-          TARGET_FOLDER: ${{ steps.extract_branch.outputs.branch }}/coverage
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: coverage # The folder the action should deploy.
-          CLEAN: true # Automatically remove deleted files from the deploy branch
+      # - name: Deploy Coverage Report 🚀
+      #   uses: JamesIves/github-pages-deploy-action@3.6.2
+      #   with:
+      #     TARGET_FOLDER: ${{ steps.extract_branch.outputs.branch }}/coverage
+      #     BRANCH: gh-pages # The branch the action should deploy to.
+      #     FOLDER: coverage # The folder the action should deploy.
+      #     CLEAN: true # Automatically remove deleted files from the deploy branch
 
       - name: Find Comment
         if: steps.extract_branch.outputs.branch != 'main'

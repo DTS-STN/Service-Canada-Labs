@@ -22,7 +22,7 @@ export const FeedbackWidget = ({
   const [feedbackClose, setFeedbackClose] = useState(false);
   const { t } = useTranslation("common");
   const [response, setResponse] = useState(t("thankYouFeedback"));
-  const email = process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL;
+  const email = process.env.SUBMIT_FEEDBACK_EMAIL;
   const [count, setCount] = useState(2000);
   var maxLength = 2000;
 

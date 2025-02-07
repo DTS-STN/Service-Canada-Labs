@@ -17,7 +17,7 @@ import { useRouter } from "next/router";
  */
 export default function UpdatesPage(props) {
   const router = useRouter(); // Next.js router for query params
-  const pageData = props.pageData?.item; // Page content from AEM
+  const pageData = props.pageData; // Page content from AEM
   const updatesData = props.updatesData; // Updates data for all projects
   const dictionary = props.dictionary; // Translation dictionary
   // State for managing selected filter options
@@ -45,8 +45,8 @@ export default function UpdatesPage(props) {
         id: option.scLabProject.scId,
         label:
           props.locale === "en"
-            ? option.scLabProject.scTermEn
-            : option.scLabProject.scTermFr,
+            ? option.scLabProject.scTitleEn
+            : option.scLabProject.scTitleFr,
         value: option.scLabProject.scId,
       };
     });
@@ -97,8 +97,8 @@ export default function UpdatesPage(props) {
                 </p>
                 <p className="mt-0 pl-1">
                   {props.locale === "en"
-                    ? update.scLabProject.scTermEn
-                    : update.scLabProject.scTermFr}
+                    ? update.scLabProject.scTitleEn
+                    : update.scLabProject.scTitleFr}
                 </p>
               </span>
               <span className="flex flex-row">
@@ -216,12 +216,12 @@ export default function UpdatesPage(props) {
 export const getStaticProps = async ({ locale }) => {
   // Fetch main page content from AEM
   const { data: pageData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclUpdatesV1`
+    `${process.env.AEM_BASE_URL}/getSclUpdatesPageV1${process.env.AEM_CONTENT_FOLDER}`
   ).then((res) => res.json());
 
   // Fetch all updates data
   const { data: updatesData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV1`
+    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV2${process.env.AEM_CONTENT_FOLDER}`
   ).then((res) => res.json());
 
   // Fetch translation dictionary
@@ -234,7 +234,7 @@ export const getStaticProps = async ({ locale }) => {
     props: {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
-      pageData: pageData.sclabsPageV1ByPath,
+      pageData: pageData.sclabsPageV1List.items[0],
       updatesData: updatesData.sclabsPageV1List.items,
       dictionary: dictionary.dictionaryV1List.items,
       // Include translations for common terms and multiSelect component
