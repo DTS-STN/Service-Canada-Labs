@@ -43,7 +43,7 @@ stages:
               tags: |
                 $(tag)
                 latest
-                release-candidate
+                production-release
               arguments: |
                 --pull 
                 --build-arg NEXT_PUBLIC_BUILD_ID=$(ADO_BUILD) 
