@@ -68,7 +68,7 @@ stages:
               tags: |
                 $(tag)
                 latest
-                release-candidate
+                production-release
 
   - stage: Test
     displayName: Run Regression Tests
@@ -204,9 +204,9 @@ stages:
 
           # Pull the release candidate image
           - script: |
-              docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):release-candidate
-              docker tag $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):release-candidate $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):production-release
-            displayName: "Pull and tag release candidate"
+              docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):production-release
+              docker tag $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):production-release $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):production-release
+            displayName: "Pull and tag production release"
 
           # Push the production release tag
           - task: Docker@2
