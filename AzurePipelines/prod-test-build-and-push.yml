@@ -19,10 +19,10 @@ variables:
 
 stages:
   - stage: Build
-    displayName: Build Container and Push
+    displayName: Build Container
     jobs:
       - job: Build
-        displayName: Build Container and Push to ACR
+        displayName: Build Container
         pool:
           vmImage: $(vmImageName)
         steps:
@@ -49,6 +49,7 @@ stages:
                 --build-arg NEXT_PUBLIC_BUILD_ID=$(ADO_BUILD) 
                 --build-arg NEXT_PUBLIC_BUILD_DATE=$(BUILD_DATE) 
                 --build-arg ADOBE_ANALYTICS_URL=$(ADOBE_ANALYTICS_URL) 
+                --build-arg NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL=$(NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL) 
                 --build-arg THANK_YOU_EMAIL=$(THANK_YOU_EMAIL) 
                 --build-arg AEM_GRAPHQL_ENDPOINT=$(AEM_GRAPHQL_ENDPOINT)
                 --build-arg AEM_BASE_URL=$(AEM_BASE_URL)
@@ -58,7 +59,6 @@ stages:
                 --build-arg ENVIRONMENT=$(ENVIRONMENT)
                 --build-arg NOTIFY_API_KEY=$(NOTIFY_API_KEY)
                 --build-arg NOTIFY_FEEDBACK_TEMPLATE_ID=$(NOTIFY_FEEDBACK_TEMPLATE_ID)
-                --build-arg SUBMIT_FEEDBACK_EMAIL=$(SUBMIT_FEEDBACK_EMAIL)
 
           - task: Docker@2
             inputs:
@@ -186,3 +186,35 @@ stages:
   #             mergeTestResults: true
   #             testRunTitle: "OWASP ZAP Security Tests"
   #           condition: always()
+
+  - stage: Push
+    displayName: Push to ACR
+    dependsOn: Test
+    jobs:
+      - job: PushContainer
+        displayName: Push Container to ACR
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+          - task: Docker@2
+            inputs:
+              containerRegistry: "$(azureContainerRegistry.name)"
+              repository: "$(azureContainerRegistry.repository)"
+              command: "login"
+
+          # Pull the release candidate image
+          - script: |
+              docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):production-release
+              docker tag $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):production-release $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):latest
+            displayName: "Pull and tag production release"
+
+          # Push the production release tag
+          - task: Docker@2
+            inputs:
+              containerRegistry: "$(azureContainerRegistry.name)"
+              repository: "$(azureContainerRegistry.repository)"
+              command: "push"
+              tags: |
+                $(tag)
+                latest
+                production-release
