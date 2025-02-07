@@ -85,7 +85,7 @@ export default function ArticlePage({ ...props }) {
                 "POSTED-ON",
                 props.locale
               )}`}
-              postedOn={pageData.scDateModifiedOverwrite}
+              postedOn={pageData.scDateIssued}
               // Last updated label and value
               lastUpdatedLabel={`${getDictionaryTerm(
                 dictionary,
