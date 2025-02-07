@@ -215,6 +215,5 @@ stages:
               repository: "$(azureContainerRegistry.repository)"
               command: "push"
               tags: |
-                $(tag)
                 latest
                 production-release
