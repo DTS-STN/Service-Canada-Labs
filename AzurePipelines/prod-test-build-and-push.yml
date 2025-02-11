@@ -1,4 +1,4 @@
-name: $(Date:yyyyMMdd)
+name: $(Date:yyyyMMdd)_$(Build.SourceBranchName)
 
 trigger:
   tags:
@@ -18,81 +18,11 @@ variables:
   GIT_SHA: $(Build.SourceVersion)
 
 stages:
-  - stage: Test
-    displayName: Run Regression Tests
-    jobs:
-      - job: UnitAndIntegrationAndA11yTests
-        displayName: Run Jest, Cypress and A11y Tests
-        pool:
-          vmImage: $(vmImageName)
-        steps:
-          - task: NodeTool@0
-            inputs:
-              versionSpec: "18.x"
-            displayName: "Install Node.js"
-
-          # Enable corepack for Yarn
-          - script: |
-              corepack enable
-            displayName: "Enable Corepack"
-
-          - script: |
-              yarn install --immutable
-            displayName: "Install Dependencies"
-
-          - script: |
-              yarn test:ci
-            displayName: "Run Jest Tests"
-
-          - script: |
-              yarn cypress:run --retries 2
-            displayName: "Run Cypress Tests"
-
-          - script: |
-              yarn test:a11y
-            displayName: "Run A11y Tests"
-
-          - task: PublishPipelineArtifact@1
-            displayName: "Store A11y Test Results"
-            inputs:
-              targetPath: "cypress/a11y-results"
-              artifact: "a11y-test-results"
-            condition: always()
-
-          - task: PublishTestResults@2
-            inputs:
-              testResultsFormat: "JUnit"
-              testResultsFiles: "**/junit.xml"
-              mergeTestResults: true
-              testRunTitle: "Regression Tests"
-            condition: always()
-
-          - task: PublishCodeCoverageResults@1
-            inputs:
-              codeCoverageTool: "Cobertura"
-              summaryFileLocation: "**/coverage/cobertura-coverage.xml"
-              reportDirectory: "**/coverage"
-            condition: always()
-
-          - task: PublishPipelineArtifact@1
-            displayName: "Store Cypress Screenshots"
-            inputs:
-              targetPath: "cypress/screenshots"
-              artifact: "cypress-screenshots"
-            condition: always()
-
-          - task: PublishPipelineArtifact@1
-            displayName: "Store Cypress Videos"
-            inputs:
-              targetPath: "cypress/videos"
-              artifact: "cypress-videos"
-            condition: always()
-
   - stage: Build
-    displayName: Build and Push to ACR
+    displayName: Build Container
     jobs:
       - job: Build
-        displayName: Build and Push Container
+        displayName: Build Container
         pool:
           vmImage: $(vmImageName)
         steps:
@@ -139,3 +69,153 @@ stages:
                 $(tag)
                 latest
                 production-release
+
+  - stage: Test
+    displayName: Run Regression Tests
+    dependsOn: Build
+    jobs:
+      - job: UnitAndIntegrationAndA11yTests
+        displayName: Run Jest, Cypress and A11y Tests
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: "18.x"
+            displayName: "Install Node.js"
+
+          # Enable corepack for Yarn
+          - script: |
+              corepack enable
+            displayName: "Enable Corepack"
+
+          - script: |
+              yarn install --immutable
+            displayName: "Install Dependencies"
+
+          - script: |
+              yarn test:ci
+            displayName: "Run Jest Tests"
+
+          # Start the container before E2E tests
+          - task: Docker@2
+            inputs:
+              containerRegistry: "$(azureContainerRegistry.name)"
+              repository: "$(azureContainerRegistry.repository)"
+              command: "login"
+
+          - script: |
+              docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(tag)
+              docker run -d -p 3000:3000 --name app $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(tag)
+              # Wait for the application to be ready
+              echo "Waiting for application to be ready..."
+              timeout 60 bash -c 'while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:3000)" != "200" ]]; do sleep 5; done' || false
+            displayName: "Start Application Container"
+
+          - script: |
+              yarn cypress:run
+            displayName: "Run Cypress Tests"
+
+          # Stop the container after tests
+          - script: |
+              docker stop app
+              docker rm app
+            displayName: "Stop Application Container"
+            condition: always()
+
+          - task: PublishTestResults@2
+            inputs:
+              testResultsFormat: "JUnit"
+              testResultsFiles: "**/junit.xml"
+              mergeTestResults: true
+              testRunTitle: "Regression Tests"
+            condition: always()
+
+          - task: PublishCodeCoverageResults@2
+            inputs:
+              codeCoverageTool: "Cobertura"
+              summaryFileLocation: "**/coverage/cobertura-coverage.xml"
+              reportDirectory: "**/coverage"
+            condition: always()
+
+  # - stage: SecurityTest
+  #   displayName: Security Testing
+  #   dependsOn: Build
+  #   jobs:
+  #     - job: OWASPZapTest
+  #       displayName: OWASP ZAP Security Tests
+  #       pool:
+  #         vmImage: $(vmImageName)
+  #       steps:
+  #         # Start the application container
+  #         - script: |
+  #             docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(tag)
+  #             docker run -d -p 3000:3000 $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(tag)
+  #           displayName: Start Application Container
+
+  #         # Use OWASP ZAP Scanner Task
+  #         - task: Zap@1
+  #           inputs:
+  #             aggressivemode: false
+  #             threshold: $(ZAP_THRESHOLD)
+  #             port: 3000
+  #             targeturl: $(ZAP_TARGET_URL)
+  #             scantype: "targetedScan"
+  #             contextpath: "$(System.DefaultWorkingDirectory)/zap"
+  #             reportfilename: "OWASP-ZAP-Report.html"
+  #             reportformat: "html"
+  #             enableVerifications: true
+  #             scantimeout: $(ZAP_TIMEOUT)
+  #             failonhigh: true
+  #             failonmedium: false
+  #             scanningmode: "targeted"
+
+  #         # Publish ZAP test results
+  #         - task: PublishPipelineArtifact@1
+  #           displayName: "Publish ZAP Results"
+  #           inputs:
+  #             targetPath: "$(System.DefaultWorkingDirectory)/zap"
+  #             artifact: "zap-security-report"
+  #           condition: always()
+
+  #         # Convert ZAP results to JUnit format for better visualization
+  #         - task: PublishTestResults@2
+  #           inputs:
+  #             testResultsFormat: "JUnit"
+  #             testResultsFiles: "**/zap-report.xml"
+  #             mergeTestResults: true
+  #             testRunTitle: "OWASP ZAP Security Tests"
+  #           condition: always()
+
+  # - stage: Push
+  #   displayName: Push to ACR
+  #   dependsOn: Test
+  #   jobs:
+  #     - job: PushContainer
+  #       displayName: Push Container to ACR
+  #       pool:
+  #         vmImage: $(vmImageName)
+  #       steps:
+  #         - task: Docker@2
+  #           inputs:
+  #             containerRegistry: "$(azureContainerRegistry.name)"
+  #             repository: "$(azureContainerRegistry.repository)"
+  #             command: "login"
+
+  #         # Pull the release candidate image
+  #         - script: |
+  #             docker pull $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):production-release
+  #             docker tag $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):production-release $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):latest
+  #             docker tag $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):production-release $(azureContainerRegistry.domain)/$(azureContainerRegistry.repository):$(tag)
+  #           displayName: "Pull and tag production release"
+
+  #         # Push the production release tag
+  #         - task: Docker@2
+  #           inputs:
+  #             containerRegistry: "$(azureContainerRegistry.name)"
+  #             repository: "$(azureContainerRegistry.repository)"
+  #             command: "push"
+  #             tags: |
+  #               $(tag)
+  #               latest
+  #               production-release

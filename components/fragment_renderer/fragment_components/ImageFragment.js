@@ -4,7 +4,6 @@ export default function ImageFragment(props) {
   return (
     <div className="layout-container grid grid-cols-12 gap-x-6 my-12">
       <Image
-        unoptimized={true}
         id={props.scId}
         src={
           props.locale === "en"
