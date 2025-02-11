@@ -10,7 +10,9 @@ export default async function handler(req, res) {
       if (r.ok) {
         res.status(200).json(data);
       } else {
-        throw new Error("bad request");
+        let response = await r.json();
+        console.dir(response, { depth: null });
+        throw new Error(response);
       }
     } catch (e) {
       console.error("Failed to post to GC Notify");

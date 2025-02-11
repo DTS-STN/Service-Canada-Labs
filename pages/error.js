@@ -225,13 +225,10 @@ export default function ErrorPage(props) {
                           <p className="font-body text-sm leading-30px">
                             {pageData.scContentEn.json[5].content[0].value}
                             <a
-                              href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
+                              href={`mailto:${process.env.SUBMIT_FEEDBACK_EMAIL}`}
                               className="text-custom-blue-link underline"
                             >
-                              {
-                                process.env
-                                  .NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL
-                              }
+                              {process.env.SUBMIT_FEEDBACK_EMAIL}
                             </a>{" "}
                             {pageData.scContentEn.json[6].content[0].value}
                           </p>
@@ -343,13 +340,10 @@ export default function ErrorPage(props) {
                           <p className="font-body text-sm leading-30px">
                             {pageData.scContentFr.json[5].content[0].value}
                             <a
-                              href={`mailto:${process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL}`}
+                              href={`mailto:${process.env.SUBMIT_FEEDBACK_EMAIL}`}
                               className="text-custom-blue-link underline"
                             >
-                              {
-                                process.env
-                                  .NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL
-                              }
+                              {process.env.SUBMIT_FEEDBACK_EMAIL}
                             </a>{" "}
                             {pageData.scContentFr.json[6].content[0].value}
                           </p>
