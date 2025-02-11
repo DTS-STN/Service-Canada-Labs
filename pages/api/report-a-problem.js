@@ -38,7 +38,7 @@ async function handler(req, res) {
             other_details: "",
           },
           process.env.NOTIFY_REPORT_A_PROBLEM_TEMPLATE_ID,
-          process.env.NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL,
+          process.env.SUBMIT_FEEDBACK_EMAIL,
           process.env.NOTIFY_BASE_API_URL + "/v2/notifications/email",
           process.env.NOTIFY_API_KEY
         );
