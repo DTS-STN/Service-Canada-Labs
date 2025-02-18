@@ -22,8 +22,6 @@ export default function ProjectsPage(props) {
   const dictionary = props.dictionary; // Translation dictionary
   // State for managing selected filter options
   const [selectedOptions, setSelectedOptions] = useState([]);
-  // Translation hook for i18n
-  const { t } = useTranslation("common");
 
   /**
    * Extracts unique project statuses and converts them to select options
@@ -31,12 +29,13 @@ export default function ProjectsPage(props) {
    * @returns {Array} Array of formatted options for MultiSelectField
    */
   const getSelectOptionsFromProjectsData = (arr) => {
+    let locale = props.locale === "en" ? "scTermEn" : "scTermFr";
     // Use Set to track unique status values
     const seen = new Set();
     // Reduce array to unique status entries
     let reducedArray = arr.reduce((acc, obj) => {
-      if (!seen.has(obj.scLabProjectStatus[0])) {
-        seen.add(obj.scLabProjectStatus[0]);
+      if (!seen.has(obj.scLabProjectStagev2[`${locale}`])) {
+        seen.add(obj.scLabProjectStagev2[`${locale}`]);
         acc.push(obj);
       }
       return acc;
@@ -44,10 +43,10 @@ export default function ProjectsPage(props) {
     // Format options for the MultiSelectField component
     let optionsArray = reducedArray.map((option) => {
       return {
-        id: option.scLabProjectStatus[0],
+        id: option.scLabProjectStagev2[`${locale}`],
         // Translate status labels using i18n
-        label: t(option.scLabProjectStatus[0].substring(3)),
-        value: option.scLabProjectStatus[0],
+        label: option.scLabProjectStagev2[`${locale}`],
+        value: option.scLabProjectStagev2[`${locale}`],
       };
     });
     return optionsArray;
@@ -60,13 +59,14 @@ export default function ProjectsPage(props) {
    * @returns {Array} Filtered projects array
    */
   const filterProjects = (projects, selectedOptions) => {
+    let locale = props.locale === "en" ? "scTermEn" : "scTermFr";
     // If no filters selected, return all projects
     if (selectedOptions.length === 0) return projects;
     // Create Set of selected status IDs for efficient lookup
     const selectedIds = new Set(selectedOptions.map((option) => option.id));
     // Return projects matching selected statuses
     return projects.filter((project) =>
-      selectedIds.has(project.scLabProjectStatus[0])
+      selectedIds.has(project.scLabProjectStagev2[`${locale}`])
     );
   };
 
