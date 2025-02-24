@@ -2747,14 +2747,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lottiefiles/react-lottie-player@npm:^3.5.3":
-  version: 3.5.4
-  resolution: "@lottiefiles/react-lottie-player@npm:3.5.4"
+"@lottiefiles/react-lottie-player@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "@lottiefiles/react-lottie-player@npm:3.6.0"
   dependencies:
     lottie-web: "npm:^5.12.2"
   peerDependencies:
-    react: 16 - 18
-  checksum: 0eb202ce2d2c63570b3f3f90489b18087d85a3d10901f4327d5fd28a177aa119a29916dd53ae44bfda3d497df8962e09d144f1e2ba755826878d0462e3085575
+    react: 16 - 19
+  checksum: e1421ab498f52aff60b036de8674f1e149dc6b9b0572790d9ff107842a4b95f5ae5ce1b17659abb33b63f0aa6433663e16e7b06373199a7217e1965f8fe315b9
   languageName: node
   linkType: hard
 
@@ -14444,7 +14444,7 @@ __metadata:
     "@fortawesome/free-regular-svg-icons": "npm:^6.7.1"
     "@fortawesome/free-solid-svg-icons": "npm:^6.7.1"
     "@fortawesome/react-fontawesome": "npm:^0.2.2"
-    "@lottiefiles/react-lottie-player": "npm:^3.5.3"
+    "@lottiefiles/react-lottie-player": "npm:^3.6.0"
     "@storybook/addon-essentials": "npm:^8.0.9"
     "@storybook/addon-interactions": "npm:^8.0.9"
     "@storybook/addon-links": "npm:^8.0.9"
