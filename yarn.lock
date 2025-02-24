@@ -13746,9 +13746,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-select@npm:^5.8.3":
-  version: 5.9.0
-  resolution: "react-select@npm:5.9.0"
+"react-select@npm:^5.10.0":
+  version: 5.10.0
+  resolution: "react-select@npm:5.10.0"
   dependencies:
     "@babel/runtime": "npm:^7.12.0"
     "@emotion/cache": "npm:^11.4.0"
@@ -13762,7 +13762,7 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 2206b6687d6584ff1426056a779d8014ef4d8c4d1d5253dea4f03b01569fdedab8ae6b683ef475ead7da5a824934008b682838d734841d9734e2a8a63b9959fd
+  checksum: 70ccb74ef31a1fe24c3f7cb94459dd33289999ceda104b1b75256758b7f25ead5dcb4a1877d513f9e22d9ac62d2656414c51dd57b9436d49bd6834a7c8b1c727
   languageName: node
   linkType: hard
 
@@ -14494,7 +14494,7 @@ __metadata:
     react-dom: "npm:^18.3.1"
     react-i18next: "npm:^13.5.0"
     react-lock-scroll: "npm:^0.1.8"
-    react-select: "npm:^5.8.3"
+    react-select: "npm:^5.10.0"
     sharp: "npm:^0.33.5"
     storybook: "npm:^8.0.9"
     tailwindcss: "npm:^3.0.9"
