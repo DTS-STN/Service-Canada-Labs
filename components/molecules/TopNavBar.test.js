@@ -13,7 +13,7 @@ describe("TopNavBar", () => {
     render(<Primary {...Primary.args} />);
     expect(screen.getByLabelText("nav-aria-label")).toBeTruthy();
     expect(screen.getByLabelText("button-aria-label")).toBeTruthy();
-    expect(screen.getByText("Home")).toBeTruthy();
+    expect(screen.getAllByText("Home")).toHaveLength(2);
     expect(screen.getByText("Updates")).toBeTruthy();
   });
 
@@ -22,7 +22,7 @@ describe("TopNavBar", () => {
     global.innerWidth = 500;
     expect(screen.getByLabelText("nav-aria-label")).toBeTruthy();
     expect(screen.getByLabelText("button-aria-label")).toBeTruthy();
-    expect(screen.getByText("Home")).toBeTruthy();
+    expect(screen.getAllByText("Home")).toHaveLength(2);
     expect(screen.getByText("Updates")).toBeTruthy();
   });
 
