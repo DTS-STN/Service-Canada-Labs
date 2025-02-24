@@ -53,7 +53,7 @@ export function TopNavBar({
       <div className="static lg:hidden mt-4 flex flex-col w-full mr-4">
         <div className="flex justify-between">
           <Link href={homeLink} className="ml-4 font-body text-p font-semibold">
-            Service Canada Labs
+            {homeLinkLabel}
           </Link>
           <button
             aria-label={buttonAriaLabel}
