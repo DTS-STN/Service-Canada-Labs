@@ -52,7 +52,10 @@ export function TopNavBar({
       {/* Mobile Nav Menu */}
       <div className="static lg:hidden mt-4 flex flex-col w-full mr-4">
         <div className="flex justify-between">
-          <Link href={homeLink} className="ml-4 font-body text-p font-semibold truncate max-w-[75%]">
+          <Link
+            href={homeLink}
+            className="ml-4 font-body text-p font-semibold truncate max-w-[75%]"
+          >
             {homeLinkLabel}
           </Link>
           <button
