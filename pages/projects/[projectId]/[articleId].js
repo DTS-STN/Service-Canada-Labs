@@ -209,7 +209,7 @@ export const getStaticProps = async ({ locale, params }) => {
   });
 
   const otherUpdatesForPage = pages.filter((page) => {
-    return page?.scLabProject?.scId && pageData[0]?.scLabProject?.scId 
+    return page?.scLabProject?.scId && pageData[0]?.scLabProject?.scId
       ? page.scLabProject.scId === pageData[0].scLabProject.scId
       : false;
   });
