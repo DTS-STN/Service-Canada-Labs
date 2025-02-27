@@ -495,9 +495,6 @@ export const getStaticProps = async ({ locale }) => {
       ...(await serverSideTranslations(locale, ["common"])),
     },
     // Enable ISR if configured in environment
-    revalidate:
-      process.env.ISR_ENABLED === "true"
-        ? parseInt(process.env.ISR_REVALIDATE_TIME)
-        : false,
+    revalidate: process.env.ISR_ENABLED === "true" ? 600 : false,
   };
 };
