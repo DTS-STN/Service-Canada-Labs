@@ -234,7 +234,7 @@ export const getStaticProps = async ({ locale, params }) => {
     // Enable Incremental Static Regeneration if configured
     revalidate:
       process.env.ISR_ENABLED === "true"
-        ? process.env.ISR_REVALIDATE_TIME
+        ? parseInt(process.env.ISR_REVALIDATE_TIME)
         : false,
   };
 };
