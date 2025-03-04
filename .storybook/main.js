@@ -16,9 +16,7 @@ const config = {
     name: "@storybook/nextjs",
     options: {},
   },
-  docs: {
-    autodocs: "tag",
-  },
+  docs: {},
   staticDirs: ["../public"],
 };
 export default config;
