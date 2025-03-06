@@ -251,30 +251,11 @@ export default function ProjectPage({
 }
 
 /**
- * Generate static paths for all project pages
- * Similar structure to article pages for consistency
+ * Fetch and prepare data for page rendering at request time
+ * Handles data fetching, language selection, and 404 cases
+ * @param {Object} context - Contains locale and URL parameters
  */
-export async function getStaticPaths() {
-  const idLabel = "projectId";
-  // Fetch main page content from AEM
-  const { data } = await fetch(
-    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclAllProjectsV2${process.env.AEM_CONTENT_FOLDER}`
-  ).then((res) => res.json());
-
-  // Generate paths array for all projects in both languages
-  const paths = getAllPathParams([idLabel], data.sclabsPageV1List.items);
-  // Extract the project ID from the full path
-  paths.map(
-    (path) => (path.params[idLabel] = path.params[idLabel].split("/").at(-1))
-  );
-
-  return {
-    paths,
-    fallback: "blocking",
-  };
-}
-
-export const getStaticProps = async ({ locale, params }) => {
+export const getServerSideProps = async ({ locale, params }) => {
   const idLabel = "projectId";
   // Fetch main page content from AEM
 
@@ -318,7 +299,5 @@ export const getStaticProps = async ({ locale, params }) => {
       // Include common translations
       ...(await serverSideTranslations(locale, ["common"])),
     },
-    // Enable ISR if configured in environment
-    revalidate: process.env.ISR_ENABLED === "true" ? 600 : false,
   };
 };

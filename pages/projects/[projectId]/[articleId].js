@@ -158,36 +158,11 @@ export default function ArticlePage({ ...props }) {
 }
 
 /**
- * Generate static paths for all articles
- * Required for Next.js dynamic routing
- * Creates paths for both English and French versions of each article
- */
-export async function getStaticPaths() {
-  const articleIdLabel = "articleId";
-  const projectIdLabel = "projectId";
-  // Fetch all projects aarticles from AEM
-  const { data: updatesData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV2${process.env.AEM_CONTENT_FOLDER}`
-  ).then((res) => res.json());
-
-  // Generate paths array for all articles in both languages
-  const paths = getAllPathParams(
-    [articleIdLabel, projectIdLabel],
-    updatesData.sclabsPageV1List.items
-  );
-
-  return {
-    paths,
-    fallback: "blocking", // Show loading state for new pages being generated
-  };
-}
-
-/**
- * Fetch and prepare data for page rendering at build time
+ * Fetch and prepare data for page rendering at request time
  * Handles data fetching, language selection, and 404 cases
  * @param {Object} context - Contains locale and URL parameters
  */
-export const getStaticProps = async ({ locale, params }) => {
+export const getServerSideProps = async ({ locale, params }) => {
   const articleIdLabel = "articleId";
   // Fetch all articles data from AEM
   const { data: updatesData } = await fetch(
@@ -231,7 +206,5 @@ export const getStaticProps = async ({ locale, params }) => {
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null, // Analytics configuration
       ...(await serverSideTranslations(locale, ["common", "vc"])), // Load translations
     },
-    // Enable Incremental Static Regeneration if configured
-    revalidate: process.env.ISR_ENABLED === "true" ? 600 : false,
   };
 };
