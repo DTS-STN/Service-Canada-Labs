@@ -177,7 +177,7 @@ export default function ProjectsPage(props) {
         </div>
 
         <div className="layout-container">
-          {/* Project status filter dropdown */}
+          {/* Project status filter dropdown
           <div className="my-12 max-w-[350px]">
             <MultiSelectField
               label={getDictionaryTerm(
@@ -191,7 +191,7 @@ export default function ProjectsPage(props) {
               onChange={setSelectedOptions}
               selectedOptions={selectedOptions}
             />
-          </div>
+          </div> */}
           {/* Grid of project cards */}
           <ul className="grid grid-cols-12 gap-6 mt-20">{projectsCards}</ul>
         </div>
