@@ -136,8 +136,12 @@ export default function ArticlePage({ ...props }) {
             // Link to filtered updates page
             href={
               props.locale === "en"
-                ? `/en/updates?project=${pageData.scLabProject.scTitleEn}`
-                : `/fr/mises-a-jour?projet=${pageData.scLabProject.scTitleFr}`
+                ? `/en/updates?project=${encodeURIComponent(
+                    pageData.scLabProject.scTitleEn
+                  ).replace(/%20/g, "-")}`
+                : `/fr/mises-a-jour?projet=${encodeURIComponent(
+                    pageData.scLabProject.scTitleFr
+                  ).replace(/%20/g, "-")}`
             }
           />
         ) : null}
