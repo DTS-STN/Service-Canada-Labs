@@ -22,7 +22,8 @@ class AEMService {
     headers.append("Content-Type", "application/json")
     headers.append("User-Agent", "sc-labs/1.1.3");
 
-    const query = require(`../graphql/queries/${fragId}.graphql`).loc.source.body
+    const graphqlModule = await import(`../graphql/queries/${fragId}.graphql`);
+    const query = graphqlModule.default.loc.source.body;
 
     let error, data;
     try {

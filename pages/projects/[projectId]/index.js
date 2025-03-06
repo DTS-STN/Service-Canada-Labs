@@ -257,11 +257,30 @@ export default function ProjectPage({
 }
 
 /**
- * Fetch and prepare data for page rendering at request time
- * Handles data fetching, language selection, and 404 cases
- * @param {Object} context - Contains locale and URL parameters
+ * Generate static paths for all project pages
+ * Similar structure to article pages for consistency
  */
-export const getServerSideProps = async ({ locale, params }) => {
+export async function getStaticPaths() {
+  const idLabel = "projectId";
+  // Fetch main page content from AEM
+  const { data } = await fetch(
+    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclAllProjectsV2${process.env.AEM_CONTENT_FOLDER}`
+  ).then((res) => res.json());
+
+  // Generate paths array for all projects in both languages
+  const paths = getAllPathParams([idLabel], data.sclabsPageV1List.items);
+  // Extract the project ID from the full path
+  paths.map(
+    (path) => (path.params[idLabel] = path.params[idLabel].split("/").at(-1))
+  );
+
+  return {
+    paths,
+    fallback: "blocking",
+  };
+}
+
+export const getStaticProps = async ({ locale, params }) => {
   const idLabel = "projectId";
   // Fetch main page content from AEM
 
@@ -292,18 +311,22 @@ export const getServerSideProps = async ({ locale, params }) => {
     };
   }
 
+  const { scLabProjectUpdates, ...projectData } = pageData[0];
+
   // Return props for page rendering
   return {
     props: {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
-      projectData: pageData[0],
-      articlesData: pageData[0].scLabProjectUpdates,
+      projectData: projectData,
+      articlesData: scLabProjectUpdates,
       dictionary: dictionary.dictionaryV1List.items,
       // Randomize projects order for variety
-      allProjects: shuffle(allProjectsData.sclabsPageV1List.items),
+      allProjects: shuffle(pages),
       // Include common translations
       ...(await serverSideTranslations(locale, ["common"])),
     },
+    // Enable ISR if configured in environment
+    revalidate: process.env.ISR_ENABLED === "true" ? 600 : false,
   };
 };
