@@ -210,7 +210,9 @@ export default function ProjectPage({
       {articlesData.length !== 0 ? (
         <ExploreUpdates
           isOnProjectPage={true}
-          projectName={projectData.scTitleEn}
+          projectName={
+            locale === "en" ? projectData.scTitleEn : projectData.scTitleFr
+          }
           locale={locale}
           updatesData={sortUpdatesByDate(articlesData)}
           dictionary={dictionary}
@@ -232,8 +234,12 @@ export default function ProjectPage({
           )}`}
           href={
             locale === "en"
-              ? `/en/updates?project=${projectData.scTitleEn}`
-              : `/fr/mises-a-jour?projet=${projectData.scTitleFr}`
+              ? `/en/updates?project=${encodeURIComponent(
+                  projectData.scTitleEn
+                ).replace(/%20/g, "-")}`
+              : `/fr/mises-a-jour?projet=${encodeURIComponent(
+                  projectData.scTitleFr
+                ).replace(/%20/g, "-")}`
           }
         />
       ) : null}
