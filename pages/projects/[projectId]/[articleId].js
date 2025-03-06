@@ -2,8 +2,6 @@ import PageHead from "../../../components/fragment_renderer/PageHead";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../../../components/organisms/Layout";
 import { useEffect, useState } from "react";
-import aemServiceInstance from "../../../services/aemServiceInstance";
-import { getAllPathParams } from "../../../lib/utils/getAllPathParams";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
 import { Heading } from "../../../components/molecules/Heading";
@@ -12,7 +10,8 @@ import { filterItems } from "../../../lib/utils/filterItems";
 import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 import { UpdateInfo } from "../../../components/atoms/UpdateInfo";
 import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
-
+import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
+import { getAllPathParams } from "../../../lib/utils/getAllPathParams";
 export default function ArticlePage({ ...props }) {
   // State management for page content and translations
   const [pageData] = useState(props.pageData); // Individual article data from AEM
@@ -111,7 +110,7 @@ export default function ArticlePage({ ...props }) {
           <ExploreUpdates
             locale={props.locale}
             // Filter updates related to this article
-            updatesData={filterItems(props.updatesData, pageData.scId)}
+            updatesData={sortUpdatesByDate(filterItems(props.updatesData, pageData.scId))}
             dictionary={props.dictionary}
             // Construct bilingual section heading
             heading={
@@ -162,11 +161,36 @@ export default function ArticlePage({ ...props }) {
 }
 
 /**
+ * Generate static paths for all articles
+ * Required for Next.js dynamic routing
+ * Creates paths for both English and French versions of each article
+ */
+export async function getStaticPaths() {
+  const articleIdLabel = "articleId";
+  const projectIdLabel = "projectId";
+  // Fetch all projects aarticles from AEM
+  const { data: updatesData } = await fetch(
+    `${process.env.AEM_BASE_URL}/getSclAllUpdatesV2${process.env.AEM_CONTENT_FOLDER}`
+  ).then((res) => res.json());
+
+  // Generate paths array for all articles in both languages
+  const paths = getAllPathParams(
+    [articleIdLabel, projectIdLabel],
+    updatesData.sclabsPageV1List.items
+  );
+
+  return {
+    paths,
+    fallback: "blocking", // Show loading state for new pages being generated
+  };
+}
+
+/**
  * Fetch and prepare data for page rendering at request time
  * Handles data fetching, language selection, and 404 cases
  * @param {Object} context - Contains locale and URL parameters
  */
-export const getServerSideProps = async ({ locale, params }) => {
+export const getStaticProps = async ({ locale, params }) => {
   const articleIdLabel = "articleId";
   // Fetch all articles data from AEM
   const { data: updatesData } = await fetch(
@@ -200,13 +224,30 @@ export const getServerSideProps = async ({ locale, params }) => {
     };
   }
 
+  // Optimize other updates data to only include necessary fields
+  const optimizedUpdatesData = otherUpdatesForPage.map((update) => ({
+    scId: update.scId,
+    scTitleEn: update.scTitleEn,
+    scTitleFr: update.scTitleFr,
+    scPageNameEn: update.scPageNameEn,
+    scPageNameFr: update.scPageNameFr,
+    scDateIssued: update.scDateIssued,
+    scLabProject: {
+      scId: update.scLabProject.scId,
+      scTitleEn: update.scLabProject.scTitleEn,
+      scTitleFr: update.scLabProject.scTitleFr,
+      scPageNameEn: update.scLabProject.scPageNameEn,
+      scPageNameFr: update.scLabProject.scPageNameFr
+    }
+  }));
+
   // Return props for page rendering
   return {
     props: {
       locale: locale, // Current language
       pageData: pageData[0], // Article content
-      updatesData: otherUpdatesForPage, // All updates for filtering
-      dictionary: dictionary.dictionaryV1List.items, // Translation dictionary
+      updatesData: optimizedUpdatesData, // Optimized updates for filtering
+      dictionary: dictionary.dictionaryV1List.items, // Filtered translation dictionary
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null, // Analytics configuration
       ...(await serverSideTranslations(locale, ["common", "vc"])), // Load translations
     },

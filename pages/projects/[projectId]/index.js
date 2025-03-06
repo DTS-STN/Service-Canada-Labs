@@ -13,9 +13,9 @@ import { filterItems } from "../../../lib/utils/filterItems";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 import { ContextualAlert } from "../../../components/molecules/ContextualAlert";
-import { getAllPathParams } from "../../../lib/utils/getAllPathParams";
 import PageHead from "../../../components/fragment_renderer/PageHead";
 import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
+import { getAllPathParams } from "../../../lib/utils/getAllPathParams";
 
 export default function ProjectPage({
   projectData,
@@ -257,11 +257,35 @@ export default function ProjectPage({
 }
 
 /**
+ * Generate static paths for all project pages
+ * Similar structure to article pages for consistency
+ */
+export async function getStaticPaths() {
+  const idLabel = "projectId";
+  // Fetch main page content from AEM
+  const { data } = await fetch(
+    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclAllProjectsV2${process.env.AEM_CONTENT_FOLDER}`
+  ).then((res) => res.json());
+
+  // Generate paths array for all projects in both languages
+  const paths = getAllPathParams([idLabel], data.sclabsPageV1List.items);
+  // Extract the project ID from the full path
+  paths.map(
+    (path) => (path.params[idLabel] = path.params[idLabel].split("/").at(-1))
+  );
+
+  return {
+    paths,
+    fallback: "blocking",
+  };
+}
+
+/**
  * Fetch and prepare data for page rendering at request time
  * Handles data fetching, language selection, and 404 cases
  * @param {Object} context - Contains locale and URL parameters
  */
-export const getServerSideProps = async ({ locale, params }) => {
+export const getStaticProps = async ({ locale, params }) => {
   const idLabel = "projectId";
   // Fetch main page content from AEM
 
@@ -292,16 +316,59 @@ export const getServerSideProps = async ({ locale, params }) => {
     };
   }
 
+  // Filter related projects - only get 3 random projects excluding current one
+  const otherProjects = shuffle(
+    pages.filter((project) => project.scId !== pageData[0].scId)
+  ).slice(0, 3);
+
+  // Only include necessary fields for related projects
+  const relatedProjects = otherProjects.map((project) => ({
+    scId: project.scId,
+    scTitleEn: project.scTitleEn,
+    scTitleFr: project.scTitleFr,
+    scPageNameEn: project.scPageNameEn,
+    scPageNameFr: project.scPageNameFr,
+    scLabProjectStagev2: {
+      scTermEn: project.scLabProjectStagev2.scTermEn,
+      scTermFr: project.scLabProjectStagev2.scTermFr
+    },
+    scSocialMediaImageEn: {
+      _path: project.scSocialMediaImageEn._path,
+      _publishUrl: project.scSocialMediaImageEn._publishUrl,
+      width: project.scSocialMediaImageEn.width,
+      height: project.scSocialMediaImageEn.height,
+      scSocialMediaImageAltTextEn: project.scSocialMediaImageAltTextEn
+    },
+    scSocialMediaImageFr: {
+      _path: project.scSocialMediaImageFr._path,
+      _publishUrl: project.scSocialMediaImageFr._publishUrl,
+      width: project.scSocialMediaImageFr.width,
+      height: project.scSocialMediaImageFr.height,
+      scSocialMediaImageAltTextFr: project.scSocialMediaImageAltTextFr
+    },
+    scDescriptionEn: project.scDescriptionEn,
+    scDescriptionFr: project.scDescriptionFr
+  }));
+
+  // Optimize articlesData to only include necessary fields
+  const optimizedArticlesData = pageData[0].scLabProjectUpdates.map((article) => ({
+    scId: article.scId,
+    scTitleEn: article.scTitleEn,
+    scTitleFr: article.scTitleFr,
+    scPageNameEn: article.scPageNameEn,
+    scPageNameFr: article.scPageNameFr,
+    scDateIssued: article.scDateIssued
+  }));
+
   // Return props for page rendering
   return {
     props: {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       projectData: pageData[0],
-      articlesData: pageData[0].scLabProjectUpdates,
+      articlesData: optimizedArticlesData,
       dictionary: dictionary.dictionaryV1List.items,
-      // Randomize projects order for variety
-      allProjects: shuffle(allProjectsData.sclabsPageV1List.items),
+      allProjects: relatedProjects,
       // Include common translations
       ...(await serverSideTranslations(locale, ["common"])),
     },
