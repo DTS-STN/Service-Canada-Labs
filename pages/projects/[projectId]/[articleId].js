@@ -186,7 +186,7 @@ export async function getStaticPaths() {
 }
 
 /**
- * Fetch and prepare data for page rendering at request time
+ * Fetch and prepare data for page rendering at build time
  * Handles data fetching, language selection, and 404 cases
  * @param {Object} context - Contains locale and URL parameters
  */
@@ -251,5 +251,7 @@ export const getStaticProps = async ({ locale, params }) => {
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null, // Analytics configuration
       ...(await serverSideTranslations(locale, ["common", "vc"])), // Load translations
     },
+    // Enable Incremental Static Regeneration if configured
+    revalidate: process.env.ISR_ENABLED === "true" ? 600 : false,
   };
 };

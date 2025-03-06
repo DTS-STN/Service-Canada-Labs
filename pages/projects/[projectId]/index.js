@@ -372,5 +372,7 @@ export const getStaticProps = async ({ locale, params }) => {
       // Include common translations
       ...(await serverSideTranslations(locale, ["common"])),
     },
+    // Enable ISR if configured in environment
+    revalidate: process.env.ISR_ENABLED === "true" ? 600 : false,
   };
 };
