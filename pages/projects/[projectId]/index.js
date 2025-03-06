@@ -281,7 +281,7 @@ export async function getStaticPaths() {
 }
 
 /**
- * Fetch and prepare data for page rendering at request time
+ * Fetch and prepare data for page rendering at build time
  * Handles data fetching, language selection, and 404 cases
  * @param {Object} context - Contains locale and URL parameters
  */
