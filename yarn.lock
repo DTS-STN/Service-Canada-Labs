@@ -6160,13 +6160,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress-axe@npm:^1.5.0":
-  version: 1.5.0
-  resolution: "cypress-axe@npm:1.5.0"
+"cypress-axe@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "cypress-axe@npm:1.6.0"
   peerDependencies:
     axe-core: ^3 || ^4
-    cypress: ^10 || ^11 || ^12 || ^13
-  checksum: 9e5dde486e352da0597f26134e5afd5b998c4020c1b7292a38d6be72dc46778a1e06fa6b051fac397dd9cf45c7ad7ff93a1a33300590d512d015c622d00a7031
+    cypress: ^10 || ^11 || ^12 || ^13 || ^14
+  checksum: d8ab909d82a7d7c87e4708cc4c696551a3926c2acdabbf18e20c3c3a9d92911902c369b7f3e0ed3798595659b0d5bd3a5616ebf54d937955a4488a6bffc9bada
   languageName: node
   linkType: hard
 
@@ -12406,7 +12406,7 @@ __metadata:
     cors: "npm:^2.8.5"
     cuid: "npm:^2.1.8"
     cypress: "npm:^14.1.0"
-    cypress-axe: "npm:^1.5.0"
+    cypress-axe: "npm:^1.6.0"
     cypress-localstorage-commands: "npm:^1.4.5"
     fetch-mock: "npm:^9.11.0"
     focus-trap-react: "npm:^8.11.2"

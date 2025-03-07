@@ -2,8 +2,6 @@ import PageHead from "../../../components/fragment_renderer/PageHead";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../../../components/organisms/Layout";
 import { useEffect, useState } from "react";
-import aemServiceInstance from "../../../services/aemServiceInstance";
-import { getAllPathParams } from "../../../lib/utils/getAllPathParams";
 import { createBreadcrumbs } from "../../../lib/utils/createBreadcrumbs";
 import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
 import { Heading } from "../../../components/molecules/Heading";
@@ -12,6 +10,8 @@ import { filterItems } from "../../../lib/utils/filterItems";
 import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 import { UpdateInfo } from "../../../components/atoms/UpdateInfo";
 import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
+import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
+import { getAllPathParams } from "../../../lib/utils/getAllPathParams";
 
 export default function ArticlePage({ ...props }) {
   // State management for page content and translations
@@ -111,7 +111,9 @@ export default function ArticlePage({ ...props }) {
           <ExploreUpdates
             locale={props.locale}
             // Filter updates related to this article
-            updatesData={filterItems(props.updatesData, pageData.scId)}
+            updatesData={sortUpdatesByDate(
+              filterItems(props.updatesData, pageData.scId)
+            )}
             dictionary={props.dictionary}
             // Construct bilingual section heading
             heading={
@@ -225,13 +227,30 @@ export const getStaticProps = async ({ locale, params }) => {
     };
   }
 
+  // Optimize other updates data to only include necessary fields
+  const optimizedUpdatesData = otherUpdatesForPage.map((update) => ({
+    scId: update.scId,
+    scTitleEn: update.scTitleEn,
+    scTitleFr: update.scTitleFr,
+    scPageNameEn: update.scPageNameEn,
+    scPageNameFr: update.scPageNameFr,
+    scDateIssued: update.scDateIssued,
+    scLabProject: {
+      scId: update.scLabProject.scId,
+      scTitleEn: update.scLabProject.scTitleEn,
+      scTitleFr: update.scLabProject.scTitleFr,
+      scPageNameEn: update.scLabProject.scPageNameEn,
+      scPageNameFr: update.scLabProject.scPageNameFr,
+    },
+  }));
+
   // Return props for page rendering
   return {
     props: {
       locale: locale, // Current language
       pageData: pageData[0], // Article content
-      updatesData: otherUpdatesForPage, // All updates for filtering
-      dictionary: dictionary.dictionaryV1List.items, // Translation dictionary
+      updatesData: optimizedUpdatesData, // Optimized updates for filtering
+      dictionary: dictionary.dictionaryV1List.items, // Filtered translation dictionary
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null, // Analytics configuration
       ...(await serverSideTranslations(locale, ["common", "vc"])), // Load translations
     },

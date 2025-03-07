@@ -13,7 +13,7 @@ import { ErrorLabel } from "../atoms/ErrorLabel";
  */
 export function ReportAProblem(props) {
   const [submitted, setSubmitted] = useState(false);
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation("reportaproblem");
 
   const [submittedOnce, setSubmittedOnce] = useState(false);
 

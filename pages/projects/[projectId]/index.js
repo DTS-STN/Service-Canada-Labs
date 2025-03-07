@@ -13,14 +13,14 @@ import { filterItems } from "../../../lib/utils/filterItems";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 import { getDictionaryTerm } from "../../../lib/utils/getDictionaryTerm";
 import { ContextualAlert } from "../../../components/molecules/ContextualAlert";
-import { getAllPathParams } from "../../../lib/utils/getAllPathParams";
 import PageHead from "../../../components/fragment_renderer/PageHead";
 import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
+import { getAllPathParams } from "../../../lib/utils/getAllPathParams";
 
 export default function ProjectPage({
   projectData,
   articlesData,
-  allProjects,
+  otherProjects,
   dictionary,
   adobeAnalyticsUrl,
   locale,
@@ -250,7 +250,7 @@ export default function ProjectPage({
           locale
         )}
         locale={locale}
-        projects={filterItems(allProjects, projectData.scId).slice(0, 3)}
+        projects={otherProjects}
       />
     </Layout>
   );
@@ -280,6 +280,11 @@ export async function getStaticPaths() {
   };
 }
 
+/**
+ * Fetch and prepare data for page rendering at build time
+ * Handles data fetching, language selection, and 404 cases
+ * @param {Object} context - Contains locale and URL parameters
+ */
 export const getStaticProps = async ({ locale, params }) => {
   const idLabel = "projectId";
   // Fetch main page content from AEM
@@ -311,18 +316,64 @@ export const getStaticProps = async ({ locale, params }) => {
     };
   }
 
-  const { scLabProjectUpdates, ...projectData } = pageData[0];
+  // Only get 3 random projects excluding current one
+  const otherProjects = shuffle(
+    pages.filter((project) => project.scId !== pageData[0].scId)
+  ).slice(0, 3);
+
+  // Only include necessary fields for related projects
+  const projectsToInclude = otherProjects.map((project) => ({
+    scId: project.scId,
+    scTitleEn: project.scTitleEn,
+    scTitleFr: project.scTitleFr,
+    scPageNameEn: project.scPageNameEn,
+    scPageNameFr: project.scPageNameFr,
+    scLabProjectStagev2: {
+      scTermEn: project.scLabProjectStagev2.scTermEn,
+      scTermFr: project.scLabProjectStagev2.scTermFr,
+    },
+    scSocialMediaImageEn: {
+      _path: project.scSocialMediaImageEn._path,
+      _publishUrl: project.scSocialMediaImageEn._publishUrl,
+      width: project.scSocialMediaImageEn.width,
+      height: project.scSocialMediaImageEn.height,
+      scSocialMediaImageAltTextEn: project.scSocialMediaImageAltTextEn,
+    },
+    scSocialMediaImageFr: {
+      _path: project.scSocialMediaImageFr._path,
+      _publishUrl: project.scSocialMediaImageFr._publishUrl,
+      width: project.scSocialMediaImageFr.width,
+      height: project.scSocialMediaImageFr.height,
+      scSocialMediaImageAltTextFr: project.scSocialMediaImageAltTextFr,
+    },
+    scDescriptionEn: project.scDescriptionEn,
+    scDescriptionFr: project.scDescriptionFr,
+  }));
+
+  // Optimize articlesData to only include necessary fields
+  const optimizedArticlesData = pageData[0].scLabProjectUpdates.map(
+    (article) => ({
+      scId: article.scId,
+      scTitleEn: article.scTitleEn,
+      scTitleFr: article.scTitleFr,
+      scPageNameEn: article.scPageNameEn,
+      scPageNameFr: article.scPageNameFr,
+      scDateIssued: article.scDateIssued,
+    })
+  );
 
   // Return props for page rendering
   return {
     props: {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
-      projectData: projectData,
-      articlesData: scLabProjectUpdates,
+      projectData: pageData[0],
+      articlesData: optimizedArticlesData,
       dictionary: dictionary.dictionaryV1List.items,
-      // Randomize projects order for variety
-      allProjects: shuffle(pages),
+      otherProjects: filterItems(projectsToInclude, pageData[0].scId).slice(
+        0,
+        3
+      ),
       // Include common translations
       ...(await serverSideTranslations(locale, ["common"])),
     },
