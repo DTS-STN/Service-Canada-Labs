@@ -19,7 +19,9 @@ export const Card = (props) => {
   const tagColour = tagColours[props.tag] ?? "custom-gray";
 
   return (
-    <Link href={props.href}>
+    // Not using next/link because when using it, content from the previous
+    // page remains when navigating to the next page.
+    <a href={props.href}>
       <div
         className={`h-full group card-shadow border border-custom-gray-border rounded-md py-4 hover:cursor-pointer ${
           "border-" + tagColour + ` ${props.customStyling}`
@@ -98,7 +100,7 @@ export const Card = (props) => {
           ""
         )}
       </div>
-    </Link>
+    </a>
   );
 };
 
