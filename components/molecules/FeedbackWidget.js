@@ -20,8 +20,8 @@ export const FeedbackWidget = ({
 }) => {
   const [submitted, setSubmitted] = useState(false);
   const [feedbackClose, setFeedbackClose] = useState(false);
-  const { t } = useTranslation("common");
-  const [response, setResponse] = useState(t("thankYouFeedback"));
+  const { t } = useTranslation("feedbackwidget");
+  const [response, setResponse] = useState(t("feedbackWidgetThankYou"));
   const email = process.env.SUBMIT_FEEDBACK_EMAIL;
   const [count, setCount] = useState(2000);
   var maxLength = 2000;
@@ -103,11 +103,11 @@ export const FeedbackWidget = ({
 
       // if the response is good, show thank you message
       if (response.status === 201 || response.status === 200) {
-        await setResponse(t("thankYouFeedback"));
+        await setResponse(t("feedbackWidgetThankYou"));
         setFeedback("");
         setCount(2000);
       } else {
-        await setResponse(t("sorryFeedback"));
+        await setResponse(t("feedbackWidgetSorryFeedback"));
       }
 
       setSubmitted(true);
@@ -140,7 +140,7 @@ export const FeedbackWidget = ({
                   {!feedbackClose ? (
                     <div
                       className={`${
-                        response === t("thankYouFeedback")
+                        response === t("feedbackWidgetThankYou")
                           ? "bg-custom-green-darker font-bold"
                           : "bg-circle-color"
                       } text-white flex py-2`}
@@ -148,7 +148,7 @@ export const FeedbackWidget = ({
                       <div className="layout-container flex">
                         <span className="flex flex-col text-xs lg:text-sm font-body mt-2 mb-4 w-full">
                           {response}
-                          {response === t("sorryFeedback") ? (
+                          {response === t("feedbackWidgetSorryFeedback") ? (
                             <ActionButton
                               id="link-mail"
                               ariaLabel="Service Canada email"
@@ -172,7 +172,7 @@ export const FeedbackWidget = ({
                             imageSource="/close-x.svg"
                             imageAlt="Close button"
                             imageSpanClass="text-xs text-white leading-4 lg:text-sm underline ml-1 lg:ml-2 lg:leading-10"
-                            imageSpanText={t("close")}
+                            imageSpanText={t("feedbackWidgetClose")}
                             onClick={() => setFeedbackClose(true)}
                             tabindex="-1"
                           />
@@ -197,7 +197,7 @@ export const FeedbackWidget = ({
                     imageSource="/close-x.svg"
                     imageAlt="Close button"
                     imageSpanClass="text-xs leading-4 lg:text-sm underline ml-2 lg:leading-10"
-                    imageSpanText={t("close")}
+                    imageSpanText={t("feedbackWidgetClose")}
                     onClick={() => {
                       toggleForm();
                       setCount(2000);
@@ -205,21 +205,21 @@ export const FeedbackWidget = ({
                   />
                 </div>
                 <h2 className="text-h4 lg:text-h3 lg:text-sm font-display pt-6 mb-4 w-48 sm:w-auto">
-                  {t("improveService")}
+                  {t("feedbackWidgetImproveService")}
                 </h2>
                 <ul className="list-outside list-disc px-6 pb-3">
                   <li className="text-xs lg:text-sm pt-2 pb-1 font-body">
-                    <strong>{t("reportAProblemNoReply")}</strong>
+                    <strong>{t("feedbackWidgetNoReply")}</strong>
                   </li>
                   <li className="text-xs lg:text-sm font-body mb-0">
-                    <strong>{t("confidential")}</strong>
+                    <strong>{t("feedbackWidgetConfidential")}</strong>
                     <ActionButton
                       ariaLabel="Privacy page link"
                       id="link-privacyPage"
                       dataCy="link-privacyPage"
                       dataTestId="link-privacyPage"
                       href={t("privacyLink")}
-                      text={t("reportAProblemPrivacyStatement")}
+                      text={t("feedbackWidgetPrivacyStatement")}
                       custom="text-xs lg:text-sm underline ml-2 outline-none focus:outline-white-solid"
                     />
                   </li>
@@ -242,15 +242,15 @@ export const FeedbackWidget = ({
                     >
                       *
                     </b>
-                    <b>{t("doBetter")}</b>
+                    <b>{t("feedbackWidgetDoBetter")}</b>
                   </label>
                   <div id="feedbackInfo">
                     <p className="text-xs lg:text-sm my-2">
-                      {t("doNotInclude")}
+                      {t("feedbackWidgetDoNotInclude")}
                     </p>
                     <p className="text-xs lg:text-sm mb-1 mt-4">
                       {count}
-                      {t("maximum2000")}
+                      {t("feedbackWidgetMaximum2000")}
                     </p>
                   </div>
                   {feedbackError ? (
@@ -282,7 +282,7 @@ export const FeedbackWidget = ({
                     type="submit"
                     dataCy="feedback-submit"
                     dataTestId="feedback-submit"
-                    text={t("reportAProblemSubmit")}
+                    text={t("feedbackWidgetSubmit")}
                     analyticsTracking
                   />
                 </form>
