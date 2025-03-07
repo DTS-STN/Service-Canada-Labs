@@ -250,7 +250,7 @@ export default function ProjectPage({
           locale
         )}
         locale={locale}
-        projects={filterItems(allProjects, projectData.scId).slice(0, 3)}
+        projects={allProjects}
       />
     </Layout>
   );
@@ -368,7 +368,7 @@ export const getStaticProps = async ({ locale, params }) => {
       projectData: pageData[0],
       articlesData: optimizedArticlesData,
       dictionary: dictionary.dictionaryV1List.items,
-      allProjects: relatedProjects,
+      allProjects: filterItems(relatedProjects, pageData[0].scId).slice(0, 3),
       // Include common translations
       ...(await serverSideTranslations(locale, ["common"])),
     },
