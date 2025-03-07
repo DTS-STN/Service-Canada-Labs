@@ -1,0 +1,13 @@
+{
+  "feedbackWidgetSubmit": "Submit",
+  "feedbackWidgetThankYou": "Thank you for your feedback",
+  "feedbackWidgetNoReply": "You will not receive a reply.",
+  "feedbackWidgetPrivacyStatement": "Review the privacy policy",
+  "feedbackWidgetSorryFeedback": "Sorry, we're unable to receive your message right now. If the problem persists, please contact",
+  "feedbackWidgetClose": "Close",
+  "feedbackWidgetImproveService": "Help us improve this service",
+  "feedbackWidgetConfidential": "Your feedback is confidential and anonymous.",
+  "feedbackWidgetDoBetter": "How can we do better?",
+  "feedbackWidgetDoNotInclude": "Do not include any personal, medical or financial details, such as your name, social insurance number (SIN), home or business address, phone number or any case or file numbers.",
+  "feedbackWidgetMaximum2000": "/2000 characters remaining"
+}
