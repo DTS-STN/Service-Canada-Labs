@@ -132,7 +132,7 @@ export default function UpdatesPage(props) {
       const routerQuery =
         props.locale === "en" ? router.query.project : router.query.projet;
       // Find matching options for the query parameter
-      const routerQueryFormatted = routerQuery.replaceAll("-", " ");
+      const routerQueryFormatted = routerQuery?.replaceAll("-", " ");
       const selectedOptionsFromQueryString = options.filter(
         (option) => option.label === routerQueryFormatted
       );
