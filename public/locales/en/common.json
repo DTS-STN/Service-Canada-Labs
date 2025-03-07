@@ -6,23 +6,6 @@
   "figCaption": "Diagram that shows what we do and how user feedback gets transformed into a service to Canadians - and/or - Benefits of joining the user pool for testers",
   "dateModified": "Date modified:",
   "footerReportProblem": "Experiencing an issue with this product or have you spotted an error?",
-  "reportAProblemTitle": "Report a problem or mistake on this page",
-  "reportAProblemCheckAllThatApply": "Check all the issues that apply",
-  "reportAProblemIncorrectInformation": "Incorrect Information",
-  "reportAProblemUnclearInformation": "Unclear Information",
-  "reportAProblemDidNotFindWhatYoureLookingFor": "You didn't find what you were looking for",
-  "reportAProblemPageDoesNotWorkWithAdaptiveTechnology": "Page does not work with your adaptive technologies",
-  "reportAProblemYoureWorriedAboutYourPrivacy": "You're worried about your privacy",
-  "reportAProblemNoWhereElseToGo": "You don't know where else to go for help",
-  "reportAProblemOther": "Other",
-  "reportAProblemProvideMoreDetails": "Provide more details",
-  "reportAProblemNoReply": "You will not receive a reply.",
-  "reportAProblemThankYouForYourHelp": "Thank you for your help!",
-  "reportAProblemYouWillNotBeContacted": "You will not receive a reply.",
-  "reportAProblemPrivacyStatement": "Review the privacy policy",
-  "reportAProblemFeedbackConfidential": "Your feedback will be confidential.",
-  "reportAProblemSubmit": "Submit",
-  "reportAProblemError": "Error: Please select an issue",
   "expanded": "expanded",
   "collapsed": "collapsed",
   "privacyLink": "/signup/privacy",
@@ -39,9 +22,7 @@
   "aboutGovernment": "About government",
   "metaImage": "/public/sclabs-meta-image.png",
   "404errorMetaDescription": "Error message stating that the page couldn't be found.",
-
   "metaSubject": "GV Government and Politics;Government services",
-
   "landscapeLinks": {
     "text": {
       "contacts": "All contacts",
@@ -104,7 +85,6 @@
   },
   "footerTitle": "Government of Canada",
   "reportAProblem": "Report a problem or mistake on this page",
-
   "feedback": {
     "thank-you": "Thank you for your feedback.",
     "what-was-wrong": "What was wrong?",
@@ -122,7 +102,6 @@
     "yes-aria-label": "Select yes to submit feedback that this page provided you with the information you were looking for.",
     "no-aria-label": "Select no to submit feedback that this page did not provide you with the information you were looking for."
   },
-
   "topNavBar": {
     "navAriaLabel": "navigation menu",
     "buttonAriaLabel": "navigation menu button",

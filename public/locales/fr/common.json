@@ -6,23 +6,6 @@
   "figCaption": "Diagramme qui montre ce que nous faisons et comment les commentaires des utilisateurs sont transformés en un service pour les Canadiens - et / ou - les avantages de rejoindre le bassin d'utilisateurs pour les testeurs",
   "dateModified": "Date de modification :",
   "footerReportProblem": "Vous rencontrez un problème avec ce produit ou avez-vous repéré une erreur?",
-  "reportAProblemTitle": "Signaler un problème ou une erreur sur cette page",
-  "reportAProblemCheckAllThatApply": "Cochez toutes les options qui s'appliquent",
-  "reportAProblemIncorrectInformation": "Informations incorrectes",
-  "reportAProblemUnclearInformation": "Informations imprécises",
-  "reportAProblemDidNotFindWhatYoureLookingFor": "Vous n'avez pas trouvé ce que vous cherchiez",
-  "reportAProblemPageDoesNotWorkWithAdaptiveTechnology": "La page ne fonctionne pas avec vos technologies d'adaptation",
-  "reportAProblemYoureWorriedAboutYourPrivacy": "Vous êtes inquiet pour votre vie privée",
-  "reportAProblemNoWhereElseToGo": "Vous ne savez pas où trouver de l'aide",
-  "reportAProblemOther": "Autres",
-  "reportAProblemProvideMoreDetails": "Fournir plus de détails",
-  "reportAProblemNoReply": "Vous ne recevrez pas de réponse.",
-  "reportAProblemThankYouForYourHelp": "Merci pour votre aide !",
-  "reportAProblemYouWillNotBeContacted": "Vous ne recevrez pas de réponse.",
-  "reportAProblemPrivacyStatement": "Lire la politique en matière de protection des renseignements personnels",
-  "reportAProblemFeedbackConfidential": "Vos commentaires sont confidentiels.",
-  "reportAProblemSubmit": "Soumettre",
-  "reportAProblemError": "Erreur: Veuillez sélectionner une option",
   "expanded": "affiché",
   "collapsed": "masqué",
   "privacyLink": "/fr/inscription/protection-renseignements-personnels",
@@ -39,9 +22,7 @@
   "aboutGovernment": "Au sujet du gouvernement",
   "metaImage": "/public/sclabs-meta-image.png",
   "404errorMetaDescription": "Message d'erreur indiquant que la page n'a pu être trouvée.",
-
   "metaSubject": "GV Gouvernement et vie politique;Services gouvernementaux",
-
   "landscapeLinks": {
     "text": {
       "contacts": "Toutes les coordonnées",
@@ -104,7 +85,6 @@
   },
   "footerTitle": "Gouvernement du Canada",
   "reportAProblem": "Signaler un problème ou une erreur sur cette page",
-
   "feedback": {
     "thank-you": "Merci de vos commentaires",
     "what-was-wrong": "Qu'est-ce qui n'allait pas?",
@@ -122,7 +102,6 @@
     "yes-aria-label": "Sélectionnez oui pour indiquer que cette page vous a fourni l'information que vous cherchiez.",
     "no-aria-label": "Sélectionnez non pour indiquer que cette page ne vous a pas fourni l'information que vous cherchiez."
   },
-
   "topNavBar": {
     "navAriaLabel": "menu de navigation",
     "buttonAriaLabel": "bouton du menu de navigation",
