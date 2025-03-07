@@ -20,7 +20,7 @@ import { getAllPathParams } from "../../../lib/utils/getAllPathParams";
 export default function ProjectPage({
   projectData,
   articlesData,
-  allProjects,
+  otherProjects,
   dictionary,
   adobeAnalyticsUrl,
   locale,
@@ -250,7 +250,7 @@ export default function ProjectPage({
           locale
         )}
         locale={locale}
-        projects={allProjects}
+        projects={otherProjects}
       />
     </Layout>
   );
@@ -316,13 +316,13 @@ export const getStaticProps = async ({ locale, params }) => {
     };
   }
 
-  // Filter related projects - only get 3 random projects excluding current one
+  // Only get 3 random projects excluding current one
   const otherProjects = shuffle(
     pages.filter((project) => project.scId !== pageData[0].scId)
   ).slice(0, 3);
 
   // Only include necessary fields for related projects
-  const relatedProjects = otherProjects.map((project) => ({
+  const projectsToInclude = otherProjects.map((project) => ({
     scId: project.scId,
     scTitleEn: project.scTitleEn,
     scTitleFr: project.scTitleFr,
@@ -368,7 +368,7 @@ export const getStaticProps = async ({ locale, params }) => {
       projectData: pageData[0],
       articlesData: optimizedArticlesData,
       dictionary: dictionary.dictionaryV1List.items,
-      allProjects: filterItems(relatedProjects, pageData[0].scId).slice(0, 3),
+      otherProjects: filterItems(projectsToInclude, pageData[0].scId).slice(0, 3),
       // Include common translations
       ...(await serverSideTranslations(locale, ["common"])),
     },
