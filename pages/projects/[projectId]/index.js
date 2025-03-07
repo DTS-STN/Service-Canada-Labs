@@ -330,35 +330,37 @@ export const getStaticProps = async ({ locale, params }) => {
     scPageNameFr: project.scPageNameFr,
     scLabProjectStagev2: {
       scTermEn: project.scLabProjectStagev2.scTermEn,
-      scTermFr: project.scLabProjectStagev2.scTermFr
+      scTermFr: project.scLabProjectStagev2.scTermFr,
     },
     scSocialMediaImageEn: {
       _path: project.scSocialMediaImageEn._path,
       _publishUrl: project.scSocialMediaImageEn._publishUrl,
       width: project.scSocialMediaImageEn.width,
       height: project.scSocialMediaImageEn.height,
-      scSocialMediaImageAltTextEn: project.scSocialMediaImageAltTextEn
+      scSocialMediaImageAltTextEn: project.scSocialMediaImageAltTextEn,
     },
     scSocialMediaImageFr: {
       _path: project.scSocialMediaImageFr._path,
       _publishUrl: project.scSocialMediaImageFr._publishUrl,
       width: project.scSocialMediaImageFr.width,
       height: project.scSocialMediaImageFr.height,
-      scSocialMediaImageAltTextFr: project.scSocialMediaImageAltTextFr
+      scSocialMediaImageAltTextFr: project.scSocialMediaImageAltTextFr,
     },
     scDescriptionEn: project.scDescriptionEn,
-    scDescriptionFr: project.scDescriptionFr
+    scDescriptionFr: project.scDescriptionFr,
   }));
 
   // Optimize articlesData to only include necessary fields
-  const optimizedArticlesData = pageData[0].scLabProjectUpdates.map((article) => ({
-    scId: article.scId,
-    scTitleEn: article.scTitleEn,
-    scTitleFr: article.scTitleFr,
-    scPageNameEn: article.scPageNameEn,
-    scPageNameFr: article.scPageNameFr,
-    scDateIssued: article.scDateIssued
-  }));
+  const optimizedArticlesData = pageData[0].scLabProjectUpdates.map(
+    (article) => ({
+      scId: article.scId,
+      scTitleEn: article.scTitleEn,
+      scTitleFr: article.scTitleFr,
+      scPageNameEn: article.scPageNameEn,
+      scPageNameFr: article.scPageNameFr,
+      scDateIssued: article.scDateIssued,
+    })
+  );
 
   // Return props for page rendering
   return {
@@ -368,7 +370,10 @@ export const getStaticProps = async ({ locale, params }) => {
       projectData: pageData[0],
       articlesData: optimizedArticlesData,
       dictionary: dictionary.dictionaryV1List.items,
-      otherProjects: filterItems(projectsToInclude, pageData[0].scId).slice(0, 3),
+      otherProjects: filterItems(projectsToInclude, pageData[0].scId).slice(
+        0,
+        3
+      ),
       // Include common translations
       ...(await serverSideTranslations(locale, ["common"])),
     },

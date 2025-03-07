@@ -110,7 +110,9 @@ export default function ArticlePage({ ...props }) {
           <ExploreUpdates
             locale={props.locale}
             // Filter updates related to this article
-            updatesData={sortUpdatesByDate(filterItems(props.updatesData, pageData.scId))}
+            updatesData={sortUpdatesByDate(
+              filterItems(props.updatesData, pageData.scId)
+            )}
             dictionary={props.dictionary}
             // Construct bilingual section heading
             heading={
@@ -237,8 +239,8 @@ export const getStaticProps = async ({ locale, params }) => {
       scTitleEn: update.scLabProject.scTitleEn,
       scTitleFr: update.scLabProject.scTitleFr,
       scPageNameEn: update.scLabProject.scPageNameEn,
-      scPageNameFr: update.scLabProject.scPageNameFr
-    }
+      scPageNameFr: update.scLabProject.scPageNameFr,
+    },
   }));
 
   // Return props for page rendering
