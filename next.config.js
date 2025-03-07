@@ -16,8 +16,8 @@ const REWRITES = [
   },
   // Project page rewrites
   {
-    source: "/projets/:slug1/:slug2",
-    destination: "/projects/:slug1/:slug2",
+    source: "/projets/:slug*",
+    destination: "/projects/:slug*",
   },
   // Updates page rewrite
   {
