@@ -12,6 +12,7 @@ import { UpdateInfo } from "../../../components/atoms/UpdateInfo";
 import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 import { getAllPathParams } from "../../../lib/utils/getAllPathParams";
+
 export default function ArticlePage({ ...props }) {
   // State management for page content and translations
   const [pageData] = useState(props.pageData); // Individual article data from AEM
