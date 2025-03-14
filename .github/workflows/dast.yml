@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Docker Build
         run: docker build . --build-arg AEM_GRAPHQL_ENDPOINT=${{secrets.AEM_GRAPHQL_ENDPOINT}} --build-arg AEM_BASE_URL=${{secrets.AEM_BASE_URL}} --build-arg AEM_CONTENT_FOLDER=${{secrets.AEM_CONTENT_FOLDER}} -t sc-labs
@@ -30,7 +30,7 @@ jobs:
           AEM_CONTENT_FOLDER: ${{ secrets.AEM_CONTENT_FOLDER }}
 
       - name: OWASP ZAP FULL Scan
-        uses: zaproxy/action-full-scan@v0.4.0
+        uses: zaproxy/action-full-scan@v0.12.0
         with:
           target: "http://localhost:3000"
           fail_action: "false"
