@@ -4,6 +4,10 @@ trigger:
     include:
     - v*
 pr: none
+parameters:
+- name: TAG
+  type: string
+  default: 'release-candidate'
 variables:
 - name: azureContainerRegistry.repository
   value: servicecanadalabs
