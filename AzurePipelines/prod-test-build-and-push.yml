@@ -15,8 +15,6 @@ variables:
   value: $(Build.BuildId)
 - name: BUILD_DATE
   value: $(Build.BuildNumber)
-- name: tag
-  value: "release-candidate"
 - name: GIT_SHA
   value: $(Build.SourceVersion)
 stages:
@@ -39,11 +37,11 @@ stages:
         command: 'build'
         Dockerfile: "./Dockerfile"
         tags: |
-          $(tag)
+          $(TAG)
         arguments: "\n--build-arg NEXT_PUBLIC_BUILD_ID=$(ADO_BUILD) \n--build-arg NEXT_PUBLIC_BUILD_DATE=$(BUILD_DATE) \n--build-arg ADOBE_ANALYTICS_URL=$(ADOBE_ANALYTICS_URL) \n--build-arg NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL=$(NEXT_PUBLIC_NOTIFY_REPORT_A_PROBLEM_EMAIL) \n--build-arg THANK_YOU_EMAIL=$(THANK_YOU_EMAIL) \n--build-arg AEM_GRAPHQL_ENDPOINT=$(AEM_GRAPHQL_ENDPOINT)\n--build-arg AEM_BASE_URL=$(AEM_BASE_URL)\n--build-arg AEM_CONTENT_FOLDER=$(AEM_CONTENT_FOLDER)\n--build-arg REVALIDATION_TOKEN=$(REVALIDATION_TOKEN) \n--build-arg GIT_SHA=$(GIT_SHA)\n--build-arg ENVIRONMENT=$(ENVIRONMENT)\n--build-arg NOTIFY_API_KEY=$(NOTIFY_API_KEY)\n--build-arg NOTIFY_FEEDBACK_TEMPLATE_ID=$(NOTIFY_FEEDBACK_TEMPLATE_ID)\n"
     - task: Docker@2
       inputs:
         containerRegistry: 'acrlwhpdev'
         repository: 'servicecanadalabs'
         command: 'push'
-        tags: 'release-candidate'
+        tags: $(TAG)
