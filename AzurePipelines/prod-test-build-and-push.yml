@@ -21,6 +21,8 @@ variables:
   value: $(Build.BuildNumber)
 - name: GIT_SHA
   value: $(Build.SourceVersion)
+- name: TAG
+  value: ${{ parameters.TAG }}
 stages:
 - stage: Build
   displayName: Build Container
