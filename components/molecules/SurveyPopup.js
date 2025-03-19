@@ -67,7 +67,7 @@ export const SurveyPopup = ({
               </span>
               <span
                 className="transform transition-transform duration-300 self-start"
-                aria-hidden="true"
+                // aria-hidden="true"
                 style={{
                   transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
                 }}
@@ -92,7 +92,7 @@ export const SurveyPopup = ({
             <div
               id="survey-content"
               role="region"
-              aria-hidden={!isOpen}
+              // aria-hidden={!isOpen}
               className={`transition-all duration-300 ease-in-out overflow-hidden
                 ${
                   isOpen
