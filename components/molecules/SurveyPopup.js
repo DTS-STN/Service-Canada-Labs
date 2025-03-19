@@ -12,6 +12,7 @@ export const SurveyPopup = ({
   openButtonLabel,
   closeButtonLabel,
   optionsGroupLabel,
+  surveyLink,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation("common");
@@ -117,12 +118,15 @@ export const SurveyPopup = ({
                 >
                   {noThanksText || t("surveyPopup.noThanksButton")}
                 </button>
-                <button
+                <a
                   ref={takeSurveyRef}
-                  className="px-4 py-2 bg-white text-custom-blue-dark hover:bg-gray-100 transition-colors rounded focus:outline-none focus:ring-2 focus:ring-white"
+                  href={surveyLink || t("surveyPopup.surveyLink")}
+                  className="px-4 py-2 bg-white font-body text-custom-blue-dark text-center hover:bg-gray-100 transition-colors rounded focus:outline-none focus:ring-2 focus:ring-white inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {takeSurveyText || t("surveyPopup.takeSurveyButton")}
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -169,6 +173,10 @@ SurveyPopup.propTypes = {
    * ARIA label for the options group
    */
   optionsGroupLabel: PropTypes.string,
+  /**
+   * Link to the survey
+   */
+  surveyLink: PropTypes.string,
 };
 
 export default SurveyPopup;
