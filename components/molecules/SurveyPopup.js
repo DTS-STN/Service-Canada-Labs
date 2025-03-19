@@ -113,7 +113,7 @@ export const SurveyPopup = ({
               >
                 <button
                   ref={noThanksRef}
-                  className="px-4 py-2 text-nowrap text-white underline hover:bg-white hover:text-custom-blue-dark transition-colors focus:outline-none focus:ring-4 focus:ring-white"
+                  className="px-4 py-2 text-nowrap text-white underline hover:bg-white hover:text-custom-blue-dark transition-colors rounded focus:outline-none focus:ring-4 focus:ring-white"
                   onClick={() => setIsOpen(false)}
                 >
                   {noThanksText || t("surveyPopup.noThanksButton")}
