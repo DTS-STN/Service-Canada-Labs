@@ -8,6 +8,7 @@ import { Breadcrumb } from "../atoms/Breadcrumb";
 import { Footer } from "../organisms/Footer";
 import Feedback from "./Feedback";
 import { TopNavBar } from "../molecules/TopNavBar";
+import { SurveyPopup } from "../molecules/SurveyPopup";
 
 /**
  * Component which defines the layout of the page for all screen sizes
@@ -28,6 +29,7 @@ export const Layout = ({
   preFooterLink,
   preFooterLinkText,
   dateModifiedOverride,
+  showSurveyPopup = true,
 }) => {
   const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
@@ -142,6 +144,8 @@ export const Layout = ({
         </div>
       </main>
 
+      {showSurveyPopup && <SurveyPopup />}
+
       <Footer
         id="footer"
         lang={locale}
@@ -237,4 +241,8 @@ Layout.propTypes = {
    * Manual override for date modified component
    */
   dateModifiedOverride: PropTypes.string,
+  /**
+   * Boolean that determines whether the survey popup is shown or not
+   */
+  showSurveyPopup: PropTypes.bool,
 };

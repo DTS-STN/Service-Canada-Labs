@@ -111,5 +111,16 @@
     "projectsLinkLabel": "Projets",
     "updatesLink": "/mises-a-jour",
     "updatesLinkLabel": "Mises à jour"
+  },
+  "surveyPopup": {
+    "ariaLabel": "Sondage de rétroaction sur le site Web",
+    "openButtonLabel": "Ouvrir le sondage de rétroaction",
+    "closeButtonLabel": "Fermer le sondage de rétroaction",
+    "titleExpanded": "Dites-nous ce que vous pensez des Laboratoires de Service Canada",
+    "titleCollapsed": "Dites-nous ce que vous pensez",
+    "description": "Vous pouvez aussi contribuer à façonner ce site Web. Prenez quelques minutes pour nous parler de votre expérience.",
+    "optionsGroupLabel": "Options du sondage",
+    "noThanksButton": "Non merci",
+    "takeSurveyButton": "Répondre au sondage"
   }
 }
