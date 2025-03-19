@@ -19,7 +19,8 @@ jest.mock("next-i18next", () => ({
         "surveyPopup.optionsGroupLabel": "Survey options",
         "surveyPopup.noThanksButton": "No thanks",
         "surveyPopup.takeSurveyButton": "Take the survey",
-        "surveyPopup.surveyLink": "https://forms-formulaires.alpha.canada.ca/en/id/cm7umabys007nx268kfkobpev"
+        "surveyPopup.surveyLink":
+          "https://forms-formulaires.alpha.canada.ca/en/id/cm7umabys007nx268kfkobpev",
       }[key]),
   }),
 }));
@@ -57,9 +58,12 @@ describe("SurveyPopup", () => {
       screen.getByRole("button", { name: /No thanks/i })
     ).toBeInTheDocument();
     const surveyLink = screen.getByText(/Take the survey/i);
-    expect(surveyLink).toHaveAttribute('href', 'https://forms-formulaires.alpha.canada.ca/en/id/cm7umabys007nx268kfkobpev');
-    expect(surveyLink).toHaveAttribute('target', '_blank');
-    expect(surveyLink).toHaveAttribute('rel', 'noopener noreferrer');
+    expect(surveyLink).toHaveAttribute(
+      "href",
+      "https://forms-formulaires.alpha.canada.ca/en/id/cm7umabys007nx268kfkobpev"
+    );
+    expect(surveyLink).toHaveAttribute("target", "_blank");
+    expect(surveyLink).toHaveAttribute("rel", "noopener noreferrer");
   });
 
   it('collapses when "No thanks" is clicked', () => {
