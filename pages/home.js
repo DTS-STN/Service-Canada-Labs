@@ -13,7 +13,6 @@ import Link from "next/link";
 import { ExploreUpdates } from "../components/organisms/ExploreUpdates";
 import FragmentRender from "../components/fragment_renderer/FragmentRender";
 import { sortUpdatesByDate } from "../lib/utils/sortUpdatesByDate";
-import { SurveyCTA } from "../components/molecules/SurveyCTA";
 
 /**
  * Home Page Component for Service Canada Labs
@@ -294,35 +293,6 @@ export default function Home(props) {
         </div>
 
         <div className="layout-container">
-          {/* Survey Call-to-Action Section */}
-          <SurveyCTA
-            heading={
-              props.locale === "en"
-                ? pageData.scFragments[1].scTitleEn
-                : pageData.scFragments[1].scTitleFr
-            }
-            description={
-              props.locale === "en"
-                ? pageData.scFragments[1].scContentEn.json[0].content[0].value
-                : pageData.scFragments[1].scContentFr.json[0].content[0].value
-            }
-            buttonId={
-              props.locale === "en"
-                ? pageData.scFragments[1].scLabsButton[0].scId
-                : pageData.scFragments[1].scLabsButton[0].scIdFr
-            }
-            buttonLabel={
-              props.locale === "en"
-                ? pageData.scFragments[1].scLabsButton[0].scTitleEn
-                : pageData.scFragments[1].scLabsButton[0].scTitleFr
-            }
-            buttonLink={
-              props.locale === "en"
-                ? pageData.scFragments[1].scLabsButton[0].scDestinationURLEn
-                : pageData.scFragments[1].scLabsButton[0].scDestinationURLFr
-            }
-          />
-
           {/* Projects Section Title */}
           <h2>
             {props.locale === "en"
