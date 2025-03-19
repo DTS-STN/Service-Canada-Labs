@@ -1,12 +1,12 @@
-import { SurveyPopup } from './SurveyPopup';
-import { within } from '@testing-library/react';
-import { userEvent } from '@testing-library/user-event';
+import { SurveyPopup } from "./SurveyPopup";
+import { within } from "@testing-library/react";
+import { userEvent } from "@testing-library/user-event";
 
 export default {
-  title: 'Components/Molecules/SurveyPopup',
+  title: "Components/Molecules/SurveyPopup",
   component: SurveyPopup,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
     docs: {
       description: {
         component: `
@@ -36,49 +36,49 @@ import { SurveyPopup } from '@components/molecules/SurveyPopup';
 - Manages focus when opened/closed
 - Supports keyboard navigation (Escape to close)
 - Screen reader friendly with descriptive labels
-`
-      }
-    }
+`,
+      },
+    },
   },
   decorators: [
     (Story) => (
       <div className="h-screen relative">
         <Story />
       </div>
-    )
+    ),
   ],
   argTypes: {
-    titleCollapsed: { control: 'text' },
-    titleExpanded: { control: 'text' },
-    description: { control: 'text' },
-    noThanksText: { control: 'text' },
-    takeSurveyText: { control: 'text' },
-    ariaLabel: { control: 'text' },
-    openButtonLabel: { control: 'text' },
-    closeButtonLabel: { control: 'text' },
-    optionsGroupLabel: { control: 'text' }
-  }
+    titleCollapsed: { control: "text" },
+    titleExpanded: { control: "text" },
+    description: { control: "text" },
+    noThanksText: { control: "text" },
+    takeSurveyText: { control: "text" },
+    ariaLabel: { control: "text" },
+    openButtonLabel: { control: "text" },
+    closeButtonLabel: { control: "text" },
+    optionsGroupLabel: { control: "text" },
+  },
 };
 
 export const Default = {
   args: {
-    titleCollapsed: 'Give us feedback',
-    titleExpanded: 'Share your thoughts about our service',
-    description: 'Your feedback helps us improve our services.',
-    noThanksText: 'Skip',
-    takeSurveyText: 'Start Survey',
-    ariaLabel: 'Feedback survey',
-    openButtonLabel: 'Open feedback form',
-    closeButtonLabel: 'Close feedback form',
-    optionsGroupLabel: 'Feedback options'
-  }
+    titleCollapsed: "Give us feedback",
+    titleExpanded: "Share your thoughts about our service",
+    description: "Your feedback helps us improve our services.",
+    noThanksText: "Skip",
+    takeSurveyText: "Start Survey",
+    ariaLabel: "Feedback survey",
+    openButtonLabel: "Open feedback form",
+    closeButtonLabel: "Close feedback form",
+    optionsGroupLabel: "Feedback options",
+  },
 };
 
 // Documentation for the stories
 Default.parameters = {
   docs: {
     description: {
-      story: 'The default state of the survey popup.'
-    }
-  }
+      story: "The default state of the survey popup.",
+    },
+  },
 };
