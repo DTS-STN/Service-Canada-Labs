@@ -19,6 +19,8 @@ jest.mock("next-i18next", () => ({
         "surveyPopup.optionsGroupLabel": "Survey options",
         "surveyPopup.noThanksButton": "No thanks",
         "surveyPopup.takeSurveyButton": "Take the survey",
+        "surveyPopup.surveyLink":
+          "https://forms-formulaires.alpha.canada.ca/en/id/cm7umabys007nx268kfkobpev",
       }[key]),
   }),
 }));
@@ -55,9 +57,13 @@ describe("SurveyPopup", () => {
     expect(
       screen.getByRole("button", { name: /No thanks/i })
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole("button", { name: /Take the survey/i })
-    ).toBeInTheDocument();
+    const surveyLink = screen.getByText(/Take the survey/i);
+    expect(surveyLink).toHaveAttribute(
+      "href",
+      "https://forms-formulaires.alpha.canada.ca/en/id/cm7umabys007nx268kfkobpev"
+    );
+    expect(surveyLink).toHaveAttribute("target", "_blank");
+    expect(surveyLink).toHaveAttribute("rel", "noopener noreferrer");
   });
 
   it('collapses when "No thanks" is clicked', () => {
@@ -140,7 +146,7 @@ describe("SurveyPopup", () => {
         screen.getByRole("button", { name: customText.noThanksText })
       ).toBeInTheDocument();
       expect(
-        screen.getByRole("button", { name: customText.takeSurveyText })
+        screen.getByRole("link", { name: customText.takeSurveyText })
       ).toBeInTheDocument();
       expect(screen.getByRole("group")).toHaveAttribute(
         "aria-label",
@@ -168,7 +174,7 @@ describe("SurveyPopup", () => {
         screen.getByRole("button", { name: "No thanks" })
       ).toBeInTheDocument();
       expect(
-        screen.getByRole("button", { name: "Take the survey" })
+        screen.getByRole("link", { name: "Take the survey" })
       ).toBeInTheDocument();
     });
 
@@ -193,7 +199,7 @@ describe("SurveyPopup", () => {
         screen.getByRole("button", { name: customText.noThanksText })
       ).toBeInTheDocument();
       expect(
-        screen.getByRole("button", { name: "Take the survey" })
+        screen.getByRole("link", { name: "Take the survey" })
       ).toBeInTheDocument();
     });
   });
