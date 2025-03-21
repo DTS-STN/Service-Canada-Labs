@@ -402,7 +402,7 @@ export default function Home(props) {
         <section>
           <ExploreUpdates
             locale={props.locale}
-            updatesData={sortUpdatesByDate(updatesData).slice(0, 3)}
+            updatesData={sortUpdatesByDate(updatesData)}
             dictionary={dictionary}
             heading={
               props.locale === "en"
