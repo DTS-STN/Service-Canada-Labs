@@ -53,16 +53,20 @@ export function ExploreUpdates({
       <div className="layout-container py-28">
         <div className="grid grid-cols-12">
           <h2 className="grid col-span-12 xl:col-span-8 mt-0">{heading}</h2>
-          <ul className="grid col-span-12 xl:col-span-8">{updatesCards}</ul>
+          <ul className="grid col-span-12 xl:col-span-8">
+            {updatesCards.slice(0, 3)}
+          </ul>
           <div className="grid col-span-12 xl:col-span-8 mt-4">
             <div className="flex justify-end">
-              <LinkWrapper
-                component={Link}
-                id="seeAllUpdatesLink"
-                href={href}
-                lang={locale}
-                text={linkLabel}
-              />
+              {updatesCards.length > 3 && (
+                <LinkWrapper
+                  component={Link}
+                  id="seeAllUpdatesLink"
+                  href={href}
+                  lang={locale}
+                  text={linkLabel}
+                />
+              )}
             </div>
           </div>
         </div>

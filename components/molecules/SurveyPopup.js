@@ -52,7 +52,7 @@ export const SurveyPopup = ({
           <div className="max-w-[416px] bg-custom-blue-dark text-white pl-6 pr-6 pt-3 pb-6 rounded-t-lg shadow-lg">
             <button
               onClick={togglePopup}
-              className="w-full flex items-center justify-between text-left mb-4 text-[25px] font-display"
+              className="w-full flex items-center justify-between text-left mb-4 text-[24px] font-display"
               aria-expanded={isOpen}
               aria-controls="survey-content"
               aria-label={

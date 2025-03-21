@@ -39,7 +39,7 @@ export const Layout = ({
       : "";
 
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden pb-[58px]">
       <a
         id="skipToMainContent"
         className="bg-white text-custom-blue-dark text-lg underline py-1 px-2 focus:outline-dark-goldenrod hover:bg-gray-dark skip-main"
