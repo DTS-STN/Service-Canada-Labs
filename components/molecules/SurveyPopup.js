@@ -28,11 +28,11 @@ export const SurveyPopup = ({
   };
 
   // Focus management
-  useEffect(() => {
-    if (isOpen && noThanksRef.current) {
-      noThanksRef.current.focus();
-    }
-  }, [isOpen]);
+  // useEffect(() => {
+  //   if (isOpen && noThanksRef.current) {
+  //     noThanksRef.current.focus();
+  //   }
+  // }, [isOpen]);
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
