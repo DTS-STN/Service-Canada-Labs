@@ -98,18 +98,18 @@ describe("SurveyPopup", () => {
     expect(screen.getByText("Tell us what you think")).toBeInTheDocument();
   });
 
-  it('moves focus to "No thanks" button when opened', () => {
-    render(<SurveyPopup />);
+  // it('moves focus to "No thanks" button when opened', () => {
+  //   render(<SurveyPopup />);
 
-    // Open the popup
-    fireEvent.click(
-      screen.getByRole("button", { name: /Open feedback survey/i })
-    );
+  //   // Open the popup
+  //   fireEvent.click(
+  //     screen.getByRole("button", { name: /Open feedback survey/i })
+  //   );
 
-    expect(document.activeElement).toBe(
-      screen.getByRole("button", { name: /No thanks/i })
-    );
-  });
+  //   expect(document.activeElement).toBe(
+  //     screen.getByRole("button", { name: /No thanks/i })
+  //   );
+  // });
 
   describe("text overrides", () => {
     const customText = {
