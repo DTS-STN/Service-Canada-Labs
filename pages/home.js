@@ -136,6 +136,7 @@ export default function Home(props) {
           props.locale === "en" ? pageData.scPageNameFr : pageData.scPageNameEn
         }
         dateModifiedOverride={pageData.scDateModifiedOverwrite}
+        showSurveyPopup={false}
       >
         {/* Page head component for meta tags */}
         <Head>
