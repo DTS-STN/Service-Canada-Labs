@@ -1265,6 +1265,7 @@ TextContent.args = {
           },
         ],
       },
+      scLabLayout: "default",
     },
   ],
 };
