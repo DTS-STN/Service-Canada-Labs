@@ -23,4 +23,23 @@ Default.args = {
       ],
     },
   ],
+  layout: "default",
+};
+
+export const Quote = Template.bind({});
+
+Quote.args = {
+  data: [
+    {
+      nodeType: "paragraph",
+      content: [
+        {
+          nodeType: "text",
+          value:
+            "Every week, our product team meets for Feedback Friday to sort through all the new survey responses. We look at the ratings and comments people shared with us about their experience. ",
+        },
+      ],
+    },
+  ],
+  layout: "quote",
 };

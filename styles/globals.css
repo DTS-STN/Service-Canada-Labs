@@ -3,7 +3,6 @@
 @tailwind utilities;
 @tailwind variants;
 
-
 html {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -43,7 +42,7 @@ html {
   h4 {
     @apply text-mobileh4;
   }
-  h5{
+  h5 {
     @apply text-mobileh5;
   }
   p {
@@ -70,7 +69,7 @@ html {
     h4 {
       @apply text-h4;
     }
-    h5{
+    h5 {
       @apply text-h5;
     }
     p {
@@ -96,7 +95,7 @@ html {
     margin-top: 2rem;
   }
   p + ul {
-    margin-top: .5rem;
+    margin-top: 0.5rem;
   }
 }
 
@@ -404,7 +403,6 @@ html {
   }
 }
 
-
 .help-icon {
   fill: #2b4380;
 }
@@ -576,7 +574,25 @@ blockquote.speech-bubble-quote > p {
   margin-left: 10px;
 }
 
+.speech-bubble-full-width {
+  position: relative;
+  background: rgb(119, 136, 164);
+  border-radius: 0.6em;
+  padding: 4px;
+  max-width: 100%;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
 .speech-bubble-top {
+  background: rgb(78, 92, 125);
+  border-radius: 0.6em;
+  padding: 15px;
+  margin: auto;
+}
+
+.speech-bubble-top-full-width {
   background: rgb(78, 92, 125);
   border-radius: 0.6em;
   padding: 15px;
@@ -597,11 +613,39 @@ blockquote.speech-bubble-quote > p {
   margin-bottom: -20px;
 }
 
+.speech-bubble-full-width:after {
+  content: "";
+  position: absolute;
+  bottom: 5%;
+  left: 10%;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-top-color: rgb(78, 92, 125);
+  border-bottom: 0;
+  margin-left: -20px;
+  margin-bottom: -20px;
+}
+
 .speech-bubble-top:after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 20%;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-top-color: rgb(119, 136, 164);
+  border-bottom: 0;
+  margin-left: -20px;
+  margin-bottom: -20px;
+}
+
+.speech-bubble-top-full-width:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
   width: 0;
   height: 0;
   border: 20px solid transparent;
@@ -635,9 +679,9 @@ blockquote.speech-bubble-quote > p {
 }
 
 .btn-primary {
-  @apply font-header font-normal text-multi-neutrals-white bg-multi-blue-blue70 px-[16px] py-[8px] text-btnother
+  @apply font-header font-normal text-multi-neutrals-white bg-multi-blue-blue70 px-[16px] py-[8px] text-btnother;
 }
 
 .btn-link {
-  @apply font-header font-normal text-btnother rounded-[4px] py-[6px] px-[14px]
+  @apply font-header font-normal text-btnother rounded-[4px] py-[6px] px-[14px];
 }
