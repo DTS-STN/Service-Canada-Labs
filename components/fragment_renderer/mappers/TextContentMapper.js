@@ -21,8 +21,7 @@ export default function TextContentMapper(fragmentData, locale, excludeH1) {
 
   const layoutMappers = {
     default: () => mapDefaultLayout(fragmentData, locale, excludeH1),
-    "quote-vertical-line-content": () =>
-      mapQuoteLayout(fragmentData, locale, excludeH1),
+    quote: () => mapQuoteLayout(fragmentData, locale, excludeH1),
   };
 
   const mapper = layoutMappers[fragmentData.scLabLayout];
