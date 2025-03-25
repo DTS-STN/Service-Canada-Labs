@@ -25,5 +25,5 @@ export default function TextContentMapper(fragmentData, locale, excludeH1) {
   };
 
   const mapper = layoutMappers[fragmentData.scLabLayout];
-  return mapper ? mapper() : null;
+  return mapper ? mapper() : mapDefaultLayout(fragmentData, locale, excludeH1);
 }
