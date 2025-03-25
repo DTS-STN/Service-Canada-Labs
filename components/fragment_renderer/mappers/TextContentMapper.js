@@ -2,23 +2,15 @@ import { getLocalizedContent } from "../utils/localeUtils";
 import { fragmentValidators } from "../utils/validation";
 
 const mapDefaultLayout = (fragmentData, locale, excludeH1) => ({
-  data: getLocalizedContent(
-    fragmentData,
-    locale,
-    "scContentEn",
-    "scContentFr"
-  ).json,
+  data: getLocalizedContent(fragmentData, locale, "scContentEn", "scContentFr")
+    .json,
   layout: "default",
   excludeH1,
 });
 
 const mapQuoteLayout = (fragmentData, locale, excludeH1) => ({
-  data: getLocalizedContent(
-    fragmentData,
-    locale,
-    "scContentEn",
-    "scContentFr"
-  ).json,
+  data: getLocalizedContent(fragmentData, locale, "scContentEn", "scContentFr")
+    .json,
   layout: "quote",
   excludeH1,
 });

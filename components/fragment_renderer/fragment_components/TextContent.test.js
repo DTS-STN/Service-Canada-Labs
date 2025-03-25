@@ -19,7 +19,7 @@ describe("TextContent", () => {
     const { container } = render(<TextContent {...Quote.args} />);
     expect(screen.getByText((content) => content.startsWith("Every week")))
       .toBeInTheDocument;
-    expect(container.querySelector('.speech-bubble-quote')).toBeInTheDocument();
+    expect(container.querySelector(".speech-bubble-quote")).toBeInTheDocument();
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
