@@ -15,6 +15,7 @@ export const TextWithImage = Template.bind({});
 export const TextWithImageCollapse = Template.bind({});
 export const QuoteVerticalLineContent = Template.bind({});
 export const TextContent = Template.bind({});
+export const TextContentQuote = Template.bind({});
 export const Button = Template.bind({});
 export const ImageWithCollapse = Template.bind({});
 
@@ -1265,6 +1266,66 @@ TextContent.args = {
           },
         ],
       },
+      scLabLayout: "default",
+    },
+  ],
+};
+
+TextContentQuote.args = {
+  locale: "en",
+  fragments: [
+    {
+      _model: {
+        title: "SCLabs-Content-v1",
+      },
+      _path:
+        "/content/dam/decd-endc/content-fragments/sclabs/components/tooltips/information-alpha",
+      scId: "INFORMATION-ALPHA-SCLABS",
+      scTitleEn: "Information",
+      scTitleFr: "Information",
+      scContentEn: {
+        json: [
+          {
+            nodeType: "paragraph",
+            content: [
+              {
+                nodeType: "text",
+                value: "Alpha:",
+                format: {
+                  variants: ["strong"],
+                },
+              },
+              {
+                nodeType: "text",
+                value:
+                  " Building a draft tool or service and testing it to see if it meets needs.",
+              },
+            ],
+          },
+        ],
+      },
+      scContentFr: {
+        json: [
+          {
+            nodeType: "paragraph",
+            content: [
+              {
+                nodeType: "text",
+                value: "Alpha : ",
+                format: {
+                  variants: ["strong"],
+                },
+              },
+              {
+                nodeType: "text",
+                value:
+                  "Construire une première version d’un outil ou d’un service et le tester pour savoir s’il répond aux besoins.",
+              },
+            ],
+          },
+        ],
+      },
+      scLabLayout: "quote",
     },
   ],
 };

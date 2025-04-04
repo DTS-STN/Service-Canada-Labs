@@ -111,5 +111,17 @@
     "projectsLinkLabel": "Projects",
     "updatesLink": "/updates",
     "updatesLinkLabel": "Updates"
+  },
+  "surveyPopup": {
+    "ariaLabel": "Website feedback survey",
+    "openButtonLabel": "Open feedback survey",
+    "closeButtonLabel": "Close feedback survey",
+    "titleExpanded": "Tell us what you think of Service Canada Labs",
+    "titleCollapsed": "Tell us what you think",
+    "description": "You can help shape this website too. Take a few minutes to tell us about your experience.",
+    "optionsGroupLabel": "Survey options",
+    "noThanksButton": "No thanks",
+    "takeSurveyButton": "Take the survey",
+    "surveyLink": "https://forms-formulaires.alpha.canada.ca/en/id/cm7umabys007nx268kfkobpev"
   }
 }
