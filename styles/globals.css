@@ -97,6 +97,9 @@ html {
   p + ul {
     margin-top: 0.5rem;
   }
+  h2 + h3 {
+    margin-top: 0.5rem;
+  }
 }
 
 @layer utilities {
