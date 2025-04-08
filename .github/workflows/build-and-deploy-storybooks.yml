@@ -11,13 +11,13 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node-version: [18.x]
+        node-version: [22.x]
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        uses: actions/checkout@v4.2.2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4.3.0
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -29,20 +29,29 @@ jobs:
 
       - name: Extract branch name
         shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        run: |
+          if [[ "$GITHUB_REF" == refs/pull/* ]]; then
+            # For pull requests, use the PR number
+            echo "##[set-output name=branch;]pr-$(echo $GITHUB_REF | cut -d/ -f3)"
+          else
+            # For regular branches, use the branch name
+            echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/} | sed 's/[^a-zA-Z0-9]/-/g')"
+          fi
         id: extract_branch
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@3.6.2
+        uses: JamesIves/github-pages-deploy-action@v4.7.3
         with:
-          TARGET_FOLDER: ${{ steps.extract_branch.outputs.branch }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: storybook-static # The folder the action should deploy.
-          CLEAN: true # Automatically remove deleted files from the deploy branch
+          folder: storybook-static
+          branch: gh-pages
+          clean: false
+          clean-exclude: |
+            ${{ steps.extract_branch.outputs.branch }}
+          target-folder: ${{ steps.extract_branch.outputs.branch }}
 
       - name: Find Comment
         if: steps.extract_branch.outputs.branch != 'main' 
-        uses: peter-evans/find-comment@v1
+        uses: peter-evans/find-comment@v3.1.0
         id: fc
         with:
           issue-number: ${{ github.event.pull_request.number }}
@@ -51,9 +60,9 @@ jobs:
             Storybooks Link For Branch
             https://dts-stn.github.io/${{ github.event.pull_request.base.repo.name }}/${{ steps.extract_branch.outputs.branch }}
 
-      - name: Create or update comment # comment in pull request storybooks link
+      - name: Create or update comment
         if: steps.extract_branch.outputs.branch != 'main' 
-        uses: peter-evans/create-or-update-comment@v1
+        uses: peter-evans/create-or-update-comment@v4.0.0
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
