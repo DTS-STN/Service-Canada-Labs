@@ -47,6 +47,7 @@ jobs:
           clean: false
           clean-exclude: |
             ${{ steps.extract_branch.outputs.branch }}
+          target-folder: ${{ steps.extract_branch.outputs.branch }}
 
       - name: Find Comment
         if: steps.extract_branch.outputs.branch != 'main' 
@@ -59,7 +60,7 @@ jobs:
             Storybooks Link For Branch
             https://dts-stn.github.io/${{ github.event.pull_request.base.repo.name }}/${{ steps.extract_branch.outputs.branch }}
 
-      - name: Create or update comment # comment in pull request storybooks link
+      - name: Create or update comment
         if: steps.extract_branch.outputs.branch != 'main' 
         uses: peter-evans/create-or-update-comment@v1
         with:
