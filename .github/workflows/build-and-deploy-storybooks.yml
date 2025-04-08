@@ -32,10 +32,10 @@ jobs:
         run: |
           if [[ "$GITHUB_REF" == refs/pull/* ]]; then
             # For pull requests, use the PR number
-            echo "branch=pr-$(echo $GITHUB_REF | cut -d/ -f3)"
+            echo "##[set-output name=branch;]pr-$(echo $GITHUB_REF | cut -d/ -f3)"
           else
             # For regular branches, use the branch name
-            echo "branch=$(echo ${GITHUB_REF#refs/heads/} | sed 's/[^a-zA-Z0-9]/-/g')"
+            echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/} | sed 's/[^a-zA-Z0-9]/-/g')"
           fi
         id: extract_branch
 
