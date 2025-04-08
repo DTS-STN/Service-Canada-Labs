@@ -14,10 +14,10 @@ jobs:
         node-version: [22.x]
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        uses: actions/checkout@v4.2.2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4.3.0
         with:
           node-version: ${{ matrix.node-version }}
 
