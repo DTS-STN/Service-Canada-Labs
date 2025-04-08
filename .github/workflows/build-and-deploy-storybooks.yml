@@ -29,13 +29,24 @@ jobs:
 
       - name: Extract branch name
         shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        run: |
+          if [[ "$GITHUB_REF" == refs/pull/* ]]; then
+            # For pull requests, use the PR number
+            echo "branch=pr-$(echo $GITHUB_REF | cut -d/ -f3)"
+          else
+            # For regular branches, use the branch name
+            echo "branch=$(echo ${GITHUB_REF#refs/heads/} | sed 's/[^a-zA-Z0-9]/-/g')"
+          fi
         id: extract_branch
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.7.3
         with:
           folder: storybook-static
+          branch: gh-pages
+          clean: false
+          clean-exclude: |
+            ${{ steps.extract_branch.outputs.branch }}
 
       - name: Find Comment
         if: steps.extract_branch.outputs.branch != 'main' 
