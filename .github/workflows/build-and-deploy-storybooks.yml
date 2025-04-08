@@ -16,6 +16,8 @@ permissions:
 # List of jobs
 jobs:
   deploy:
+    environment:
+      name: 'github-pages'
     runs-on: ubuntu-latest
     # Job steps
     steps:
