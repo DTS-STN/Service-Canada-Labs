@@ -33,12 +33,9 @@ jobs:
         id: extract_branch
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@3.6.2
+        uses: JamesIves/github-pages-deploy-action@v4.7.3
         with:
-          TARGET_FOLDER: ${{ steps.extract_branch.outputs.branch }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: storybook-static # The folder the action should deploy.
-          CLEAN: true # Automatically remove deleted files from the deploy branch
+          folder: storybook-static
 
       - name: Find Comment
         if: steps.extract_branch.outputs.branch != 'main' 
