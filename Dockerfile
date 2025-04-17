@@ -7,7 +7,7 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 # Set yarn version
-ENV YARN_VERSION 4.0.1
+ENV YARN_VERSION 4.9.1
 RUN yarn policies set-version $YARN_VERSION
 
 COPY package.json yarn.lock* .yarnrc.yml .yarn* ./
