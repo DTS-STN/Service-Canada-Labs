@@ -13,7 +13,7 @@ import Link from "next/link";
 import { ExploreUpdates } from "../components/organisms/ExploreUpdates";
 import FragmentRender from "../components/fragment_renderer/FragmentRender";
 import { sortUpdatesByDate } from "../lib/utils/sortUpdatesByDate";
-
+import { sortHomepageProjects } from "../lib/utils/sortHomepageProjects";
 /**
  * Home Page Component for Service Canada Labs
  * Renders the main landing page with projects, updates, and survey CTA
@@ -36,88 +36,54 @@ export default function Home(props) {
   });
 
   /**
-   * Sorts projects according to a predefined order and returns top 3
-   * Order is manually maintained until content strategy is finalized
-   * @param {Array} objects - Array of project objects to sort
-   * @returns {Array} - Top 3 sorted projects
-   */
-  const sortProjects = (objects) => {
-    // Predefined display order for projects
-    const sortOrder = [
-      "Transforming EI with Indigenous peoples",
-      "Benefits Finder",
-      "Making it easier to get benefits",
-      "Digital Standards Playbook",
-      "New dashboard for My Service Canada Account",
-      "Old Age Security Benefits Estimator",
-      "Benefits Navigator",
-    ];
-    // Create lookup object for efficient sorting
-    const titleOrder = {};
-    for (let i = 0; i < sortOrder.length; i++) {
-      titleOrder[sortOrder[i]] = i;
-    }
-
-    // Sort projects based on predefined order
-    const sorted = objects.sort((a, b) => {
-      return titleOrder[a.scTitleEn] - titleOrder[b.scTitleEn];
-    });
-    return sorted.slice(0, 3); // Return only top 3 projects
-  };
-
-  /**
    * Maps current projects to Card components with bilingual support
    * Handles image sources, alt text, and "New update" tags
    */
-  const displayCurrentProjects = sortProjects(currentProjects).map(
-    (project) => (
-      <li key={project.scId} className="list-none ml-0">
-        <Card
-          showImage
-          // Show "New update" tag if project has a future expiry date
-          showTag={
-            project.scLabsNewExpiryDate &&
-            Date.now() <= new Date(project.scLabsNewExpiryDate)
-          }
-          tagLabel={
-            props.locale === "en" ? "New update" : "Nouvelle mise à jour"
-          }
-          tag="new_update"
-          // Bilingual image handling
-          imgSrc={
-            props.locale === "en"
-              ? project.scSocialMediaImageEn._publishUrl
-              : project.scSocialMediaImageFr._publishUrl
-          }
-          imgAlt={
-            props.locale === "en"
-              ? project.scSocialMediaImageAltTextEn
-              : project.scSocialMediaImageAltTextFr
-          }
-          imgHeight={
-            project.scSocialMediaImageEn.height
-              ? project.scSocialMediaImageEn.height
-              : ""
-          }
-          imgWidth={
-            project.scSocialMediaImageEn.width
-              ? project.scSocialMediaImageEn.width
-              : ""
-          }
-          // Bilingual content handling
-          title={props.locale === "en" ? project.scTitleEn : project.scTitleFr}
-          href={
-            props.locale === "en" ? project.scPageNameEn : project.scPageNameFr
-          }
-          description={
-            props.locale === "en"
-              ? project.scDescriptionEn.json[0].content[0].value
-              : project.scDescriptionFr.json[0].content[0].value
-          }
-        />
-      </li>
-    )
-  );
+  const displayCurrentProjects = currentProjects.map((project) => (
+    <li key={project.scId} className="list-none ml-0">
+      <Card
+        showImage
+        // Show "New update" tag if project has a future expiry date
+        showTag={
+          project.scLabsNewExpiryDate &&
+          Date.now() <= new Date(project.scLabsNewExpiryDate)
+        }
+        tagLabel={props.locale === "en" ? "New update" : "Nouvelle mise à jour"}
+        tag="new_update"
+        // Bilingual image handling
+        imgSrc={
+          props.locale === "en"
+            ? project.scSocialMediaImageEn._publishUrl
+            : project.scSocialMediaImageFr._publishUrl
+        }
+        imgAlt={
+          props.locale === "en"
+            ? project.scSocialMediaImageAltTextEn
+            : project.scSocialMediaImageAltTextFr
+        }
+        imgHeight={
+          project.scSocialMediaImageEn.height
+            ? project.scSocialMediaImageEn.height
+            : ""
+        }
+        imgWidth={
+          project.scSocialMediaImageEn.width
+            ? project.scSocialMediaImageEn.width
+            : ""
+        }
+        // Bilingual content handling
+        title={props.locale === "en" ? project.scTitleEn : project.scTitleFr}
+        href={
+          props.locale === "en" ? project.scPageNameEn : project.scPageNameFr
+        }
+        description={
+          props.locale === "en"
+            ? project.scDescriptionEn.json[0].content[0].value
+            : project.scDescriptionFr.json[0].content[0].value
+        }
+      />
+    </li>
+  ));
 
   // Initialize Adobe Analytics data layer on page load
   useEffect(() => {
@@ -402,7 +368,7 @@ export default function Home(props) {
         <section>
           <ExploreUpdates
             locale={props.locale}
-            updatesData={sortUpdatesByDate(updatesData)}
+            updatesData={updatesData}
             dictionary={dictionary}
             heading={
               props.locale === "en"
@@ -460,8 +426,13 @@ export const getStaticProps = async ({ locale }) => {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
       pageData: pageData.sclabsPageV1List.items[0],
-      experimentsData: experimentsData.sclabsPageV1List.items,
-      updatesData: updatesData.sclabsPageV1List.items,
+      experimentsData: sortHomepageProjects(
+        experimentsData.sclabsPageV1List.items
+      ),
+      updatesData: sortUpdatesByDate(updatesData.sclabsPageV1List.items).slice(
+        0,
+        3
+      ),
       dictionary: dictionary.dictionaryV1List.items,
       ...(await serverSideTranslations(locale, ["common"])),
     },
