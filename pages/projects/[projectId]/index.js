@@ -290,12 +290,12 @@ export const getStaticProps = async ({ locale, params }) => {
   // Fetch main page content from AEM
 
   const { data: allProjectsData } = await fetch(
-    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclAllProjectsV2${process.env.AEM_CONTENT_FOLDER}`
+    `${process.env.AEM_BASE_URL}/getSclAllProjectsV2${process.env.AEM_CONTENT_FOLDER}`
   ).then((res) => res.json());
 
   // Fetch translation dictionary
   const { data: dictionary } = await fetch(
-    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclDictionaryV1`
+    `${process.env.AEM_BASE_URL}/getSclDictionaryV2${process.env.AEM_CONTENT_FOLDER}`
   ).then((res) => res.json());
 
   const pages = allProjectsData.sclabsPageV1List.items;

@@ -208,7 +208,7 @@ export default function ProjectsPage(props) {
 export const getStaticProps = async ({ locale }) => {
   // Fetch main page content from AEM
   const { data: pageData } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclProjectsV2`
+    `${process.env.AEM_BASE_URL}/getSclProjectsPageV1${process.env.AEM_CONTENT_FOLDER}`
   ).then((res) => res.json());
 
   // Fetch all projects data
@@ -218,7 +218,7 @@ export const getStaticProps = async ({ locale }) => {
 
   // Fetch translation dictionary
   const { data: dictionary } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclDictionaryV1`
+    `${process.env.AEM_BASE_URL}/getSclDictionaryV2${process.env.AEM_CONTENT_FOLDER}`
   ).then((res) => res.json());
 
   // Return props for page rendering

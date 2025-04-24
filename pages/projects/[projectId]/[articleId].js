@@ -201,7 +201,7 @@ export const getStaticProps = async ({ locale, params }) => {
   ).then((res) => res.json());
   // Fetch translation dictionary
   const { data: dictionary } = await fetch(
-    `https://www.canada.ca/graphql/execute.json/decd-endc/getSclDictionaryV1`
+    `${process.env.AEM_BASE_URL}/getSclDictionaryV2${process.env.AEM_CONTENT_FOLDER}`
   ).then((res) => res.json());
 
   const pages = updatesData.sclabsPageV1List.items;
