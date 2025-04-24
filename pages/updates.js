@@ -227,7 +227,7 @@ export const getStaticProps = async ({ locale }) => {
 
   // Fetch translation dictionary
   const { data: dictionary } = await fetch(
-    `${process.env.AEM_BASE_URL}/getSclDictionaryV1`
+    `${process.env.AEM_BASE_URL}/getSclDictionaryV2${process.env.AEM_CONTENT_FOLDER}`
   ).then((res) => res.json());
 
   // Return props for page rendering
