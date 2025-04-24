@@ -17,7 +17,7 @@ import { useTranslation } from "next-i18next";
  */
 export default function ProjectsPage(props) {
   // Extract data from props
-  const pageData = props.pageData?.item; // Page content from AEM
+  const pageData = props.pageData; // Page content from AEM
   const projectsData = props.projectsData; // All projects data
   const dictionary = props.dictionary; // Translation dictionary
   // State for managing selected filter options
@@ -226,7 +226,7 @@ export const getStaticProps = async ({ locale }) => {
     props: {
       locale: locale,
       adobeAnalyticsUrl: process.env.ADOBE_ANALYTICS_URL ?? null,
-      pageData: pageData.sclabsPageV1ByPath,
+      pageData: pageData.sclabsPageV1List.items[0],
       projectsData: projectsData.sclabsPageV1List.items,
       dictionary: dictionary.dictionaryV1List.items,
       // Include translations for common terms and multiSelect component
