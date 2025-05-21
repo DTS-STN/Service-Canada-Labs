@@ -431,7 +431,7 @@ export const getStaticProps = async ({ locale }) => {
       ),
       updatesData: sortUpdatesByDate(updatesData.sclabsPageV1List.items).slice(
         0,
-        3
+        4
       ),
       dictionary: dictionary.dictionaryV1List.items,
       ...(await serverSideTranslations(locale, ["common"])),
