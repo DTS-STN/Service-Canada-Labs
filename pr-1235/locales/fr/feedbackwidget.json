@@ -1,0 +1,13 @@
+{
+  "feedbackWidgetSubmit": "Envoyer",
+  "feedbackWidgetThankYou": "Merci de vos commentaires!",
+  "feedbackWidgetNoReply": "Vous ne recevrez pas de réponse.",
+  "feedbackWidgetPrivacyStatement": "Lire la politique en matière de protection des renseignements personnels",
+  "feedbackWidgetSorryFeedback": "Désolé, nous ne sommes pas en mesure de recevoir votre message pour le moment. Si le problème persiste, veuillez communiquer avec",
+  "feedbackWidgetClose": "Fermer",
+  "feedbackWidgetImproveService": "Aidez-nous à améliorer ce service",
+  "feedbackWidgetConfidential": "Vos commentaires sont confidentiels et anonymes.",
+  "feedbackWidgetDoBetter": "Comment pouvons-nous faire mieux?",
+  "feedbackWidgetDoNotInclude": "Ne pas inclure de renseignements personnels, médicaux ou financiers, comme par exemple, un numéro d'assurance sociale (NAS), une adresse de domicile ou de lieu de travail, un numéro de téléphone ou numéro de dossier.",
+  "feedbackWidgetMaximum2000": "/2000 caractères restants"
+}
