@@ -1,0 +1,20 @@
+{
+  "footerReportProblemButtonString": "Report a problem or mistake on this page",
+  "reportAProblemTitle": "Report a problem or mistake on this page",
+  "reportAProblemCheckAllThatApply": "Check all the issues that apply",
+  "reportAProblemIncorrectInformation": "Incorrect Information",
+  "reportAProblemUnclearInformation": "Unclear Information",
+  "reportAProblemDidNotFindWhatYoureLookingFor": "You didn't find what you were looking for",
+  "reportAProblemPageDoesNotWorkWithAdaptiveTechnology": "Page does not work with your adaptive technologies",
+  "reportAProblemYoureWorriedAboutYourPrivacy": "You're worried about your privacy",
+  "reportAProblemNoWhereElseToGo": "You don't know where else to go for help",
+  "reportAProblemOther": "Other",
+  "reportAProblemProvideMoreDetails": "Provide more details",
+  "reportAProblemNoReply": "You will not receive a reply.",
+  "reportAProblemThankYouForYourHelp": "Thank you for your help!",
+  "reportAProblemYouWillNotBeContacted": "You will not receive a reply.",
+  "reportAProblemPrivacyStatement": "Review the privacy policy",
+  "reportAProblemFeedbackConfidential": "Your feedback will be confidential.",
+  "reportAProblemSubmit": "Submit",
+  "reportAProblemError": "Error: Please select an issue"
+}
