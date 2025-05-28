@@ -29,7 +29,7 @@ export const Layout = ({
   preFooterLink,
   preFooterLinkText,
   dateModifiedOverride,
-  showSurveyPopup = true,
+  showSurveyPopup = false,
 }) => {
   const { t } = useTranslation("common");
   const language = locale === "en" ? "fr" : "en";
@@ -39,7 +39,7 @@ export const Layout = ({
       : "";
 
   return (
-    <div className="overflow-x-hidden pb-[58px]">
+    <div className="overflow-x-hidden">
       <a
         id="skipToMainContent"
         className="bg-white text-custom-blue-dark text-lg underline py-1 px-2 focus:outline-dark-goldenrod hover:bg-gray-dark skip-main"
@@ -154,6 +154,7 @@ export const Layout = ({
         preFooterLink={preFooterLink}
         preFooterLinkText={preFooterLinkText}
       />
+      {showSurveyPopup && <div className="pb-[58px]" />}
     </div>
   );
 };
