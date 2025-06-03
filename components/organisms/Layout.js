@@ -24,7 +24,7 @@ export const Layout = ({
   showDisclaimer,
   projectName,
   path,
-  excludeFooterFeedback,
+  excludeFooterFeedback = true,
   preFooterTitle,
   preFooterLink,
   preFooterLinkText,
