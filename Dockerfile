@@ -4,7 +4,6 @@ FROM node:21.7.3-alpine3.18 AS base
 # Install dependencies only when needed
 FROM base AS deps
 RUN apk add --no-cache libc6-compat
-RUN apk add xvfb
 WORKDIR /app
 
 # Set yarn version
