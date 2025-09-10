@@ -91,6 +91,7 @@ stages:
 
           - script: |
               yarn install --immutable
+              yarn install xvfb
             displayName: "Install Dependencies"
 
           - script: |
