@@ -9,8 +9,8 @@ pr: none
 
 variables:
   azureContainerRegistry.repository: "servicecanadalabs"
-  azureContainerRegistry.name: "DTS Shared Container Repo 10/11/2023"
-  azureContainerRegistry.domain: "dtsshared.azurecr.io"
+  azureContainerRegistry.name: "acrlwhpredprod"
+  azureContainerRegistry.domain: "acrlwhpredprod.azurecr.io"
   ADO_BUILD: $(Build.BuildId)
   BUILD_DATE: $(Build.BuildNumber)
   tag: "ADO-$(ADO_BUILD)"
@@ -24,7 +24,7 @@ stages:
       - job: Build
         displayName: Build Container
         pool:
-          vmImage: $(vmImageName)
+          name: 'lwhpred-prod-agent-pool'
         steps:
           - task: Docker@2
             inputs:
@@ -77,7 +77,7 @@ stages:
       - job: UnitAndIntegrationAndA11yTests
         displayName: Run Jest, Cypress and A11y Tests
         pool:
-          vmImage: $(vmImageName)
+          name: 'lwhpred-prod-agent-pool'
         steps:
           - task: NodeTool@0
             inputs:
