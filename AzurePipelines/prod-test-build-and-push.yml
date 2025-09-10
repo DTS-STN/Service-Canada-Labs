@@ -43,7 +43,7 @@ stages:
               tags: |
                 $(tag)
                 latest
-                production-release-lwhp
+                production-release
               arguments: |
                 --pull 
                 --build-arg NEXT_PUBLIC_BUILD_ID=$(ADO_BUILD) 
@@ -68,7 +68,7 @@ stages:
               tags: |
                 $(tag)
                 latest
-                production-release-lwhp
+                production-release
 
   - stage: Test
     displayName: Run Regression Tests
@@ -91,7 +91,6 @@ stages:
 
           - script: |
               yarn install --immutable
-              yarn install xvfb
             displayName: "Install Dependencies"
 
           - script: |
