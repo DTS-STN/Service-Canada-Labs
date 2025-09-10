@@ -7,8 +7,8 @@ pr: none
 
 variables:
   azureContainerRegistry.repository: 'servicecanadalabs'
-  azureContainerRegistry.name: 'DTS Shared Container Repo 10/11/2023'
-  azureContainerRegistry.domain: 'dtsshared.azurecr.io'
+  azureContainerRegistry.name: 'acrlwhpreddev'
+  azureContainerRegistry.domain: 'acrlwhpreddev.azurecr.io'
   tag: 'ADO-$(Build.BuildId)'
   vmImageName: 'ubuntu-latest'
 
