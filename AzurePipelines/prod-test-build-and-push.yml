@@ -68,7 +68,7 @@ stages:
               tags: |
                 $(tag)
                 latest
-                production-release
+                production-release-lwhp
 
   - stage: Test
     displayName: Run Regression Tests
