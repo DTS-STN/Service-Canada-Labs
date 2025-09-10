@@ -19,7 +19,7 @@ stages:
       - job: Build
         displayName: Build and Push Container
         pool:
-          vmImage: $(vmImageName)
+          name: lwhpred-dev-agent-pool
         steps:
           - task: Docker@2
             inputs:
