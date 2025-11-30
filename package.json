@@ -27,7 +27,7 @@
     "react-i18next": "^13.5.0",
     "react-lock-scroll": "^0.1.8",
     "react-select": "^5.10.0",
-    "sharp": "^0.33.5",
+    "sharp": "^0.34.5",
     "unified": "^10.1.2",
     "uuid": "^9.0.1"
   },
