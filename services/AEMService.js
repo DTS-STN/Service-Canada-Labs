@@ -1,22 +1,38 @@
+const fs = require('fs');
+const path = require('path');
+
+const CACHE_DIR = path.join(process.cwd(), '.cache');
+
 class AEMService {
   constructor(baseUrl) {
     this.baseUrl = baseUrl;
+    // Ensure cache directory exists in development
+    if (process.env.NODE_ENV === 'development' && !fs.existsSync(CACHE_DIR)) {
+      try {
+        fs.mkdirSync(CACHE_DIR, { recursive: true });
+      } catch (e) {
+        console.error('Failed to create cache directory:', e);
+      }
+    }
   }
 
   async getFragment(fragId) {
     if (!fragId?.trim?.()) return;
 
-    // try {
-    //   const fileContents = fs.readFileSync(path.resolve(cacheFilePath, `${fragId}.json`))
-    //   if (fileContents) {
-    //     const data = JSON.parse(fileContents)
-    //     console.error("FRAG from cache", fragId)
-    //     return { data, error: null };
-    //   }
-    // } catch (e) {
-    //   // console.error(e)
-    //   console.log(`no cache file for ${fragId}`)
-    // }
+    // Check cache in development mode
+    if (process.env.NODE_ENV === 'development') {
+      try {
+        const filePath = path.join(CACHE_DIR, `${fragId}.json`);
+        if (fs.existsSync(filePath)) {
+          const fileContents = fs.readFileSync(filePath, 'utf8');
+          const data = JSON.parse(fileContents);
+          console.log(`[Cache] Hit (Fragment): ${fragId}`);
+          return { data, error: null };
+        }
+      } catch (e) {
+        console.error(`Error reading cache for ${fragId}:`, e);
+      }
+    }
 
     let headers = new Headers()
     headers.append("Content-Type", "application/json")
@@ -41,19 +57,19 @@ class AEMService {
       console.log(e);
     }
 
-    // if there's no error, store for memoization
-    // if (!error && data) {
-    //   console.log("storing", fragId, "in cache")
-    //   fs.writeFileSync(path.resolve(cacheFilePath, `${fragId}.json`), JSON.stringify(data));
-    // }
+    // Store in cache in development mode
+    if (process.env.NODE_ENV === 'development' && !error && data) {
+      try {
+        const filePath = path.join(CACHE_DIR, `${fragId}.json`);
+        fs.writeFileSync(filePath, JSON.stringify(data));
+        console.log(`[Cache] Saved (Fragment): ${fragId}`);
+      } catch (e) {
+        console.error(`Error writing cache for ${fragId}:`, e);
+      }
+    }
 
     return { data, error };
   }
-
-  // flush(){
-  //   fs.rmSync(cacheFilePath, { recursive: true, force: true });
-  //   fs.mkdirSync(cacheFilePath, { recursive: true })
-  // }
 }
 
 module.exports = AEMService;

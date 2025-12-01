@@ -9,6 +9,7 @@ import { MultiSelectField } from "../components/atoms/MultiSelectField";
 import { createBreadcrumbs } from "../lib/utils/createBreadcrumbs";
 import { getDictionaryTerm } from "../lib/utils/getDictionaryTerm";
 import { useTranslation } from "next-i18next";
+import { fetchWithCache } from "../lib/utils/aemCache";
 
 /**
  * Projects Page Component
@@ -207,19 +208,19 @@ export default function ProjectsPage(props) {
  */
 export const getStaticProps = async ({ locale }) => {
   // Fetch main page content from AEM
-  const { data: pageData } = await fetch(
+  const { data: pageData } = await fetchWithCache(
     `${process.env.AEM_BASE_URL}/getSclProjectsPageV1${process.env.AEM_CONTENT_FOLDER}`
-  ).then((res) => res.json());
+  );
 
   // Fetch all projects data
-  const { data: projectsData } = await fetch(
+  const { data: projectsData } = await fetchWithCache(
     `${process.env.AEM_BASE_URL}/getSclAllProjectsV2${process.env.AEM_CONTENT_FOLDER}`
-  ).then((res) => res.json());
+  );
 
   // Fetch translation dictionary
-  const { data: dictionary } = await fetch(
+  const { data: dictionary } = await fetchWithCache(
     `${process.env.AEM_BASE_URL}/getSclDictionaryV2${process.env.AEM_CONTENT_FOLDER}`
-  ).then((res) => res.json());
+  );
 
   // Return props for page rendering
   return {
