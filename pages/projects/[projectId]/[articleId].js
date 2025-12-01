@@ -12,6 +12,7 @@ import { UpdateInfo } from "../../../components/atoms/UpdateInfo";
 import { ExploreProjects } from "../../../components/organisms/ExploreProjects";
 import { sortUpdatesByDate } from "../../../lib/utils/sortUpdatesByDate";
 import { getAllPathParams } from "../../../lib/utils/getAllPathParams";
+import { fetchWithCache } from "../../../lib/utils/aemCache";
 
 export default function ArticlePage({ ...props }) {
   // State management for page content and translations
@@ -172,9 +173,9 @@ export async function getStaticPaths() {
   const articleIdLabel = "articleId";
   const projectIdLabel = "projectId";
   // Fetch all projects aarticles from AEM
-  const { data: updatesData } = await fetch(
+  const { data: updatesData } = await fetchWithCache(
     `${process.env.AEM_BASE_URL}/getSclAllUpdatesV2${process.env.AEM_CONTENT_FOLDER}`
-  ).then((res) => res.json());
+  );
 
   // Generate paths array for all articles in both languages
   const paths = getAllPathParams(
@@ -196,13 +197,13 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({ locale, params }) => {
   const articleIdLabel = "articleId";
   // Fetch all articles data from AEM
-  const { data: updatesData } = await fetch(
+  const { data: updatesData } = await fetchWithCache(
     `${process.env.AEM_BASE_URL}/getSclAllUpdatesV2${process.env.AEM_CONTENT_FOLDER}`
-  ).then((res) => res.json());
+  );
   // Fetch translation dictionary
-  const { data: dictionary } = await fetch(
+  const { data: dictionary } = await fetchWithCache(
     `${process.env.AEM_BASE_URL}/getSclDictionaryV2${process.env.AEM_CONTENT_FOLDER}`
-  ).then((res) => res.json());
+  );
 
   const pages = updatesData.sclabsPageV1List.items;
   // Find the specific article based on URL parameter

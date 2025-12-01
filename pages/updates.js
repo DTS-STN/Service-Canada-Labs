@@ -9,6 +9,7 @@ import { MultiSelectField } from "../components/atoms/MultiSelectField";
 import { createBreadcrumbs } from "../lib/utils/createBreadcrumbs";
 import { getDictionaryTerm } from "../lib/utils/getDictionaryTerm";
 import { useRouter } from "next/router";
+import { fetchWithCache } from "../lib/utils/aemCache";
 
 /**
  * Updates Page Component
@@ -216,19 +217,19 @@ export default function UpdatesPage(props) {
  */
 export const getStaticProps = async ({ locale }) => {
   // Fetch main page content from AEM
-  const { data: pageData } = await fetch(
+  const { data: pageData } = await fetchWithCache(
     `${process.env.AEM_BASE_URL}/getSclUpdatesPageV1${process.env.AEM_CONTENT_FOLDER}`
-  ).then((res) => res.json());
+  );
 
   // Fetch all updates data
-  const { data: updatesData } = await fetch(
+  const { data: updatesData } = await fetchWithCache(
     `${process.env.AEM_BASE_URL}/getSclAllUpdatesV2${process.env.AEM_CONTENT_FOLDER}`
-  ).then((res) => res.json());
+  );
 
   // Fetch translation dictionary
-  const { data: dictionary } = await fetch(
+  const { data: dictionary } = await fetchWithCache(
     `${process.env.AEM_BASE_URL}/getSclDictionaryV2${process.env.AEM_CONTENT_FOLDER}`
-  ).then((res) => res.json());
+  );
 
   // Return props for page rendering
   return {

@@ -16,6 +16,7 @@ import { ContextualAlert } from "../../../components/molecules/ContextualAlert";
 import PageHead from "../../../components/fragment_renderer/PageHead";
 import FragmentRender from "../../../components/fragment_renderer/FragmentRender";
 import { getAllPathParams } from "../../../lib/utils/getAllPathParams";
+import { fetchWithCache } from "../../../lib/utils/aemCache";
 
 export default function ProjectPage({
   projectData,
@@ -263,9 +264,9 @@ export default function ProjectPage({
 export async function getStaticPaths() {
   const idLabel = "projectId";
   // Fetch main page content from AEM
-  const { data } = await fetch(
+  const { data } = await fetchWithCache(
     `https://www.canada.ca/graphql/execute.json/decd-endc/getSclAllProjectsV2${process.env.AEM_CONTENT_FOLDER}`
-  ).then((res) => res.json());
+  );
 
   // Generate paths array for all projects in both languages
   const paths = getAllPathParams([idLabel], data.sclabsPageV1List.items);
@@ -289,14 +290,14 @@ export const getStaticProps = async ({ locale, params }) => {
   const idLabel = "projectId";
   // Fetch main page content from AEM
 
-  const { data: allProjectsData } = await fetch(
+  const { data: allProjectsData } = await fetchWithCache(
     `${process.env.AEM_BASE_URL}/getSclAllProjectsV2${process.env.AEM_CONTENT_FOLDER}`
-  ).then((res) => res.json());
+  );
 
   // Fetch translation dictionary
-  const { data: dictionary } = await fetch(
+  const { data: dictionary } = await fetchWithCache(
     `${process.env.AEM_BASE_URL}/getSclDictionaryV2${process.env.AEM_CONTENT_FOLDER}`
-  ).then((res) => res.json());
+  );
 
   const pages = allProjectsData.sclabsPageV1List.items;
 

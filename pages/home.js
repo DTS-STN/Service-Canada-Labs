@@ -14,6 +14,7 @@ import { ExploreUpdates } from "../components/organisms/ExploreUpdates";
 import FragmentRender from "../components/fragment_renderer/FragmentRender";
 import { sortUpdatesByDate } from "../lib/utils/sortUpdatesByDate";
 import { sortHomepageProjects } from "../lib/utils/sortHomepageProjects";
+import { fetchWithCache } from "../lib/utils/aemCache";
 /**
  * Home Page Component for Service Canada Labs
  * Renders the main landing page with projects, updates, and survey CTA
@@ -401,19 +402,19 @@ export default function Home(props) {
  */
 export const getStaticProps = async ({ locale }) => {
   // Fetch main page content from AEM
-  const { data: pageData } = await fetch(
+  const { data: pageData } = await fetchWithCache(
     `${process.env.AEM_BASE_URL}/getSclHomeV3${process.env.AEM_CONTENT_FOLDER}`
-  ).then((res) => res.json());
+  );
 
   // Fetch projects/experiments data
-  const { data: experimentsData } = await fetch(
+  const { data: experimentsData } = await fetchWithCache(
     `${process.env.AEM_BASE_URL}/getSclAllProjectsV2${process.env.AEM_CONTENT_FOLDER}`
-  ).then((res) => res.json());
+  );
 
   // Fetch updates data for all projects
-  const { data: updatesData } = await fetch(
+  const { data: updatesData } = await fetchWithCache(
     `${process.env.AEM_BASE_URL}/getSclAllUpdatesV2${process.env.AEM_CONTENT_FOLDER}`
-  ).then((res) => res.json());
+  );
 
   // Fetch translation dictionary
   const { data: dictionary } = await aemServiceInstance.getFragment(
