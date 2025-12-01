@@ -1967,15 +1967,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/react-fontawesome@npm:^0.2.2":
-  version: 0.2.2
-  resolution: "@fortawesome/react-fontawesome@npm:0.2.2"
+"@fortawesome/react-fontawesome@npm:^0.2.6":
+  version: 0.2.6
+  resolution: "@fortawesome/react-fontawesome@npm:0.2.6"
   dependencies:
     prop-types: "npm:^15.8.1"
   peerDependencies:
-    "@fortawesome/fontawesome-svg-core": ~1 || ~6
-    react: ">=16.3"
-  checksum: 10/05537fd7c34d43e0d8823df0195cb6fd935ff78e296e2d362e668bcf75f13d71c70c7fd6d596dff4e37b5f27e0ae43b98cb4732e0d91570f30b8a5581bbe2704
+    "@fortawesome/fontawesome-svg-core": ~1 || ~6 || ~7
+    react: ^16.3 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10/e1660d528e3b76eb7e8080a6179188adb9a9eb6ec76a3d18443a8a30bb4a12515fdec456c5c23ae805cdff75c8bae636249863d587f66745a889f3df630d05a4
   languageName: node
   linkType: hard
 
@@ -12428,7 +12428,7 @@ __metadata:
     "@fortawesome/fontawesome-svg-core": "npm:^6.7.1"
     "@fortawesome/free-regular-svg-icons": "npm:^6.7.1"
     "@fortawesome/free-solid-svg-icons": "npm:^6.7.1"
-    "@fortawesome/react-fontawesome": "npm:^0.2.2"
+    "@fortawesome/react-fontawesome": "npm:^0.2.6"
     "@lottiefiles/react-lottie-player": "npm:^3.6.0"
     "@storybook/addon-essentials": "npm:^8.6.3"
     "@storybook/addon-interactions": "npm:^8.6.3"
