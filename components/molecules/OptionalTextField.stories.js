@@ -27,6 +27,8 @@ UnOpened.args = {
   textFieldLabel: "Please explain why you are wrong ?",
   controlDataTestId: "unopened-check-1",
   textFieldDataTestId: "unopened-text-1",
+  checked: false,
+  controlValue: "val",
 };
 
 export const Opened = Template.bind({});
@@ -40,6 +42,7 @@ Opened.args = {
   textFieldLabel: "Please explain why you are wrong ?",
   controlDataTestId: "opened-check-1",
   textFieldDataTestId: "opened-text-1",
+  controlValue: "val",
 };
 
 export const Radio = Template.bind({});
@@ -54,6 +57,7 @@ Radio.args = {
   textFieldLabel: "Please explain why you are wrong ?",
   controlDataTestId: "radio-check-1",
   textFieldDataTestId: "radio-text-1",
+  controlValue: "val",
 };
 
 export const UnControlled = Template.bind({});
@@ -67,6 +71,8 @@ UnControlled.args = {
   textFieldLabel: "Please explain why you are wrong ?",
   controlDataTestId: "uncontrolled-check-1",
   textFieldDataTestId: "uncontrolled-text-1",
+  checked: false,
+  controlValue: "val",
 };
 
 export const MultiText = Template.bind({});
@@ -82,4 +88,6 @@ MultiText.args = {
   textFieldLabel: "Please explain why you are wrong ?",
   controlDataTestId: "multitext-check-1",
   textFieldDataTestId: "multitext-text-1",
+  checked: false,
+  controlValue: "val",
 };

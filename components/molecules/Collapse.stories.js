@@ -21,13 +21,13 @@ HtmlDescription.args = {
   id: "collapseId",
   title: "Example title",
   children: [
-    <p>First paragraph tag</p>,
-    <p>Second paragprahp tag</p>,
-    <ul>
+    <p key="p1">First paragraph tag</p>,
+    <p key="p2">Second paragprahp tag</p>,
+    <ul key="ul1">
       <li>Unorderded list item 1</li>
       <li>Unorderded list item 2</li>
     </ul>,
-    <ol>
+    <ol key="ol1">
       <li>Ordered list item 1</li>
       <li>Ordered list item 2</li>
     </ol>,

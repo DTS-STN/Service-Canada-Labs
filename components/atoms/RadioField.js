@@ -60,7 +60,7 @@ RadioField.propTypes = {
   /**
    * the value of the field when the checkbox is checked
    */
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
 
   /**
    * the name of the checkbox

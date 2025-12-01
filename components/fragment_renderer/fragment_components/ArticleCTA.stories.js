@@ -13,6 +13,7 @@ Default.args = {
   heading: "This is a heading",
   body: "This is a body",
   ButtonProps: {
+    id: "article-cta-button",
     text: "Action Button",
   },
   LinkProps: {

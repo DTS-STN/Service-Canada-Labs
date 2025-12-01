@@ -16,7 +16,7 @@ Success.args = {
   type: "success",
   message_heading: "COVID-19 New services and service changes",
   message_body: [
-    <p>
+    <p key="success-body">
       Find out about new support for Canadians during the COVID-19 pandemic and
       how Service Canada’s services are affectedFind out about new support for
       Canadians during the COVID-19 pandemic and how Service Canada’s services
@@ -55,7 +55,7 @@ Danger.args = {
   type: "danger",
   message_heading: "COVID-19 New services and service changes",
   message_body: [
-    <p>
+    <p key="danger-body">
       Find out about new support for Canadians during the COVID-19 pandemic and
       how Service Canada’s services are affectedFind out about new support for
       Canadians during the COVID-19 pandemic and how Service Canada’s services

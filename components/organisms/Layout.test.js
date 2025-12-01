@@ -16,14 +16,20 @@ describe("Layout", () => {
   beforeAll(() => {
     // Suppress the specific act(...) warning
     console.error = (...args) => {
+      const msg = args[0];
       if (
-        (typeof args[0] === "string" &&
-          args[0].includes(
+        (typeof msg === "string" &&
+          msg.includes(
             "Warning: An update to %s inside a test was not wrapped in act"
           )) ||
-        (typeof args[0] === "string" &&
-          args[0].includes(
+        (typeof msg === "string" &&
+          msg.includes(
             "Error: Not implemented: navigation (except hash changes)"
+          )) ||
+        (msg &&
+          msg.message &&
+          msg.message.includes(
+            "Not implemented: navigation (except hash changes)"
           ))
       ) {
         return;

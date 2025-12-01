@@ -27,6 +27,7 @@ UnOpened.args = {
   controlValue: "unopened",
   controlDataTestId: "unopened-check-1",
   listLabel: "Please check all the reasons why you are wrong.",
+  checked: false,
   children: [
     <CheckBox
       key="key1"
@@ -34,6 +35,7 @@ UnOpened.args = {
       name="reasons"
       value="dislike"
       id="reasons-dislike"
+      checked={false}
     />,
     <CheckBox
       key="key2"
@@ -41,6 +43,7 @@ UnOpened.args = {
       name="reasons"
       value="poor-choice"
       id="reasons-poor-choice"
+      checked={false}
     />,
   ],
 };
@@ -53,6 +56,7 @@ Opened_Checkboxes.args = {
   checked: true,
   controlDataTestId: "opened-check-1",
   listLabel: "Please check all the reasons why you are wrong.",
+  controlValue: "val",
   children: [
     <CheckBox
       key="key1"
@@ -61,6 +65,7 @@ Opened_Checkboxes.args = {
       value="dislike"
       id="reasons-dislike"
       dataTestId="reasons-dislike"
+      checked={false}
     />,
     <CheckBox
       key="key2"
@@ -69,6 +74,7 @@ Opened_Checkboxes.args = {
       value="poor-choice"
       id="reasons-poor-choice"
       dataTestId="reasons-poor-choice"
+      checked={false}
     />,
   ],
 };
@@ -81,6 +87,7 @@ Opened_Radiofields.args = {
   checked: true,
   controlDataTestId: "opened-check-1",
   listLabel: "Please check all the reasons why you are wrong.",
+  controlValue: "val",
   children: [
     <RadioField
       key="key1"
@@ -89,6 +96,7 @@ Opened_Radiofields.args = {
       value="dislike"
       id="reasons-dislike"
       dataTestId="reasons-dislike"
+      checked={false}
     />,
     <RadioField
       key="key2"
@@ -97,6 +105,7 @@ Opened_Radiofields.args = {
       value="poor-choice"
       id="reasons-poor-choice"
       dataTestId="reasons-poor-choice"
+      checked={false}
     />,
   ],
 };
@@ -110,6 +119,7 @@ Radio.args = {
   checked: true,
   controlDataTestId: "radio-check-1",
   listLabel: "Please check all the reasons why you are wrong.",
+  controlValue: "val",
   children: [
     <CheckBox
       key="key1"
@@ -118,6 +128,7 @@ Radio.args = {
       value="dislike"
       id="reasons-dislike"
       dataTestId="reasons-dislike"
+      checked={false}
     />,
     <CheckBox
       key="key2"
@@ -126,6 +137,7 @@ Radio.args = {
       value="poor-choice"
       id="reasons-poor-choice"
       dataTestId="reasons-poor-choice"
+      checked={false}
     />,
   ],
 };
@@ -138,6 +150,8 @@ UnControlled.args = {
   uncontrolled: true,
   controlDataTestId: "uncontrolled-check-1",
   listLabel: "Please check all the reasons why you are wrong.",
+  checked: false,
+  controlValue: "val",
   children: [
     <CheckBox
       key="key1"
@@ -146,6 +160,7 @@ UnControlled.args = {
       value="dislike"
       id="reasons-dislike"
       dataTestId="reasons-dislike"
+      checked={false}
     />,
     <CheckBox
       key="key2"
@@ -154,6 +169,7 @@ UnControlled.args = {
       value="poor-choice"
       id="reasons-poor-choice"
       dataTestId="reasons-poor-choice"
+      checked={false}
     />,
   ],
 };

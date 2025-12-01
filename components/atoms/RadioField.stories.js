@@ -24,6 +24,7 @@ UnChecked.args = {
   value: "IsChecked",
   label: "I am a radio button",
   dataTestId: "unchecked-radio-field",
+  checked: false,
 };
 
 export const Checked = Template.bind({});
@@ -44,4 +45,5 @@ UnControlled.args = {
   label: "I am an uncontrolled checkbox",
   dataTestId: "uncontrolled-checkbox",
   uncontrolled: true,
+  checked: false,
 };

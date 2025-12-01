@@ -5,8 +5,15 @@ import { createMocks } from "node-mocks-http";
 jest.mock("../../lib/notify/postFeedbackToGcNotify");
 
 describe("Feeback widget api tests", () => {
+  const originalConsoleError = console.error;
+
   beforeEach(() => {
     postFeedbackToGcNotify.mockRestore();
+    console.error = jest.fn();
+  });
+
+  afterAll(() => {
+    console.error = originalConsoleError;
   });
 
   it("it should post to GC Notify", async () => {

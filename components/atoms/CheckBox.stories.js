@@ -24,6 +24,7 @@ UnChecked.args = {
   value: "IsChecked",
   label: "I am a checkbox",
   dataTestId: "unchecked-checkbox",
+  checked: false,
 };
 
 export const Checked = Template.bind({});
@@ -44,6 +45,7 @@ UnControlled.args = {
   label: "I am an uncontrolled checkbox",
   dataTestId: "uncontrolled-checkbox",
   uncontrolled: true,
+  checked: false,
 };
 
 export const Required = Template.bind({});
@@ -54,4 +56,5 @@ Required.args = {
   label: "I am an uncontrolled checkbox",
   dataTestId: "required-checkbox",
   showRequiredLabel: true,
+  checked: false,
 };
