@@ -26,7 +26,11 @@ export function CTA({
           <h3 className={`leading-[40px] text-multi-neutrals-grey100`}>
             {heading}
           </h3>
-          {isHTML(body) ? body : <p className="body">{body}</p>}
+          {typeof body === "string" && !isHTML(body) ? (
+            <p className="body">{body}</p>
+          ) : (
+            body
+          )}
           <DSButton
             styling="primary"
             className="my-3"

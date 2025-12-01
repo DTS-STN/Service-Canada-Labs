@@ -1,4 +1,5 @@
 import "@testing-library/jest-dom/extend-expect";
+import React from "react";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import "jest-canvas-mock";
@@ -14,6 +15,16 @@ jest.mock("next/router", () => ({
     };
   },
 }));
+
+// next/link mock
+jest.mock("next/link", () => {
+  return ({ children, href, locale, ...rest }) => {
+    if (React.Children.count(children) === 1 && React.isValidElement(children) && children.type === 'a') {
+       return React.cloneElement(children, { href, ...rest });
+    }
+    return <a href={href} {...rest}>{children}</a>;
+  };
+});
 
 // Mock t function
 export const t = (key, params) => {

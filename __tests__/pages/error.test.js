@@ -3,7 +3,7 @@
  */
 import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import { act } from "react-dom/test-utils";
+import { act } from "react";
 
 import router from "next/router";
 

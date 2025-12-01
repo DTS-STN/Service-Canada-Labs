@@ -16,4 +16,5 @@ Primary.args = {
   buttonLabel: "Button label",
   buttonLink: "#",
   buttonType: "gc:custom/decd-endc/button-type/secondary",
+  buttonId: "survey-cta-button",
 };

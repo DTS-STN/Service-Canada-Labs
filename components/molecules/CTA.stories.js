@@ -12,6 +12,7 @@ Default.args = {
   heading: "This is a call-to-action!",
   body: "This sentence explains the action we want the users to take.",
   ButtonProps: {
+    id: "cta-button",
     text: "Action Button",
   },
   LinkProps: {
@@ -25,6 +26,7 @@ WithoutLink.args = {
   heading: "This is a call-to-action!",
   body: "This sentence explains the action we want the users to take.",
   ButtonProps: {
+    id: "cta-button-no-link",
     text: "Action Button",
   },
 };

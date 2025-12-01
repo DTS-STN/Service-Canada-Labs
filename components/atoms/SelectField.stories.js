@@ -23,6 +23,7 @@ Primary.args = {
   name: "selectField1",
   label: "I am a select field",
   uncontrolled: true,
+  value: "",
   dataTestId: "select-field-1",
   options: [
     {
