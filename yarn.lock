@@ -11057,7 +11057,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.2.14, postcss@npm:^8.3.5, postcss@npm:^8.4.33, postcss@npm:^8.4.38, postcss@npm:^8.4.47, postcss@npm:^8.5.3":
+"postcss@npm:^8.2.14, postcss@npm:^8.3.5, postcss@npm:^8.4.33, postcss@npm:^8.4.38, postcss@npm:^8.4.47":
   version: 8.5.6
   resolution: "postcss@npm:8.5.6"
   dependencies:
@@ -12107,7 +12107,6 @@ __metadata:
     next-i18next: "npm:^15.4.2"
     next-router-mock: "npm:^0.9.3"
     node-mocks-http: "npm:^1.10.1"
-    postcss: "npm:^8.5.3"
     postcss-loader: "npm:^6.2.1"
     prettier: "npm:^2.3.2"
     prop-types: "npm:^15.8.1"
