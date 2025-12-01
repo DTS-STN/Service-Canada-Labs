@@ -32,9 +32,15 @@ Open [http://localhost:3000](http://localhost:3000) with your browser.
 
 ## Configuration
 
-There is one required variable: `AEM_GRAPHQL_ENDPOINT=https://www.canada.ca/content/_cq_graphql/decd-endc/endpoint.json`
+The following environment variables are required:
 
-`AEM_GRAPHQL_ENDPOINT` is used to fetch the content, and for some pages (articles), the structure of the pages on the site.
+`AEM_BASE_URL`: The base URL for the AEM instance.
+
+`AEM_CONTENT_FOLDER`: The folder path for content in AEM.
+
+`AEM_GRAPHQL_ENDPOINT`: The GraphQL endpoint for fetching content. Example: `https://www.canada.ca/content/_cq_graphql/decd-endc/endpoint.json`
+
+`ISR_ENABLED`: Whether Incremental Static Regeneration should be enabled.
 
 ## Enabling Submit Feedback
 
@@ -54,6 +60,12 @@ SUBMIT_FEEDBACK_EMAIL=ask for this
 ## Environment Variables
 
 Here is a list of all the environment variables used to configure the application along with what they do.
+
+`AEM_BASE_URL`: The base URL for the AEM instance.
+
+`AEM_CONTENT_FOLDER`: The folder path for content in AEM.
+
+`AEM_GRAPHQL_ENDPOINT`: The GraphQL endpoint for fetching content.
 
 `NOTIFY_FEEDBACK_TEMPLATE_ID`: The Notify template ID for the submit feedback template
 
