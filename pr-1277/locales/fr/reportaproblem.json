@@ -1,0 +1,20 @@
+{
+  "footerReportProblemButtonString": "Signaler un problème ou une erreur sur cette page",
+  "reportAProblemTitle": "Signaler un problème ou une erreur sur cette page",
+  "reportAProblemCheckAllThatApply": "Cochez toutes les options qui s'appliquent",
+  "reportAProblemIncorrectInformation": "Informations incorrectes",
+  "reportAProblemUnclearInformation": "Informations imprécises",
+  "reportAProblemDidNotFindWhatYoureLookingFor": "Vous n'avez pas trouvé ce que vous cherchiez",
+  "reportAProblemPageDoesNotWorkWithAdaptiveTechnology": "La page ne fonctionne pas avec vos technologies d'adaptation",
+  "reportAProblemYoureWorriedAboutYourPrivacy": "Vous êtes inquiet pour votre vie privée",
+  "reportAProblemNoWhereElseToGo": "Vous ne savez pas où trouver de l'aide",
+  "reportAProblemOther": "Autres",
+  "reportAProblemProvideMoreDetails": "Fournir plus de détails",
+  "reportAProblemNoReply": "Vous ne recevrez pas de réponse.",
+  "reportAProblemThankYouForYourHelp": "Merci pour votre aide !",
+  "reportAProblemYouWillNotBeContacted": "Vous ne recevrez pas de réponse.",
+  "reportAProblemPrivacyStatement": "Lire la politique en matière de protection des renseignements personnels",
+  "reportAProblemFeedbackConfidential": "Vos commentaires sont confidentiels.",
+  "reportAProblemSubmit": "Soumettre",
+  "reportAProblemError": "Erreur: Veuillez sélectionner une option"
+}
