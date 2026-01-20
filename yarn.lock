@@ -10239,9 +10239,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-i18next@npm:^15.4.2":
-  version: 15.4.2
-  resolution: "next-i18next@npm:15.4.2"
+"next-i18next@npm:^15.4.3":
+  version: 15.4.3
+  resolution: "next-i18next@npm:15.4.3"
   dependencies:
     "@babel/runtime": "npm:^7.23.2"
     "@types/hoist-non-react-statics": "npm:^3.3.6"
@@ -10253,7 +10253,7 @@ __metadata:
     next: ">= 12.0.0"
     react: ">= 17.0.2"
     react-i18next: ">= 13.5.0"
-  checksum: 10/f546ab754c3b571e00fa4f412af085def77e4ab57c4a8041038151cf3e9d29a860f6d3bdb3e5bb5af70f840c4b679773bda8be032488360185e7abed0372427a
+  checksum: 10/de546f82fc16f3f4367cba224cbf12ca2784a87b0cee8e22b6ec36919b3caf1358080596611d03c4f0b03d8b9a2b82cf06998ec236e478405f45fd30e0c57f94
   languageName: node
   linkType: hard
 
@@ -12350,7 +12350,7 @@ __metadata:
     joi: "npm:^17.13.1"
     lint-staged: "npm:^15.2.7"
     next: "npm:14.2.35"
-    next-i18next: "npm:^15.4.2"
+    next-i18next: "npm:^15.4.3"
     next-router-mock: "npm:^0.9.3"
     node-mocks-http: "npm:^1.10.1"
     postcss: "npm:^8.5.3"
