@@ -32,9 +32,9 @@
     "uuid": "^9.0.1"
   },
   "scripts": {
-    "dev": "next dev",
-    "debug": "NODE_OPTIONS='--inspect' next dev",
-    "build": "next build",
+    "dev": "next dev --webpack",
+    "debug": "NODE_OPTIONS='--inspect' next dev --webpack",
+    "build": "next build --webpack",
     "start": "next start",
     "docker:build": "export $(grep -v '#' .env | xargs) && docker build --build-arg AEM_GRAPHQL_ENDPOINT=$AEM_GRAPHQL_ENDPOINT --build-arg THANK_YOU_EMAIL=$THANK_YOU_EMAIL -t servicecanadalabs/local .",
     "docker:run": "docker run --publish 3000:3000 servicecanadalabs/local",
