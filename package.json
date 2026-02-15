@@ -10,7 +10,7 @@
     "@fortawesome/react-fontawesome": "^0.2.6",
     "@lottiefiles/react-lottie-player": "^3.6.0",
     "@types/react": "^18.3.16",
-    "cors": "^2.8.5",
+    "cors": "^2.8.6",
     "cuid": "^2.1.8",
     "focus-trap-react": "^11.0.4",
     "graphql": "^16.10.0",
