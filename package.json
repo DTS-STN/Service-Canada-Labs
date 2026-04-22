@@ -15,7 +15,7 @@
     "focus-trap-react": "^11.0.4",
     "graphql": "^16.10.0",
     "i18next": "^23.16.8",
-    "i18next-http-backend": "^1.4.5",
+    "i18next-http-backend": "^3.0.5",
     "joi": "^17.13.1",
     "next": "16.1.5",
     "next-i18next": "^15.4.3",
