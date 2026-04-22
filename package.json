@@ -29,7 +29,7 @@
     "react-select": "^5.10.0",
     "sharp": "^0.34.5",
     "unified": "^10.1.2",
-    "uuid": "^9.0.1"
+    "uuid": "^14.0.0"
   },
   "scripts": {
     "dev": "next dev --webpack",
