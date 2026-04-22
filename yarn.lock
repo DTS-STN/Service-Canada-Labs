@@ -12356,7 +12356,7 @@ __metadata:
     tailwindcss: "npm:^3.0.9"
     typescript: "npm:^5.8.3"
     unified: "npm:^10.1.2"
-    uuid: "npm:^9.0.1"
+    uuid: "npm:^14.0.0"
     weak-napi: "npm:^2.0.2"
     webpack: "npm:^5.103.0"
   languageName: unknown
@@ -13818,6 +13818,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"uuid@npm:^14.0.0":
+  version: 14.0.0
+  resolution: "uuid@npm:14.0.0"
+  bin:
+    uuid: dist-node/bin/uuid
+  checksum: 10/8ee9b98f9650e25555515f7a28d3c3ae9364e72f7bb19b9e08b681bc135338beba5509b2830f6ae1cfaba4d45401da0d16d4d109b977097bc3d6ba0c5583341b
+  languageName: node
+  linkType: hard
+
 "uuid@npm:^8.3.2":
   version: 8.3.2
   resolution: "uuid@npm:8.3.2"
@@ -13827,7 +13836,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:^9.0.0, uuid@npm:^9.0.1":
+"uuid@npm:^9.0.0":
   version: 9.0.1
   resolution: "uuid@npm:9.0.1"
   bin:
